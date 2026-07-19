@@ -11,12 +11,12 @@ reproductible.
 
 **Initialisation et phase 0 terminées — phase 1 prête à démarrer.**
 
-Le suivi détaillé se trouve dans [docs/roadmap.md](docs/roadmap.md).
+Le suivi détaillé est maintenu localement dans `docs/roadmap.md`, qui n'est pas
+versionné.
 
 ## Documents de référence
 
 - [Cadrage](docs/cadrage.md)
-- [Roadmap](docs/roadmap.md)
 - [Méthodologie](docs/methodologie.md)
 - [Dictionnaire des données](docs/dictionnaire_donnees.md)
 - [Journal des décisions](docs/journal_decisions.md)
