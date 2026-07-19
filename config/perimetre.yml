@@ -1,0 +1,60 @@
+version: 1.0
+status: valide
+updated_at: 2026-07-19
+
+geographie:
+  territoire: departement_actuel_orne
+  localisation_minimale: commune_documentee
+  centroide_commune_interdit_comme_position_verifiee: true
+
+chronologie:
+  borne_ancienne: premiere_activite_documentee
+  annee_max_entree_corpus_principal: 1950
+  suivi_jusqua: situation_contemporaine
+  sites_post_1950:
+    corpus_principal: false
+    autorises_comme_sites_lies: true
+
+definition_site:
+  unite: emprise_geographique_distincte
+  source_tracable_obligatoire: true
+  fonctions:
+    - extraction
+    - transformation
+    - fabrication
+    - production_energie_destination_productive
+  disparition_autorisee: true
+
+inclusion:
+  - situe_dans_orne_actuelle
+  - existence_attestee
+  - activite_industrielle_documentee
+  - activite_au_plus_tard_1950
+  - commune_connue
+
+exclusion:
+  - agriculture_sans_transformation
+  - artisanat_domestique_non_documente_comme_industriel
+  - commerce_service_casias_sans_interet_industriel_etabli
+  - siege_sans_production
+  - infrastructure_generale_sans_lien_fonctionnel
+  - site_suppose_sans_source
+  - site_uniquement_post_1950
+
+identite_site:
+  meme_emprise_activites_successives: un_site_plusieurs_phases
+  emprises_distinctes: sites_distincts
+  transfert: sites_distincts_relies
+  complexe: parent_et_composants
+  doute: conserver_separe_et_verifier
+
+infrastructures:
+  site_principal: fonction_productive_extractive_ou_energetique_autonome
+  composant: rattachement_fonctionnel_direct
+  contexte: couche_explicative_non_comptee_comme_site
+
+fraicheur_avant_publication:
+  accessibilite_mois: 3
+  usage_et_conservation_mois: 12
+  protection_juridique_jours: 30
+

@@ -1,0 +1,96 @@
+# Registre de départ. Aucun statut "validee" ne doit être attribué avant audit.
+version: 0.1
+updated_at: 2026-07-19
+
+statuses:
+  - principale
+  - enrichissement
+  - contexte_geographique
+  - verification
+  - ecartee
+
+sources:
+  - id: inventaire_normandie_orne
+    name: Inventaire du patrimoine industriel de l'Orne
+    producer: Région Normandie - Inventaire général du patrimoine culturel
+    role_candidate: principale
+    url: https://inventaire-patrimoine.normandie.fr/dossier/IA61000851/corpus
+    audit_status: a_auditer
+
+  - id: pop_merimee
+    name: POP - Mérimée
+    producer: Ministère de la Culture
+    role_candidate: enrichissement
+    url: https://pop.culture.gouv.fr/
+    audit_status: a_auditer
+
+  - id: pop_palissy
+    name: POP - Palissy
+    producer: Ministère de la Culture
+    role_candidate: enrichissement
+    url: https://pop.culture.gouv.fr/
+    audit_status: a_auditer
+
+  - id: monuments_historiques_data_culture
+    name: Immeubles protégés au titre des Monuments historiques
+    producer: Ministère de la Culture
+    role_candidate: enrichissement
+    url: https://data.culture.gouv.fr/explore/dataset/liste-des-immeubles-proteges-au-titre-des-monuments-historiques/
+    audit_status: a_auditer
+
+  - id: casias
+    name: CASIAS
+    producer: Géorisques
+    role_candidate: enrichissement
+    url: https://www.georisques.gouv.fr/donnees/bases-de-donnees/inventaire-historique-de-sites-industriels-et-activites-de-service
+    audit_status: a_auditer
+
+  - id: ign
+    name: IGN - Géoplateforme
+    producer: Institut national de l'information géographique et forestière
+    role_candidate: contexte_geographique
+    url: https://geoservices.ign.fr/
+    audit_status: a_auditer
+
+  - id: cadastre
+    name: Cadastre ouvert
+    producer: Etalab / DGFiP
+    role_candidate: contexte_geographique
+    url: https://cadastre.data.gouv.fr/
+    audit_status: a_auditer
+
+  - id: ban
+    name: Base Adresse Nationale
+    producer: État et partenaires
+    role_candidate: contexte_geographique
+    url: https://adresse.data.gouv.fr/
+    audit_status: a_auditer
+
+  - id: brgm
+    name: Données géologiques et minières
+    producer: BRGM
+    role_candidate: contexte_geographique
+    url: https://infoterre.brgm.fr/
+    audit_status: a_auditer
+
+  - id: osm
+    name: OpenStreetMap
+    producer: Contributeurs OpenStreetMap
+    role_candidate: verification
+    url: https://www.openstreetmap.org/
+    audit_status: a_auditer
+
+  - id: archives_orne
+    name: Archives départementales de l'Orne
+    producer: Département de l'Orne
+    role_candidate: verification
+    url: https://archives.orne.fr/
+    audit_status: a_auditer
+
+  - id: gallica
+    name: Gallica
+    producer: Bibliothèque nationale de France
+    role_candidate: verification
+    url: https://gallica.bnf.fr/
+    audit_status: a_auditer
+

@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "patrimoine-industriel-orne"
+version = "0.1.0"
+description = "Socle de données du projet datajournalistique sur le patrimoine industriel de l'Orne"
+requires-python = ">=3.11"
+dependencies = [
+  "duckdb",
+  "geopandas",
+  "pandas",
+  "pyarrow",
+  "pyyaml",
+  "rapidfuzz",
+  "requests",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "ruff",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+

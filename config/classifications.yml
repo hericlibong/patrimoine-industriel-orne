@@ -1,0 +1,64 @@
+# Classification provisoire à tester sur les données réelles avant validation.
+version: 0.1
+status: provisoire
+updated_at: 2026-07-19
+
+secteurs:
+  - extraction
+  - metallurgie_travail_metaux
+  - textile_habillement_cuir
+  - bois_papier_imprimerie
+  - verre_ceramique_materiaux_construction
+  - agroalimentaire
+  - energie_services_industriels
+  - autres_industries
+  - activite_mixte
+  - inconnu
+
+conservation:
+  - conserve
+  - partiellement_conserve
+  - ruine
+  - disparu
+  - inconnu
+
+usage_actuel:
+  - activite_industrielle
+  - musee_culture
+  - logement
+  - commerce_service
+  - agriculture_stockage
+  - vacant
+  - sans_usage
+  - autre
+  - inconnu
+
+accessibilite:
+  - visitable
+  - visible_espace_public
+  - prive
+  - inaccessible
+  - inconnu
+
+protection:
+  - classe_mh
+  - inscrit_mh
+  - protection_locale
+  - inventorie_non_protege
+  - aucune_protection_connue
+  - inconnu
+
+precision_geographique:
+  - emprise_verifiee
+  - batiment_verifie
+  - coordonnees_approximatives
+  - centre_commune
+  - non_localise
+
+fiabilite:
+  - confirme_source_primaire
+  - confirme_plusieurs_sources
+  - probable
+  - hypothese
+  - a_verifier
+
