@@ -31,3 +31,32 @@
 - Les contradictions sont conservées et documentées, jamais écrasées
   silencieusement.
 - La phase 0 est terminée ; la phase 1 peut commencer.
+
+## 2026-07-19 — Clôture de la phase 1
+
+- L'Inventaire du patrimoine industriel de l'Orne est confirmé comme corpus
+  principal : 319 dossiers étudiés, avec une extraction à tester en mode
+  semi-automatique faute d'export global identifié.
+- POP / Mérimée et l'export des Monuments historiques sont distingués : les
+  immeubles protégés enrichissent le corpus, mais ne le définissent pas.
+- Palissy est retenue pour les objets techniques liés aux sites, avec rapprochement
+  par référence Mérimée ou, à défaut, par édifice et commune contrôlés.
+- L'API des Monuments historiques retourne 420 notices dans l'Orne, dont 341 avec
+  coordonnées ; 18 candidats industriels par mots-clés restent à revoir.
+- CASIAS est confirmé comme source d'élargissement uniquement. La couche WFS testée
+  contient 2 052 sites dans l'Orne, mais seulement 209 coordonnées explicites et
+  un bruit thématique important.
+- Une géométrie CASIAS représentant une commune ne sera jamais publiée comme
+  position d'un établissement.
+- La BD TOPAGE est retenue pour l'hydrographie ; la BD Forêt v2 et la BD Forêts
+  anciennes sont conservées comme deux contextes distincts.
+- Le réseau ferré actuel sera issu de données SNCF ou IGN. Le réseau historique
+  sera reconstruit à partir de cartes et d'archives datées, avec niveau de confiance.
+- OpenStreetMap reste une source de vérification et d'appoint sous ODbL.
+- L'ancienne API Adresse est écartée au profit des fichiers BAN et du géocodeur de
+  la Géoplateforme.
+- Les droits des métadonnées et ceux des images seront enregistrés séparément.
+  Aucune image visible en ligne ne sera considérée réutilisable par défaut.
+- La phase 2 commencera par un petit échantillon multi-secteurs de l'Inventaire,
+  avant les téléchargements géographiques départementaux volumineux.
+- La phase 1 est terminée ; les extractions tests peuvent commencer.
