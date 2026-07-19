@@ -7,6 +7,12 @@ venv/
 .env
 .ipynb_checkpoints/
 
+# Documents internes non versionnés
+cartographier_patrimoine_orne.md
+discussion_initial_patrimoine.txt
+discussion_patrimoine_02.txt
+docs/roadmap.md
+
 *.duckdb
 *.duckdb.wal
 
@@ -18,4 +24,3 @@ data/processed/*
 !data/processed/.gitkeep
 data/exports/*
 !data/exports/.gitkeep
-
