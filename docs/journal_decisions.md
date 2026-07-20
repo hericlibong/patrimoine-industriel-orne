@@ -155,3 +155,29 @@
 - Le point de validation est atteint : le projet distingue désormais les
   opérations automatiques, semi-automatiques et manuelles.
 - La phase 2 est terminée ; la phase 3 peut commencer.
+
+## 2026-07-20 — Phase 3, entités principales
+
+- `sites` représente une emprise distincte et stable. Les activités, états
+  contemporains et géométries sont sortis de cette table pour conserver leur
+  pluralité et leur historique.
+- `activites` contient une ligne par phase industrielle. Les énergies multiples
+  seront normalisées dans `energies_activites`.
+- `etats_actuels` conserve des observations datées sans écraser les contrôles
+  antérieurs. Conservation, usage et accessibilité restent distincts.
+- `sources` décrit les fonds et jeux de données ; `mentions_sources` conserve
+  la référence individuelle et cible une entité ou un champ précis.
+- `protections` peut viser soit un site, soit un objet technique. La partie
+  réellement protégée doit être décrite explicitement.
+- Les objets techniques sont reliés aux sites par `liens_objets_sites`, afin de
+  représenter une origine et un emplacement actuel différents.
+- Les géométries sont stockées séparément en Lambert-93 et exportées en WGS84.
+  Plusieurs géométries et niveaux de précision peuvent coexister pour un site.
+- La table `exploitants` est déclarée nécessaire. `exploitations` porte la
+  relation datée entre exploitant, site et éventuellement phase d'activité.
+- `relations_sites` relie deux emprises sans les fusionner. Les premiers types
+  sont composant, transfert, succession, dépendance et infrastructure partagée.
+- Le modèle conceptuel est documenté dans `docs/modele_donnees.md` et le
+  dictionnaire passe en version conceptuelle 0.2.
+- Le bloc « Modéliser les entités principales » est terminé. Les identifiants,
+  contraintes, valeurs nulles et dates imprécises restent à définir.

@@ -9,7 +9,7 @@ reproductible.
 
 ## État du projet
 
-**Phases 0 et 1 terminées — phase 2 en cours.**
+**Phases 0 à 2 terminées — phase 3 en cours.**
 
 Le suivi détaillé est maintenu localement dans `docs/roadmap.md`, qui n'est pas
 versionné.
@@ -20,10 +20,12 @@ versionné.
 - [Méthodologie](docs/methodologie.md)
 - [Conventions d'extraction](docs/conventions_extraction.md)
 - [Dictionnaire des données](docs/dictionnaire_donnees.md)
+- [Modèle des entités principales](docs/modele_donnees.md)
 - [Journal des décisions](docs/journal_decisions.md)
 - [Sources à auditer](config/sources.yml)
 - [Classifications provisoires](config/classifications.yml)
 - [Périmètre opérationnel](config/perimetre.yml)
+- [Méthodes d'extraction validées](config/extraction.yml)
 
 ## Organisation des données
 
@@ -32,6 +34,7 @@ versionné.
 - `data/manual/` : corrections humaines documentées ;
 - `data/processed/` : corpus nettoyé ;
 - `data/exports/` : livrables CSV, Parquet et GeoJSON.
+- `data/archive/` : archives locales validées, non versionnées.
 
 ## Principes
 
