@@ -60,3 +60,14 @@
 - La phase 2 commencera par un petit échantillon multi-secteurs de l'Inventaire,
   avant les téléchargements géographiques départementaux volumineux.
 - La phase 1 est terminée ; les extractions tests peuvent commencer.
+
+## 2026-07-20 — Comptage et documentation des limites
+
+- Le projet distingue désormais les notices sources, les sites candidats, les
+  sites rapprochés, les sites cartographiables et les sites publiés.
+- Aucun nombre de lieux définitif ne sera annoncé avant rapprochement,
+  dédoublonnage, application du périmètre et qualification géographique.
+- Chaque livraison présentera séparément les effectifs de ces cinq niveaux.
+- Les limites méthodologiques et techniques sont centralisées dans le registre
+  vivant `reports/quality/limites.md` et seront reprises dans le rapport de
+  qualité final.
