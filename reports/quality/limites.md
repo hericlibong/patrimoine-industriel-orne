@@ -19,6 +19,10 @@ Document vivant — dernière mise à jour : 20 juillet 2026
 | LIM-013 | Inventaire normand | Les anciens dossiers détaillés sont principalement des pages numérisées | Le texte complet n'est pas immédiatement structuré | Réserver l'OCR aux informations absentes de POP et prévoir un contrôle humain | ouverte |
 | LIM-014 | Monuments historiques | La recherche industrielle par mots-clés retourne 77 résultats larges et des faux positifs | Ce total ne peut pas être présenté comme un nombre de sites industriels | Classifier et relire les résultats avant tout rapprochement ou comptage | ouverte |
 | LIM-015 | Palissy | Les deux objets techniques tests n'ont pas de référence Mérimée directe renseignée | Une jointure automatique par identifiant n'est pas toujours possible | Rapprocher par édifice, commune et texte, puis valider manuellement | ouverte |
+| LIM-016 | Encodages | Les anciens fichiers HTML de l'Inventaire sont en ISO-8859-1, contrairement aux autres échantillons en UTF-8 | Risque de caractères altérés lors d'une fusion directe | Conserver le brut et normaliser toutes les données dérivées en UTF-8 | ouverte |
+| LIM-017 | Échantillonnage | Les échantillons sont petits, ciblés et, pour CASIAS, volontairement stratifiés | Les taux observés ne décrivent pas nécessairement les sources complètes | Présenter les effectifs bruts et mesurer à nouveau lors de l'extraction complète | permanente |
+| LIM-018 | Coordonnées POP et MH | Un point WGS84 valide ne garantit pas l'emprise ni la précision du bâtiment industriel | Risque de publier une localisation trop précise ou décalée | Qualifier la méthode et le niveau de précision avant publication | permanente |
+| LIM-019 | État actuel | Les champs de destination et de conservation sont absents ou peu renseignés dans les sources testées | L'état contemporain ne peut pas être produit automatiquement | Recourir à des sources récentes, à l'observation et à une date de vérification | permanente |
 
 ## Règle de mise à jour
 

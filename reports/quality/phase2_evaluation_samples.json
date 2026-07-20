@@ -1,0 +1,2580 @@
+{
+  "artifact_quality": {
+    "casias": [
+      {
+        "content_type": "text/xml; subtype=\"gml/3.2.1\";charset=UTF-8",
+        "data_file": "data/raw/casias/2026/2026-07-20/casias__wfs_localises__orne__20260720T072951Z.gml",
+        "encoding": {
+          "declared": "UTF-8",
+          "decoded_as": "utf-8",
+          "strict_decode": true
+        },
+        "format": "gml",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/xml; subtype=\"gml/3.2.1\";charset=UTF-8",
+        "data_file": "data/raw/casias/2026/2026-07-20/casias__wfs_non_localises__orne__20260720T072951Z.gml",
+        "encoding": {
+          "declared": "UTF-8",
+          "decoded_as": "utf-8",
+          "strict_decode": true
+        },
+        "format": "gml",
+        "valid_format": true
+      }
+    ],
+    "inventaire_normandie_orne": [
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00060965_index__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00060965_thumbnails__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00061095_index__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00061095_thumbnails__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00060938_index__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00060938_thumbnails__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00061190_index__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00061190_thumbnails__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00061038_index__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00061038_thumbnails__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00061008_index__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00061008_thumbnails__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00061113_index__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00061113_thumbnails__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00061091_index__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00061091_thumbnails__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00061082_index__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00061082_thumbnails__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00061147_index__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html",
+        "data_file": "data/raw/inventaire_normandie_orne/2026/2026-07-20/inventaire_normandie_orne__ia00061147_thumbnails__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "iso-8859-1",
+          "decoded_as": "iso-8859-1",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      }
+    ],
+    "monuments_historiques_data_culture": [
+      {
+        "content_type": "application/json; charset=utf-8",
+        "data_file": "data/raw/monuments_historiques_data_culture/2026/2026-07-20/monuments_historiques_data_culture__candidats_industriels__orne__20260720T072951Z.json",
+        "encoding": {
+          "declared": "utf-8",
+          "decoded_as": "utf-8",
+          "strict_decode": true
+        },
+        "format": "json",
+        "valid_format": true
+      }
+    ],
+    "pop_merimee": [
+      {
+        "content_type": "text/html; charset=utf-8",
+        "data_file": "data/raw/pop_merimee/2026/2026-07-20/pop_merimee__ia00060965__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "utf-8",
+          "decoded_as": "utf-8",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html; charset=utf-8",
+        "data_file": "data/raw/pop_merimee/2026/2026-07-20/pop_merimee__ia00061095__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "utf-8",
+          "decoded_as": "utf-8",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html; charset=utf-8",
+        "data_file": "data/raw/pop_merimee/2026/2026-07-20/pop_merimee__ia00060938__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "utf-8",
+          "decoded_as": "utf-8",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html; charset=utf-8",
+        "data_file": "data/raw/pop_merimee/2026/2026-07-20/pop_merimee__ia00061190__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "utf-8",
+          "decoded_as": "utf-8",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html; charset=utf-8",
+        "data_file": "data/raw/pop_merimee/2026/2026-07-20/pop_merimee__ia00061038__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "utf-8",
+          "decoded_as": "utf-8",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html; charset=utf-8",
+        "data_file": "data/raw/pop_merimee/2026/2026-07-20/pop_merimee__ia00061008__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "utf-8",
+          "decoded_as": "utf-8",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html; charset=utf-8",
+        "data_file": "data/raw/pop_merimee/2026/2026-07-20/pop_merimee__ia00061113__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "utf-8",
+          "decoded_as": "utf-8",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html; charset=utf-8",
+        "data_file": "data/raw/pop_merimee/2026/2026-07-20/pop_merimee__ia00061091__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "utf-8",
+          "decoded_as": "utf-8",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html; charset=utf-8",
+        "data_file": "data/raw/pop_merimee/2026/2026-07-20/pop_merimee__ia00061082__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "utf-8",
+          "decoded_as": "utf-8",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      },
+      {
+        "content_type": "text/html; charset=utf-8",
+        "data_file": "data/raw/pop_merimee/2026/2026-07-20/pop_merimee__ia00061147__orne__20260720T072951Z.html",
+        "encoding": {
+          "declared": "utf-8",
+          "decoded_as": "utf-8",
+          "strict_decode": true
+        },
+        "format": "html",
+        "valid_format": true
+      }
+    ],
+    "pop_palissy": [
+      {
+        "content_type": "application/json; charset=utf-8",
+        "data_file": "data/raw/pop_palissy/2026/2026-07-20/pop_palissy__objets_techniques_cibles__orne__20260720T072951Z.json",
+        "encoding": {
+          "declared": "utf-8",
+          "decoded_as": "utf-8",
+          "strict_decode": true
+        },
+        "format": "json",
+        "valid_format": true
+      }
+    ]
+  },
+  "evaluated_at": "2026-07-20T08:20:06Z",
+  "sample_manifest": "reports/audits/phase2_extraction_samples_manifest.json",
+  "sample_manifest_sha256": "129742cdd00ae09a236bb30bfc787ea44493c12b47d359dbc2c2dad98394949f",
+  "schema_version": "1.0",
+  "sources": {
+    "casias": {
+      "automation": "élevée pour l'extraction, faible pour l'inclusion directe",
+      "completeness": {
+        "all_fields": {
+          "activite_p": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 20
+          },
+          "adresse": {
+            "filled": 17,
+            "filled_percent": 85.0,
+            "missing": 3
+          },
+          "code_depar": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "code_insee": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "code_inven": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "code_metie": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "code_posta": {
+            "filled": 15,
+            "filled_percent": 75.0,
+            "missing": 5
+          },
+          "code_regio": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "code_siret": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 20
+          },
+          "etat_activ": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "id": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "nature_loc": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "nom_commun": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "nom_depart": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "nom_etabli": {
+            "filled": 9,
+            "filled_percent": 45.0,
+            "missing": 11
+          },
+          "nom_invent": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "nom_region": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "url_fiche": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "url_web": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "x_wgs84": {
+            "filled": 10,
+            "filled_percent": 50.0,
+            "missing": 10
+          },
+          "y_wgs84": {
+            "filled": 10,
+            "filled_percent": 50.0,
+            "missing": 10
+          }
+        },
+        "field_count": 21,
+        "priority_fields": {
+          "activite_p": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 20
+          },
+          "adresse": {
+            "filled": 17,
+            "filled_percent": 85.0,
+            "missing": 3
+          },
+          "code_insee": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "code_inven": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "code_metie": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "code_posta": {
+            "filled": 15,
+            "filled_percent": 75.0,
+            "missing": 5
+          },
+          "etat_activ": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "nature_loc": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "nom_commun": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "nom_etabli": {
+            "filled": 9,
+            "filled_percent": 45.0,
+            "missing": 11
+          },
+          "url_fiche": {
+            "filled": 20,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "x_wgs84": {
+            "filled": 10,
+            "filled_percent": 50.0,
+            "missing": 10
+          },
+          "y_wgs84": {
+            "filled": 10,
+            "filled_percent": 50.0,
+            "missing": 10
+          }
+        },
+        "record_count": 20
+      },
+      "coordinates": {
+        "invalid_row_indexes": [],
+        "missing": 10,
+        "present": 10,
+        "record_count": 20,
+        "valid_wgs84": 10,
+        "warning": "L'enveloppe géographique est un contrôle d'anomalie grossière, pas une validation de l'emplacement du site.",
+        "within_broad_orne_envelope": 10
+      },
+      "geometry_policy": "Ignorer la géométrie WFS lorsque x_wgs84 et y_wgs84 sont absents.",
+      "identifiers": {
+        "code_insee": {
+          "duplicate_values": [
+            "61006",
+            "61278",
+            "61376",
+            "61391"
+          ],
+          "filled": 20,
+          "unique": 11,
+          "value_count": 20
+        },
+        "code_inven": {
+          "duplicate_values": [],
+          "filled": 20,
+          "unique": 20,
+          "value_count": 20
+        },
+        "code_metie": {
+          "duplicate_values": [],
+          "filled": 20,
+          "unique": 20,
+          "value_count": 20
+        },
+        "id": {
+          "duplicate_values": [],
+          "filled": 20,
+          "unique": 20,
+          "value_count": 20
+        }
+      },
+      "manual_tasks": [
+        "retrouver l'activité absente de la couche WFS",
+        "localiser les fiches explicitement non géolocalisées",
+        "qualifier l'intérêt patrimonial et dédoublonner avec les autres sources"
+      ]
+    },
+    "inventaire_normandie_orne": {
+      "artifact_count": 20,
+      "automation": "moyenne",
+      "coordinates": {
+        "missing": 10,
+        "note": "Les fichiers d'index ne portent pas de coordonnées structurées.",
+        "present": 0,
+        "record_count": 10
+      },
+      "identifiers": {
+        "REF_IA": {
+          "duplicate_values": [],
+          "filled": 10,
+          "unique": 10,
+          "value_count": 10
+        }
+      },
+      "manual_tasks": [
+        "télécharger et OCRiser seulement les scans nécessaires",
+        "contrôler les résultats OCR et les informations absentes de POP"
+      ],
+      "record_count": 10
+    },
+    "monuments_historiques_data_culture": {
+      "automation": "élevée pour l'extraction, moyenne pour la sélection",
+      "completeness": {
+        "all_fields": {
+          "adresse_forme_editoriale": {
+            "filled": 14,
+            "filled_percent": 18.2,
+            "missing": 63
+          },
+          "adresse_forme_index": {
+            "filled": 14,
+            "filled_percent": 18.2,
+            "missing": 63
+          },
+          "auteur_de_l_edifice": {
+            "filled": 16,
+            "filled_percent": 20.8,
+            "missing": 61
+          },
+          "autre_appellation_de_l_edifice": {
+            "filled": 1,
+            "filled_percent": 1.3,
+            "missing": 76
+          },
+          "cadastre": {
+            "filled": 58,
+            "filled_percent": 75.3,
+            "missing": 19
+          },
+          "cadre_de_l_etude": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "cog_insee_lors_de_la_protection": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "commune_forme_editoriale": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "commune_forme_index": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "coordonnees_au_format_wgs84": {
+            "filled": 50,
+            "filled_percent": 64.9,
+            "missing": 27
+          },
+          "copyright": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "couverts_ou_decouverts_du_jardin_de_l_edifice": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "datation_de_l_edifice": {
+            "filled": 30,
+            "filled_percent": 39.0,
+            "missing": 47
+          },
+          "date_de_creation_de_la_notice": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "date_de_la_derniere_mise_a_jour": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "date_de_label": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "date_et_typologie_de_la_protection": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "denomination_de_l_edifice": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "departement_en_lettres": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "departement_format_numerique": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "description_de_l_edifice": {
+            "filled": 1,
+            "filled_percent": 1.3,
+            "missing": 76
+          },
+          "description_de_l_elevation_interieure": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "description_de_l_iconographie": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "destination_actuelle_de_l_edifice": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "dimensions_normalisees_des_edicules_uniquement": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "domaine": {
+            "filled": 74,
+            "filled_percent": 96.1,
+            "missing": 3
+          },
+          "elements_remarquables_dans_l_edifice": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "emplacement_forme_et_structure_de_l_escalier": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "etablissement_affectataire_de_l_edifice": {
+            "filled": 13,
+            "filled_percent": 16.9,
+            "missing": 64
+          },
+          "etat_de_conservation": {
+            "filled": 18,
+            "filled_percent": 23.4,
+            "missing": 59
+          },
+          "format_abrege_du_siecle_de_construction": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "genre_du_destinataire": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "historique": {
+            "filled": 75,
+            "filled_percent": 97.4,
+            "missing": 2
+          },
+          "identifiant_agregee": {
+            "filled": 66,
+            "filled_percent": 85.7,
+            "missing": 11
+          },
+          "indexation_iconographique_normalisee": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "justification_attribution": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "justification_de_la_datation": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "lien_vers_la_base_archiv_mh": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "lien_vers_la_base_joconde": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "lien_vers_la_base_palissy": {
+            "filled": 7,
+            "filled_percent": 9.1,
+            "missing": 70
+          },
+          "liens_externes": {
+            "filled": 14,
+            "filled_percent": 18.2,
+            "missing": 63
+          },
+          "lieu_de_conservation_d_un_element_architectural_deplace": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "lieudit": {
+            "filled": 26,
+            "filled_percent": 33.8,
+            "missing": 51
+          },
+          "materiaux_de_la_couverture": {
+            "filled": 1,
+            "filled_percent": 1.3,
+            "missing": 76
+          },
+          "materiaux_du_gros_oeuvre": {
+            "filled": 1,
+            "filled_percent": 1.3,
+            "missing": 76
+          },
+          "nature_de_la_protection": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "nom_du_cours_d_eau_traversant_ou_bordant_l_edifice": {
+            "filled": 16,
+            "filled_percent": 20.8,
+            "missing": 61
+          },
+          "observations": {
+            "filled": 6,
+            "filled_percent": 7.8,
+            "missing": 71
+          },
+          "partie_constituante": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "partie_constituante_non_etudiee": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "partie_d_elevation_exterieure": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "personnes_liees_a_l_edifice": {
+            "filled": 11,
+            "filled_percent": 14.3,
+            "missing": 66
+          },
+          "precision_affectataire": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "precision_de_la_localisation": {
+            "filled": 76,
+            "filled_percent": 98.7,
+            "missing": 1
+          },
+          "precision_de_la_protection": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "precision_sur_la_denomination": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "precision_sur_le_statut_de_l_edifice": {
+            "filled": 9,
+            "filled_percent": 11.7,
+            "missing": 68
+          },
+          "reference": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "reference_a_un_ensemble": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "references_des_parties_constituantes_etudiees": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "region": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "remploi": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "renvoi_vers_une_notice_de_la_base_merimee_ou_palissy": {
+            "filled": 29,
+            "filled_percent": 37.7,
+            "missing": 48
+          },
+          "siecle_de_campagne_secondaire_de_construction": {
+            "filled": 12,
+            "filled_percent": 15.6,
+            "missing": 65
+          },
+          "siecle_de_la_campagne_principale_de_construction": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "source_de_l_energie_utilisee_par_l_edifice": {
+            "filled": 4,
+            "filled_percent": 5.2,
+            "missing": 73
+          },
+          "statut_juridique_de_l_edifice": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "technique_du_decor_porte_de_l_edifice": {
+            "filled": 36,
+            "filled_percent": 46.8,
+            "missing": 41
+          },
+          "titre_editorial_de_la_notice": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "type_de_couverture": {
+            "filled": 1,
+            "filled_percent": 1.3,
+            "missing": 76
+          },
+          "typologie_de_la_protection": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "typologie_de_la_zone_de_protection": {
+            "filled": 3,
+            "filled_percent": 3.9,
+            "missing": 74
+          },
+          "typologie_de_plan": {
+            "filled": 1,
+            "filled_percent": 1.3,
+            "missing": 76
+          },
+          "typologie_du_couvrement": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "typologie_du_dossier": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "vocable_pour_les_edifices_cultuels": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          }
+        },
+        "field_count": 76,
+        "priority_fields": {
+          "cog_insee_lors_de_la_protection": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "commune_forme_editoriale": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "coordonnees_au_format_wgs84": {
+            "filled": 50,
+            "filled_percent": 64.9,
+            "missing": 27
+          },
+          "date_et_typologie_de_la_protection": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "denomination_de_l_edifice": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "description_de_l_edifice": {
+            "filled": 1,
+            "filled_percent": 1.3,
+            "missing": 76
+          },
+          "destination_actuelle_de_l_edifice": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 77
+          },
+          "etat_de_conservation": {
+            "filled": 18,
+            "filled_percent": 23.4,
+            "missing": 59
+          },
+          "historique": {
+            "filled": 75,
+            "filled_percent": 97.4,
+            "missing": 2
+          },
+          "lien_vers_la_base_palissy": {
+            "filled": 7,
+            "filled_percent": 9.1,
+            "missing": 70
+          },
+          "nom_du_cours_d_eau_traversant_ou_bordant_l_edifice": {
+            "filled": 16,
+            "filled_percent": 20.8,
+            "missing": 61
+          },
+          "reference": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "source_de_l_energie_utilisee_par_l_edifice": {
+            "filled": 4,
+            "filled_percent": 5.2,
+            "missing": 73
+          },
+          "titre_editorial_de_la_notice": {
+            "filled": 77,
+            "filled_percent": 100.0,
+            "missing": 0
+          }
+        },
+        "record_count": 77
+      },
+      "coordinates": {
+        "invalid_row_indexes": [],
+        "missing": 27,
+        "present": 50,
+        "record_count": 77,
+        "valid_wgs84": 50,
+        "warning": "L'enveloppe géographique est un contrôle d'anomalie grossière, pas une validation de l'emplacement du site.",
+        "within_broad_orne_envelope": 50
+      },
+      "identifiers": {
+        "cog_insee_lors_de_la_protection": {
+          "duplicate_values": [
+            "61001",
+            "61006",
+            "61085",
+            "61207",
+            "61214",
+            "61246",
+            "61345",
+            "61369",
+            "61469"
+          ],
+          "filled": 77,
+          "unique": 61,
+          "value_count": 77
+        },
+        "identifiant_agregee": {
+          "duplicate_values": [],
+          "filled": 66,
+          "unique": 66,
+          "value_count": 66
+        },
+        "reference": {
+          "duplicate_values": [],
+          "filled": 77,
+          "unique": 77,
+          "value_count": 77
+        }
+      },
+      "manual_tasks": [
+        "écarter les faux positifs de la recherche plein texte",
+        "vérifier si la protection concerne bien les éléments industriels"
+      ]
+    },
+    "pop_merimee": {
+      "automation": "élevée pour l'extraction, moyenne pour la publication",
+      "completeness": {
+        "all_fields": {
+          "ACMH": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "ACTU": {
+            "filled": 5,
+            "filled_percent": 50.0,
+            "missing": 5
+          },
+          "ACURL": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "ADRS": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "AFFE": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "AIRE": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "ANCIEN_PRODUCTEUR_LABEL": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "APPL": {
+            "filled": 2,
+            "filled_percent": 20.0,
+            "missing": 8
+          },
+          "APRO": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "ARCHEO": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "AUTP": {
+            "filled": 1,
+            "filled_percent": 10.0,
+            "missing": 9
+          },
+          "AUTR": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "BASE": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "CADA": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "CANT": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "COLL": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "COM": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "COM_ACTU": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "CONTACT": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "CONTIENT_IMAGE": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "COOR": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "COORM": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "COPY": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "COUV": {
+            "filled": 9,
+            "filled_percent": 90.0,
+            "missing": 1
+          },
+          "DATE": {
+            "filled": 4,
+            "filled_percent": 40.0,
+            "missing": 6
+          },
+          "DBOR": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "DENO": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "DENQ": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "DEPL": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "DESC": {
+            "filled": 9,
+            "filled_percent": 90.0,
+            "missing": 1
+          },
+          "DIMS": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "DLAB": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "DMAJ": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "DMIS": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "DMOIS": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "DOMN": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "DOSADRS": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "DOSS": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "DOSURL": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "DOSURLP": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "DOSURLPDF": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "DPRO": {
+            "filled": 1,
+            "filled_percent": 10.0,
+            "missing": 9
+          },
+          "DPT": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "DPT_ACTU": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "DPT_LETTRE": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "DPT_LETTRE_ACTU": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "EDIF": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "ELEV": {
+            "filled": 3,
+            "filled_percent": 30.0,
+            "missing": 7
+          },
+          "ENER": {
+            "filled": 8,
+            "filled_percent": 80.0,
+            "missing": 2
+          },
+          "ESCA": {
+            "filled": 1,
+            "filled_percent": 10.0,
+            "missing": 9
+          },
+          "ETAG": {
+            "filled": 9,
+            "filled_percent": 90.0,
+            "missing": 1
+          },
+          "ETAT": {
+            "filled": 6,
+            "filled_percent": 60.0,
+            "missing": 4
+          },
+          "ETUD": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "GENR": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "HIST": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "HISTORIQUE": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "HYDR": {
+            "filled": 7,
+            "filled_percent": 70.0,
+            "missing": 3
+          },
+          "IDAGR": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "IMAGE": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "IMG": {
+            "filled": 1,
+            "filled_percent": 10.0,
+            "missing": 9
+          },
+          "IMPL": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "INSEE": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "INTE": {
+            "filled": 1,
+            "filled_percent": 10.0,
+            "missing": 9
+          },
+          "JATT": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "JDAT": {
+            "filled": 7,
+            "filled_percent": 70.0,
+            "missing": 3
+          },
+          "LABEL": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "LBASE2": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "LIENS": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "LIEU": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "LINHA": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "LMDP": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "LOCA": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "LREG": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "MANIFEST_IIIF": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "MEMOIRE": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "MFICH": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "MHPP": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "MICR": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "MOSA": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "MURS": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "NBOR": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "NOMS": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "OBS": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "PAFF": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "PARN": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "PART": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "PDEN": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "PERS": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "PINT": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "PLAN": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "PLOC": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "POP_ANCIENNE_REF": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "POP_ARRETE_PROTECTION": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "POP_ARRETE_PROTECTION_REFDOC": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "POP_CONTIENT_GEOLOCALISATION": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "POP_COORDINATES_POINT": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "POP_COORDINATES_POLYGON": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "POP_COORDONNEES": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "POP_DATE": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "POP_DOSSIER_PROTECTION": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "POP_DOSSIER_PROTECTION_REFDOC": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "POP_DOSSIER_VERT": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "POP_DOSSIER_VERT_REFDOC": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "POP_FLAGS": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "POP_HAS_LOCATION": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "POP_IMPORT": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "POP_INCIDENT": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "POP_MASS_EDIT": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "POP_MOISSONNAGE": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "PPRO": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "PREP": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "PRODUCTEUR": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "PRODUCTEUR_CONVERTED": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "PROT": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "PSTA": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "REF": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "REFE": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "REFIM": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "REFJOC": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "REFM": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "REFMUS": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "REFO": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "REFP": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "REG": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "REG_ACTU": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "REMA": {
+            "filled": 4,
+            "filled_percent": 40.0,
+            "missing": 6
+          },
+          "REMP": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "RENV": {
+            "filled": 1,
+            "filled_percent": 10.0,
+            "missing": 9
+          },
+          "REPR": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "RFPA": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "ROLE": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "SCLD": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "SCLE": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "SCLX": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "SITE": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "SOUR": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "STAT": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "TECH": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "THEM": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "TICO": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "TOIT": {
+            "filled": 9,
+            "filled_percent": 90.0,
+            "missing": 1
+          },
+          "TOUT": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "TYPO": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "VERT": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "VIDEO": {
+            "filled": 1,
+            "filled_percent": 10.0,
+            "missing": 9
+          },
+          "VISI": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "VOCA": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "VOUT": {
+            "filled": 1,
+            "filled_percent": 10.0,
+            "missing": 9
+          },
+          "WADRS": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "WCOM": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "WEB": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "WRENV": {
+            "filled": 1,
+            "filled_percent": 10.0,
+            "missing": 9
+          },
+          "ZONE": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "__v": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "_id": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "base": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "custom_LOCA": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "custom_PRODUCTEUR_LABEL": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "id": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          }
+        },
+        "field_count": 159,
+        "priority_fields": {
+          "ADRS": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 10
+          },
+          "COM": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "COOR": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "DENO": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "DESC": {
+            "filled": 9,
+            "filled_percent": 90.0,
+            "missing": 1
+          },
+          "DOSURL": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "ENER": {
+            "filled": 8,
+            "filled_percent": 80.0,
+            "missing": 2
+          },
+          "ETAT": {
+            "filled": 6,
+            "filled_percent": 60.0,
+            "missing": 4
+          },
+          "HIST": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "HYDR": {
+            "filled": 7,
+            "filled_percent": 70.0,
+            "missing": 3
+          },
+          "INSEE": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "LIEU": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "POP_COORDONNEES": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "REF": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "SCLE": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "TICO": {
+            "filled": 10,
+            "filled_percent": 100.0,
+            "missing": 0
+          }
+        },
+        "record_count": 10
+      },
+      "coordinates": {
+        "invalid_row_indexes": [],
+        "missing": 0,
+        "present": 10,
+        "record_count": 10,
+        "valid_wgs84": 10,
+        "warning": "L'enveloppe géographique est un contrôle d'anomalie grossière, pas une validation de l'emplacement du site.",
+        "within_broad_orne_envelope": 10
+      },
+      "identifiers": {
+        "INSEE": {
+          "duplicate_values": [
+            "61447"
+          ],
+          "filled": 10,
+          "unique": 9,
+          "value_count": 10
+        },
+        "LBASE2": {
+          "duplicate_values": [],
+          "filled": 10,
+          "unique": 10,
+          "value_count": 10
+        },
+        "REF": {
+          "duplicate_values": [],
+          "filled": 10,
+          "unique": 10,
+          "value_count": 10
+        }
+      },
+      "manual_tasks": [
+        "interpréter les activités successives et les états historiques",
+        "vérifier les localisations absentes ou insuffisamment précises"
+      ]
+    },
+    "pop_palissy": {
+      "automation": "élevée pour l'extraction, moyenne pour le rattachement",
+      "completeness": {
+        "all_fields": {
+          "adresse_forme_editoriale": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "adresse_forme_index": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "annee_de_creation": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "appellation_d_usage": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "auteur_de_l_oeuvre_ou_createur_de_l_objet": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "auteur_du_projet": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "cadre_de_l_etude": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "categorie_technique": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "code_insee_commune_actuelle": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "cog_insee": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "commune_forme_editoriale": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "commune_forme_index": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "contexte_d_acquisition": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "copyright": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "date_de_creation_de_la_notice": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "date_de_la_derniere_mise_a_jour": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "date_du_recolement": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "date_et_typologie_de_la_protection": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "denomination": {
+            "filled": 1,
+            "filled_percent": 50.0,
+            "missing": 1
+          },
+          "departement_en_lettres": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "departement_format_numerique": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "description": {
+            "filled": 1,
+            "filled_percent": 50.0,
+            "missing": 1
+          },
+          "dimensions": {
+            "filled": 1,
+            "filled_percent": 50.0,
+            "missing": 1
+          },
+          "domaine": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "edifice_actuel": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "emplacement_de_l_oeuvre_dans_l_edifice": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "etape_de_creation": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "etat": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "format_abrege_du_siecle_de_creation": {
+            "filled": 1,
+            "filled_percent": 50.0,
+            "missing": 1
+          },
+          "geo_point_2d": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "historique": {
+            "filled": 1,
+            "filled_percent": 50.0,
+            "missing": 1
+          },
+          "identifiant_agregee": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "indexation_iconographique_normalisee": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "informations_relatives_aux_vols": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "inscription": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "intitule_de_l_ensemble": {
+            "filled": 1,
+            "filled_percent": 50.0,
+            "missing": 1
+          },
+          "justification_de_la_datation": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "lien_vers_la_base_arcade": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "lien_vers_la_base_archiv_mh": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "lien_vers_la_base_inha": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "lien_vers_la_base_joconde": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "lien_vers_la_base_museofile": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "liens_externes": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "lieu_de_creation": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "lieu_de_deplacement_de_l_objet": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "lieu_de_provenance": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "lieudit": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "materiaux": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "nom_de_l_edifice": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "numero_artificiel_de_differenciation_de_l_objet": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "numero_d_inventaire_affecte_a_l_objet": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "numero_de_l_arrete_de_protection": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "observations": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "partie_constituante": {
+            "filled": 1,
+            "filled_percent": 50.0,
+            "missing": 1
+          },
+          "partie_constituante_non_etudiee": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "personne_morale_creatrice_de_l_objet": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "personnes_liees_a_l_objet": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "precision_sur_l_etat": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "precision_sur_l_inscription": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "precision_sur_la_denomination": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "precision_sur_la_localisation": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "precision_sur_la_protection": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "precision_sur_la_representation": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "precision_sur_les_dimensions": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "reference": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "reference_a_un_ensemble": {
+            "filled": 1,
+            "filled_percent": 50.0,
+            "missing": 1
+          },
+          "reference_a_une_notice_merimee_mh": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "reference_a_une_partie_constituante": {
+            "filled": 1,
+            "filled_percent": 50.0,
+            "missing": 1
+          },
+          "references_d_expositions": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "references_de_publications": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "region": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "renvoi_vers_une_notice_palissy_mh_ou_merimee_mh": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "siecle_de_creation": {
+            "filled": 1,
+            "filled_percent": 50.0,
+            "missing": 1
+          },
+          "sources_d_archives_et_bases_de_donnees_de_reference": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "statut_juridique_de_l_objet": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "statut_juridique_du_proprietaire": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "structure_et_typologie": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "theme_de_l_etude": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "titre_editorial": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "titre_iconographique": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "typologie_de_la_protection": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "typologie_du_dossier": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          }
+        },
+        "field_count": 82,
+        "priority_fields": {
+          "cog_insee": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "commune_forme_editoriale": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "date_et_typologie_de_la_protection": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "denomination": {
+            "filled": 1,
+            "filled_percent": 50.0,
+            "missing": 1
+          },
+          "description": {
+            "filled": 1,
+            "filled_percent": 50.0,
+            "missing": 1
+          },
+          "geo_point_2d": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "historique": {
+            "filled": 1,
+            "filled_percent": 50.0,
+            "missing": 1
+          },
+          "nom_de_l_edifice": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "reference": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          },
+          "reference_a_une_notice_merimee_mh": {
+            "filled": 0,
+            "filled_percent": 0.0,
+            "missing": 2
+          },
+          "titre_editorial": {
+            "filled": 2,
+            "filled_percent": 100.0,
+            "missing": 0
+          }
+        },
+        "record_count": 2
+      },
+      "coordinates": {
+        "invalid_row_indexes": [],
+        "missing": 2,
+        "present": 0,
+        "record_count": 2,
+        "valid_wgs84": 0,
+        "warning": "L'enveloppe géographique est un contrôle d'anomalie grossière, pas une validation de l'emplacement du site.",
+        "within_broad_orne_envelope": 0
+      },
+      "identifiers": {
+        "cog_insee": {
+          "duplicate_values": [
+            "61091"
+          ],
+          "filled": 2,
+          "unique": 1,
+          "value_count": 2
+        },
+        "identifiant_agregee": {
+          "duplicate_values": [],
+          "filled": 0,
+          "unique": 0,
+          "value_count": 0
+        },
+        "reference": {
+          "duplicate_values": [],
+          "filled": 2,
+          "unique": 2,
+          "value_count": 2
+        }
+      },
+      "manual_tasks": [
+        "rattacher les objets sans référence Mérimée à un site contrôlé",
+        "déterminer si l'objet est encore présent et publiable"
+      ]
+    }
+  }
+}

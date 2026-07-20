@@ -106,3 +106,29 @@
   fiches explicitement non géolocalisées ; aucune coordonnée ne sera inventée.
 - Le bloc « Tester chaque source principale » est terminé. L'évaluation détaillée
   des formats, champs, identifiants, doublons et coordonnées reste à réaliser.
+
+## 2026-07-20 — Phase 2, évaluation des résultats
+
+- Les 34 fichiers ont un format valide. Les anciens HTML de l'Inventaire sont
+  en ISO-8859-1 ; les autres échantillons sont en UTF-8. Les données dérivées
+  seront normalisées en UTF-8 sans modifier les fichiers bruts.
+- Les pages POP contiennent une notice structurée exploitable. Sur dix notices,
+  l'identifiant, l'activité, la commune, l'historique, la période et les
+  coordonnées sont présents dans tous les cas.
+- POP / Mérimée est confirmé comme point d'entrée du corpus initial. Les scans
+  de l'Inventaire seront utilisés seulement pour compléter les informations.
+- Les références `IA`, `PM`, `PA`, `SSP` et `BNO` sont conservées comme
+  identifiants externes. Un code INSEE ne sera jamais utilisé comme identifiant
+  de site.
+- Aucun doublon de référence principale n'a été trouvé dans les échantillons.
+  Les notices issues de sources différentes resteront séparées jusqu'au
+  rapprochement explicite.
+- La validité WGS84 est contrôlable automatiquement, mais la précision réelle
+  du point doit être qualifiée avant publication.
+- Une géométrie CASIAS est ignorée lorsque les coordonnées WGS84 explicites sont
+  absentes ou que la fiche est déclarée non géolocalisée.
+- L'extraction technique est largement automatisable. La qualification
+  patrimoniale, les faux positifs, les rapprochements incertains, l'OCR ciblé et
+  la situation actuelle exigent une validation humaine.
+- Le bloc « Évaluer les résultats » est terminé. La validation finale de la
+  phase 2 doit maintenant arrêter les méthodes d'extraction définitives.

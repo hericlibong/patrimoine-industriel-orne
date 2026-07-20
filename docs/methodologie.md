@@ -144,3 +144,35 @@ Les limites rencontrées sont consignées dans
 Une limite non résolue n'interdit pas nécessairement la publication, mais elle
 doit être visible dans le rapport de qualité et ne doit jamais être compensée par
 une précision inventée.
+
+## Évaluation des extractions tests
+
+L'évaluation de la phase 2 est calculée à partir du manifeste versionné des
+fichiers bruts. Le fichier `reports/quality/phase2_evaluation_samples.json`
+conserve les mesures détaillées et l'empreinte du manifeste utilisé.
+
+Une valeur est considérée comme renseignée lorsqu'elle n'est ni nulle, ni une
+chaîne vide, ni une collection vide. La complétude est mesurée champ par champ
+sur chaque échantillon ; elle ne doit pas être extrapolée à la source complète
+si l'échantillon est ciblé ou stratifié.
+
+Les doublons internes sont recherchés sur les identifiants propres aux sources :
+`IA` pour l'Inventaire et Mérimée, `PM` pour Palissy, `PA` pour les Monuments
+historiques, `SSP` et `BNO` pour CASIAS. Un code INSEE répété n'est pas un
+doublon : plusieurs sites peuvent appartenir à la même commune.
+
+Le contrôle des coordonnées distingue :
+
+- leur présence explicite ;
+- leur validité numérique en WGS84 ;
+- leur présence dans une enveloppe géographique large de l'Orne ;
+- leur précision réelle, qui doit encore être qualifiée séparément.
+
+Le contrôle d'enveloppe ne valide jamais l'emplacement d'un bâtiment. Une
+géométrie CASIAS n'est pas utilisée lorsque les champs WGS84 explicites sont
+absents ou que la fiche est déclarée non géolocalisée.
+
+L'automatisation est évaluée séparément pour l'acquisition, le parsing et la
+publication. Une extraction automatisable peut produire un simple candidat :
+l'inclusion patrimoniale, les rapprochements incertains et la situation actuelle
+restent soumis à une validation humaine.
