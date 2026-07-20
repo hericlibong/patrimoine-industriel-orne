@@ -9,7 +9,7 @@ reproductible.
 
 ## État du projet
 
-**Initialisation et phase 0 terminées — phase 1 prête à démarrer.**
+**Phases 0 et 1 terminées — phase 2 en cours.**
 
 Le suivi détaillé est maintenu localement dans `docs/roadmap.md`, qui n'est pas
 versionné.
@@ -18,6 +18,7 @@ versionné.
 
 - [Cadrage](docs/cadrage.md)
 - [Méthodologie](docs/methodologie.md)
+- [Conventions d'extraction](docs/conventions_extraction.md)
 - [Dictionnaire des données](docs/dictionnaire_donnees.md)
 - [Journal des décisions](docs/journal_decisions.md)
 - [Sources à auditer](config/sources.yml)
