@@ -115,7 +115,13 @@ def validate_palissy_json(path: Path) -> dict[str, Any]:
 def validate_mh_json(path: Path) -> dict[str, Any]:
     payload = json.loads(path.read_text(encoding="utf-8"))
     results = payload.get("results", [])
-    if not results or any(record.get("departement_en_lettres") != "Orne" for record in results):
+    departments = [record.get("departement_en_lettres") for record in results]
+    outside_orne = [
+        value
+        for value in departments
+        if "Orne" not in (value if isinstance(value, list) else [value])
+    ]
+    if not results or outside_orne:
         raise ValueError("l'échantillon Monuments historiques n'est pas limité à l'Orne")
     return {
         "total_count": payload.get("total_count"),

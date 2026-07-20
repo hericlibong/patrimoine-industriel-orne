@@ -55,6 +55,21 @@ class SampleValidatorsTests(TestCase):
         with self.assertRaises(ValueError):
             validate_mh_json(self.path)
 
+    def test_mh_department_list_is_accepted(self) -> None:
+        payload = {
+            "total_count": 1,
+            "results": [
+                {
+                    "reference": "PA1",
+                    "departement_en_lettres": ["Orne"],
+                    "coordonnees_au_format_wgs84": {"lon": 0.1, "lat": 48.5},
+                }
+            ],
+        }
+        self.path.write_text(json.dumps(payload), encoding="utf-8")
+        observations = validate_mh_json(self.path)
+        self.assertEqual(observations["with_coordinates"], 1)
+
     def test_casias_localized_sample_is_measured(self) -> None:
         xml = """<?xml version="1.0" encoding="UTF-8"?>
         <wfs:FeatureCollection xmlns:wfs="http://www.opengis.net/wfs/2.0"
