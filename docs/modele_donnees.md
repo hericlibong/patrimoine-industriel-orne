@@ -1,6 +1,6 @@
 # Modèle de données — entités principales
 
-Statut : **validé pour le bloc 1 de la phase 3 — version conceptuelle 0.2**
+Statut : **entités et règles validées — version conceptuelle 0.3**
 Date : 20 juillet 2026
 
 ## Principe central
@@ -37,11 +37,15 @@ erDiagram
     SITES ||--o{ RELATIONS_SITES : "site source"
     SITES ||--o{ RELATIONS_SITES : "site cible"
     SOURCES ||--o{ MENTIONS_SOURCES : "fournit"
+    SOURCES ||--o{ IDENTIFIANTS_EXTERNES : "attribue"
 ```
 
 `mentions_sources` peut cibler une ligne ou un champ de n'importe quelle table
 métier. Ce lien est volontairement générique afin de conserver la provenance
 au niveau de l'information, et pas seulement au niveau du site.
+
+`identifiants_externes` relie les références des producteurs aux UUID internes
+sans faire dépendre l'identité du projet d'une source particulière.
 
 ## Entités validées
 
@@ -193,10 +197,11 @@ incertaine reste au statut `a_verifier` et ne déclenche aucune fusion.
 | `liens_objets_sites` | origine, usage et localisation des objets techniques |
 | `exploitations` | relation datée entre site, exploitant et éventuellement activité |
 | `noms_exploitants` | raisons sociales et variantes historiques |
+| `identifiants_externes` | correspondance entre références des sources et UUID internes |
 
-Ces tables sont incluses dans le modèle conceptuel, mais leurs contraintes
-détaillées seront précisées dans les blocs « Définir les règles » et
-« Implémenter le modèle ».
+Ces tables sont incluses dans le modèle conceptuel. Leurs règles communes sont
+fixées dans `docs/regles_modele.md` ; les contraintes SQL seront matérialisées
+pendant le bloc « Implémenter le modèle ».
 
 ## Cas de validation
 
@@ -214,15 +219,14 @@ les sites :
    sans géométrie artificielle ;
 7. un état contemporain révisé : plusieurs observations datées, sans écrasement.
 
-## Ce qui reste ouvert
+## Règles validées
 
-Ce bloc ne fixe pas encore :
+Les identifiants, cardinalités, obligations, valeurs absentes, dates
+imprécises, activités successives et observations contemporaines sont définis
+dans `docs/regles_modele.md` et `config/regles_modele.yml`.
 
-- le format des identifiants internes ;
-- les champs obligatoires au-delà des clés structurelles ;
-- la représentation SQL des valeurs nulles et inconnues ;
-- le modèle détaillé des dates imprécises ;
-- les contraintes DuckDB et les index ;
+Restent ouverts pour les blocs suivants :
+
+- les types, contraintes et index DuckDB ;
+- les validateurs transversaux de provenance ;
 - la version définitive des vocabulaires contrôlés.
-
-Ces décisions correspondent aux blocs suivants de la phase 3 et à la phase 4.

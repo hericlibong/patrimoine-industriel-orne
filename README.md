@@ -21,11 +21,13 @@ versionné.
 - [Conventions d'extraction](docs/conventions_extraction.md)
 - [Dictionnaire des données](docs/dictionnaire_donnees.md)
 - [Modèle des entités principales](docs/modele_donnees.md)
+- [Règles du modèle](docs/regles_modele.md)
 - [Journal des décisions](docs/journal_decisions.md)
 - [Sources à auditer](config/sources.yml)
 - [Classifications provisoires](config/classifications.yml)
 - [Périmètre opérationnel](config/perimetre.yml)
 - [Méthodes d'extraction validées](config/extraction.yml)
+- [Règles structurelles du modèle](config/regles_modele.yml)
 
 ## Organisation des données
 

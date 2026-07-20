@@ -1,18 +1,22 @@
-# Dictionnaire des données — version conceptuelle 0.2
+# Dictionnaire des données — version conceptuelle 0.3
 
-Statut : entités principales validées le 20 juillet 2026.
-Les types SQL, obligations et contraintes seront finalisés dans les prochains
-blocs de la phase 3.
+Statut : entités et règles structurelles validées le 20 juillet 2026.
+Les types SQL et contraintes seront matérialisés dans le schéma DuckDB.
 
 ## Conventions
 
-- `identifiant` désigne une clé interne stable, dont le format reste à définir ;
+- `identifiant` désigne un UUID version 4 généré une seule fois ;
 - `code` désigne une valeur issue d'un vocabulaire contrôlé ;
 - `date structurée` désigne un ensemble de champs capable de représenter une
   date exacte ou imprécise ;
 - les références externes `IA`, `PM`, `PA`, `SSP` et `BNO` ne remplacent jamais
   les identifiants internes ;
 - les géométries ne sont pas stockées dans `sites`.
+
+Une `date structurée` est matérialisée par quatre champs : `<nom>_min`,
+`<nom>_max`, `<nom>_precision_code` et `<nom>_texte_source`. Les entités métier
+possèdent aussi les champs techniques communs `statut_enregistrement_code`,
+`cree_le`, `cree_par` et `modifie_le`.
 
 ## Table `sites`
 
@@ -21,6 +25,7 @@ Une ligne représente une emprise industrielle distincte.
 | Champ | Type conceptuel | Description |
 |---|---|---|
 | `site_id` | identifiant | Identifiant interne stable du site |
+| `site_id_canonique` | identifiant nullable | Site conservé lorsqu'un doublon interne est fusionné |
 | `nom_principal` | texte | Nom éditorial actuellement retenu |
 | `niveau_structurel_code` | code | Site principal ou composant autonome |
 | `commune_actuelle_code_insee` | texte | Code INSEE de la commune actuelle |
@@ -75,6 +80,8 @@ Une ligne représente une phase d'activité sur un site.
 | `activite_id` | identifiant | Phase d'activité concernée |
 | `energie_code` | code | Eau, bois, charbon, vapeur, électricité, etc. |
 | `role_energie_code` | code | Produite sur place, force motrice, combustible ou autre |
+| `debut` | date structurée | Début documenté de l'usage de cette énergie |
+| `fin` | date structurée | Fin documentée de l'usage de cette énergie |
 | `fiabilite_code` | code | Niveau de confiance |
 
 ## Table `etats_actuels`
@@ -90,9 +97,15 @@ l'historique.
 | `usage_actuel_code` | code | Usage contemporain observé |
 | `accessibilite_code` | code | Visitable, visible, privé, inaccessible ou inconnu |
 | `date_verification` | date | Date de l'observation ou de la consultation |
-| `valide_jusqu_au` | date calculée | Date de fraîcheur maximale pour la publication |
+| `conservation_valide_jusqu_au` | date calculée | Échéance de fraîcheur de la conservation |
+| `usage_valide_jusqu_au` | date calculée | Échéance de fraîcheur de l'usage actuel |
+| `accessibilite_valide_jusqu_au` | date calculée | Échéance de fraîcheur de l'accessibilité |
 | `methode_verification_code` | code | Terrain, source officielle, exploitant, image, etc. |
 | `fiabilite_code` | code | Niveau de confiance de l'observation |
+| `version_numero` | entier | Numéro croissant des observations du site |
+| `remplace_etat_actuel_id` | identifiant nullable | Observation précédente corrigée ou remplacée |
+| `motif_version_code` | code | Nouvelle observation, correction ou annulation |
+| `enregistre_le` | horodatage | Date d'insertion dans le projet |
 | `notes` | texte | Limites de l'observation |
 
 ## Table `sources`
@@ -114,6 +127,25 @@ une notice individuelle.
 | `date_dernier_audit` | date | Dernière vérification de la source |
 | `notes` | texte | Réserves permanentes ou techniques |
 
+## Table `identifiants_externes`
+
+Cette table permet de retrouver une entité à partir d'une référence de source
+sans faire dépendre son UUID interne de cette référence.
+
+| Champ | Type conceptuel | Description |
+|---|---|---|
+| `identifiant_externe_id` | identifiant | Identifiant interne de la correspondance |
+| `source_id` | identifiant | Source responsable de la référence |
+| `type_identifiant_code` | code | IA, PM, PA, SSP, BNO, ARK, SIREN, OSM, etc. |
+| `valeur` | texte | Valeur originale de l'identifiant externe |
+| `entite_type_code` | code | Type d'entité interne ciblée |
+| `entite_id` | identifiant | UUID de l'entité interne |
+| `principal_pour_source` | booléen | Référence principale dans cette source |
+| `date_verification` | date | Dernier contrôle de la correspondance |
+| `fiabilite_code` | code | Niveau de confiance du rattachement |
+
+La combinaison `source_id`, `type_identifiant_code` et `valeur` est unique.
+
 ## Table `mentions_sources`
 
 Une ligne représente une information apportée par une source à une entité ou à
@@ -132,6 +164,7 @@ un champ précis.
 | `champ_cible` | texte | Champ précis soutenu, si applicable |
 | `valeur_originale` | texte ou JSON | Valeur conservée avant normalisation |
 | `valeur_normalisee` | texte ou JSON | Valeur transformée utilisée par le projet |
+| `statut_valeur_code` | code | Renseignée, inconnue, absente de la source, non applicable, contradictoire ou à vérifier |
 | `nature_information_code` | code | Sourcée, calculée ou interprétée |
 | `fiabilite_code` | code | Niveau de confiance attribué |
 | `extracteur` | texte | Script ou méthode de production |

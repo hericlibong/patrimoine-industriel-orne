@@ -25,6 +25,7 @@ Document vivant — dernière mise à jour : 20 juillet 2026
 | LIM-019 | État actuel | Les champs de destination et de conservation sont absents ou peu renseignés dans les sources testées | L'état contemporain ne peut pas être produit automatiquement | Recourir à des sources récentes, à l'observation et à une date de vérification | permanente |
 | LIM-020 | Provenance | La cible générique de `mentions_sources` ne peut pas être protégée par une clé étrangère SQL unique | Une mention pourrait viser une entité ou un champ inexistant | Créer un validateur transversal obligatoire avant chaque export | ouverte |
 | LIM-021 | Géométries | Un site peut posséder plusieurs points, parcelles ou emprises de précision différente | Le choix silencieux d'une seule géométrie masquerait l'incertitude | Conserver toutes les géométries et désigner explicitement la référence par usage | permanente |
+| LIM-022 | Dates historiques | La conversion d'une expression comme « vers 1850 » en intervalle repose sur une convention du projet | L'intervalle calculé pourrait être pris pour une datation fournie par la source | Conserver le texte original, la précision et la nature calculée de l'intervalle | permanente |
 
 ## Règle de mise à jour
 

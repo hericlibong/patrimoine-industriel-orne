@@ -181,3 +181,34 @@
   dictionnaire passe en version conceptuelle 0.2.
 - Le bloc « Modéliser les entités principales » est terminé. Les identifiants,
   contraintes, valeurs nulles et dates imprécises restent à définir.
+
+## 2026-07-20 — Phase 3, règles du modèle
+
+- Les entités métier utilisent des UUID version 4, générés une seule fois et
+  indépendants des noms, communes et références des sources.
+- Les références `IA`, `PM`, `PA`, `SSP`, `BNO` et autres sont conservées dans
+  `identifiants_externes`. Une réextraction réutilise l'UUID seulement après
+  correspondance exacte d'un identifiant externe.
+- Une fusion de doublons conserve les deux UUID : l'un devient canonique et
+  l'autre est redirigé sans suppression.
+- Les suppressions physiques et les cascades sont interdites dans le corpus.
+  Les corrections utilisent des statuts et des lignes de remplacement.
+- Les obligations minimales sont définies table par table, avec des conditions
+  supplémentaires pour les sites inclus, cartographiables et publiés.
+- `NULL` signifie qu'aucune valeur normalisée n'est stockée. La cause est
+  qualifiée séparément : inconnue, absente de la source, non applicable,
+  contradictoire ou à vérifier.
+- Les dates imprécises sont stockées sous forme d'intervalle minimum-maximum,
+  avec un code de précision et le texte original. Aucun milieu d'intervalle
+  n'est publié comme date réelle.
+- Un changement de production ou une interruption documentée crée une nouvelle
+  phase d'activité. Un changement d'exploitant ou d'énergie seul ne crée pas
+  automatiquement une nouvelle activité.
+- `etats_actuels` fonctionne en ajout seulement. Une nouvelle observation reçoit
+  un UUID et une version ; l'ancienne ligne reste dans l'historique.
+- La vue courante sélectionnera la dernière valeur valide séparément pour la
+  conservation, l'usage et l'accessibilité, avec leurs durées de fraîcheur.
+- Les règles sont documentées dans `docs/regles_modele.md` et leur version
+  opérationnelle dans `config/regles_modele.yml`.
+- Le bloc « Définir les règles » est terminé. Le schéma DuckDB peut maintenant
+  être implémenté.
