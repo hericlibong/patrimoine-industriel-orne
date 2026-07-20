@@ -86,3 +86,23 @@
   techniques sans accès réseau.
 - Le bloc « Préparer les extractions » est terminé. Le bloc suivant peut tester
   les cinq sources principales sur des échantillons limités.
+
+## 2026-07-20 — Phase 2, test des cinq sources principales
+
+- Les cinq extractions tests ont abouti et produit 34 fichiers bruts contrôlés
+  par métadonnées, taille et empreinte SHA-256.
+- L'Inventaire normand est accessible par les anciens dossiers statiques liés
+  depuis POP, mais son contenu détaillé est principalement composé de scans.
+- Les ressources d'export liées depuis le jeu data.gouv.fr de l'Inventaire
+  normand sont obsolètes ou en erreur à la date du test.
+- Les dix notices Mérimée `IA` correspondant à l'échantillon sont accessibles
+  sur POP et constituent le canal prioritaire pour les champs descriptifs.
+- L'API Palissy permet un ciblage exact, mais les deux objets tests n'ont pas de
+  référence Mérimée directe renseignée.
+- La recherche large dans les Monuments historiques retourne 77 notices, dont
+  50 avec coordonnées ; cet effectif inclut des faux positifs et ne constitue
+  pas un nombre de sites industriels.
+- Les deux lots CASIAS confirment la distinction entre fiches localisées et
+  fiches explicitement non géolocalisées ; aucune coordonnée ne sera inventée.
+- Le bloc « Tester chaque source principale » est terminé. L'évaluation détaillée
+  des formats, champs, identifiants, doublons et coordonnées reste à réaliser.

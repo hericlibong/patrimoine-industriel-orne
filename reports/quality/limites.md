@@ -5,7 +5,7 @@ Document vivant — dernière mise à jour : 20 juillet 2026
 | ID | Source ou étape | Limite constatée | Conséquence | Traitement prévu | Statut |
 |---|---|---|---|---|---|
 | LIM-001 | Comptage général | Une notice n'équivaut pas nécessairement à un site | Le nombre final de lieux est encore inconnu | Compter séparément notices, candidats, sites rapprochés, cartographiables et publiés | ouverte |
-| LIM-002 | Inventaire normand | Aucun export global des 319 dossiers n'a été identifié | Extraction complète non garantie automatiquement | Tester pages, PDF et méthode semi-automatique sur un échantillon | ouverte |
+| LIM-002 | Inventaire normand | Aucun export global actuel des 319 dossiers n'a été identifié | Extraction complète non garantie automatiquement | Utiliser POP pour les champs, les dossiers statiques pour les scans, puis mesurer la part d'OCR et de contrôle humain | ouverte |
 | LIM-003 | Inventaire normand | Plusieurs dossiers ne sont pas géolocalisés | Une partie du corpus peut rester sans point précis | Rechercher adresse, parcelle, plans et sources complémentaires | ouverte |
 | LIM-004 | CASIAS | 1 853 entrées sur 2 052 sont déclarées non géolocalisées dans la couche testée | CASIAS seul ne permet pas de placer la majorité des candidats | Ne jamais utiliser la commune comme faux emplacement ; recouper adresses, archives et cartes | ouverte |
 | LIM-005 | CASIAS | Le champ d'activité est vide dans la couche WFS régionale testée | Filtrage patrimonial impossible à partir de cette couche seule | Tester le CSV national et les fiches détaillées | ouverte |
@@ -15,6 +15,10 @@ Document vivant — dernière mise à jour : 20 juillet 2026
 | LIM-009 | Géolocalisation | Adresse, lieu-dit, point géocodé et parcelle n'ont pas la même précision | La carte peut donner une précision artificielle | Enregistrer et afficher le niveau de précision séparément | permanente |
 | LIM-010 | Images | Une image consultable n'est pas nécessairement réutilisable | Risque juridique lors de la publication | Vérifier auteur, détenteur, licence et crédit avant diffusion | permanente |
 | LIM-011 | État actuel | Usage, conservation et accessibilité peuvent évoluer rapidement | Informations contemporaines rapidement périmées | Dater les observations et appliquer les durées de fraîcheur définies | permanente |
+| LIM-012 | Inventaire normand | Les ressources CSV et cartographique liées depuis data.gouv.fr sont obsolètes ou en erreur | Le jeu régional ne peut pas être téléchargé directement par ces liens | Conserver la date du constat et rechercher un export régional actuel avant extraction complète | ouverte |
+| LIM-013 | Inventaire normand | Les anciens dossiers détaillés sont principalement des pages numérisées | Le texte complet n'est pas immédiatement structuré | Réserver l'OCR aux informations absentes de POP et prévoir un contrôle humain | ouverte |
+| LIM-014 | Monuments historiques | La recherche industrielle par mots-clés retourne 77 résultats larges et des faux positifs | Ce total ne peut pas être présenté comme un nombre de sites industriels | Classifier et relire les résultats avant tout rapprochement ou comptage | ouverte |
+| LIM-015 | Palissy | Les deux objets techniques tests n'ont pas de référence Mérimée directe renseignée | Une jointure automatique par identifiant n'est pas toujours possible | Rapprocher par édifice, commune et texte, puis valider manuellement | ouverte |
 
 ## Règle de mise à jour
 
