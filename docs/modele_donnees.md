@@ -1,6 +1,6 @@
 # Modèle de données — entités principales
 
-Statut : **entités et règles validées — version conceptuelle 0.3**
+Statut : **modèle implémenté dans DuckDB — version 0.4**
 Date : 20 juillet 2026
 
 ## Principe central
@@ -60,7 +60,7 @@ La table porte l'identité éditoriale et le statut du corpus. Elle ne porte ni 
 chronologie des activités, ni l'état actuel, ni les coordonnées de référence.
 Ces informations évolutives sont placées dans les tables dédiées.
 
-Une table auxiliaire `noms_sites` conservera les appellations alternatives et
+Une table auxiliaire `noms_sites` conserve les appellations alternatives et
 leurs périodes lorsqu'elles sont connues. Une liste de noms dans une cellule est
 donc écartée.
 
@@ -71,11 +71,11 @@ filature, moulin à farine, briqueterie, production électrique, etc. Un site pe
 posséder plusieurs activités simultanées ou successives.
 
 Le secteur, l'activité détaillée, le type d'installation et les énergies sont
-séparés. Les énergies multiples seront portées par la table auxiliaire
+séparés. Les énergies multiples sont portées par la table auxiliaire
 `energies_activites` plutôt que par une liste non contrôlée.
 
 Les règles précises pour les dates incertaines et les activités successives
-seront arrêtées dans le bloc suivant de la phase 3.
+sont arrêtées dans `docs/regles_modele.md`.
 
 ### `etats_actuels`
 
@@ -109,9 +109,9 @@ La cible est décrite par :
 - l'identifiant de la ligne ciblée ;
 - éventuellement le nom du champ précis.
 
-Ce ciblage générique ne pourra pas reposer sur une clé étrangère SQL unique. Un
-validateur contrôlera que l'entité et le champ existent. Cette contrainte devra
-être testée lors de l'implémentation DuckDB.
+Ce ciblage générique ne peut pas reposer sur une clé étrangère SQL unique. Un
+validateur transversal contrôle que l'entité ciblée et, lorsqu'il est renseigné,
+le `champ_cible` existent.
 
 ### `protections`
 
@@ -150,8 +150,8 @@ Décisions retenues :
 - rejet de la géométrie CASIAS lorsqu'aucune coordonnée WGS84 explicite n'est
   fournie pour le site.
 
-Le type SQL précis dépendra de l'extension spatiale DuckDB et sera confirmé lors
-de l'implémentation.
+Le type SQL retenu est `GEOMETRY`, fourni par l'extension DuckDB Spatial. La
+colonne `crs_normalise` impose la valeur `2154`.
 
 ### `exploitants` et `exploitations`
 
@@ -200,8 +200,8 @@ incertaine reste au statut `a_verifier` et ne déclenche aucune fusion.
 | `identifiants_externes` | correspondance entre références des sources et UUID internes |
 
 Ces tables sont incluses dans le modèle conceptuel. Leurs règles communes sont
-fixées dans `docs/regles_modele.md` ; les contraintes SQL seront matérialisées
-pendant le bloc « Implémenter le modèle ».
+fixées dans `docs/regles_modele.md` et matérialisées par le schéma SQL et le
+validateur transversal.
 
 ## Cas de validation
 
@@ -225,8 +225,8 @@ Les identifiants, cardinalités, obligations, valeurs absentes, dates
 imprécises, activités successives et observations contemporaines sont définis
 dans `docs/regles_modele.md` et `config/regles_modele.yml`.
 
-Restent ouverts pour les blocs suivants :
+Le schéma DuckDB, ses contraintes et les validateurs transversaux sont
+implémentés. Restent ouverts pour les blocs suivants :
 
-- les types, contraintes et index DuckDB ;
-- les validateurs transversaux de provenance ;
-- la version définitive des vocabulaires contrôlés.
+- la version définitive des vocabulaires contrôlés ;
+- les index de performance, à décider après mesure sur un corpus réel.

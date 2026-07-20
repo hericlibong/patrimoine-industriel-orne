@@ -29,6 +29,22 @@ versionné.
 - [Méthodes d'extraction validées](config/extraction.yml)
 - [Règles structurelles du modèle](config/regles_modele.yml)
 
+## Base DuckDB de test
+
+Le modèle nécessite Python, DuckDB et l'extension DuckDB Spatial. Le jeu
+d'essai est synthétique et ne décrit aucun site réel.
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m patrimoine_orne.model.database `
+  --database data/processed/phase3_model_test.duckdb `
+  --seed tests/fixtures/model_seed.sql `
+  --install-spatial
+```
+
+La commande crée le schéma, charge l'échantillon et exécute toutes les
+validations transversales.
+
 ## Organisation des données
 
 - `data/raw/` : fichiers originaux, jamais modifiés ;

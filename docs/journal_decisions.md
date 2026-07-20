@@ -212,3 +212,29 @@
   opérationnelle dans `config/regles_modele.yml`.
 - Le bloc « Définir les règles » est terminé. Le schéma DuckDB peut maintenant
   être implémenté.
+
+## 2026-07-20 — Phase 3, implémentation du modèle
+
+- Le modèle est matérialisé dans DuckDB par un schéma versionné `0.1.0` : les
+  tables métier, leurs clés étrangères, contrôles locaux et trois vues de
+  lecture sont créés par un seul fichier SQL reproductible.
+- Les géométries utilisent le vrai type `GEOMETRY` de DuckDB Spatial. Le système
+  de travail est imposé à `EPSG:2154` ; l'extension est donc une dépendance
+  explicite de l'initialisation.
+- Les contraintes SQL bloquent notamment les intervalles de dates inversés,
+  les auto-relations, les protections à zéro ou deux cibles, les doublons
+  d'identifiants externes et les observations contemporaines vides.
+- Un validateur Python complète DuckDB pour les règles entre tables : existence
+  des cibles et champs de provenance, obligations des sites inclus ou
+  cartographiables, géométrie de référence, cohérence des exploitations et des
+  versions d'état, ordre des relations symétriques.
+- La vue `etats_actuels_courants` recompose chaque dimension séparément. Une
+  nouvelle observation d'accessibilité ne remplace donc pas une conservation
+  plus ancienne encore pertinente.
+- Le jeu `tests/fixtures/model_seed.sql` est entièrement synthétique. Il teste
+  trois sites fictifs, des activités successives, un transfert, une machine
+  déplacée, un site disparu sans géométrie et un état contemporain révisé.
+- Le dictionnaire passe en version 0.4 et distingue maintenant les types
+  conceptuels de leurs types DuckDB effectifs.
+- Le bloc « Implémenter le modèle » est terminé. La validation de phase doit
+  maintenant confronter ce modèle à plusieurs cas représentatifs du corpus.

@@ -23,9 +23,10 @@ Document vivant — dernière mise à jour : 20 juillet 2026
 | LIM-017 | Échantillonnage | Les échantillons sont petits, ciblés et, pour CASIAS, volontairement stratifiés | Les taux observés ne décrivent pas nécessairement les sources complètes | Présenter les effectifs bruts et mesurer à nouveau lors de l'extraction complète | permanente |
 | LIM-018 | Coordonnées POP et MH | Un point WGS84 valide ne garantit pas l'emprise ni la précision du bâtiment industriel | Risque de publier une localisation trop précise ou décalée | Qualifier la méthode et le niveau de précision avant publication | permanente |
 | LIM-019 | État actuel | Les champs de destination et de conservation sont absents ou peu renseignés dans les sources testées | L'état contemporain ne peut pas être produit automatiquement | Recourir à des sources récentes, à l'observation et à une date de vérification | permanente |
-| LIM-020 | Provenance | La cible générique de `mentions_sources` ne peut pas être protégée par une clé étrangère SQL unique | Une mention pourrait viser une entité ou un champ inexistant | Créer un validateur transversal obligatoire avant chaque export | ouverte |
+| LIM-020 | Provenance | La cible générique de `mentions_sources` ne peut pas être protégée par une clé étrangère SQL unique | Une mention pourrait viser une entité ou un champ inexistant | Le validateur transversal contrôle l'existence de la cible et du champ avant chaque export | resolue |
 | LIM-021 | Géométries | Un site peut posséder plusieurs points, parcelles ou emprises de précision différente | Le choix silencieux d'une seule géométrie masquerait l'incertitude | Conserver toutes les géométries et désigner explicitement la référence par usage | permanente |
 | LIM-022 | Dates historiques | La conversion d'une expression comme « vers 1850 » en intervalle repose sur une convention du projet | L'intervalle calculé pourrait être pris pour une datation fournie par la source | Conserver le texte original, la précision et la nature calculée de l'intervalle | permanente |
+| LIM-023 | DuckDB Spatial | Le type `GEOMETRY` dépend d'une extension DuckDB installée séparément | L'initialisation spatiale échoue sur un nouvel environnement sans cette extension | Fournir l'option `--install-spatial` et arrêter explicitement l'initialisation si l'extension manque | permanente |
 
 ## Règle de mise à jour
 

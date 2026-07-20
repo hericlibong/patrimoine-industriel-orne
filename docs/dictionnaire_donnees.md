@@ -1,7 +1,10 @@
-# Dictionnaire des données — version conceptuelle 0.3
+# Dictionnaire des données — version 0.4
 
-Statut : entités et règles structurelles validées le 20 juillet 2026.
-Les types SQL et contraintes seront matérialisés dans le schéma DuckDB.
+Statut : **modèle implémenté dans DuckDB le 20 juillet 2026**.
+
+Le schéma exécutable de référence est
+`src/patrimoine_orne/model/schema.sql`. Les contrôles qui portent sur plusieurs
+tables sont dans `src/patrimoine_orne/model/validation.py`.
 
 ## Conventions
 
@@ -12,6 +15,24 @@ Les types SQL et contraintes seront matérialisés dans le schéma DuckDB.
 - les références externes `IA`, `PM`, `PA`, `SSP` et `BNO` ne remplacent jamais
   les identifiants internes ;
 - les géométries ne sont pas stockées dans `sites`.
+
+## Correspondance avec DuckDB
+
+| Type du dictionnaire | Type DuckDB | Règle d'implémentation |
+|---|---|---|
+| identifiant interne | `UUID` | valeur v4 créée une seule fois ; `uuid()` par défaut |
+| code ou texte | `VARCHAR` | chaîne vide interdite dans les champs identifiants |
+| date | `DATE` | dates historiques imprécises stockées par intervalle |
+| horodatage | `TIMESTAMPTZ` | date et fuseau conservés |
+| booléen | `BOOLEAN` | `true`, `false` ou `NULL` si la règle l'autorise |
+| valeur de provenance | `JSON` | valeur originale ou normalisée structurée |
+| géométrie | `GEOMETRY` | extension DuckDB Spatial obligatoire, travail en EPSG:2154 |
+
+Les clés étrangères, unicités et contrôles simples sont appliqués directement
+par DuckDB. Le validateur transversal contrôle notamment les cibles génériques,
+les champs ciblés, les obligations conditionnelles des sites, la géométrie de
+référence et la cohérence des versions. Les vocabulaires détaillés seront
+ajoutés en phase 4.
 
 Une `date structurée` est matérialisée par quatre champs : `<nom>_min`,
 `<nom>_max`, `<nom>_precision_code` et `<nom>_texte_source`. Les entités métier
@@ -77,6 +98,7 @@ Une ligne représente une phase d'activité sur un site.
 
 | Champ | Type conceptuel | Description |
 |---|---|---|
+| `energie_activite_id` | identifiant | Identifiant interne du lien entre activité et énergie |
 | `activite_id` | identifiant | Phase d'activité concernée |
 | `energie_code` | code | Eau, bois, charbon, vapeur, électricité, etc. |
 | `role_energie_code` | code | Produite sur place, force motrice, combustible ou autre |
@@ -97,9 +119,9 @@ l'historique.
 | `usage_actuel_code` | code | Usage contemporain observé |
 | `accessibilite_code` | code | Visitable, visible, privé, inaccessible ou inconnu |
 | `date_verification` | date | Date de l'observation ou de la consultation |
-| `conservation_valide_jusqu_au` | date calculée | Échéance de fraîcheur de la conservation |
-| `usage_valide_jusqu_au` | date calculée | Échéance de fraîcheur de l'usage actuel |
-| `accessibilite_valide_jusqu_au` | date calculée | Échéance de fraîcheur de l'accessibilité |
+| `conservation_valide_jusqu_au` | date calculée dans la vue | Échéance de fraîcheur de la conservation |
+| `usage_valide_jusqu_au` | date calculée dans la vue | Échéance de fraîcheur de l'usage actuel |
+| `accessibilite_valide_jusqu_au` | date calculée dans la vue | Échéance de fraîcheur de l'accessibilité |
 | `methode_verification_code` | code | Terrain, source officielle, exploitant, image, etc. |
 | `fiabilite_code` | code | Niveau de confiance de l'observation |
 | `version_numero` | entier | Numéro croissant des observations du site |
@@ -115,7 +137,7 @@ une notice individuelle.
 
 | Champ | Type conceptuel | Description |
 |---|---|---|
-| `source_id` | identifiant | Identifiant stable défini dans le registre des sources |
+| `source_id` | code stable | Identifiant lisible défini dans le registre des sources |
 | `titre` | texte | Nom du fonds ou jeu de données |
 | `producteur` | texte | Organisme ou auteur responsable |
 | `role_code` | code | Principal, enrichissement, élargissement, contexte ou vérification |

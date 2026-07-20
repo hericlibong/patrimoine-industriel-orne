@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Socle de données du projet datajournalistique sur le patrimoine industriel de l'Orne"
 requires-python = ">=3.11"
 dependencies = [
-  "duckdb",
+  "duckdb>=1.4,<2",
   "geopandas",
   "pandas",
   "pyarrow",
@@ -26,10 +26,15 @@ dev = [
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+patrimoine_orne = ["model/*.sql"]
+
+[project.scripts]
+patrimoine-orne-db = "patrimoine_orne.model.database:main"
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 100
 target-version = "py311"
-

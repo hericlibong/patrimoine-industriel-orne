@@ -71,8 +71,8 @@ Les tables du corpus utilisent des suppressions logiques. Une ligne déjà cité
 ou publiée n'est pas supprimée physiquement et aucune suppression en cascade
 n'est autorisée dans les tables métier.
 
-Les clés étrangères exactes seront créées dans le schéma DuckDB. Les cibles
-génériques de `mentions_sources` et `identifiants_externes` seront contrôlées par
+Les clés étrangères exactes sont créées dans le schéma DuckDB. Les cibles
+génériques de `mentions_sources` et `identifiants_externes` sont contrôlées par
 un validateur transversal.
 
 ## 3. Champs obligatoires
@@ -231,7 +231,7 @@ Chaque nouvelle observation possède :
 
 Une observation n'écrase et ne supprime jamais une ancienne ligne.
 
-La vue `etats_actuels_courants` sélectionnera, pour chaque site et pour chaque
+La vue `etats_actuels_courants` sélectionne, pour chaque site et pour chaque
 dimension, la dernière valeur non annulée. Ainsi, une nouvelle vérification de
 l'accessibilité ne remplace pas automatiquement une observation de conservation
 encore valable.
@@ -248,6 +248,6 @@ un état actuel ; elle reste une mention historique.
 
 ## Validation du bloc
 
-Ces règles sont suffisamment précises pour écrire le schéma DuckDB, ses
-contraintes et ses tests. Les vocabulaires détaillés restent provisoires jusqu'à
-la phase 4.
+Ces règles sont matérialisées par le schéma DuckDB, ses contraintes, le
+validateur transversal et les tests automatisés. Les vocabulaires détaillés
+restent provisoires jusqu'à la phase 4.
