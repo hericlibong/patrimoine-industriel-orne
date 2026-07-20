@@ -8,6 +8,9 @@
 4. Ne jamais écraser une correction manuelle par un traitement automatique.
 5. Rendre chaque export reproductible par un script.
 
+Les règles de nommage, d'horodatage et de métadonnées techniques sont définies
+dans `docs/conventions_extraction.md`.
+
 ## Nature des informations
 
 Chaque information doit pouvoir être identifiée comme :

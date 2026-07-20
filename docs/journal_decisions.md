@@ -71,3 +71,18 @@
 - Les limites méthodologiques et techniques sont centralisées dans le registre
   vivant `reports/quality/limites.md` et seront reprises dans le rapport de
   qualité final.
+
+## 2026-07-20 — Phase 2, préparation des extractions
+
+- La phase 2 est conduite bloc par bloc, avec validation avant de passer au bloc
+  suivant.
+- Les fichiers bruts sont rangés par source, année et date de récupération.
+- Leur nom contient la source, la ressource, le périmètre et l'heure UTC.
+- Chaque fichier brut possède un JSON voisin décrivant l'accès, la licence, la
+  requête, la taille, le hash SHA-256 et la version du code.
+- Un fichier brut ou son fichier de métadonnées ne peut pas être remplacé
+  silencieusement.
+- Les modules communs de nommage et de métadonnées sont couverts par 11 tests
+  techniques sans accès réseau.
+- Le bloc « Préparer les extractions » est terminé. Le bloc suivant peut tester
+  les cinq sources principales sur des échantillons limités.
