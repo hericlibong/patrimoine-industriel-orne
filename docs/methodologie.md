@@ -30,6 +30,34 @@ utiliseront, selon leur disponibilité :
 
 Les rapprochements ambigus seront conservés comme propositions à vérifier.
 
+## Comptage des sites
+
+Un enregistrement provenant d'une source n'est pas automatiquement un site.
+Le projet distingue cinq niveaux :
+
+1. `notice_source` : ligne, notice ou dossier tel que fourni par une source ;
+2. `site_candidat` : implantation industrielle possible, encore à vérifier ;
+3. `site_rapproche` : plusieurs mentions ont été réunies autour d'une même
+   emprise ou d'un même établissement ;
+4. `site_cartographiable` : site rapproché disposant d'une localisation dont la
+   précision est connue ;
+5. `site_publie` : site cartographiable ayant passé le contrôle éditorial.
+
+Le nombre de notices, notamment les 319 dossiers de l'Inventaire ou les entrées
+CASIAS, ne doit jamais être présenté comme le nombre définitif de sites.
+
+Le décompte final sera produit après :
+
+- rapprochement des références entre sources ;
+- détection des doublons et des sites composites ;
+- distinction des déplacements, successions et changements d'activité ;
+- application des critères d'inclusion chronologique et thématique ;
+- qualification de la précision géographique ;
+- contrôle des cas ambigus.
+
+À chaque livraison, les nombres de notices, candidats, sites rapprochés, sites
+cartographiables et sites publiés seront indiqués séparément.
+
 ## Géolocalisation
 
 La précision doit être enregistrée séparément des coordonnées. Un centroïde de
@@ -97,3 +125,19 @@ est marquée `a_verifier`, les versions concurrentes sont conservées et le choi
 La présence d'une image en ligne ne vaut pas autorisation de réutilisation. Les
 droits, crédits et conditions de diffusion doivent être enregistrés avant toute
 publication.
+
+## Documentation des limites
+
+Les limites rencontrées sont consignées dans
+`reports/quality/limites.md`. Pour chaque limite, le projet enregistre :
+
+- la source ou l'étape concernée ;
+- le problème observé ;
+- son effet possible sur les résultats ou le récit ;
+- les sites ou données concernés lorsque cela peut être mesuré ;
+- la solution appliquée ou la vérification nécessaire ;
+- le statut de résolution et la date du constat.
+
+Une limite non résolue n'interdit pas nécessairement la publication, mais elle
+doit être visible dans le rapport de qualité et ne doit jamais être compensée par
+une précision inventée.

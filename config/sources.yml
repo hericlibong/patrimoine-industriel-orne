@@ -1,96 +1,257 @@
-# Registre de départ. Aucun statut "validee" ne doit être attribué avant audit.
-version: 0.1
+version: 1.0
 updated_at: 2026-07-19
 
-statuses:
+roles:
   - principale
   - enrichissement
+  - elargissement
   - contexte_geographique
   - verification
+  - ecartee
+
+audit_statuses:
+  - a_auditer
+  - documentation_verifiee
+  - acces_teste
+  - validee
+  - validee_avec_reserves
+  - bloquee
   - ecartee
 
 sources:
   - id: inventaire_normandie_orne
     name: Inventaire du patrimoine industriel de l'Orne
     producer: Région Normandie - Inventaire général du patrimoine culturel
-    role_candidate: principale
+    priority: P0
+    role: principale
     url: https://inventaire-patrimoine.normandie.fr/dossier/IA61000851/corpus
-    audit_status: a_auditer
+    access: [html, pdf]
+    identifier: reference_IA
+    audit_status: validee_avec_reserves
+    limits:
+      - 319 dossiers, mais aucun export global identifié
+      - contrôle JavaScript contre les requêtes HTTP directes
+      - géolocalisation absente sur de nombreuses fiches
+      - droits des textes, PDF et images à vérifier séparément
 
   - id: pop_merimee
     name: POP - Mérimée
     producer: Ministère de la Culture
-    role_candidate: enrichissement
+    priority: P1
+    role: enrichissement
     url: https://pop.culture.gouv.fr/
-    audit_status: a_auditer
+    access: [html, csv_mh, geojson_mh, api_mh]
+    identifier: reference_Merimee
+    audit_status: validee_avec_reserves
+    limits:
+      - l'export ouvert testé correspond aux Monuments historiques
+      - ne pas confondre protection MH et corpus complet de l'Inventaire
+      - droits des textes et médias à contrôler notice par notice
 
   - id: pop_palissy
     name: POP - Palissy
     producer: Ministère de la Culture
-    role_candidate: enrichissement
-    url: https://pop.culture.gouv.fr/
-    audit_status: a_auditer
+    priority: P2
+    role: enrichissement
+    url: https://www.data.gouv.fr/datasets/liste-des-objets-proteges-au-titre-des-monuments-historiques
+    access: [html, csv]
+    identifier: reference_PM
+    audit_status: validee_avec_reserves
+    limits:
+      - export national d'environ 363 Mo
+      - liens aux sites parfois indirects
+      - export testé limité aux objets protégés
 
   - id: monuments_historiques_data_culture
     name: Immeubles protégés au titre des Monuments historiques
     producer: Ministère de la Culture
-    role_candidate: enrichissement
+    priority: P1
+    role: enrichissement
     url: https://data.culture.gouv.fr/explore/dataset/liste-des-immeubles-proteges-au-titre-des-monuments-historiques/
-    audit_status: a_auditer
+    access: [csv, geojson, api]
+    identifier: reference_Merimee
+    audit_status: validee
+    metrics_at_audit:
+      orne_records: 420
+      with_wgs84: 341
+      industrial_keyword_candidates: 18
+    limits:
+      - recense les protections juridiques et non tout le patrimoine industriel
 
   - id: casias
     name: CASIAS
-    producer: Géorisques
-    role_candidate: enrichissement
-    url: https://www.georisques.gouv.fr/donnees/bases-de-donnees/inventaire-historique-de-sites-industriels-et-activites-de-service
-    audit_status: a_auditer
+    producer: Géorisques / DREAL Normandie
+    priority: P1
+    role: elargissement
+    url: https://www.data.gouv.fr/datasets/carte-des-anciens-sites-industriels-et-activites-de-services-casias-normandie
+    access: [csv_national, fiches, shapefile, wfs]
+    identifier: code_inventaire_ou_SSP_BASIAS
+    audit_status: validee_avec_reserves
+    metrics_at_audit:
+      orne_wfs_records: 2052
+      with_xy_wgs84: 209
+      declared_not_geolocated: 1853
+    limits:
+      - ne prouve ni pollution ni valeur patrimoniale
+      - géométrie WFS potentiellement communale pour les sites non géolocalisés
+      - champ d'activité vide dans la couche WFS testée
+      - fort bruit hors patrimoine
 
   - id: ign
     name: IGN - Géoplateforme
     producer: Institut national de l'information géographique et forestière
-    role_candidate: contexte_geographique
+    priority: P1
+    role: contexte_geographique
     url: https://geoservices.ign.fr/
-    audit_status: a_auditer
+    access: [wfs, wmts, api, telechargement]
+    audit_status: validee_avec_reserves
+    limits:
+      - produit, couche et millésime à enregistrer à chaque extraction
 
   - id: cadastre
     name: Cadastre ouvert
     producer: Etalab / DGFiP
-    role_candidate: contexte_geographique
+    priority: P1
+    role: contexte_geographique
     url: https://cadastre.data.gouv.fr/
-    audit_status: a_auditer
+    access: [geojson, shapefile]
+    identifier: references_cadastrales
+    audit_status: validee_avec_reserves
+    limits:
+      - ne prouve ni emprise historique ni propriété
 
   - id: ban
     name: Base Adresse Nationale
     producer: État et partenaires
-    role_candidate: contexte_geographique
+    priority: P1
+    role: contexte_geographique
     url: https://adresse.data.gouv.fr/
-    audit_status: a_auditer
+    access: [csv_departemental, geocodeur_geoplateforme]
+    identifier: id_ban
+    audit_status: validee_avec_reserves
+    limits:
+      - un résultat géocodé ne constitue pas une emprise validée
+
+  - id: hydrographie
+    name: BD TOPAGE
+    producer: IGN / OFB / Sandre
+    priority: P1
+    role: contexte_geographique
+    url: https://www.data.gouv.fr/datasets/bd-topage-r
+    access: [shapefile_national, services]
+    audit_status: validee_avec_reserves
+    limits:
+      - téléchargement national volumineux
+      - une proximité calculée ne prouve pas un usage industriel de l'eau
+
+  - id: forets
+    name: BD Forêt v2
+    producer: IGN
+    priority: P2
+    role: contexte_geographique
+    url: https://www.data.gouv.fr/datasets/bd-foret-r
+    access: [fichiers_departementaux]
+    audit_status: validee_avec_reserves
+    limits:
+      - millésime variable et précision non cadastrale
+
+  - id: forets_anciennes
+    name: BD Forêts anciennes
+    producer: IGN
+    priority: P1
+    role: contexte_geographique
+    url: https://www.data.gouv.fr/datasets/bd-forets-anciennes
+    access: [wms, wmts]
+    audit_status: validee_avec_reserves
+    limits:
+      - couche reconstruite à partir de cartes vers 1850
 
   - id: brgm
-    name: Données géologiques et minières
+    name: Cartes géologiques harmonisées et services InfoTerre
     producer: BRGM
-    role_candidate: contexte_geographique
-    url: https://infoterre.brgm.fr/
-    audit_status: a_auditer
+    priority: P2
+    role: contexte_geographique
+    url: https://infoterre.brgm.fr/page/geoservices-ogc
+    access: [shapefile, wms, wfs]
+    audit_status: validee_avec_reserves
+    limits:
+      - conditions de réutilisation à fixer produit par produit
+      - la géologie ne démontre pas une exploitation historique
+
+  - id: rail
+    name: Réseau ferré actuel et historique
+    producer: SNCF Réseau / IGN / Archives départementales de l'Orne
+    priority: P2
+    role: contexte_geographique
+    url: https://www.data.gouv.fr/organizations/sncf/datasets
+    access: [fichiers_SNCF, bd_topo, cartes_archives]
+    audit_status: validee_avec_reserves
+    limits:
+      - aucun jeu unique retenu pour le réseau historique
+      - numérisation historique à sourcer et dater
 
   - id: osm
     name: OpenStreetMap
     producer: Contributeurs OpenStreetMap
-    role_candidate: verification
+    priority: P2
+    role: verification
     url: https://www.openstreetmap.org/
-    audit_status: a_auditer
+    access: [overpass, pbf]
+    identifier: type_et_id_osm
+    audit_status: validee_avec_reserves
+    limits:
+      - couverture et tags contributifs hétérogènes
+      - ODbL, attribution et partage à l'identique à respecter
 
   - id: archives_orne
     name: Archives départementales de l'Orne
     producer: Département de l'Orne
-    role_candidate: verification
-    url: https://archives.orne.fr/
-    audit_status: a_auditer
+    priority: P2
+    role: verification
+    url: https://archives.orne.fr/rechercher-dans-nos-fonds-et-collections
+    access: [html, instruments_de_recherche, images]
+    identifier: cote_archive
+    audit_status: validee_avec_reserves
+    limits:
+      - extraction surtout manuelle
+      - droits de reproduction à contrôler document par document
 
   - id: gallica
     name: Gallica
     producer: Bibliothèque nationale de France
-    role_candidate: verification
+    priority: P2
+    role: verification
     url: https://gallica.bnf.fr/
-    audit_status: a_auditer
+    access: [sru, oai, ocr, iiif, html]
+    identifier: ark
+    audit_status: validee_avec_reserves
+    limits:
+      - droits variables selon document, partenaire et usage
 
+  - id: tourisme_local
+    name: Sources touristiques, institutionnelles et exploitants
+    producer: Orne Tourisme / offices / communes / exploitants
+    priority: P3
+    role: verification
+    url: https://www.bohin.com/pages/organiser-sa-visite
+    access: [html]
+    audit_status: validee_avec_reserves
+    limits:
+      - informations pratiques volatiles
+      - faible valeur de preuve historique
+      - textes et images protégés sauf mention contraire
+
+excluded_access:
+  - id: api_adresse_legacy
+    name: API Adresse historique
+    url: https://api-adresse.data.gouv.fr/
+    audit_status: ecartee
+    reason: service abandonné au profit du géocodeur Géoplateforme
+  - id: casias_commune_geometry
+    name: Géométrie communale CASIAS utilisée comme localisation de site
+    audit_status: ecartee
+    reason: créerait une précision artificielle
+  - id: osm_public_tiles_production
+    name: Tuiles publiques OSM comme fond applicatif de production
+    audit_status: ecartee
+    reason: service public non garanti pour un usage soutenu
