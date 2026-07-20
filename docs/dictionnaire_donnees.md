@@ -1,6 +1,6 @@
-# Dictionnaire des données — version 0.4
+# Dictionnaire des données — version 1.0
 
-Statut : **modèle implémenté dans DuckDB le 20 juillet 2026**.
+Statut : **modèle V1 approuvé le 20 juillet 2026**.
 
 Le schéma exécutable de référence est
 `src/patrimoine_orne/model/schema.sql`. Les contrôles qui portent sur plusieurs
@@ -314,3 +314,25 @@ ligne dans cette table.
 
 Un site ne peut pas être relié à lui-même. Les relations incertaines ne
 fusionnent jamais automatiquement les sites.
+
+## Table `propositions_rapprochement`
+
+Une ligne représente une hypothèse de doublon entre deux sites candidats. Elle
+ne fusionne jamais les sites automatiquement.
+
+| Champ | Type conceptuel | Description |
+|---|---|---|
+| `proposition_rapprochement_id` | identifiant | Identifiant interne de la proposition |
+| `site_a_id` | identifiant | Premier site candidat, UUID le plus petit |
+| `site_b_id` | identifiant | Second site candidat, UUID le plus grand |
+| `methode_code` | code | Méthode ayant produit la proposition |
+| `score_similarite` | décimal nullable | Indice technique compris entre 0 et 1, jamais décision automatique |
+| `criteres` | JSON | Nom, commune, adresse, distance et autres indices comparés |
+| `statut_decision_code` | code | À vérifier, confirmé même site ou rejeté sites distincts |
+| `site_canonique_id` | identifiant nullable | Site conservé uniquement après confirmation |
+| `date_decision` | date nullable | Date de la décision humaine |
+| `fiabilite_code` | code | Niveau de confiance de la proposition ou décision |
+| `notes` | texte | Justification et réserves |
+
+Une proposition ouverte conserve deux sites distincts. Une confirmation désigne
+l'un des deux comme canonique ; un rejet conserve définitivement les deux sites.

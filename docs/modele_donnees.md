@@ -1,6 +1,6 @@
 # Modèle de données — entités principales
 
-Statut : **modèle implémenté dans DuckDB — version 0.4**
+Statut : **modèle V1 approuvé — version 1.0**
 Date : 20 juillet 2026
 
 ## Principe central
@@ -13,8 +13,8 @@ preuves utilisées :
 - `etats_actuels` représente une observation contemporaine datée ;
 - `sources` décrit les fonds et jeux de données ;
 - `mentions_sources` relie une information précise à sa preuve ;
-- les autres tables décrivent protections, objets, géométries, exploitants et
-  relations entre lieux.
+- les autres tables décrivent protections, objets, géométries, exploitants,
+  relations entre lieux et propositions de rapprochement.
 
 Une notice source n'est jamais transformée automatiquement en site. Plusieurs
 notices peuvent documenter un même site et une notice peut nécessiter plusieurs
@@ -36,6 +36,8 @@ erDiagram
     ACTIVITES o|--o{ EXPLOITATIONS : "peut préciser"
     SITES ||--o{ RELATIONS_SITES : "site source"
     SITES ||--o{ RELATIONS_SITES : "site cible"
+    SITES ||--o{ PROPOSITIONS_RAPPROCHEMENT : "candidat A"
+    SITES ||--o{ PROPOSITIONS_RAPPROCHEMENT : "candidat B"
     SOURCES ||--o{ MENTIONS_SOURCES : "fournit"
     SOURCES ||--o{ IDENTIFIANTS_EXTERNES : "attribue"
 ```
@@ -185,8 +187,20 @@ Types initiaux :
 - `partage_infrastructure_avec` : relation symétrique documentée.
 
 Chaque relation possède une direction, sauf les types explicitement
-symétriques. Une relation ne peut pas relier un site à lui-même. Une proposition
-incertaine reste au statut `a_verifier` et ne déclenche aucune fusion.
+symétriques. Une relation ne peut pas relier un site à lui-même. Une relation
+fonctionnelle incertaine peut rester au statut `a_verifier`, mais une hypothèse
+de doublon appartient à la table dédiée ci-dessous.
+
+### `propositions_rapprochement`
+
+Cette table conserve une hypothèse selon laquelle deux candidats pourraient
+désigner la même emprise. Elle enregistre la méthode, les critères, un score
+éventuel, la fiabilité et la décision humaine.
+
+Tant que la proposition reste `a_verifier`, les deux sites gardent des UUID
+distincts et aucun site canonique n'est désigné. Une proposition peut ensuite
+être confirmée comme même site ou rejetée comme deux sites distincts.
+`relations_sites` n'est jamais utilisée pour cette déduplication technique.
 
 ## Tables auxiliaires nécessaires
 
@@ -198,6 +212,7 @@ incertaine reste au statut `a_verifier` et ne déclenche aucune fusion.
 | `exploitations` | relation datée entre site, exploitant et éventuellement activité |
 | `noms_exploitants` | raisons sociales et variantes historiques |
 | `identifiants_externes` | correspondance entre références des sources et UUID internes |
+| `propositions_rapprochement` | hypothèses de doublon conservées jusqu'à décision humaine |
 
 Ces tables sont incluses dans le modèle conceptuel. Leurs règles communes sont
 fixées dans `docs/regles_modele.md` et matérialisées par le schéma SQL et le
@@ -218,6 +233,8 @@ les sites :
 6. un site disparu connu seulement à l'échelle communale : un site conservé
    sans géométrie artificielle ;
 7. un état contemporain révisé : plusieurs observations datées, sans écrasement.
+8. deux notices ressemblantes : deux sites candidats et une proposition de
+   rapprochement, sans fusion automatique.
 
 ## Règles validées
 
@@ -230,3 +247,6 @@ implémentés. Restent ouverts pour les blocs suivants :
 
 - la version définitive des vocabulaires contrôlés ;
 - les index de performance, à décider après mesure sur un corpus réel.
+
+Le résultat des cinq scénarios d'approbation est détaillé dans
+`reports/quality/phase3_validation_modele.md`.

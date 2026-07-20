@@ -27,6 +27,7 @@ Document vivant — dernière mise à jour : 20 juillet 2026
 | LIM-021 | Géométries | Un site peut posséder plusieurs points, parcelles ou emprises de précision différente | Le choix silencieux d'une seule géométrie masquerait l'incertitude | Conserver toutes les géométries et désigner explicitement la référence par usage | permanente |
 | LIM-022 | Dates historiques | La conversion d'une expression comme « vers 1850 » en intervalle repose sur une convention du projet | L'intervalle calculé pourrait être pris pour une datation fournie par la source | Conserver le texte original, la précision et la nature calculée de l'intervalle | permanente |
 | LIM-023 | DuckDB Spatial | Le type `GEOMETRY` dépend d'une extension DuckDB installée séparément | L'initialisation spatiale échoue sur un nouvel environnement sans cette extension | Fournir l'option `--install-spatial` et arrêter explicitement l'initialisation si l'extension manque | permanente |
+| LIM-024 | Validation du modèle | Les cinq cas de phase 3 sont synthétiques | Leur réussite valide la structure, pas la qualité ni l'exhaustivité du futur corpus | Rejouer ces contrôles sur l'échantillon réel du corpus pilote | ouverte |
 
 ## Règle de mise à jour
 

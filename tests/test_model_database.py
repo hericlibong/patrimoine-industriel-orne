@@ -14,6 +14,7 @@ from patrimoine_orne.model.database import execute_sql_file
 
 
 SEED_PATH = Path(__file__).parent / "fixtures" / "model_seed.sql"
+PHASE3_CASES_PATH = Path(__file__).parent / "fixtures" / "phase3_validation_cases.sql"
 
 
 class ModelDatabaseTests(TestCase):
@@ -31,6 +32,12 @@ class ModelDatabaseTests(TestCase):
 
     def test_seed_respects_all_model_rules(self) -> None:
         self.assertEqual(validate_database(self.connection), [])
+        self.assertEqual(
+            self.connection.execute(
+                "SELECT schema_version FROM schema_metadata"
+            ).fetchone()[0],
+            "1.0.0",
+        )
         self.assertEqual(
             self.connection.execute("SELECT count(*) FROM sites").fetchone()[0],
             3,
@@ -52,6 +59,7 @@ class ModelDatabaseTests(TestCase):
                 "sources",
                 "mentions_sources",
                 "protections",
+                "propositions_rapprochement",
                 "objets_techniques",
                 "geometries",
                 "exploitants",
@@ -175,3 +183,138 @@ class ModelDatabaseTests(TestCase):
             """
         )
         self.assertIn("PLUSIEURS_GEOMETRIES_REFERENCE", self.issue_codes())
+
+    def test_match_proposal_uses_canonical_pair_order(self) -> None:
+        self.connection.execute(
+            """
+            INSERT INTO propositions_rapprochement (
+                site_a_id, site_b_id, methode_code, statut_decision_code,
+                fiabilite_code
+            ) VALUES (
+                '10000000-0000-4000-8000-000000000002',
+                '10000000-0000-4000-8000-000000000001',
+                'test', 'a_verifier', 'faible'
+            )
+            """
+        )
+        self.assertIn("RAPPROCHEMENT_NON_CANONIQUE", self.issue_codes())
+
+    def test_confirmed_match_requires_effective_fusion(self) -> None:
+        self.connection.execute(
+            """
+            INSERT INTO propositions_rapprochement (
+                site_a_id, site_b_id, methode_code, statut_decision_code,
+                site_canonique_id, date_decision, fiabilite_code
+            ) VALUES (
+                '10000000-0000-4000-8000-000000000001',
+                '10000000-0000-4000-8000-000000000002',
+                'test', 'confirme_meme_site',
+                '10000000-0000-4000-8000-000000000001',
+                DATE '2026-07-20', 'forte'
+            )
+            """
+        )
+        self.assertIn("RAPPROCHEMENT_CONFIRME_SANS_FUSION", self.issue_codes())
+
+
+class Phase3ValidationCasesTests(TestCase):
+    def setUp(self) -> None:
+        try:
+            self.connection = connect_database()
+        except RuntimeError as error:
+            self.skipTest(str(error))
+        self.addCleanup(self.connection.close)
+        initialize_database(self.connection)
+        execute_sql_file(self.connection, SEED_PATH)
+        execute_sql_file(self.connection, PHASE3_CASES_PATH)
+        self.assertEqual(validate_database(self.connection), [])
+
+    def test_simple_site(self) -> None:
+        site_id = "10000000-0000-4000-8000-000000000004"
+        counts = self.connection.execute(
+            """
+            SELECT
+                (SELECT count(*) FROM activites WHERE site_id = ?),
+                (SELECT count(*) FROM etats_actuels WHERE site_id = ?),
+                (SELECT count(*) FROM geometries
+                 WHERE site_id = ? AND geometrie_reference),
+                (SELECT count(*) FROM mentions_sources
+                 WHERE entite_type_code = 'sites' AND entite_id = ?)
+            """,
+            [site_id, site_id, site_id, site_id],
+        ).fetchone()
+        self.assertEqual(counts, (1, 1, 1, 1))
+
+    def test_multi_activity_site(self) -> None:
+        activities = self.connection.execute(
+            """
+            SELECT activite_code, debut_min, fin_max
+            FROM activites
+            WHERE site_id = '10000000-0000-4000-8000-000000000001'
+            ORDER BY debut_min
+            """
+        ).fetchall()
+        self.assertEqual([row[0] for row in activities], ["forge", "moulin_farines"])
+        self.assertLess(activities[0][2], activities[1][1])
+
+    def test_reconverted_site(self) -> None:
+        activity = self.connection.execute(
+            """
+            SELECT activite_code, fin_max
+            FROM activites
+            WHERE site_id = '10000000-0000-4000-8000-000000000005'
+            """
+        ).fetchone()
+        current_state = self.connection.execute(
+            """
+            SELECT conservation_code, usage_actuel_code, accessibilite_code
+            FROM etats_actuels_courants
+            WHERE site_id = '10000000-0000-4000-8000-000000000005'
+            """
+        ).fetchone()
+        self.assertEqual(activity[0], "filature")
+        self.assertEqual(str(activity[1]), "1960-12-31")
+        self.assertEqual(current_state, ("conserve", "equipement_culturel", "visitable"))
+
+    def test_disappeared_site_without_fake_geometry(self) -> None:
+        result = self.connection.execute(
+            """
+            SELECT courant.conservation_code, count(geometrie.geometrie_id)
+            FROM etats_actuels_courants AS courant
+            LEFT JOIN geometries AS geometrie ON geometrie.site_id = courant.site_id
+            WHERE courant.site_id = '10000000-0000-4000-8000-000000000003'
+            GROUP BY courant.conservation_code
+            """
+        ).fetchone()
+        self.assertEqual(result, ("disparu", 0))
+
+    def test_uncertain_match_remains_two_sites(self) -> None:
+        proposal = self.connection.execute(
+            """
+            SELECT proposition.statut_decision_code,
+                   proposition.site_canonique_id,
+                   site_a.statut_corpus_code,
+                   site_b.statut_corpus_code,
+                   site_a.decision_inclusion_code,
+                   site_b.decision_inclusion_code
+            FROM propositions_rapprochement AS proposition
+            JOIN sites AS site_a ON site_a.site_id = proposition.site_a_id
+            JOIN sites AS site_b ON site_b.site_id = proposition.site_b_id
+            WHERE proposition.proposition_rapprochement_id =
+                'a0000000-0000-4000-8000-000000000001'
+            """
+        ).fetchone()
+        self.assertEqual(
+            proposal,
+            ("a_verifier", None, "candidat", "candidat", "a_verifier", "a_verifier"),
+        )
+        candidate_count = self.connection.execute(
+            """
+            SELECT count(*) FROM sites
+            WHERE site_id IN (
+                '10000000-0000-4000-8000-000000000006',
+                '10000000-0000-4000-8000-000000000007'
+            )
+            """
+        ).fetchone()[0]
+        self.assertEqual(candidate_count, 2)

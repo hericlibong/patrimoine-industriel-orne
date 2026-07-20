@@ -33,6 +33,10 @@ TARGETS = {
     "noms_sites": ("noms_sites", "nom_site_id"),
     "objets_techniques": ("objets_techniques", "objet_technique_id"),
     "protections": ("protections", "protection_id"),
+    "propositions_rapprochement": (
+        "propositions_rapprochement",
+        "proposition_rapprochement_id",
+    ),
     "relations_sites": ("relations_sites", "relation_site_id"),
     "sites": ("sites", "site_id"),
 }
@@ -320,6 +324,82 @@ def validate_database(connection: duckdb.DuckDBPyConnection) -> list[ValidationI
                 "relations_sites",
                 str(relation_id[0]),
                 f"Les UUID de la relation {symmetric_type!r} doivent etre tries.",
+            )
+        )
+
+    for proposition_id in _rows(
+        connection,
+        """
+        SELECT proposition_rapprochement_id
+        FROM propositions_rapprochement
+        WHERE statut_enregistrement_code = 'actif'
+          AND CAST(site_a_id AS VARCHAR) > CAST(site_b_id AS VARCHAR)
+        """,
+    ):
+        issues.append(
+            ValidationIssue(
+                "RAPPROCHEMENT_NON_CANONIQUE",
+                "propositions_rapprochement",
+                str(proposition_id[0]),
+                "Les deux UUID d'une proposition doivent etre tries.",
+            )
+        )
+
+    for proposition_id in _rows(
+        connection,
+        """
+        SELECT proposition.proposition_rapprochement_id
+        FROM propositions_rapprochement AS proposition
+        JOIN sites AS site_a ON site_a.site_id = proposition.site_a_id
+        JOIN sites AS site_b ON site_b.site_id = proposition.site_b_id
+        WHERE proposition.statut_enregistrement_code = 'actif'
+          AND proposition.statut_decision_code = 'a_verifier'
+          AND (
+              site_a.statut_enregistrement_code = 'fusionne'
+              OR site_b.statut_enregistrement_code = 'fusionne'
+          )
+        """,
+    ):
+        issues.append(
+            ValidationIssue(
+                "RAPPROCHEMENT_OUVERT_SUR_SITE_FUSIONNE",
+                "propositions_rapprochement",
+                str(proposition_id[0]),
+                "Une proposition ouverte ne peut pas viser un site deja fusionne.",
+            )
+        )
+
+    for proposition_id in _rows(
+        connection,
+        """
+        SELECT proposition.proposition_rapprochement_id
+        FROM propositions_rapprochement AS proposition
+        JOIN sites AS site_a ON site_a.site_id = proposition.site_a_id
+        JOIN sites AS site_b ON site_b.site_id = proposition.site_b_id
+        WHERE proposition.statut_enregistrement_code = 'actif'
+          AND proposition.statut_decision_code = 'confirme_meme_site'
+          AND NOT (
+              (
+                  proposition.site_canonique_id = site_a.site_id
+                  AND site_a.statut_enregistrement_code = 'actif'
+                  AND site_b.statut_enregistrement_code = 'fusionne'
+                  AND site_b.site_id_canonique = site_a.site_id
+              )
+              OR (
+                  proposition.site_canonique_id = site_b.site_id
+                  AND site_b.statut_enregistrement_code = 'actif'
+                  AND site_a.statut_enregistrement_code = 'fusionne'
+                  AND site_a.site_id_canonique = site_b.site_id
+              )
+          )
+        """,
+    ):
+        issues.append(
+            ValidationIssue(
+                "RAPPROCHEMENT_CONFIRME_SANS_FUSION",
+                "propositions_rapprochement",
+                str(proposition_id[0]),
+                "La confirmation doit fusionner l'autre site vers le site canonique.",
             )
         )
 

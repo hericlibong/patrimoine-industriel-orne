@@ -9,7 +9,7 @@ reproductible.
 
 ## État du projet
 
-**Phases 0 à 2 terminées — phase 3 en cours.**
+**Phases 0 à 3 terminées — modèle de données V1 approuvé.**
 
 Le suivi détaillé est maintenu localement dans `docs/roadmap.md`, qui n'est pas
 versionné.
@@ -28,6 +28,7 @@ versionné.
 - [Périmètre opérationnel](config/perimetre.yml)
 - [Méthodes d'extraction validées](config/extraction.yml)
 - [Règles structurelles du modèle](config/regles_modele.yml)
+- [Validation du modèle V1](reports/quality/phase3_validation_modele.md)
 
 ## Base DuckDB de test
 

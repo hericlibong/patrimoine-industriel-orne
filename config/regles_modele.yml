@@ -1,5 +1,5 @@
-version: 1.0
-status: valide
+version: 1.1
+status: modele_v1_valide
 updated_at: 2026-07-20
 
 identifiants:
@@ -31,6 +31,12 @@ relations:
   relations_sites:
     auto_relation_interdite: true
     symetriques_ordre_uuid_canonique: true
+  propositions_rapprochement:
+    table: propositions_rapprochement
+    fusion_automatique: interdite
+    sites_distincts_avant_decision: true
+    ordre_uuid_canonique: true
+    decisions: [a_verifier, confirme_meme_site, rejete_sites_distincts]
 
 champs_techniques_communs:
   obligatoires:
@@ -67,6 +73,8 @@ champs_obligatoires:
     toujours: [exploitation_id, site_id, exploitant_id, role_code, fiabilite_code]
   relations_sites:
     toujours: [relation_site_id, site_source_id, site_cible_id, type_relation_code, statut_validation_code, fiabilite_code]
+  propositions_rapprochement:
+    toujours: [proposition_rapprochement_id, site_a_id, site_b_id, methode_code, statut_decision_code, fiabilite_code]
 
 valeurs_absentes:
   null: aucune_valeur_normalisee_stockee

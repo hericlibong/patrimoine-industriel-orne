@@ -176,3 +176,19 @@ L'automatisation est évaluée séparément pour l'acquisition, le parsing et la
 publication. Une extraction automatisable peut produire un simple candidat :
 l'inclusion patrimoniale, les rapprochements incertains et la situation actuelle
 restent soumis à une validation humaine.
+
+## Validation du modèle de données
+
+Le modèle V1 est validé sur cinq scénarios reproductibles : site simple, site
+multi-activités, site reconverti, site disparu et rapprochement incertain. Les
+cas sont synthétiques et ne sont jamais mélangés au futur corpus réel.
+
+Chaque scénario est chargé dans une base DuckDB neuve, puis contrôlé par des
+requêtes automatisées et par le validateur transversal. Une validation réussie
+signifie que la structure représente le cas sans duplication, perte d'historique
+ou précision géographique inventée. Elle ne prouve pas la qualité des sources.
+
+Un rapprochement incertain conserve deux UUID et crée une proposition à
+vérifier. Aucun score de similarité, même élevé, ne déclenche de fusion. La
+décision et sa date doivent être enregistrées avant de désigner un site
+canonique.

@@ -15,3 +15,7 @@ Les tests du modèle chargent l'extension DuckDB Spatial, créent une base en
 mémoire, injectent `fixtures/model_seed.sql`, puis vérifient les contraintes SQL,
 les validations entre tables et la vue des états actuels. Si l'extension
 spatiale n'est pas installée, ces seuls tests sont ignorés explicitement.
+
+`fixtures/phase3_validation_cases.sql` ajoute les cinq scénarios qui ont servi à
+approuver le modèle V1. Ces lignes sont toutes fictives et ne doivent jamais être
+exportées dans le corpus patrimonial.

@@ -3,7 +3,8 @@ CREATE TABLE IF NOT EXISTS schema_metadata (
     installed_at TIMESTAMPTZ NOT NULL DEFAULT current_timestamp
 );
 
-INSERT OR IGNORE INTO schema_metadata (schema_version) VALUES ('0.1.0');
+DELETE FROM schema_metadata;
+INSERT INTO schema_metadata (schema_version) VALUES ('1.0.0');
 
 CREATE TABLE IF NOT EXISTS sources (
     source_id VARCHAR PRIMARY KEY,
@@ -360,6 +361,56 @@ CREATE TABLE IF NOT EXISTS relations_sites (
     ),
     CHECK (debut_min IS NULL OR debut_max IS NULL OR debut_min <= debut_max),
     CHECK (fin_min IS NULL OR fin_max IS NULL OR fin_min <= fin_max)
+);
+
+CREATE TABLE IF NOT EXISTS propositions_rapprochement (
+    proposition_rapprochement_id UUID PRIMARY KEY DEFAULT uuid(),
+    site_a_id UUID NOT NULL REFERENCES sites(site_id),
+    site_b_id UUID NOT NULL REFERENCES sites(site_id),
+    methode_code VARCHAR NOT NULL,
+    score_similarite DECIMAL(5, 4),
+    criteres JSON,
+    statut_decision_code VARCHAR NOT NULL DEFAULT 'a_verifier',
+    site_canonique_id UUID REFERENCES sites(site_id),
+    date_decision DATE,
+    fiabilite_code VARCHAR NOT NULL,
+    notes VARCHAR,
+    statut_enregistrement_code VARCHAR NOT NULL DEFAULT 'actif',
+    cree_le TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
+    cree_par VARCHAR NOT NULL DEFAULT 'systeme',
+    modifie_le TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
+    UNIQUE (site_a_id, site_b_id),
+    CHECK (site_a_id <> site_b_id),
+    CHECK (score_similarite IS NULL OR score_similarite BETWEEN 0 AND 1),
+    CHECK (
+        statut_decision_code IN (
+            'a_verifier',
+            'confirme_meme_site',
+            'rejete_sites_distincts'
+        )
+    ),
+    CHECK (
+        site_canonique_id IS NULL
+        OR site_canonique_id = site_a_id
+        OR site_canonique_id = site_b_id
+    ),
+    CHECK (
+        (
+            statut_decision_code = 'a_verifier'
+            AND site_canonique_id IS NULL
+            AND date_decision IS NULL
+        )
+        OR (
+            statut_decision_code = 'confirme_meme_site'
+            AND site_canonique_id IS NOT NULL
+            AND date_decision IS NOT NULL
+        )
+        OR (
+            statut_decision_code = 'rejete_sites_distincts'
+            AND site_canonique_id IS NULL
+            AND date_decision IS NOT NULL
+        )
+    )
 );
 
 CREATE TABLE IF NOT EXISTS mentions_sources (

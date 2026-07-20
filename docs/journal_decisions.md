@@ -238,3 +238,29 @@
   conceptuels de leurs types DuckDB effectifs.
 - Le bloc « Implémenter le modèle » est terminé. La validation de phase doit
   maintenant confronter ce modèle à plusieurs cas représentatifs du corpus.
+
+## 2026-07-20 — Clôture de la phase 3
+
+- Cinq scénarios synthétiques reproductibles ont été testés : site simple,
+  multi-activités, reconverti, disparu et rapprochement incertain.
+- Le site simple conserve sous un même UUID une activité, une observation
+  actuelle, une géométrie de référence et sa provenance.
+- Une forge devenue moulin reste un seul site avec deux phases successives.
+- La reconversion est stockée dans `etats_actuels` et ne devient jamais une
+  activité industrielle historique.
+- Un site disparu reste dans le corpus sans géométrie artificielle lorsque son
+  emplacement précis est inconnu.
+- Le dernier cas a révélé un manque du modèle initial : aucune structure ne
+  permettait d'enregistrer une hypothèse de doublon avant décision.
+- `propositions_rapprochement` est donc ajoutée. Elle conserve deux sites
+  candidats, les critères et le score éventuel, sans aucune fusion automatique.
+- `relations_sites` reste réservée aux relations historiques ou fonctionnelles
+  entre emprises distinctes ; elle ne sert pas à la déduplication.
+- Le schéma DuckDB passe en version `1.0.0`, le dictionnaire en version 1.0 et
+  les règles opérationnelles en version 1.1.
+- Les 40 tests du projet réussissent. Le rapport détaillé est conservé dans
+  `reports/quality/phase3_validation_modele.md`.
+- Le modèle V1 est approuvé pour le corpus pilote. Cette validation porte sur
+  sa structure ; les vocabulaires seront construits en phase 4 et les scénarios
+  devront être rejoués sur les données réelles du pilote.
+- La phase 3 est terminée. La phase 4 peut commencer.

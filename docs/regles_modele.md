@@ -1,6 +1,6 @@
 # Règles du modèle de données
 
-Statut : **validé pour le bloc 2 de la phase 3 — version 1.0**
+Statut : **modèle V1 approuvé — règles version 1.1**
 
 Date : 20 juillet 2026
 
@@ -38,6 +38,10 @@ Elle met à jour ou complète l'entité existante au lieu de créer un nouvel UU
 Une ressemblance de nom, de commune ou de coordonnées ne suffit jamais pour
 réutiliser automatiquement un UUID.
 
+Une ressemblance crée au maximum une ligne dans
+`propositions_rapprochement`. Les deux candidats restent séparés jusqu'à une
+décision humaine documentée.
+
 ### Fusion de doublons
 
 Si deux sites internes sont ensuite reconnus comme un seul lieu :
@@ -63,6 +67,7 @@ Si deux sites internes sont ensuite reconnus comme un seul lieu :
 | `sites` et `objets_techniques` | `liens_objets_sites` | plusieurs à plusieurs | un objet peut changer de lieu |
 | `sites` ou `objets_techniques` | `protections` | 0 à plusieurs | une protection vise exactement un type de cible |
 | `sites` | `relations_sites` | plusieurs à plusieurs | les sites source et cible restent distincts |
+| deux `sites` | `propositions_rapprochement` | plusieurs à plusieurs | une hypothèse de doublon ne fusionne rien |
 | `sources` | `mentions_sources` | 1 à plusieurs | toute mention appartient à une source cataloguée |
 | toute entité | `mentions_sources` | 0 à plusieurs | ciblage par type, identifiant et éventuellement champ |
 | toute entité | `identifiants_externes` | 0 à plusieurs | une référence externe ne désigne qu'une entité active |
@@ -102,6 +107,7 @@ Toute entité métier possède :
 | `exploitants` | `exploitant_id`, nom principal, type |
 | `exploitations` | `exploitation_id`, site, exploitant, rôle, fiabilité |
 | `relations_sites` | identifiant, deux sites différents, type, statut, fiabilité |
+| `propositions_rapprochement` | identifiant, deux candidats différents, méthode, statut, fiabilité |
 | `identifiants_externes` | identifiant interne, source, type, valeur, entité cible |
 
 ### Obligations conditionnelles
