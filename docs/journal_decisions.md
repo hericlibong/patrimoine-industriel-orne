@@ -132,3 +132,26 @@
   la situation actuelle exigent une validation humaine.
 - Le bloc « Évaluer les résultats » est terminé. La validation finale de la
   phase 2 doit maintenant arrêter les méthodes d'extraction définitives.
+
+## 2026-07-20 — Clôture de la phase 2
+
+- Les 34 fichiers bruts de test et leurs 34 métadonnées ont été archivés à
+  partir du seul manifeste validé. Les fichiers d'essais non référencés ont été
+  exclus.
+- L'archive est locale, immuable et hors Git. Son descripteur et son empreinte
+  SHA-256 sont versionnés pour permettre le contrôle de son intégrité.
+- L'Inventaire normand reste le corpus principal, mais son accès structuré se
+  fera par les notices POP / Mérimée ; les scans seront un complément ciblé.
+- Palissy sera interrogée après constitution des sites afin d'enrichir les
+  objets techniques, avec contrôle humain en l'absence de référence Mérimée.
+- Les Monuments historiques seront extraits pour tout le département ; les
+  mots-clés serviront à prioriser la revue et non à exclure automatiquement.
+- CASIAS sera chargé dans une table séparée de candidats. L'activité devra être
+  enrichie et aucune géométrie sans coordonnées WGS84 explicites ne sera publiée.
+- Les jointures automatiques sont limitées aux identifiants externes exacts. Les
+  rapprochements par commune, nom, adresse ou proximité restent à valider.
+- Les méthodes définitives sont enregistrées dans `config/extraction.yml` et le
+  rapport comparatif de phase dans `reports/audits/phase2_rapport_comparatif.md`.
+- Le point de validation est atteint : le projet distingue désormais les
+  opérations automatiques, semi-automatiques et manuelles.
+- La phase 2 est terminée ; la phase 3 peut commencer.

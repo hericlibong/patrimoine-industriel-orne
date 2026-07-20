@@ -1,0 +1,125 @@
+version: 1.0
+decided_at: 2026-07-20
+status: phase2_validee
+
+common_rules:
+  raw_data:
+    immutable: true
+    manifest_required: true
+    metadata_sidecar_required: true
+    sha256_required: true
+  derived_data:
+    encoding: UTF-8
+    preserve_original_value: true
+    preserve_source_record: true
+  identifiers:
+    automatic_join: exact_external_identifier_only
+    forbidden_as_site_identifier:
+      - code_insee
+      - commune_name
+      - source_row_number
+  coordinates:
+    required_crs_for_exchange: EPSG:4326
+    validate_numeric_range: true
+    validate_broad_orne_envelope: true
+    precision_must_be_qualified: true
+    never_replace_missing_point_with_commune_centroid: true
+  publication:
+    human_validation_required: true
+
+sources:
+  inventaire_normandie_orne:
+    role: corpus_principal
+    automation: semi_automatique
+    primary_access: pop_merimee_structured_notice
+    complement_access: static_scanned_dossier
+    identifier: REF_IA
+    extraction_steps:
+      - partir de la liste des références IA du corpus de 319 dossiers
+      - extraire la notice structurée diffusée dans la page POP
+      - normaliser les valeurs dérivées en UTF-8
+      - télécharger et OCRiser seulement les scans nécessaires
+      - contrôler humainement les informations issues de l'OCR
+    rejection_conditions:
+      - référence IA absente
+      - page remplacée par un contrôle anti-robot
+      - notice structurée non décodable
+
+  pop_merimee:
+    role: canal_structure_du_corpus_principal
+    automation: automatique_avec_validation
+    primary_access: html_nextjs_embedded_notice
+    identifier: REF
+    secondary_identifiers: [LBASE2, INSEE]
+    extraction_steps:
+      - récupérer la page de chaque référence IA attendue
+      - extraire l'objet notice incorporé au flux Next.js
+      - valider la concordance entre REF et la référence demandée
+      - conserver coordonnées, texte et valeurs sources séparément
+    manual_controls:
+      - activités successives
+      - état actuel
+      - précision géographique
+    fallback:
+      - conserver le HTML brut et signaler une rupture de parseur
+      - rechercher un export officiel actuel avant de modifier le parseur
+
+  pop_palissy:
+    role: enrichissement_objets_techniques
+    automation: automatique_avec_rattachement_controle
+    primary_access: data_culture_api_v2_1
+    identifier: reference_PM
+    extraction_steps:
+      - interroger après constitution de la liste des sites
+      - cibler d'abord les références connues puis les édifices et communes
+      - conserver les relations Palissy internes
+      - rattacher automatiquement seulement avec une référence Mérimée exacte
+    manual_controls:
+      - rattachement par édifice et commune sans référence Mérimée
+      - présence actuelle de l'objet
+      - droits des images
+
+  monuments_historiques_data_culture:
+    role: enrichissement_protection
+    automation: automatique_avec_selection_controlee
+    primary_access: data_culture_api_v2_1
+    identifier: reference_PA
+    extraction_steps:
+      - récupérer toutes les notices du département de l'Orne
+      - utiliser les mots-clés seulement pour prioriser la revue
+      - rapprocher des sites par référence exacte puis par contrôle multicritère
+      - enregistrer séparément la protection et la nature industrielle
+    manual_controls:
+      - faux positifs
+      - portée de la protection sur les éléments industriels
+      - notices sans coordonnées
+
+  casias:
+    role: elargissement_candidats
+    automation: semi_automatique
+    primary_access: wfs_normandie
+    complement_access: [fiche_georisques, csv_national]
+    identifier: code_metie_SSP
+    secondary_identifiers: [code_inven_BNO]
+    extraction_steps:
+      - récupérer la couche WFS filtrée sur le département 61
+      - conserver les identifiants SSP et BNO
+      - utiliser seulement x_wgs84 et y_wgs84 comme coordonnées explicites
+      - enrichir l'activité depuis la fiche ou le CSV national
+      - stocker les lignes dans une table de candidats séparée
+    rejection_conditions:
+      - géométrie WFS sans coordonnées WGS84 explicites
+      - inclusion directe sans activité ni contrôle patrimonial
+    manual_controls:
+      - intérêt patrimonial
+      - localisation des fiches non géolocalisées
+      - rapprochement avec l'Inventaire et les autres sources
+
+archive:
+  phase2_sample:
+    format: zip
+    archive_file: data/archive/phase2_extractions_tests_2026-07-20.zip
+    descriptor: reports/audits/phase2_archive_descriptor.json
+    source_manifest: reports/audits/phase2_extraction_samples_manifest.json
+    content_policy: manifest_entries_only
+    overwrite: false

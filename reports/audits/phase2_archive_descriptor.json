@@ -1,0 +1,19 @@
+{
+  "archive_file": "data/archive/phase2_extractions_tests_2026-07-20.zip",
+  "archive_sha256": "9e2ac0a1df1290966e4b36b9196f23e3320c37a40d7926c2c22850d39c83f24e",
+  "archive_size_bytes": 374655,
+  "checksum_file": "data/archive/phase2_extractions_tests_2026-07-20.zip.sha256",
+  "metadata_file_count": 34,
+  "raw_file_count": 34,
+  "schema_version": "1.0",
+  "source_manifest": "reports/audits/phase2_extraction_samples_manifest.json",
+  "source_manifest_sha256": "129742cdd00ae09a236bb30bfc787ea44493c12b47d359dbc2c2dad98394949f",
+  "sources": {
+    "casias": 2,
+    "inventaire_normandie_orne": 20,
+    "monuments_historiques_data_culture": 1,
+    "pop_merimee": 10,
+    "pop_palissy": 1
+  },
+  "zip_entry_count": 70
+}

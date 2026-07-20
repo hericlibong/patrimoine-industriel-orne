@@ -86,3 +86,25 @@ Le hash, la taille et le nom permettent de vérifier que le fichier brut n'a pas
 Une réponse incomplète ou invalide ne remplace jamais un fichier existant. Le
 module de source devra supprimer son éventuel fichier temporaire, conserver le
 message d'erreur dans les journaux techniques et retourner un état d'échec.
+
+## Archivage d'une extraction validée
+
+Une archive de validation est construite exclusivement à partir d'un manifeste
+versionné. Les fichiers bruts supplémentaires présents localement ne sont pas
+inclus automatiquement.
+
+L'archive contient :
+
+- chaque fichier brut référencé ;
+- son fichier de métadonnées ;
+- le manifeste source ;
+- un manifeste interne avec les tailles et empreintes.
+
+L'archive et son fichier `.sha256` sont conservés dans `data/archive/` et ne
+sont pas versionnés. Un descripteur léger contenant le nom, la taille,
+l'empreinte, les effectifs et le manifeste source est versionné dans
+`reports/audits/`.
+
+Une archive existante n'est jamais remplacée. Une nouvelle extraction validée
+produit une nouvelle archive nommée et datée. La commande d'archivage vérifie les
+fichiers et leurs métadonnées avant la compression, puis relit le ZIP produit.
