@@ -15,6 +15,7 @@ docs/roadmap.md
 
 *.duckdb
 *.duckdb.wal
+*.xlsx.inspect.ndjson
 
 data/raw/*
 !data/raw/.gitkeep

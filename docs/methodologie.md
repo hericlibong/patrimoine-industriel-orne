@@ -297,3 +297,21 @@ Le corpus de travail est reconstruit avec
 `python -m patrimoine_orne.enrich.pilot`. Les données dérivées sont écrites dans
 `data/interim/phase5_pilot_enriched.json` et le contrôle versionné dans
 `reports/quality/phase5_enrichissement_pilote.json`.
+
+## Validation du pilote
+
+Chaque fiche est relue avec la même grille : identité, communes, activités,
+chronologie, protections, objets, situation actuelle, provenance et décision de
+maintien dans le pilote. La liste des trente contrôles est conservée dans
+`config/validation_pilote.yml`.
+
+La présence d'une source est contrôlée pour le nom du site, la commune actuelle,
+chaque activité, chaque protection, chaque objet et toute valeur contemporaine
+qui n'est pas `inconnu`. Une inconnue justifiée n'est pas une information sans
+source : elle indique précisément qu'aucune preuve récente suffisante n'a été
+retenue.
+
+La reproductibilité humaine porte sur six cas, trois simples et trois ambigus.
+Deux personnes utilisent les mêmes notices et le même vocabulaire, sans voir le
+classement de l'autre. Les accords sont mesurés dimension par dimension ; les
+désaccords sont ensuite qualifiés avant toute modification des règles.

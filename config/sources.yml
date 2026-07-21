@@ -132,6 +132,19 @@ sources:
     limits:
       - un résultat géocodé ne constitue pas une emprise validée
 
+  - id: api_geo
+    name: API Découpage administratif
+    producer: Direction interministérielle du numérique
+    priority: P1
+    role: verification
+    url: https://geo.api.gouv.fr/communes
+    access: [json_api]
+    identifier: code_insee_commune_actuelle
+    audit_status: validee
+    limits:
+      - décrit les communes actuelles et non les limites historiques
+      - ne localise pas l'emprise d'un site industriel
+
   - id: hydrographie
     name: BD TOPAGE
     producer: IGN / OFB / Sandre

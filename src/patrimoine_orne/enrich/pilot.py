@@ -201,6 +201,16 @@ def build_enriched_corpus(
                 "fiabilite_code": "forte",
             }
         ]
+        current_code = current_commune.get("code_insee") or first(record.get("INSEE"))
+        sources.append(
+            {
+                "source_id": "api_geo",
+                "reference": current_code,
+                "url": f"https://geo.api.gouv.fr/communes/{current_code}",
+                "role": "commune_actuelle",
+                "fiabilite_code": "forte",
+            }
+        )
         if reference in protection_links:
             pa_reference = protection_links[reference]
             sources.append(
@@ -235,8 +245,7 @@ def build_enriched_corpus(
                 "commune_historique_code_insee": first(record.get("INSEE")),
                 "commune_actuelle_nom": current_commune.get("nom")
                 or first(record.get("COM")),
-                "commune_actuelle_code_insee": current_commune.get("code_insee")
-                or first(record.get("INSEE")),
+                "commune_actuelle_code_insee": current_code,
                 "lieu_dit": first(record.get("LIEU")),
                 "adresse": first(record.get("ADRS")),
                 "statut_corpus_code": "rapproche",

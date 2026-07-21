@@ -13,7 +13,7 @@ Date du contrôle : 21 juillet 2026
 | Notices Palissy recensées | 31 |
 | Situations actuelles appuyées par une source récente | 4 |
 | Situations actuelles encore inconnues | 26 |
-| Mentions de sources enregistrées dans le corpus de travail | 71 |
+| Mentions de sources enregistrées dans le corpus de travail | 101 |
 | Anomalies ou limites documentées | 6 |
 
 Le contrôle automatique ne signale aucune erreur structurelle.

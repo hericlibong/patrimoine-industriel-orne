@@ -424,3 +424,21 @@
   communal ne serait pas assez précis.
 - Le bloc « Enrichir les sites » est terminé. La validation manuelle des fiches
   reste à réaliser dans le dernier bloc de la phase 5.
+
+## 2026-07-22 — Phase 5, validation du corpus pilote
+
+- Les 30 fiches sont contrôlées individuellement selon une grille commune.
+- Les chronologies de `IA00061133` et `IA00061155` sont précisées : activités
+  simultanées pour la laiterie-fromagerie, activités complémentaires pour la
+  quincaillerie-tréfilerie.
+- Le référentiel officiel des 381 communes actuelles de l'Orne est archivé. Les
+  six communes nouvelles utilisées dans le pilote sont confirmées.
+- L'audit de provenance couvre les 30 notices principales, les 30 communes
+  actuelles, les 47 activités, les 6 protections, les 31 objets Palissy et les
+  4 situations contemporaines renseignées.
+- Le corpus pilote V1 candidat est produit dans
+  `data/pilot/corpus_pilote_v1.json`. Sa structure passe tous les contrôles.
+- Un classeur de double classement est préparé pour trois cas simples et trois
+  cas ambigus. Il sépare les réponses des personnes A et B et calcule les accords.
+- La phase 5 n'est pas marquée comme terminée : deux classements réellement
+  indépendants et la documentation de leurs désaccords restent nécessaires.

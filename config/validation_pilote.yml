@@ -1,0 +1,69 @@
+version: "1.0"
+status: controle_documentaire_termine_double_classement_en_attente
+date_controle: 2026-07-22
+type_controle: revue_documentaire_manuelle_assistee
+
+grille:
+  - identite_et_reference
+  - commune_historique_et_actuelle
+  - activites_et_chronologie
+  - protection_et_objets_associes
+  - situation_actuelle
+  - provenance_des_informations
+  - decision_pour_le_corpus_pilote
+
+fiches:
+  - {reference: IA00061008, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: source_recente_partielle, provenance: complete, decision: retenue, note: "La source 2026 confirme un projet de sécurisation et de valorisation, pas l'accessibilité."}
+  - {reference: IA00060965, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete_avec_reserve, decision: retenue_avec_reserve, note: "PA00110771 et les objets Palissy ne sont pas rattachés automatiquement à cette notice IA."}
+  - {reference: IA00060938, identite: validee, commune: validee_apres_fusion, activites: validees, chronologie: validee, situation_actuelle: source_recente_partielle, provenance: complete, decision: retenue, note: "L'activité hydroélectrique est confirmée ; conservation et accessibilité restent inconnues."}
+  - {reference: IA00061003, identite: validee, commune: validee_apres_fusion, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue, note: "La localisation précise restera à contrôler en phase 6."}
+  - {reference: IA00060901, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue}
+  - {reference: IA00061119, identite: validee, commune: validee_apres_fusion, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue, note: "Protection PA00135514 confirmée par renvoi direct."}
+  - {reference: IA00060915, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue}
+  - {reference: IA00061035, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue}
+  - {reference: IA00060902, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue, note: "Filature puis fromagerie séparées en deux phases."}
+  - {reference: IA00060896, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue, note: "Filature puis usine de chaussures séparées en deux phases."}
+  - {reference: IA00061002, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue}
+  - {reference: IA00061073, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue, note: "Protection PA00135513 confirmée ; la destination ancienne n'est pas actualisée."}
+  - {reference: IA00060969, identite: validee, commune: validee, activites: validees, chronologie: validee_par_texte_rendu, situation_actuelle: inconnue_assumee, provenance: complete_avec_repli, decision: retenue, note: "Le marqueur $26 impose le recours au texte rendu POP pour les trois phases."}
+  - {reference: IA00060959, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue, note: "Protection PA00110985 confirmée par renvoi direct."}
+  - {reference: IA00060997, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue}
+  - {reference: IA00061117, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue}
+  - {reference: IA00061133, identite: validee, commune: validee_apres_fusion, activites: validees, chronologie: validee_simultanee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue, note: "Laiterie et fromagerie sont deux productions simultanées de 1893 à 1980."}
+  - {reference: IA00060909, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue, note: "Distillerie et cidrerie simultanées, puis laiterie."}
+  - {reference: IA00061166, identite: validee, commune: corrigee_ecouche_et_fusion_validee, activites: validees, chronologie: validee_simultanee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue, note: "La sélection indiquait Trun ; la notice source indique Écouché."}
+  - {reference: IA00061091, identite: validee, commune: validee_apres_fusion, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue, note: "La précision du point POP sera contrôlée en phase 6."}
+  - {reference: IA00061029, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: source_recente_partielle, provenance: complete, decision: retenue, note: "Affinage puis travail du cuivre ; protection PA00110731 confirmée."}
+  - {reference: IA00061155, identite: validee, commune: validee, activites: validees, chronologie: validee_simultanee_complementaire, situation_actuelle: source_recente, provenance: complete, decision: retenue, note: "Quincaillerie et tréfilerie sont des fonctions complémentaires ; protection PA00135530 confirmée."}
+  - {reference: IA00061113, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue}
+  - {reference: IA00061052, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue, note: "Tannerie puis construction mécanique séparées en deux phases."}
+  - {reference: IA00061054, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue}
+  - {reference: IA00061153, identite: validee, commune: validee_apres_fusion, activites: validees, chronologie: validee_par_texte_rendu, situation_actuelle: inconnue_assumee, provenance: complete_avec_repli, decision: retenue, note: "Le marqueur $26 impose le recours au texte rendu POP."}
+  - {reference: IA00061060, identite: validee, commune: validee_apres_fusion, activites: validees, chronologie: validee_par_texte_rendu, situation_actuelle: inconnue_assumee, provenance: complete_avec_repli, decision: retenue, note: "Cinq phases sont distinguées à partir du texte rendu POP malgré le marqueur $26."}
+  - {reference: IA00061147, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue}
+  - {reference: IA00061135, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue}
+  - {reference: IA00061095, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue, note: "Protection PA00135522 confirmée par renvoi direct."}
+
+double_classement:
+  statut: a_realiser_par_deux_personnes
+  regle_independance: chaque_personne_classe_sans_consulter_la_reponse_de_l_autre
+  sous_echantillon:
+    simples:
+      - {reference: IA00060938, raison: activite_unique_energie}
+      - {reference: IA00060915, raison: activite_unique_textile}
+      - {reference: IA00061147, raison: activite_unique_papier_carton}
+    ambigus:
+      - {reference: IA00060965, raison: activites_successives_et_rapprochements_incertain}
+      - {reference: IA00061155, raison: activites_complementaires_et_usage_actuel_multiple}
+      - {reference: IA00061060, raison: cinq_phases_et_historique_structure_incomplet}
+  dimensions_comparees:
+    - nombre_de_phases
+    - activite_code
+    - secteur_code
+    - type_installation_code
+    - mode_chronologique
+    - conservation_code
+    - usages_actuels
+    - accessibilite_code
+    - fiabilite_code
+    - statut_protection

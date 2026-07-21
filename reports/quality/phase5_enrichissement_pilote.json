@@ -1,16 +1,16 @@
 {
   "checks_passed": true,
   "chronology_modes": {
-    "ordre_a_verifier": 2,
     "phase_unique": 18,
-    "simultanees": 1,
+    "simultanees": 2,
+    "simultanees_complementaires": 1,
     "simultanees_puis_succession": 1,
     "successives": 8
   },
   "counts": {
     "activites_structurees": 47,
     "anomalies_documentees": 6,
-    "mentions_sources": 71,
+    "mentions_sources": 101,
     "objets_palissy_recenses": 31,
     "protections_mh_confirmees": 6,
     "rapprochements_mh_rejetes": 1,

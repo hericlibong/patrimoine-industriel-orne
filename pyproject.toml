@@ -38,6 +38,8 @@ patrimoine-orne-controle-echantillon = "patrimoine_orne.sample.pilot:main"
 patrimoine-orne-extraire-pilote = "patrimoine_orne.extract.pilot:main"
 patrimoine-orne-extraire-objets-pilote = "patrimoine_orne.extract.pilot_objects:main"
 patrimoine-orne-enrichir-pilote = "patrimoine_orne.enrich.pilot:main"
+patrimoine-orne-extraire-communes = "patrimoine_orne.extract.current_communes:main"
+patrimoine-orne-valider-phase5 = "patrimoine_orne.validate.pilot_phase5:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

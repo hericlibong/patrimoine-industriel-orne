@@ -73,11 +73,21 @@ chronologies:
       - {libelle_source: distillerie, debut: "1910", fin: "vers 1940"}
       - {libelle_source: cidrerie, debut: "1910", fin: "vers 1940"}
       - {libelle_source: laiterie industrielle, debut: "vers 1943", fin: inconnue}
+  IA00061133:
+    mode: simultanees
+    phases:
+      - {libelle_source: laiterie industrielle, debut: "1893", fin: "1980"}
+      - {libelle_source: fromagerie industrielle, debut: "1893", fin: "1980"}
   IA00061166:
     mode: simultanees
     phases:
       - {libelle_source: cidrerie, debut: "1898", fin: "1987"}
       - {libelle_source: distillerie, debut: "1898", fin: "1987"}
+  IA00061155:
+    mode: simultanees_complementaires
+    phases:
+      - {libelle_source: usine de quincaillerie, debut: "1819", fin: inconnue}
+      - {libelle_source: tréfilerie, debut: "attestée au 19e siècle", fin: inconnue}
   IA00061029:
     mode: successives
     phases:

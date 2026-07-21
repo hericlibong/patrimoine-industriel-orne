@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-07-21T22:17:31Z",
+  "schema_version": "1.0",
+  "sources": {
+    "api_geo": [
+      {
+        "data_file": "data/raw/api_geo/2026/2026-07-21/api_geo__communes_actuelles_orne__orne_phase5__20260721T221731Z.json",
+        "file_size_bytes": 24107,
+        "metadata_file": "data/raw/api_geo/2026/2026-07-21/api_geo__communes_actuelles_orne__orne_phase5__20260721T221731Z.json.metadata.json",
+        "observations": {
+          "department": "61",
+          "merged_communes_verified": {
+            "61007": "Athis-Val de Rouvre",
+            "61153": "Écouché-les-Vallées",
+            "61194": "Monts-sur-Orne",
+            "61230": "Longny les Villages",
+            "61339": "Putanges-le-Lac",
+            "61474": "Gouffern en Auge"
+          },
+          "result_count": 381
+        },
+        "sha256": "3be65b0500e80ac52d78c7b3939712bdd55323a15409fe73d1a388bee1557131"
+      }
+    ]
+  }
+}

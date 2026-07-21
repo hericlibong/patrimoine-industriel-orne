@@ -1,0 +1,26 @@
+{
+  "blocking_items": [
+    "obtenir deux classements humains indépendants",
+    "mesurer et documenter leurs désaccords"
+  ],
+  "corpus_checks_passed": true,
+  "counts": {
+    "activites": 47,
+    "activites_avec_source": 47,
+    "anomalies": 6,
+    "fiches_controlees_manuellement": 30,
+    "objets_avec_source": 31,
+    "objets_techniques": 31,
+    "protections_avec_source": 6,
+    "sites": 30,
+    "sites_avec_notice_principale": 30,
+    "sites_avec_source_commune_actuelle": 30,
+    "sites_double_classement_prepares": 6,
+    "situations_actuelles_renseignees_avec_source": 4
+  },
+  "date_controle": "2026-07-22",
+  "double_classement_status": "a_realiser_par_deux_personnes",
+  "errors": [],
+  "phase5_complete": false,
+  "schema_version": "1.0"
+}
