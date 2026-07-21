@@ -1,7 +1,7 @@
-# Les secteurs, activités, installations et énergies sont validés pour le
-# premier bloc de la phase 4. Les classifications suivantes restent provisoires.
-version: 0.2
-status: phase4_bloc1_valide
+# Les deux premiers blocs de la phase 4 sont validés. Les classifications de
+# précision géographique et de fiabilité restent provisoires.
+version: 0.3
+status: phase4_bloc2_valide
 updated_at: 2026-07-21
 
 secteurs:
@@ -263,38 +263,196 @@ regles_affectation_secteurs:
     batiment: composant_physique_non_classe_comme_activite
     energie: force_ou_combustible_utilise
 
-conservation:
-  - conserve
-  - partiellement_conserve
-  - ruine
-  - disparu
-  - inconnu
+periodes_historiques:
+  avant_1789:
+    libelle: Avant 1789
+    debut_annee: null
+    fin_annee: 1788
+  revolution_premiere_industrialisation:
+    libelle: 1789-1849 — Révolution et première industrialisation
+    debut_annee: 1789
+    fin_annee: 1849
+  industrialisation_rail_vapeur:
+    libelle: 1850-1913 — Industrialisation, rail et vapeur
+    debut_annee: 1850
+    fin_annee: 1913
+  guerres_entre_deux_guerres:
+    libelle: 1914-1945 — Guerres et entre-deux-guerres
+    debut_annee: 1914
+    fin_annee: 1945
+  modernisation_apres_guerre:
+    libelle: 1946-1975 — Modernisation d'après-guerre
+    debut_annee: 1946
+    fin_annee: 1975
+  mutations_reconversions:
+    libelle: 1976-2000 — Mutations et reconversions
+    debut_annee: 1976
+    fin_annee: 2000
+  periode_contemporaine:
+    libelle: Depuis 2001 — Patrimoine et usages contemporains
+    debut_annee: 2001
+    fin_annee: null
 
-usage_actuel:
-  - activite_industrielle
-  - musee_culture
-  - logement
-  - commerce_service
-  - agriculture_stockage
-  - vacant
-  - sans_usage
-  - autre
-  - inconnu
+conservation:
+  conserve:
+    libelle: Conservé
+    definition: Les éléments industriels structurants sont encore présents et lisibles.
+  degrade:
+    libelle: Dégradé
+    definition: L'ensemble subsiste mais présente une dégradation matérielle importante.
+  partiellement_conserve:
+    libelle: Partiellement conservé
+    definition: Une partie seulement des éléments industriels documentés subsiste.
+  vestiges:
+    libelle: Vestiges
+    definition: Des traces matérielles limitées subsistent sans ensemble bâti complet.
+  ruine:
+    libelle: Ruine
+    definition: Les structures subsistent principalement à l'état de ruine.
+  disparu:
+    libelle: Disparu
+    definition: Aucun élément matériel industriel identifié ne subsiste à l'emplacement vérifié.
+  inconnu:
+    libelle: Conservation inconnue
+    definition: Aucune observation suffisamment récente ne permet de conclure.
+
+correspondances_conservation_sources:
+  - {terme: bon état, conservation_code: conserve}
+  - {terme: mauvais état, conservation_code: degrade}
+  - {terme: vestiges, conservation_code: vestiges}
+  - {terme: ruine, conservation_code: ruine}
+  - {terme: détruit, conservation_code: disparu}
+
+termes_hors_conservation:
+  - {terme: établissement industriel désaffecté, nature: statut_activite}
+  - {terme: désaffecté, nature: statut_activite}
+
+usages_actuels:
+  activite_industrielle:
+    libelle: Activité industrielle
+    definition: Une production industrielle est encore exercée sur le site.
+  artisanat_production:
+    libelle: Artisanat ou petite production
+    definition: Une activité productive non industrielle occupe actuellement le site.
+  culture_musee:
+    libelle: Culture ou musée
+    definition: Le site accueille un musée, une exposition ou une activité culturelle.
+  tourisme_visite:
+    libelle: Tourisme ou visite patrimoniale
+    definition: Le site est exploité comme lieu de visite ou d'accueil touristique.
+  logement:
+    libelle: Logement
+    definition: Tout ou partie du site est utilisé comme habitation.
+  commerce_services:
+    libelle: Commerce ou services
+    definition: Le site accueille une activité commerciale ou de service.
+  bureaux:
+    libelle: Bureaux
+    definition: Le site accueille principalement des fonctions administratives ou tertiaires.
+  agriculture:
+    libelle: Agriculture
+    definition: Le site est réutilisé pour une activité agricole.
+  stockage:
+    libelle: Stockage
+    definition: Les bâtiments ou terrains servent principalement au stockage.
+  equipement_public:
+    libelle: Équipement public
+    definition: Le site accueille un service ou équipement public hors culture.
+  vacant:
+    libelle: Vacant
+    definition: Les bâtiments sont inoccupés au moment de la vérification.
+  sans_usage:
+    libelle: Sans usage
+    definition: Aucun usage fonctionnel n'est identifié, notamment pour un site sans bâti utilisable.
+  autre:
+    libelle: Autre usage
+    definition: Un usage vérifié ne correspond à aucune catégorie définie.
+  inconnu:
+    libelle: Usage inconnu
+    definition: L'usage actuel n'a pas pu être vérifié.
 
 accessibilite:
-  - visitable
-  - visible_espace_public
-  - prive
-  - inaccessible
-  - inconnu
+  visitable:
+    libelle: Visitable
+    definition: Une visite du site est officiellement autorisée selon des modalités vérifiées.
+  partiellement_visitable:
+    libelle: Partiellement visitable
+    definition: Seule une partie identifiée du site est officiellement accessible.
+  visible_espace_public:
+    libelle: Visible depuis l'espace public
+    definition: Le site est observable sans entrer dans une propriété ou zone réglementée.
+  prive_visible:
+    libelle: Privé mais visible
+    definition: Le site est privé, non visitable, mais visible depuis l'espace public.
+  prive_non_visible:
+    libelle: Privé et non visible
+    definition: Le site est privé et ne peut pas être observé depuis l'espace public.
+  inaccessible:
+    libelle: Inaccessible
+    definition: L'accès est matériellement impossible, interdit ou dangereux.
+  inconnu:
+    libelle: Accessibilité inconnue
+    definition: Les conditions d'accès n'ont pas été vérifiées récemment.
 
-protection:
-  - classe_mh
-  - inscrit_mh
-  - protection_locale
-  - inventorie_non_protege
-  - aucune_protection_connue
-  - inconnu
+types_protection:
+  classe_mh:
+    libelle: Classé monument historique
+    nature: protection_juridique_nationale
+  inscrit_mh:
+    libelle: Inscrit monument historique
+    nature: protection_juridique_nationale
+  protection_locale:
+    libelle: Protection locale
+    nature: protection_reglementaire_locale
+  autre_protection:
+    libelle: Autre protection patrimoniale
+    nature: autre
+
+portees_protection:
+  totale: {libelle: Protection totale}
+  partielle: {libelle: Protection partielle}
+  inconnue: {libelle: Portée inconnue}
+
+statuts_protection:
+  active: {libelle: Active}
+  modifiee: {libelle: Modifiée}
+  abrogee: {libelle: Abrogée ou radiée}
+  a_verifier: {libelle: À vérifier}
+
+statuts_protection_site_calcules:
+  protege: {libelle: Au moins une protection active identifiée}
+  inventorie_sans_protection_identifiee: {libelle: Inventorié, sans protection identifiée}
+  aucune_protection_identifiee: {libelle: Aucune protection identifiée après vérification}
+  inconnu: {libelle: Situation inconnue}
+
+correspondances_protections_sources:
+  - {motif: "classé MH", type_protection_code: classe_mh}
+  - {motif: "inscrit MH", type_protection_code: inscrit_mh}
+
+regles_chronologie_situation_actuelle:
+  periodes:
+    usage: filtres_analytiques_calcules
+    remplacement_dates_sources: false
+    intervalle_chevauchant: toutes_les_periodes_concernees
+  conservation:
+    desaffecte_comme_conservation: interdit
+    date_verification_obligatoire: true
+    fraicheur_mois: 12
+  usages:
+    multiplicite_autorisee: true
+    usage_mixte_interdit: true
+    date_verification_obligatoire: true
+    fraicheur_mois: 12
+  accessibilite:
+    droit_entree_deduit_de_visibilite: interdit
+    visitable_sans_source_recente: interdit
+    date_verification_obligatoire: true
+    fraicheur_mois: 3
+  protections:
+    absence_de_ligne_comme_absence_de_protection: interdit
+    une_ligne_par_mesure: true
+    type_et_portee_separes: true
+    verification_source_officielle_jours: 30
 
 precision_geographique:
   - emprise_verifiee

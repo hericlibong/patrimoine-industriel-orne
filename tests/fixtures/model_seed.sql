@@ -104,7 +104,7 @@ INSERT INTO energies_activites (
 );
 
 INSERT INTO etats_actuels (
-    etat_actuel_id, site_id, conservation_code, usage_actuel_code,
+    etat_actuel_id, site_id, conservation_code,
     accessibilite_code, date_verification, methode_verification_code,
     fiabilite_code, version_numero, remplace_etat_actuel_id,
     motif_version_code, notes, cree_par
@@ -112,13 +112,13 @@ INSERT INTO etats_actuels (
     (
         '30000000-0000-4000-8000-000000000001',
         '10000000-0000-4000-8000-000000000001',
-        'partiel', 'habitation', 'visible_voie_publique', DATE '2025-07-20',
+        'partiellement_conserve', 'visible_espace_public', DATE '2025-07-20',
         'terrain_test', 'forte', 1, NULL, 'nouvelle_observation',
         'Premiere observation fictive.', 'fixture'
     );
 
 INSERT INTO etats_actuels (
-    etat_actuel_id, site_id, conservation_code, usage_actuel_code,
+    etat_actuel_id, site_id, conservation_code,
     accessibilite_code, date_verification, methode_verification_code,
     fiabilite_code, version_numero, remplace_etat_actuel_id,
     motif_version_code, notes, cree_par
@@ -126,7 +126,7 @@ INSERT INTO etats_actuels (
     (
         '30000000-0000-4000-8000-000000000002',
         '10000000-0000-4000-8000-000000000001',
-        NULL, NULL, 'prive_non_visitable', DATE '2026-07-20',
+        NULL, 'prive_non_visible', DATE '2026-07-20',
         'terrain_test', 'forte', 2,
         '30000000-0000-4000-8000-000000000001', 'nouvelle_observation',
         'Seule l accessibilite a ete reverifiee.', 'fixture'
@@ -134,16 +134,33 @@ INSERT INTO etats_actuels (
     (
         '30000000-0000-4000-8000-000000000003',
         '10000000-0000-4000-8000-000000000002',
-        'conserve', 'activite_economique', 'inconnu', DATE '2026-07-20',
+        'conserve', 'inconnu', DATE '2026-07-20',
         'source_test', 'moyenne', 1, NULL, 'nouvelle_observation',
         'Observation fictive.', 'fixture'
     ),
     (
         '30000000-0000-4000-8000-000000000004',
         '10000000-0000-4000-8000-000000000003',
-        'disparu', 'aucun', 'inaccessible', DATE '2026-07-20',
+        'disparu', 'inaccessible', DATE '2026-07-20',
         'source_test', 'moyenne', 1, NULL, 'nouvelle_observation',
         'Observation fictive.', 'fixture'
+    );
+
+INSERT INTO usages_actuels (
+    usage_actuel_id, etat_actuel_id, usage_code, principal, cree_par
+) VALUES
+    (
+        '31000000-0000-4000-8000-000000000001',
+        '30000000-0000-4000-8000-000000000001', 'logement', true, 'fixture'
+    ),
+    (
+        '31000000-0000-4000-8000-000000000002',
+        '30000000-0000-4000-8000-000000000003',
+        'activite_industrielle', true, 'fixture'
+    ),
+    (
+        '31000000-0000-4000-8000-000000000003',
+        '30000000-0000-4000-8000-000000000004', 'sans_usage', true, 'fixture'
     );
 
 INSERT INTO exploitants (

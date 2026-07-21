@@ -292,3 +292,32 @@
 - Les 45 tests du projet réussissent après ajout des contrôles sectoriels.
 - Le bloc « Secteurs et installations » est terminé. Le bloc suivant porte sur
   la chronologie et la situation actuelle.
+
+## 2026-07-21 — Phase 4, chronologie et situation actuelle
+
+- Sept périodes historiques contiguës sont définies comme filtres analytiques.
+  Elles ne remplacent pas les dates sources et un intervalle peut relever de
+  plusieurs périodes.
+- La conservation décrit uniquement l'état matériel. « Désaffecté » est exclu,
+  car il qualifie l'arrêt de l'activité.
+- Les usages actuels deviennent une table liée aux observations datées. Plusieurs
+  usages peuvent coexister ; `usage_mixte` est interdit et un seul usage peut être
+  principal.
+- L'accessibilité sépare droit de visite et visibilité. Un site visible depuis
+  l'espace public n'est pas automatiquement visitable.
+- Une protection est stockée mesure par mesure. Type, portée et élément protégé
+  sont distincts ; l'Inventaire général n'est pas une protection juridique.
+- Sur 10 notices POP, `SCLE` est toujours renseigné, mais les 6 valeurs d'état
+  sont toutes des mentions de désaffectation, inutilisables pour la conservation.
+- Sur 77 candidats MH, la destination actuelle est toujours vide. Seules quatre
+  mentions décrivent directement la conservation ; 14 indiquent seulement une
+  désaffectation.
+- Les 77 notices MH produisent 86 mesures de protection : 17 classements et 69
+  inscriptions. Neuf sont explicitement partielles ; les autres gardent une
+  portée inconnue jusqu'à vérification.
+- Le schéma DuckDB passe en version `1.1.0`, le dictionnaire en version 1.1 et
+  les règles du modèle en version 1.2.
+- Les 54 tests du projet réussissent après ajout des contrôles de chronologie,
+  d'usages multiples et de protections multiples.
+- Le registre des classifications passe en version 0.3. Le deuxième bloc de la
+  phase 4 est terminé ; le bloc suivant porte sur la qualité.

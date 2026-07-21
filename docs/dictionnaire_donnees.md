@@ -1,4 +1,4 @@
-# Dictionnaire des données — version 1.0
+# Dictionnaire des données — version 1.1
 
 Statut : **modèle V1 approuvé le 20 juillet 2026**.
 
@@ -125,9 +125,8 @@ l'historique.
 |---|---|---|
 | `etat_actuel_id` | identifiant | Identifiant de l'observation |
 | `site_id` | identifiant | Site observé |
-| `conservation_code` | code | Conservé, partiel, ruine, disparu ou inconnu |
-| `usage_actuel_code` | code | Usage contemporain observé |
-| `accessibilite_code` | code | Visitable, visible, privé, inaccessible ou inconnu |
+| `conservation_code` | code | Conservé, dégradé, partiellement conservé, vestiges, ruine, disparu ou inconnu |
+| `accessibilite_code` | code | Visitable, visible depuis l'espace public, privé, inaccessible ou inconnu |
 | `date_verification` | date | Date de l'observation ou de la consultation |
 | `conservation_valide_jusqu_au` | date calculée dans la vue | Échéance de fraîcheur de la conservation |
 | `usage_valide_jusqu_au` | date calculée dans la vue | Échéance de fraîcheur de l'usage actuel |
@@ -139,6 +138,20 @@ l'historique.
 | `motif_version_code` | code | Nouvelle observation, correction ou annulation |
 | `enregistre_le` | horodatage | Date d'insertion dans le projet |
 | `notes` | texte | Limites de l'observation |
+
+## Table `usages_actuels`
+
+Une observation peut décrire plusieurs usages simultanés. Une ligne représente
+un usage précis, jamais une catégorie générique « mixte ».
+
+| Champ | Type conceptuel | Description |
+|---|---|---|
+| `usage_actuel_id` | identifiant | Identifiant interne de l'usage observé |
+| `etat_actuel_id` | identifiant | Observation contemporaine datée |
+| `usage_code` | code | Industrie, culture, tourisme, logement, stockage, etc. |
+| `principal` | booléen | Usage principal de l'observation ; un seul au maximum |
+| `partie_site` | texte | Partie du site concernée, si elle est connue |
+| `notes` | texte | Précisions et limites |
 
 ## Table `sources`
 
@@ -213,15 +226,17 @@ technique.
 | `protection_id` | identifiant | Identifiant interne de la protection |
 | `site_id` | identifiant nullable | Site protégé, si la cible est immobilière |
 | `objet_technique_id` | identifiant nullable | Objet protégé, si la cible est mobilière |
-| `type_protection_code` | code | Classé MH, inscrit MH, local, inventorié, etc. |
+| `type_protection_code` | code | Classé MH, inscrit MH, protection locale ou autre |
 | `reference_protection` | texte | Référence externe `PA`, `PM` ou autre |
 | `date_protection` | date structurée | Date de la décision de protection |
 | `element_protege` | texte | Partie ou objet réellement concerné |
-| `portee` | texte | Étendue et réserves de la protection |
+| `portee_code` | code | Protection totale, partielle ou de portée inconnue |
 | `statut_actuel_code` | code | Active, modifiée, abrogée ou à vérifier |
 | `date_verification` | date | Dernier contrôle dans la source officielle |
 
 Une seule des colonnes `site_id` et `objet_technique_id` doit être renseignée.
+Une même référence `PA` ou `PM` peut porter plusieurs mesures : chaque mesure
+garde son propre `protection_id`.
 
 ## Table `objets_techniques`
 

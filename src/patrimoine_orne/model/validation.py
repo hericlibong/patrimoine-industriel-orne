@@ -39,6 +39,7 @@ TARGETS = {
     ),
     "relations_sites": ("relations_sites", "relation_site_id"),
     "sites": ("sites", "site_id"),
+    "usages_actuels": ("usages_actuels", "usage_actuel_id"),
 }
 
 
@@ -304,6 +305,70 @@ def validate_database(connection: duckdb.DuckDBPyConnection) -> list[ValidationI
                 "etats_actuels",
                 str(state_id[0]),
                 "L'etat remplace doit appartenir au meme site et avoir une version anterieure.",
+            )
+        )
+
+    for state_id in _rows(
+        connection,
+        """
+        SELECT etat.etat_actuel_id
+        FROM etats_actuels AS etat
+        WHERE etat.statut_enregistrement_code = 'actif'
+          AND etat.motif_version_code <> 'annulation'
+          AND etat.conservation_code IS NULL
+          AND etat.accessibilite_code IS NULL
+          AND NOT EXISTS (
+              SELECT 1 FROM usages_actuels AS usage
+              WHERE usage.etat_actuel_id = etat.etat_actuel_id
+                AND usage.statut_enregistrement_code = 'actif'
+          )
+        """,
+    ):
+        issues.append(
+            ValidationIssue(
+                "ETAT_ACTUEL_SANS_INFORMATION",
+                "etats_actuels",
+                str(state_id[0]),
+                "Une observation doit documenter la conservation, un usage ou l'accessibilite.",
+            )
+        )
+
+    for state_id, count in _rows(
+        connection,
+        """
+        SELECT etat_actuel_id, count(*)
+        FROM usages_actuels
+        WHERE statut_enregistrement_code = 'actif' AND principal
+        GROUP BY etat_actuel_id
+        HAVING count(*) > 1
+        """,
+    ):
+        issues.append(
+            ValidationIssue(
+                "PLUSIEURS_USAGES_PRINCIPAUX",
+                "usages_actuels",
+                str(state_id),
+                f"{count} usages sont marques principaux pour la meme observation.",
+            )
+        )
+
+    for state_id in _rows(
+        connection,
+        """
+        SELECT etat_actuel_id
+        FROM usages_actuels
+        WHERE statut_enregistrement_code = 'actif'
+        GROUP BY etat_actuel_id
+        HAVING count(*) > 1
+           AND bool_or(usage_code IN ('sans_usage', 'inconnu'))
+        """,
+    ):
+        issues.append(
+            ValidationIssue(
+                "USAGES_ACTUELS_INCOMPATIBLES",
+                "usages_actuels",
+                str(state_id[0]),
+                "'sans_usage' et 'inconnu' ne peuvent pas coexister avec un usage documente.",
             )
         )
 

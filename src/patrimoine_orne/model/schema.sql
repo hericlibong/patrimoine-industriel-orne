@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS schema_metadata (
 );
 
 DELETE FROM schema_metadata;
-INSERT INTO schema_metadata (schema_version) VALUES ('1.0.0');
+INSERT INTO schema_metadata (schema_version) VALUES ('1.1.0');
 
 CREATE TABLE IF NOT EXISTS sources (
     source_id VARCHAR PRIMARY KEY,
@@ -132,7 +132,6 @@ CREATE TABLE IF NOT EXISTS etats_actuels (
     etat_actuel_id UUID PRIMARY KEY DEFAULT uuid(),
     site_id UUID NOT NULL REFERENCES sites(site_id),
     conservation_code VARCHAR,
-    usage_actuel_code VARCHAR,
     accessibilite_code VARCHAR,
     date_verification DATE NOT NULL,
     methode_verification_code VARCHAR NOT NULL,
@@ -151,15 +150,25 @@ CREATE TABLE IF NOT EXISTS etats_actuels (
     CHECK (version_numero > 0),
     CHECK (motif_version_code IN ('nouvelle_observation', 'correction', 'annulation')),
     CHECK (
-        motif_version_code = 'annulation'
-        OR conservation_code IS NOT NULL
-        OR usage_actuel_code IS NOT NULL
-        OR accessibilite_code IS NOT NULL
-    ),
-    CHECK (
         motif_version_code <> 'annulation'
         OR remplace_etat_actuel_id IS NOT NULL
     )
+);
+
+CREATE TABLE IF NOT EXISTS usages_actuels (
+    usage_actuel_id UUID PRIMARY KEY DEFAULT uuid(),
+    etat_actuel_id UUID NOT NULL REFERENCES etats_actuels(etat_actuel_id),
+    usage_code VARCHAR NOT NULL,
+    principal BOOLEAN NOT NULL DEFAULT false,
+    partie_site VARCHAR,
+    notes VARCHAR,
+    statut_enregistrement_code VARCHAR NOT NULL DEFAULT 'actif',
+    cree_le TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
+    cree_par VARCHAR NOT NULL DEFAULT 'systeme',
+    modifie_le TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
+    UNIQUE (etat_actuel_id, usage_code, partie_site),
+    CHECK (nullif(trim(usage_code), '') IS NOT NULL),
+    CHECK (statut_enregistrement_code IN ('actif', 'archive', 'annule'))
 );
 
 CREATE TABLE IF NOT EXISTS exploitants (
@@ -280,14 +289,13 @@ CREATE TABLE IF NOT EXISTS protections (
     date_protection_precision_code VARCHAR,
     date_protection_texte_source VARCHAR,
     element_protege VARCHAR,
-    portee VARCHAR,
+    portee_code VARCHAR,
     statut_actuel_code VARCHAR,
     date_verification DATE NOT NULL,
     statut_enregistrement_code VARCHAR NOT NULL DEFAULT 'actif',
     cree_le TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
     cree_par VARCHAR NOT NULL DEFAULT 'systeme',
     modifie_le TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
-    UNIQUE (reference_protection),
     CHECK (
         (site_id IS NOT NULL AND objet_technique_id IS NULL)
         OR (site_id IS NULL AND objet_technique_id IS NOT NULL)
@@ -477,6 +485,49 @@ FROM geometries
 WHERE statut_enregistrement_code = 'actif'
   AND geometrie_reference;
 
+CREATE OR REPLACE VIEW usages_actuels_courants AS
+WITH observations_valides AS (
+    SELECT observation.*
+    FROM etats_actuels AS observation
+    WHERE observation.statut_enregistrement_code = 'actif'
+      AND observation.motif_version_code <> 'annulation'
+      AND NOT EXISTS (
+          SELECT 1
+          FROM etats_actuels AS annulation
+          WHERE annulation.motif_version_code = 'annulation'
+            AND annulation.remplace_etat_actuel_id = observation.etat_actuel_id
+      )
+),
+observations_avec_usage AS (
+    SELECT observation.*, row_number() OVER (
+        PARTITION BY observation.site_id
+        ORDER BY observation.date_verification DESC,
+                 observation.version_numero DESC,
+                 observation.enregistre_le DESC
+    ) AS rang
+    FROM observations_valides AS observation
+    WHERE EXISTS (
+        SELECT 1
+        FROM usages_actuels AS usage
+        WHERE usage.etat_actuel_id = observation.etat_actuel_id
+          AND usage.statut_enregistrement_code = 'actif'
+    )
+)
+SELECT
+    observation.site_id,
+    usage.usage_actuel_id,
+    usage.etat_actuel_id,
+    usage.usage_code,
+    usage.principal,
+    usage.partie_site,
+    observation.date_verification,
+    observation.date_verification + INTERVAL 12 MONTH AS valide_jusqu_au
+FROM observations_avec_usage AS observation
+JOIN usages_actuels AS usage
+  ON usage.etat_actuel_id = observation.etat_actuel_id
+ AND usage.statut_enregistrement_code = 'actif'
+WHERE observation.rang = 1;
+
 CREATE OR REPLACE VIEW etats_actuels_courants AS
 WITH observations_valides AS (
     SELECT observation.*
@@ -499,12 +550,13 @@ conservation AS (
     WHERE conservation_code IS NOT NULL
 ),
 usage_actuel AS (
-    SELECT *, row_number() OVER (
-        PARTITION BY site_id
-        ORDER BY date_verification DESC, version_numero DESC, enregistre_le DESC
-    ) AS rang
-    FROM observations_valides
-    WHERE usage_actuel_code IS NOT NULL
+    SELECT
+        site_id,
+        list(usage_code ORDER BY principal DESC, usage_code) AS usages_actuels_codes,
+        max(date_verification) AS date_verification,
+        max(valide_jusqu_au) AS valide_jusqu_au
+    FROM usages_actuels_courants
+    GROUP BY site_id
 ),
 accessibilite AS (
     SELECT *, row_number() OVER (
@@ -519,9 +571,9 @@ SELECT
     conservation.conservation_code,
     conservation.date_verification AS conservation_verifiee_le,
     conservation.date_verification + INTERVAL 12 MONTH AS conservation_valide_jusqu_au,
-    usage_actuel.usage_actuel_code,
+    usage_actuel.usages_actuels_codes,
     usage_actuel.date_verification AS usage_verifie_le,
-    usage_actuel.date_verification + INTERVAL 12 MONTH AS usage_valide_jusqu_au,
+    usage_actuel.valide_jusqu_au AS usage_valide_jusqu_au,
     accessibilite.accessibilite_code,
     accessibilite.date_verification AS accessibilite_verifiee_le,
     accessibilite.date_verification + INTERVAL 3 MONTH AS accessibilite_valide_jusqu_au
@@ -529,6 +581,6 @@ FROM sites_actifs AS site
 LEFT JOIN conservation
     ON conservation.site_id = site.site_id AND conservation.rang = 1
 LEFT JOIN usage_actuel
-    ON usage_actuel.site_id = site.site_id AND usage_actuel.rang = 1
+    ON usage_actuel.site_id = site.site_id
 LEFT JOIN accessibilite
     ON accessibilite.site_id = site.site_id AND accessibilite.rang = 1;

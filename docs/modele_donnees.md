@@ -1,7 +1,7 @@
 # Modèle de données — entités principales
 
-Statut : **modèle V1 approuvé — version 1.0**
-Date : 20 juillet 2026
+Statut : **modèle V1 approuvé — version 1.1**
+Date : 21 juillet 2026
 
 ## Principe central
 
@@ -26,6 +26,7 @@ entités structurées.
 erDiagram
     SITES ||--o{ ACTIVITES : "connaît"
     SITES ||--o{ ETATS_ACTUELS : "fait l'objet de"
+    ETATS_ACTUELS ||--o{ USAGES_ACTUELS : "décrit"
     SITES ||--o{ GEOMETRIES : "est localisé par"
     SITES ||--o{ PROTECTIONS : "peut recevoir"
     OBJETS_TECHNIQUES ||--o{ PROTECTIONS : "peut recevoir"
@@ -85,10 +86,14 @@ Une ligne représente une observation contemporaine datée. Les anciennes
 observations ne sont jamais écrasées : une nouvelle vérification ajoute une
 ligne.
 
-Conservation, usage et accessibilité restent trois dimensions distinctes. Une
+Conservation, usages et accessibilité restent trois dimensions distinctes. Une
 observation peut ne renseigner qu'une partie de ces dimensions lorsque la source
 ne permet pas de conclure sur les autres. Chaque valeur peut être reliée à sa
 propre mention de source.
+
+Les usages sont stockés dans `usages_actuels`, car un site peut avoir plusieurs
+usages simultanés. Cette table évite une catégorie imprécise `usage_mixte` et
+permet d'indiquer l'usage principal et la partie du site concernée.
 
 ### `sources`
 

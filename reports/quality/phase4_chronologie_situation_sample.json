@@ -1,0 +1,44 @@
+{
+  "monuments_historiques": {
+    "conservation_codes": {
+      "conserve": 1,
+      "degrade": 1,
+      "vestiges": 2
+    },
+    "current_destination_filled": 0,
+    "outside_conservation": {
+      "statut_activite": 14
+    },
+    "protection_scope_counts": {
+      "inconnue": 77,
+      "partielle": 9
+    },
+    "protection_type_counts": {
+      "classe_mh": 17,
+      "inscrit_mh": 69
+    },
+    "record_count": 77,
+    "records_with_protection_label": 77,
+    "records_without_parsed_protection": 0,
+    "state_terms": {
+      "bon état": 1,
+      "désaffecté": 3,
+      "mauvais état": 1,
+      "vestiges": 2,
+      "établissement industriel désaffecté": 11
+    },
+    "unknown_state_terms": {}
+  },
+  "pop_merimee": {
+    "conservation_codes": {},
+    "outside_conservation": {
+      "statut_activite": 6
+    },
+    "period_field_filled": 10,
+    "record_count": 10,
+    "state_terms": {
+      "établissement industriel désaffecté": 6
+    },
+    "unknown_state_terms": {}
+  }
+}

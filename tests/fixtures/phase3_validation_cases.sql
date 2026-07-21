@@ -70,23 +70,39 @@ INSERT INTO activites (
     );
 
 INSERT INTO etats_actuels (
-    etat_actuel_id, site_id, conservation_code, usage_actuel_code,
+    etat_actuel_id, site_id, conservation_code,
     accessibilite_code, date_verification, methode_verification_code,
     fiabilite_code, version_numero, motif_version_code, notes, cree_par
 ) VALUES
     (
         '30000000-0000-4000-8000-000000000005',
         '10000000-0000-4000-8000-000000000004',
-        'partiel', 'sans_usage', 'visible_voie_publique', DATE '2026-07-20',
+        'partiellement_conserve', 'visible_espace_public', DATE '2026-07-20',
         'terrain_test', 'forte', 1, 'nouvelle_observation',
         'Etat actuel fictif du cas simple.', 'fixture'
     ),
     (
         '30000000-0000-4000-8000-000000000006',
         '10000000-0000-4000-8000-000000000005',
-        'conserve', 'equipement_culturel', 'visitable', DATE '2026-07-20',
+        'conserve', 'visitable', DATE '2026-07-20',
         'terrain_test', 'forte', 1, 'nouvelle_observation',
         'Usage culturel fictif, distinct de l activite historique.', 'fixture'
+    );
+
+INSERT INTO usages_actuels (
+    usage_actuel_id, etat_actuel_id, usage_code, principal, cree_par
+) VALUES
+    (
+        '31000000-0000-4000-8000-000000000005',
+        '30000000-0000-4000-8000-000000000005', 'sans_usage', true, 'fixture'
+    ),
+    (
+        '31000000-0000-4000-8000-000000000006',
+        '30000000-0000-4000-8000-000000000006', 'culture_musee', true, 'fixture'
+    ),
+    (
+        '31000000-0000-4000-8000-000000000007',
+        '30000000-0000-4000-8000-000000000006', 'tourisme_visite', false, 'fixture'
     );
 
 INSERT INTO geometries (

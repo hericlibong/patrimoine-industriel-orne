@@ -1,6 +1,6 @@
-version: 1.1
+version: 1.2
 status: modele_v1_valide
-updated_at: 2026-07-20
+updated_at: 2026-07-21
 
 identifiants:
   entites_metier:
@@ -56,7 +56,11 @@ champs_obligatoires:
     toujours: [activite_id, site_id, libelle_ou_code, fiabilite_code]
   etats_actuels:
     toujours: [etat_actuel_id, site_id, date_verification, methode_verification_code, fiabilite_code]
-    au_moins_un: [conservation_code, usage_actuel_code, accessibilite_code]
+    au_moins_un: [conservation_code, usage_actuel_lie, accessibilite_code]
+  usages_actuels:
+    toujours: [usage_actuel_id, etat_actuel_id, usage_code]
+    un_seul_principal_par_observation: true
+    codes_exclusifs: [sans_usage, inconnu]
   sources:
     toujours: [source_id, titre, producteur, role_code, statut_audit_code]
   mentions_sources:
@@ -121,6 +125,7 @@ observations_actuelles:
     suppression_ancienne_ligne: false
     motifs: [nouvelle_observation, correction, annulation]
   vue_courante: etats_actuels_courants
+  vue_usages_courants: usages_actuels_courants
   selection: derniere_valeur_non_annulee_par_dimension
   fraicheur_mois:
     accessibilite: 3

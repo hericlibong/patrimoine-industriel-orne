@@ -212,3 +212,24 @@ nombre de sites.
 
 Activité, installation, bâtiment, énergie et rôle énergétique sont traités
 séparément. Un bâtiment ne permet pas, à lui seul, de déduire une production.
+
+## Chronologie et situation actuelle
+
+Les périodes historiques sont des catégories analytiques calculées à partir des
+intervalles conservés dans le modèle. Elles ne remplacent ni les dates ni les
+expressions originales des sources. Une activité qui chevauche une frontière
+chronologique est rattachée aux deux périodes.
+
+Conservation, usage actuel et accessibilité sont des observations contemporaines
+distinctes. Elles doivent être datées et ne sont publiées comme actuelles que
+pendant leur durée de fraîcheur. « Désaffecté » qualifie l'arrêt d'une activité,
+pas l'état matériel du site.
+
+Plusieurs usages peuvent être enregistrés pour une même observation. Les droits
+d'accès ne sont jamais déduits de la simple visibilité depuis l'espace public.
+Une visite possible doit être attestée par une information récente.
+
+Les protections sont enregistrées mesure par mesure. Le type juridique, la
+portée, l'élément protégé et le statut de la mesure restent séparés. L'Inventaire
+général est une source de connaissance et ne constitue pas, à lui seul, une
+protection juridique.

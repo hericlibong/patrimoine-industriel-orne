@@ -1,6 +1,6 @@
 # Registre des limites
 
-Document vivant — dernière mise à jour : 20 juillet 2026
+Document vivant — dernière mise à jour : 21 juillet 2026
 
 | ID | Source ou étape | Limite constatée | Conséquence | Traitement prévu | Statut |
 |---|---|---|---|---|---|
@@ -31,6 +31,10 @@ Document vivant — dernière mise à jour : 20 juillet 2026
 | LIM-025 | Classification sectorielle | Le test porte sur seulement 10 notices POP et 13 dénominations | La couverture de 100 % ne peut pas être extrapolée au corpus complet | Mesurer à nouveau les termes inconnus à chaque extraction et pendant le pilote | permanente |
 | LIM-026 | Activités successives | `DENO` et `TICO` peuvent omettre une conversion décrite dans `HIST`, comme une filature devenue minoterie | Une classification fondée seulement sur la dénomination perdrait une phase et parfois un secteur | Analyser l'historique et valider humainement les changements d'activité | permanente |
 | LIM-027 | Énergies POP | `ENER` peut être vide, contenir un rôle ou décrire un équipement | Risque de confondre énergie, provenance et machine | Séparer énergie, rôle et équipement ; compléter depuis `HIST` avec provenance | permanente |
+| LIM-028 | Conservation POP/MH | « établissement industriel désaffecté » décrit l'arrêt de l'activité et non la conservation matérielle | Un classement automatique ferait passer à tort un site désaffecté pour dégradé ou disparu | Exclure ce terme de la conservation et chercher une observation récente | permanente |
+| LIM-029 | Usages actuels MH | Le champ de destination actuelle est vide dans les 77 notices MH testées | Les usages contemporains ne peuvent pas être extraits de cet échantillon | Vérifier des sources locales récentes et documenter la date de l'observation | permanente |
+| LIM-030 | Protections MH | Le type de protection est extractible, mais sa portée n'est explicite que pour 9 des 86 mesures du test | Une mesure pourrait être présentée à tort comme couvrant tout le site | Conserver `portee_code = inconnu` et l'élément protégé jusqu'à lecture de la précision ou de l'arrêté | permanente |
+| LIM-031 | Périodes historiques | Les sept périodes sont un découpage éditorial du projet | Elles pourraient être prises pour des catégories fournies par les sources | Les calculer à partir des dates, conserver les dates originales et publier la convention | permanente |
 
 ## Règle de mise à jour
 

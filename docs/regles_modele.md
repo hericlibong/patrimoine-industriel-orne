@@ -1,8 +1,8 @@
 # Règles du modèle de données
 
-Statut : **modèle V1 approuvé — règles version 1.1**
+Statut : **modèle V1 approuvé — règles version 1.2**
 
-Date : 20 juillet 2026
+Date : 21 juillet 2026
 
 ## 1. Identifiants internes stables
 
@@ -244,6 +244,10 @@ dimension, la dernière valeur non annulée. Ainsi, une nouvelle vérification d
 l'accessibilité ne remplace pas automatiquement une observation de conservation
 encore valable.
 
+Les usages sont des lignes de `usages_actuels` rattachées à une observation.
+Plusieurs usages simultanés sont autorisés, mais un seul peut être principal.
+`sans_usage` et `inconnu` ne peuvent pas coexister avec un usage connu.
+
 Les durées de fraîcheur sont calculées séparément :
 
 - accessibilité : 3 mois ;
@@ -258,5 +262,6 @@ un état actuel ; elle reste une mention historique.
 
 Ces règles sont matérialisées par le schéma DuckDB, ses contraintes, le
 validateur transversal et les tests automatisés. Les vocabulaires sectoriels
-sont validés dans le premier bloc de la phase 4 ; les classifications
-chronologiques, contemporaines et de qualité restent provisoires.
+sont validés dans le premier bloc de la phase 4. Les classifications
+chronologiques et contemporaines sont validées dans le deuxième bloc ; les
+classifications de qualité restent provisoires.

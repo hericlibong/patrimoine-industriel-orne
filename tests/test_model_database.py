@@ -36,7 +36,7 @@ class ModelDatabaseTests(TestCase):
             self.connection.execute(
                 "SELECT schema_version FROM schema_metadata"
             ).fetchone()[0],
-            "1.0.0",
+            "1.1.0",
         )
         self.assertEqual(
             self.connection.execute("SELECT count(*) FROM sites").fetchone()[0],
@@ -67,19 +67,24 @@ class ModelDatabaseTests(TestCase):
                 "relations_sites",
                 "identifiants_externes",
                 "etats_actuels_courants",
+                "usages_actuels",
+                "usages_actuels_courants",
             }.issubset(names)
         )
 
     def test_current_state_is_assembled_dimension_by_dimension(self) -> None:
         row = self.connection.execute(
             """
-            SELECT conservation_code, usage_actuel_code, accessibilite_code,
+            SELECT conservation_code, usages_actuels_codes, accessibilite_code,
                    conservation_verifiee_le, accessibilite_verifiee_le
             FROM etats_actuels_courants
             WHERE site_id = '10000000-0000-4000-8000-000000000001'
             """
         ).fetchone()
-        self.assertEqual(row[:3], ("partiel", "habitation", "prive_non_visitable"))
+        self.assertEqual(
+            row[:3],
+            ("partiellement_conserve", ["logement"], "prive_non_visible"),
+        )
         self.assertEqual(str(row[3]), "2025-07-20")
         self.assertEqual(str(row[4]), "2026-07-20")
 
@@ -216,6 +221,67 @@ class ModelDatabaseTests(TestCase):
         )
         self.assertIn("RAPPROCHEMENT_CONFIRME_SANS_FUSION", self.issue_codes())
 
+    def test_current_observation_must_contain_information(self) -> None:
+        self.connection.execute(
+            """
+            INSERT INTO etats_actuels (
+                site_id, date_verification, methode_verification_code,
+                fiabilite_code, version_numero
+            ) VALUES (
+                '10000000-0000-4000-8000-000000000002', DATE '2026-07-21',
+                'test', 'forte', 2
+            )
+            """
+        )
+        self.assertIn("ETAT_ACTUEL_SANS_INFORMATION", self.issue_codes())
+
+    def test_only_one_current_use_can_be_principal(self) -> None:
+        self.connection.execute(
+            """
+            INSERT INTO usages_actuels (
+                etat_actuel_id, usage_code, principal
+            ) VALUES (
+                '30000000-0000-4000-8000-000000000001',
+                'commerce_services', true
+            )
+            """
+        )
+        self.assertIn("PLUSIEURS_USAGES_PRINCIPAUX", self.issue_codes())
+
+    def test_unknown_use_cannot_coexist_with_known_use(self) -> None:
+        self.connection.execute(
+            """
+            INSERT INTO usages_actuels (
+                etat_actuel_id, usage_code, principal
+            ) VALUES (
+                '30000000-0000-4000-8000-000000000001', 'inconnu', false
+            )
+            """
+        )
+        self.assertIn("USAGES_ACTUELS_INCOMPATIBLES", self.issue_codes())
+
+    def test_one_notice_can_contain_several_protection_measures(self) -> None:
+        self.connection.execute(
+            """
+            INSERT INTO protections (
+                site_id, type_protection_code, reference_protection,
+                portee_code, date_verification
+            ) VALUES
+                (
+                    '10000000-0000-4000-8000-000000000001', 'classe_mh',
+                    'PA-TEST-MULTIPLE', 'partielle', DATE '2026-07-21'
+                ),
+                (
+                    '10000000-0000-4000-8000-000000000001', 'inscrit_mh',
+                    'PA-TEST-MULTIPLE', 'partielle', DATE '2026-07-21'
+                )
+            """
+        )
+        count = self.connection.execute(
+            "SELECT count(*) FROM protections WHERE reference_protection = 'PA-TEST-MULTIPLE'"
+        ).fetchone()[0]
+        self.assertEqual(count, 2)
+
 
 class Phase3ValidationCasesTests(TestCase):
     def setUp(self) -> None:
@@ -267,14 +333,17 @@ class Phase3ValidationCasesTests(TestCase):
         ).fetchone()
         current_state = self.connection.execute(
             """
-            SELECT conservation_code, usage_actuel_code, accessibilite_code
+            SELECT conservation_code, usages_actuels_codes, accessibilite_code
             FROM etats_actuels_courants
             WHERE site_id = '10000000-0000-4000-8000-000000000005'
             """
         ).fetchone()
         self.assertEqual(activity[0], "filature")
         self.assertEqual(str(activity[1]), "1960-12-31")
-        self.assertEqual(current_state, ("conserve", "equipement_culturel", "visitable"))
+        self.assertEqual(
+            current_state,
+            ("conserve", ["culture_musee", "tourisme_visite"], "visitable"),
+        )
 
     def test_disappeared_site_without_fake_geometry(self) -> None:
         result = self.connection.execute(
