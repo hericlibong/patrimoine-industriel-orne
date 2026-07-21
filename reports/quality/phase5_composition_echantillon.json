@@ -1,0 +1,54 @@
+{
+  "checks_passed": true,
+  "counts": {
+    "conservation_source_signals": {
+      "conserve": 2,
+      "degrade": 1,
+      "disparu": 1,
+      "inconnu": 15,
+      "partiellement_conserve": 7,
+      "vestiges": 4
+    },
+    "localisation_difficulty": {
+      "difficile": 6,
+      "facile": 14,
+      "intermediaire": 10
+    },
+    "periods": {
+      "avant_1789": 7,
+      "guerres_entre_deux_guerres": 5,
+      "industrialisation_rail_vapeur": 20,
+      "modernisation_apres_guerre": 10,
+      "revolution_premiere_industrialisation": 9
+    },
+    "protection_signals": {
+      "protege_mh_identifie": 7,
+      "sans_protection_mh_identifiee": 23
+    },
+    "sectors": {
+      "agroalimentaire": 7,
+      "bois_papier_imprimerie": 4,
+      "energie": 1,
+      "extraction": 1,
+      "mecanique_electrique": 2,
+      "metallurgie_travail_metaux": 9,
+      "textile_habillement_cuir": 8,
+      "verre_ceramique_materiaux_construction": 4
+    },
+    "zones": {
+      "alenconnais_ecouves": 5,
+      "bocage_andaines": 5,
+      "pays_ouche_risle": 5,
+      "perche": 5,
+      "plaines_argentan_pays_auge": 5,
+      "vallees_noireau_vere": 5
+    }
+  },
+  "errors": [],
+  "multi_sector_sites": 5,
+  "sample_status": "phase5_composition_validee",
+  "sample_version": "0.1",
+  "selected_count": 30,
+  "unique_references": 30,
+  "universe_announced_count": 319
+}

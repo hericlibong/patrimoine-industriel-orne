@@ -253,3 +253,21 @@ La reproductibilité technique est contrôlée en rejouant les classifications
 avec les mêmes entrées dans un ordre différent. Les sorties sont triées et
 associées à une empreinte SHA-256. La reproductibilité humaine sera mesurée par
 un double classement d'un sous-échantillon du corpus pilote.
+
+## Échantillon pilote
+
+Le pilote est composé par échantillonnage raisonné à quotas dans les 319 dossiers
+de l'Inventaire normand. L'unité de sélection est un dossier `IA` candidat, et
+non encore un site canonique du projet.
+
+La sélection vise la diversité utile au test : six macro-zones, au moins sept
+secteurs, plusieurs périodes et états matériels, des protections différentes et
+des localisations de difficulté variée. Les cas difficiles sont volontairement
+surreprésentés ; les résultats du pilote ne sont donc pas extrapolables au corpus
+complet.
+
+Les valeurs utilisées pour composer l'échantillon sont des signaux provisoires.
+Elles ne sont versées au modèle comme faits qu'après lecture de la notice,
+rapprochement des sources et contrôle. La conservation ancienne n'est jamais
+présentée comme actuelle, et l'absence de protection repérée n'est pas traitée
+comme une preuve juridique d'absence.

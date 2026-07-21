@@ -34,6 +34,7 @@ patrimoine-orne-db = "patrimoine_orne.model.database:main"
 patrimoine-orne-audit-secteurs = "patrimoine_orne.classify.sectors:main"
 patrimoine-orne-audit-situation = "patrimoine_orne.classify.current_state:main"
 patrimoine-orne-audit-qualite = "patrimoine_orne.classify.quality:main"
+patrimoine-orne-controle-echantillon = "patrimoine_orne.sample.pilot:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

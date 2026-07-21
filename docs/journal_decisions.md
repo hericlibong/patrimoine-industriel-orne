@@ -376,3 +376,26 @@
   phase 5 ; cette limite n'empêche pas l'utilisation du registre pour le pilote.
 - La phase 4 est terminée. La phase 5 peut construire l'échantillon pilote avec
   les classifications V1.
+
+## 2026-07-21 — Phase 5, composition de l'échantillon pilote
+
+- Le pilote est un échantillon raisonné par quotas et non un tirage aléatoire.
+  Il teste la variété des situations ; il ne mesure pas statistiquement le corpus.
+- L'univers de départ est le corpus officiel de 319 dossiers de l'Inventaire du
+  patrimoine industriel de l'Orne. CASIAS n'intervient pas dans la composition
+  initiale et servira seulement à l'élargissement et au recoupement.
+- L'unité de sélection est le dossier `IA` candidat. Les 30 références ne valent
+  pas encore 30 sites canoniques avant rapprochement.
+- Trente candidats sont retenus, avec cinq dossiers dans chacune des six
+  macro-zones de contrôle.
+- L'échantillon couvre huit secteurs, cinq périodes, six profils de conservation
+  issus des sources, sept protections MH déjà identifiées et six localisations
+  difficiles.
+- Les états matériels anciens, l'absence apparente de protection et la difficulté
+  de localisation restent des signaux provisoires à vérifier pendant
+  l'enrichissement.
+- La sélection structurée est enregistrée dans
+  `config/echantillon_pilote.yml` et son contrôle dans
+  `reports/quality/phase5_composition_echantillon.json`.
+- Le bloc « Composer l'échantillon » est terminé. Le bloc suivant porte sur
+  l'enrichissement et le rapprochement des 30 candidats.

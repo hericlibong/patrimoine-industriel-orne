@@ -1,0 +1,379 @@
+version: "0.1"
+status: phase5_composition_validee
+updated_at: 2026-07-21
+
+univers:
+  source_id: inventaire_normandie_orne
+  dossier_corpus: IA61000851
+  nombre_dossiers_annonce: 319
+  unite_de_selection: dossier_ia_candidat
+  note: >-
+    Un dossier IA est une porte d'entrée documentaire. Il ne devient un site
+    canonique qu'après rapprochement et contrôle pendant l'enrichissement.
+
+methode:
+  type: echantillonnage_raisonne_par_quotas
+  objectif: eprouver_le_modele_sur_la_diversite_du_corpus
+  representativite_statistique: false
+  taille_cible: 30
+  quotas:
+    zones_controle:
+      minimum_distinct: 6
+      minimum_par_zone: 5
+    secteurs:
+      minimum_distinct: 7
+    periodes:
+      minimum_distinct: 4
+    conservation_source:
+      minimum_distinct: 4
+      valeurs_requises: [vestiges, disparu, inconnu]
+    protection:
+      minimum_proteges_mh_identifies: 5
+      minimum_sans_protection_mh_identifiee: 10
+    difficulte_localisation:
+      minimum_difficiles: 5
+      minimum_faciles_ou_intermediaires: 10
+
+avertissements:
+  - Les secteurs et périodes sont des profils de présélection à contrôler dans les notices.
+  - La conservation provient de sources anciennes et ne décrit pas encore la situation actuelle.
+  - L'absence de protection identifiée n'est pas une preuve juridique d'absence de protection.
+  - La difficulté de localisation est une estimation de charge, pas un niveau de précision géographique.
+
+sites:
+  - ia_reference: IA00061008
+    titre: usine d'extraction dite Mine de Halouze
+    commune: Saint-Clair-de-Halouze
+    zone_controle: bocage_andaines
+    secteurs_preselection: [extraction]
+    periodes_preselection: [guerres_entre_deux_guerres, modernisation_apres_guerre]
+    conservation_source_signal: inconnu
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: intermediaire
+    raisons_selection: [industrie_extractive, grande_emprise, cessation_documentee]
+
+  - ia_reference: IA00060965
+    titre: affinerie, moulin à blé
+    commune: Champsecret
+    zone_controle: bocage_andaines
+    secteurs_preselection: [metallurgie_travail_metaux, agroalimentaire]
+    periodes_preselection: [avant_1789, revolution_premiere_industrialisation]
+    conservation_source_signal: partiellement_conserve
+    protection_signal: protege_mh_identifie
+    protection_reference: PA00110771
+    localisation_difficulte: facile
+    raisons_selection: [site_multi_secteurs, forge_hydraulique, protection_mh]
+
+  - ia_reference: IA00060938
+    titre: centrale hydroélectrique
+    commune: Rabodanges
+    zone_controle: bocage_andaines
+    secteurs_preselection: [energie]
+    periodes_preselection: [modernisation_apres_guerre]
+    conservation_source_signal: inconnu
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: facile
+    raisons_selection: [production_energie, relation_eau, grande_infrastructure]
+
+  - ia_reference: IA00061003
+    titre: four à chaux
+    commune: Les Rotours
+    zone_controle: bocage_andaines
+    secteurs_preselection: [verre_ceramique_materiaux_construction]
+    periodes_preselection: [industrialisation_rail_vapeur]
+    conservation_source_signal: inconnu
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: difficile
+    raisons_selection: [materiaux_construction, implantation_isolee, localisation_a_controler]
+
+  - ia_reference: IA00060901
+    titre: affinerie de fer
+    commune: Rânes
+    zone_controle: bocage_andaines
+    secteurs_preselection: [metallurgie_travail_metaux]
+    periodes_preselection: [avant_1789]
+    conservation_source_signal: inconnu
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: difficile
+    raisons_selection: [metallurgie_ancienne, localisation_a_controler]
+
+  - ia_reference: IA00061119
+    titre: filature de la Martinique
+    commune: Athis-de-l'Orne
+    zone_controle: vallees_noireau_vere
+    secteurs_preselection: [textile_habillement_cuir]
+    periodes_preselection: [industrialisation_rail_vapeur]
+    conservation_source_signal: partiellement_conserve
+    protection_signal: protege_mh_identifie
+    protection_reference: PA00135514
+    localisation_difficulte: facile
+    raisons_selection: [textile_hydraulique, protection_mh, objet_technique_potentiel]
+
+  - ia_reference: IA00060915
+    titre: filature de coton dite filature de la Planchette
+    commune: Saint-Georges-des-Groseillers
+    zone_controle: vallees_noireau_vere
+    secteurs_preselection: [textile_habillement_cuir]
+    periodes_preselection: [industrialisation_rail_vapeur]
+    conservation_source_signal: inconnu
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: facile
+    raisons_selection: [textile, bassin_industriel_flerien]
+
+  - ia_reference: IA00061035
+    titre: filature des Roches
+    commune: Saint-Pierre-du-Regard
+    zone_controle: vallees_noireau_vere
+    secteurs_preselection: [textile_habillement_cuir]
+    periodes_preselection: [industrialisation_rail_vapeur]
+    conservation_source_signal: inconnu
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: intermediaire
+    raisons_selection: [textile, implantation_de_vallee]
+
+  - ia_reference: IA00060902
+    titre: filature, fromagerie industrielle
+    commune: Berjou
+    zone_controle: vallees_noireau_vere
+    secteurs_preselection: [textile_habillement_cuir, agroalimentaire]
+    periodes_preselection: [industrialisation_rail_vapeur, modernisation_apres_guerre]
+    conservation_source_signal: inconnu
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: intermediaire
+    raisons_selection: [site_multi_secteurs, activites_successives, energie_hydraulique]
+
+  - ia_reference: IA00060896
+    titre: filature, usine de chaussures
+    commune: Cahan
+    zone_controle: vallees_noireau_vere
+    secteurs_preselection: [textile_habillement_cuir]
+    periodes_preselection: [industrialisation_rail_vapeur, modernisation_apres_guerre]
+    conservation_source_signal: inconnu
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: intermediaire
+    raisons_selection: [activites_successives, textile_et_cuir]
+
+  - ia_reference: IA00061002
+    titre: imprimerie Alençonnaise
+    commune: Alençon
+    zone_controle: alenconnais_ecouves
+    secteurs_preselection: [bois_papier_imprimerie]
+    periodes_preselection: [industrialisation_rail_vapeur, guerres_entre_deux_guerres]
+    conservation_source_signal: disparu
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: difficile
+    raisons_selection: [site_disparu, contexte_urbain, adresse_historique]
+
+  - ia_reference: IA00061073
+    titre: scierie Prout
+    commune: Alençon
+    zone_controle: alenconnais_ecouves
+    secteurs_preselection: [bois_papier_imprimerie]
+    periodes_preselection: [industrialisation_rail_vapeur]
+    conservation_source_signal: partiellement_conserve
+    protection_signal: protege_mh_identifie
+    protection_reference: PA00135513
+    localisation_difficulte: facile
+    raisons_selection: [travail_du_bois, machine_a_vapeur, protection_mh]
+
+  - ia_reference: IA00060969
+    titre: moulin à farine dit moulin d'Ozé, puis filature d'Ozé, puis usine de matériel électroménager Moulinex
+    commune: Alençon
+    zone_controle: alenconnais_ecouves
+    secteurs_preselection: [agroalimentaire, textile_habillement_cuir, mecanique_electrique]
+    periodes_preselection: [revolution_premiere_industrialisation, industrialisation_rail_vapeur, modernisation_apres_guerre]
+    conservation_source_signal: inconnu
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: facile
+    raisons_selection: [trois_secteurs, activites_successives, mutation_industrielle]
+
+  - ia_reference: IA00060959
+    titre: usine de fabrication des métaux
+    commune: Saint-Denis-sur-Sarthon
+    zone_controle: alenconnais_ecouves
+    secteurs_preselection: [metallurgie_travail_metaux]
+    periodes_preselection: [avant_1789, industrialisation_rail_vapeur]
+    conservation_source_signal: vestiges
+    protection_signal: protege_mh_identifie
+    protection_reference: PA00110985
+    localisation_difficulte: intermediaire
+    raisons_selection: [forge_ancienne, vestiges, protection_mh]
+
+  - ia_reference: IA00060997
+    titre: faïencerie
+    commune: Saint-Denis-sur-Sarthon
+    zone_controle: alenconnais_ecouves
+    secteurs_preselection: [verre_ceramique_materiaux_construction]
+    periodes_preselection: [avant_1789, revolution_premiere_industrialisation]
+    conservation_source_signal: vestiges
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: difficile
+    raisons_selection: [production_ceramique, site_ancien, vestiges]
+
+  - ia_reference: IA00061117
+    titre: briqueterie Saint-Martin
+    commune: Argentan
+    zone_controle: plaines_argentan_pays_auge
+    secteurs_preselection: [verre_ceramique_materiaux_construction]
+    periodes_preselection: [industrialisation_rail_vapeur, guerres_entre_deux_guerres]
+    conservation_source_signal: vestiges
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: intermediaire
+    raisons_selection: [four_hoffmann, vestiges, site_menace_source]
+
+  - ia_reference: IA00061133
+    titre: laiterie industrielle, fromagerie industrielle dite laiterie fromagerie Lavalou
+    commune: Le Bourg-Saint-Léonard
+    zone_controle: plaines_argentan_pays_auge
+    secteurs_preselection: [agroalimentaire]
+    periodes_preselection: [industrialisation_rail_vapeur, guerres_entre_deux_guerres]
+    conservation_source_signal: degrade
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: intermediaire
+    raisons_selection: [industrie_laitiere, site_menace_source, pays_auge]
+
+  - ia_reference: IA00060909
+    titre: distillerie, cidrerie, laiterie industrielle
+    commune: Gacé
+    zone_controle: plaines_argentan_pays_auge
+    secteurs_preselection: [agroalimentaire]
+    periodes_preselection: [industrialisation_rail_vapeur, modernisation_apres_guerre]
+    conservation_source_signal: inconnu
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: facile
+    raisons_selection: [productions_agricoles_locales, trois_activites, adresse_documentee]
+
+  - ia_reference: IA00061166
+    titre: cidrerie distillerie dite cidrerie distillerie Pépin
+    commune: Trun
+    zone_controle: plaines_argentan_pays_auge
+    secteurs_preselection: [agroalimentaire]
+    periodes_preselection: [industrialisation_rail_vapeur, modernisation_apres_guerre]
+    conservation_source_signal: inconnu
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: facile
+    raisons_selection: [cidre_et_distillation, reconstruction_apres_guerre, adresse_documentee]
+
+  - ia_reference: IA00061091
+    titre: moulin à farine
+    commune: Goulet
+    zone_controle: plaines_argentan_pays_auge
+    secteurs_preselection: [agroalimentaire]
+    periodes_preselection: [industrialisation_rail_vapeur]
+    conservation_source_signal: inconnu
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: difficile
+    raisons_selection: [moulin, absence_coordonnees_pop_test, localisation_a_resoudre]
+
+  - ia_reference: IA00061029
+    titre: affinerie
+    commune: Aube
+    zone_controle: pays_ouche_risle
+    secteurs_preselection: [metallurgie_travail_metaux]
+    periodes_preselection: [avant_1789, revolution_premiere_industrialisation]
+    conservation_source_signal: conserve
+    protection_signal: protege_mh_identifie
+    protection_reference: PA00110731
+    localisation_difficulte: facile
+    raisons_selection: [forge_hydraulique, musee, protection_mh]
+
+  - ia_reference: IA00061155
+    titre: usine de quincaillerie et tréfilerie dite établissements Bohin
+    commune: Saint-Sulpice-sur-Risle
+    zone_controle: pays_ouche_risle
+    secteurs_preselection: [metallurgie_travail_metaux]
+    periodes_preselection: [revolution_premiere_industrialisation, industrialisation_rail_vapeur]
+    conservation_source_signal: conserve
+    protection_signal: protege_mh_identifie
+    protection_reference: PA00135530
+    localisation_difficulte: facile
+    raisons_selection: [petite_metallurgie, production_persistante, protection_mh]
+
+  - ia_reference: IA00061113
+    titre: laminoir, usine de quincaillerie dite usine de la Batterie
+    commune: Saint-Sulpice-sur-Risle
+    zone_controle: pays_ouche_risle
+    secteurs_preselection: [metallurgie_travail_metaux]
+    periodes_preselection: [revolution_premiere_industrialisation, industrialisation_rail_vapeur]
+    conservation_source_signal: partiellement_conserve
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: intermediaire
+    raisons_selection: [activites_successives, transfert_vers_bohin, reconversion_logement]
+
+  - ia_reference: IA00061052
+    titre: tannerie, usine de construction mécanique
+    commune: L'Aigle
+    zone_controle: pays_ouche_risle
+    secteurs_preselection: [textile_habillement_cuir, mecanique_electrique]
+    periodes_preselection: [revolution_premiere_industrialisation, modernisation_apres_guerre]
+    conservation_source_signal: inconnu
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: facile
+    raisons_selection: [site_multi_secteurs, reconversion_productive, adresse_documentee]
+
+  - ia_reference: IA00061054
+    titre: usine d'habillement
+    commune: L'Aigle
+    zone_controle: pays_ouche_risle
+    secteurs_preselection: [textile_habillement_cuir]
+    periodes_preselection: [industrialisation_rail_vapeur, modernisation_apres_guerre]
+    conservation_source_signal: partiellement_conserve
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: facile
+    raisons_selection: [travail_feminin_potentiel, reconversion_logement, adresse_documentee]
+
+  - ia_reference: IA00061153
+    titre: affinerie, forge de Beaumont
+    commune: Longny-au-Perche
+    zone_controle: perche
+    secteurs_preselection: [metallurgie_travail_metaux]
+    periodes_preselection: [avant_1789, revolution_premiere_industrialisation]
+    conservation_source_signal: vestiges
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: difficile
+    raisons_selection: [batiments_disparus, structures_hydrauliques, localisation_a_resoudre]
+
+  - ia_reference: IA00061060
+    titre: moulin à papier, grosse forge
+    commune: Longny-au-Perche
+    zone_controle: perche
+    secteurs_preselection: [bois_papier_imprimerie, metallurgie_travail_metaux]
+    periodes_preselection: [avant_1789, revolution_premiere_industrialisation]
+    conservation_source_signal: partiellement_conserve
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: intermediaire
+    raisons_selection: [site_multi_secteurs, activites_successives, energie_hydraulique]
+
+  - ia_reference: IA00061147
+    titre: cartonnerie
+    commune: Saint-Langis-lès-Mortagne
+    zone_controle: perche
+    secteurs_preselection: [bois_papier_imprimerie]
+    periodes_preselection: [industrialisation_rail_vapeur]
+    conservation_source_signal: inconnu
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: facile
+    raisons_selection: [industrie_carton, relation_rail, secteur_peu_represente]
+
+  - ia_reference: IA00061135
+    titre: fonderies du Perche
+    commune: Irai
+    zone_controle: perche
+    secteurs_preselection: [metallurgie_travail_metaux]
+    periodes_preselection: [guerres_entre_deux_guerres, modernisation_apres_guerre]
+    conservation_source_signal: inconnu
+    protection_signal: sans_protection_mh_identifiee
+    localisation_difficulte: intermediaire
+    raisons_selection: [fonderie, industrie_du_20e_siecle, perche_industriel]
+
+  - ia_reference: IA00061095
+    titre: briqueterie des Chauffetières
+    commune: L'Hôme-Chamondot
+    zone_controle: perche
+    secteurs_preselection: [verre_ceramique_materiaux_construction]
+    periodes_preselection: [industrialisation_rail_vapeur]
+    conservation_source_signal: partiellement_conserve
+    protection_signal: protege_mh_identifie
+    protection_reference: PA00135522
+    localisation_difficulte: facile
+    raisons_selection: [briqueterie_rurale, four_industriel, protection_mh]
