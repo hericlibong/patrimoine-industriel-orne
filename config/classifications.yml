@@ -1,19 +1,267 @@
-# Classification provisoire à tester sur les données réelles avant validation.
-version: 0.1
-status: provisoire
-updated_at: 2026-07-19
+# Les secteurs, activités, installations et énergies sont validés pour le
+# premier bloc de la phase 4. Les classifications suivantes restent provisoires.
+version: 0.2
+status: phase4_bloc1_valide
+updated_at: 2026-07-21
 
 secteurs:
-  - extraction
-  - metallurgie_travail_metaux
-  - textile_habillement_cuir
-  - bois_papier_imprimerie
-  - verre_ceramique_materiaux_construction
-  - agroalimentaire
-  - energie_services_industriels
-  - autres_industries
-  - activite_mixte
-  - inconnu
+  extraction:
+    libelle: Extraction
+    definition: Extraction de minerai, pierre, argile ou autre ressource du sous-sol.
+    ordre: 10
+  metallurgie_travail_metaux:
+    libelle: Métallurgie et travail des métaux
+    definition: Production, transformation et façonnage des métaux.
+    ordre: 20
+  textile_habillement_cuir:
+    libelle: Textile, habillement et cuir
+    definition: Préparation des fibres, filature, tissage, confection et travail du cuir.
+    ordre: 30
+  bois_papier_imprimerie:
+    libelle: Bois, papier et imprimerie
+    definition: Sciage et transformation du bois, fabrication du papier et du carton, impression.
+    ordre: 40
+  verre_ceramique_materiaux_construction:
+    libelle: Verre, céramique et matériaux de construction
+    definition: Fabrication de verre, brique, tuile, céramique, chaux, ciment et produits proches.
+    ordre: 50
+  agroalimentaire:
+    libelle: Agroalimentaire
+    definition: Transformation productive des céréales, huiles, lait, boissons, viandes et aliments.
+    ordre: 60
+  energie:
+    libelle: Production d'énergie
+    definition: Production d'électricité, de gaz ou d'une autre énergie destinée à être distribuée.
+    ordre: 70
+  chimie_caoutchouc_plastiques:
+    libelle: Chimie, caoutchouc et plastiques
+    definition: Fabrication de produits chimiques, pharmaceutiques, en caoutchouc ou en plastique.
+    ordre: 80
+  mecanique_electrique:
+    libelle: Construction mécanique et électrique
+    definition: Fabrication de machines, équipements mécaniques ou matériels électriques.
+    ordre: 90
+  autres_industries:
+    libelle: Autres industries
+    definition: Activité industrielle confirmée ne relevant d'aucun secteur défini.
+    ordre: 980
+  inconnu:
+    libelle: Secteur inconnu
+    definition: L'activité industrielle est attestée mais son secteur ne peut pas encore être déterminé.
+    ordre: 990
+
+activites_detaillees:
+  extraction_miniere:
+    libelle: Extraction minière
+    secteur_code: extraction
+  extraction_pierre:
+    libelle: Extraction de pierre
+    secteur_code: extraction
+  extraction_argile:
+    libelle: Extraction d'argile
+    secteur_code: extraction
+  extraction_sable_granulats:
+    libelle: Extraction de sable et granulats
+    secteur_code: extraction
+  affinage_metaux:
+    libelle: Affinage des métaux
+    secteur_code: metallurgie_travail_metaux
+  forgeage:
+    libelle: Forgeage
+    secteur_code: metallurgie_travail_metaux
+  fonderie:
+    libelle: Fonderie
+    secteur_code: metallurgie_travail_metaux
+  laminage_metaux:
+    libelle: Laminage des métaux
+    secteur_code: metallurgie_travail_metaux
+  fabrication_quincaillerie:
+    libelle: Fabrication de quincaillerie
+    secteur_code: metallurgie_travail_metaux
+  fabrication_aiguilles_epingles:
+    libelle: Fabrication d'aiguilles et d'épingles
+    secteur_code: metallurgie_travail_metaux
+  filature_textile:
+    libelle: Filature textile
+    secteur_code: textile_habillement_cuir
+  tissage:
+    libelle: Tissage
+    secteur_code: textile_habillement_cuir
+  bonneterie:
+    libelle: Bonneterie
+    secteur_code: textile_habillement_cuir
+  tannerie_cuir:
+    libelle: Tannerie et travail du cuir
+    secteur_code: textile_habillement_cuir
+  sciage_bois:
+    libelle: Sciage du bois
+    secteur_code: bois_papier_imprimerie
+  fabrication_papier:
+    libelle: Fabrication de papier
+    secteur_code: bois_papier_imprimerie
+  fabrication_carton:
+    libelle: Fabrication de carton
+    secteur_code: bois_papier_imprimerie
+  imprimerie:
+    libelle: Imprimerie
+    secteur_code: bois_papier_imprimerie
+  fabrication_briques:
+    libelle: Fabrication de briques
+    secteur_code: verre_ceramique_materiaux_construction
+  fabrication_tuiles:
+    libelle: Fabrication de tuiles
+    secteur_code: verre_ceramique_materiaux_construction
+  fabrication_ceramique:
+    libelle: Fabrication de céramique
+    secteur_code: verre_ceramique_materiaux_construction
+  fabrication_verre:
+    libelle: Fabrication de verre
+    secteur_code: verre_ceramique_materiaux_construction
+  fabrication_chaux_ciment:
+    libelle: Fabrication de chaux ou de ciment
+    secteur_code: verre_ceramique_materiaux_construction
+  mouture_cereales:
+    libelle: Mouture de céréales
+    secteur_code: agroalimentaire
+  production_huiles_vegetales:
+    libelle: Production d'huiles végétales
+    secteur_code: agroalimentaire
+  transformation_lait:
+    libelle: Transformation du lait
+    secteur_code: agroalimentaire
+  production_cidre:
+    libelle: Production de cidre
+    secteur_code: agroalimentaire
+  brasserie:
+    libelle: Brasserie
+    secteur_code: agroalimentaire
+  transformation_viande:
+    libelle: Abattage et transformation de viande
+    secteur_code: agroalimentaire
+  production_hydroelectricite:
+    libelle: Production hydroélectrique
+    secteur_code: energie
+  production_thermoelectricite:
+    libelle: Production thermoélectrique
+    secteur_code: energie
+  fabrication_produits_chimiques:
+    libelle: Fabrication de produits chimiques
+    secteur_code: chimie_caoutchouc_plastiques
+  fabrication_caoutchouc:
+    libelle: Fabrication de produits en caoutchouc
+    secteur_code: chimie_caoutchouc_plastiques
+  construction_mecanique:
+    libelle: Construction mécanique
+    secteur_code: mecanique_electrique
+  fabrication_materiel_electrique:
+    libelle: Fabrication de matériel électrique
+    secteur_code: mecanique_electrique
+
+types_installations:
+  mine: {libelle: Mine}
+  carriere: {libelle: Carrière}
+  argiliere: {libelle: Argilière}
+  usine_extraction: {libelle: Usine d'extraction}
+  affinerie: {libelle: Affinerie}
+  forge: {libelle: Forge}
+  fonderie: {libelle: Fonderie}
+  laminoir: {libelle: Laminoir}
+  usine: {libelle: Usine}
+  atelier: {libelle: Atelier}
+  filature: {libelle: Filature}
+  tissage: {libelle: Tissage}
+  scierie: {libelle: Scierie}
+  papeterie: {libelle: Papeterie}
+  cartonnerie: {libelle: Cartonnerie}
+  imprimerie: {libelle: Imprimerie}
+  briqueterie: {libelle: Briqueterie}
+  tuilerie: {libelle: Tuilerie}
+  verrerie: {libelle: Verrerie}
+  moulin: {libelle: Moulin}
+  minoterie: {libelle: Minoterie}
+  laiterie: {libelle: Laiterie}
+  cidrerie: {libelle: Cidrerie}
+  brasserie: {libelle: Brasserie}
+  centrale_hydroelectrique: {libelle: Centrale hydroélectrique}
+  centrale_thermique: {libelle: Centrale thermique}
+  complexe_industriel: {libelle: Complexe industriel}
+
+energies:
+  hydraulique: {libelle: Énergie hydraulique}
+  eolienne: {libelle: Énergie éolienne}
+  animale: {libelle: Force animale}
+  bois: {libelle: Bois}
+  charbon: {libelle: Charbon}
+  thermique: {libelle: Énergie thermique ou vapeur}
+  electricite: {libelle: Électricité}
+  gaz: {libelle: Gaz}
+  carburant: {libelle: Carburant liquide}
+  autre: {libelle: Autre énergie}
+  inconnue: {libelle: Énergie inconnue}
+
+roles_energies:
+  force_motrice: {libelle: Force motrice}
+  combustible: {libelle: Combustible}
+  production_electricite: {libelle: Production d'électricité}
+  produite_sur_place: {libelle: Produite sur place}
+  achetee: {libelle: Achetée}
+  inconnu: {libelle: Rôle inconnu}
+
+correspondances_sources:
+  - {terme: affinerie, activite_code: affinage_metaux, installation_code: affinerie}
+  - {terme: moulin à blé, activite_code: mouture_cereales, installation_code: moulin}
+  - {terme: moulin à farine, activite_code: mouture_cereales, installation_code: moulin}
+  - {terme: minoterie, activite_code: mouture_cereales, installation_code: minoterie}
+  - {terme: moulin à huile, activite_code: production_huiles_vegetales, installation_code: moulin}
+  - {terme: briqueterie, activite_code: fabrication_briques, installation_code: briqueterie}
+  - {terme: tuilerie, activite_code: fabrication_tuiles, installation_code: tuilerie}
+  - {terme: centrale hydroélectrique, activite_code: production_hydroelectricite, installation_code: centrale_hydroelectrique}
+  - {terme: filature, activite_code: filature_textile, installation_code: filature}
+  - {terme: usine d'extraction, activite_code: extraction_miniere, installation_code: usine_extraction}
+  - {terme: laminoir, activite_code: laminage_metaux, installation_code: laminoir}
+  - {terme: usine de quincaillerie, activite_code: fabrication_quincaillerie, installation_code: usine}
+  - {terme: forge, activite_code: forgeage, installation_code: forge}
+  - {terme: usine d'aiguilles, activite_code: fabrication_aiguilles_epingles, installation_code: usine}
+  - {terme: scierie, activite_code: sciage_bois, installation_code: scierie}
+  - {terme: papeterie, activite_code: fabrication_papier, installation_code: papeterie}
+  - {terme: cartonnerie, activite_code: fabrication_carton, installation_code: cartonnerie}
+  - {terme: laiterie, activite_code: transformation_lait, installation_code: laiterie}
+  - {terme: cidrerie, activite_code: production_cidre, installation_code: cidrerie}
+
+correspondances_energies_sources:
+  - {terme: énergie hydraulique, energie_code: hydraulique}
+  - {terme: énergie thermique, energie_code: thermique}
+  - {terme: énergie électrique, energie_code: electricite}
+  - {terme: produite sur place, role_energie_code: produite_sur_place}
+  - {terme: achetée, role_energie_code: achetee}
+
+termes_hors_energie:
+  - {terme: roue hydraulique verticale, nature: equipement_technique}
+
+regles_affectation_secteurs:
+  unite_classee: activite
+  une_activite_un_secteur: true
+  secteur_site_stocke_directement: false
+  secteur_site_derive_des_activites: true
+  activite_mixte_interdite: true
+  source_prioritaire: [DENO, TICO, HIST]
+  denomination_source_conservee: activite_libelle_source
+  validation_humaine_requise_si:
+    - terme_source_absent_du_vocabulaire
+    - plusieurs_productions_dans_un_meme_libelle
+    - chronologie_des_activites_ambigue
+    - activite_deduite_uniquement_du_batiment
+  sites_multi_secteurs:
+    condition: au_moins_deux_activites_de_secteurs_distincts
+    stockage: plusieurs_lignes_activites
+    filtre_publication: apparait_dans_chaque_secteur_documente
+    comptage_global: dedoublonnage_par_site_id
+    secteur_principal_permanent: aucun
+  distinctions:
+    activite: ce_qui_est_produit_ou_transforme
+    installation: organisation_fonctionnelle_de_production
+    batiment: composant_physique_non_classe_comme_activite
+    energie: force_ou_combustible_utilise
 
 conservation:
   - conserve
@@ -61,4 +309,3 @@ fiabilite:
   - probable
   - hypothese
   - a_verifier
-

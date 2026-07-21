@@ -192,3 +192,23 @@ Un rapprochement incertain conserve deux UUID et crée une proposition à
 vérifier. Aucun score de similarité, même élevé, ne déclenche de fusion. La
 décision et sa date doivent être enregistrées avant de désigner un site
 canonique.
+
+## Classification des activités industrielles
+
+La classification sectorielle s'applique à chaque phase d'activité, pas au site
+entier. Le libellé original reste dans `activite_libelle_source`; le code
+normalisé est ajouté sans le remplacer.
+
+Les correspondances exactes répertoriées dans `config/classifications.yml`
+peuvent être appliquées automatiquement. Un terme absent du registre, une
+production multiple dans un même libellé ou une chronologie ambiguë exige une
+revue humaine. `HIST` est relu même lorsque `DENO` est classé, car il peut révéler
+une conversion ultérieure.
+
+Un site multi-secteurs conserve plusieurs lignes `activites`. Pour les filtres,
+il apparaît dans tous ses secteurs documentés. Pour un total global, les lignes
+sont dédupliquées par `site_id`; la somme des secteurs peut donc dépasser le
+nombre de sites.
+
+Activité, installation, bâtiment, énergie et rôle énergétique sont traités
+séparément. Un bâtiment ne permet pas, à lui seul, de déduire une production.

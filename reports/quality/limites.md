@@ -28,6 +28,9 @@ Document vivant — dernière mise à jour : 20 juillet 2026
 | LIM-022 | Dates historiques | La conversion d'une expression comme « vers 1850 » en intervalle repose sur une convention du projet | L'intervalle calculé pourrait être pris pour une datation fournie par la source | Conserver le texte original, la précision et la nature calculée de l'intervalle | permanente |
 | LIM-023 | DuckDB Spatial | Le type `GEOMETRY` dépend d'une extension DuckDB installée séparément | L'initialisation spatiale échoue sur un nouvel environnement sans cette extension | Fournir l'option `--install-spatial` et arrêter explicitement l'initialisation si l'extension manque | permanente |
 | LIM-024 | Validation du modèle | Les cinq cas de phase 3 sont synthétiques | Leur réussite valide la structure, pas la qualité ni l'exhaustivité du futur corpus | Rejouer ces contrôles sur l'échantillon réel du corpus pilote | ouverte |
+| LIM-025 | Classification sectorielle | Le test porte sur seulement 10 notices POP et 13 dénominations | La couverture de 100 % ne peut pas être extrapolée au corpus complet | Mesurer à nouveau les termes inconnus à chaque extraction et pendant le pilote | permanente |
+| LIM-026 | Activités successives | `DENO` et `TICO` peuvent omettre une conversion décrite dans `HIST`, comme une filature devenue minoterie | Une classification fondée seulement sur la dénomination perdrait une phase et parfois un secteur | Analyser l'historique et valider humainement les changements d'activité | permanente |
+| LIM-027 | Énergies POP | `ENER` peut être vide, contenir un rôle ou décrire un équipement | Risque de confondre énergie, provenance et machine | Séparer énergie, rôle et équipement ; compléter depuis `HIST` avec provenance | permanente |
 
 ## Règle de mise à jour
 

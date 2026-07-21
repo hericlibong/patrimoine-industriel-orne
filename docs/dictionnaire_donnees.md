@@ -31,8 +31,10 @@ tables sont dans `src/patrimoine_orne/model/validation.py`.
 Les clés étrangères, unicités et contrôles simples sont appliqués directement
 par DuckDB. Le validateur transversal contrôle notamment les cibles génériques,
 les champs ciblés, les obligations conditionnelles des sites, la géométrie de
-référence et la cohérence des versions. Les vocabulaires détaillés seront
-ajoutés en phase 4.
+référence et la cohérence des versions. Les vocabulaires des secteurs,
+activités, installations et énergies sont définis dans
+`config/classifications.yml` ; les autres dimensions restent à valider pendant
+la phase 4.
 
 Une `date structurée` est matérialisée par quatre champs : `<nom>_min`,
 `<nom>_max`, `<nom>_precision_code` et `<nom>_texte_source`. Les entités métier
@@ -94,6 +96,10 @@ Une ligne représente une phase d'activité sur un site.
 | `fiabilite_code` | code | Niveau de confiance |
 | `notes` | texte | Précisions et réserves |
 
+`secteur_code` est déduit de `activite_code`. Il ne décrit jamais directement
+le site entier. Les définitions et les cas multi-secteurs sont documentés dans
+`docs/classifications_secteurs.md`.
+
 ## Table `energies_activites`
 
 | Champ | Type conceptuel | Description |
@@ -105,6 +111,10 @@ Une ligne représente une phase d'activité sur un site.
 | `debut` | date structurée | Début documenté de l'usage de cette énergie |
 | `fin` | date structurée | Fin documentée de l'usage de cette énergie |
 | `fiabilite_code` | code | Niveau de confiance |
+
+`energie_code` décrit la force ou le combustible. `role_energie_code` indique
+son rôle ou sa provenance, par exemple force motrice, produite sur place ou
+achetée. Un équipement comme une roue hydraulique n'est pas une énergie.
 
 ## Table `etats_actuels`
 

@@ -156,7 +156,9 @@ mais devient `NULL` dans la table métier avec le statut
 `non_renseignee_source`.
 
 Les codes `inconnu`, `aucune_protection_connue` et similaires appartiennent aux
-vocabulaires contrôlés. Leur emploi détaillé sera vérifié pendant la phase 4.
+vocabulaires contrôlés. Les secteurs et activités sont définis ; l'emploi
+détaillé des valeurs de qualité et de situation actuelle reste à vérifier dans
+les blocs suivants de la phase 4.
 
 ## 5. Dates imprécises
 
@@ -255,5 +257,6 @@ un état actuel ; elle reste une mention historique.
 ## Validation du bloc
 
 Ces règles sont matérialisées par le schéma DuckDB, ses contraintes, le
-validateur transversal et les tests automatisés. Les vocabulaires détaillés
-restent provisoires jusqu'à la phase 4.
+validateur transversal et les tests automatisés. Les vocabulaires sectoriels
+sont validés dans le premier bloc de la phase 4 ; les classifications
+chronologiques, contemporaines et de qualité restent provisoires.

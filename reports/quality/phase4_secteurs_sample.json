@@ -1,0 +1,64 @@
+{
+  "activity_counts": {
+    "affinage_metaux": 1,
+    "extraction_miniere": 1,
+    "fabrication_briques": 1,
+    "fabrication_carton": 1,
+    "fabrication_quincaillerie": 1,
+    "filature_textile": 2,
+    "laminage_metaux": 1,
+    "mouture_cereales": 3,
+    "production_huiles_vegetales": 1,
+    "production_hydroelectricite": 1
+  },
+  "denominations": {
+    "classified": 13,
+    "coverage_percent": 100.0,
+    "total": 13,
+    "unknown_terms": {}
+  },
+  "energies": {
+    "energy_counts": {
+      "electricite": 2,
+      "hydraulique": 7,
+      "thermique": 2
+    },
+    "outside_energy_counts": {
+      "equipement_technique": 1
+    },
+    "role_counts": {
+      "achetee": 2,
+      "produite_sur_place": 9
+    },
+    "unknown_terms": {}
+  },
+  "installation_counts": {
+    "affinerie": 1,
+    "briqueterie": 1,
+    "cartonnerie": 1,
+    "centrale_hydroelectrique": 1,
+    "filature": 2,
+    "laminoir": 1,
+    "moulin": 4,
+    "usine": 1,
+    "usine_extraction": 1
+  },
+  "multi_activity_references": [
+    "IA00060965",
+    "IA00061082",
+    "IA00061113"
+  ],
+  "multi_sector_references": [
+    "IA00060965"
+  ],
+  "record_count": 10,
+  "sector_counts": {
+    "agroalimentaire": 4,
+    "bois_papier_imprimerie": 1,
+    "energie": 1,
+    "extraction": 1,
+    "metallurgie_travail_metaux": 3,
+    "textile_habillement_cuir": 2,
+    "verre_ceramique_materiaux_construction": 1
+  }
+}

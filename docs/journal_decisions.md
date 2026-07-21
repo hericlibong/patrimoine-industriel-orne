@@ -264,3 +264,31 @@
   sa structure ; les vocabulaires seront construits en phase 4 et les scénarios
   devront être rejoués sur les données réelles du pilote.
 - La phase 3 est terminée. La phase 4 peut commencer.
+
+## 2026-07-21 — Phase 4, secteurs et installations
+
+- Les secteurs provisoires ont été testés sur les 10 notices POP du manifeste
+  de phase 2 : les 13 dénominations `DENO` sont couvertes par le vocabulaire.
+- Cette couverture de 100 % décrit uniquement l'échantillon et ne peut pas être
+  extrapolée au corpus complet.
+- L'unité classée est désormais la phase d'activité. Le secteur du site est
+  dérivé de ses activités et n'est pas stocké directement dans `sites`.
+- Le code `activite_mixte` est supprimé. Un site qui traverse plusieurs secteurs
+  conserve plusieurs activités datées et apparaît dans chaque filtre concerné.
+- Les comptages globaux dédupliquent par `site_id`; additionner les secteurs
+  peut compter plusieurs fois un même lieu.
+- Activité, installation, bâtiment, énergie et rôle énergétique sont séparés.
+  Une roue hydraulique est un équipement, tandis que « produite sur place » est
+  un rôle ou une provenance, pas une énergie.
+- `DENO` et `TICO` servent de point d'entrée, mais `HIST` doit être relu : une
+  filature de l'échantillon a été convertie en minoterie sans que cette seconde
+  activité apparaisse dans la dénomination structurée.
+- Le registre `config/classifications.yml` passe en version 0.2. Les secteurs,
+  activités détaillées, installations et énergies sont validés pour ce bloc ;
+  les autres classifications de phase 4 restent provisoires.
+- Le rapport est enregistré dans
+  `reports/quality/phase4_test_secteurs.md` et ses mesures dans
+  `reports/quality/phase4_secteurs_sample.json`.
+- Les 45 tests du projet réussissent après ajout des contrôles sectoriels.
+- Le bloc « Secteurs et installations » est terminé. Le bloc suivant porte sur
+  la chronologie et la situation actuelle.

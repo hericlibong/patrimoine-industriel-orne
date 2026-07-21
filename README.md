@@ -9,7 +9,7 @@ reproductible.
 
 ## État du projet
 
-**Phases 0 à 3 terminées — modèle de données V1 approuvé.**
+**Phases 0 à 3 terminées — phase 4 en cours.**
 
 Le suivi détaillé est maintenu localement dans `docs/roadmap.md`, qui n'est pas
 versionné.
@@ -24,11 +24,13 @@ versionné.
 - [Règles du modèle](docs/regles_modele.md)
 - [Journal des décisions](docs/journal_decisions.md)
 - [Sources à auditer](config/sources.yml)
-- [Classifications provisoires](config/classifications.yml)
+- [Classifications contrôlées](config/classifications.yml)
+- [Règles des secteurs et installations](docs/classifications_secteurs.md)
 - [Périmètre opérationnel](config/perimetre.yml)
 - [Méthodes d'extraction validées](config/extraction.yml)
 - [Règles structurelles du modèle](config/regles_modele.yml)
 - [Validation du modèle V1](reports/quality/phase3_validation_modele.md)
+- [Test des secteurs sur l'échantillon](reports/quality/phase4_test_secteurs.md)
 
 ## Base DuckDB de test
 
