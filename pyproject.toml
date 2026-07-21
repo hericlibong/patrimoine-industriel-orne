@@ -40,6 +40,8 @@ patrimoine-orne-extraire-objets-pilote = "patrimoine_orne.extract.pilot_objects:
 patrimoine-orne-enrichir-pilote = "patrimoine_orne.enrich.pilot:main"
 patrimoine-orne-extraire-communes = "patrimoine_orne.extract.current_communes:main"
 patrimoine-orne-valider-phase5 = "patrimoine_orne.validate.pilot_phase5:main"
+patrimoine-orne-extraire-geographie-pilote = "patrimoine_orne.extract.pilot_geography:main"
+patrimoine-orne-qualifier-geographie-pilote = "patrimoine_orne.geocode.pilot:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

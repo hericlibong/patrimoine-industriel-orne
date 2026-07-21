@@ -1,0 +1,428 @@
+{
+  "generated_at": "2026-07-21T23:05:28Z",
+  "pop_manifest": "reports/audits/phase5_pop_manifest.json",
+  "rejected_non_unique_addresses": [
+    "IA00061073",
+    "IA00060909",
+    "IA00061166"
+  ],
+  "schema_version": "1.0",
+  "sources": {
+    "ban": [
+      {
+        "data_file": "data/raw/ban/2026/2026-07-21/ban__ia00061002_adresse__orne_pilote_phase6__20260721T230528Z.json",
+        "metadata_file": "data/raw/ban/2026/2026-07-21/ban__ia00061002_adresse__orne_pilote_phase6__20260721T230528Z.json.metadata.json",
+        "observations": {
+          "candidate_count": 1,
+          "citycode_matches": true,
+          "reference": "IA00061002",
+          "top_citycode": "61001",
+          "top_score": 0.7053132867132866,
+          "top_type": "housenumber"
+        },
+        "sha256": "af7391d57629adbdea44378e331c22b093a339245a998469ea9149fd51ea30bf"
+      },
+      {
+        "data_file": "data/raw/ban/2026/2026-07-21/ban__ia00060969_adresse__orne_pilote_phase6__20260721T230528Z.json",
+        "metadata_file": "data/raw/ban/2026/2026-07-21/ban__ia00060969_adresse__orne_pilote_phase6__20260721T230528Z.json.metadata.json",
+        "observations": {
+          "candidate_count": 5,
+          "citycode_matches": true,
+          "reference": "IA00060969",
+          "top_citycode": "61001",
+          "top_score": 0.5775169696969696,
+          "top_type": "housenumber"
+        },
+        "sha256": "8a06ae2643daa0b8066452e6c675f55725b34182165a6125ef2349e4e1007b58"
+      },
+      {
+        "data_file": "data/raw/ban/2026/2026-07-21/ban__ia00061052_adresse__orne_pilote_phase6__20260721T230528Z.json",
+        "metadata_file": "data/raw/ban/2026/2026-07-21/ban__ia00061052_adresse__orne_pilote_phase6__20260721T230528Z.json.metadata.json",
+        "observations": {
+          "candidate_count": 1,
+          "citycode_matches": true,
+          "reference": "IA00061052",
+          "top_citycode": "61214",
+          "top_score": 0.9614063636363636,
+          "top_type": "housenumber"
+        },
+        "sha256": "d05613921cf8f48ca72e115cb21ee5d98dee6714c4eef80564abe784ca8b56a3"
+      },
+      {
+        "data_file": "data/raw/ban/2026/2026-07-21/ban__ia00061054_adresse__orne_pilote_phase6__20260721T230528Z.json",
+        "metadata_file": "data/raw/ban/2026/2026-07-21/ban__ia00061054_adresse__orne_pilote_phase6__20260721T230528Z.json.metadata.json",
+        "observations": {
+          "candidate_count": 1,
+          "citycode_matches": true,
+          "reference": "IA00061054",
+          "top_citycode": "61214",
+          "top_score": 0.9661609090909091,
+          "top_type": "housenumber"
+        },
+        "sha256": "26a57c576184ae5a7ef5681db8620a3fcd652d5764a23874dcf60d0a362b64a4"
+      }
+    ],
+    "cadastre": [
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061008_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061008_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "613760000B0848"
+          ],
+          "reference": "IA00061008"
+        },
+        "sha256": "39ced885029904bcd1b31604b3e0fb3299ea954c3a62bbdddf0c512f2577fc22"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060965_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060965_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61091000ZN0200"
+          ],
+          "reference": "IA00060965"
+        },
+        "sha256": "0834f3944a425ca10e83286d55d209c99ca6e7962f68280dab7669fe475b89fb"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060938_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060938_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "613393640B0022"
+          ],
+          "reference": "IA00060938"
+        },
+        "sha256": "6bbed4a68aea4b79f6d4316ef459cc6735c540d61cc3a26a33bd40d35e42e1c7"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061003_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061003_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "613393540B0032"
+          ],
+          "reference": "IA00061003"
+        },
+        "sha256": "6eade92667c8747895197e43eab4b83136d7cf11c3a8e03a8e26fc10cb7c6f46"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060901_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060901_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61344000ZR0033"
+          ],
+          "reference": "IA00060901"
+        },
+        "sha256": "2ba84415446dcaea71d55394542a50903fba099a6fcabe39becbf2c13038d2bb"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061119_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061119_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "610070000A0874"
+          ],
+          "reference": "IA00061119"
+        },
+        "sha256": "0e432abde0e64b3317d9fb5fe2292fdc594a585374536a4ecafcdde1d446a30a"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060915_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060915_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61391000AC0181"
+          ],
+          "reference": "IA00060915"
+        },
+        "sha256": "789390fab5e5fa31125721acece74c6e0c954ac9d021b349d96f73fe90916b4d"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061035_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061035_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "614470000B0396"
+          ],
+          "reference": "IA00061035"
+        },
+        "sha256": "9501e474e216811a36fa140b7b2998dce9658c95f35daed66fd534e2abe380bb"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060902_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060902_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "610440000A0400"
+          ],
+          "reference": "IA00060902"
+        },
+        "sha256": "d6f7dc92cc6bda3ec3c57f96d37206d3dcadf97fe9229424b24e2a32d43a34cc"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060896_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060896_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "610690000B0452"
+          ],
+          "reference": "IA00060896"
+        },
+        "sha256": "7116fca592450b110d2b16915305ebb3bd24baa1188cd3bdf833e34e237f8ffe"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061002_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061002_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61001000AI1032"
+          ],
+          "reference": "IA00061002"
+        },
+        "sha256": "f84de5cb6d323966789846779f624b8a3026548070054009f40c62b76ffe67f3"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061073_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061073_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61001000BK0309"
+          ],
+          "reference": "IA00061073"
+        },
+        "sha256": "2acdb42caff1ed93ee4d21ae007a04bfd89835596adb60c7caded3d3eb5038ad"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060969_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060969_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61001000BH0216"
+          ],
+          "reference": "IA00060969"
+        },
+        "sha256": "88bc0aeb6fef08a10c10108bc72b4c39371faadcd77b6f6212676a3b6962617e"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060959_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060959_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "613820000G0288"
+          ],
+          "reference": "IA00060959"
+        },
+        "sha256": "08338418f6171c07ccf4c19212ef305f2f56da21f67c976cd259eeaa07b99c90"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060997_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060997_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61382000AC0106"
+          ],
+          "reference": "IA00060997"
+        },
+        "sha256": "0b652832a802927bd9b42bf93e00ba42af6aea4bcc0aeacded913e285f481f17"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061117_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061117_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61006000AP0137"
+          ],
+          "reference": "IA00061117"
+        },
+        "sha256": "e49483c31493573797b4878bc6c72286cc3df66197ed5ae1b7f6afb8a1e7379b"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061133_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061133_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "614740570D0107"
+          ],
+          "reference": "IA00061133"
+        },
+        "sha256": "c8db7ee693af019cc590066b3d2d730a65722398241cb2154c837067b6b5d316"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060909_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00060909_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61181000AM0511"
+          ],
+          "reference": "IA00060909"
+        },
+        "sha256": "39091d3a3e7a1244542770f5f73aa80195e67ffa5f6495df059f57e5537e8487"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061166_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061166_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61153000AC0159"
+          ],
+          "reference": "IA00061166"
+        },
+        "sha256": "7fe04438ab507599da129ed698e21211c5190f9a342227530ce385dbe6a3946e"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061091_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061091_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "611940000B0137"
+          ],
+          "reference": "IA00061091"
+        },
+        "sha256": "7b8f8954235c039215a00e1a5764dae0858463dec949d1f98c88163117c0d81d"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061029_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061029_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61008000AE0045"
+          ],
+          "reference": "IA00061029"
+        },
+        "sha256": "dd474bf63e1c653f545d2af2eaa456d5e383984c4081c52bcdcaf66da64a0348"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061155_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061155_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61456000AD0327"
+          ],
+          "reference": "IA00061155"
+        },
+        "sha256": "3edfe468ada7718168ce04d6a8d091506a442653f9bfb7b0dd6bc0520213a82f"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061113_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061113_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61456000ZR0116"
+          ],
+          "reference": "IA00061113"
+        },
+        "sha256": "0e86e91f39b0875532cab6640898b42217888f3bc3fb19fa4829c0df51d34102"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061052_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061052_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61214000AI0215"
+          ],
+          "reference": "IA00061052"
+        },
+        "sha256": "61ece0dc9bbcd244db3d9c0a7e768f20e62d2e89d5aae1a2e79e9c2764857963"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061054_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061054_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61214000AO0475"
+          ],
+          "reference": "IA00061054"
+        },
+        "sha256": "93021b9639fa96f4d6b14fe1a3483c7a40de6a89ee5a3df3f9e3bde1a830a97b"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061153_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061153_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61230000ZV0083"
+          ],
+          "reference": "IA00061153"
+        },
+        "sha256": "9871a3e03b9eb1c09ec1775a7b623b43def4d2d30229dd721fcd608b00f60b72"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061060_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061060_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "61230000ZX0060"
+          ],
+          "reference": "IA00061060"
+        },
+        "sha256": "d1aaad3b1379af4ccf4e1d9964671e784b04436641330a141e7c923dbb50eeb1"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061147_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061147_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "614140000D0463"
+          ],
+          "reference": "IA00061147"
+        },
+        "sha256": "0ae74b9e5d2a120ed0b527d804c8083bcf718e316fd92bf8dfac72dab39c4961"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061135_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061135_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "612080000G0066"
+          ],
+          "reference": "IA00061135"
+        },
+        "sha256": "e00da361dc60dcc7a3fad5d33c6945e2b98b7ab2e9611d5eb925d0fc60f6aa1e"
+      },
+      {
+        "data_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061095_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson",
+        "metadata_file": "data/raw/cadastre/2026/2026-07-21/cadastre__ia00061095_parcelle_point_pop__orne_pilote_phase6__20260721T230528Z.geojson.metadata.json",
+        "observations": {
+          "parcel_count": 1,
+          "parcel_ids": [
+            "612060000A0133"
+          ],
+          "reference": "IA00061095"
+        },
+        "sha256": "67cab2bd8b4472a84f407111fe0b4c4c15fca715970482b2c44d3e5f254863b9"
+      }
+    ]
+  }
+}

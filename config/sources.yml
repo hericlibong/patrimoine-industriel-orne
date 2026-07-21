@@ -109,28 +109,30 @@ sources:
       - produit, couche et millésime à enregistrer à chaque extraction
 
   - id: cadastre
-    name: Cadastre ouvert
-    producer: Etalab / DGFiP
+    name: Parcellaire Express via API Carto
+    producer: IGN / DGFiP
     priority: P1
     role: contexte_geographique
-    url: https://cadastre.data.gouv.fr/
-    access: [geojson, shapefile]
+    url: https://apicarto.ign.fr/api/cadastre/parcelle
+    access: [api_carto, geojson]
     identifier: references_cadastrales
     audit_status: validee_avec_reserves
     limits:
       - ne prouve ni emprise historique ni propriété
+      - une intersection avec un point source produit une parcelle candidate, pas une parcelle vérifiée
 
   - id: ban
     name: Base Adresse Nationale
     producer: État et partenaires
     priority: P1
     role: contexte_geographique
-    url: https://adresse.data.gouv.fr/
+    url: https://data.geopf.fr/geocodage/search
     access: [csv_departemental, geocodeur_geoplateforme]
     identifier: id_ban
     audit_status: validee_avec_reserves
     limits:
       - un résultat géocodé ne constitue pas une emprise validée
+      - seules les adresses comportant un numéro unique sont géocodées automatiquement
 
   - id: api_geo
     name: API Découpage administratif

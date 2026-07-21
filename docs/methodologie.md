@@ -66,6 +66,22 @@ cartographiables et sites publiés seront indiqués séparément.
 La précision doit être enregistrée séparément des coordonnées. Un centroïde de
 commune ne doit jamais être présenté comme l'emplacement vérifié d'un bâtiment.
 
+Pour le pilote, les points et contours présents dans POP constituent la première
+localisation de travail. Leur validité numérique et leur présence dans
+l'enveloppe de l'Orne sont contrôlées automatiquement, mais ils restent
+`geometrie_approximative` jusqu'à une vérification cartographique.
+
+Seules les adresses comportant un numéro unique sont géocodées automatiquement
+avec le service BAN de la Géoplateforme. Le résultat doit viser la même commune,
+avoir un score d'au moins 0,65 et se trouver à moins de 250 mètres du point POP.
+Une rue sans numéro, une plage ou plusieurs numéros ne produit aucun point.
+
+La parcelle actuelle est recherchée par intersection du point POP avec le
+Parcellaire Express via API Carto. Elle reste une parcelle candidate : cette
+intersection ne prouve ni l'emprise historique, ni la propriété, ni la présence
+actuelle du site. Une référence cadastrale ancienne différente n'est pas une
+erreur automatique, le parcellaire pouvant avoir évolué.
+
 ## Situation actuelle
 
 La conservation, l'usage et l'accessibilité sont trois informations distinctes.

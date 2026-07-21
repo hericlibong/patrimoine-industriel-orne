@@ -458,3 +458,20 @@
   apparaissent ou si un partenaire demande une validation formelle.
 - Les contrôles requis sont satisfaits : 30 fiches relues, provenance vérifiée,
   corpus pilote V1 produit et limites documentées. La phase 5 est terminée.
+
+## 2026-07-22 — Phase 6, localisation
+
+- Les 30 notices pilotes possèdent un point POP valide en Lambert-93 et WGS84 ;
+  29 possèdent aussi une emprise documentaire exploitable.
+- Ces géométries sont toutes qualifiées d'approximatives. Une coordonnée source
+  valide n'est pas assimilée à un bâtiment ou à une emprise vérifiée.
+- Sur sept adresses renseignées, quatre seulement ont un numéro unique. Trois
+  géocodages BAN concordent avec le point POP ; le résultat de `IA00060969`,
+  distant d'environ 1,2 kilomètre, est rejeté.
+- L'intersection des points POP avec le Parcellaire Express renvoie une parcelle
+  actuelle candidate pour les 30 sites. Seules six références concordent encore
+  directement avec le cadastre cité dans la notice.
+- Une parcelle actuelle candidate ne prouve ni l'emprise historique, ni la
+  propriété, ni la conservation du site.
+- Aucun centroïde communal ni aucune coordonnée de remplacement n'est créé. Le
+  bloc « Localisation » de la phase 6 est terminé ; la phase reste en cours.

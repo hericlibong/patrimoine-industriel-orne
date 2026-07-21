@@ -9,7 +9,7 @@ reproductible.
 
 ## État du projet
 
-**Phases 0 à 4 terminées — phase 5 à lancer.**
+**Phases 0 à 5 terminées — phase 6 en cours.**
 
 Le suivi détaillé est maintenu localement dans `docs/roadmap.md`, qui n'est pas
 versionné.
@@ -36,6 +36,22 @@ versionné.
 - [Test de la chronologie et de la situation actuelle](reports/quality/phase4_chronologie_situation.md)
 - [Test de qualité et de reproductibilité](reports/quality/phase4_qualite_classifications.md)
 - [Validation finale de la phase 4](reports/quality/phase4_validation_finale.md)
+- [Validation finale du corpus pilote](reports/quality/phase5_validation_finale.md)
+- [Contrôle des localisations du pilote](reports/quality/phase6_localisation.md)
+
+## Localisations du pilote
+
+Les contrôles BAN et cadastraux sont reproductibles avec :
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m patrimoine_orne.extract.pilot_geography
+python -m patrimoine_orne.geocode.pilot
+```
+
+La première commande interroge les services publics IGN et archive les réponses.
+La seconde qualifie les résultats sans transformer une géométrie automatique en
+localisation vérifiée.
 
 ## Base DuckDB de test
 

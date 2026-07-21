@@ -1,0 +1,32 @@
+{
+  "checks_passed": true,
+  "counts": {
+    "adresses_non_uniques_non_geocodees": 3,
+    "adresses_pop_renseignees": 7,
+    "adresses_uniques_geocodees_concordantes": 3,
+    "adresses_uniques_non_concordantes": 1,
+    "adresses_uniques_soumises_au_geocodeur": 4,
+    "coordonnees_inventees": 0,
+    "emprises_pop_disponibles": 29,
+    "geometries_verifiees": 0,
+    "localisations_approximatives": 30,
+    "parcelles_actuelles_candidates": 30,
+    "points_pop_valides": 30,
+    "sites": 30,
+    "sites_avec_parcelle_actuelle_candidate": 30,
+    "sites_avec_reference_cadastrale_source_encore_concordante": 6,
+    "sites_non_localises": 0
+  },
+  "date_controle": "2026-07-22",
+  "decision": "Localisations utilisables comme données de travail, toutes approximatives jusqu'au contrôle cartographique.",
+  "distance_ban_pop_m": {
+    "maximum": 52.8,
+    "minimum": 7.1,
+    "moyenne": 25.4
+  },
+  "errors": [],
+  "parcelles_par_site": {
+    "1": 30
+  },
+  "schema_version": "1.0"
+}
