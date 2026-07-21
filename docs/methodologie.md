@@ -251,8 +251,15 @@ dans une source reste `NULL` avec son statut de provenance.
 
 La reproductibilité technique est contrôlée en rejouant les classifications
 avec les mêmes entrées dans un ordre différent. Les sorties sont triées et
-associées à une empreinte SHA-256. La reproductibilité humaine sera mesurée par
-un double classement d'un sous-échantillon du corpus pilote.
+associées à une empreinte SHA-256.
+
+Un double classement humain avait été préparé pour mesurer l'accord entre deux
+lecteurs. Il est reporté, car sa charge est disproportionnée au stade du pilote
+et il ne contrôle pas l'exactitude historique des données. Cette absence ne
+bloque pas le corpus V1 : les sources, les règles et les niveaux de confiance
+sont conservés, mais les catégories interprétatives restent révisables. Le test
+ne sera réexaminé que si des désaccords récurrents apparaissent ou si un
+partenaire demande une validation formelle avant publication.
 
 ## Échantillon pilote
 
@@ -311,7 +318,7 @@ qui n'est pas `inconnu`. Une inconnue justifiée n'est pas une information sans
 source : elle indique précisément qu'aucune preuve récente suffisante n'a été
 retenue.
 
-La reproductibilité humaine porte sur six cas, trois simples et trois ambigus.
-Deux personnes utilisent les mêmes notices et le même vocabulaire, sans voir le
-classement de l'autre. Les accords sont mesurés dimension par dimension ; les
-désaccords sont ensuite qualifiés avant toute modification des règles.
+Le contrôle documentaire manuel des trente fiches, l'audit de provenance et les
+tests automatiques constituent la validation requise du pilote. Le protocole de
+double classement préparé sur six cas est conservé comme possibilité future,
+mais il n'est ni réalisé ni présenté comme une validation acquise.

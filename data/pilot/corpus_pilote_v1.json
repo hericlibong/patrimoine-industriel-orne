@@ -2784,11 +2784,11 @@
       "statut_corpus_code": "rapproche"
     }
   ],
-  "status": "v1_candidate_double_classement_en_attente",
+  "status": "phase5_validee",
   "validation": {
     "controle_manuel_30_fiches": true,
     "date": "2026-07-22",
-    "double_classement_humain": "a_realiser_par_deux_personnes",
+    "double_classement_humain": "reporte_hors_phase5",
     "provenance_complete": true
   }
 }

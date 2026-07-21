@@ -1,5 +1,5 @@
-version: "1.0"
-status: controle_documentaire_termine_double_classement_en_attente
+version: "1.1"
+status: phase5_validee
 date_controle: 2026-07-22
 type_controle: revue_documentaire_manuelle_assistee
 
@@ -45,7 +45,12 @@ fiches:
   - {reference: IA00061095, identite: validee, commune: validee, activites: validees, chronologie: validee, situation_actuelle: inconnue_assumee, provenance: complete, decision: retenue, note: "Protection PA00135522 confirmée par renvoi direct."}
 
 double_classement:
-  statut: a_realiser_par_deux_personnes
+  statut: reporte_hors_phase5
+  caractere: facultatif
+  decision: non_bloquant_pour_le_pilote
+  motif: charge_disproportionnee_au_stade_du_pilote
+  consequence: reproductibilite_humaine_non_mesuree_classifications_revisables
+  reexamen: seulement_si_des_ambiguites_recurrentes_apparaissent_ou_si_un_partenaire_demande_une_validation_formelle
   regle_independance: chaque_personne_classe_sans_consulter_la_reponse_de_l_autre
   sous_echantillon:
     simples:

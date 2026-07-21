@@ -1,6 +1,6 @@
 # Registre des limites
 
-Document vivant — dernière mise à jour : 21 juillet 2026
+Document vivant — dernière mise à jour : 22 juillet 2026
 
 | ID | Source ou étape | Limite constatée | Conséquence | Traitement prévu | Statut |
 |---|---|---|---|---|---|
@@ -38,7 +38,7 @@ Document vivant — dernière mise à jour : 21 juillet 2026
 | LIM-032 | Précision géographique | POP et CASIAS peuvent fournir des coordonnées ou contours sans garantir leur rattachement exact au bâtiment ou à l'emprise industrielle | La carte pourrait afficher une précision supérieure à la preuve | Conserver la méthode et qualifier la précision seulement après un contrôle adapté | permanente |
 | LIM-033 | Fiabilité | Une source peut être solide pour une information et faible pour une autre | Attribuer une confiance globale à la source propagerait une certitude injustifiée | Évaluer la fiabilité par information ou relation et conserver les contradictions | permanente |
 | LIM-034 | Valeurs génériques | Un usage excessif de `autre` ou `inconnu` masquerait les lacunes du vocabulaire ou des sources | Les statistiques deviendraient difficiles à interpréter | Justifier chaque `autre`, distinguer les statuts d'absence et revoir le vocabulaire dès trois occurrences distinctes | permanente |
-| LIM-035 | Reproductibilité | Le test actuel vérifie le traitement automatique, pas l'accord entre deux personnes sur un cas ambigu | Une règle formelle peut encore être interprétée différemment | Effectuer un double classement humain sur un sous-échantillon du pilote et mesurer les désaccords | ouverte |
+| LIM-035 | Reproductibilité | Le test actuel vérifie le traitement automatique, pas l'accord entre deux personnes sur un cas ambigu | Quelques catégories interprétatives pourront être classées différemment par un autre lecteur et révisées plus tard ; cela ne remet pas en cause les sources ni la structure du corpus | Assumer cette limite pour le pilote ; réexaminer un contrôle extérieur seulement en cas d'ambiguïtés récurrentes ou de demande formelle d'un partenaire | acceptée pour le pilote |
 | LIM-036 | Échantillon pilote | La sélection de 30 dossiers est raisonnée et surreprésente volontairement les cas rares ou difficiles | Les proportions du pilote ne décrivent pas celles des 319 dossiers | Utiliser le pilote pour tester la méthode et recalculer les distributions sur le corpus complet | permanente |
 | LIM-037 | Conservation du pilote | Les profils de conservation utilisés pour la sélection proviennent souvent des enquêtes des années 1980 | Ils peuvent être obsolètes et ne décrivent pas la situation actuelle | Les conserver comme signaux de sélection et produire une observation contemporaine datée pendant l'enrichissement | ouverte |
 | LIM-038 | Protection du pilote | « Sans protection MH identifiée » repose sur le rapprochement initial avec l'export audité | Une protection peut être partielle, récente ou rattachée sous un autre libellé | Vérifier chaque candidat dans la source MH avant de conclure à l'absence de protection | ouverte |

@@ -36,11 +36,15 @@ class PilotPhase5ValidationTests(TestCase):
         self.assertEqual(counts["objets_avec_source"], 31)
         self.assertTrue(self.report["corpus_checks_passed"], self.report["errors"])
 
-    def test_phase_remains_open_until_two_human_reviews(self) -> None:
-        self.assertFalse(self.report["phase5_complete"])
-        self.assertEqual(len(self.report["blocking_items"]), 2)
+    def test_phase_is_complete_without_optional_double_review(self) -> None:
+        self.assertTrue(self.report["phase5_complete"])
+        self.assertEqual(self.report["blocking_items"], [])
+        self.assertEqual(len(self.report["accepted_limitations"]), 2)
         v1 = build_v1_corpus(self.corpus, self.report)
-        self.assertEqual(v1["status"], "v1_candidate_double_classement_en_attente")
+        self.assertEqual(v1["status"], "phase5_validee")
+        self.assertEqual(
+            v1["validation"]["double_classement_humain"], "reporte_hors_phase5"
+        )
 
     def test_missing_activity_source_is_detected(self) -> None:
         corpus = deepcopy(self.corpus)

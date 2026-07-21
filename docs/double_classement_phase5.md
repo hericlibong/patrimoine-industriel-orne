@@ -1,5 +1,10 @@
 # Protocole de double classement — phase 5
 
+> **Statut au 22 juillet 2026 : protocole facultatif, non exécuté et non
+> bloquant.** Sa réalisation a été reportée, car elle est disproportionnée au
+> stade du pilote. Ce document est conservé uniquement si un besoin de validation
+> extérieure apparaît ultérieurement.
+
 ## Objectif
 
 Le test vérifie que deux personnes peuvent appliquer les classifications du

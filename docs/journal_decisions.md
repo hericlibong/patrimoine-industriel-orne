@@ -442,3 +442,19 @@
   cas ambigus. Il sépare les réponses des personnes A et B et calcule les accords.
 - La phase 5 n'est pas marquée comme terminée : deux classements réellement
   indépendants et la documentation de leurs désaccords restent nécessaires.
+
+## 2026-07-22 — Clôture de la phase 5
+
+- La décision précédente faisant du double classement humain une condition de
+  clôture est annulée. Ce contrôle est disproportionné au stade du pilote et ne
+  vérifie pas l'exactitude historique des informations.
+- Le protocole et les grilles déjà préparés sont conservés comme outils
+  facultatifs. Aucun classement humain indépendant n'est déclaré comme réalisé.
+- La conséquence acceptée est limitée : quelques catégories interprétatives
+  pourraient être comprises différemment par un autre lecteur et être révisées.
+  Les sources, les faits documentés, les identifiants et le modèle de données ne
+  sont pas affectés.
+- Un contrôle extérieur ne sera réexaminé que si des ambiguïtés récurrentes
+  apparaissent ou si un partenaire demande une validation formelle.
+- Les contrôles requis sont satisfaits : 30 fiches relues, provenance vérifiée,
+  corpus pilote V1 produit et limites documentées. La phase 5 est terminée.

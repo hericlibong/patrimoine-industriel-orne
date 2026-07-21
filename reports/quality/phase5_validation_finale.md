@@ -1,12 +1,11 @@
 # Validation finale de la phase 5
 
-Contrôle effectué le 22 juillet 2026.
+Contrôle effectué et phase clôturée le 22 juillet 2026.
 
-## État de la phase
+## Résultat
 
-La structure du corpus pilote est valide, mais la phase 5 n'est pas encore
-formellement terminée. Le double classement humain doit être réalisé par deux
-personnes différentes avant la clôture.
+La phase 5 est terminée. Le corpus pilote V1 satisfait les contrôles retenus
+pour ce stade du projet.
 
 | Contrôle | Résultat |
 |---|---:|
@@ -16,27 +15,31 @@ personnes différentes avant la clôture.
 | Protections confirmées et sourcées | 6 / 6 |
 | Objets Palissy sourcés | 31 / 31 |
 | Situations actuelles renseignées avec une source récente | 4 / 4 |
-| Cas préparés pour le double classement | 6 |
-| Classements humains reçus | 0 / 2 |
+| Informations importantes sans provenance | 0 |
 
-Le validateur ne signale aucune information importante renseignée sans source.
-Une situation actuelle explicitement `inconnu` est acceptée si cette absence de
-preuve récente est justifiée.
+Une situation actuelle explicitement `inconnu` est acceptée lorsqu'aucune preuve
+récente suffisante n'a été retenue. Elle n'est pas remplacée par une supposition.
 
-## Corrections issues du contrôle manuel
+## Double classement humain
 
-- La laiterie et la fromagerie de `IA00061133` sont traitées comme deux
-  productions simultanées entre 1893 et 1980.
-- La quincaillerie et la tréfilerie de `IA00061155` sont traitées comme deux
-  fonctions complémentaires, sans imposer une succession non documentée.
-- La correction d'Écouché pour `IA00061166` est confirmée.
-- Les trois recours au texte rendu POP à cause du marqueur `$26` restent
-  signalés et sourcés.
-- Les réserves concernant la protection et les objets de Varenne sont maintenues.
+Le double classement par deux personnes n'est plus une condition de clôture. Il
+est reporté, car sa charge est disproportionnée pour un corpus pilote et parce
+qu'il mesure l'accord entre lecteurs, non l'exactitude historique des données.
+
+Cette décision peut avoir deux conséquences limitées :
+
+- quelques catégories interprétatives pourront être comprises différemment par
+  un autre lecteur ;
+- certaines classifications pourront être révisées plus tard.
+
+Elle ne remet en cause ni les sources, ni les faits documentés, ni les
+identifiants, ni le modèle de données. Les règles, les niveaux de confiance et
+les cas incertains restent visibles. Le protocole déjà préparé est conservé
+comme outil facultatif, sans prétendre qu'il a été exécuté.
 
 ## Corpus produit
 
-Le fichier `data/pilot/corpus_pilote_v1.json` contient le corpus V1 candidat :
+`data/pilot/corpus_pilote_v1.json` contient :
 
 - 30 sites ;
 - 47 phases d'activité ;
@@ -44,29 +47,9 @@ Le fichier `data/pilot/corpus_pilote_v1.json` contient le corpus V1 candidat :
 - 6 anomalies ou limites documentées ;
 - les sources et niveaux de confiance associés.
 
-Son statut reste `v1_candidate_double_classement_en_attente`. Il passera à
-`phase5_validee` après réception et comparaison des deux classements humains.
+Son statut est `phase5_validee`.
 
-## Double classement à réaliser
+## Décision
 
-Le classeur `data/review/phase5/double_classement_phase5.xlsx` contient :
-
-- trois cas simples : `IA00060938`, `IA00060915`, `IA00061147` ;
-- trois cas ambigus : `IA00060965`, `IA00061155`, `IA00061060` ;
-- une feuille pour la personne A ;
-- une feuille pour la personne B ;
-- les sources communes aux deux personnes ;
-- le vocabulaire autorisé ;
-- une feuille calculant les accords et désaccords.
-
-Les deux personnes doivent travailler séparément. La feuille de comparaison ne
-doit être consultée qu'après le remplissage des deux classements.
-
-## Condition de clôture
-
-La phase 5 pourra être terminée lorsque :
-
-1. les deux feuilles auront été remplies par deux personnes différentes ;
-2. les désaccords auront été mesurés et commentés ;
-3. les règles ambiguës auront été précisées si nécessaire ;
-4. le corpus V1 aura été régénéré avec le statut validé.
+Les trente fiches ont été relues, leur provenance a été contrôlée et les limites
+sont documentées. Aucun point restant ne bloque le passage à la phase 6.

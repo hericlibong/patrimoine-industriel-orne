@@ -1,8 +1,9 @@
 {
-  "blocking_items": [
-    "obtenir deux classements humains indépendants",
-    "mesurer et documenter leurs désaccords"
+  "accepted_limitations": [
+    "la reproductibilité entre deux lecteurs humains n'est pas mesurée",
+    "quelques classifications interprétatives pourront être révisées"
   ],
+  "blocking_items": [],
   "corpus_checks_passed": true,
   "counts": {
     "activites": 47,
@@ -19,8 +20,8 @@
     "situations_actuelles_renseignees_avec_source": 4
   },
   "date_controle": "2026-07-22",
-  "double_classement_status": "a_realiser_par_deux_personnes",
+  "double_classement_status": "reporte_hors_phase5",
   "errors": [],
-  "phase5_complete": false,
+  "phase5_complete": true,
   "schema_version": "1.0"
 }

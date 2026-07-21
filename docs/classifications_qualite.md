@@ -76,5 +76,5 @@ les valeurs sources et produit une sortie canonique triée. Chaque rapport reço
 une empreinte SHA-256. Un changement d'empreinte doit provenir d'une modification
 identifiée des entrées, du code ou du registre.
 
-Le test automatique est complété pendant le pilote par un double classement
+Le test automatique pourra être complété ultérieurement par un double classement
 humain d'un sous-échantillon de cas simples et ambigus.
