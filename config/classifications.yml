@@ -1,7 +1,7 @@
-# Les trois blocs métier de la phase 4 sont validés. La publication en version
-# 1.0 reste soumise au dernier bloc de validation de phase.
-version: 0.4
-status: phase4_bloc3_valide
+# Registre V1 validé à la clôture de la phase 4. Toute modification ultérieure
+# doit changer la version et être inscrite dans le journal des décisions.
+version: "1.0"
+status: phase4_validee
 updated_at: 2026-07-21
 
 secteurs:

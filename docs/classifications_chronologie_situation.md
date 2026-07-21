@@ -1,6 +1,6 @@
 # Classifications — chronologie et situation actuelle
 
-Statut : **bloc 2 de la phase 4 validé le 21 juillet 2026**.
+Statut : **bloc 2 validé et intégré au registre V1 le 21 juillet 2026**.
 
 La source exécutable des vocabulaires est `config/classifications.yml`.
 

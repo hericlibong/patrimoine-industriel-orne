@@ -1,6 +1,6 @@
 # Classifications des secteurs et installations
 
-Statut : **phase 4, bloc 1 validé — version 0.2 du 21 juillet 2026**
+Statut : **bloc 1 validé et intégré au registre V1 le 21 juillet 2026**
 
 Le registre exécutable est `config/classifications.yml`. Ce document en fixe les
 règles de lecture.
@@ -46,8 +46,8 @@ est un équipement : ce n'est ni une activité ni une énergie.
 - Une destination actuelle n'est jamais reclassée comme activité historique.
 - `autres_industries` suppose que le caractère industriel est confirmé.
 - `inconnu` signifie que l'activité industrielle est attestée mais non classée.
-- Les règles détaillées d'emploi de `autres_industries` et `inconnu` seront
-  arrêtées dans le bloc qualité de la phase 4.
+- Les règles détaillées d'emploi de `autres_industries` et `inconnu` sont
+  arrêtées dans `docs/classifications_qualite.md`.
 
 ## Sites multi-secteurs
 
@@ -66,7 +66,7 @@ Conséquences :
 
 ## Portée du vocabulaire
 
-La version 0.2 couvre tous les termes `DENO` des 10 notices POP testées et ajoute
+Le vocabulaire publié en version 1.0 couvre tous les termes `DENO` des 10 notices POP testées et ajoute
 les activités attendues dans le cadrage : forges, aiguilles, papier, textile,
 bois, matériaux et transformations agroalimentaires. Cette couverture reste à
 retester lors de l'extraction complète et du corpus pilote.

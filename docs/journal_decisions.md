@@ -354,3 +354,25 @@
   classifications en version 0.4.
 - Le troisième bloc de la phase 4 est terminé. Il reste à exécuter le bloc de
   validation finale avant de publier `classifications.yml` en version 1.0.
+
+## 2026-07-21 — Clôture de la phase 4
+
+- `config/classifications.yml` est publié en version `1.0` avec le statut
+  `phase4_validee`.
+- Le registre contient 163 codes répartis dans 17 vocabulaires contrôlés.
+- Les 49 entrées principales qui exigent une définition explicite en possèdent
+  toutes une. Le dictionnaire des données passe en version 1.3 et rassemble les
+  définitions nécessaires à la lecture du registre.
+- Les trois validateurs de secteurs, de situation actuelle et de qualité ne
+  signalent aucune incohérence.
+- Les tests de reproductibilité restent positifs : l'ordre des notices ne
+  modifie ni les secteurs ni la situation actuelle, et la grille de qualité est
+  stable lors d'une nouvelle exécution.
+- Les empreintes SHA-256 du registre et des sorties de contrôle sont archivées
+  dans `reports/quality/phase4_validation_finale.json`.
+- Les 64 tests automatisés du projet réussissent après ajout du contrôle de
+  publication V1.
+- La reproductibilité humaine reste à mesurer par double classement pendant la
+  phase 5 ; cette limite n'empêche pas l'utilisation du registre pour le pilote.
+- La phase 4 est terminée. La phase 5 peut construire l'échantillon pilote avec
+  les classifications V1.

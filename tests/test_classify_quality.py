@@ -6,11 +6,13 @@ from unittest import TestCase
 
 from patrimoine_orne.classify.current_state import load_mh_sample
 from patrimoine_orne.classify.quality import (
+    build_final_validation_report,
     build_reproducibility_report,
     canonical_fingerprint,
     classify_geographic_precision,
     classify_reliability,
     decide_generic_value,
+    validate_published_classifications,
     validate_quality_classifications,
 )
 from patrimoine_orne.classify.sectors import load_classifications, load_pop_manifest_sample
@@ -49,6 +51,9 @@ class QualityClassificationTests(TestCase):
             ALLOWED_GEOGRAPHIC_PRECISION_CODES,
         )
         self.assertEqual(set(self.config["fiabilite"]), ALLOWED_RELIABILITY_CODES)
+        self.assertEqual(validate_published_classifications(self.config), [])
+        self.assertEqual(str(self.config["version"]), "1.0")
+        self.assertEqual(self.config["status"], "phase4_validee")
 
     def test_precision_does_not_confuse_evidence_and_method(self) -> None:
         self.assertEqual(
@@ -145,3 +150,16 @@ class QualityClassificationTests(TestCase):
             "situation_actuelle": [],
             "qualite": [],
         })
+
+    def test_final_phase4_registry_is_publishable(self) -> None:
+        manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+        report = build_final_validation_report(
+            load_pop_manifest_sample(MANIFEST_PATH),
+            load_mh_sample(MH_SAMPLE_PATH),
+            manifest,
+            self.config,
+        )
+        self.assertTrue(report["all_valid"])
+        self.assertEqual(report["published_version"], "1.0")
+        self.assertEqual(report["published_code_count"], 163)
+        self.assertEqual(report["validation_errors"], [])

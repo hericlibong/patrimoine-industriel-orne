@@ -1,6 +1,6 @@
-# Dictionnaire des données — version 1.2
+# Dictionnaire des données — version 1.3
 
-Statut : **modèle V1 approuvé le 20 juillet 2026**.
+Statut : **modèle et classifications V1 approuvés le 21 juillet 2026**.
 
 Le schéma exécutable de référence est
 `src/patrimoine_orne/model/schema.sql`. Les contrôles qui portent sur plusieurs
@@ -20,6 +20,94 @@ Les vocabulaires de précision géographique et de fiabilité sont définis dans
 `config/classifications.yml`. La précision, la méthode de production de la
 géométrie et la fiabilité de l'information sont trois champs indépendants.
 
+## Référentiel des classifications V1
+
+Le registre `config/classifications.yml` version 1.0 est la source canonique des
+163 codes publiés. Le dictionnaire en fixe ici le sens ; les libellés exhaustifs
+des 35 activités détaillées et des 27 installations restent dans le registre.
+
+### Secteurs industriels
+
+| Code | Définition |
+|---|---|
+| `extraction` | extraction des ressources du sous-sol |
+| `metallurgie_travail_metaux` | production, transformation et façonnage des métaux |
+| `textile_habillement_cuir` | fibres, filature, tissage, confection et cuir |
+| `bois_papier_imprimerie` | transformation du bois, papier, carton et impression |
+| `verre_ceramique_materiaux_construction` | verre, brique, tuile, céramique, chaux et ciment |
+| `agroalimentaire` | transformation productive des aliments et boissons |
+| `energie` | production d'énergie destinée à être distribuée |
+| `chimie_caoutchouc_plastiques` | produits chimiques, caoutchouc et plastiques |
+| `mecanique_electrique` | machines et matériels mécaniques ou électriques |
+| `autres_industries` | activité industrielle connue sans secteur adapté |
+| `inconnu` | activité attestée dont le secteur reste indéterminé |
+
+Le secteur qualifie une phase d'activité, jamais directement le site. Les
+activités, installations, énergies et rôles énergétiques sont quatre
+vocabulaires distincts.
+
+### Périodes historiques
+
+| Code | Bornes |
+|---|---|
+| `avant_1789` | avant 1789 |
+| `revolution_premiere_industrialisation` | 1789–1849 |
+| `industrialisation_rail_vapeur` | 1850–1913 |
+| `guerres_entre_deux_guerres` | 1914–1945 |
+| `modernisation_apres_guerre` | 1946–1975 |
+| `mutations_reconversions` | 1976–2000 |
+| `periode_contemporaine` | depuis 2001 |
+
+Ces périodes sont des filtres calculés et ne remplacent jamais les dates des
+sources. Un intervalle peut relever de plusieurs périodes.
+
+### Situation actuelle
+
+Conservation :
+
+| Code | Définition |
+|---|---|
+| `conserve` | ensemble industriel structurant encore présent et lisible |
+| `degrade` | ensemble subsistant mais matériellement dégradé |
+| `partiellement_conserve` | seule une partie des éléments documentés subsiste |
+| `vestiges` | traces matérielles limitées sans ensemble complet |
+| `ruine` | structures subsistant principalement à l'état de ruine |
+| `disparu` | aucun élément industriel identifié ne subsiste à l'emplacement vérifié |
+| `inconnu` | aucune observation récente ne permet de conclure |
+
+Usages actuels : `activite_industrielle`, `artisanat_production`,
+`culture_musee`, `tourisme_visite`, `logement`, `commerce_services`, `bureaux`,
+`agriculture`, `stockage`, `equipement_public`, `vacant`, `sans_usage`, `autre`
+et `inconnu`. Plusieurs usages peuvent coexister dans une même observation.
+
+Accessibilité : `visitable`, `partiellement_visitable`,
+`visible_espace_public`, `prive_visible`, `prive_non_visible`, `inaccessible` et
+`inconnu`. La visibilité ne constitue jamais une autorisation d'entrée.
+
+Protections : `classe_mh`, `inscrit_mh`, `protection_locale` et
+`autre_protection`. La portée est séparée : `totale`, `partielle` ou `inconnue`.
+Une mesure possède également un statut : `active`, `modifiee`, `abrogee` ou
+`a_verifier`.
+
+### Localisation et qualité
+
+Précision géographique : `emprise_site_verifiee`, `parcelle_verifiee`,
+`batiment_verifie`, `point_site_verifie`, `point_adresse`,
+`point_approximatif` et `zone_documentaire`.
+
+Fiabilité :
+
+| Code | Définition |
+|---|---|
+| `forte` | preuve directe, cible non ambiguë et aucune contradiction ouverte |
+| `moyenne` | information indirecte concordante ou interprétation simple contrôlée |
+| `faible` | indice unique, ambiguïté, hypothèse ou contradiction ouverte |
+
+`autre` désigne une valeur connue absente du vocabulaire. `inconnu` signifie
+qu'une question applicable a été examinée sans réponse. Aucun de ces codes ne
+remplace un champ source vide, une valeur non applicable ou un statut
+`a_verifier`.
+
 ## Correspondance avec DuckDB
 
 | Type du dictionnaire | Type DuckDB | Règle d'implémentation |
@@ -35,10 +123,8 @@ géométrie et la fiabilité de l'information sont trois champs indépendants.
 Les clés étrangères, unicités et contrôles simples sont appliqués directement
 par DuckDB. Le validateur transversal contrôle notamment les cibles génériques,
 les champs ciblés, les obligations conditionnelles des sites, la géométrie de
-référence et la cohérence des versions. Les vocabulaires des secteurs,
-activités, installations et énergies sont définis dans
-`config/classifications.yml` ; les autres dimensions restent à valider pendant
-la phase 4.
+référence et la cohérence des versions. Tous les vocabulaires V1 sont définis
+dans `config/classifications.yml` et validés à la clôture de la phase 4.
 
 Une `date structurée` est matérialisée par quatre champs : `<nom>_min`,
 `<nom>_max`, `<nom>_precision_code` et `<nom>_texte_source`. Les entités métier

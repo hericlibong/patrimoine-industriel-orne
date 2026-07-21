@@ -31,6 +31,26 @@ PRECISION_BY_EVIDENCE = {
     ("zone_documentaire", False): "zone_documentaire",
 }
 
+PUBLISHED_VOCABULARIES = (
+    "secteurs",
+    "activites_detaillees",
+    "types_installations",
+    "energies",
+    "roles_energies",
+    "periodes_historiques",
+    "conservation",
+    "usages_actuels",
+    "accessibilite",
+    "types_protection",
+    "portees_protection",
+    "statuts_protection",
+    "statuts_protection_site_calcules",
+    "precision_geographique",
+    "statuts_localisation",
+    "methodes_localisation",
+    "fiabilite",
+)
+
 
 def validate_quality_classifications(config: Mapping[str, Any]) -> list[str]:
     """Contrôle les vocabulaires et règles du troisième bloc de la phase 4."""
@@ -96,6 +116,44 @@ def validate_quality_classifications(config: Mapping[str, Any]) -> list[str]:
     ):
         if reproducibility.get(key) != "obligatoire":
             errors.append(f"règle de reproductibilité manquante : {key}")
+    return errors
+
+
+def validate_published_classifications(config: Mapping[str, Any]) -> list[str]:
+    """Contrôle le registre complet avant publication de la version 1.0."""
+    errors = [
+        *(f"secteurs: {error}" for error in validate_classifications(config)),
+        *(
+            f"situation actuelle: {error}"
+            for error in validate_current_state_classifications(config)
+        ),
+        *(f"qualité: {error}" for error in validate_quality_classifications(config)),
+    ]
+    if str(config.get("version")) != "1.0":
+        errors.append("la version publiée doit être 1.0")
+    if config.get("status") != "phase4_validee":
+        errors.append("le statut publié doit être phase4_validee")
+
+    for section in PUBLISHED_VOCABULARIES:
+        vocabulary = config.get(section)
+        if not isinstance(vocabulary, Mapping) or not vocabulary:
+            errors.append(f"vocabulaire publié absent ou vide : {section}")
+            continue
+        for code, item in vocabulary.items():
+            if not isinstance(item, Mapping) or not item.get("libelle"):
+                errors.append(f"{section}.{code}: libellé obligatoire")
+
+    for section in (
+        "secteurs",
+        "conservation",
+        "usages_actuels",
+        "accessibilite",
+        "precision_geographique",
+        "fiabilite",
+    ):
+        for code, item in config.get(section, {}).items():
+            if not item.get("definition"):
+                errors.append(f"{section}.{code}: définition obligatoire")
     return errors
 
 
@@ -314,6 +372,53 @@ def build_reproducibility_report(
     }
 
 
+def build_final_validation_report(
+    pop_records: Sequence[Mapping[str, Any]],
+    mh_records: Sequence[Mapping[str, Any]],
+    manifest: Mapping[str, Any],
+    config: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Produit le bilan de publication du registre de classifications V1."""
+    reproducibility = build_reproducibility_report(
+        pop_records, mh_records, manifest, config
+    )
+    errors = validate_published_classifications(config)
+    counts = {
+        section: len(config.get(section, {})) for section in PUBLISHED_VOCABULARIES
+    }
+    definition_sections = (
+        "secteurs",
+        "conservation",
+        "usages_actuels",
+        "accessibilite",
+        "precision_geographique",
+        "fiabilite",
+    )
+    definition_count = sum(
+        bool(item.get("definition"))
+        for section in definition_sections
+        for item in config.get(section, {}).values()
+    )
+    expected_definition_count = sum(
+        len(config.get(section, {})) for section in definition_sections
+    )
+    return {
+        "published_version": str(config.get("version")),
+        "status": config.get("status"),
+        "vocabulary_counts": counts,
+        "published_code_count": sum(counts.values()),
+        "core_definitions": {
+            "defined": definition_count,
+            "expected": expected_definition_count,
+            "complete": definition_count == expected_definition_count,
+        },
+        "validation_errors": errors,
+        "reproducibility_checks": reproducibility["reproducibility_checks"],
+        "fingerprints_sha256": reproducibility["fingerprints_sha256"],
+        "all_valid": not errors and reproducibility["all_reproducible"],
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Auditer la qualité des classifications")
     parser.add_argument(
@@ -331,17 +436,28 @@ def main() -> int:
         ),
     )
     parser.add_argument("--config", type=Path, default=Path("config/classifications.yml"))
+    parser.add_argument(
+        "--final",
+        action="store_true",
+        help="produire le bilan de publication de la phase 4",
+    )
     arguments = parser.parse_args()
     config = load_classifications(arguments.config)
     manifest = json.loads(arguments.manifest.read_text(encoding="utf-8"))
-    report = build_reproducibility_report(
-        load_pop_manifest_sample(arguments.manifest),
-        load_mh_sample(arguments.mh_sample),
-        manifest,
-        config,
-    )
+    pop_records = load_pop_manifest_sample(arguments.manifest)
+    mh_records = load_mh_sample(arguments.mh_sample)
+    if arguments.final:
+        report = build_final_validation_report(
+            pop_records, mh_records, manifest, config
+        )
+        success = report["all_valid"]
+    else:
+        report = build_reproducibility_report(
+            pop_records, mh_records, manifest, config
+        )
+        success = report["all_reproducible"]
     print(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True))
-    return 0 if report["all_reproducible"] else 1
+    return 0 if success else 1
 
 
 if __name__ == "__main__":

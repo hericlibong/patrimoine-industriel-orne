@@ -1,0 +1,42 @@
+{
+  "all_valid": true,
+  "core_definitions": {
+    "complete": true,
+    "defined": 49,
+    "expected": 49
+  },
+  "fingerprints_sha256": {
+    "grille_qualite": "00891d73dc77349da1c041e4699d59320d8fed3cd6c956286a78179d92a6b9ac",
+    "registre_classifications": "ebea58766881c3adf3070ccb64d34c4ddbff14f6c67478d8ead1f692ab362580",
+    "secteurs": "45fdf090b5359ec0b3fb36f3fc23ca42afc94dca08be74d0da56643d0be83f8c",
+    "situation_actuelle": "5987db0ad88590e42ce8b835e759a130471ae28717bb6c31217b9d79e57dab63"
+  },
+  "published_code_count": 163,
+  "published_version": "1.0",
+  "reproducibility_checks": {
+    "grille_qualite_reexecution_identique": true,
+    "secteurs_ordre_inverse_identique": true,
+    "situation_actuelle_ordre_inverse_identique": true
+  },
+  "status": "phase4_validee",
+  "validation_errors": [],
+  "vocabulary_counts": {
+    "accessibilite": 7,
+    "activites_detaillees": 35,
+    "conservation": 7,
+    "energies": 11,
+    "fiabilite": 3,
+    "methodes_localisation": 9,
+    "periodes_historiques": 7,
+    "portees_protection": 3,
+    "precision_geographique": 7,
+    "roles_energies": 6,
+    "secteurs": 11,
+    "statuts_localisation": 4,
+    "statuts_protection": 4,
+    "statuts_protection_site_calcules": 4,
+    "types_installations": 27,
+    "types_protection": 4,
+    "usages_actuels": 14
+  }
+}

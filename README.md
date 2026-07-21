@@ -9,7 +9,7 @@ reproductible.
 
 ## État du projet
 
-**Phases 0 à 3 terminées — phase 4 en cours.**
+**Phases 0 à 4 terminées — phase 5 à lancer.**
 
 Le suivi détaillé est maintenu localement dans `docs/roadmap.md`, qui n'est pas
 versionné.
@@ -35,6 +35,7 @@ versionné.
 - [Test des secteurs sur l'échantillon](reports/quality/phase4_test_secteurs.md)
 - [Test de la chronologie et de la situation actuelle](reports/quality/phase4_chronologie_situation.md)
 - [Test de qualité et de reproductibilité](reports/quality/phase4_qualite_classifications.md)
+- [Validation finale de la phase 4](reports/quality/phase4_validation_finale.md)
 
 ## Base DuckDB de test
 
