@@ -399,3 +399,28 @@
   `reports/quality/phase5_composition_echantillon.json`.
 - Le bloc « Composer l'échantillon » est terminé. Le bloc suivant porte sur
   l'enrichissement et le rapprochement des 30 candidats.
+
+## 2026-07-21 — Phase 5, enrichissement des sites pilotes
+
+- Les 30 candidats reçoivent chacun un UUID v4 stable, distinct de leur
+  référence `IA`.
+- Les 43 dénominations `DENO` sont toutes classées après extension du registre ;
+  la relecture des historiques porte le total à 47 phases d'activité.
+- Le registre des classifications passe en version `1.1` avec 174 codes. Les
+  ajouts couvrent notamment distillerie, faïencerie, fromagerie, tréfilage,
+  habillement, chaussures et préparation du tan.
+- Six rapprochements entre protection `PA` et dossier `IA` sont confirmés par un
+  renvoi direct. Le cas `PA00110771` est rejeté pour `IA00060965`, car la source
+  renvoie à `IA00060964`.
+- La collection métallurgique de Varenne comprend 31 notices Palissy archivées.
+  Son lien avec `IA00060965` reste candidat, avec une confiance faible.
+- Quatre situations actuelles sont appuyées par des sources récentes. Pour les
+  26 autres sites, `inconnu` est enregistré afin de ne pas actualiser
+  artificiellement des observations anciennes.
+- Trois notices POP contiennent le marqueur `$26` dans leur champ historique
+  structuré ; leur chronologie est reprise du texte rendu et l'anomalie reste
+  documentée.
+- Le rapprochement CASIAS est différé à une extraction dédiée, car un appariement
+  communal ne serait pas assez précis.
+- Le bloc « Enrichir les sites » est terminé. La validation manuelle des fiches
+  reste à réaliser dans le dernier bloc de la phase 5.

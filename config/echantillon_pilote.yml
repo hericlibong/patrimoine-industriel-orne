@@ -59,10 +59,9 @@ sites:
     secteurs_preselection: [metallurgie_travail_metaux, agroalimentaire]
     periodes_preselection: [avant_1789, revolution_premiere_industrialisation]
     conservation_source_signal: partiellement_conserve
-    protection_signal: protege_mh_identifie
-    protection_reference: PA00110771
+    protection_signal: rapprochement_mh_a_verifier
     localisation_difficulte: facile
-    raisons_selection: [site_multi_secteurs, forge_hydraulique, protection_mh]
+    raisons_selection: [site_multi_secteurs, forge_hydraulique, objets_techniques_potentiels]
 
   - ia_reference: IA00060938
     titre: centrale hydroélectrique
@@ -245,7 +244,7 @@ sites:
 
   - ia_reference: IA00061166
     titre: cidrerie distillerie dite cidrerie distillerie Pépin
-    commune: Trun
+    commune: Écouché
     zone_controle: plaines_argentan_pays_auge
     secteurs_preselection: [agroalimentaire]
     periodes_preselection: [industrialisation_rail_vapeur, modernisation_apres_guerre]

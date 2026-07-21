@@ -1,0 +1,191 @@
+version: "0.1"
+status: bloc_enrichissement_structure
+date_verification: 2026-07-21
+
+# UUID v4 attribués une seule fois. Ils ne dépendent d'aucun identifiant source.
+site_ids:
+  IA00061008: 2bcf41f5-1242-46d9-9809-8fff7fbdae14
+  IA00060965: d7b0b9b0-6817-4057-8535-3ce9b61ed857
+  IA00060938: 2b6d576e-11fb-4af4-85ba-dc1b950a731d
+  IA00061003: 04264fa9-c2d1-4d5e-b709-bdb1d3836a9b
+  IA00060901: 3495d47b-0c8f-45b9-866b-dcc3357542e7
+  IA00061119: 687037bf-bf42-4ee7-a5f4-e79d60a38cc1
+  IA00060915: 2c664ed5-7ee5-4315-aa61-e9b9032b56c0
+  IA00061035: 980da487-203e-40ae-9c1d-cea503be1860
+  IA00060902: 57368564-3e33-4b35-9d3c-555a5cb0bbc1
+  IA00060896: 2ab6b065-4bf3-4956-a9c2-656c2f9cfbfa
+  IA00061002: f7b9e26f-4dd7-428f-a7e8-659c432904af
+  IA00061073: f0bdb9e3-c3bf-41cd-8704-d630daf00661
+  IA00060969: 4b0fcc92-f32b-4040-ae5d-32a4945b176a
+  IA00060959: 3c95b12b-1cb8-4439-a0d9-60152e8a327f
+  IA00060997: 0f433fbc-09eb-42de-ba2f-75eec5c7a050
+  IA00061117: af60a402-a20e-4cca-b3c9-a81921d4e2e8
+  IA00061133: ca91c449-cb94-4c38-a230-023dbec512cd
+  IA00060909: 3ae9aff0-231d-4365-a718-039b17021fc0
+  IA00061166: 35c5c701-5158-4714-aa11-6946f7fae290
+  IA00061091: 8a492a03-5bac-4aa5-b48e-ed37239720e6
+  IA00061029: 43d7512d-7196-4864-bc90-64b3b3474bce
+  IA00061155: 890265c5-e62f-45f7-aed2-08fb1814f457
+  IA00061113: be1c19ae-3062-4f64-b8db-602ab713f052
+  IA00061052: 314bf742-7125-4c6c-a4bd-26d6a047a9b1
+  IA00061054: 3d44d08b-e70d-4622-9387-a7538d86be3f
+  IA00061153: b1136ddb-9fff-4209-8328-e5caed705388
+  IA00061060: 9435cb9d-0885-4a4b-9834-64e76ac0364b
+  IA00061147: c528f629-8337-49c9-873c-75ecc067a7a3
+  IA00061135: 2f3e86c1-08b4-4131-9a06-8f30764843cb
+  IA00061095: 82718138-99cb-45fb-a081-95b61c5dce48
+
+communes_actuelles:
+  IA00060938: {code_insee: "61339", nom: Putanges-le-Lac}
+  IA00061003: {code_insee: "61339", nom: Putanges-le-Lac}
+  IA00061119: {code_insee: "61007", nom: Athis-Val de Rouvre}
+  IA00061133: {code_insee: "61474", nom: Gouffern en Auge}
+  IA00061166: {code_insee: "61153", nom: Écouché-les-Vallées}
+  IA00061091: {code_insee: "61194", nom: Monts-sur-Orne}
+  IA00061153: {code_insee: "61230", nom: Longny les Villages}
+  IA00061060: {code_insee: "61230", nom: Longny les Villages}
+
+chronologies:
+  IA00060965:
+    mode: successives
+    phases:
+      - {libelle_source: affinerie, debut: "attestée en 1619", fin: "cessation vers 1847"}
+      - {libelle_source: moulin à blé, debut: "conversion vers 1847", fin: "activité attestée après 1900"}
+  IA00060902:
+    mode: successives
+    phases:
+      - {libelle_source: filature, debut: "vers 1847", fin: "vers 1880"}
+      - {libelle_source: fromagerie industrielle, debut: "réutilisation en 1925", fin: inconnue}
+  IA00060896:
+    mode: successives
+    phases:
+      - {libelle_source: filature, debut: "vers 1837", fin: "vers 1927"}
+      - {libelle_source: usine de chaussures, debut: "conversion vers 1927", fin: inconnue}
+  IA00060969:
+    mode: successives
+    phases:
+      - {libelle_source: moulin à farine, debut: "attesté en 1809", fin: "conversion vers 1840"}
+      - {libelle_source: filature, debut: "vers 1840", fin: "inactive vers 1930"}
+      - {libelle_source: usine de matériel électroménager, debut: "réutilisation vers 1937", fin: inconnue}
+  IA00060909:
+    mode: simultanees_puis_succession
+    phases:
+      - {libelle_source: distillerie, debut: "1910", fin: "vers 1940"}
+      - {libelle_source: cidrerie, debut: "1910", fin: "vers 1940"}
+      - {libelle_source: laiterie industrielle, debut: "vers 1943", fin: inconnue}
+  IA00061166:
+    mode: simultanees
+    phases:
+      - {libelle_source: cidrerie, debut: "1898", fin: "1987"}
+      - {libelle_source: distillerie, debut: "1898", fin: "1987"}
+  IA00061029:
+    mode: successives
+    phases:
+      - {libelle_source: affinerie, debut: "vers 1540", fin: "1850"}
+      - {libelle_source: forge, debut: "1850", fin: "1939", note: travail du cuivre}
+  IA00061113:
+    mode: successives
+    phases:
+      - {libelle_source: laminoir, debut: "1820", fin: "1867"}
+      - {libelle_source: usine de quincaillerie, debut: "1867", fin: "vers 1945"}
+  IA00061052:
+    mode: successives
+    phases:
+      - {libelle_source: tannerie, debut: "attestée en 1835", fin: "vers 1888"}
+      - {libelle_source: usine de construction mécanique, debut: "réutilisation en 1953", fin: inconnue}
+  IA00061153:
+    mode: phase_unique
+    phases:
+      - {libelle_source: affinerie, debut: "attestée sur le site en 1537", fin: "inactive vers 1870"}
+  IA00061060:
+    mode: successives
+    phases:
+      - {libelle_source: moulin à papier, debut: "attesté dès 1537", fin: "conversion en 1804"}
+      - {libelle_source: grosse forge, debut: "conversion en 1804", fin: "1862"}
+      - {libelle_source: moulin à farine, debut: "1869", fin: "début du 20e siècle"}
+      - {libelle_source: moulin à tan, debut: "début du 20e siècle", fin: "1925"}
+      - {libelle_source: fromagerie industrielle, debut: "1925", fin: "1947"}
+
+rapprochements_mh_confirmes:
+  IA00061029: PA00110731
+  IA00061073: PA00135513
+  IA00060959: PA00110985
+  IA00061119: PA00135514
+  IA00061155: PA00135530
+  IA00061095: PA00135522
+
+situation_actuelle:
+  defaut:
+    conservation_code: inconnu
+    accessibilite_code: inconnu
+    usages: [inconnu]
+    fiabilite_code: faible
+    methode_verification_code: revue_documentaire_sans_preuve_recente
+    note: Aucune source récente suffisante n'a encore été retenue ; l'état ancien de la notice n'est pas présenté comme actuel.
+  exceptions:
+    IA00060938:
+      conservation_code: inconnu
+      accessibilite_code: inconnu
+      usages: [industrie_actuelle]
+      fiabilite_code: forte
+      methode_verification_code: source_officielle_exploitant
+      source_url: https://www.edf.fr/barrage-rabodanges
+      note: Centrale hydroélectrique en activité ; nouveau groupe mis en service en mars 2025.
+    IA00061155:
+      conservation_code: conserve
+      accessibilite_code: visitable
+      usages: [industrie_actuelle, culture_musee, tourisme_visite]
+      fiabilite_code: forte
+      methode_verification_code: source_officielle_exploitant
+      source_url: https://www.bohin.com/pages/organiser-sa-visite
+      note: Atelier de production et musée ouverts à la visite selon le calendrier 2026.
+    IA00061029:
+      conservation_code: partiellement_conserve
+      accessibilite_code: partiellement_visitable
+      usages: [culture_musee, tourisme_visite]
+      fiabilite_code: moyenne
+      methode_verification_code: programmation_institutionnelle_2026
+      source_url: https://archives.orne.fr/sites/default/files/2026-05/Prog%20PEL%2026-WEB.pdf
+      note: Présence et accès ponctuel attestés par une manifestation organisée dans la Grosse Forge en 2026.
+    IA00061008:
+      conservation_code: partiellement_conserve
+      accessibilite_code: inconnu
+      usages: [inconnu]
+      fiabilite_code: moyenne
+      methode_verification_code: source_institutionnelle_2026
+      source_url: https://www.orne.fr/actualite/dimportants-soutiens-financiers?page=2
+      note: Une étude de sécurisation et de valorisation du carreau de la mine est financée en 2026.
+
+objets_palissy:
+  site_candidat: IA00060965
+  ensemble_reference: PM61000916
+  type_lien_code: association_documentaire
+  fiabilite_code: faible
+  statut: a_verifier
+  note: Les 31 notices sont localisées au château de Varenne, mais aucune ne cite directement la notice IA00060965 ; la protection immobilière PA00110771 renvoie à IA00060964.
+
+anomalies_connues:
+  - code: protection_varenne_mal_attribuee
+    reference: IA00060965
+    severite: forte
+    description: PA00110771 renvoie à IA00060964 et ne doit pas être rattachée automatiquement à IA00060965.
+  - code: objets_varenne_rattachement_incertain
+    reference: IA00060965
+    severite: moyenne
+    description: La collection Palissy PM61000916 et ses sous-notices n'ont pas de lien direct vers IA00060965.
+  - code: commune_selection_erronee
+    reference: IA00061166
+    severite: moyenne
+    description: La notice se situe à Écouché, et non à Trun ; la commune actuelle est Écouché-les-Vallées.
+  - code: historique_structure_placeholder
+    references: [IA00060969, IA00061153, IA00061060]
+    severite: moyenne
+    description: Le champ HIST structuré vaut $26 ; la chronologie est reprise du texte rendu de la notice POP.
+  - code: situation_actuelle_majoritairement_inconnue
+    nombre_sites: 26
+    severite: normale
+    description: Les observations d'Inventaire anciennes ne sont pas transformées en état contemporain sans source récente.
+  - code: casias_non_rapproche
+    nombre_sites: 30
+    severite: normale
+    description: Le rapprochement CASIAS est différé, car l'extraction pilote CASIAS ne couvre pas ces 30 sites et un appariement communal créerait de faux positifs.

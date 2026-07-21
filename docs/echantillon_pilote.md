@@ -7,9 +7,9 @@ Version 0.1 — 21 juillet 2026
 Le pilote contient **30 dossiers IA candidats**, choisis dans le corpus officiel
 de **319 dossiers** de l'Inventaire du patrimoine industriel de l'Orne.
 
-Ce ne sont pas encore 30 sites canoniques : les rapprochements entre notices et
-les contrôles de terrain documentaire seront réalisés dans le bloc
-« Enrichir les sites ».
+Les 30 dossiers possèdent désormais chacun un identifiant interne. Aucun doublon
+entre ces 30 dossiers n'a été confirmé pendant l'enrichissement ; ils restent
+des sites pilotes à contrôler individuellement avant la V1.
 
 | Contrôle | Résultat |
 |---|---:|
@@ -17,7 +17,8 @@ les contrôles de terrain documentaire seront réalisés dans le bloc
 | Secteurs représentés | 8 |
 | Périodes représentées | 5 |
 | Profils de conservation issus des sources | 6 |
-| Protections MH déjà identifiées | 7 |
+| Protections MH confirmées par lien direct | 6 |
+| Rapprochements MH à vérifier | 1 |
 | Sans protection MH identifiée à ce stade | 23 |
 | Localisations faciles | 14 |
 | Localisations intermédiaires | 10 |
@@ -50,7 +51,7 @@ peut compter dans plusieurs secteurs ou plusieurs périodes.
 | Zone de contrôle | Référence | Commune | Désignation courte |
 |---|---|---|---|
 | Bocage et Andaines | `IA00061008` | Saint-Clair-de-Halouze | Mine de Halouze |
-| Bocage et Andaines | `IA00060965` | Champsecret | Affinerie et moulin à blé |
+| Bocage et Andaines | `IA00060965` | Champsecret | Affinerie et moulin à blé ; rapprochement MH à vérifier |
 | Bocage et Andaines | `IA00060938` | Rabodanges | Centrale hydroélectrique |
 | Bocage et Andaines | `IA00061003` | Les Rotours | Four à chaux |
 | Bocage et Andaines | `IA00060901` | Rânes | Affinerie de fer |
@@ -67,7 +68,7 @@ peut compter dans plusieurs secteurs ou plusieurs périodes.
 | Plaines d'Argentan et pays d'Auge | `IA00061117` | Argentan | Briqueterie Saint-Martin |
 | Plaines d'Argentan et pays d'Auge | `IA00061133` | Le Bourg-Saint-Léonard | Laiterie-fromagerie Lavalou |
 | Plaines d'Argentan et pays d'Auge | `IA00060909` | Gacé | Distillerie, cidrerie et laiterie |
-| Plaines d'Argentan et pays d'Auge | `IA00061166` | Trun | Cidrerie-distillerie Pépin |
+| Plaines d'Argentan et pays d'Auge | `IA00061166` | Écouché | Cidrerie-distillerie Pépin |
 | Plaines d'Argentan et pays d'Auge | `IA00061091` | Goulet | Moulin à farine |
 | Pays d'Ouche et Risle | `IA00061029` | Aube | Affinerie |
 | Pays d'Ouche et Risle | `IA00061155` | Saint-Sulpice-sur-Risle | Établissements Bohin |
@@ -92,13 +93,15 @@ En particulier :
   traité comme un état actuel ;
 - « sans protection MH identifiée » ne signifie pas juridiquement « non
   protégé » tant que la vérification nominative n'est pas terminée ;
-- une référence `IA` n'est pas encore un identifiant de site du projet ;
+- une référence `IA` reste un identifiant de source distinct de l'UUID du site ;
 - aucune coordonnée de présélection ne sera publiée sans contrôle spatial.
 
 ## Fichiers de contrôle
 
 - sélection structurée : `config/echantillon_pilote.yml` ;
 - bilan automatique : `reports/quality/phase5_composition_echantillon.json` ;
+- enrichissement structuré : `config/enrichissement_pilote.yml` ;
+- bilan d'enrichissement : `reports/quality/phase5_enrichissement_pilote.json` ;
 - contrôle reproductible : `python -m patrimoine_orne.sample.pilot`.
 
 Sources de départ :

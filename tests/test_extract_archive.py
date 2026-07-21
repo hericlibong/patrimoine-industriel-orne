@@ -92,4 +92,3 @@ class SampleArchiveTests(TestCase):
         create_sample_archive(**arguments)
         with self.assertRaises(FileExistsError):
             create_sample_archive(**arguments)
-

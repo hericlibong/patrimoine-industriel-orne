@@ -1,0 +1,30 @@
+{
+  "checks_passed": true,
+  "chronology_modes": {
+    "ordre_a_verifier": 2,
+    "phase_unique": 18,
+    "simultanees": 1,
+    "simultanees_puis_succession": 1,
+    "successives": 8
+  },
+  "counts": {
+    "activites_structurees": 47,
+    "anomalies_documentees": 6,
+    "mentions_sources": 71,
+    "objets_palissy_recenses": 31,
+    "protections_mh_confirmees": 6,
+    "rapprochements_mh_rejetes": 1,
+    "site_ids_unique": 30,
+    "sites": 30,
+    "sites_avec_source_recente_situation_actuelle": 4,
+    "sites_situation_actuelle_inconnue": 26
+  },
+  "current_state_reliability": {
+    "faible": 26,
+    "forte": 2,
+    "moyenne": 2
+  },
+  "date_verification": "2026-07-21",
+  "errors": [],
+  "schema_version": "1.0"
+}

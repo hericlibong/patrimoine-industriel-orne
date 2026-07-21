@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-07-21T21:38:01Z",
+  "reference_count": 31,
+  "schema_version": "1.0",
+  "sources": {
+    "pop_palissy": [
+      {
+        "data_file": "data/raw/pop_palissy/2026/2026-07-21/pop_palissy__collection_metallurgique_varenne__orne_pilote_phase5__20260721T213801Z.json",
+        "file_size_bytes": 107831,
+        "metadata_file": "data/raw/pop_palissy/2026/2026-07-21/pop_palissy__collection_metallurgique_varenne__orne_pilote_phase5__20260721T213801Z.json.metadata.json",
+        "observations": {
+          "references": [
+            "PM61000813",
+            "PM61000814",
+            "PM61000815",
+            "PM61000816",
+            "PM61000817",
+            "PM61000818",
+            "PM61000819",
+            "PM61000820",
+            "PM61000821",
+            "PM61000822",
+            "PM61000823",
+            "PM61000824",
+            "PM61000825",
+            "PM61000826",
+            "PM61000827",
+            "PM61000828",
+            "PM61000829",
+            "PM61000830",
+            "PM61000831",
+            "PM61000832",
+            "PM61000833",
+            "PM61000834",
+            "PM61000835",
+            "PM61000836",
+            "PM61000837",
+            "PM61000838",
+            "PM61000839",
+            "PM61000840",
+            "PM61000841",
+            "PM61000842",
+            "PM61000916"
+          ],
+          "result_count": 31,
+          "total_count": 31,
+          "with_merimee_reference": 0
+        },
+        "sha256": "80df0d8b75913f3c1a6dcd0d2011ae973c3b00ea67bfa3832132cb2f08fd8d0f"
+      }
+    ]
+  }
+}

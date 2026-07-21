@@ -52,8 +52,8 @@ class QualityClassificationTests(TestCase):
         )
         self.assertEqual(set(self.config["fiabilite"]), ALLOWED_RELIABILITY_CODES)
         self.assertEqual(validate_published_classifications(self.config), [])
-        self.assertEqual(str(self.config["version"]), "1.0")
-        self.assertEqual(self.config["status"], "phase4_validee")
+        self.assertEqual(str(self.config["version"]), "1.1")
+        self.assertEqual(self.config["status"], "phase5_enrichissement")
 
     def test_precision_does_not_confuse_evidence_and_method(self) -> None:
         self.assertEqual(
@@ -160,6 +160,6 @@ class QualityClassificationTests(TestCase):
             self.config,
         )
         self.assertTrue(report["all_valid"])
-        self.assertEqual(report["published_version"], "1.0")
-        self.assertEqual(report["published_code_count"], 163)
+        self.assertEqual(report["published_version"], "1.1")
+        self.assertEqual(report["published_code_count"], 174)
         self.assertEqual(report["validation_errors"], [])

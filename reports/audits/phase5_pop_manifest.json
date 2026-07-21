@@ -1,0 +1,340 @@
+{
+  "generated_at": "2026-07-21T21:29:00Z",
+  "reference_count": 30,
+  "sample_file": "config/echantillon_pilote.yml",
+  "schema_version": "1.0",
+  "sources": {
+    "pop_merimee": [
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061008__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 170922,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061008__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061008"
+        },
+        "sha256": "054f8dc11235c0098b24494564d2db533d2dc4c01387d5a92866614fc29fcdd0"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060965__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 172693,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060965__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00060965"
+        },
+        "sha256": "8c48f5cdaf8c9dcc733c7b0188f55daf1ac682dcd9695d6019665ea928c69f25"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060938__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 169172,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060938__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00060938"
+        },
+        "sha256": "a602617b868b49d1e56df860f7f2b07d2485b3e30882f9ad6f51518e9540e601"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061003__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 139033,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061003__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061003"
+        },
+        "sha256": "b11103a96c2823a010bd89230c4753ba594141e723ca6cf3cc378fcb3ffe3664"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060901__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 174103,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060901__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00060901"
+        },
+        "sha256": "4140f24c41bf70fd7795eab5c82c03ea6cb90602fc6ea47dcb5f53bc36adda3e"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061119__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 183472,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061119__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061119"
+        },
+        "sha256": "9d1a563e04f2f6684acb023f2409d6fd1ed8ac4e83732d390f21234ab2419571"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060915__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 176417,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060915__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00060915"
+        },
+        "sha256": "71076a78dfec7fbd990da603fbc7ff19e25cd483ae4685d5a8f5bd1059e849fe"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061035__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 157479,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061035__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061035"
+        },
+        "sha256": "97ea035b82a0d5ed06bb919aabaf0d1151bfb290f9cc7eb91776733849b42381"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060902__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 173941,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060902__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00060902"
+        },
+        "sha256": "28ea46c49493086d61868143b42a2332eabb12818a902389da6e4116d60adac9"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060896__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 173504,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060896__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00060896"
+        },
+        "sha256": "03afc02c904fe7e3018ac09d8bd6d1d35bcde3e8276f0118aeaded29060d12aa"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061002__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 166798,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061002__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061002"
+        },
+        "sha256": "8f8e7a9e74db44fb19bcca54638ed510f12e6699efb2291ceec85d91636df95c"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061073__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 183988,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061073__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061073"
+        },
+        "sha256": "611afc24341482bc33ba81ce5150368487e41165949d2f07eb674c930168ec6d"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060969__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 195581,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060969__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00060969"
+        },
+        "sha256": "fd7b14a8db42ccd518b293d8a91b56a1ad7daf2a267f943d11ebf93e7259e671"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060959__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 178944,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060959__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00060959"
+        },
+        "sha256": "f92ce73d3105fa1b650bbaf6455eb38e7e84b2bb76d08c67924860e9560403bc"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060997__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 150796,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060997__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00060997"
+        },
+        "sha256": "16680a68cce34842d9b468281f66683e98689db4fefca0b895f6254b890618c1"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061117__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 167492,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061117__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061117"
+        },
+        "sha256": "baa23102cb91ae22aba4c50b7ad22133f207c55894492af9cc5c6bbfedd30b08"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061133__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 148025,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061133__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061133"
+        },
+        "sha256": "8014a958228984f6c06798c408d76cc73361fc3165ca2382da22c1d58f2d13a6"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060909__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 159598,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00060909__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00060909"
+        },
+        "sha256": "3077e93e5267cfbf8a3ba9a799c4d99985032f54843176445223ff91aa98de9a"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061166__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 153008,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061166__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061166"
+        },
+        "sha256": "80c6405afb2dcda41dc7afc49868a7cc60bf6fe86700e97c4d6c4c48594070de"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061091__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 149333,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061091__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061091"
+        },
+        "sha256": "bd6d18ff58a26f99567e98ecbf213432e3e776799a9cc435ea27ae27257d9cf6"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061029__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 202708,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061029__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061029"
+        },
+        "sha256": "04da8f0e3a4ca9728e6176a309da7033e1897a85f71a7d14d9930c72beb5098c"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061155__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 183450,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061155__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061155"
+        },
+        "sha256": "6f19e23f29a9176aca20dc12531882fdea312eeb5aaa0392bed92bd20ebf7047"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061113__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 167888,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061113__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061113"
+        },
+        "sha256": "7571a21e795834b22705027458d97e74a723f1190c5f23d95590e3f4207da328"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061052__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 161870,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061052__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061052"
+        },
+        "sha256": "03a33b0fe8b27f194a009fdcede87ebeb0b6704e0877a2ca94418d1871a75209"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061054__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 170663,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061054__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061054"
+        },
+        "sha256": "25102721acb05128c1b315f72be279214d04a6a663ce68455c444f121b5d5e03"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061153__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 187650,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061153__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061153"
+        },
+        "sha256": "66b1e94238f7b88cd268e4b16583fc756653a2976eda42b808cc036af88a95ed"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061060__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 197451,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061060__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061060"
+        },
+        "sha256": "260e045bb509f0fd7293103c96611cd697d139c803e5b196c3a5c00c8ea98621"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061147__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 165224,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061147__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061147"
+        },
+        "sha256": "ca5b1394ede999c91451e8fefe6393181ed9b0024081dd3adc45459089213a78"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061135__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 155015,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061135__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061135"
+        },
+        "sha256": "1671ea845dbf6f58684e56988e2da644e12a0bdfdae1b2d8f228e8f8b3538ddf"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061095__orne_pilote_phase5__20260721T212900Z.html",
+        "file_size_bytes": 178492,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-21/pop_merimee__ia00061095__orne_pilote_phase5__20260721T212900Z.html.metadata.json",
+        "observations": {
+          "has_inventaire_link": true,
+          "has_static_dossier_link": true,
+          "reference": "IA00061095"
+        },
+        "sha256": "38eaf57d772d7b8039313c5fccda3f54dc1ab6892a160b127c010c30eb6cc1bb"
+      }
+    ]
+  }
+}

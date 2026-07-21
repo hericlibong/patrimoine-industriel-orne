@@ -1,7 +1,7 @@
 # Registre V1 validé à la clôture de la phase 4. Toute modification ultérieure
 # doit changer la version et être inscrite dans le journal des décisions.
-version: "1.0"
-status: phase4_validee
+version: "1.1"
+status: phase5_enrichissement
 updated_at: 2026-07-21
 
 secteurs:
@@ -81,6 +81,12 @@ activites_detaillees:
   fabrication_aiguilles_epingles:
     libelle: Fabrication d'aiguilles et d'épingles
     secteur_code: metallurgie_travail_metaux
+  trefilage_metaux:
+    libelle: Tréfilage des métaux
+    secteur_code: metallurgie_travail_metaux
+  fabrication_metaux:
+    libelle: Fabrication et transformation des métaux
+    secteur_code: metallurgie_travail_metaux
   filature_textile:
     libelle: Filature textile
     secteur_code: textile_habillement_cuir
@@ -92,6 +98,15 @@ activites_detaillees:
     secteur_code: textile_habillement_cuir
   tannerie_cuir:
     libelle: Tannerie et travail du cuir
+    secteur_code: textile_habillement_cuir
+  preparation_tan:
+    libelle: Préparation et broyage du tan
+    secteur_code: textile_habillement_cuir
+  confection_habillement:
+    libelle: Confection et habillement
+    secteur_code: textile_habillement_cuir
+  fabrication_chaussures:
+    libelle: Fabrication de chaussures
     secteur_code: textile_habillement_cuir
   sciage_bois:
     libelle: Sciage du bois
@@ -132,6 +147,9 @@ activites_detaillees:
   production_cidre:
     libelle: Production de cidre
     secteur_code: agroalimentaire
+  distillation_alimentaire:
+    libelle: Distillation de boissons et produits agricoles
+    secteur_code: agroalimentaire
   brasserie:
     libelle: Brasserie
     secteur_code: agroalimentaire
@@ -170,17 +188,22 @@ types_installations:
   atelier: {libelle: Atelier}
   filature: {libelle: Filature}
   tissage: {libelle: Tissage}
+  tannerie: {libelle: Tannerie}
+  faiencerie: {libelle: Faïencerie}
   scierie: {libelle: Scierie}
   papeterie: {libelle: Papeterie}
   cartonnerie: {libelle: Cartonnerie}
   imprimerie: {libelle: Imprimerie}
   briqueterie: {libelle: Briqueterie}
+  four_chaux: {libelle: Four à chaux}
   tuilerie: {libelle: Tuilerie}
   verrerie: {libelle: Verrerie}
   moulin: {libelle: Moulin}
   minoterie: {libelle: Minoterie}
   laiterie: {libelle: Laiterie}
   cidrerie: {libelle: Cidrerie}
+  distillerie: {libelle: Distillerie}
+  fromagerie: {libelle: Fromagerie}
   brasserie: {libelle: Brasserie}
   centrale_hydroelectrique: {libelle: Centrale hydroélectrique}
   centrale_thermique: {libelle: Centrale thermique}
@@ -227,6 +250,23 @@ correspondances_sources:
   - {terme: cartonnerie, activite_code: fabrication_carton, installation_code: cartonnerie}
   - {terme: laiterie, activite_code: transformation_lait, installation_code: laiterie}
   - {terme: cidrerie, activite_code: production_cidre, installation_code: cidrerie}
+  - {terme: distillerie, activite_code: distillation_alimentaire, installation_code: distillerie}
+  - {terme: faïencerie, activite_code: fabrication_ceramique, installation_code: faiencerie}
+  - {terme: fonderie, activite_code: fonderie, installation_code: fonderie}
+  - {terme: four à chaux, activite_code: fabrication_chaux_ciment, installation_code: four_chaux}
+  - {terme: fromagerie industrielle, activite_code: transformation_lait, installation_code: fromagerie}
+  - {terme: grosse forge, activite_code: forgeage, installation_code: forge}
+  - {terme: imprimerie, activite_code: imprimerie, installation_code: imprimerie}
+  - {terme: laiterie industrielle, activite_code: transformation_lait, installation_code: laiterie}
+  - {terme: moulin à papier, activite_code: fabrication_papier, installation_code: papeterie}
+  - {terme: tannerie, activite_code: tannerie_cuir, installation_code: tannerie}
+  - {terme: moulin à tan, activite_code: preparation_tan, installation_code: moulin}
+  - {terme: tréfilerie, activite_code: trefilage_metaux, installation_code: usine}
+  - {terme: usine d'habillement, activite_code: confection_habillement, installation_code: usine}
+  - {terme: usine de chaussures, activite_code: fabrication_chaussures, installation_code: usine}
+  - {terme: usine de construction mécanique, activite_code: construction_mecanique, installation_code: usine}
+  - {terme: usine de fabrication des métaux, activite_code: fabrication_metaux, installation_code: usine}
+  - {terme: usine de matériel électroménager, activite_code: fabrication_materiel_electrique, installation_code: usine}
 
 correspondances_energies_sources:
   - {terme: énergie hydraulique, energie_code: hydraulique}

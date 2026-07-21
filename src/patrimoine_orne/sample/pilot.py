@@ -13,7 +13,11 @@ import yaml
 
 
 IA_PATTERN = re.compile(r"^IA\d{8}$")
-PROTECTION_SIGNALS = {"protege_mh_identifie", "sans_protection_mh_identifiee"}
+PROTECTION_SIGNALS = {
+    "protege_mh_identifie",
+    "sans_protection_mh_identifiee",
+    "rapprochement_mh_a_verifier",
+}
 LOCALISATION_DIFFICULTIES = {"facile", "intermediaire", "difficile"}
 
 

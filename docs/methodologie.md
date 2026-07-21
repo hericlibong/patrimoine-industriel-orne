@@ -271,3 +271,29 @@ Elles ne sont versées au modèle comme faits qu'après lecture de la notice,
 rapprochement des sources et contrôle. La conservation ancienne n'est jamais
 présentée comme actuelle, et l'absence de protection repérée n'est pas traitée
 comme une preuve juridique d'absence.
+
+## Enrichissement du pilote
+
+Chaque dossier `IA` reçoit un UUID v4 stable enregistré dans
+`config/enrichissement_pilote.yml`. La référence `IA` est conservée comme
+identifiant externe et ne sert jamais de clé interne.
+
+Les dénominations `DENO` sont séparées en phases d'activité. Le texte `HIST` est
+relu pour ordonner les conversions, ajouter une phase absente de `DENO` et
+conserver les expressions de dates telles que « vers 1840 ». Une chronologie
+ambiguë reste marquée `ordre_a_verifier`.
+
+Un rapprochement MH n'est confirmé que lorsque la notice `PA` renvoie directement
+à la référence `IA`. Une commune, un nom voisin ou le mot « forge » ne suffisent
+pas. De même, un objet Palissy sans référence Mérimée directe reste un lien
+candidat, avec une confiance faible, même si l'édifice et la commune concordent.
+
+La situation contemporaine est une observation séparée. Une destination relevée
+par l'Inventaire dans les années 1980 est conservée comme observation historique,
+mais n'est pas recopiée comme situation 2026. En l'absence de source récente,
+la valeur actuelle est explicitement `inconnu`.
+
+Le corpus de travail est reconstruit avec
+`python -m patrimoine_orne.enrich.pilot`. Les données dérivées sont écrites dans
+`data/interim/phase5_pilot_enriched.json` et le contrôle versionné dans
+`reports/quality/phase5_enrichissement_pilote.json`.

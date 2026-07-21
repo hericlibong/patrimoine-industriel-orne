@@ -120,7 +120,7 @@ def validate_quality_classifications(config: Mapping[str, Any]) -> list[str]:
 
 
 def validate_published_classifications(config: Mapping[str, Any]) -> list[str]:
-    """Contrôle le registre complet avant publication de la version 1.0."""
+    """Contrôle le registre complet publié."""
     errors = [
         *(f"secteurs: {error}" for error in validate_classifications(config)),
         *(
@@ -129,10 +129,10 @@ def validate_published_classifications(config: Mapping[str, Any]) -> list[str]:
         ),
         *(f"qualité: {error}" for error in validate_quality_classifications(config)),
     ]
-    if str(config.get("version")) != "1.0":
-        errors.append("la version publiée doit être 1.0")
-    if config.get("status") != "phase4_validee":
-        errors.append("le statut publié doit être phase4_validee")
+    if str(config.get("version")) not in {"1.0", "1.1"}:
+        errors.append("la version publiée doit être 1.0 ou 1.1")
+    if config.get("status") not in {"phase4_validee", "phase5_enrichissement"}:
+        errors.append("statut de publication des classifications invalide")
 
     for section in PUBLISHED_VOCABULARIES:
         vocabulary = config.get(section)

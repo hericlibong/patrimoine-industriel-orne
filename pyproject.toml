@@ -35,6 +35,9 @@ patrimoine-orne-audit-secteurs = "patrimoine_orne.classify.sectors:main"
 patrimoine-orne-audit-situation = "patrimoine_orne.classify.current_state:main"
 patrimoine-orne-audit-qualite = "patrimoine_orne.classify.quality:main"
 patrimoine-orne-controle-echantillon = "patrimoine_orne.sample.pilot:main"
+patrimoine-orne-extraire-pilote = "patrimoine_orne.extract.pilot:main"
+patrimoine-orne-extraire-objets-pilote = "patrimoine_orne.extract.pilot_objects:main"
+patrimoine-orne-enrichir-pilote = "patrimoine_orne.enrich.pilot:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

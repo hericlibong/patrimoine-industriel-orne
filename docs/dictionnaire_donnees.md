@@ -22,9 +22,9 @@ géométrie et la fiabilité de l'information sont trois champs indépendants.
 
 ## Référentiel des classifications V1
 
-Le registre `config/classifications.yml` version 1.0 est la source canonique des
-163 codes publiés. Le dictionnaire en fixe ici le sens ; les libellés exhaustifs
-des 35 activités détaillées et des 27 installations restent dans le registre.
+Le registre `config/classifications.yml` version 1.1 est la source canonique des
+174 codes publiés. Le dictionnaire en fixe ici le sens ; les libellés exhaustifs
+des 41 activités détaillées et des 32 installations restent dans le registre.
 
 ### Secteurs industriels
 
