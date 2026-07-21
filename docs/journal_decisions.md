@@ -475,3 +475,23 @@
   propriété, ni la conservation du site.
 - Aucun centroïde communal ni aucune coordonnée de remplacement n'est créé. Le
   bloc « Localisation » de la phase 6 est terminé ; la phase reste en cours.
+
+## 2026-07-22 — Phase 6, contexte territorial
+
+- Les distances sont calculées pour les 30 sites à partir du point POP de
+  travail. Elles restent des indices spatiaux sans valeur causale automatique.
+- Dix-huit sites sont à moins de 100 mètres d'un tronçon hydrographique et 27 à
+  moins de 500 mètres.
+- Deux sites sont inclus dans une formation de la BD Forêt v2, 13 autres sont à
+  moins de 100 mètres et 14 entre 100 et 500 mètres. Le millésime 2006-2019 est
+  conservé avec chaque résultat.
+- La lithologie simplifiée BRGM est renseignée pour les 30 sites. Vingt-trois
+  ont un indice minier ou un gîte à moins de 10 km, sans que cela établisse un
+  approvisionnement historique.
+- Dix sites sont à moins de 500 mètres d'un tronçon ferroviaire de la BD TOPO ;
+  14 n'en ont aucun dans le rayon testé de 5 km. La couche n'est pas présentée
+  comme exhaustive pour les lignes disparues.
+- La transformation des 30 points entre Lambert-93 et WGS84 est cohérente. Le
+  Lambert-93 reste le système de calcul et le WGS84 celui de l'export web.
+- Le bloc « Contexte territorial » est terminé. Le contrôle cartographique reste
+  le prochain bloc de la phase 6.

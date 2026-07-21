@@ -1,0 +1,2439 @@
+{
+  "date_controle": "2026-07-22",
+  "schema_version": "1.0",
+  "seuils": {
+    "cours_eau_m": [
+      25,
+      100,
+      500,
+      2500
+    ],
+    "foret_m": [
+      0,
+      100,
+      500,
+      2500
+    ],
+    "rail_m": [
+      100,
+      500,
+      2000,
+      5000
+    ],
+    "ressource_minerale_m": [
+      1000,
+      5000,
+      10000
+    ]
+  },
+  "sites": [
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_2500_m",
+        "distance_m": 682.4,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019051806",
+          "cpx_toponyme_de_cours_d_eau": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_100_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 51.2,
+        "objet": {
+          "code_tfv": "FF1G01-01",
+          "essence": "Chênes décidus",
+          "id": "FORESTIE0000000006105642",
+          "tfv": "Forêt fermée de chênes décidus purs",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "12",
+          "DESCR": "Schistes et grès",
+          "TYPE": "Roches Métamorphiques"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        -0.6186115235885614,
+        48.690929837651005
+      ],
+      "rail": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 6294.6,
+        "objet": {
+          "cleabs": "TRONFERR0000000019042041",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Voie ferrée principale",
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061008",
+      "ressource_minerale": {
+        "classe_proximite": "moins_1_km",
+        "distance_m": 825.0,
+        "objet": {
+          "c_substance": null,
+          "id_unique": "86-1",
+          "identifiant": null,
+          "nom_gite": null,
+          "nom_site": "Halouze (Ferrières-aux-Etangs)",
+          "substance": "Fe"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "mines"
+      },
+      "site_id": "2bcf41f5-1242-46d9-9809-8fff7fbdae14",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_100_m",
+        "distance_m": 75.8,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019056319",
+          "cpx_toponyme_de_cours_d_eau": "l'Andainette",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_500_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 264.0,
+        "objet": {
+          "code_tfv": "FF0",
+          "essence": "NR",
+          "id": "FORESTIE0000000006115646",
+          "tfv": "Forêt fermée sans couvert arboré",
+          "tfv_g11": "Forêt fermée sans couvert arboré"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "12",
+          "DESCR": "Schistes et grès",
+          "TYPE": "Roches Métamorphiques"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        -0.5486016317751446,
+        48.5986464736866
+      ],
+      "rail": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": null,
+        "objet": {
+          "cleabs": null,
+          "date_d_apparition": null,
+          "etat_de_l_objet": null,
+          "nature": null,
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00060965",
+      "ressource_minerale": {
+        "classe_proximite": "moins_10_km",
+        "distance_m": 5797.6,
+        "objet": {
+          "c_substance": "Fe",
+          "id_unique": null,
+          "identifiant": "FRA-02860",
+          "nom_gite": "La Ferrière Aux Étangs",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "d7b0b9b0-6817-4057-8535-3ce9b61ed857",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_100_m",
+        "distance_m": 38.2,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019045581",
+          "cpx_toponyme_de_cours_d_eau": "l'Orne",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_100_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 73.4,
+        "objet": {
+          "code_tfv": "FF1-00-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006109407",
+          "tfv": "Forêt fermée à mélange de feuillus",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "8",
+          "DESCR": "Granites",
+          "TYPE": "Roches Magmatiques"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        -0.2965698588180073,
+        48.78773387593912
+      ],
+      "rail": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": null,
+        "objet": {
+          "cleabs": null,
+          "date_d_apparition": null,
+          "etat_de_l_objet": null,
+          "nature": null,
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00060938",
+      "ressource_minerale": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "distance_m": 10062.5,
+        "objet": {
+          "c_substance": "Ti",
+          "id_unique": null,
+          "identifiant": "FRA-00211",
+          "nom_gite": "Saint Pierre-du-Bû",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "2b6d576e-11fb-4af4-85ba-dc1b950a731d",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_100_m",
+        "distance_m": 51.3,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019046180",
+          "cpx_toponyme_de_cours_d_eau": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "dans_formation",
+        "dans_formation_vegetale": true,
+        "distance_m": 0.0,
+        "objet": {
+          "code_tfv": "FF1-00-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006109299",
+          "tfv": "Forêt fermée à mélange de feuillus",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "8",
+          "DESCR": "Granites",
+          "TYPE": "Roches Magmatiques"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        -0.2611416389081272,
+        48.77974105802658
+      ],
+      "rail": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": null,
+        "objet": {
+          "cleabs": null,
+          "date_d_apparition": null,
+          "etat_de_l_objet": null,
+          "nature": null,
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061003",
+      "ressource_minerale": {
+        "classe_proximite": "moins_10_km",
+        "distance_m": 9796.1,
+        "objet": {
+          "c_substance": "Ti",
+          "id_unique": null,
+          "identifiant": "FRA-00211",
+          "nom_gite": "Saint Pierre-du-Bû",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "04264fa9-c2d1-4d5e-b709-bdb1d3836a9b",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_100_m",
+        "distance_m": 73.3,
+        "objet": {
+          "cleabs": "TRON_EAU0000000302605922",
+          "cpx_toponyme_de_cours_d_eau": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_500_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 171.7,
+        "objet": {
+          "code_tfv": "FF1-00-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006107043",
+          "tfv": "Forêt fermée à mélange de feuillus",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "12",
+          "DESCR": "Schistes et grès",
+          "TYPE": "Roches Métamorphiques"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        -0.192303752081454,
+        48.62883233414116
+      ],
+      "rail": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": null,
+        "objet": {
+          "cleabs": null,
+          "date_d_apparition": null,
+          "etat_de_l_objet": null,
+          "nature": null,
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00060901",
+      "ressource_minerale": {
+        "classe_proximite": "moins_10_km",
+        "distance_m": 9713.0,
+        "objet": {
+          "c_substance": null,
+          "id_unique": "222-1",
+          "identifiant": null,
+          "nom_gite": null,
+          "nom_site": "Beauvain",
+          "substance": "Mo"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "mines"
+      },
+      "site_id": "3495d47b-0c8f-45b9-866b-dcc3357542e7",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_100_m",
+        "distance_m": 50.8,
+        "objet": {
+          "cleabs": "TRON_EAU0000002287764177",
+          "cpx_toponyme_de_cours_d_eau": "la Vère",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_100_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 14.3,
+        "objet": {
+          "code_tfv": "FF1G01-01",
+          "essence": "Chênes décidus",
+          "id": "FORESTIE0000000006105354",
+          "tfv": "Forêt fermée de chênes décidus purs",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "8",
+          "DESCR": "Granites",
+          "TYPE": "Roches Magmatiques"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        -0.5264803216151851,
+        48.8263948592895
+      ],
+      "rail": {
+        "classe_proximite": "moins_5_km",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 2575.4,
+        "objet": {
+          "cleabs": "TRONFERR0000000106359073",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "Non exploité",
+          "nature": "Sans objet",
+          "usage": "Sans objet"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061119",
+      "ressource_minerale": {
+        "classe_proximite": "moins_10_km",
+        "distance_m": 8970.8,
+        "objet": {
+          "c_substance": "As",
+          "id_unique": null,
+          "identifiant": "FRA-02043",
+          "nom_gite": "Les Vaux",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "687037bf-bf42-4ee7-a5f4-e79d60a38cc1",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_25_m",
+        "distance_m": 16.9,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019046376",
+          "cpx_toponyme_de_cours_d_eau": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_2500_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 862.2,
+        "objet": {
+          "code_tfv": "FF1-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006103093",
+          "tfv": "Forêt fermée de feuillus purs en îlots",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "12",
+          "DESCR": "Schistes et grès",
+          "TYPE": "Roches Métamorphiques"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        -0.5743152336616424,
+        48.76742714744118
+      ],
+      "rail": {
+        "classe_proximite": "moins_2_km",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 1122.8,
+        "objet": {
+          "cleabs": "TRONFERR0000000297552981",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Voie ferrée principale",
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00060915",
+      "ressource_minerale": {
+        "classe_proximite": "moins_10_km",
+        "distance_m": 5894.5,
+        "objet": {
+          "c_substance": "As",
+          "id_unique": null,
+          "identifiant": "FRA-02043",
+          "nom_gite": "Les Vaux",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "2c664ed5-7ee5-4315-aa61-e9b9032b56c0",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_25_m",
+        "distance_m": 14.0,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019043628",
+          "cpx_toponyme_de_cours_d_eau": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_100_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 11.8,
+        "objet": {
+          "code_tfv": "FF32",
+          "essence": "Mixte",
+          "id": "FORESTIE0000000001404399",
+          "tfv": "Forêt fermée à mélange de conifères prépondérants et feuillus",
+          "tfv_g11": "Forêt fermée mixte"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "8",
+          "DESCR": "Granites",
+          "TYPE": "Roches Magmatiques"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        -0.5113380588965798,
+        48.847518905647895
+      ],
+      "rail": {
+        "classe_proximite": "moins_500_m",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 479.7,
+        "objet": {
+          "cleabs": "TRONFERR0000000013910117",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "Non exploité",
+          "nature": "Sans objet",
+          "usage": "Vélo-rail"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061035",
+      "ressource_minerale": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "distance_m": 10998.0,
+        "objet": {
+          "c_substance": "As",
+          "id_unique": null,
+          "identifiant": "FRA-02043",
+          "nom_gite": "Les Vaux",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "980da487-203e-40ae-9c1d-cea503be1860",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_25_m",
+        "distance_m": 13.6,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019043044",
+          "cpx_toponyme_de_cours_d_eau": "le Noireau",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_100_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 50.0,
+        "objet": {
+          "code_tfv": "FF1-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000001404263",
+          "tfv": "Forêt fermée de feuillus purs en îlots",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "12",
+          "DESCR": "Schistes et grès",
+          "TYPE": "Roches Métamorphiques"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        -0.4692362808837436,
+        48.86744482145761
+      ],
+      "rail": {
+        "classe_proximite": "moins_100_m",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 63.6,
+        "objet": {
+          "cleabs": "TRONFERR0000000019041839",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "Non exploité",
+          "nature": "Sans objet",
+          "usage": "Vélo-rail"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00060902",
+      "ressource_minerale": {
+        "classe_proximite": "moins_10_km",
+        "distance_m": 8248.3,
+        "objet": {
+          "c_substance": null,
+          "id_unique": "497-1",
+          "identifiant": null,
+          "nom_gite": null,
+          "nom_site": "St Rémy sur Orne",
+          "substance": "Fe"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "mines"
+      },
+      "site_id": "57368564-3e33-4b35-9d3c-555a5cb0bbc1",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_100_m",
+        "distance_m": 57.5,
+        "objet": {
+          "cleabs": "TRON_EAU0000002287820524",
+          "cpx_toponyme_de_cours_d_eau": "le Noireau",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_100_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 79.4,
+        "objet": {
+          "code_tfv": "FP",
+          "essence": "Peuplier",
+          "id": "FORESTIE0000000001404446",
+          "tfv": "Peupleraie",
+          "tfv_g11": "Peupleraie"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "12",
+          "DESCR": "Schistes et grès",
+          "TYPE": "Roches Métamorphiques"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        -0.42778489906881867,
+        48.86456213067169
+      ],
+      "rail": {
+        "classe_proximite": "moins_5_km",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 2981.8,
+        "objet": {
+          "cleabs": "TRONFERR0000000019041839",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "Non exploité",
+          "nature": "Sans objet",
+          "usage": "Vélo-rail"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00060896",
+      "ressource_minerale": {
+        "classe_proximite": "moins_10_km",
+        "distance_m": 9670.8,
+        "objet": {
+          "c_substance": null,
+          "id_unique": "497-1",
+          "identifiant": null,
+          "nom_gite": null,
+          "nom_site": "St Rémy sur Orne",
+          "substance": "Fe"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "mines"
+      },
+      "site_id": "2ab6b065-4bf3-4956-a9c2-656c2f9cfbfa",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_500_m",
+        "distance_m": 420.0,
+        "objet": {
+          "cleabs": "TRON_EAU0000000343129187",
+          "cpx_toponyme_de_cours_d_eau": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_500_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 117.0,
+        "objet": {
+          "code_tfv": "FF1-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006101163",
+          "tfv": "Forêt fermée de feuillus purs en îlots",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "2",
+          "DESCR": "Calcaires, marnes et gypse",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        0.08865273502274014,
+        48.432512077974245
+      ],
+      "rail": {
+        "classe_proximite": "moins_2_km",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 765.7,
+        "objet": {
+          "cleabs": "TRONFERR0000000019042165",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Voie ferrée principale",
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061002",
+      "ressource_minerale": {
+        "classe_proximite": "moins_5_km",
+        "distance_m": 2764.2,
+        "objet": {
+          "c_substance": "Brt",
+          "id_unique": null,
+          "identifiant": "FRA-02379",
+          "nom_gite": "Alençon La Boissière",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "f7b9e26f-4dd7-428f-a7e8-659c432904af",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_500_m",
+        "distance_m": 251.7,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019064716",
+          "cpx_toponyme_de_cours_d_eau": "la Sarthe",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_500_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 251.7,
+        "objet": {
+          "code_tfv": "FP",
+          "essence": "Peuplier",
+          "id": "FORESTIE0000000006114067",
+          "tfv": "Peupleraie",
+          "tfv_g11": "Peupleraie"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "2",
+          "DESCR": "Calcaires, marnes et gypse",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        0.09680089770291367,
+        48.41774961815736
+      ],
+      "rail": {
+        "classe_proximite": "moins_2_km",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 545.2,
+        "objet": {
+          "cleabs": "TRONFERR0000000019042176",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Voie ferrée principale",
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061073",
+      "ressource_minerale": {
+        "classe_proximite": "moins_5_km",
+        "distance_m": 3883.0,
+        "objet": {
+          "c_substance": "Brt",
+          "id_unique": null,
+          "identifiant": "FRA-02379",
+          "nom_gite": "Alençon La Boissière",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "f0bdb9e3-c3bf-41cd-8704-d630daf00661",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_500_m",
+        "distance_m": 128.3,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019064470",
+          "cpx_toponyme_de_cours_d_eau": "la Sarthe",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_500_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 130.3,
+        "objet": {
+          "code_tfv": "LA4",
+          "essence": "NC",
+          "id": "FORESTIE0000000006115890",
+          "tfv": "Lande",
+          "tfv_g11": "Lande"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "2",
+          "DESCR": "Calcaires, marnes et gypse",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        0.10079551488612261,
+        48.41863958530717
+      ],
+      "rail": {
+        "classe_proximite": "moins_500_m",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 235.8,
+        "objet": {
+          "cleabs": "TRONFERR0000000019042176",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Voie ferrée principale",
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00060969",
+      "ressource_minerale": {
+        "classe_proximite": "moins_5_km",
+        "distance_m": 4094.0,
+        "objet": {
+          "c_substance": "Brt",
+          "id_unique": null,
+          "identifiant": "FRA-02379",
+          "nom_gite": "Alençon La Boissière",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "4b0fcc92-f32b-4040-ae5d-32a4945b176a",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_100_m",
+        "distance_m": 50.6,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019064001",
+          "cpx_toponyme_de_cours_d_eau": "le Sarthon",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_500_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 124.4,
+        "objet": {
+          "code_tfv": "FF1-00-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006109651",
+          "tfv": "Forêt fermée à mélange de feuillus",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "8",
+          "DESCR": "Granites",
+          "TYPE": "Roches Magmatiques"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        -0.05470964099131984,
+        48.46276650506727
+      ],
+      "rail": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": null,
+        "objet": {
+          "cleabs": null,
+          "date_d_apparition": null,
+          "etat_de_l_objet": null,
+          "nature": null,
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00060959",
+      "ressource_minerale": {
+        "classe_proximite": "moins_5_km",
+        "distance_m": 4978.2,
+        "objet": {
+          "c_substance": "Bi",
+          "id_unique": null,
+          "identifiant": "FRA-02183",
+          "nom_gite": "Tertre",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "3c95b12b-1cb8-4439-a0d9-60152e8a327f",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_500_m",
+        "distance_m": 136.0,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019064006",
+          "cpx_toponyme_de_cours_d_eau": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_100_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 58.8,
+        "objet": {
+          "code_tfv": "FF1-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006104576",
+          "tfv": "Forêt fermée de feuillus purs en îlots",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "8",
+          "DESCR": "Granites",
+          "TYPE": "Roches Magmatiques"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        -0.04466949682273202,
+        48.4574697462757
+      ],
+      "rail": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": null,
+        "objet": {
+          "cleabs": null,
+          "date_d_apparition": null,
+          "etat_de_l_objet": null,
+          "nature": null,
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00060997",
+      "ressource_minerale": {
+        "classe_proximite": "moins_5_km",
+        "distance_m": 4234.7,
+        "objet": {
+          "c_substance": "Bi",
+          "id_unique": null,
+          "identifiant": "FRA-02183",
+          "nom_gite": "Tertre",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "0f433fbc-09eb-42de-ba2f-75eec5c7a050",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_500_m",
+        "distance_m": 344.1,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019046795",
+          "cpx_toponyme_de_cours_d_eau": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "dans_formation",
+        "dans_formation_vegetale": true,
+        "distance_m": 0.0,
+        "objet": {
+          "code_tfv": "FF1-00-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006107872",
+          "tfv": "Forêt fermée à mélange de feuillus",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "2",
+          "DESCR": "Calcaires, marnes et gypse",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        -0.037485884350861635,
+        48.75668430101197
+      ],
+      "rail": {
+        "classe_proximite": "moins_500_m",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 391.9,
+        "objet": {
+          "cleabs": "TRONFERR0000000019041909",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Voie ferrée principale",
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061117",
+      "ressource_minerale": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "distance_m": null,
+        "objet": {
+          "c_substance": null,
+          "id_unique": null,
+          "identifiant": null,
+          "nom_gite": null,
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": null
+      },
+      "site_id": "af60a402-a20e-4cca-b3c9-a81921d4e2e8",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_2500_m",
+        "distance_m": 1274.0,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019047579",
+          "cpx_toponyme_de_cours_d_eau": "l'Ure",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_500_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 104.1,
+        "objet": {
+          "code_tfv": "FF1-09-09",
+          "essence": "Hêtre",
+          "id": "FORESTIE0000000006105678",
+          "tfv": "Forêt fermée de hêtre pur",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "2",
+          "DESCR": "Calcaires, marnes et gypse",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        0.10359277019030935,
+        48.76502373879208
+      ],
+      "rail": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": null,
+        "objet": {
+          "cleabs": null,
+          "date_d_apparition": null,
+          "etat_de_l_objet": null,
+          "nature": null,
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061133",
+      "ressource_minerale": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "distance_m": null,
+        "objet": {
+          "c_substance": null,
+          "id_unique": null,
+          "identifiant": null,
+          "nom_gite": null,
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": null
+      },
+      "site_id": "ca91c449-cb94-4c38-a230-023dbec512cd",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_100_m",
+        "distance_m": 74.2,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019045448",
+          "cpx_toponyme_de_cours_d_eau": "la Touques",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_500_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 407.3,
+        "objet": {
+          "code_tfv": "FF1-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006100209",
+          "tfv": "Forêt fermée de feuillus purs en îlots",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "2",
+          "DESCR": "Calcaires, marnes et gypse",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        0.29295608862635,
+        48.7954745243465
+      ],
+      "rail": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": null,
+        "objet": {
+          "cleabs": null,
+          "date_d_apparition": null,
+          "etat_de_l_objet": null,
+          "nature": null,
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00060909",
+      "ressource_minerale": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "distance_m": null,
+        "objet": {
+          "c_substance": null,
+          "id_unique": null,
+          "identifiant": null,
+          "nom_gite": null,
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": null
+      },
+      "site_id": "3ae9aff0-231d-4365-a718-039b17021fc0",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_500_m",
+        "distance_m": 429.3,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019049683",
+          "cpx_toponyme_de_cours_d_eau": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_500_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 240.0,
+        "objet": {
+          "code_tfv": "FF0",
+          "essence": "NR",
+          "id": "FORESTIE0000000006115226",
+          "tfv": "Forêt fermée sans couvert arboré",
+          "tfv_g11": "Forêt fermée sans couvert arboré"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "2",
+          "DESCR": "Calcaires, marnes et gypse",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        -0.12137461962188618,
+        48.71420362780827
+      ],
+      "rail": {
+        "classe_proximite": "moins_100_m",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 75.6,
+        "objet": {
+          "cleabs": "TRONFERR0000000019041917",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Voie ferrée principale",
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061166",
+      "ressource_minerale": {
+        "classe_proximite": "moins_10_km",
+        "distance_m": 9505.5,
+        "objet": {
+          "c_substance": "Zr",
+          "id_unique": null,
+          "identifiant": "FRA-04317",
+          "nom_gite": "Vrigny",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "35c5c701-5158-4714-aa11-6946f7fae290",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_25_m",
+        "distance_m": 10.3,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019048705",
+          "cpx_toponyme_de_cours_d_eau": "l'Houay",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_100_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 20.0,
+        "objet": {
+          "code_tfv": "FF1-00-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006107900",
+          "tfv": "Forêt fermée à mélange de feuillus",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "2",
+          "DESCR": "Calcaires, marnes et gypse",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        -0.06584261377186915,
+        48.73816463006711
+      ],
+      "rail": {
+        "classe_proximite": "moins_2_km",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 921.5,
+        "objet": {
+          "cleabs": "TRONFERR0000000019041913",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Voie ferrée principale",
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061091",
+      "ressource_minerale": {
+        "classe_proximite": "moins_10_km",
+        "distance_m": 9579.0,
+        "objet": {
+          "c_substance": "Zr",
+          "id_unique": null,
+          "identifiant": "FRA-04317",
+          "nom_gite": "Vrigny",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "8a492a03-5bac-4aa5-b48e-ed37239720e6",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_100_m",
+        "distance_m": 35.6,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019048342",
+          "cpx_toponyme_de_cours_d_eau": "la Risle",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_500_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 155.5,
+        "objet": {
+          "code_tfv": "FF1-00-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006106828",
+          "tfv": "Forêt fermée à mélange de feuillus",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "1",
+          "DESCR": "Argiles",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        0.5526895033235633,
+        48.74212960732837
+      ],
+      "rail": {
+        "classe_proximite": "moins_500_m",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 177.9,
+        "objet": {
+          "cleabs": "TRONFERR0000000019041875",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Voie ferrée principale",
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061029",
+      "ressource_minerale": {
+        "classe_proximite": "moins_10_km",
+        "distance_m": 8697.9,
+        "objet": {
+          "c_substance": "Fe",
+          "id_unique": null,
+          "identifiant": "FRA-02812",
+          "nom_gite": "Saint Sulpice sur Rillé",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "43d7512d-7196-4864-bc90-64b3b3474bce",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_25_m",
+        "distance_m": 16.0,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019046605",
+          "cpx_toponyme_de_cours_d_eau": "la Risle",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_500_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 293.5,
+        "objet": {
+          "code_tfv": "FF1-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006103175",
+          "tfv": "Forêt fermée de feuillus purs en îlots",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "1",
+          "DESCR": "Argiles",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        0.6568775300978867,
+        48.77913238860982
+      ],
+      "rail": {
+        "classe_proximite": "moins_500_m",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 288.5,
+        "objet": {
+          "cleabs": "TRONFERR0000000019041819",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Voie ferrée principale",
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061155",
+      "ressource_minerale": {
+        "classe_proximite": "moins_1_km",
+        "distance_m": 299.1,
+        "objet": {
+          "c_substance": "Fe",
+          "id_unique": null,
+          "identifiant": "FRA-02812",
+          "nom_gite": "Saint Sulpice sur Rillé",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "890265c5-e62f-45f7-aed2-08fb1814f457",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_25_m",
+        "distance_m": 13.6,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019046602",
+          "cpx_toponyme_de_cours_d_eau": "la Risle",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_100_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 86.8,
+        "objet": {
+          "code_tfv": "FP",
+          "essence": "Peuplier",
+          "id": "FORESTIE0000000006114488",
+          "tfv": "Peupleraie",
+          "tfv_g11": "Peupleraie"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "1",
+          "DESCR": "Argiles",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        0.648168264558847,
+        48.77481321857863
+      ],
+      "rail": {
+        "classe_proximite": "moins_500_m",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 324.0,
+        "objet": {
+          "cleabs": "TRONFERR0000000297417186",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Voie ferrée principale",
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061113",
+      "ressource_minerale": {
+        "classe_proximite": "moins_1_km",
+        "distance_m": 900.0,
+        "objet": {
+          "c_substance": "Fe",
+          "id_unique": null,
+          "identifiant": "FRA-02812",
+          "nom_gite": "Saint Sulpice sur Rillé",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "be1c19ae-3062-4f64-b8db-602ab713f052",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_100_m",
+        "distance_m": 39.8,
+        "objet": {
+          "cleabs": "TRON_EAU0000002222674959",
+          "cpx_toponyme_de_cours_d_eau": "la Risle",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_500_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 258.4,
+        "objet": {
+          "code_tfv": "FF1-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006103177",
+          "tfv": "Forêt fermée de feuillus purs en îlots",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "1",
+          "DESCR": "Argiles",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        0.6256774049932438,
+        48.765865137537546
+      ],
+      "rail": {
+        "classe_proximite": "moins_500_m",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 177.3,
+        "objet": {
+          "cleabs": "TRONFERR0000000019041866",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Voie ferrée principale",
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061052",
+      "ressource_minerale": {
+        "classe_proximite": "moins_5_km",
+        "distance_m": 2769.7,
+        "objet": {
+          "c_substance": "Fe",
+          "id_unique": null,
+          "identifiant": "FRA-02812",
+          "nom_gite": "Saint Sulpice sur Rillé",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "314bf742-7125-4c6c-a4bd-26d6a047a9b1",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_500_m",
+        "distance_m": 180.7,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019047388",
+          "cpx_toponyme_de_cours_d_eau": "la Risle",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_500_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 483.5,
+        "objet": {
+          "code_tfv": "FF1-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006104837",
+          "tfv": "Forêt fermée de feuillus purs en îlots",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "1",
+          "DESCR": "Argiles",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        0.6241236493911818,
+        48.76262194075353
+      ],
+      "rail": {
+        "classe_proximite": "moins_500_m",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": 470.5,
+        "objet": {
+          "cleabs": "TRONFERR0000000019041866",
+          "date_d_apparition": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Voie ferrée principale",
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061054",
+      "ressource_minerale": {
+        "classe_proximite": "moins_5_km",
+        "distance_m": 3092.7,
+        "objet": {
+          "c_substance": "Fe",
+          "id_unique": null,
+          "identifiant": "FRA-02812",
+          "nom_gite": "Saint Sulpice sur Rillé",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "3d44d08b-e70d-4622-9387-a7538d86be3f",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_100_m",
+        "distance_m": 59.7,
+        "objet": {
+          "cleabs": "TRON_EAU0000002222782322",
+          "cpx_toponyme_de_cours_d_eau": "la Jambée",
+          "etat_de_l_objet": "En service",
+          "nature": "Retenue",
+          "origine": "Artificielle"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_100_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 55.9,
+        "objet": {
+          "code_tfv": "FF1-00-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006107448",
+          "tfv": "Forêt fermée à mélange de feuillus",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "1",
+          "DESCR": "Argiles",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        0.7468896435126247,
+        48.51539072960532
+      ],
+      "rail": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": null,
+        "objet": {
+          "cleabs": null,
+          "date_d_apparition": null,
+          "etat_de_l_objet": null,
+          "nature": null,
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061153",
+      "ressource_minerale": {
+        "classe_proximite": "moins_10_km",
+        "distance_m": 5180.5,
+        "objet": {
+          "c_substance": "Fe",
+          "id_unique": null,
+          "identifiant": "FRA-02808",
+          "nom_gite": "Moulicent",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "b1136ddb-9fff-4209-8328-e5caed705388",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_25_m",
+        "distance_m": 13.5,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019062288",
+          "cpx_toponyme_de_cours_d_eau": "la Jambée",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_100_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 13.4,
+        "objet": {
+          "code_tfv": "FF1-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006101568",
+          "tfv": "Forêt fermée de feuillus purs en îlots",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "1",
+          "DESCR": "Argiles",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        0.7279717640432808,
+        48.50400601367125
+      ],
+      "rail": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": null,
+        "objet": {
+          "cleabs": null,
+          "date_d_apparition": null,
+          "etat_de_l_objet": null,
+          "nature": null,
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061060",
+      "ressource_minerale": {
+        "classe_proximite": "moins_10_km",
+        "distance_m": 6799.2,
+        "objet": {
+          "c_substance": "Fe",
+          "id_unique": null,
+          "identifiant": "FRA-02808",
+          "nom_gite": "Moulicent",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "9435cb9d-0885-4a4b-9834-64e76ac0364b",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_500_m",
+        "distance_m": 445.0,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019062340",
+          "cpx_toponyme_de_cours_d_eau": null,
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_500_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 250.1,
+        "objet": {
+          "code_tfv": "FF1-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006102563",
+          "tfv": "Forêt fermée de feuillus purs en îlots",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "3",
+          "DESCR": "Craie",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        0.5490432071424247,
+        48.50881005375055
+      ],
+      "rail": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": null,
+        "objet": {
+          "cleabs": null,
+          "date_d_apparition": null,
+          "etat_de_l_objet": null,
+          "nature": null,
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061147",
+      "ressource_minerale": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "distance_m": null,
+        "objet": {
+          "c_substance": null,
+          "id_unique": null,
+          "identifiant": null,
+          "nom_gite": null,
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": null
+      },
+      "site_id": "c528f629-8337-49c9-873c-75ecc067a7a3",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_500_m",
+        "distance_m": 140.8,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019053878",
+          "cpx_toponyme_de_cours_d_eau": "l'Avre",
+          "etat_de_l_objet": "En service",
+          "nature": "Retenue",
+          "origine": "Artificielle"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_100_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 22.5,
+        "objet": {
+          "code_tfv": "FF1-00-00",
+          "essence": "Feuillus",
+          "id": "FORESTIE0000000006109168",
+          "tfv": "Forêt fermée à mélange de feuillus",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "1",
+          "DESCR": "Argiles",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        0.6740319616145599,
+        48.65300669671029
+      ],
+      "rail": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": null,
+        "objet": {
+          "cleabs": null,
+          "date_d_apparition": null,
+          "etat_de_l_objet": null,
+          "nature": null,
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061135",
+      "ressource_minerale": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "distance_m": null,
+        "objet": {
+          "c_substance": null,
+          "id_unique": null,
+          "identifiant": null,
+          "nom_gite": null,
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": null
+      },
+      "site_id": "2f3e86c1-08b4-4131-9a06-8f30764843cb",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    },
+    {
+      "cours_eau": {
+        "classe_proximite": "moins_2500_m",
+        "distance_m": 576.6,
+        "objet": {
+          "cleabs": "TRON_EAU0000000019056588",
+          "cpx_toponyme_de_cours_d_eau": "Cours d'Eau 01 de Pierre Bourdon",
+          "etat_de_l_objet": "En service",
+          "nature": "Ecoulement naturel",
+          "origine": "Naturelle non aménagée"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "foret": {
+        "classe_proximite": "moins_100_m",
+        "dans_formation_vegetale": false,
+        "distance_m": 26.4,
+        "objet": {
+          "code_tfv": "FF1G01-01",
+          "essence": "Chênes décidus",
+          "id": "FORESTIE0000000006105481",
+          "tfv": "Forêt fermée de chênes décidus purs",
+          "tfv_g11": "Forêt fermée feuillus"
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD Forêt v2 2006-2019"
+      },
+      "geologie": {
+        "echelle": "1:1 000 000",
+        "lithologie": {
+          "CODE_GEOL": "3",
+          "DESCR": "Craie",
+          "TYPE": "Roches Sédimentaires"
+        },
+        "source": "BRGM LITHO_1M_SIMPLIFIEE",
+        "usage": "contexte_general_non_preuve_d_approvisionnement"
+      },
+      "point_wgs84": [
+        0.7152285849659745,
+        48.614992408344285
+      ],
+      "rail": {
+        "classe_proximite": "hors_rayon_de_recherche",
+        "couverture_historique": "non_exhaustive",
+        "distance_m": null,
+        "objet": {
+          "cleabs": null,
+          "date_d_apparition": null,
+          "etat_de_l_objet": null,
+          "nature": null,
+          "usage": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BD TOPO V3 2026-06-15"
+      },
+      "reference_ia": "IA00061095",
+      "ressource_minerale": {
+        "classe_proximite": "moins_10_km",
+        "distance_m": 6912.7,
+        "objet": {
+          "c_substance": "Fe",
+          "id_unique": null,
+          "identifiant": "FRA-02808",
+          "nom_gite": "Moulicent",
+          "nom_site": null,
+          "substance": null
+        },
+        "relation_historique": "non_etablie_par_la_seule_proximite",
+        "source": "BRGM MINES_PT et GITES_PT",
+        "type_source": "gites"
+      },
+      "site_id": "82718138-99cb-45fb-a081-95b61c5dce48",
+      "systemes_coordonnees": {
+        "ecart_transformation_m": 0.0,
+        "echange_web": "EPSG:4326",
+        "statut": "coherent",
+        "travail": "EPSG:2154"
+      }
+    }
+  ],
+  "sources": {
+    "forets": "LANDCOVER.FORESTINVENTORY.V2:formation_vegetale — 2006-2019",
+    "gites": "BRGM GITES_PT",
+    "hydrographie": "BDTOPO_V3:troncon_hydrographique — 2026-06-15",
+    "lithologie": "BRGM LITHO_1M_SIMPLIFIEE",
+    "mines": "BRGM MINES_PT",
+    "rail": "BDTOPO_V3:troncon_de_voie_ferree — 2026-06-15"
+  }
+}

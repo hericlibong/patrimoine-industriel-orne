@@ -1,0 +1,2398 @@
+{
+  "generated_at": "2026-07-21T23:24:44Z",
+  "items": [
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061008_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061008_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 128,
+        "layer": "hydrographie",
+        "number_matched": 128,
+        "reference": "IA00061008"
+      },
+      "sha256": "a6a6140873983368b500269f94f8774fc77dd15b3455f5a1ad4f2769504350b0",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061008_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061008_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 83,
+        "layer": "forets",
+        "number_matched": 83,
+        "reference": "IA00061008"
+      },
+      "sha256": "7f987c0f2f742ed249df3cf23838f89bb97bc6044a18767330811b90cfa978b3",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061008_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061008_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 5,
+        "layer": "rail",
+        "number_matched": 5,
+        "reference": "IA00061008"
+      },
+      "sha256": "c94af6881253e9bb941f1a411379782b0be11b9a241e8d838c45b4b88e635314",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061008_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061008_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061008"
+      },
+      "sha256": "104ec1b144b13d7f150cc8695604c4ef00d217a6eb79fc953d7dbc71c573829a",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061008_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061008_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "mines",
+        "reference": "IA00061008"
+      },
+      "sha256": "ffd73d97a809146a86ee5f2cda37d24b84abc2611c573340e12ea944e542ad14",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061008_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061008_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 2,
+        "layer": "gites",
+        "reference": "IA00061008"
+      },
+      "sha256": "b1988559cf679c6f8ee2716039785f95007de08f2d2fb71f1f54482b9cebca22",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060965_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060965_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 103,
+        "layer": "hydrographie",
+        "number_matched": 103,
+        "reference": "IA00060965"
+      },
+      "sha256": "518181808766e153d6b957920ae266796816ab58778da915e1eea1b0c5ab78ae",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00060965_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00060965_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 188,
+        "layer": "forets",
+        "number_matched": 188,
+        "reference": "IA00060965"
+      },
+      "sha256": "d8e308cf956d53e059b50b81d42d3e454beae6b1889cdddc1f2201b64d83d102",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00060965_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00060965_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": null,
+        "feature_count": 0,
+        "layer": "rail",
+        "number_matched": 0,
+        "reference": "IA00060965"
+      },
+      "sha256": "214616105d34db6e7d147c21cae91d242891ecc25b51dba5ae8ca528a59d2974",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060965_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060965_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00060965"
+      },
+      "sha256": "104ec1b144b13d7f150cc8695604c4ef00d217a6eb79fc953d7dbc71c573829a",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060965_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060965_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "mines",
+        "reference": "IA00060965"
+      },
+      "sha256": "ffd73d97a809146a86ee5f2cda37d24b84abc2611c573340e12ea944e542ad14",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060965_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060965_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 2,
+        "layer": "gites",
+        "reference": "IA00060965"
+      },
+      "sha256": "b1988559cf679c6f8ee2716039785f95007de08f2d2fb71f1f54482b9cebca22",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060938_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060938_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 102,
+        "layer": "hydrographie",
+        "number_matched": 102,
+        "reference": "IA00060938"
+      },
+      "sha256": "440ff80e78d0d166e334f3b3c52198421e6e3c1726413ed18b3927886628024d",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00060938_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00060938_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 111,
+        "layer": "forets",
+        "number_matched": 111,
+        "reference": "IA00060938"
+      },
+      "sha256": "25747ef5f5b2d21041e2c14d04736bccd76eb5229e476d35c6acaf2496347298",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00060938_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00060938_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": null,
+        "feature_count": 0,
+        "layer": "rail",
+        "number_matched": 0,
+        "reference": "IA00060938"
+      },
+      "sha256": "1406da3ab02ac5dace3c2d3fbf147674c612de7b29f5e18b1a2237e539532b1d",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060938_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060938_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00060938"
+      },
+      "sha256": "58a6c3ed26fdcc3cee945e309840f3fe7caab23f2dcf0e6fd802a6a59f5f3d78",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060938_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060938_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "mines",
+        "reference": "IA00060938"
+      },
+      "sha256": "9c8a8b4b47411ec1e6be1cdf0bb242bc66df0ebad304af6fb4d11526eb36c810",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060938_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060938_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "gites",
+        "reference": "IA00060938"
+      },
+      "sha256": "2c6250ac3baecb1011c58abfbc36c3dd62d9368889f8f928fd053fd7a1c1fd6a",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061003_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061003_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 109,
+        "layer": "hydrographie",
+        "number_matched": 109,
+        "reference": "IA00061003"
+      },
+      "sha256": "8bdf114c1af4bef0649a86113b8379d117d0b2d96361eeac0cbde44c19cec9dc",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061003_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061003_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 69,
+        "layer": "forets",
+        "number_matched": 69,
+        "reference": "IA00061003"
+      },
+      "sha256": "db6c81e69b4a39b004da336b53e4b62aa253689251591f8232de1f009cf027b6",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061003_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061003_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": null,
+        "feature_count": 0,
+        "layer": "rail",
+        "number_matched": 0,
+        "reference": "IA00061003"
+      },
+      "sha256": "5b7504d3c0224713c5c891ec9639ed7a74580aea13d766091478bfb4338fc5e2",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061003_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061003_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061003"
+      },
+      "sha256": "58a6c3ed26fdcc3cee945e309840f3fe7caab23f2dcf0e6fd802a6a59f5f3d78",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061003_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061003_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "mines",
+        "reference": "IA00061003"
+      },
+      "sha256": "9c8a8b4b47411ec1e6be1cdf0bb242bc66df0ebad304af6fb4d11526eb36c810",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061003_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061003_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "gites",
+        "reference": "IA00061003"
+      },
+      "sha256": "2c6250ac3baecb1011c58abfbc36c3dd62d9368889f8f928fd053fd7a1c1fd6a",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060901_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060901_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 174,
+        "layer": "hydrographie",
+        "number_matched": 174,
+        "reference": "IA00060901"
+      },
+      "sha256": "b4633cd37418cc0060e8924edda0ea90505ab91daa58162be3e780faa5ec0603",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00060901_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00060901_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 64,
+        "layer": "forets",
+        "number_matched": 64,
+        "reference": "IA00060901"
+      },
+      "sha256": "b05a5ebc7f43029593bb517ccc3fbbb7db8cdf6b21626ace46a07ed410299eba",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00060901_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00060901_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": null,
+        "feature_count": 0,
+        "layer": "rail",
+        "number_matched": 0,
+        "reference": "IA00060901"
+      },
+      "sha256": "45c0f78aae6ca557d7fc249a0c7f7f7fc371a759fba470ae177d8228c2a28ce6",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060901_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060901_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00060901"
+      },
+      "sha256": "104ec1b144b13d7f150cc8695604c4ef00d217a6eb79fc953d7dbc71c573829a",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060901_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060901_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "mines",
+        "reference": "IA00060901"
+      },
+      "sha256": "e257b40c1d428df1a9e6058904e7aa775f4ce3600c86d4c7875922970c1b32ff",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060901_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060901_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 3,
+        "layer": "gites",
+        "reference": "IA00060901"
+      },
+      "sha256": "9d25d3a3053493f9cc0b726df5efd3577db5d7935fbe8ca2103cd79b7eb04237",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061119_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061119_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 201,
+        "layer": "hydrographie",
+        "number_matched": 201,
+        "reference": "IA00061119"
+      },
+      "sha256": "cedf38b6d6e596bbba878f84e079129f320b9cb03b3aeca9d314970e7c10cf9a",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061119_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061119_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 108,
+        "layer": "forets",
+        "number_matched": 108,
+        "reference": "IA00061119"
+      },
+      "sha256": "808db19c506affe383cc0c82d2cc203de6c11fbf9a1683392990d2fe05b0d41e",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061119_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061119_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 39,
+        "layer": "rail",
+        "number_matched": 39,
+        "reference": "IA00061119"
+      },
+      "sha256": "77acd1eef5f2ed8245f278ba08791e9d1dbfa647aced35352769124d41f7226a",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061119_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061119_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061119"
+      },
+      "sha256": "58a6c3ed26fdcc3cee945e309840f3fe7caab23f2dcf0e6fd802a6a59f5f3d78",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061119_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061119_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061119"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061119_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061119_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "gites",
+        "reference": "IA00061119"
+      },
+      "sha256": "3f3617838880f81e9ba5786d0647b617991d304962f619c97b619bad24c30c43",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060915_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060915_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 183,
+        "layer": "hydrographie",
+        "number_matched": 183,
+        "reference": "IA00060915"
+      },
+      "sha256": "1e02e5bfa1278447c9ac67a16ffaa5596a815302b38a9b7d184dddab63d019ca",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00060915_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00060915_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 41,
+        "layer": "forets",
+        "number_matched": 41,
+        "reference": "IA00060915"
+      },
+      "sha256": "538a076c85fec1aa93aa69dfae586beb64f35719021f8646f0798e7bca9094c0",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00060915_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00060915_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 28,
+        "layer": "rail",
+        "number_matched": 28,
+        "reference": "IA00060915"
+      },
+      "sha256": "4e475c7fdb02d06b8b1199f97cb9d98c5c0ed31bb16d1b0daefd0f79744f2fe7",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060915_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060915_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00060915"
+      },
+      "sha256": "104ec1b144b13d7f150cc8695604c4ef00d217a6eb79fc953d7dbc71c573829a",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060915_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060915_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "mines",
+        "reference": "IA00060915"
+      },
+      "sha256": "ffd73d97a809146a86ee5f2cda37d24b84abc2611c573340e12ea944e542ad14",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060915_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060915_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 2,
+        "layer": "gites",
+        "reference": "IA00060915"
+      },
+      "sha256": "1ea7161533eacac06d9977c38fa9b9dcd9cc3a758c7021b96d6ae21d2c16eac1",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061035_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061035_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 194,
+        "layer": "hydrographie",
+        "number_matched": 194,
+        "reference": "IA00061035"
+      },
+      "sha256": "cc725a24dcb7f488804d334fe3156d72e663dab27176a81521e8f72f34a3fd6b",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061035_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061035_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 111,
+        "layer": "forets",
+        "number_matched": 111,
+        "reference": "IA00061035"
+      },
+      "sha256": "1c69a8f7a5055abd9419903d3f062a69de27e3e355e1498d934fd06634730786",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061035_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061035_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 37,
+        "layer": "rail",
+        "number_matched": 37,
+        "reference": "IA00061035"
+      },
+      "sha256": "75cc605a8f9533fcd8759bab3d31fdfa66d4de171ceb15d02733ee1281ffcbfc",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061035_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061035_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061035"
+      },
+      "sha256": "58a6c3ed26fdcc3cee945e309840f3fe7caab23f2dcf0e6fd802a6a59f5f3d78",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061035_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061035_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061035"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061035_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061035_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "gites",
+        "reference": "IA00061035"
+      },
+      "sha256": "3f3617838880f81e9ba5786d0647b617991d304962f619c97b619bad24c30c43",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060902_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060902_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 140,
+        "layer": "hydrographie",
+        "number_matched": 140,
+        "reference": "IA00060902"
+      },
+      "sha256": "dc367f275569b73430762de84e22fd70176659c61f49385ff1895743843c7707",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00060902_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00060902_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 132,
+        "layer": "forets",
+        "number_matched": 132,
+        "reference": "IA00060902"
+      },
+      "sha256": "a450b7595c1b3af6254048e9fd93ba3c0ae7793c024ab2ee75f39ab05bbce310",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00060902_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00060902_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 22,
+        "layer": "rail",
+        "number_matched": 22,
+        "reference": "IA00060902"
+      },
+      "sha256": "69c2b58c494c0f5caf8743009dd6ece52cf368555075a7b9c896770f265c989e",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060902_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060902_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00060902"
+      },
+      "sha256": "104ec1b144b13d7f150cc8695604c4ef00d217a6eb79fc953d7dbc71c573829a",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060902_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060902_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "mines",
+        "reference": "IA00060902"
+      },
+      "sha256": "f49b73464ecf954f506b61ab553be6a8ec5a9a3e9edc3e9f438985174a43fbf7",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060902_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060902_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "gites",
+        "reference": "IA00060902"
+      },
+      "sha256": "4512d5d0bebf4fe8090bbd132a56adfea0a1b40c03410418845bf7fa700f2e40",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060896_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060896_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 123,
+        "layer": "hydrographie",
+        "number_matched": 123,
+        "reference": "IA00060896"
+      },
+      "sha256": "dd3a5965a67076a453c86e9dbb43a0b9ec353c97343654be73916d48a426bac2",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00060896_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00060896_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 118,
+        "layer": "forets",
+        "number_matched": 118,
+        "reference": "IA00060896"
+      },
+      "sha256": "8f900be9be7909d80b5a79fb337aefb5c0bc62bab076be7afba806104bf81b45",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00060896_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00060896_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 10,
+        "layer": "rail",
+        "number_matched": 10,
+        "reference": "IA00060896"
+      },
+      "sha256": "147f73b9c88ce1a00e6b6a2d5eb8c35d0f57296df16efb3d2f843ca55c7e44dd",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060896_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060896_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00060896"
+      },
+      "sha256": "104ec1b144b13d7f150cc8695604c4ef00d217a6eb79fc953d7dbc71c573829a",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060896_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060896_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "mines",
+        "reference": "IA00060896"
+      },
+      "sha256": "f49b73464ecf954f506b61ab553be6a8ec5a9a3e9edc3e9f438985174a43fbf7",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060896_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060896_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "gites",
+        "reference": "IA00060896"
+      },
+      "sha256": "4512d5d0bebf4fe8090bbd132a56adfea0a1b40c03410418845bf7fa700f2e40",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061002_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061002_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 95,
+        "layer": "hydrographie",
+        "number_matched": 95,
+        "reference": "IA00061002"
+      },
+      "sha256": "13653ee1bd4106d1b129f777c19b88c9497bba8a5245e0af89f417904b9cc841",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061002_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061002_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 76,
+        "layer": "forets",
+        "number_matched": 76,
+        "reference": "IA00061002"
+      },
+      "sha256": "eda13e15ea944601eaa154118c4deaaf4693db4adb9edbfaca04a1aa094934f0",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061002_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061002_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 43,
+        "layer": "rail",
+        "number_matched": 43,
+        "reference": "IA00061002"
+      },
+      "sha256": "e5712fa75e450b82c7fc53436fc03c337cce93be0a733be1e498986e1ae66c81",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061002_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061002_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061002"
+      },
+      "sha256": "d4d935fdbf1b773857f9e3b1e953232121f58ec222a106ef45d87e4ce5c82f22",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061002_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061002_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "mines",
+        "reference": "IA00061002"
+      },
+      "sha256": "bc5678c3cbe0c2768e41a5e0b18ab6b1ad75b4bc1b7a1ffab58b01ba2a31b01e",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061002_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061002_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 6,
+        "layer": "gites",
+        "reference": "IA00061002"
+      },
+      "sha256": "6216581c587aa70f683731376fd696f6ca9588f253200851bfdc75ac0db5dade",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061073_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061073_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 138,
+        "layer": "hydrographie",
+        "number_matched": 138,
+        "reference": "IA00061073"
+      },
+      "sha256": "3dfc3c3f5c746885e7bd8d778a448510df6311fdd59556d3811a3bdb55595762",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061073_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061073_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 75,
+        "layer": "forets",
+        "number_matched": 75,
+        "reference": "IA00061073"
+      },
+      "sha256": "4382beebdaf9fc2b045f90f1a5a2d4c2df2867e06de6cc38a753d8d6e2b15756",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061073_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061073_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 41,
+        "layer": "rail",
+        "number_matched": 41,
+        "reference": "IA00061073"
+      },
+      "sha256": "6974d52a7e8170cf7d622f9edf8e84732282dab83c243d062fd2c8e1153d6a2f",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061073_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061073_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061073"
+      },
+      "sha256": "d4d935fdbf1b773857f9e3b1e953232121f58ec222a106ef45d87e4ce5c82f22",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061073_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061073_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061073"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061073_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061073_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 4,
+        "layer": "gites",
+        "reference": "IA00061073"
+      },
+      "sha256": "2c24919a7a651b0d2ee79d6484a8cc6a35a47fa971cfa81a638e90cbce3e44a7",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060969_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060969_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 138,
+        "layer": "hydrographie",
+        "number_matched": 138,
+        "reference": "IA00060969"
+      },
+      "sha256": "83cdc18b727b2492d0fc81c994e69ada6812d48033b3e5c4e33c1a3add48a8d4",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00060969_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00060969_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 74,
+        "layer": "forets",
+        "number_matched": 74,
+        "reference": "IA00060969"
+      },
+      "sha256": "59bcca900d87e25834f642924b6e0c438125a8e5e62397cbbee442dddc7ce471",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00060969_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00060969_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 41,
+        "layer": "rail",
+        "number_matched": 41,
+        "reference": "IA00060969"
+      },
+      "sha256": "083cf45cf7493386621b468e44a9d77f6aec29d03c2460ff581b366aa9a67ce9",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060969_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060969_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00060969"
+      },
+      "sha256": "d4d935fdbf1b773857f9e3b1e953232121f58ec222a106ef45d87e4ce5c82f22",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060969_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060969_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00060969"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060969_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060969_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 4,
+        "layer": "gites",
+        "reference": "IA00060969"
+      },
+      "sha256": "2c24919a7a651b0d2ee79d6484a8cc6a35a47fa971cfa81a638e90cbce3e44a7",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060959_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060959_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 108,
+        "layer": "hydrographie",
+        "number_matched": 108,
+        "reference": "IA00060959"
+      },
+      "sha256": "cf13340b67f3b7b49e5362662b8fd762e8e3e58772c3c2cdbed39452df329da2",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00060959_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00060959_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 103,
+        "layer": "forets",
+        "number_matched": 103,
+        "reference": "IA00060959"
+      },
+      "sha256": "dbaecdc247f193991ee8e6cfdbfac82475952ce44c0aee375705534090834f25",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00060959_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00060959_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": null,
+        "feature_count": 0,
+        "layer": "rail",
+        "number_matched": 0,
+        "reference": "IA00060959"
+      },
+      "sha256": "461378605312b5466b86027b45a28d3f4ce3e856a6fdf3e469c77d04ff977b1d",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060959_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060959_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00060959"
+      },
+      "sha256": "a0b5db6e671d205f637dcef7d267865a94109733ad1cc6535eeb43aeda787614",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060959_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060959_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "mines",
+        "reference": "IA00060959"
+      },
+      "sha256": "bc5678c3cbe0c2768e41a5e0b18ab6b1ad75b4bc1b7a1ffab58b01ba2a31b01e",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060959_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060959_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 8,
+        "layer": "gites",
+        "reference": "IA00060959"
+      },
+      "sha256": "5bc1993c3199d6d1e5363bfe4c189de65c44df906e286b0775a6eaee10c87a0a",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060997_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060997_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 119,
+        "layer": "hydrographie",
+        "number_matched": 119,
+        "reference": "IA00060997"
+      },
+      "sha256": "1bc49f8fe69ce2dcf3b86225939621569519c22cca764e23aef291b1be207f0e",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00060997_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00060997_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 110,
+        "layer": "forets",
+        "number_matched": 110,
+        "reference": "IA00060997"
+      },
+      "sha256": "a41ec11c40bf45421fb6819d82b8cc1b4b7ec60baa4878381ecc4ca68b3eff58",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00060997_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00060997_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": null,
+        "feature_count": 0,
+        "layer": "rail",
+        "number_matched": 0,
+        "reference": "IA00060997"
+      },
+      "sha256": "cb80b69800324fe7377dc89b321285f958deaf9e43e11e935384a1bf1f1f1c21",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060997_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060997_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00060997"
+      },
+      "sha256": "a0b5db6e671d205f637dcef7d267865a94109733ad1cc6535eeb43aeda787614",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060997_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060997_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "mines",
+        "reference": "IA00060997"
+      },
+      "sha256": "bc5678c3cbe0c2768e41a5e0b18ab6b1ad75b4bc1b7a1ffab58b01ba2a31b01e",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060997_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060997_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 8,
+        "layer": "gites",
+        "reference": "IA00060997"
+      },
+      "sha256": "5bc1993c3199d6d1e5363bfe4c189de65c44df906e286b0775a6eaee10c87a0a",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061117_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061117_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 174,
+        "layer": "hydrographie",
+        "number_matched": 174,
+        "reference": "IA00061117"
+      },
+      "sha256": "56d37211d47112848e81b6aeff0012d9307542707d334b85fedce7d0f3eac3ca",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061117_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061117_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 43,
+        "layer": "forets",
+        "number_matched": 43,
+        "reference": "IA00061117"
+      },
+      "sha256": "fda8d50eb8548958cd19b23609d4ee69e8bb0524e0f6a3a3d0b2a758b18b6a67",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061117_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061117_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 46,
+        "layer": "rail",
+        "number_matched": 46,
+        "reference": "IA00061117"
+      },
+      "sha256": "39de0449cbc2224bab957e29273544084992f137bf22e8fd4856be5986c99780",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061117_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061117_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061117"
+      },
+      "sha256": "d4d935fdbf1b773857f9e3b1e953232121f58ec222a106ef45d87e4ce5c82f22",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061117_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061117_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061117"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061117_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061117_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "gites",
+        "reference": "IA00061117"
+      },
+      "sha256": "7df5a26b4c418eb17eed6ea9a27087198a7eab2e2eeda5ed9279615e6955e8ae",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061133_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061133_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 42,
+        "layer": "hydrographie",
+        "number_matched": 42,
+        "reference": "IA00061133"
+      },
+      "sha256": "1d0d175ee32325e5d85f8f22ea79186195803fe9d0fadbf7cf22ced279a44eff",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061133_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061133_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 71,
+        "layer": "forets",
+        "number_matched": 71,
+        "reference": "IA00061133"
+      },
+      "sha256": "98015b216fe7e57def8f6fd6ba728b9ef9decb7aace9b15925c73f623814937d",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061133_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061133_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": null,
+        "feature_count": 0,
+        "layer": "rail",
+        "number_matched": 0,
+        "reference": "IA00061133"
+      },
+      "sha256": "0f70399b85024b90b33e601ba5e0e46c8cd5c059b912f1fc9a5e05c0d6c4a469",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061133_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061133_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061133"
+      },
+      "sha256": "d4d935fdbf1b773857f9e3b1e953232121f58ec222a106ef45d87e4ce5c82f22",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061133_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061133_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061133"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061133_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061133_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "gites",
+        "reference": "IA00061133"
+      },
+      "sha256": "7df5a26b4c418eb17eed6ea9a27087198a7eab2e2eeda5ed9279615e6955e8ae",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060909_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00060909_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 109,
+        "layer": "hydrographie",
+        "number_matched": 109,
+        "reference": "IA00060909"
+      },
+      "sha256": "8ee326ab79e86ddf5895c54d57a82dba7b737cfac8a61bd375e686a6d2bd2636",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00060909_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00060909_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 78,
+        "layer": "forets",
+        "number_matched": 78,
+        "reference": "IA00060909"
+      },
+      "sha256": "223cc97e27389cdf3752bea21b5eef0bea92f4b2dc7afe322603bec04cf4cb93",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00060909_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00060909_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": null,
+        "feature_count": 0,
+        "layer": "rail",
+        "number_matched": 0,
+        "reference": "IA00060909"
+      },
+      "sha256": "f3adbd685b42b6dbd24b9265f680f708acc9429ca8a1ee07db2f3899fc6cb1b7",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060909_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060909_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00060909"
+      },
+      "sha256": "d4d935fdbf1b773857f9e3b1e953232121f58ec222a106ef45d87e4ce5c82f22",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060909_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060909_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00060909"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060909_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00060909_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "gites",
+        "reference": "IA00060909"
+      },
+      "sha256": "7df5a26b4c418eb17eed6ea9a27087198a7eab2e2eeda5ed9279615e6955e8ae",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061166_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061166_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 290,
+        "layer": "hydrographie",
+        "number_matched": 290,
+        "reference": "IA00061166"
+      },
+      "sha256": "96f17a71a468b2ebe3d93c6d9be0474769678b85d54fcc10eb56a4aff6cf56d5",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061166_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061166_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 29,
+        "layer": "forets",
+        "number_matched": 29,
+        "reference": "IA00061166"
+      },
+      "sha256": "0bb1c506ff4cc035af07a8eee14ddda28e10dd1aa86af94be30db67b87b3e356",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061166_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061166_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 26,
+        "layer": "rail",
+        "number_matched": 26,
+        "reference": "IA00061166"
+      },
+      "sha256": "df3ebec93b6cec3af3b1e600a1f4fc2be6fee4d6b9615838accb61c6150b35a3",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061166_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061166_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061166"
+      },
+      "sha256": "d4d935fdbf1b773857f9e3b1e953232121f58ec222a106ef45d87e4ce5c82f22",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061166_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061166_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061166"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061166_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061166_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "gites",
+        "reference": "IA00061166"
+      },
+      "sha256": "500e79d0d0eaac81017c1ae32cd73ab64cf30abf398d826e0a225f8863838b72",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061091_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061091_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 152,
+        "layer": "hydrographie",
+        "number_matched": 152,
+        "reference": "IA00061091"
+      },
+      "sha256": "570a24833eff339d455832466bd3b57fad7ed644e85bb71090bacadec23e4dce",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061091_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061091_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 34,
+        "layer": "forets",
+        "number_matched": 34,
+        "reference": "IA00061091"
+      },
+      "sha256": "e8b4f7d21982109f77b381552e75a1615316158bd14a38451abf53873b87de1a",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061091_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061091_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 48,
+        "layer": "rail",
+        "number_matched": 48,
+        "reference": "IA00061091"
+      },
+      "sha256": "1e44b66e1c55723bc003a565cbc3731f9521ff955fec2ae870420d7f60a08c8f",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061091_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061091_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061091"
+      },
+      "sha256": "d4d935fdbf1b773857f9e3b1e953232121f58ec222a106ef45d87e4ce5c82f22",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061091_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061091_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061091"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061091_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061091_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "gites",
+        "reference": "IA00061091"
+      },
+      "sha256": "500e79d0d0eaac81017c1ae32cd73ab64cf30abf398d826e0a225f8863838b72",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061029_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061029_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 133,
+        "layer": "hydrographie",
+        "number_matched": 133,
+        "reference": "IA00061029"
+      },
+      "sha256": "4a1813562c48a2a885855ffb4f0a3ed96c847cea4e65adc2b0e063ab6a15d913",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061029_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061029_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 97,
+        "layer": "forets",
+        "number_matched": 97,
+        "reference": "IA00061029"
+      },
+      "sha256": "556e52942c218ec7bf7ce7b80c27a00a0ef703c26a48bd7865e7ac4a5443e5a8",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061029_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061029_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 23,
+        "layer": "rail",
+        "number_matched": 23,
+        "reference": "IA00061029"
+      },
+      "sha256": "4aa3b2f8e0cf4804d1b087638bf3d2e02343aa81dae085af5fd8fde211ed4d40",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061029_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061029_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061029"
+      },
+      "sha256": "ed3b6862fc4eb5e4b838652011aba286cebe0067a12bdb220f1c9114778bd341",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061029_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061029_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061029"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061029_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061029_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "gites",
+        "reference": "IA00061029"
+      },
+      "sha256": "e5324113ec0e4e5a745f145337ca48c8ce6fa3214f841a0c59994ec60d46bcf8",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061155_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061155_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 143,
+        "layer": "hydrographie",
+        "number_matched": 143,
+        "reference": "IA00061155"
+      },
+      "sha256": "8115fae189e1a87c88978ba6e997f82a41144a5d928ef36e0deab40bdd9d10fa",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061155_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061155_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 97,
+        "layer": "forets",
+        "number_matched": 97,
+        "reference": "IA00061155"
+      },
+      "sha256": "14482c2f70619d52927e845e3a244bb451442891a7ac084b2320920d9dee030f",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061155_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061155_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 20,
+        "layer": "rail",
+        "number_matched": 20,
+        "reference": "IA00061155"
+      },
+      "sha256": "0ce42983bd705c7fa69da81dc918faf4d9a1a99d55f780332afd2f2b2fd03bdc",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061155_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061155_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061155"
+      },
+      "sha256": "ed3b6862fc4eb5e4b838652011aba286cebe0067a12bdb220f1c9114778bd341",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061155_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061155_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061155"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061155_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061155_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 2,
+        "layer": "gites",
+        "reference": "IA00061155"
+      },
+      "sha256": "303c00c878ca28d820573d6514fee8c9608a46f65ecaa5a9d8a3edc00331a672",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061113_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061113_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 146,
+        "layer": "hydrographie",
+        "number_matched": 146,
+        "reference": "IA00061113"
+      },
+      "sha256": "f89828486517e14d728aa0a19f254ae4f4c9abc3ab7a453bfff010434d40fec1",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061113_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061113_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 81,
+        "layer": "forets",
+        "number_matched": 81,
+        "reference": "IA00061113"
+      },
+      "sha256": "70f7fd8f8325ffdbc7617e1e326113c512427f8c38d0981b8698a5f72c795698",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061113_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061113_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 20,
+        "layer": "rail",
+        "number_matched": 20,
+        "reference": "IA00061113"
+      },
+      "sha256": "52544771247a6c8cbf191ea0a0835d4c6d269ef1d79cafa3509ce7c656a540e6",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061113_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061113_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061113"
+      },
+      "sha256": "ed3b6862fc4eb5e4b838652011aba286cebe0067a12bdb220f1c9114778bd341",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061113_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061113_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061113"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061113_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061113_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 2,
+        "layer": "gites",
+        "reference": "IA00061113"
+      },
+      "sha256": "303c00c878ca28d820573d6514fee8c9608a46f65ecaa5a9d8a3edc00331a672",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061052_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061052_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 153,
+        "layer": "hydrographie",
+        "number_matched": 153,
+        "reference": "IA00061052"
+      },
+      "sha256": "544b8f2c6b1a44c33a023443dbe000f1d9a6622b286f0fb77bee694fba9e7727",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061052_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061052_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 78,
+        "layer": "forets",
+        "number_matched": 78,
+        "reference": "IA00061052"
+      },
+      "sha256": "1c91b9809fc1db6787e6ddaef706bed4a0116d6759ddd164340126c93e6287b0",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061052_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061052_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 22,
+        "layer": "rail",
+        "number_matched": 22,
+        "reference": "IA00061052"
+      },
+      "sha256": "c0de99c378b7a572eb9d59d60889fe45e6b2306e4cd98db4508e891dd19102e0",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061052_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061052_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061052"
+      },
+      "sha256": "ed3b6862fc4eb5e4b838652011aba286cebe0067a12bdb220f1c9114778bd341",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061052_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061052_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061052"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061052_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061052_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "gites",
+        "reference": "IA00061052"
+      },
+      "sha256": "e5324113ec0e4e5a745f145337ca48c8ce6fa3214f841a0c59994ec60d46bcf8",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061054_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061054_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 150,
+        "layer": "hydrographie",
+        "number_matched": 150,
+        "reference": "IA00061054"
+      },
+      "sha256": "6c6f63035c4d2c35ddfebe9f9f5612ec4138f02fce9761af63cbb47d9e1bd174",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061054_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061054_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 72,
+        "layer": "forets",
+        "number_matched": 72,
+        "reference": "IA00061054"
+      },
+      "sha256": "66c429134e5c6fa275cdfd493826b96e820c9eba39c104aa26eea501bb714989",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061054_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061054_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 22,
+        "layer": "rail",
+        "number_matched": 22,
+        "reference": "IA00061054"
+      },
+      "sha256": "79b15ce77ffe839eb4f7227575d0f63b4d83d6afff11e9e5d83d3a87e8203840",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061054_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061054_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061054"
+      },
+      "sha256": "ed3b6862fc4eb5e4b838652011aba286cebe0067a12bdb220f1c9114778bd341",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061054_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061054_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061054"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061054_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061054_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "gites",
+        "reference": "IA00061054"
+      },
+      "sha256": "e5324113ec0e4e5a745f145337ca48c8ce6fa3214f841a0c59994ec60d46bcf8",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061153_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061153_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 77,
+        "layer": "hydrographie",
+        "number_matched": 77,
+        "reference": "IA00061153"
+      },
+      "sha256": "f8d857b58115141fe056377a39bb7fa1eaf1a44a36484a12f3514bb0d7f3ceca",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061153_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061153_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 140,
+        "layer": "forets",
+        "number_matched": 140,
+        "reference": "IA00061153"
+      },
+      "sha256": "398130ec056ec1530c6c5f5c31dc3d053e35aaea3c75d7ed11d7edbf7b91b6ee",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061153_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061153_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": null,
+        "feature_count": 0,
+        "layer": "rail",
+        "number_matched": 0,
+        "reference": "IA00061153"
+      },
+      "sha256": "fe760c171d1803f10bcbfba11e205325f98f8f3a881a63d6d69a0eaa80ee950a",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061153_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061153_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061153"
+      },
+      "sha256": "ed3b6862fc4eb5e4b838652011aba286cebe0067a12bdb220f1c9114778bd341",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061153_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061153_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061153"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061153_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061153_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "gites",
+        "reference": "IA00061153"
+      },
+      "sha256": "4a8b338e4521d44e00fa9aae6293b7c0111b361bf09039d6fc5b213aeac944b1",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061060_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061060_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 101,
+        "layer": "hydrographie",
+        "number_matched": 101,
+        "reference": "IA00061060"
+      },
+      "sha256": "22d74b227a126444ad55007e15822f0fbf20b6a2be9665d0f694446ae7b887b8",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061060_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061060_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 146,
+        "layer": "forets",
+        "number_matched": 146,
+        "reference": "IA00061060"
+      },
+      "sha256": "a8dde763ab662d72150a9bad5242a33c3ebfe19f7237d9c3b575f65c0ac26049",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061060_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061060_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": null,
+        "feature_count": 0,
+        "layer": "rail",
+        "number_matched": 0,
+        "reference": "IA00061060"
+      },
+      "sha256": "6504617e307e60637990861cebd32f3e998827c9f93d66a19b056209add0b563",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061060_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061060_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061060"
+      },
+      "sha256": "ed3b6862fc4eb5e4b838652011aba286cebe0067a12bdb220f1c9114778bd341",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061060_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061060_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061060"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061060_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061060_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "gites",
+        "reference": "IA00061060"
+      },
+      "sha256": "4a8b338e4521d44e00fa9aae6293b7c0111b361bf09039d6fc5b213aeac944b1",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061147_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061147_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 78,
+        "layer": "hydrographie",
+        "number_matched": 78,
+        "reference": "IA00061147"
+      },
+      "sha256": "a334bcfe70b9a80634b3c928980f1f1d51ab71c7460316ef178b593f69e657bd",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061147_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061147_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 45,
+        "layer": "forets",
+        "number_matched": 45,
+        "reference": "IA00061147"
+      },
+      "sha256": "5809eb6638d8de5cbd8a9814b18b01254f6ace7125be6c5c6b82685530e769f1",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061147_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061147_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": null,
+        "feature_count": 0,
+        "layer": "rail",
+        "number_matched": 0,
+        "reference": "IA00061147"
+      },
+      "sha256": "f4adb7625016850e209160063584698987ab916237a6f6eef760def110b0c07d",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061147_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061147_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061147"
+      },
+      "sha256": "cb48b1b763980f23c4c28862ad145a9e6309f8248b80a6e112fba5426ed8aa94",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061147_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061147_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061147"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061147_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061147_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "gites",
+        "reference": "IA00061147"
+      },
+      "sha256": "7df5a26b4c418eb17eed6ea9a27087198a7eab2e2eeda5ed9279615e6955e8ae",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061135_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061135_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 63,
+        "layer": "hydrographie",
+        "number_matched": 63,
+        "reference": "IA00061135"
+      },
+      "sha256": "b9f3f58fd0ee2bf457c41935409e5d731083612d7b1132c98041647e7087da30",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061135_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061135_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 106,
+        "layer": "forets",
+        "number_matched": 106,
+        "reference": "IA00061135"
+      },
+      "sha256": "10a006707b07507f35671a83f002dd87ef227f78f0ea5d5e588dcf6026434716",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061135_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061135_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": null,
+        "feature_count": 0,
+        "layer": "rail",
+        "number_matched": 0,
+        "reference": "IA00061135"
+      },
+      "sha256": "b8bcafb65958e2c83ee60dfc9a73ec81d711ebfaa99f72f9aa6a8ef756642b50",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061135_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061135_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061135"
+      },
+      "sha256": "ed3b6862fc4eb5e4b838652011aba286cebe0067a12bdb220f1c9114778bd341",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061135_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061135_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061135"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061135_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061135_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "gites",
+        "reference": "IA00061135"
+      },
+      "sha256": "7df5a26b4c418eb17eed6ea9a27087198a7eab2e2eeda5ed9279615e6955e8ae",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061095_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/hydrographie/2026/2026-07-21/hydrographie__ia00061095_hydrographie__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 85,
+        "layer": "hydrographie",
+        "number_matched": 85,
+        "reference": "IA00061095"
+      },
+      "sha256": "ca591c25b0a8f7f2f717054e1c47ce1fc3ba88621765c56b571c622227a25512",
+      "source_id": "hydrographie"
+    },
+    {
+      "data_file": "data/raw/forets/2026/2026-07-21/forets__ia00061095_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/forets/2026/2026-07-21/forets__ia00061095_forets__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": "urn:ogc:def:crs:EPSG::4326",
+        "feature_count": 126,
+        "layer": "forets",
+        "number_matched": 126,
+        "reference": "IA00061095"
+      },
+      "sha256": "6e041d10a79f94cdda54ba92cef6d17da2a763aa523f13293aa3ef1e4fd3482d",
+      "source_id": "forets"
+    },
+    {
+      "data_file": "data/raw/rail/2026/2026-07-21/rail__ia00061095_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson",
+      "metadata_file": "data/raw/rail/2026/2026-07-21/rail__ia00061095_rail__orne_pilote_phase6_contexte__20260721T232444Z.geojson.metadata.json",
+      "observations": {
+        "crs": null,
+        "feature_count": 0,
+        "layer": "rail",
+        "number_matched": 0,
+        "reference": "IA00061095"
+      },
+      "sha256": "0e1e052c1bdb6f66043de07c17c65f8cd575ed7223ee8846d796a63bd4f0e2fa",
+      "source_id": "rail"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061095_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061095_lithologie__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "lithologie",
+        "reference": "IA00061095"
+      },
+      "sha256": "cb48b1b763980f23c4c28862ad145a9e6309f8248b80a6e112fba5426ed8aa94",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061095_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061095_mines__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [],
+        "feature_count": 0,
+        "layer": "mines",
+        "reference": "IA00061095"
+      },
+      "sha256": "619164a3cdef3835e44d04981189b63910657d351181374dd01cacdf06eb8cf6",
+      "source_id": "brgm"
+    },
+    {
+      "data_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061095_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml",
+      "metadata_file": "data/raw/brgm/2026/2026-07-21/brgm__ia00061095_gites__orne_pilote_phase6_contexte__20260721T232444Z.gml.metadata.json",
+      "observations": {
+        "crs": [
+          "EPSG:4326"
+        ],
+        "feature_count": 1,
+        "layer": "gites",
+        "reference": "IA00061095"
+      },
+      "sha256": "4a8b338e4521d44e00fa9aae6293b7c0111b361bf09039d6fc5b213aeac944b1",
+      "source_id": "brgm"
+    }
+  ],
+  "layers": {
+    "forets": "LANDCOVER.FORESTINVENTORY.V2:formation_vegetale — 2006-2019",
+    "gites": "BRGM GITES_PT",
+    "hydrographie": "BDTOPO_V3:troncon_hydrographique — 2026-06-15",
+    "lithologie": "BRGM LITHO_1M_SIMPLIFIEE",
+    "mines": "BRGM MINES_PT",
+    "rail": "BDTOPO_V3:troncon_de_voie_ferree — 2026-06-15"
+  },
+  "locations_file": "data/pilot/localisations_pilote_phase6.json",
+  "request_count": 180,
+  "schema_version": "1.0"
+}

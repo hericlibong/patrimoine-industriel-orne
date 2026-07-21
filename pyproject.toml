@@ -12,6 +12,7 @@ dependencies = [
   "geopandas",
   "pandas",
   "pyarrow",
+  "pyproj",
   "pyyaml",
   "rapidfuzz",
   "requests",
@@ -42,6 +43,8 @@ patrimoine-orne-extraire-communes = "patrimoine_orne.extract.current_communes:ma
 patrimoine-orne-valider-phase5 = "patrimoine_orne.validate.pilot_phase5:main"
 patrimoine-orne-extraire-geographie-pilote = "patrimoine_orne.extract.pilot_geography:main"
 patrimoine-orne-qualifier-geographie-pilote = "patrimoine_orne.geocode.pilot:main"
+patrimoine-orne-extraire-contexte-territorial = "patrimoine_orne.extract.territorial_context:main"
+patrimoine-orne-calculer-contexte-territorial = "patrimoine_orne.geocode.territorial_context:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

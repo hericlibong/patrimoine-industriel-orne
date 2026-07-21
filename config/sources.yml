@@ -148,15 +148,15 @@ sources:
       - ne localise pas l'emprise d'un site industriel
 
   - id: hydrographie
-    name: BD TOPAGE
-    producer: IGN / OFB / Sandre
+    name: BD TOPO V3 — tronçons hydrographiques
+    producer: IGN
     priority: P1
     role: contexte_geographique
-    url: https://www.data.gouv.fr/datasets/bd-topage-r
-    access: [shapefile_national, services]
+    url: https://data.geopf.fr/wfs/ows
+    access: [wfs, geojson]
     audit_status: validee_avec_reserves
     limits:
-      - téléchargement national volumineux
+      - édition testée datée du 15 juin 2026
       - une proximité calculée ne prouve pas un usage industriel de l'eau
 
   - id: forets
@@ -164,11 +164,12 @@ sources:
     producer: IGN
     priority: P2
     role: contexte_geographique
-    url: https://www.data.gouv.fr/datasets/bd-foret-r
-    access: [fichiers_departementaux]
+    url: https://data.geopf.fr/wfs/ows
+    access: [wfs, geojson]
     audit_status: validee_avec_reserves
     limits:
-      - millésime variable et précision non cadastrale
+      - données produites selon les territoires entre 2006 et 2019
+      - décrit un contexte récent, pas la forêt au moment de l'implantation industrielle
 
   - id: forets_anciennes
     name: BD Forêts anciennes
@@ -182,7 +183,7 @@ sources:
       - couche reconstruite à partir de cartes vers 1850
 
   - id: brgm
-    name: Cartes géologiques harmonisées et services InfoTerre
+    name: Lithologie simplifiée, mines et gîtes — InfoTerre
     producer: BRGM
     priority: P2
     role: contexte_geographique
@@ -191,19 +192,20 @@ sources:
     audit_status: validee_avec_reserves
     limits:
       - conditions de réutilisation à fixer produit par produit
+      - lithologie testée à l'échelle générale du 1:1 000 000
       - la géologie ne démontre pas une exploitation historique
 
   - id: rail
-    name: Réseau ferré actuel et historique
-    producer: SNCF Réseau / IGN / Archives départementales de l'Orne
+    name: BD TOPO V3 — tronçons de voie ferrée
+    producer: IGN
     priority: P2
     role: contexte_geographique
-    url: https://www.data.gouv.fr/organizations/sncf/datasets
-    access: [fichiers_SNCF, bd_topo, cartes_archives]
+    url: https://data.geopf.fr/wfs/ows
+    access: [wfs, geojson]
     audit_status: validee_avec_reserves
     limits:
-      - aucun jeu unique retenu pour le réseau historique
-      - numérisation historique à sourcer et dater
+      - édition testée datée du 15 juin 2026
+      - certains tronçons non exploités sont présents, mais le réseau historique n'est pas exhaustif
 
   - id: osm
     name: OpenStreetMap

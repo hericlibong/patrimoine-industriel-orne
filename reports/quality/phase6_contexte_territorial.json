@@ -1,0 +1,45 @@
+{
+  "checks_passed": true,
+  "counts": {
+    "lithologies_renseignees": 30,
+    "sites": 30,
+    "sites_avec_indice_mineral_dans_10_km": 23,
+    "systemes_coordonnees_coherents": 30
+  },
+  "crs": {
+    "ecart_maximum_transformation_m": 0.0,
+    "echange_web": "EPSG:4326",
+    "travail": "EPSG:2154"
+  },
+  "date_controle": "2026-07-22",
+  "errors": [],
+  "interpretation": "Les proximités sont des indices spatiaux, jamais des causes historiques prouvées.",
+  "proximites": {
+    "cours_eau": {
+      "moins_100_m": 11,
+      "moins_2500_m": 3,
+      "moins_25_m": 7,
+      "moins_500_m": 9
+    },
+    "foret": {
+      "dans_formation": 2,
+      "moins_100_m": 13,
+      "moins_2500_m": 1,
+      "moins_500_m": 14
+    },
+    "rail": {
+      "hors_rayon_de_recherche": 14,
+      "moins_100_m": 2,
+      "moins_2_km": 4,
+      "moins_500_m": 8,
+      "moins_5_km": 2
+    },
+    "ressource_minerale": {
+      "hors_rayon_de_recherche": 7,
+      "moins_10_km": 13,
+      "moins_1_km": 3,
+      "moins_5_km": 7
+    }
+  },
+  "schema_version": "1.0"
+}

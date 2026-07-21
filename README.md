@@ -38,6 +38,7 @@ versionné.
 - [Validation finale de la phase 4](reports/quality/phase4_validation_finale.md)
 - [Validation finale du corpus pilote](reports/quality/phase5_validation_finale.md)
 - [Contrôle des localisations du pilote](reports/quality/phase6_localisation.md)
+- [Test du contexte territorial](reports/quality/phase6_contexte_territorial.md)
 
 ## Localisations du pilote
 
@@ -47,6 +48,8 @@ Les contrôles BAN et cadastraux sont reproductibles avec :
 $env:PYTHONPATH = "src"
 python -m patrimoine_orne.extract.pilot_geography
 python -m patrimoine_orne.geocode.pilot
+python -m patrimoine_orne.extract.territorial_context
+python -m patrimoine_orne.geocode.territorial_context
 ```
 
 La première commande interroge les services publics IGN et archive les réponses.

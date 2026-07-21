@@ -82,6 +82,23 @@ intersection ne prouve ni l'emprise historique, ni la propriété, ni la présen
 actuelle du site. Une référence cadastrale ancienne différente n'est pas une
 erreur automatique, le parcellaire pouvant avoir évolué.
 
+## Contexte territorial
+
+Les distances aux cours d'eau, formations forestières, indices miniers et voies
+ferrées sont calculées depuis le point POP provisoire. Les couches sont demandées
+en WGS84, puis les calculs et contrôles de système utilisent le Lambert-93 quand
+cela est nécessaire.
+
+Les seuils sont enregistrés avec les résultats et servent uniquement à regrouper
+des distances. Aucun seuil ne transforme une proximité en relation historique.
+Les couches contemporaines ou récentes ne sont jamais décrites comme une
+reconstitution du paysage industriel ancien.
+
+Le contexte géologique utilise une lithologie simplifiée au 1:1 000 000. Les
+indices BRGM de mines et de gîtes sont recherchés dans un rayon de 10 km. Ces
+deux résultats servent à repérer des pistes de recherche ; ils ne prouvent ni
+l'approvisionnement, ni l'exploitation par le site étudié.
+
 ## Situation actuelle
 
 La conservation, l'usage et l'accessibilité sont trois informations distinctes.
