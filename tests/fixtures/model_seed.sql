@@ -265,13 +265,13 @@ INSERT INTO geometries (
     (
         '60000000-0000-4000-8000-000000000001',
         '10000000-0000-4000-8000-000000000001', ST_Point(450000, 6850000),
-        'point_site', 'parcelle', 'source_directe', 'EPSG:2154', true,
+        'point_site', 'parcelle_verifiee', 'coordonnees_source', 'EPSG:2154', true,
         'affichage', DATE '2026-07-20', 'forte', 'Coordonnees fictives.', 'fixture'
     ),
     (
         '60000000-0000-4000-8000-000000000002',
         '10000000-0000-4000-8000-000000000002', ST_Point(460000, 6860000),
-        'point_site', 'adresse', 'geocodage', 'EPSG:2154', true,
+        'point_site', 'point_adresse', 'geocodage_adresse', 'EPSG:2154', true,
         'affichage', DATE '2026-07-20', 'moyenne', 'Coordonnees fictives.', 'fixture'
     );
 

@@ -27,12 +27,14 @@ versionné.
 - [Classifications contrôlées](config/classifications.yml)
 - [Règles des secteurs et installations](docs/classifications_secteurs.md)
 - [Chronologie et situation actuelle](docs/classifications_chronologie_situation.md)
+- [Qualité des classifications](docs/classifications_qualite.md)
 - [Périmètre opérationnel](config/perimetre.yml)
 - [Méthodes d'extraction validées](config/extraction.yml)
 - [Règles structurelles du modèle](config/regles_modele.yml)
 - [Validation du modèle V1](reports/quality/phase3_validation_modele.md)
 - [Test des secteurs sur l'échantillon](reports/quality/phase4_test_secteurs.md)
 - [Test de la chronologie et de la situation actuelle](reports/quality/phase4_chronologie_situation.md)
+- [Test de qualité et de reproductibilité](reports/quality/phase4_qualite_classifications.md)
 
 ## Base DuckDB de test
 

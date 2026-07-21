@@ -321,3 +321,36 @@
   d'usages multiples et de protections multiples.
 - Le registre des classifications passe en version 0.3. Le deuxième bloc de la
   phase 4 est terminé ; le bloc suivant porte sur la qualité.
+
+## 2026-07-21 — Phase 4, qualité
+
+- Sept niveaux de précision géographique sont validés : emprise du site,
+  parcelle, bâtiment, point du site, point d'adresse, point approximatif et zone
+  documentaire.
+- Le type de géométrie, la méthode de localisation, la précision et la fiabilité
+  sont quatre dimensions distinctes.
+- `centre_commune` et `non_localise` deviennent des statuts sans géométrie de
+  site. Aucun centroïde communal ne peut être publié comme emplacement.
+- La présence d'une coordonnée ou d'un contour dans une source ne suffit pas à
+  attribuer un niveau vérifié. Sur les échantillons POP et CASIAS, aucune
+  précision n'est validée automatiquement.
+- La fiabilité utilise uniquement `forte`, `moyenne` et `faible` et s'applique à
+  une information ou une relation. `a_verifier` reste un statut de travail.
+- `autre` exige une valeur documentée absente du vocabulaire, le libellé source,
+  une justification et une validation humaine. Trois occurrences distinctes
+  déclenchent une revue du vocabulaire.
+- `inconnu` exige qu'une question applicable ait été examinée sans réponse. Une
+  source vide et une question non applicable restent `NULL` avec des statuts
+  différents.
+- Les classements des secteurs et de la situation actuelle restent identiques
+  lorsque l'ordre des notices est inversé. La grille de qualité produit aussi
+  une sortie identique lors d'une seconde exécution.
+- Le test établit la reproductibilité technique. L'accord entre personnes devra
+  être testé par double classement pendant le corpus pilote.
+- Les 63 tests automatisés du projet réussissent après ajout des contrôles de
+  qualité et de reproductibilité.
+- Le schéma DuckDB passe en version `1.2.0`, le dictionnaire et le modèle en
+  version 1.2, les règles du modèle en version 1.3 et le registre des
+  classifications en version 0.4.
+- Le troisième bloc de la phase 4 est terminé. Il reste à exécuter le bloc de
+  validation finale avant de publier `classifications.yml` en version 1.0.

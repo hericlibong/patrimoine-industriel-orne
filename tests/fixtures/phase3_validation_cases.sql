@@ -114,13 +114,13 @@ INSERT INTO geometries (
     (
         '60000000-0000-4000-8000-000000000003',
         '10000000-0000-4000-8000-000000000004', ST_Point(470000, 6870000),
-        'point_site', 'batiment', 'source_directe', 'EPSG:2154', true,
+        'point_site', 'batiment_verifie', 'coordonnees_source', 'EPSG:2154', true,
         'affichage', DATE '2026-07-20', 'forte', 'Coordonnees fictives.', 'fixture'
     ),
     (
         '60000000-0000-4000-8000-000000000004',
         '10000000-0000-4000-8000-000000000005', ST_Point(480000, 6880000),
-        'point_site', 'batiment', 'source_directe', 'EPSG:2154', true,
+        'point_site', 'batiment_verifie', 'coordonnees_source', 'EPSG:2154', true,
         'affichage', DATE '2026-07-20', 'forte', 'Coordonnees fictives.', 'fixture'
     );
 

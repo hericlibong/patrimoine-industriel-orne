@@ -1,4 +1,4 @@
-# Dictionnaire des données — version 1.1
+# Dictionnaire des données — version 1.2
 
 Statut : **modèle V1 approuvé le 20 juillet 2026**.
 
@@ -15,6 +15,10 @@ tables sont dans `src/patrimoine_orne/model/validation.py`.
 - les références externes `IA`, `PM`, `PA`, `SSP` et `BNO` ne remplacent jamais
   les identifiants internes ;
 - les géométries ne sont pas stockées dans `sites`.
+
+Les vocabulaires de précision géographique et de fiabilité sont définis dans
+`config/classifications.yml`. La précision, la méthode de production de la
+géométrie et la fiabilité de l'information sont trois champs indépendants.
 
 ## Correspondance avec DuckDB
 
@@ -275,7 +279,7 @@ garde son propre `protection_id`.
 | `site_id` | identifiant | Site localisé |
 | `geom` | géométrie EPSG:2154 | Point, ligne ou polygone normalisé en Lambert-93 |
 | `type_geometrie_code` | code | Point, bâtiment, parcelle, emprise ou zone documentaire |
-| `precision_geographique_code` | code | Niveau de précision contrôlé |
+| `precision_geographique_code` | code | Emprise, parcelle, bâtiment, point vérifié, adresse, point approximatif ou zone documentaire |
 | `methode_localisation_code` | code | Source directe, géocodage, cadastre, relevé, interprétation, etc. |
 | `crs_source` | texte | Système de coordonnées de la donnée d'origine |
 | `geometrie_reference` | booléen | Géométrie retenue pour un usage donné |
@@ -287,6 +291,10 @@ garde son propre `protection_id`.
 
 Les exports web seront transformés en `EPSG:4326`. Un site peut exister sans
 ligne dans cette table.
+
+`commune_seule` et `non_localise` ne sont pas des valeurs de
+`precision_geographique_code` : dans ces deux cas, aucune géométrie de site
+n'est créée.
 
 ## Table `exploitants`
 

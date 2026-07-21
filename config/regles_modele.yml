@@ -1,4 +1,4 @@
-version: 1.2
+version: 1.3
 status: modele_v1_valide
 updated_at: 2026-07-21
 
@@ -71,6 +71,8 @@ champs_obligatoires:
     toujours: [objet_technique_id, nom_ou_denomination, fiabilite_code]
   geometries:
     toujours: [geometrie_id, site_id, geom, type_geometrie_code, precision_geographique_code, methode_localisation_code, fiabilite_code]
+    precision_vocabulaire: precision_geographique
+    centre_commune_interdit_comme_geometrie_site: true
   exploitants:
     toujours: [exploitant_id, nom_principal, type_exploitant_code]
   exploitations:
@@ -131,3 +133,9 @@ observations_actuelles:
     accessibilite: 3
     usage_actuel: 12
     conservation: 12
+
+qualite:
+  fiabilite_codes: [forte, moyenne, faible]
+  a_verifier_est_un_statut: true
+  precision_methode_et_fiabilite_separees: true
+  autre_et_inconnu: regles_dans_classifications

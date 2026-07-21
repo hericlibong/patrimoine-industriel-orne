@@ -1,6 +1,6 @@
 # Modèle de données — entités principales
 
-Statut : **modèle V1 approuvé — version 1.1**
+Statut : **modèle V1 approuvé — version 1.2**
 Date : 21 juillet 2026
 
 ## Principe central
@@ -154,6 +154,8 @@ Décisions retenues :
 - une géométrie de référence au maximum par site et par usage ;
 - conservation possible d'un site sans géométrie si sa commune est attestée ;
 - interdiction de transformer un centroïde communal en emplacement de site ;
+- séparation du type de géométrie, de la méthode, de la précision et de la
+  fiabilité ;
 - rejet de la géométrie CASIAS lorsqu'aucune coordonnée WGS84 explicite n'est
   fournie pour le site.
 

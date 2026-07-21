@@ -1,0 +1,68 @@
+{
+  "all_reproducible": true,
+  "configuration_version": 0.4,
+  "decision_cases": {
+    "fiabilite": {
+      "cible_ambigue": "faible",
+      "preuve_directe": "forte",
+      "recoupement_indirect": "moyenne"
+    },
+    "precision_geographique": {
+      "adresse": "point_adresse",
+      "batiment": "batiment_verifie",
+      "emprise": "emprise_site_verifiee",
+      "parcelle": "parcelle_verifiee",
+      "point_approximatif": "point_approximatif",
+      "point_site": "point_site_verifie",
+      "zone_documentaire": "zone_documentaire"
+    },
+    "valeurs_generiques": {
+      "autre": {
+        "code": "autre",
+        "statut_valeur_code": "renseignee"
+      },
+      "inconnu": {
+        "code": "inconnu",
+        "statut_valeur_code": "inconnue"
+      },
+      "non_applicable": {
+        "code": null,
+        "statut_valeur_code": "non_applicable"
+      },
+      "non_renseignee_source": {
+        "code": null,
+        "statut_valeur_code": "non_renseignee_source"
+      }
+    }
+  },
+  "fingerprints_sha256": {
+    "grille_qualite": "00891d73dc77349da1c041e4699d59320d8fed3cd6c956286a78179d92a6b9ac",
+    "registre_classifications": "d7c8402c39a22fd5734ce0fcb38150797431b45973088e9934987b331959c16b",
+    "secteurs": "45fdf090b5359ec0b3fb36f3fc23ca42afc94dca08be74d0da56643d0be83f8c",
+    "situation_actuelle": "5987db0ad88590e42ce8b835e759a130471ae28717bb6c31217b9d79e57dab63"
+  },
+  "geographic_sample": {
+    "casias": {
+      "automatically_verified_precision": 0,
+      "sample_record_count": 20,
+      "with_coordinates": 10,
+      "without_coordinates": 10
+    },
+    "pop_merimee": {
+      "automatically_verified_precision": 0,
+      "record_count": 10,
+      "with_footprint_candidate": 9,
+      "with_source_point": 10
+    }
+  },
+  "reproducibility_checks": {
+    "grille_qualite_reexecution_identique": true,
+    "secteurs_ordre_inverse_identique": true,
+    "situation_actuelle_ordre_inverse_identique": true
+  },
+  "validation_errors": {
+    "qualite": [],
+    "secteurs": [],
+    "situation_actuelle": []
+  }
+}

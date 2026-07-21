@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS schema_metadata (
 );
 
 DELETE FROM schema_metadata;
-INSERT INTO schema_metadata (schema_version) VALUES ('1.1.0');
+INSERT INTO schema_metadata (schema_version) VALUES ('1.2.0');
 
 CREATE TABLE IF NOT EXISTS sources (
     source_id VARCHAR PRIMARY KEY,

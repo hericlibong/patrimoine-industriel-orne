@@ -42,6 +42,17 @@ TARGETS = {
     "usages_actuels": ("usages_actuels", "usage_actuel_id"),
 }
 
+ALLOWED_RELIABILITY_CODES = {"forte", "moyenne", "faible"}
+ALLOWED_GEOGRAPHIC_PRECISION_CODES = {
+    "emprise_site_verifiee",
+    "parcelle_verifiee",
+    "batiment_verifie",
+    "point_site_verifie",
+    "point_adresse",
+    "point_approximatif",
+    "zone_documentaire",
+}
+
 
 def _rows(connection: duckdb.DuckDBPyConnection, query: str) -> list[tuple]:
     return connection.execute(query).fetchall()
@@ -141,6 +152,53 @@ def validate_database(connection: duckdb.DuckDBPyConnection) -> list[ValidationI
         require_active=True,
     )
     _validate_mention_fields(connection, issues)
+
+    quality_targets = set(TARGETS.values()) | {
+        ("mentions_sources", "mention_id"),
+        ("identifiants_externes", "identifiant_externe_id"),
+    }
+    for table_name, id_column in sorted(quality_targets):
+        columns = {
+            row[0]
+            for row in connection.execute(
+                "SELECT column_name FROM information_schema.columns "
+                "WHERE table_schema = 'main' AND table_name = ?",
+                [table_name],
+            ).fetchall()
+        }
+        if "fiabilite_code" not in columns:
+            continue
+        placeholders = ", ".join("?" for _ in ALLOWED_RELIABILITY_CODES)
+        for record_id, reliability_code in connection.execute(
+            f"SELECT {id_column}, fiabilite_code FROM {table_name} "
+            f"WHERE fiabilite_code NOT IN ({placeholders})",
+            sorted(ALLOWED_RELIABILITY_CODES),
+        ).fetchall():
+            issues.append(
+                ValidationIssue(
+                    "FIABILITE_INCONNUE",
+                    table_name,
+                    str(record_id),
+                    f"Niveau de fiabilite non autorise : {reliability_code!r}.",
+                )
+            )
+
+    precision_placeholders = ", ".join(
+        "?" for _ in ALLOWED_GEOGRAPHIC_PRECISION_CODES
+    )
+    for geometry_id, precision_code in connection.execute(
+        "SELECT geometrie_id, precision_geographique_code FROM geometries "
+        f"WHERE precision_geographique_code NOT IN ({precision_placeholders})",
+        sorted(ALLOWED_GEOGRAPHIC_PRECISION_CODES),
+    ).fetchall():
+        issues.append(
+            ValidationIssue(
+                "PRECISION_GEOGRAPHIQUE_INCONNUE",
+                "geometries",
+                str(geometry_id),
+                f"Niveau de precision non autorise : {precision_code!r}.",
+            )
+        )
 
     for site_id, commune_code, commune_name in _rows(
         connection,

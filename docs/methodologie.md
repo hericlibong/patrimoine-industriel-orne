@@ -233,3 +233,23 @@ Les protections sont enregistrées mesure par mesure. Le type juridique, la
 portée, l'élément protégé et le statut de la mesure restent séparés. L'Inventaire
 général est une source de connaissance et ne constitue pas, à lui seul, une
 protection juridique.
+
+## Qualité des classifications
+
+La précision géographique décrit ce que la géométrie localise réellement. Elle
+est distincte de la forme stockée, de la méthode de localisation et de la
+fiabilité de la preuve. Une coordonnée fournie par une source reste une
+coordonnée source tant que son rattachement au site n'a pas été contrôlé.
+
+La fiabilité est attribuée à chaque information ou relation : `forte`, `moyenne`
+ou `faible`. Elle ne se déduit ni du prestige d'une source, ni du seul nombre de
+sources. `a_verifier` reste un statut de travail distinct.
+
+`autre` sert à conserver une valeur connue absente du vocabulaire ; `inconnu`
+signifie qu'une question applicable a été examinée sans réponse. Un champ vide
+dans une source reste `NULL` avec son statut de provenance.
+
+La reproductibilité technique est contrôlée en rejouant les classifications
+avec les mêmes entrées dans un ordre différent. Les sorties sont triées et
+associées à une empreinte SHA-256. La reproductibilité humaine sera mesurée par
+un double classement d'un sous-échantillon du corpus pilote.

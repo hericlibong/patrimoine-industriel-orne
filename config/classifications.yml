@@ -1,7 +1,7 @@
-# Les deux premiers blocs de la phase 4 sont validés. Les classifications de
-# précision géographique et de fiabilité restent provisoires.
-version: 0.3
-status: phase4_bloc2_valide
+# Les trois blocs métier de la phase 4 sont validés. La publication en version
+# 1.0 reste soumise au dernier bloc de validation de phase.
+version: 0.4
+status: phase4_bloc3_valide
 updated_at: 2026-07-21
 
 secteurs:
@@ -455,15 +455,120 @@ regles_chronologie_situation_actuelle:
     verification_source_officielle_jours: 30
 
 precision_geographique:
-  - emprise_verifiee
-  - batiment_verifie
-  - coordonnees_approximatives
-  - centre_commune
-  - non_localise
+  emprise_site_verifiee:
+    libelle: Emprise du site vérifiée
+    ordre: 10
+    definition: Limites de l'ensemble industriel contrôlées à partir d'une source adaptée.
+  parcelle_verifiee:
+    libelle: Parcelle vérifiée
+    ordre: 20
+    definition: Parcelle cadastrale rattachée au site avec une correspondance contrôlée.
+  batiment_verifie:
+    libelle: Bâtiment vérifié
+    ordre: 30
+    definition: Bâtiment industriel identifié et contrôlé, sans emprise complète du site.
+  point_site_verifie:
+    libelle: Point du site vérifié
+    ordre: 40
+    definition: Point contrôlé sur le site, sans contour fiable disponible.
+  point_adresse:
+    libelle: Point issu d'une adresse
+    ordre: 50
+    definition: Point géocodé depuis une adresse suffisamment précise, sans validation du bâtiment.
+  point_approximatif:
+    libelle: Point approximatif
+    ordre: 60
+    definition: Point situant approximativement le site à l'intérieur d'une zone documentée.
+  zone_documentaire:
+    libelle: Zone documentaire
+    ordre: 70
+    definition: Zone ou emprise issue d'une source qui n'a pas encore été alignée sur le terrain actuel.
+
+statuts_localisation:
+  geometrie_verifiee:
+    libelle: Géométrie vérifiée
+    precisions: [emprise_site_verifiee, parcelle_verifiee, batiment_verifie, point_site_verifie]
+  geometrie_approximative:
+    libelle: Géométrie approximative
+    precisions: [point_adresse, point_approximatif, zone_documentaire]
+  commune_seule:
+    libelle: Commune connue sans emplacement
+    geometrie_site_autorisee: false
+  non_localise:
+    libelle: Localisation insuffisante
+    geometrie_site_autorisee: false
+
+methodes_localisation:
+  coordonnees_source: {libelle: Coordonnées fournies par une source}
+  emprise_source: {libelle: Emprise fournie par une source}
+  cadastre: {libelle: Rapprochement cadastral}
+  geocodage_adresse: {libelle: Géocodage d'adresse}
+  plan_historique: {libelle: Interprétation d'un plan historique}
+  orthophotographie: {libelle: Interprétation d'une orthophotographie}
+  releve_terrain: {libelle: Relevé de terrain}
+  rapprochement_manuel: {libelle: Rapprochement manuel documenté}
+  autre_methode: {libelle: Autre méthode documentée}
 
 fiabilite:
-  - confirme_source_primaire
-  - confirme_plusieurs_sources
-  - probable
-  - hypothese
-  - a_verifier
+  forte:
+    libelle: Fiabilité forte
+    ordre: 30
+    definition: Preuve directe, cible non ambiguë et aucune contradiction non résolue.
+  moyenne:
+    libelle: Fiabilité moyenne
+    ordre: 20
+    definition: Information indirecte mais concordante, ou interprétation simple et contrôlée.
+  faible:
+    libelle: Fiabilité faible
+    ordre: 10
+    definition: Indice unique, cible ambiguë, hypothèse ou contradiction non résolue.
+
+regles_qualite:
+  precision_geographique:
+    geometrie_et_precision_separees: true
+    methode_et_precision_separees: true
+    coordonnees_source_comme_precision_verifiee: interdit
+    centre_commune_comme_geometrie_site: interdit
+    non_localise_comme_precision_geometrie: interdit
+    validation_humaine_requise_pour:
+      - emprise_site_verifiee
+      - parcelle_verifiee
+      - batiment_verifie
+      - point_site_verifie
+  fiabilite:
+    unite_evaluee: information_ou_relation
+    source_globalement_fiable_comme_preuve_suffisante: false
+    nombre_de_sources_comme_preuve_suffisante: false
+    a_verifier_comme_niveau_de_fiabilite: interdit
+    propagation_automatique_au_site: interdite
+  autre:
+    emploi: valeur_positivement_documentee_absente_du_vocabulaire
+    conditions_obligatoires:
+      - libelle_source_conserve
+      - justification_documentee
+      - validation_humaine
+    interdit_si:
+      - information_absente
+      - information_inconnue
+      - information_non_applicable
+      - valeur_existante_non_verifiee
+    seuil_occurrences_distinctes_revue_vocabulaire: 3
+  inconnu:
+    emploi: question_applicable_examinee_sans_reponse
+    conditions_obligatoires:
+      - verification_effectuee
+      - absence_de_reponse_documentee
+    interdit_si:
+      - source_non_encore_examinee
+      - champ_absent_d_une_source_unique
+      - information_non_applicable
+      - valeur_presente_mais_incertaine
+    distinctions:
+      non_renseignee_source: null_plus_statut_de_provenance
+      non_applicable: null_plus_statut_de_provenance
+      a_verifier: valeur_candidate_plus_statut_de_validation
+  reproductibilite:
+    meme_entree_meme_configuration_meme_sortie: obligatoire
+    ordre_des_enregistrements_sans_effet: obligatoire
+    sortie_canonique_triee: obligatoire
+    empreinte_sha256: obligatoire

@@ -1,6 +1,6 @@
 # Règles du modèle de données
 
-Statut : **modèle V1 approuvé — règles version 1.2**
+Statut : **modèle V1 approuvé — règles version 1.3**
 
 Date : 21 juillet 2026
 
@@ -156,9 +156,10 @@ mais devient `NULL` dans la table métier avec le statut
 `non_renseignee_source`.
 
 Les codes `inconnu`, `aucune_protection_connue` et similaires appartiennent aux
-vocabulaires contrôlés. Les secteurs et activités sont définis ; l'emploi
-détaillé des valeurs de qualité et de situation actuelle reste à vérifier dans
-les blocs suivants de la phase 4.
+vocabulaires contrôlés. `inconnu` exige que la question applicable ait été
+examinée sans résultat. Il ne remplace ni `non_renseignee_source`, ni
+`non_applicable`, ni `a_verifier`. `autre` exige une valeur positivement
+documentée, son libellé source, une justification et une validation humaine.
 
 ## 5. Dates imprécises
 
@@ -263,5 +264,5 @@ un état actuel ; elle reste une mention historique.
 Ces règles sont matérialisées par le schéma DuckDB, ses contraintes, le
 validateur transversal et les tests automatisés. Les vocabulaires sectoriels
 sont validés dans le premier bloc de la phase 4. Les classifications
-chronologiques et contemporaines sont validées dans le deuxième bloc ; les
-classifications de qualité restent provisoires.
+chronologiques et contemporaines sont validées dans le deuxième bloc. Les
+classifications de qualité sont validées dans le troisième bloc.

@@ -36,7 +36,7 @@ class ModelDatabaseTests(TestCase):
             self.connection.execute(
                 "SELECT schema_version FROM schema_metadata"
             ).fetchone()[0],
-            "1.1.0",
+            "1.2.0",
         )
         self.assertEqual(
             self.connection.execute("SELECT count(*) FROM sites").fetchone()[0],
@@ -182,8 +182,8 @@ class ModelDatabaseTests(TestCase):
                 fiabilite_code
             ) VALUES (
                 '10000000-0000-4000-8000-000000000001',
-                ST_Point(450001, 6850001), 'point_site', 'adresse',
-                'geocodage', true, 'affichage', 'moyenne'
+                ST_Point(450001, 6850001), 'point_site', 'point_adresse',
+                'geocodage_adresse', true, 'affichage', 'moyenne'
             )
             """
         )
@@ -281,6 +281,26 @@ class ModelDatabaseTests(TestCase):
             "SELECT count(*) FROM protections WHERE reference_protection = 'PA-TEST-MULTIPLE'"
         ).fetchone()[0]
         self.assertEqual(count, 2)
+
+    def test_unknown_reliability_code_is_rejected_by_validator(self) -> None:
+        self.connection.execute(
+            """
+            UPDATE activites
+            SET fiabilite_code = 'a_verifier'
+            WHERE activite_id = '20000000-0000-4000-8000-000000000001'
+            """
+        )
+        self.assertIn("FIABILITE_INCONNUE", self.issue_codes())
+
+    def test_unknown_geographic_precision_is_rejected_by_validator(self) -> None:
+        self.connection.execute(
+            """
+            UPDATE geometries
+            SET precision_geographique_code = 'centre_commune'
+            WHERE geometrie_id = '60000000-0000-4000-8000-000000000001'
+            """
+        )
+        self.assertIn("PRECISION_GEOGRAPHIQUE_INCONNUE", self.issue_codes())
 
 
 class Phase3ValidationCasesTests(TestCase):
