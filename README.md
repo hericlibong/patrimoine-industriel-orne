@@ -9,7 +9,11 @@ reproductible.
 
 ## État du projet
 
-**Phases 0 à 6 terminées — phase 7 à lancer.**
+**Phases 0 à 6 terminées — phase 7 en cours.**
+
+Le premier bloc de la phase 7 est validé : le socle pilote est disponible en
+DuckDB, CSV, Parquet et GeoJSON. Les quatre formats portent sur les mêmes 30
+sites et utilisent les mêmes identifiants.
 
 Le suivi détaillé est maintenu localement dans `docs/roadmap.md`, qui n'est pas
 versionné.
@@ -43,7 +47,19 @@ versionné.
 - [Test du contexte territorial](reports/quality/phase6_contexte_territorial.md)
 - [Contrôle cartographique du pilote](reports/quality/phase6_controle_cartographique.md)
 - [Bilan de qualité spatiale](reports/quality/phase6_bilan_qualite_spatiale.md)
+- [Consolidation du socle pilote V1](reports/quality/phase7_consolidation.md)
 - [Projet QGIS de contrôle](qgis/controle_phase6.qgs)
+
+## Produire le socle pilote V1
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m patrimoine_orne.export.socle_v1
+```
+
+Cette commande reconstruit la base DuckDB de référence et les exports CSV,
+Parquet et GeoJSON dans `data/processed/` et `data/exports/`. Ces livrables sont
+générés localement et ne sont pas versionnés.
 
 ## Localisations du pilote
 

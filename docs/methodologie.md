@@ -372,3 +372,27 @@ Le contrôle documentaire manuel des trente fiches, l'audit de provenance et les
 tests automatiques constituent la validation requise du pilote. Le protocole de
 double classement préparé sur six cas est conservé comme possibilité future,
 mais il n'est ni réalisé ni présenté comme une validation acquise.
+
+## Consolidation et exports du socle pilote V1
+
+Le socle pilote est reconstruit par une commande unique à partir du corpus V1
+de phase 5 et des résultats géographiques validés en phase 6. Les valeurs vides
+sont normalisées en valeurs nulles, les listes sont ordonnées de manière
+déterministe et les informations de provenance sont conservées.
+
+DuckDB est le format de référence. Il conserve séparément les sites, activités,
+états et usages actuels, protections, objets techniques, géométries,
+identifiants externes et mentions de sources. Les identifiants des entités
+dérivées sont générés de manière déterministe afin qu'une reconstruction
+produise les mêmes relations.
+
+CSV, Parquet et GeoJSON ont pour unité une ligne ou une entité par site. Ils
+présentent une vue aplatie de la base : les activités, secteurs, communes et
+autres valeurs multiples sont concaténés avec le séparateur `|`. Le GeoJSON
+utilise le point WGS84 de référence ; il n'emploie pas le contour documentaire
+comme emplacement certifié.
+
+La validation finale compare le nombre de sites et l'ensemble de leurs
+identifiants dans le corpus consolidé et dans les trois exports. Elle exécute
+également les contrôles transversaux de la base DuckDB. Un écart ou une erreur
+interrompt la production.

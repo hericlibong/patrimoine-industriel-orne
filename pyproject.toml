@@ -46,6 +46,7 @@ patrimoine-orne-qualifier-geographie-pilote = "patrimoine_orne.geocode.pilot:mai
 patrimoine-orne-extraire-contexte-territorial = "patrimoine_orne.extract.territorial_context:main"
 patrimoine-orne-calculer-contexte-territorial = "patrimoine_orne.geocode.territorial_context:main"
 patrimoine-orne-controle-cartographique = "patrimoine_orne.geocode.cartographic_control:main"
+patrimoine-orne-produire-socle-v1 = "patrimoine_orne.export.socle_v1:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

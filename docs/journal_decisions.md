@@ -555,3 +555,25 @@
 - Le bilan de qualité spatiale autorise le passage à la phase 7. Cette décision
   valide la méthode sur le pilote, pas la précision complète des 319 dossiers.
 - La phase 6 est terminée.
+
+## 2026-07-22 — Phase 7, consolidation du socle pilote V1
+
+- Le corpus de phase 5 et les résultats géographiques validés en phase 6 sont
+  réunis dans un corpus pilote consolidé reproductible.
+- DuckDB devient le format de référence du socle. Il conserve les relations
+  détaillées entre les 30 sites, 47 activités, 59 géométries, 31 objets
+  techniques et 148 mentions de sources.
+- CSV, Parquet et GeoJSON sont des vues aplaties à raison d'une ligne ou d'une
+  entité par site. Ils ne remplacent pas le modèle relationnel pour l'édition.
+- Les quatre formats contiennent les mêmes 30 identifiants de sites. Les
+  validations de la base et les 99 tests automatisés réussissent.
+- Les localisations restent prudentes : 30 points approximatifs, 29 emprises
+  documentaires et aucune géométrie déclarée vérifiée.
+- Les 30 fiches passent au statut technique `cartographiable`, mais aucune
+  décision de publication n'est prise à ce stade.
+- Les fichiers de données produits restent locaux et non versionnés ; leur
+  construction, leur rapport de contrôle et leurs empreintes sont
+  reproductibles.
+- Le bloc « Consolider les données » de la phase 7 est terminé. La phase 7
+  reste en cours jusqu'à la consolidation documentaire et à l'approbation du
+  socle V1.

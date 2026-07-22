@@ -1,0 +1,50 @@
+{
+  "checks_passed": true,
+  "date_validation": "2026-07-22",
+  "decision": "bloc_consolidation_phase7_valide",
+  "errors": [],
+  "export_counts": {
+    "corpus_consolide": 30,
+    "csv": 30,
+    "geojson": 30,
+    "parquet": 30
+  },
+  "files": {
+    "data/exports/sites_pilote_v1.csv": {
+      "sha256": "2ff02562ea448657a26f560a58e2aefa9378b695e092c92dcf377558766e5df5",
+      "size_bytes": 33763
+    },
+    "data/exports/sites_pilote_v1.geojson": {
+      "sha256": "d2aabbe12ec20c23d0201c29d287875510d1be49b5699eeac52afb18593dbb99",
+      "size_bytes": 77737
+    },
+    "data/exports/sites_pilote_v1.parquet": {
+      "sha256": "392edf55d65c2f765e42cf02ee7b8ccf48c3cae17e6557c45d45276cd018dcbe",
+      "size_bytes": 21606
+    },
+    "data/processed/corpus_pilote_socle_v1.json": {
+      "sha256": "964598694d959942e3f9a4f2ef5165f4cd371219fd40ad8897e3908fb028d2c4",
+      "size_bytes": 563031
+    },
+    "data/processed/patrimoine_orne_socle_v1.duckdb": {
+      "sha256": "76f26c7e351eadbd8a2bf894b390b056c365c944593091007605ed8be7222a31",
+      "size_bytes": 10760192
+    }
+  },
+  "identifiants_concordants": true,
+  "schema_version": "1.0",
+  "table_counts": {
+    "activites": 47,
+    "etats_actuels": 30,
+    "geometries": 59,
+    "identifiants_externes": 61,
+    "liens_objets_sites": 31,
+    "mentions_sources": 148,
+    "objets_techniques": 31,
+    "protections": 6,
+    "sites": 30,
+    "sites_export_v1": 30,
+    "sources": 18,
+    "usages_actuels": 33
+  }
+}
