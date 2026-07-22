@@ -31,5 +31,5 @@ Le nombre final de sites ne peut toujours pas être annoncé. Les 319 sont des
 dossiers sources ; les rapprochements, séparations d'emprises et exclusions
 détermineront le nombre de sites canoniques.
 
-Le bloc « Préparer la suite » est terminé. La phase 7 reste ouverte jusqu'à la
-décision formelle de fin de socle.
+Le bloc « Préparer la suite » est terminé. La décision finale a ensuite été
+formalisée dans `phase7_decision_socle_v1.md` : `GO` pour la phase 8, par lots.

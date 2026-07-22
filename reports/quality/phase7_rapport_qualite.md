@@ -24,7 +24,7 @@ géométrie n'est qualifiée de vérifiée.
 | Géométries | 59 : 30 points et 29 zones documentaires |
 | Mentions de sources | 148 |
 | Sources enregistrées | 21 |
-| Tests automatisés | 109 réussis |
+| Tests automatisés | 110 réussis |
 
 Les identifiants des 30 sites concordent entre DuckDB, CSV, Parquet et
 GeoJSON. Les 47 phases concordent entre leurs exports CSV et Parquet.
@@ -75,5 +75,6 @@ Le bloc « Consolider la documentation » est validé. La documentation indique
 désormais ce que contiennent les données, leur provenance, leur qualité, les
 anomalies restantes et les conditions de réutilisation.
 
-Cette décision ne clôt pas la phase 7. Il reste à préparer la suite puis à
-prendre la décision finale `GO`, `GO LIMITÉ` ou `STOP` sur le socle V1.
+La décision finale est désormais prise : `GO` pour la phase 8, par lots. Le
+socle V1 est approuvé et la phase 7 est terminée. Les limites détaillées dans ce
+rapport restent applicables pendant la constitution du corpus complet.

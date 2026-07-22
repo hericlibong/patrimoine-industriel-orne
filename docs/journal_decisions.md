@@ -655,3 +655,19 @@
 - Décisions : `GO` pour la phase 8 par lots et `GO LIMITÉ` pour un prototype
   applicatif après le premier lot de 50. Le bloc « Préparer la suite » est
   terminé ; la phase 7 reste ouverte jusqu'à la décision finale de socle.
+
+## 2026-07-22 — Approbation du socle V1 et clôture de la phase 7
+
+- Décision formelle : **`GO` pour la phase 8, par lots**.
+- Le socle V1 est approuvé comme base méthodologique, documentaire et
+  technique. Cette approbation porte sur la chaîne et ses règles, pas sur
+  l'exhaustivité des 30 sites pilotes.
+- La phase 8 commencera par l'énumération contrôlée des 319 références `IA`,
+  puis par un premier lot de 50 dossiers non pilotes.
+- Les temps de revue, erreurs, variantes et cas bloqués de ce lot serviront à
+  recalibrer la charge et à corriger la chaîne avant les lots suivants.
+- Le nombre final de sites reste inconnu jusqu'aux rapprochements, séparations
+  d'emprises et exclusions documentées.
+- Les limites relatives aux situations actuelles, localisations, objets
+  Palissy, CASIAS et droits des images restent en vigueur.
+- Le socle pilote V1 est approuvé et la phase 7 est terminée.

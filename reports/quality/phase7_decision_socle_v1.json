@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "date_approbation": "2026-07-22",
+  "decision": "GO",
+  "destination": "phase_8",
+  "strategie": "traitement_par_lots",
+  "socle_v1_approuve": true,
+  "phase7_terminee": true,
+  "premier_lot": 50,
+  "corpus_source_annonce": 319,
+  "nombre_sites_final_connu": false,
+  "conditions": [
+    "enumerer_319_references_ia_uniques",
+    "traiter_un_premier_lot_de_50",
+    "mesurer_cadence_erreurs_et_cas_bloques",
+    "corriger_la_chaine_avant_les_lots_suivants",
+    "conserver_bruts_manifestes_et_provenance",
+    "documenter_fusions_separations_et_exclusions",
+    "maintenir_une_file_de_revue_humaine",
+    "recalculer_les_resultats_sur_le_corpus_complet"
+  ]
+}

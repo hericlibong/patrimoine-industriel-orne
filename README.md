@@ -9,11 +9,12 @@ reproductible.
 
 ## État du projet
 
-**Phases 0 à 6 terminées — phase 7 en cours.**
+**Phases 0 à 7 terminées — phase 8 autorisée par lots.**
 
-Le premier bloc de la phase 7 est validé : le socle pilote est disponible en
-DuckDB, CSV, Parquet et GeoJSON. Les exports des 30 sites et des 47 phases
-d'activité comportent désormais des périodes historiques filtrables.
+Le socle pilote V1 est approuvé. Il comprend 30 sites et 47 phases d'activité
+avec des périodes filtrables, disponibles en DuckDB, CSV, Parquet et GeoJSON.
+La phase 8 commencera par l'énumération des 319 références puis un premier lot
+de 50 dossiers destiné à mesurer la cadence et les difficultés réelles.
 
 Le suivi détaillé est maintenu localement dans `docs/roadmap.md`, qui n'est pas
 versionné.
@@ -57,6 +58,7 @@ versionné.
 - [Rapport de qualité du socle pilote V1](reports/quality/phase7_rapport_qualite.md)
 - [Anomalies restantes du socle pilote V1](reports/quality/phase7_anomalies_restantes.md)
 - [Préparation de la suite](reports/quality/phase7_preparation_suite.md)
+- [Décision finale sur le socle V1](reports/quality/phase7_decision_socle_v1.md)
 - [Évaluation de l'extraction complète](reports/quality/phase7_evaluation_extraction_complete.md)
 - [Première carte interne](reports/maps/carte_pilote_interne.png)
 - [Projet QGIS de contrôle](qgis/controle_phase6.qgs)

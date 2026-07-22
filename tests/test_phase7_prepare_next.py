@@ -47,6 +47,23 @@ def test_decision_documents_exist() -> None:
         "docs/recommandation_application.md",
         "reports/maps/README.md",
         "reports/quality/phase7_preparation_suite.md",
+        "reports/quality/phase7_decision_socle_v1.md",
     ]
 
     assert all((ROOT / path).is_file() for path in required)
+
+
+def test_phase7_decision_approves_the_socle() -> None:
+    decision = json.loads(
+        (
+            ROOT / "reports" / "quality" / "phase7_decision_socle_v1.json"
+        ).read_text(encoding="utf-8")
+    )
+
+    assert decision["decision"] == "GO"
+    assert decision["destination"] == "phase_8"
+    assert decision["strategie"] == "traitement_par_lots"
+    assert decision["socle_v1_approuve"] is True
+    assert decision["phase7_terminee"] is True
+    assert decision["premier_lot"] == 50
+    assert decision["nombre_sites_final_connu"] is False
