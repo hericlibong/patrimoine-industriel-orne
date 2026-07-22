@@ -139,6 +139,7 @@ situation_actuelle:
       usages: [activite_industrielle]
       fiabilite_code: forte
       methode_verification_code: source_officielle_exploitant
+      source_id: edf_rabodanges
       source_url: https://www.edf.fr/barrage-rabodanges
       note: Centrale hydroélectrique en activité ; nouveau groupe mis en service en mars 2025.
     IA00061155:
@@ -147,6 +148,7 @@ situation_actuelle:
       usages: [activite_industrielle, culture_musee, tourisme_visite]
       fiabilite_code: forte
       methode_verification_code: source_officielle_exploitant
+      source_id: bohin
       source_url: https://www.bohin.com/pages/organiser-sa-visite
       note: Atelier de production et musée ouverts à la visite selon le calendrier 2026.
     IA00061029:
@@ -155,6 +157,7 @@ situation_actuelle:
       usages: [culture_musee, tourisme_visite]
       fiabilite_code: moyenne
       methode_verification_code: programmation_institutionnelle_2026
+      source_id: archives_orne
       source_url: https://archives.orne.fr/sites/default/files/2026-05/Prog%20PEL%2026-WEB.pdf
       note: Présence et accès ponctuel attestés par une manifestation organisée dans la Grosse Forge en 2026.
     IA00061008:
@@ -163,6 +166,7 @@ situation_actuelle:
       usages: [inconnu]
       fiabilite_code: moyenne
       methode_verification_code: source_institutionnelle_2026
+      source_id: departement_orne
       source_url: https://www.orne.fr/actualite/dimportants-soutiens-financiers?page=2
       note: Une étude de sécurisation et de valorisation du carreau de la mine est financée en 2026.
 

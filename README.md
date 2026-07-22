@@ -25,6 +25,9 @@ versionné.
 - [Méthodologie](docs/methodologie.md)
 - [Conventions d'extraction](docs/conventions_extraction.md)
 - [Dictionnaire des données](docs/dictionnaire_donnees.md)
+- [Registre consolidé des sources](docs/registre_sources.md)
+- [Limites éditoriales](docs/limites_editoriales.md)
+- [Licences des données et droits des images](docs/licences_droits_images.md)
 - [Modèle des entités principales](docs/modele_donnees.md)
 - [Règles du modèle](docs/regles_modele.md)
 - [Journal des décisions](docs/journal_decisions.md)
@@ -48,6 +51,8 @@ versionné.
 - [Contrôle cartographique du pilote](reports/quality/phase6_controle_cartographique.md)
 - [Bilan de qualité spatiale](reports/quality/phase6_bilan_qualite_spatiale.md)
 - [Consolidation du socle pilote V1](reports/quality/phase7_consolidation.md)
+- [Rapport de qualité du socle pilote V1](reports/quality/phase7_rapport_qualite.md)
+- [Anomalies restantes du socle pilote V1](reports/quality/phase7_anomalies_restantes.md)
 - [Projet QGIS de contrôle](qgis/controle_phase6.qgs)
 
 ## Produire le socle pilote V1

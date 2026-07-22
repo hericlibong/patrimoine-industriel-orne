@@ -1,6 +1,6 @@
 # Classifications des secteurs et installations
 
-Statut : **bloc 1 validé et intégré au registre V1 le 21 juillet 2026**
+Statut : **finalisé dans le registre 1.2 du socle V1 le 22 juillet 2026**
 
 Le registre exécutable est `config/classifications.yml`. Ce document en fixe les
 règles de lecture.

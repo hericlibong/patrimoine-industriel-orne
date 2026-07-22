@@ -1,6 +1,6 @@
 # Classifications — qualité
 
-Statut : **bloc 3 validé et intégré au registre V1 le 21 juillet 2026**.
+Statut : **finalisé dans le registre 1.2 du socle V1 le 22 juillet 2026**.
 
 La source exécutable des vocabulaires est `config/classifications.yml`.
 

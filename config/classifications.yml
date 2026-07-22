@@ -1,8 +1,8 @@
 # Registre V1 validé à la clôture de la phase 4. Toute modification ultérieure
 # doit changer la version et être inscrite dans le journal des décisions.
-version: "1.1"
-status: phase5_enrichissement
-updated_at: 2026-07-21
+version: "1.2"
+status: socle_v1
+updated_at: 2026-07-22
 
 secteurs:
   extraction:
@@ -332,6 +332,17 @@ periodes_historiques:
     libelle: Depuis 2001 — Patrimoine et usages contemporains
     debut_annee: 2001
     fin_annee: null
+
+methodes_periodes:
+  chronologie_phase:
+    libelle: Chronologie de la phase d'activité
+    definition: Période calculée depuis les bornes documentées d'une phase d'activité.
+  siecles_source_site:
+    libelle: Siècles documentaires du site
+    definition: Repérage calculé depuis le champ SCLE sans preuve automatique de continuité de l'activité.
+  situation_actuelle_documentee:
+    libelle: Situation actuelle documentée
+    definition: Période contemporaine ajoutée au site à partir d'une observation récente sourcée.
 
 conservation:
   conserve:

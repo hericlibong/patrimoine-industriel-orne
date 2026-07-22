@@ -405,7 +405,11 @@ def build_current_state(reference: str, enrichment: Mapping[str, Any]) -> dict[s
     state = deepcopy(settings["defaut"])
     state.update(settings.get("exceptions", {}).get(reference, {}))
     state["date_verification"] = str(enrichment["date_verification"])
-    state["source_id"] = "tourisme_local" if state.get("source_url") else None
+    state["source_id"] = (
+        (state.get("source_id") or "tourisme_local")
+        if state.get("source_url")
+        else None
+    )
     return state
 
 

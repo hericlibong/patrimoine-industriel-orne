@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-07-22",
+  "decision": "documentation_consolidee",
+  "scope": "corpus_pilote_30_sites",
+  "counts": {
+    "sites": 30,
+    "activites": 47,
+    "activites_periodes": 101,
+    "protections": 6,
+    "objets_techniques": 31,
+    "geometries": 59,
+    "mentions_sources": 148,
+    "sources": 21,
+    "tests_passed": 106
+  },
+  "completeness": {
+    "sites_with_period": 30,
+    "activities_with_period": 47,
+    "activities_with_explicit_normalized_dates": 30,
+    "activities_using_scle_fallback": 17,
+    "sites_with_documentary_extent": 29,
+    "sites_with_verified_geometry": 0,
+    "sites_with_recent_current_state_source": 4,
+    "sites_with_unknown_current_state": 26
+  },
+  "remaining_anomaly_families": 8,
+  "suitable_for": [
+    "demonstration_interne",
+    "carte_de_controle",
+    "conception_prototype_narratif"
+  ],
+  "not_suitable_for": [
+    "decompte_departemental",
+    "statistiques_representatives",
+    "publication_sans_relecture_editoriale",
+    "publication_photographique"
+  ]
+}

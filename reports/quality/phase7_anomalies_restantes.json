@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-07-22",
+  "decision": "non_bloquantes_pour_socle_pilote",
+  "open_items": [
+    {"id": "ANO-001", "scope": "IA00060965", "count": 31, "subject": "liens_objets_palissy_candidats", "status": "ouverte"},
+    {"id": "ANO-002", "scope": ["IA00060969", "IA00061153", "IA00061060"], "count": 3, "subject": "historique_structure_placeholder", "status": "repli_controle"},
+    {"id": "ANO-003", "scope": "sites_pilotes", "count": 26, "subject": "situation_actuelle_inconnue", "status": "ouverte"},
+    {"id": "ANO-004", "scope": "sites_pilotes", "count": 30, "subject": "casias_non_rapproche", "status": "differee_phase8"},
+    {"id": "ANO-005", "scope": "sites_pilotes", "count": 9, "subject": "localisations_a_verifier", "status": "ouverte"},
+    {"id": "ANO-006", "scope": "geometries_pilotes", "points": 30, "contours": 29, "subject": "geometries_non_verifiees", "status": "ouverte"},
+    {"id": "ANO-007", "scope": "phases_activite", "count": 17, "subject": "periodes_de_reperage_scle", "status": "ouverte"},
+    {"id": "ANO-008", "scope": "images_editoriales", "count": 0, "subject": "autorisations_images_non_constituees", "status": "a_constituer"}
+  ],
+  "resolved_items": ["COR-001", "COR-002", "COR-003", "COR-004", "COR-005"]
+}

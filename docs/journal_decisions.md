@@ -605,3 +605,28 @@
   `activite_industrielle`, qui est la valeur du vocabulaire contrôlé.
 - Un contrôle fonctionnel du filtrage par période est ajouté aux validations
   finales pour empêcher la réapparition de cet écart.
+
+## 2026-07-22 — Phase 7, consolidation de la documentation
+
+- Le dictionnaire passe en version 1.5 et décrit le socle relationnel ainsi que
+  les exports complémentaires des sites et des phases d'activité.
+- `config/sources.yml` version 1.1 devient le registre opérationnel canonique.
+  Il contient 21 sources avec licence des données, statut des médias,
+  attribution et lien vers les conditions ; le CSV de phase 1 reste une trace
+  historique de l'audit.
+- Les quatre observations contemporaines sont désormais rattachées à leur
+  producteur réel : EDF, Bohin, Archives de l'Orne et Département de l'Orne.
+- Le registre des classifications passe en version 1.2 avec 177 codes. Les
+  trois méthodes de calcul des périodes sont publiées sans modifier le
+  découpage chronologique validé en phase 4.
+- Le rapport de qualité conclut que le pilote est cohérent pour une
+  démonstration interne et la conception d'un prototype, mais ni exhaustif ni
+  publiable sans relecture éditoriale.
+- Huit familles d'anomalies ou de limites restent visibles. Elles ne bloquent
+  pas la poursuite méthodologique, mais interdisent certains énoncés trop
+  affirmatifs sur l'état actuel, la localisation, CASIAS et les objets Palissy.
+- Aucune photographie tierce n'est intégrée au socle. Toute future image devra
+  disposer d'un auteur, d'un détenteur de droits, d'une licence ou autorisation,
+  d'un crédit et d'une preuve avant publication.
+- Les 106 tests automatisés réussissent. Le bloc « Consolider la
+  documentation » est terminé ; la phase 7 reste en cours.

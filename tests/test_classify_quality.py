@@ -52,8 +52,8 @@ class QualityClassificationTests(TestCase):
         )
         self.assertEqual(set(self.config["fiabilite"]), ALLOWED_RELIABILITY_CODES)
         self.assertEqual(validate_published_classifications(self.config), [])
-        self.assertEqual(str(self.config["version"]), "1.1")
-        self.assertEqual(self.config["status"], "phase5_enrichissement")
+        self.assertEqual(str(self.config["version"]), "1.2")
+        self.assertEqual(self.config["status"], "socle_v1")
 
     def test_precision_does_not_confuse_evidence_and_method(self) -> None:
         self.assertEqual(
@@ -151,7 +151,7 @@ class QualityClassificationTests(TestCase):
             "qualite": [],
         })
 
-    def test_final_phase4_registry_is_publishable(self) -> None:
+    def test_final_socle_v1_registry_is_publishable(self) -> None:
         manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
         report = build_final_validation_report(
             load_pop_manifest_sample(MANIFEST_PATH),
@@ -160,6 +160,6 @@ class QualityClassificationTests(TestCase):
             self.config,
         )
         self.assertTrue(report["all_valid"])
-        self.assertEqual(report["published_version"], "1.1")
-        self.assertEqual(report["published_code_count"], 174)
+        self.assertEqual(report["published_version"], "1.2")
+        self.assertEqual(report["published_code_count"], 177)
         self.assertEqual(report["validation_errors"], [])

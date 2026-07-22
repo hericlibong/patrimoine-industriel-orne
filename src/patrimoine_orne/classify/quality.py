@@ -38,6 +38,7 @@ PUBLISHED_VOCABULARIES = (
     "energies",
     "roles_energies",
     "periodes_historiques",
+    "methodes_periodes",
     "conservation",
     "usages_actuels",
     "accessibilite",
@@ -129,9 +130,13 @@ def validate_published_classifications(config: Mapping[str, Any]) -> list[str]:
         ),
         *(f"qualité: {error}" for error in validate_quality_classifications(config)),
     ]
-    if str(config.get("version")) not in {"1.0", "1.1"}:
-        errors.append("la version publiée doit être 1.0 ou 1.1")
-    if config.get("status") not in {"phase4_validee", "phase5_enrichissement"}:
+    if str(config.get("version")) not in {"1.0", "1.1", "1.2"}:
+        errors.append("la version publiée doit être 1.0, 1.1 ou 1.2")
+    if config.get("status") not in {
+        "phase4_validee",
+        "phase5_enrichissement",
+        "socle_v1",
+    }:
         errors.append("statut de publication des classifications invalide")
 
     for section in PUBLISHED_VOCABULARIES:

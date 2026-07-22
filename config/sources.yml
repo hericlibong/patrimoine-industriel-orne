@@ -1,5 +1,5 @@
-version: 1.0
-updated_at: 2026-07-19
+version: 1.1
+updated_at: 2026-07-22
 
 roles:
   - principale
@@ -28,6 +28,10 @@ sources:
     access: [html, pdf]
     identifier: reference_IA
     audit_status: validee_avec_reserves
+    data_license: non_identifiee
+    media_rights: autorisation_requise_sauf_mention_contraire
+    attribution: Région Normandie - Inventaire général du patrimoine culturel
+    rights_url: https://inventaire-patrimoine.normandie.fr/mentions-legales
     limits:
       - 319 dossiers, mais aucun export global identifié
       - contrôle JavaScript contre les requêtes HTTP directes
@@ -43,6 +47,10 @@ sources:
     access: [html, csv_mh, geojson_mh, api_mh]
     identifier: reference_Merimee
     audit_status: validee_avec_reserves
+    data_license: licence_ouverte_2_0_sauf_mention_contraire
+    media_rights: verifier_auteur_et_ayant_droit_notice_par_notice
+    attribution: Ministère de la Culture - POP / Mérimée
+    rights_url: https://pop.culture.gouv.fr/conditions-generales-utilisation
     limits:
       - l'export ouvert testé correspond aux Monuments historiques
       - ne pas confondre protection MH et corpus complet de l'Inventaire
@@ -57,6 +65,10 @@ sources:
     access: [html, csv]
     identifier: reference_PM
     audit_status: validee_avec_reserves
+    data_license: licence_ouverte_2_0
+    media_rights: verifier_auteur_et_ayant_droit_notice_par_notice
+    attribution: Ministère de la Culture - POP / Palissy
+    rights_url: https://pop.culture.gouv.fr/conditions-generales-utilisation
     limits:
       - export national d'environ 363 Mo
       - liens aux sites parfois indirects
@@ -71,6 +83,10 @@ sources:
     access: [csv, geojson, api]
     identifier: reference_Merimee
     audit_status: validee
+    data_license: licence_ouverte_2_0
+    media_rights: hors_perimetre_du_jeu_de_donnees
+    attribution: Ministère de la Culture - Monuments historiques
+    rights_url: https://pop.culture.gouv.fr/donnees-ouvertes
     metrics_at_audit:
       orne_records: 420
       with_wgs84: 341
@@ -87,6 +103,10 @@ sources:
     access: [csv_national, fiches, shapefile, wfs]
     identifier: code_inventaire_ou_SSP_BASIAS
     audit_status: validee_avec_reserves
+    data_license: licence_ouverte_2_0
+    media_rights: hors_perimetre_du_jeu_de_donnees
+    attribution: DREAL Normandie - CASIAS
+    rights_url: https://www.data.gouv.fr/datasets/carte-des-anciens-sites-industriels-et-activites-de-services-casias-normandie
     metrics_at_audit:
       orne_wfs_records: 2052
       with_xy_wgs84: 209
@@ -105,6 +125,10 @@ sources:
     url: https://geoservices.ign.fr/
     access: [wfs, wmts, api, telechargement]
     audit_status: validee_avec_reserves
+    data_license: selon_produit_majoritairement_licence_ouverte_2_0
+    media_rights: verifier_le_fond_ou_produit_affiche
+    attribution: IGN et millésime du produit utilisé
+    rights_url: https://geoservices.ign.fr/
     limits:
       - produit, couche et millésime à enregistrer à chaque extraction
 
@@ -117,6 +141,10 @@ sources:
     access: [api_carto, geojson]
     identifier: references_cadastrales
     audit_status: validee_avec_reserves
+    data_license: licence_ouverte_2_0
+    media_rights: hors_perimetre_du_jeu_de_donnees
+    attribution: IGN / DGFiP - cadastre, millésime utilisé
+    rights_url: https://apicarto.ign.fr/api/cadastre/parcelle
     limits:
       - ne prouve ni emprise historique ni propriété
       - une intersection avec un point source produit une parcelle candidate, pas une parcelle vérifiée
@@ -130,6 +158,10 @@ sources:
     access: [csv_departemental, geocodeur_geoplateforme]
     identifier: id_ban
     audit_status: validee_avec_reserves
+    data_license: licence_ouverte_2_0
+    media_rights: hors_perimetre_du_jeu_de_donnees
+    attribution: Base Adresse Nationale - IGN et partenaires
+    rights_url: https://adresse.data.gouv.fr/contenu-de-la-ban
     limits:
       - un résultat géocodé ne constitue pas une emprise validée
       - seules les adresses comportant un numéro unique sont géocodées automatiquement
@@ -143,6 +175,10 @@ sources:
     access: [json_api]
     identifier: code_insee_commune_actuelle
     audit_status: validee
+    data_license: licence_ouverte_2_0
+    media_rights: hors_perimetre_du_jeu_de_donnees
+    attribution: API Découpage administratif - DINUM
+    rights_url: https://geo.api.gouv.fr/communes
     limits:
       - décrit les communes actuelles et non les limites historiques
       - ne localise pas l'emprise d'un site industriel
@@ -155,6 +191,10 @@ sources:
     url: https://data.geopf.fr/wfs/ows
     access: [wfs, geojson]
     audit_status: validee_avec_reserves
+    data_license: licence_ouverte_2_0
+    media_rights: hors_perimetre_du_jeu_de_donnees
+    attribution: IGN - BD TOPO, édition du 15 juin 2026
+    rights_url: https://geoservices.ign.fr/bdtopo
     limits:
       - édition testée datée du 15 juin 2026
       - une proximité calculée ne prouve pas un usage industriel de l'eau
@@ -167,6 +207,10 @@ sources:
     url: https://data.geopf.fr/wfs/ows
     access: [wfs, geojson]
     audit_status: validee_avec_reserves
+    data_license: licence_ouverte_2_0
+    media_rights: hors_perimetre_du_jeu_de_donnees
+    attribution: IGN - BD Forêt v2, millésime territorial utilisé
+    rights_url: https://geoservices.ign.fr/bdforet
     limits:
       - données produites selon les territoires entre 2006 et 2019
       - décrit un contexte récent, pas la forêt au moment de l'implantation industrielle
@@ -179,6 +223,10 @@ sources:
     url: https://www.data.gouv.fr/datasets/bd-forets-anciennes
     access: [wms, wmts]
     audit_status: validee_avec_reserves
+    data_license: licence_ouverte_2_0_a_confirmer_au_moment_de_l_usage
+    media_rights: service_cartographique_a_crediter
+    attribution: IGN - BD Forêts anciennes
+    rights_url: https://www.data.gouv.fr/datasets/bd-forets-anciennes
     limits:
       - couche reconstruite à partir de cartes vers 1850
 
@@ -190,6 +238,10 @@ sources:
     url: https://infoterre.brgm.fr/page/geoservices-ogc
     access: [shapefile, wms, wfs]
     audit_status: validee_avec_reserves
+    data_license: licence_ouverte_2_0_sauf_exception_signalee
+    media_rights: contenus_du_site_non_reutilisables_sans_autorisation
+    attribution: BRGM et date de dernière mise à jour du produit
+    rights_url: https://infoterre.brgm.fr/page/conditions-dutilisation-donnees
     limits:
       - conditions de réutilisation à fixer produit par produit
       - lithologie testée à l'échelle générale du 1:1 000 000
@@ -203,6 +255,10 @@ sources:
     url: https://data.geopf.fr/wfs/ows
     access: [wfs, geojson]
     audit_status: validee_avec_reserves
+    data_license: licence_ouverte_2_0
+    media_rights: hors_perimetre_du_jeu_de_donnees
+    attribution: IGN - BD TOPO, édition du 15 juin 2026
+    rights_url: https://geoservices.ign.fr/bdtopo
     limits:
       - édition testée datée du 15 juin 2026
       - certains tronçons non exploités sont présents, mais le réseau historique n'est pas exhaustif
@@ -216,6 +272,10 @@ sources:
     access: [overpass, pbf]
     identifier: type_et_id_osm
     audit_status: validee_avec_reserves
+    data_license: odbl_1_0
+    media_rights: rendu_cartographique_a_attribuer
+    attribution: © OpenStreetMap contributors
+    rights_url: https://osmfoundation.org/wiki/Licence/Attribution_Guidelines
     limits:
       - couverture et tags contributifs hétérogènes
       - ODbL, attribution et partage à l'identique à respecter
@@ -229,6 +289,10 @@ sources:
     access: [html, instruments_de_recherche, images]
     identifier: cote_archive
     audit_status: validee_avec_reserves
+    data_license: selon_document_et_statut_du_fonds
+    media_rights: autorisation_ou_conditions_a_verifier_document_par_document
+    attribution: Archives départementales de l'Orne, cote et auteur si connu
+    rights_url: https://archives.orne.fr/index.php/particuliers-detenteurs-darchives-privees
     limits:
       - extraction surtout manuelle
       - droits de reproduction à contrôler document par document
@@ -242,6 +306,10 @@ sources:
     access: [sru, oai, ocr, iiif, html]
     identifier: ark
     audit_status: validee_avec_reserves
+    data_license: metadonnees_licence_ouverte_2_0
+    media_rights: non_commercial_libre_avec_source_sauf_regime_particulier
+    attribution: Source gallica.bnf.fr / Bibliothèque nationale de France
+    rights_url: https://gallica.bnf.fr/accueil/fr/html/conditions-dutilisation-de-gallica
     limits:
       - droits variables selon document, partenaire et usage
 
@@ -253,10 +321,62 @@ sources:
     url: https://www.bohin.com/pages/organiser-sa-visite
     access: [html]
     audit_status: validee_avec_reserves
+    data_license: non_identifiee
+    media_rights: textes_et_images_proteges_sauf_autorisation_ou_mention_contraire
+    attribution: Producteur de la page et URL, après autorisation si nécessaire
+    rights_url: https://www.bohin.com/pages/organiser-sa-visite
     limits:
       - informations pratiques volatiles
       - faible valeur de preuve historique
       - textes et images protégés sauf mention contraire
+
+  - id: edf_rabodanges
+    name: EDF — barrage et centrale de Rabodanges
+    producer: EDF Hydro
+    priority: P3
+    role: verification
+    url: https://www.edf.fr/barrage-rabodanges
+    access: [html]
+    audit_status: validee_avec_reserves
+    data_license: non_identifiee
+    media_rights: textes_et_images_proteges_sauf_autorisation_ou_mention_contraire
+    attribution: EDF Hydro, page du barrage de Rabodanges et date de consultation
+    rights_url: https://www.edf.fr/barrage-rabodanges
+    limits:
+      - confirme une activité et une actualité récentes, pas toute l'histoire du site
+      - informations et contenus susceptibles d'évoluer
+
+  - id: bohin
+    name: Bohin France — manufacture et musée
+    producer: Bohin France
+    priority: P3
+    role: verification
+    url: https://www.bohin.com/pages/organiser-sa-visite
+    access: [html]
+    audit_status: validee_avec_reserves
+    data_license: non_identifiee
+    media_rights: textes_et_images_proteges_sauf_autorisation_ou_mention_contraire
+    attribution: Bohin France, page de visite et date de consultation
+    rights_url: https://www.bohin.com/pages/organiser-sa-visite
+    limits:
+      - source exploitant adaptée à l'activité et aux visites actuelles
+      - ne constitue pas une source indépendante pour l'ensemble du récit historique
+
+  - id: departement_orne
+    name: Département de l'Orne — actualités institutionnelles
+    producer: Département de l'Orne
+    priority: P3
+    role: verification
+    url: https://www.orne.fr/
+    access: [html]
+    audit_status: validee_avec_reserves
+    data_license: non_identifiee
+    media_rights: textes_et_images_proteges_sauf_autorisation_ou_mention_contraire
+    attribution: Département de l'Orne, titre de la page et date de consultation
+    rights_url: https://www.orne.fr/mentions-legales
+    limits:
+      - source institutionnelle utile pour une opération récente
+      - ne remplace pas une observation de terrain sur la conservation ou l'accès
 
 excluded_access:
   - id: api_adresse_legacy

@@ -41,11 +41,11 @@
       "size_bytes": 25777
     },
     "data/processed/corpus_pilote_socle_v1.json": {
-      "sha256": "f0ce643f4d2f9f588a30826212bffe918cf66c9c30b055925d2548effc90e9d9",
-      "size_bytes": 626940
+      "sha256": "8d8eb324c177e26d1317c3f75b08279577482ff075f9cc488f93e2dea6d6fdc5",
+      "size_bytes": 626924
     },
     "data/processed/patrimoine_orne_socle_v1.duckdb": {
-      "sha256": "397d4282c1a8df529693d65e57268b57a78172b0fe9a84129d7ffb606d632122",
+      "sha256": "c9cfdb0dc489ff14a6eb623373dbd0b6730d52b91f99aa8cf0b819c19780367e",
       "size_bytes": 11546624
     }
   },
@@ -64,7 +64,7 @@
     "protections": 6,
     "sites": 30,
     "sites_export_v1": 30,
-    "sources": 18,
+    "sources": 21,
     "usages_actuels": 33
   }
 }

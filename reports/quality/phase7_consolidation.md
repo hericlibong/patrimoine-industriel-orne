@@ -29,7 +29,7 @@ pilote en corpus complet et ne valide pas encore le socle V1 dans son ensemble.
 | Sites avec une période contemporaine récemment sourcée | 4 |
 | Identifiants concordants entre les formats | oui |
 | Erreurs de validation | 0 |
-| Tests automatisés du projet | 102 réussis |
+| Tests automatisés du projet | 106 réussis |
 
 La base relationnelle contient également :
 
@@ -41,7 +41,7 @@ La base relationnelle contient également :
 - 59 géométries, soit 30 points et 29 emprises documentaires ;
 - 148 mentions de sources ;
 - 61 identifiants externes ;
-- 18 sources enregistrées.
+- 21 sources enregistrées.
 
 ## Livrables locaux
 

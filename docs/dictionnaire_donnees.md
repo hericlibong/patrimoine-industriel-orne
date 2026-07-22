@@ -1,6 +1,6 @@
-# Dictionnaire des données — version 1.4
+# Dictionnaire des données — version 1.5
 
-Statut : **modèle et classifications V1 approuvés le 21 juillet 2026**.
+Statut : **socle pilote V1 consolidé le 22 juillet 2026**.
 
 Le schéma exécutable de référence est
 `src/patrimoine_orne/model/schema.sql`. Les contrôles qui portent sur plusieurs
@@ -22,8 +22,8 @@ géométrie et la fiabilité de l'information sont trois champs indépendants.
 
 ## Référentiel des classifications V1
 
-Le registre `config/classifications.yml` version 1.1 est la source canonique des
-174 codes publiés. Le dictionnaire en fixe ici le sens ; les libellés exhaustifs
+Le registre `config/classifications.yml` version 1.2 est la source canonique des
+177 codes publiés. Le dictionnaire en fixe ici le sens ; les libellés exhaustifs
 des 41 activités détaillées et des 32 installations restent dans le registre.
 
 ### Secteurs industriels
