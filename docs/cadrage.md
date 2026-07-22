@@ -1,6 +1,6 @@
 # Cadrage du projet
 
-Statut : **validé — version 1.0 du 19 juillet 2026**
+Statut : **validé — version 1.1 du 22 juillet 2026**
 
 ## Définition
 
@@ -35,6 +35,20 @@ Le premier livrable n'est pas l'application. C'est un socle comprenant :
 - un échantillon pilote géolocalisé ;
 - une méthode de rapprochement des sources ;
 - une documentation des limites et incertitudes.
+
+## Du pilote au corpus complet
+
+Les 30 sites du pilote servent uniquement à valider la méthode. Ils ne
+constituent ni le corpus final ni un échantillon statistiquement représentatif.
+
+Après validation du socle V1, le projet doit appliquer la méthode au corpus
+source complet des **319 dossiers de l'Inventaire du patrimoine industriel de
+l'Orne**, puis l'enrichir avec les autres sources retenues.
+
+Le nombre final de sites sera établi après rapprochement des notices, séparation
+des emprises distinctes, traitement des doublons et application des critères
+d'inclusion. Il pourra donc être différent de 319. Les entrées CASIAS restent
+des candidats d'élargissement et ne sont pas intégrées automatiquement.
 
 ## Forme finale envisagée
 

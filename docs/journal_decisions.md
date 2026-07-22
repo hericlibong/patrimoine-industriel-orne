@@ -495,3 +495,20 @@
   Lambert-93 reste le système de calcul et le WGS84 celui de l'export web.
 - Le bloc « Contexte territorial » est terminé. Le contrôle cartographique reste
   le prochain bloc de la phase 6.
+
+## 2026-07-22 — Pistes éditoriales et passage au corpus complet
+
+- Les résultats de contexte territorial du pilote sont conservés comme pistes
+  de récit et de datavisualisation, pas comme conclusions sur tout le département.
+- Les 30 sites constituent uniquement un pilote méthodologique non représentatif.
+  Leurs proportions ne doivent pas être extrapolées.
+- Après validation du socle V1, la méthode sera appliquée aux 319 dossiers du
+  corpus source de l'Inventaire du patrimoine industriel de l'Orne.
+- Le nombre final de sites pourra différer de 319 après rapprochement des
+  notices, séparation des emprises, exclusions et traitement des cas ambigus.
+- Les 2 052 entrées CASIAS ne sont pas ajoutées automatiquement au corpus :
+  elles restent une source de recoupement et d'élargissement raisonné.
+- Une phase dédiée au passage au corpus complet est ajoutée à la roadmap avant
+  la construction de la publication interactive.
+- Les interprétations liées à l'eau, la forêt, aux minerais et au rail devront
+  être recalculées sur ce corpus complet et vérifiées historiquement.

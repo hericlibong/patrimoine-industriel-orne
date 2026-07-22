@@ -17,6 +17,7 @@ versionné.
 ## Documents de référence
 
 - [Cadrage](docs/cadrage.md)
+- [Pistes éditoriales et datavisualisation](docs/pistes_editoriales.md)
 - [Méthodologie](docs/methodologie.md)
 - [Conventions d'extraction](docs/conventions_extraction.md)
 - [Dictionnaire des données](docs/dictionnaire_donnees.md)
