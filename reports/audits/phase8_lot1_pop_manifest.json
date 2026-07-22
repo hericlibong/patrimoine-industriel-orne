@@ -1,0 +1,510 @@
+{
+  "generated_at": "2026-07-22T21:36:59Z",
+  "lot": 1,
+  "reference_count": 50,
+  "schema_version": "1.0",
+  "sources": {
+    "pop_merimee": [
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060886__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 7107,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060886__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060886"
+        },
+        "sha256": "23cf13bab320f4109562a65a897e1f77bc4409f09d214a8e9547f3219ae87f30"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060892__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 9969,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060892__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060892"
+        },
+        "sha256": "b84fe40ecbdafc147bae78cae36702608e8f0759f0aaef6e9c3891d2884e18b9"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060899__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 6247,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060899__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060899"
+        },
+        "sha256": "87ae6f280ea86a8de3fbca8bc0840a0b8b26cfd30c6432585f42b7d01c44854d"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060907__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 5693,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060907__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060907"
+        },
+        "sha256": "859d9e8065c7e02c3ac97f2713afa8fffe370dceea2903f98f162b4285714246"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060914__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 16069,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060914__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060914"
+        },
+        "sha256": "92dee7e2556b645f8b899b9fc47ff898c09dcc8fb73a2c107a7ff1383f76a653"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060920__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 7169,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060920__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060920"
+        },
+        "sha256": "0fbf7a1023a670e8defc4aacc526a154a6b5c67b05b8df236c2b1975e37ab32d"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060926__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 6179,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060926__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060926"
+        },
+        "sha256": "24b7ba4ca951f95fe74d7f60cee231eb93037e2c27167b6e40290552dfcfa236"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060932__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 6060,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060932__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060932"
+        },
+        "sha256": "fced4c50df9ce4b6c1a58759e7e7b5f26aa6c887a327c30dd2436e8d2aa6c78b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060939__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 6977,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060939__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060939"
+        },
+        "sha256": "65c3364542c95dd8d53f3316e4ef9577fbb3d15236ab3a9f5ae6392efb96230d"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060945__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 8472,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060945__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060945"
+        },
+        "sha256": "ad1764477e038df31b2fd8cd85df8da370b5e347e2a5935bd9753ee2f8dffc21"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060950__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 6717,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060950__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060950"
+        },
+        "sha256": "24d88c0554f5f9c68306c3920de781301c94e4f8e1d545fa92695cab31bfe438"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060956__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 8836,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060956__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060956"
+        },
+        "sha256": "01085fc4114903039e228794cc0eb44359606df76a29490518489fd8129db508"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060963__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 13399,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060963__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060963"
+        },
+        "sha256": "3170f6cd2d8c6b43986fc7c0fe2ae52c9f73aed7fd5209e73100baa1cd7caa9e"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060971__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 5312,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060971__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060971"
+        },
+        "sha256": "55f4f0a21344ea004bb814c5e837a7ce4fd88cad8cc4931623db9d938408b21b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060977__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 7396,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060977__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060977"
+        },
+        "sha256": "975f4918a2d5fc09f27b88c41388abca43862e19e95138ab263ce002df2c9ee0"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060982__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 7768,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060982__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060982"
+        },
+        "sha256": "9d4878940931455273a20316c6331ef69e7c38e0a50a120ddf59daf652cd42eb"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060988__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 6158,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060988__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060988"
+        },
+        "sha256": "b55b1efb77fe5b680ca31a2a372a3e4bfdcc2c7c0dc67c3be5692259fb0bd291"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060994__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 12430,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00060994__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060994"
+        },
+        "sha256": "ec745f8b14d7e14bb2e6284cf86057b3ab4baf644fd462afee6c07d713f2036e"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061001__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 7778,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061001__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061001"
+        },
+        "sha256": "9c1fe9b13ddb4610057cf0b6ee544c4efcbb94bfe35e9523947eeef5d378024e"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061010__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 7429,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061010__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061010"
+        },
+        "sha256": "a65be9b3a097bbfa92b2f113bed023974e67bc05fd0cbe210e6e5dbffb1a04ef"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061015__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 14993,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061015__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061015"
+        },
+        "sha256": "63af2e26a4b26e7b513b0b9b8fe88e9b8f439149befcf6de4ad556dd896dbd51"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061021__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 6868,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061021__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061021"
+        },
+        "sha256": "43bd16fa72fb5c8616ea6a652cd106ccbc272e818744b8f57f42d706780ab73e"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061027__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 6295,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061027__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061027"
+        },
+        "sha256": "ea20d0ac454ce8e93a990f0295bd527f45a7d8be1da25d05cb431d8c0b870171"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061037__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 6360,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061037__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061037"
+        },
+        "sha256": "4a24e747625b42c2fdea089e08851fea176494a003c061849de0fee7d74c8d03"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061043__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 9221,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061043__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061043"
+        },
+        "sha256": "e4e6f1b5fc30b9074e7ec8c62f52166e781fb4d56efd31f15153c1ae40536200"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061048__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 6182,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061048__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061048"
+        },
+        "sha256": "7678bd4e4763e8fbd2776d86e6685e26b1d33f4029c0e86128a00eb2eda017a6"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061056__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 9839,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061056__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061056"
+        },
+        "sha256": "780b8a3aa5acaaaebfcd658bf60f54cbc1ce900423235d06dfe688fff9539c11"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061063__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 8029,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061063__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061063"
+        },
+        "sha256": "5ab1ca5eed94ad04c838a7e45f8249c325d83c62cec401ce6bd657b53d3639bb"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061069__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 8706,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061069__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061069"
+        },
+        "sha256": "f9d0c2211de419674e042d3bc27c28a3fbd3c88d652e398493f9058b4c2a9f11"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061076__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 8738,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061076__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061076"
+        },
+        "sha256": "94e75ace2cf0e963bc9188ca3a8962587f5796693665f6e332e81e959c11ef94"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061081__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 7221,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061081__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061081"
+        },
+        "sha256": "6a2b01b10d108f987b4438cc95f9393d84b91d8805742670d07b6df28d2ee34a"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061087__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 7037,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061087__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061087"
+        },
+        "sha256": "e626ad7bad547082738e3ee144b89b8b58904a974545688f58b9ae8c6d1160e0"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061094__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 6663,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061094__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061094"
+        },
+        "sha256": "51510f8299a1c0c04cd9f83b3fd80e67f38cfe2df4b5279d8613d5c95b8c3df0"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061101__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 8717,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061101__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061101"
+        },
+        "sha256": "b622180efda5589e617815db9453e905cc3a7c9e1fe2fd9ce19984b4243730e0"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061107__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 7492,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061107__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061107"
+        },
+        "sha256": "01b77deb00a05f5dfa2fd051c9b47fb5f34118cc01a4155b43709aaab19f2549"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061112__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 18462,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061112__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061112"
+        },
+        "sha256": "13782ce1272b63f525fcf0ca993f49ef1d01635eeed6eea48e5556f2da7b8fd0"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061121__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 9044,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061121__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061121"
+        },
+        "sha256": "0538ad950fab8188703826ba48acffdf13bfc410fd26b04317ff46ab75476188"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061127__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 6597,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061127__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061127"
+        },
+        "sha256": "4fdc5ed45514c33e8814217b0589fa926e1fa8095603365592e286e323ada774"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061134__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 7411,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061134__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061134"
+        },
+        "sha256": "90dc3c4bef2af8ab4d8bba807b351f4a1816cb0c78b7861e68ae33156226b479"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061141__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 8547,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061141__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061141"
+        },
+        "sha256": "b07db7d43bee9bfb5aeb915af2ecf267cc79470665e82d50ebd4802b19857957"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061146__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 7007,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061146__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061146"
+        },
+        "sha256": "a12efc029014f58cfc707a50f59a8b39763a659d4bfcfdf8c92b3418e7e023c4"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061154__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 7846,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061154__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061154"
+        },
+        "sha256": "75c925455b8de78ae441f886efaf3408472f41a9b3e529bca1a33eea992386f6"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061161__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 7911,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061161__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061161"
+        },
+        "sha256": "a12db6c0f49e1ff9ad91bbe7cd46276ba492668e174351958bf6e01671696de3"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061168__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 7391,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061168__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061168"
+        },
+        "sha256": "62221272ac3c467320af86027e8b16a3b42c69b4de90775fbafdeb45a483242f"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061174__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 9295,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061174__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061174"
+        },
+        "sha256": "b4660d30aa6b18a4e4e26ae6ecd52aaccf84872bc05e51e685a1fd7b114069a5"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061179__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 5785,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061179__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061179"
+        },
+        "sha256": "92d6d97934b3e176e1837f335bb62a3c386c6dd5bb0fa30ff080f9801c56d52f"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061185__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 7774,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061185__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061185"
+        },
+        "sha256": "27b8c4cddd3a1a309606798f368bd74cdd497ee109e1c89103382da689e3a333"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061191__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 7840,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061191__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061191"
+        },
+        "sha256": "ea807900578761e330cabfb4b5019bffc3867a8abf021fa637ce642fab9fa239"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061197__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 6117,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061197__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061197"
+        },
+        "sha256": "cebe63c5ecd38517542db1319e205c9ab2a1b0c06aab381a996b9233f31e32e8"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061203__orne_phase8_lot01__20260722T213659Z.json",
+        "file_size_bytes": 6524,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-22/pop_merimee__ia00061203__orne_phase8_lot01__20260722T213659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061203"
+        },
+        "sha256": "4c4afcdad6e6ad4760cd0cd08c6786726e031a387d3ed77df2fb3ed0822a350d"
+      }
+    ]
+  }
+}

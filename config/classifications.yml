@@ -1,7 +1,7 @@
 # Registre V1 validé à la clôture de la phase 4. Toute modification ultérieure
 # doit changer la version et être inscrite dans le journal des décisions.
-version: "1.2"
-status: socle_v1
+version: "1.3"
+status: phase8_corpus
 updated_at: 2026-07-22
 
 secteurs:
@@ -87,11 +87,20 @@ activites_detaillees:
   fabrication_metaux:
     libelle: Fabrication et transformation des métaux
     secteur_code: metallurgie_travail_metaux
+  production_fonte:
+    libelle: Production de fonte au haut fourneau
+    secteur_code: metallurgie_travail_metaux
   filature_textile:
     libelle: Filature textile
     secteur_code: textile_habillement_cuir
   tissage:
     libelle: Tissage
+    secteur_code: textile_habillement_cuir
+  foulage_textile:
+    libelle: Foulage des étoffes
+    secteur_code: textile_habillement_cuir
+  passementerie:
+    libelle: Fabrication de passements
     secteur_code: textile_habillement_cuir
   bonneterie:
     libelle: Bonneterie
@@ -110,6 +119,9 @@ activites_detaillees:
     secteur_code: textile_habillement_cuir
   sciage_bois:
     libelle: Sciage du bois
+    secteur_code: bois_papier_imprimerie
+  travail_bois:
+    libelle: Travail et transformation du bois
     secteur_code: bois_papier_imprimerie
   fabrication_papier:
     libelle: Fabrication de papier
@@ -183,6 +195,7 @@ types_installations:
   affinerie: {libelle: Affinerie}
   forge: {libelle: Forge}
   fonderie: {libelle: Fonderie}
+  haut_fourneau: {libelle: Haut fourneau}
   laminoir: {libelle: Laminoir}
   usine: {libelle: Usine}
   atelier: {libelle: Atelier}
@@ -267,6 +280,17 @@ correspondances_sources:
   - {terme: usine de construction mécanique, activite_code: construction_mecanique, installation_code: usine}
   - {terme: usine de fabrication des métaux, activite_code: fabrication_metaux, installation_code: usine}
   - {terme: usine de matériel électroménager, activite_code: fabrication_materiel_electrique, installation_code: usine}
+  - {terme: fenderie, activite_code: fabrication_metaux, installation_code: usine}
+  - {terme: haut fourneau, activite_code: production_fonte, installation_code: haut_fourneau}
+  - {terme: moulin à foulon, activite_code: foulage_textile, installation_code: moulin}
+  - {terme: tissage, activite_code: tissage, installation_code: tissage}
+  - {terme: usine de confection, activite_code: confection_habillement, installation_code: usine}
+  - {terme: usine de ferblanterie, activite_code: fabrication_metaux, installation_code: usine}
+  - {terme: usine de matériel d'équipement industriel, activite_code: construction_mecanique, installation_code: usine}
+  - {terme: usine de passementerie, activite_code: passementerie, installation_code: usine}
+  - {terme: usine de pâte à papier, activite_code: fabrication_papier, installation_code: usine}
+  - {terme: usine de serrurerie, activite_code: fabrication_quincaillerie, installation_code: usine}
+  - {terme: usine liée au travail du bois, activite_code: travail_bois, installation_code: usine}
 
 correspondances_energies_sources:
   - {terme: énergie hydraulique, energie_code: hydraulique}

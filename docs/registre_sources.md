@@ -1,11 +1,13 @@
-# Registre consolidé des sources — socle pilote V1
+# Registre consolidé des sources — phase 8
 
-Version : 1.1 — 22 juillet 2026
+Version : 1.2 — 22 juillet 2026
 
 La source canonique lisible par les traitements est `config/sources.yml`. Le
 fichier `reports/audits/registre_sources.csv` conserve l'état de l'audit initial
 de phase 1 ; il ne doit plus être utilisé comme registre opérationnel, car les
 produits géographiques réellement testés ont été précisés pendant la phase 6.
+La version 1.2 ajoute l'API JSON publique de POP comme accès principal aux
+notices Mérimée de l'Inventaire pendant la phase 8.
 
 ## Sources effectivement mobilisées dans le pilote
 

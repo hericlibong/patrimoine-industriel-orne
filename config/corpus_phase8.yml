@@ -1,0 +1,52 @@
+version: 1.0
+decided_at: 2026-07-22
+corpus_source:
+  label: Inventaire du patrimoine industriel de l'Orne
+  official_url: https://inventaire-patrimoine.normandie.fr/dossier/IA61000851/corpus
+  presentation_reference: IA61000851
+  announced_records: 319
+  announced_pages: 16
+
+enumeration:
+  method: pop_advanced_api_by_study_with_official_count_reconciliation
+  api_url: https://api.pop.culture.gouv.fr/search/advanced
+  expected_study: patrimoine industriel (patrimoine industriel de l’Orne)
+  expected_search_count: 320
+  excluded_search_results:
+    - reference: IA61000851
+      reason: notice_de_presentation_non_site
+  legacy_observations:
+    old_range: IA00060884-IA00061203
+    old_references_absent_from_current_study:
+      - IA00061031
+      - IA00061032
+      - IA00061060
+    current_references_outside_old_range:
+      - IA00062725
+      - IA61001399
+  controls:
+    - concordance_ref
+    - cadre_etude_exact
+    - exclusion_notice_presentation
+    - unicite
+    - total_319
+
+batches:
+  strategy: traitement_par_lots_apres_pilote
+  pilot_count: 30
+  first_new_batch_size: 50
+  selection_method: echantillonnage_systematique_sur_references_triees
+  remaining_plan:
+    - {lot: 2, maximum: 50}
+    - {lot: 3, maximum: 50}
+    - {lot: 4, maximum: 50}
+    - {lot: 5, maximum: 50}
+    - {lot: 6, maximum: 39}
+
+rules:
+  - une_reference_IA_est_un_dossier_source_et_non_un_site_canonique
+  - un_dossier_collectif_reste_dans_le_corpus_et_doit_etre_decompose_en_revue
+  - aucun_rapprochement_automatique_ne_fusionne_des_emprises
+  - aucune_separation_automatique_ne_cree_des_sites
+  - toute_exclusion_fusion_separation_ou_incertitude_est_documentee
+  - le_nombre_canonique_reste_inconnu_avant_revue_de_tous_les_lots

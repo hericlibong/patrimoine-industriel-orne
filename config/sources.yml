@@ -1,4 +1,4 @@
-version: 1.1
+version: 1.2
 updated_at: 2026-07-22
 
 roles:
@@ -44,7 +44,7 @@ sources:
     priority: P1
     role: enrichissement
     url: https://pop.culture.gouv.fr/
-    access: [html, csv_mh, geojson_mh, api_mh]
+    access: [api_pop_json, html, csv_mh, geojson_mh, api_mh]
     identifier: reference_Merimee
     audit_status: validee_avec_reserves
     data_license: licence_ouverte_2_0_sauf_mention_contraire
@@ -52,6 +52,7 @@ sources:
     attribution: Ministère de la Culture - POP / Mérimée
     rights_url: https://pop.culture.gouv.fr/conditions-generales-utilisation
     limits:
+      - la recherche par cadre d'étude renvoie aussi la notice de présentation à exclure
       - l'export ouvert testé correspond aux Monuments historiques
       - ne pas confondre protection MH et corpus complet de l'Inventaire
       - droits des textes et médias à contrôler notice par notice

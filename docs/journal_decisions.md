@@ -671,3 +671,28 @@
 - Les limites relatives aux situations actuelles, localisations, objets
   Palissy, CASIAS et droits des images restent en vigueur.
 - Le socle pilote V1 est approuvé et la phase 7 est terminée.
+
+## 2026-07-22 — Phase 8, énumération et premier lot
+
+- Le bloc « Constituer le corpus » est exécuté par lots : les cases globales
+  restent ouvertes jusqu'au traitement des 319 dossiers.
+- La déduction par plage numérique est abandonnée parce qu'elle ne reproduit
+  pas le corpus actuel. L'énumération utilise la recherche avancée de l'API POP
+  sur le cadre d'étude exact.
+- La recherche renvoie 320 notices. `IA61000851` est exclue comme notice de
+  présentation ; les 319 autres références concordent avec le total officiel.
+- Le dossier collectif `IA61001399` est maintenu. Il sera décomposé en emprises
+  pendant la revue et ne doit pas être interprété comme un site unique.
+- L'API JSON de POP devient l'accès principal pour les nouveaux lots. Le HTML
+  Next.js reste le repli testé.
+- Le registre des sources passe en version 1.2 et les règles d'extraction en
+  version 1.1 pour consigner ce changement d'accès.
+- Le lot 1 contient 50 dossiers non pilotes répartis sur la liste des
+  références. Les 50 JSON bruts sont archivés et les 50 `REF` concordent.
+- Onze termes sources complètent les correspondances exactes. Quatre activités
+  et une installation sont ajoutées ; les classifications passent en version
+  1.3 avec 182 codes publiés.
+- Les 62 dénominations du lot sont classées. Quatre dossiers multi-secteurs ont
+  été relus et conservés comme quatre sites à activités successives.
+- Le lot 1 contient donc 50 sites provisoires. Le nombre canonique du corpus
+  principal reste inconnu jusqu'à la revue de tous les lots.

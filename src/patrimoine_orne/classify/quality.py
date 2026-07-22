@@ -130,12 +130,13 @@ def validate_published_classifications(config: Mapping[str, Any]) -> list[str]:
         ),
         *(f"qualité: {error}" for error in validate_quality_classifications(config)),
     ]
-    if str(config.get("version")) not in {"1.0", "1.1", "1.2"}:
-        errors.append("la version publiée doit être 1.0, 1.1 ou 1.2")
+    if str(config.get("version")) not in {"1.0", "1.1", "1.2", "1.3"}:
+        errors.append("la version publiée doit être comprise entre 1.0 et 1.3")
     if config.get("status") not in {
         "phase4_validee",
         "phase5_enrichissement",
         "socle_v1",
+        "phase8_corpus",
     }:
         errors.append("statut de publication des classifications invalide")
 

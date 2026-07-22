@@ -1,0 +1,4811 @@
+{
+  "checks": {
+    "official_total_matches": true,
+    "presentation_exclusion_matches": true,
+    "unique": true
+  },
+  "eligible_count": 319,
+  "excluded_search_result_count": 1,
+  "generated_at": "2026-07-22T21:36:59Z",
+  "method": "pop_advanced_api_by_study_with_official_count_reconciliation",
+  "official_source": {
+    "announced_pages": 16,
+    "announced_records": 319,
+    "label": "Inventaire du patrimoine industriel de l'Orne",
+    "official_url": "https://inventaire-patrimoine.normandie.fr/dossier/IA61000851/corpus",
+    "presentation_reference": "IA61000851"
+  },
+  "references": [
+    "IA00060884",
+    "IA00060885",
+    "IA00060886",
+    "IA00060887",
+    "IA00060888",
+    "IA00060889",
+    "IA00060890",
+    "IA00060891",
+    "IA00060892",
+    "IA00060893",
+    "IA00060894",
+    "IA00060895",
+    "IA00060896",
+    "IA00060897",
+    "IA00060898",
+    "IA00060899",
+    "IA00060900",
+    "IA00060901",
+    "IA00060902",
+    "IA00060903",
+    "IA00060904",
+    "IA00060905",
+    "IA00060906",
+    "IA00060907",
+    "IA00060908",
+    "IA00060909",
+    "IA00060910",
+    "IA00060911",
+    "IA00060912",
+    "IA00060913",
+    "IA00060914",
+    "IA00060915",
+    "IA00060916",
+    "IA00060917",
+    "IA00060918",
+    "IA00060919",
+    "IA00060920",
+    "IA00060921",
+    "IA00060922",
+    "IA00060923",
+    "IA00060924",
+    "IA00060925",
+    "IA00060926",
+    "IA00060927",
+    "IA00060928",
+    "IA00060929",
+    "IA00060930",
+    "IA00060931",
+    "IA00060932",
+    "IA00060933",
+    "IA00060934",
+    "IA00060935",
+    "IA00060936",
+    "IA00060937",
+    "IA00060938",
+    "IA00060939",
+    "IA00060940",
+    "IA00060941",
+    "IA00060942",
+    "IA00060943",
+    "IA00060944",
+    "IA00060945",
+    "IA00060946",
+    "IA00060947",
+    "IA00060948",
+    "IA00060949",
+    "IA00060950",
+    "IA00060951",
+    "IA00060952",
+    "IA00060953",
+    "IA00060954",
+    "IA00060955",
+    "IA00060956",
+    "IA00060957",
+    "IA00060958",
+    "IA00060959",
+    "IA00060960",
+    "IA00060961",
+    "IA00060962",
+    "IA00060963",
+    "IA00060964",
+    "IA00060965",
+    "IA00060966",
+    "IA00060967",
+    "IA00060968",
+    "IA00060969",
+    "IA00060970",
+    "IA00060971",
+    "IA00060972",
+    "IA00060973",
+    "IA00060974",
+    "IA00060975",
+    "IA00060976",
+    "IA00060977",
+    "IA00060978",
+    "IA00060979",
+    "IA00060980",
+    "IA00060981",
+    "IA00060982",
+    "IA00060983",
+    "IA00060984",
+    "IA00060985",
+    "IA00060986",
+    "IA00060987",
+    "IA00060988",
+    "IA00060989",
+    "IA00060990",
+    "IA00060991",
+    "IA00060992",
+    "IA00060993",
+    "IA00060994",
+    "IA00060995",
+    "IA00060996",
+    "IA00060997",
+    "IA00060998",
+    "IA00060999",
+    "IA00061000",
+    "IA00061001",
+    "IA00061002",
+    "IA00061003",
+    "IA00061004",
+    "IA00061005",
+    "IA00061006",
+    "IA00061007",
+    "IA00061008",
+    "IA00061009",
+    "IA00061010",
+    "IA00061011",
+    "IA00061012",
+    "IA00061013",
+    "IA00061014",
+    "IA00061015",
+    "IA00061016",
+    "IA00061017",
+    "IA00061018",
+    "IA00061019",
+    "IA00061020",
+    "IA00061021",
+    "IA00061022",
+    "IA00061023",
+    "IA00061024",
+    "IA00061025",
+    "IA00061026",
+    "IA00061027",
+    "IA00061028",
+    "IA00061029",
+    "IA00061030",
+    "IA00061033",
+    "IA00061034",
+    "IA00061035",
+    "IA00061036",
+    "IA00061037",
+    "IA00061038",
+    "IA00061039",
+    "IA00061040",
+    "IA00061041",
+    "IA00061042",
+    "IA00061043",
+    "IA00061044",
+    "IA00061045",
+    "IA00061046",
+    "IA00061047",
+    "IA00061048",
+    "IA00061049",
+    "IA00061050",
+    "IA00061051",
+    "IA00061052",
+    "IA00061053",
+    "IA00061054",
+    "IA00061055",
+    "IA00061056",
+    "IA00061057",
+    "IA00061058",
+    "IA00061059",
+    "IA00061061",
+    "IA00061062",
+    "IA00061063",
+    "IA00061064",
+    "IA00061065",
+    "IA00061066",
+    "IA00061067",
+    "IA00061068",
+    "IA00061069",
+    "IA00061070",
+    "IA00061071",
+    "IA00061072",
+    "IA00061073",
+    "IA00061074",
+    "IA00061075",
+    "IA00061076",
+    "IA00061077",
+    "IA00061078",
+    "IA00061079",
+    "IA00061080",
+    "IA00061081",
+    "IA00061082",
+    "IA00061083",
+    "IA00061084",
+    "IA00061085",
+    "IA00061086",
+    "IA00061087",
+    "IA00061088",
+    "IA00061089",
+    "IA00061090",
+    "IA00061091",
+    "IA00061092",
+    "IA00061093",
+    "IA00061094",
+    "IA00061095",
+    "IA00061096",
+    "IA00061097",
+    "IA00061098",
+    "IA00061099",
+    "IA00061100",
+    "IA00061101",
+    "IA00061102",
+    "IA00061103",
+    "IA00061104",
+    "IA00061105",
+    "IA00061106",
+    "IA00061107",
+    "IA00061108",
+    "IA00061109",
+    "IA00061110",
+    "IA00061111",
+    "IA00061112",
+    "IA00061113",
+    "IA00061114",
+    "IA00061115",
+    "IA00061116",
+    "IA00061117",
+    "IA00061118",
+    "IA00061119",
+    "IA00061120",
+    "IA00061121",
+    "IA00061122",
+    "IA00061123",
+    "IA00061124",
+    "IA00061125",
+    "IA00061126",
+    "IA00061127",
+    "IA00061128",
+    "IA00061129",
+    "IA00061130",
+    "IA00061131",
+    "IA00061132",
+    "IA00061133",
+    "IA00061134",
+    "IA00061135",
+    "IA00061136",
+    "IA00061137",
+    "IA00061138",
+    "IA00061139",
+    "IA00061140",
+    "IA00061141",
+    "IA00061142",
+    "IA00061143",
+    "IA00061144",
+    "IA00061145",
+    "IA00061146",
+    "IA00061147",
+    "IA00061148",
+    "IA00061149",
+    "IA00061150",
+    "IA00061151",
+    "IA00061152",
+    "IA00061153",
+    "IA00061154",
+    "IA00061155",
+    "IA00061156",
+    "IA00061157",
+    "IA00061158",
+    "IA00061159",
+    "IA00061160",
+    "IA00061161",
+    "IA00061162",
+    "IA00061163",
+    "IA00061164",
+    "IA00061165",
+    "IA00061166",
+    "IA00061167",
+    "IA00061168",
+    "IA00061169",
+    "IA00061170",
+    "IA00061171",
+    "IA00061172",
+    "IA00061173",
+    "IA00061174",
+    "IA00061175",
+    "IA00061176",
+    "IA00061177",
+    "IA00061178",
+    "IA00061179",
+    "IA00061180",
+    "IA00061181",
+    "IA00061182",
+    "IA00061183",
+    "IA00061184",
+    "IA00061185",
+    "IA00061186",
+    "IA00061187",
+    "IA00061188",
+    "IA00061189",
+    "IA00061190",
+    "IA00061191",
+    "IA00061192",
+    "IA00061193",
+    "IA00061194",
+    "IA00061195",
+    "IA00061196",
+    "IA00061197",
+    "IA00061198",
+    "IA00061199",
+    "IA00061200",
+    "IA00061201",
+    "IA00061202",
+    "IA00061203",
+    "IA00062725",
+    "IA61001399"
+  ],
+  "schema_version": "1.0",
+  "search_result_audit": [
+    {
+      "communes": [
+        "Saint-Pierre-du-Regard"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/e6892b25-22e4-4cbb-9c3e-434cee671418",
+      "insee": [
+        "61447"
+      ],
+      "reason": null,
+      "reference": "IA00060884",
+      "status": "eligible",
+      "title": "usine d'ouvrages en amiante"
+    },
+    {
+      "communes": [
+        "Saint-Philbert-sur-Orne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/268e9a4a-9d0b-4bf3-88ab-be2766dc5881",
+      "insee": [
+        "61444"
+      ],
+      "reason": null,
+      "reference": "IA00060885",
+      "status": "eligible",
+      "title": "centrale hydroélectrique"
+    },
+    {
+      "communes": [
+        "Saint-Evroult-Notre-Dame-du-Bois"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/ac551034-af77-49ae-b783-93b8082f3fb2",
+      "insee": [
+        "61386"
+      ],
+      "reason": null,
+      "reference": "IA00060886",
+      "status": "eligible",
+      "title": "scierie de Saint-Evroult"
+    },
+    {
+      "communes": [
+        "Tinchebray"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/3be4c4e6-81b3-4b00-a5be-29bf694da658",
+      "insee": [
+        "61486"
+      ],
+      "reason": null,
+      "reference": "IA00060887",
+      "status": "eligible",
+      "title": "moulin à papier, filature"
+    },
+    {
+      "communes": [
+        "Ségrie-Fontaine"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/50d0c504-09b6-4aa5-abae-0706d3f6be25",
+      "insee": [
+        "61465"
+      ],
+      "reason": null,
+      "reference": "IA00060888",
+      "status": "eligible",
+      "title": "moulin à blé, filature"
+    },
+    {
+      "communes": [
+        "Saint-Georges-des-Groseillers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/e8e4afcd-ec77-4268-afba-aa8cb7d4583b",
+      "insee": [
+        "61391"
+      ],
+      "reason": null,
+      "reference": "IA00060889",
+      "status": "eligible",
+      "title": "usine de construction mécanique dite usine de Construction Mécanique Cousin"
+    },
+    {
+      "communes": [
+        "Saint-Evroult-Notre-Dame-du-Bois"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/72c7db66-5725-450c-9b6a-9affb002f377",
+      "insee": [
+        "61386"
+      ],
+      "reason": null,
+      "reference": "IA00060890",
+      "status": "eligible",
+      "title": "fromagerie industrielle"
+    },
+    {
+      "communes": [
+        "Serans"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/5d4cbd4e-f48d-46f7-bde7-1dc67f5b7136",
+      "insee": [
+        "61470"
+      ],
+      "reason": null,
+      "reference": "IA00060891",
+      "status": "eligible",
+      "title": "fromagerie industrielle"
+    },
+    {
+      "communes": [
+        "Ménil-Hubert-sur-Orne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/56f6086f-45f4-4898-a92d-01c3877e751a",
+      "insee": [
+        "61269"
+      ],
+      "reason": null,
+      "reference": "IA00060892",
+      "status": "eligible",
+      "title": "filature de coton"
+    },
+    {
+      "communes": [
+        "Cahan"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/5087b98c-261c-4355-949d-915acf578073",
+      "insee": [
+        "61069"
+      ],
+      "reason": null,
+      "reference": "IA00060893",
+      "status": "eligible",
+      "title": "filature de coton"
+    },
+    {
+      "communes": [
+        "Dompierre"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/4edf53a2-97b8-4ddb-bc74-18ebf307945a",
+      "insee": [
+        "61146"
+      ],
+      "reason": null,
+      "reference": "IA00060894",
+      "status": "eligible",
+      "title": "haut fourneau, moulin à farine"
+    },
+    {
+      "communes": [
+        "Argentan"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/cfe24f63-71ef-4ba1-9c54-a8f47cdc51cc",
+      "insee": [
+        "61006"
+      ],
+      "reason": null,
+      "reference": "IA00060895",
+      "status": "eligible",
+      "title": "fonderie"
+    },
+    {
+      "communes": [
+        "Cahan"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/2e06c2e8-40c1-4f29-8de0-d56110552b0b",
+      "insee": [
+        "61069"
+      ],
+      "reason": null,
+      "reference": "IA00060896",
+      "status": "eligible",
+      "title": "filature, usine de chaussures"
+    },
+    {
+      "communes": [
+        "Caligny"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/f3368b75-9c61-4871-9b09-73048c1f8120",
+      "insee": [
+        "61070"
+      ],
+      "reason": null,
+      "reference": "IA00060897",
+      "status": "eligible",
+      "title": "filature de coton"
+    },
+    {
+      "communes": [
+        "Flers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/79bd4669-a6e8-40cf-ad76-442679321b9b",
+      "insee": [
+        "61169"
+      ],
+      "reason": null,
+      "reference": "IA00060898",
+      "status": "eligible",
+      "title": "usine de confection, usine de matériel électroménager, usine de matériel électroacoustique"
+    },
+    {
+      "communes": [
+        "Rânes"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/241fb84d-5d76-4ec3-9868-368485c43bbc",
+      "insee": [
+        "61344"
+      ],
+      "reason": null,
+      "reference": "IA00060899",
+      "status": "eligible",
+      "title": "haut fourneau"
+    },
+    {
+      "communes": [
+        "Saint-Pierre-d'Entremont"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/1569a5fc-5af9-4ced-9967-4c507de2414e",
+      "insee": [
+        "61445"
+      ],
+      "reason": null,
+      "reference": "IA00060900",
+      "status": "eligible",
+      "title": "filature de coton"
+    },
+    {
+      "communes": [
+        "Rânes"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/ffc46dae-bb00-47c6-bc9b-e0e9a3106f5a",
+      "insee": [
+        "61344"
+      ],
+      "reason": null,
+      "reference": "IA00060901",
+      "status": "eligible",
+      "title": "affinerie de fer"
+    },
+    {
+      "communes": [
+        "Berjou"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/0b920d52-7d2d-4bee-9310-ee086b212b57",
+      "insee": [
+        "61044"
+      ],
+      "reason": null,
+      "reference": "IA00060902",
+      "status": "eligible",
+      "title": "filature, fromagerie industrielle"
+    },
+    {
+      "communes": [
+        "Caligny"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/77493c8a-f023-4733-a897-c7b181593906",
+      "insee": [
+        "61070"
+      ],
+      "reason": null,
+      "reference": "IA00060903",
+      "status": "eligible",
+      "title": "filature de coton"
+    },
+    {
+      "communes": [
+        "Montilly-sur-Noireau"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/8f5adc8f-f62b-4153-b407-4f9db4819abd",
+      "insee": [
+        "61287"
+      ],
+      "reason": null,
+      "reference": "IA00060904",
+      "status": "eligible",
+      "title": "filature de coton"
+    },
+    {
+      "communes": [
+        "Saint-Bômer-les-Forges"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/701a31af-9c2b-4a7f-b63c-f257d2bec47c",
+      "insee": [
+        "61369"
+      ],
+      "reason": null,
+      "reference": "IA00060905",
+      "status": "eligible",
+      "title": "fromagerie industrielle, laiterie industrielle"
+    },
+    {
+      "communes": [
+        "Montilly-sur-Noireau"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/40520c19-0185-4170-a307-c66e361acc90",
+      "insee": [
+        "61287"
+      ],
+      "reason": null,
+      "reference": "IA00060906",
+      "status": "eligible",
+      "title": "filature de coton"
+    },
+    {
+      "communes": [
+        "Flers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/b03e3c23-feab-4456-bf5c-3902b8bb7488",
+      "insee": [
+        "61169"
+      ],
+      "reason": null,
+      "reference": "IA00060907",
+      "status": "eligible",
+      "title": "usine de confection"
+    },
+    {
+      "communes": [
+        "Larchamp"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/a1d924c9-c295-4064-b100-b839b80a90d4",
+      "insee": [
+        "61223"
+      ],
+      "reason": null,
+      "reference": "IA00060908",
+      "status": "eligible",
+      "title": "mine de fer"
+    },
+    {
+      "communes": [
+        "Gacé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/e0e8ddd7-0a8d-420a-b2a0-c7b36a58eb43",
+      "insee": [
+        "61181"
+      ],
+      "reason": null,
+      "reference": "IA00060909",
+      "status": "eligible",
+      "title": "distillerie, cidrerie, laiterie industrielle"
+    },
+    {
+      "communes": [
+        "Flers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/286f0f4f-857e-4449-9e35-4c21e914bc73",
+      "insee": [
+        "61169"
+      ],
+      "reason": null,
+      "reference": "IA00060910",
+      "status": "eligible",
+      "title": "tissage"
+    },
+    {
+      "communes": [
+        "Champsecret"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/4af855f0-3d7f-4e1c-af8d-91c65771a1de",
+      "insee": [
+        "61091"
+      ],
+      "reason": null,
+      "reference": "IA00060911",
+      "status": "eligible",
+      "title": "scierie"
+    },
+    {
+      "communes": [
+        "La Ferrière-aux-Étangs"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/da22b727-9136-4498-a8f4-156f8abb11c3",
+      "insee": [
+        "61163"
+      ],
+      "reason": null,
+      "reference": "IA00060912",
+      "status": "eligible",
+      "title": "ensemble d'industrie extractive"
+    },
+    {
+      "communes": [
+        "Flers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/ead596e3-dc26-4e34-9831-60fe2bc2b6a7",
+      "insee": [
+        "61169"
+      ],
+      "reason": null,
+      "reference": "IA00060913",
+      "status": "eligible",
+      "title": "tissage (tissage de Coton)"
+    },
+    {
+      "communes": [
+        "Flers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/83cddd58-ad05-4930-98cc-fdfad6dd518d",
+      "insee": [
+        "61169"
+      ],
+      "reason": null,
+      "reference": "IA00060914",
+      "status": "eligible",
+      "title": "tissage (tissage de Coton) dit tissage de la Blanchardière"
+    },
+    {
+      "communes": [
+        "Saint-Georges-des-Groseillers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/1bdffde4-d1d1-4484-82e5-ec184ae83404",
+      "insee": [
+        "61391"
+      ],
+      "reason": null,
+      "reference": "IA00060915",
+      "status": "eligible",
+      "title": "filature de coton dite filature de la Planchette"
+    },
+    {
+      "communes": [
+        "Vimoutiers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/1a9a2847-6721-406e-829f-3cb0ea579360",
+      "insee": [
+        "61508"
+      ],
+      "reason": null,
+      "reference": "IA00060916",
+      "status": "eligible",
+      "title": "cidrerie distillerie Anée"
+    },
+    {
+      "communes": [
+        "Vimoutiers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/92620e30-8fdd-40f0-972c-cf3a2f5bbc5d",
+      "insee": [
+        "61508"
+      ],
+      "reason": null,
+      "reference": "IA00060917",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Trun"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/fd9f271f-d779-49a9-bb8b-184e8c01b957",
+      "insee": [
+        "61494"
+      ],
+      "reason": null,
+      "reference": "IA00060918",
+      "status": "eligible",
+      "title": "usine de chaussures"
+    },
+    {
+      "communes": [
+        "Vrigny"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/5aa0568f-a61f-4f90-95a0-f44668c33531",
+      "insee": [
+        "61511"
+      ],
+      "reason": null,
+      "reference": "IA00060919",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Saint-Germain-de-Clairefeuille"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/9ec3d6b1-bf68-4db3-8138-ef1366985e52",
+      "insee": [
+        "61393"
+      ],
+      "reason": null,
+      "reference": "IA00060920",
+      "status": "eligible",
+      "title": "scierie"
+    },
+    {
+      "communes": [
+        "Silly-en-Gouffern"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/8f445157-f487-4dbb-a73a-628a46dfe355",
+      "insee": [
+        "61474"
+      ],
+      "reason": null,
+      "reference": "IA00060921",
+      "status": "eligible",
+      "title": "moulin à tan"
+    },
+    {
+      "communes": [
+        "Écouché"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/607b0df3-dc2c-4556-bbfa-194b1c5a50d6",
+      "insee": [
+        "61153"
+      ],
+      "reason": null,
+      "reference": "IA00060922",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Échauffour"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/67f8daae-b4c8-462c-8a2d-e1f20bf09b42",
+      "insee": [
+        "61150"
+      ],
+      "reason": null,
+      "reference": "IA00060923",
+      "status": "eligible",
+      "title": "tréfilerie"
+    },
+    {
+      "communes": [
+        "Tinchebray"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/ed090b86-b0ae-40c3-8865-e0ff69567378",
+      "insee": [
+        "61486"
+      ],
+      "reason": null,
+      "reference": "IA00060924",
+      "status": "eligible",
+      "title": "collège, chocolaterie dite chocolaterie de l'Abbaye Suisse Normande"
+    },
+    {
+      "communes": [
+        "Tinchebray"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/dab5894f-f425-4339-aa5e-74112201dc4d",
+      "insee": [
+        "61486"
+      ],
+      "reason": null,
+      "reference": "IA00060925",
+      "status": "eligible",
+      "title": "usine de quincaillerie"
+    },
+    {
+      "communes": [
+        "Tinchebray"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/eaea568b-7601-4bdf-8f38-5fadccbc4d80",
+      "insee": [
+        "61486"
+      ],
+      "reason": null,
+      "reference": "IA00060926",
+      "status": "eligible",
+      "title": "usine de ferblanterie, usine de serrurerie"
+    },
+    {
+      "communes": [
+        "Tinchebray"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/bc846388-04b3-4ee9-8512-d9ea8d170580",
+      "insee": [
+        "61486"
+      ],
+      "reason": null,
+      "reference": "IA00060927",
+      "status": "eligible",
+      "title": "moulin à papier, usine de quincaillerie dit moulin de Rochefort"
+    },
+    {
+      "communes": [
+        "Tinchebray"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/efb0da58-bc5b-45cc-9a13-7e4697b7be1e",
+      "insee": [
+        "61486"
+      ],
+      "reason": null,
+      "reference": "IA00060928",
+      "status": "eligible",
+      "title": "usine de quincaillerie"
+    },
+    {
+      "communes": [
+        "Tinchebray"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/fd9989f4-cad5-4cac-af74-945cb69b8a71",
+      "insee": [
+        "61486"
+      ],
+      "reason": null,
+      "reference": "IA00060929",
+      "status": "eligible",
+      "title": "tonnellerie, usine de boissellerie"
+    },
+    {
+      "communes": [
+        "Tinchebray"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/6dbbf757-cc58-4f38-9949-a020e2f2453b",
+      "insee": [
+        "61486"
+      ],
+      "reason": null,
+      "reference": "IA00060930",
+      "status": "eligible",
+      "title": "moulin à farine, usine de quincaillerie"
+    },
+    {
+      "communes": [
+        "Dompierre"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/2e457791-3208-4a23-bbc8-ddc223ce30e2",
+      "insee": [
+        "61146"
+      ],
+      "reason": null,
+      "reference": "IA00060931",
+      "status": "eligible",
+      "title": "scierie"
+    },
+    {
+      "communes": [
+        "Flers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/6017fa46-e6f0-4085-8760-68bb54cfc44d",
+      "insee": [
+        "61169"
+      ],
+      "reason": null,
+      "reference": "IA00060932",
+      "status": "eligible",
+      "title": "usine de confection"
+    },
+    {
+      "communes": [
+        "Saint-Pierre-d'Entremont"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/7e88c5db-ce9d-446d-b6f4-51cb5bd420c0",
+      "insee": [
+        "61445"
+      ],
+      "reason": null,
+      "reference": "IA00060933",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Vimoutiers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/3c7f9eb5-db5e-476a-a1ab-91d6270de979",
+      "insee": [
+        "61508"
+      ],
+      "reason": null,
+      "reference": "IA00060934",
+      "status": "eligible",
+      "title": "tannerie"
+    },
+    {
+      "communes": [
+        "La Carneille"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/be4d1083-c2d1-40cc-b09d-cacc6979f5ae",
+      "insee": [
+        "61073"
+      ],
+      "reason": null,
+      "reference": "IA00060935",
+      "status": "eligible",
+      "title": "usine de teinturerie"
+    },
+    {
+      "communes": [
+        "Montreuil-au-Houlme"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/53e8a5b3-c08f-4c2c-9ae7-b18cdf3e3c55",
+      "insee": [
+        "61290"
+      ],
+      "reason": null,
+      "reference": "IA00060936",
+      "status": "eligible",
+      "title": "cidrerie"
+    },
+    {
+      "communes": [
+        "Montreuil-la-Cambe"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/5ede3b04-daf5-4e69-ad68-9b77f385c0d2",
+      "insee": [
+        "61291"
+      ],
+      "reason": null,
+      "reference": "IA00060937",
+      "status": "eligible",
+      "title": "fromagerie industrielle"
+    },
+    {
+      "communes": [
+        "Rabodanges"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/607486b0-aec7-439d-8c60-2373ec8c3772",
+      "insee": [
+        "61340"
+      ],
+      "reason": null,
+      "reference": "IA00060938",
+      "status": "eligible",
+      "title": "centrale hydroélectrique"
+    },
+    {
+      "communes": [
+        "Le Renouard"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/fceacf84-952a-4d8d-8db0-efdf2cc7b3ad",
+      "insee": [
+        "61346"
+      ],
+      "reason": null,
+      "reference": "IA00060939",
+      "status": "eligible",
+      "title": "fromagerie industrielle"
+    },
+    {
+      "communes": [
+        "Le Renouard"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/5e0446e2-3107-4c4c-9cf1-c34230199052",
+      "insee": [
+        "61346"
+      ],
+      "reason": null,
+      "reference": "IA00060940",
+      "status": "eligible",
+      "title": "fromagerie industrielle"
+    },
+    {
+      "communes": [
+        "L'Aigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/859dc28b-a0dd-48b7-8d21-c07aebc0c394",
+      "insee": [
+        "61214"
+      ],
+      "reason": null,
+      "reference": "IA00060941",
+      "status": "eligible",
+      "title": "abattoir"
+    },
+    {
+      "communes": [
+        "Feings"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/9b96d451-5274-404c-87fa-3478b0e5a352",
+      "insee": [
+        "61160"
+      ],
+      "reason": null,
+      "reference": "IA00060942",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Échauffour"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/1a7eedac-04bd-4881-bb48-2080a95b1611",
+      "insee": [
+        "61150"
+      ],
+      "reason": null,
+      "reference": "IA00060943",
+      "status": "eligible",
+      "title": "tréfilerie de Sainte-Colombe, puis S.A. le Domaine du Tremblay, puis fromagerie et laiterie industrielle dite Société Laitière et Fromagère de Sainte-Gauburge, puis S.A. la Normandie Centrale, puis Société Coopérative Agricole Groupement Laitier du Perche"
+    },
+    {
+      "communes": [
+        "Sainte-Marguerite-de-Carrouges"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/7d7d2119-f7e5-46e6-97dd-d61aad882d6e",
+      "insee": [
+        "61419"
+      ],
+      "reason": null,
+      "reference": "IA00060944",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Saint-Martin-l'Aiguillon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/c00da04a-cc2a-460e-aced-1c44ff737c01",
+      "insee": [
+        "61427"
+      ],
+      "reason": null,
+      "reference": "IA00060945",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Saint-Patrice-du-Désert"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/728446d8-33e1-478b-a982-3160a704578f",
+      "insee": [
+        "61442"
+      ],
+      "reason": null,
+      "reference": "IA00060946",
+      "status": "eligible",
+      "title": "affinerie de fer"
+    },
+    {
+      "communes": [
+        "Saint-Patrice-du-Désert"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/53a602b0-f4bb-4d15-b8e7-e7baafd71d09",
+      "insee": [
+        "61442"
+      ],
+      "reason": null,
+      "reference": "IA00060947",
+      "status": "eligible",
+      "title": "haut fourneau de la Vie"
+    },
+    {
+      "communes": [
+        "Le Champ-de-la-Pierre"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/61cddbc2-8135-4bde-a3c3-1fb5bfe39ca8",
+      "insee": [
+        "61085"
+      ],
+      "reason": null,
+      "reference": "IA00060948",
+      "status": "eligible",
+      "title": "fenderie de fer"
+    },
+    {
+      "communes": [
+        "Livaie"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/7b5b8c23-8a44-4527-a889-bdee6180094a",
+      "insee": [
+        "61228"
+      ],
+      "reason": null,
+      "reference": "IA00060949",
+      "status": "eligible",
+      "title": "affinerie de fer dite forge de la Roche"
+    },
+    {
+      "communes": [
+        "Macé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/fec36c1b-86bf-42e2-857d-559a5ac73865",
+      "insee": [
+        "61240"
+      ],
+      "reason": null,
+      "reference": "IA00060950",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Macé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/9d7ad0b2-563f-4e06-9980-c53f6e84720f",
+      "insee": [
+        "61240"
+      ],
+      "reason": null,
+      "reference": "IA00060951",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Sées"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/4d314546-51bf-4db1-b15b-319fb6dd8a67",
+      "insee": [
+        "61464"
+      ],
+      "reason": null,
+      "reference": "IA00060952",
+      "status": "eligible",
+      "title": "édifice sportif, abattoirs municipaux, usine de confection"
+    },
+    {
+      "communes": [
+        "Sées"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/740f93c2-905a-47be-a64e-f5d4fc634900",
+      "insee": [
+        "61464"
+      ],
+      "reason": null,
+      "reference": "IA00060953",
+      "status": "eligible",
+      "title": "tuilerie, briqueterie, fonderie, usine d'appareils de levage et de manutention"
+    },
+    {
+      "communes": [
+        "Mantilly"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/c81cdf0c-018e-45ed-bba1-50dcaa30b325",
+      "insee": [
+        "61248"
+      ],
+      "reason": null,
+      "reference": "IA00060954",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Mantilly"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/ef3a7c19-0544-4f07-9e07-0cf77e010556",
+      "insee": [
+        "61248"
+      ],
+      "reason": null,
+      "reference": "IA00060955",
+      "status": "eligible",
+      "title": "moulin à farine, fromagerie industrielle"
+    },
+    {
+      "communes": [
+        "Mantilly"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/71f0f9d8-3b40-4722-9455-a9d026e77b8d",
+      "insee": [
+        "61248"
+      ],
+      "reason": null,
+      "reference": "IA00060956",
+      "status": "eligible",
+      "title": "cidrerie, distillerie puis, laiterie industrielle"
+    },
+    {
+      "communes": [
+        "Mantilly"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/ab5a149f-e2fb-4e99-b2c1-c5d8fb7fb11f",
+      "insee": [
+        "61248"
+      ],
+      "reason": null,
+      "reference": "IA00060957",
+      "status": "eligible",
+      "title": "cidrerie, distillerie"
+    },
+    {
+      "communes": [
+        "Héloup"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/3ab74151-dd0a-46cf-a3f8-7f11ee27fdf1",
+      "insee": [
+        "61203"
+      ],
+      "reason": null,
+      "reference": "IA00060958",
+      "status": "eligible",
+      "title": "moulin à farine, minoterie"
+    },
+    {
+      "communes": [
+        "Saint-Denis-sur-Sarthon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/b9ab38fb-7d71-443c-890a-c0fdb7018dd9",
+      "insee": [
+        "61382"
+      ],
+      "reason": null,
+      "reference": "IA00060959",
+      "status": "eligible",
+      "title": "usine de fabrication des métaux"
+    },
+    {
+      "communes": [
+        "Saint-Clair-de-Halouze"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/0306d4b3-8692-4c40-8640-de1f76f88832",
+      "insee": [
+        "61376"
+      ],
+      "reason": null,
+      "reference": "IA00060960",
+      "status": "eligible",
+      "title": "affinerie, filature"
+    },
+    {
+      "communes": [
+        "Saint-Clair-de-Halouze"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/e984344e-385e-4d31-a12f-3588c6e30e59",
+      "insee": [
+        "61376"
+      ],
+      "reason": null,
+      "reference": "IA00060961",
+      "status": "eligible",
+      "title": "ensemble d'industrie extractive (mine de fer) dit mine de Halouze"
+    },
+    {
+      "communes": [
+        "Saint-Michel-des-Andaines"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/c624f6f0-1bd4-4afa-8a3e-7fdea4bb56fe",
+      "insee": [
+        "61431"
+      ],
+      "reason": null,
+      "reference": "IA00060962",
+      "status": "eligible",
+      "title": "affinerie de fer dite affinerie de la Sauvagère"
+    },
+    {
+      "communes": [
+        "Frênes"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/17dd6c87-db50-497e-bd9a-e8f9b7666246",
+      "insee": [
+        "61177"
+      ],
+      "reason": null,
+      "reference": "IA00060963",
+      "status": "eligible",
+      "title": "filature"
+    },
+    {
+      "communes": [
+        "Champsecret"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/c95a8a17-616e-46d7-ba9d-b03b02b14bc1",
+      "insee": [
+        "61091"
+      ],
+      "reason": null,
+      "reference": "IA00060964",
+      "status": "eligible",
+      "title": "usine de fabrication des métaux"
+    },
+    {
+      "communes": [
+        "Champsecret"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/22eb353c-b259-4251-945e-69fd4ae03831",
+      "insee": [
+        "61091"
+      ],
+      "reason": null,
+      "reference": "IA00060965",
+      "status": "eligible",
+      "title": "affinerie, moulin à blé"
+    },
+    {
+      "communes": [
+        "Champsecret"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/0fb574a5-ab82-4f92-b840-17614db01ad2",
+      "insee": [
+        "61091"
+      ],
+      "reason": null,
+      "reference": "IA00060966",
+      "status": "eligible",
+      "title": "briqueterie"
+    },
+    {
+      "communes": [
+        "Saint-Pierre-du-Regard"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/fa88004f-3ff9-4d93-809f-00b9ffddaf48",
+      "insee": [
+        "61447"
+      ],
+      "reason": null,
+      "reference": "IA00060967",
+      "status": "eligible",
+      "title": "tissage (tissage de mèches)"
+    },
+    {
+      "communes": [
+        "Bursard"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/113c1b7b-9ebd-483a-9e41-5cf433fb6bb7",
+      "insee": [
+        "61068"
+      ],
+      "reason": null,
+      "reference": "IA00060968",
+      "status": "eligible",
+      "title": "moulin à farine, minoterie"
+    },
+    {
+      "communes": [
+        "Alençon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/9ae3477c-3f66-4615-986f-37f6b872f25f",
+      "insee": [
+        "61001"
+      ],
+      "reason": null,
+      "reference": "IA00060969",
+      "status": "eligible",
+      "title": "moulin à farine dit moulin d'Ozé, puis filature d'Ozé, puis usine de matériel électroménager Moulinex"
+    },
+    {
+      "communes": [
+        "Condé-sur-Sarthe"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/c97d1fa8-e322-4894-97c8-3b32cf669b26",
+      "insee": [
+        "61117"
+      ],
+      "reason": null,
+      "reference": "IA00060970",
+      "status": "eligible",
+      "title": "fromagerie industrielle"
+    },
+    {
+      "communes": [
+        "Alençon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/bded1cd2-48ee-484c-8700-97e411bf750f",
+      "insee": [
+        "61001"
+      ],
+      "reason": null,
+      "reference": "IA00060971",
+      "status": "eligible",
+      "title": "tannerie"
+    },
+    {
+      "communes": [
+        "Alençon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/f3939d65-589d-4789-bc19-ce6e5b677ce4",
+      "insee": [
+        "61001"
+      ],
+      "reason": null,
+      "reference": "IA00060972",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Alençon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/54d78796-8468-4959-b5b4-ee3ab628d1aa",
+      "insee": [
+        "61001"
+      ],
+      "reason": null,
+      "reference": "IA00060973",
+      "status": "eligible",
+      "title": "usine de teinturerie"
+    },
+    {
+      "communes": [
+        "Alençon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/9c4b41ff-ee6b-45c7-ab84-14188c9443d5",
+      "insee": [
+        "61001"
+      ],
+      "reason": null,
+      "reference": "IA00060974",
+      "status": "eligible",
+      "title": "imprimerie"
+    },
+    {
+      "communes": [
+        "Alençon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/2719459f-508c-4f76-939f-2b0b402d8bd0",
+      "insee": [
+        "61001"
+      ],
+      "reason": null,
+      "reference": "IA00060975",
+      "status": "eligible",
+      "title": "imprimerie"
+    },
+    {
+      "communes": [
+        "Alençon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/ecb27de1-d7d8-4152-89c9-666d84d34e40",
+      "insee": [
+        "61001"
+      ],
+      "reason": null,
+      "reference": "IA00060976",
+      "status": "eligible",
+      "title": "usine de bonneterie"
+    },
+    {
+      "communes": [
+        "Alençon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/bda44f05-b99e-463b-8019-9347f105f15a",
+      "insee": [
+        "61001"
+      ],
+      "reason": null,
+      "reference": "IA00060977",
+      "status": "eligible",
+      "title": "usine liée au travail du bois"
+    },
+    {
+      "communes": [
+        "La Ferté-Macé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/59ce6d56-7a0e-4826-ba09-ab294de9d60c",
+      "insee": [
+        "61168"
+      ],
+      "reason": null,
+      "reference": "IA00060978",
+      "status": "eligible",
+      "title": "tissage dit tissage du Bas de Maure"
+    },
+    {
+      "communes": [
+        "La Ferté-Macé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/380fd45e-908b-4386-8d70-9f936498201c",
+      "insee": [
+        "61168"
+      ],
+      "reason": null,
+      "reference": "IA00060979",
+      "status": "eligible",
+      "title": "tissage dit tissage de Maure"
+    },
+    {
+      "communes": [
+        "La Ferté-Macé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/e0de9762-7cc8-49cb-9358-5bcfa17e7155",
+      "insee": [
+        "61168"
+      ],
+      "reason": null,
+      "reference": "IA00060980",
+      "status": "eligible",
+      "title": "moulin à farine, tissage"
+    },
+    {
+      "communes": [
+        "Antoigny"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/aa9ee811-5b12-4449-8e94-fbcaaaa8b4f4",
+      "insee": [
+        "61004"
+      ],
+      "reason": null,
+      "reference": "IA00060981",
+      "status": "eligible",
+      "title": "tissage"
+    },
+    {
+      "communes": [
+        "La Ferté-Macé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/58d400e9-b245-40ac-bdc1-951d33f93f1e",
+      "insee": [
+        "61168"
+      ],
+      "reason": null,
+      "reference": "IA00060982",
+      "status": "eligible",
+      "title": "tissage"
+    },
+    {
+      "communes": [
+        "La Ferté-Macé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/2e99c1b5-8bfc-4387-86ac-1596e83cd008",
+      "insee": [
+        "61168"
+      ],
+      "reason": null,
+      "reference": "IA00060983",
+      "status": "eligible",
+      "title": "tissage"
+    },
+    {
+      "communes": [
+        "La Ferté-Macé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/78e1fad2-c0be-4e5b-b7df-6bb477e67485",
+      "insee": [
+        "61168"
+      ],
+      "reason": null,
+      "reference": "IA00060984",
+      "status": "eligible",
+      "title": "tissage"
+    },
+    {
+      "communes": [
+        "La Ferté-Macé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/ce341681-0375-4078-89b5-e003e49508f4",
+      "insee": [
+        "61168"
+      ],
+      "reason": null,
+      "reference": "IA00060985",
+      "status": "eligible",
+      "title": "tissage de Beaudouet"
+    },
+    {
+      "communes": [
+        "La Ferté-Macé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/d42c29fe-0cfa-42e9-ba94-69f4febcbc51",
+      "insee": [
+        "61168"
+      ],
+      "reason": null,
+      "reference": "IA00060986",
+      "status": "eligible",
+      "title": "usine de blanchiment"
+    },
+    {
+      "communes": [
+        "Coulonges-sur-Sarthe"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/1f07c5e6-4b27-4e33-af62-7d755e0abf9d",
+      "insee": [
+        "61126"
+      ],
+      "reason": null,
+      "reference": "IA00060987",
+      "status": "eligible",
+      "title": "scierie"
+    },
+    {
+      "communes": [
+        "La Haute-Chapelle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/4a1dbf3d-9f32-4083-99ca-b1080b97bbc0",
+      "insee": [
+        "61201"
+      ],
+      "reason": null,
+      "reference": "IA00060988",
+      "status": "eligible",
+      "title": "usine de matériel d'équipement industriel dite usine Lurem"
+    },
+    {
+      "communes": [
+        "La Chapelle-d'Andaine"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/12e4344b-d4fe-437a-a8b3-d1c5f8cc5cd0",
+      "insee": [
+        "61096"
+      ],
+      "reason": null,
+      "reference": "IA00060989",
+      "status": "eligible",
+      "title": "laiterie industrielle et abattoirs du Pont Morin"
+    },
+    {
+      "communes": [
+        "La Chapelle-d'Andaine"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/36ae0b31-d205-40a7-bed8-99192753499b",
+      "insee": [
+        "61096"
+      ],
+      "reason": null,
+      "reference": "IA00060990",
+      "status": "eligible",
+      "title": "laiterie industrielle"
+    },
+    {
+      "communes": [
+        "Saint-Germain-du-Corbéis"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/ad16d5d6-1455-495d-be64-efc9506a971f",
+      "insee": [
+        "61397"
+      ],
+      "reason": null,
+      "reference": "IA00060991",
+      "status": "eligible",
+      "title": "moulin à farine, minoterie"
+    },
+    {
+      "communes": [
+        "Tanville"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/88fbe533-0c24-4bdd-8b87-59be65cd9732",
+      "insee": [
+        "61480"
+      ],
+      "reason": null,
+      "reference": "IA00060992",
+      "status": "eligible",
+      "title": "laiterie industrielle"
+    },
+    {
+      "communes": [
+        "Champsecret"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/13843bb0-ed07-4e18-9787-35ece5924bb2",
+      "insee": [
+        "61091"
+      ],
+      "reason": null,
+      "reference": "IA00060993",
+      "status": "eligible",
+      "title": "fromagerie industrielle"
+    },
+    {
+      "communes": [
+        "Chailloué"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/91df8d62-51c0-4bd5-84fc-f99011dfa932",
+      "insee": [
+        "61081"
+      ],
+      "reason": null,
+      "reference": "IA00060994",
+      "status": "eligible",
+      "title": "usine d'extraction"
+    },
+    {
+      "communes": [
+        "Coulonges-sur-Sarthe"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/f06b42c8-e496-44f5-8495-3262fa753fb5",
+      "insee": [
+        "61126"
+      ],
+      "reason": null,
+      "reference": "IA00060995",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Saint-Denis-sur-Sarthon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/80a70c8b-65b9-4427-8298-dcb027b9879b",
+      "insee": [
+        "61382"
+      ],
+      "reason": null,
+      "reference": "IA00060996",
+      "status": "eligible",
+      "title": "moulin à farine, minoterie"
+    },
+    {
+      "communes": [
+        "Saint-Denis-sur-Sarthon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/a3c6988d-4dec-4f14-a75a-214154b55d2a",
+      "insee": [
+        "61382"
+      ],
+      "reason": null,
+      "reference": "IA00060997",
+      "status": "eligible",
+      "title": "faïencerie"
+    },
+    {
+      "communes": [
+        "La Ferté-Macé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/db919e83-c99a-4a83-9e4d-e29fbec073c0",
+      "insee": [
+        "61168"
+      ],
+      "reason": null,
+      "reference": "IA00060998",
+      "status": "eligible",
+      "title": "usine de blanchiment"
+    },
+    {
+      "communes": [
+        "La Ferté-Macé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/f84bbf5d-7272-4e9e-9fad-ab9e9f645023",
+      "insee": [
+        "61168"
+      ],
+      "reason": null,
+      "reference": "IA00060999",
+      "status": "eligible",
+      "title": "tissage de mèches"
+    },
+    {
+      "communes": [
+        "La Ferté-Macé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/f85f3485-6326-4372-885b-e0d294ec427a",
+      "insee": [
+        "61168"
+      ],
+      "reason": null,
+      "reference": "IA00061000",
+      "status": "eligible",
+      "title": "usine de chaussures"
+    },
+    {
+      "communes": [
+        "La Ferté-Macé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/341e5158-f94c-447e-a785-78ff45bbf74d",
+      "insee": [
+        "61168"
+      ],
+      "reason": null,
+      "reference": "IA00061001",
+      "status": "eligible",
+      "title": "usine de chaussures"
+    },
+    {
+      "communes": [
+        "Alençon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/412bdd9c-fba0-4186-a292-cdce3d04da94",
+      "insee": [
+        "61001"
+      ],
+      "reason": null,
+      "reference": "IA00061002",
+      "status": "eligible",
+      "title": "imprimerie Alençonnaise"
+    },
+    {
+      "communes": [
+        "Les Rotours"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/3b93acab-5a9a-4e6c-ae7d-96d51e5a6e92",
+      "insee": [
+        "61354"
+      ],
+      "reason": null,
+      "reference": "IA00061003",
+      "status": "eligible",
+      "title": "four à chaux"
+    },
+    {
+      "communes": [
+        "Les Rotours"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/23ab383d-e20c-4b4d-b6d3-7962c8fd9038",
+      "insee": [
+        "61354"
+      ],
+      "reason": null,
+      "reference": "IA00061004",
+      "status": "eligible",
+      "title": "four à chaux"
+    },
+    {
+      "communes": [
+        "Alençon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/97b4191e-c33e-481f-bf87-e773cd2b9f3d",
+      "insee": [
+        "61001"
+      ],
+      "reason": null,
+      "reference": "IA00061005",
+      "status": "eligible",
+      "title": "usine de céramique"
+    },
+    {
+      "communes": [
+        "Saint-Clair-de-Halouze"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/3d33f56e-0804-4bb8-91e8-d2d997de498c",
+      "insee": [
+        "61376"
+      ],
+      "reason": null,
+      "reference": "IA00061006",
+      "status": "eligible",
+      "title": "usine d'extraction dite Mine de Halouze"
+    },
+    {
+      "communes": [
+        "Saint-Clair-de-Halouze"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/550a98cc-1b6a-44d2-86af-4f2eedb20d38",
+      "insee": [
+        "61376"
+      ],
+      "reason": null,
+      "reference": "IA00061007",
+      "status": "eligible",
+      "title": "usine d'extraction dite Mine de Halouze"
+    },
+    {
+      "communes": [
+        "Saint-Clair-de-Halouze"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/dd0c25a9-e2ed-4615-b008-b03551f35864",
+      "insee": [
+        "61376"
+      ],
+      "reason": null,
+      "reference": "IA00061008",
+      "status": "eligible",
+      "title": "usine d'extraction dite Mine de Halouze"
+    },
+    {
+      "communes": [
+        "Saint-Clair-de-Halouze"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/8c1faae4-d089-4889-a1cb-f600f23c2578",
+      "insee": [
+        "61376"
+      ],
+      "reason": null,
+      "reference": "IA00061009",
+      "status": "eligible",
+      "title": "cité ouvrière"
+    },
+    {
+      "communes": [
+        "Couterne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/0970802c-ec7f-47d3-b927-be99e1eaeddb",
+      "insee": [
+        "61135"
+      ],
+      "reason": null,
+      "reference": "IA00061010",
+      "status": "eligible",
+      "title": "moulin à farine, minoterie"
+    },
+    {
+      "communes": [
+        "Le Châtellier"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/c6c14420-21dd-40da-980d-6b02452883d5",
+      "insee": [
+        "61102"
+      ],
+      "reason": null,
+      "reference": "IA00061011",
+      "status": "eligible",
+      "title": "cité ouvrière"
+    },
+    {
+      "communes": [
+        "Mâle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/213ecea3-3d49-4529-add8-8f28bc3ae096",
+      "insee": [
+        "61246"
+      ],
+      "reason": null,
+      "reference": "IA00061012",
+      "status": "eligible",
+      "title": "tuilerie"
+    },
+    {
+      "communes": [
+        "Aube"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/43c3eab5-6bba-4329-a3d0-38340573450a",
+      "insee": [
+        "61008"
+      ],
+      "reason": null,
+      "reference": "IA00061013",
+      "status": "eligible",
+      "title": "moulin à farine, usine de passementerie, tréfilerie"
+    },
+    {
+      "communes": [
+        "Buré"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/4578b822-7195-4082-969b-ed4bbed80047",
+      "insee": [
+        "61066"
+      ],
+      "reason": null,
+      "reference": "IA00061014",
+      "status": "eligible",
+      "title": "moulin à blé"
+    },
+    {
+      "communes": [
+        "Mâle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/4d921a1e-9cd2-497b-8670-7c168fc7bdbe",
+      "insee": [
+        "61246"
+      ],
+      "reason": null,
+      "reference": "IA00061015",
+      "status": "eligible",
+      "title": "moulin à farine, usine de pâte à papier"
+    },
+    {
+      "communes": [
+        "Perche en Nocé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/b5c7d602-d531-487f-b2f9-19bd9c3c4678",
+      "insee": [],
+      "reason": null,
+      "reference": "IA00061016",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Saint-Pierre-des-Loges"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/345d91f0-a734-4f62-914f-8be1089f6b52",
+      "insee": [
+        "61446"
+      ],
+      "reason": null,
+      "reference": "IA00061017",
+      "status": "eligible",
+      "title": "haut fourneau"
+    },
+    {
+      "communes": [
+        "Saint-Hilaire-sur-Risle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/0b246630-95bd-4651-9664-b916468d17ce",
+      "insee": [
+        "61406"
+      ],
+      "reason": null,
+      "reference": "IA00061018",
+      "status": "eligible",
+      "title": "moulin à papier, tannerie dite Tanneries de Saint Hilaire"
+    },
+    {
+      "communes": [
+        "Saint-Hilaire-sur-Risle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/daac4840-acf9-4c58-83b2-26a9496d7a1a",
+      "insee": [
+        "61406"
+      ],
+      "reason": null,
+      "reference": "IA00061019",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Bazoches-sur-Hoëne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/fd691cfe-e962-4291-b18b-4626c13aec31",
+      "insee": [
+        "61029"
+      ],
+      "reason": null,
+      "reference": "IA00061020",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Saint-Agnan-sur-Sarthe"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/055b4787-db11-470d-9017-4ac147a1be2f",
+      "insee": [
+        "61360"
+      ],
+      "reason": null,
+      "reference": "IA00061021",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Sainte-Scolasse-sur-Sarthe"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/a338d4a1-0f8c-468d-8518-7c02f3e96502",
+      "insee": [
+        "61454"
+      ],
+      "reason": null,
+      "reference": "IA00061022",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Le Champ-de-la-Pierre"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/415450d3-1ffd-44e3-a9f5-e534aef18bae",
+      "insee": [
+        "61085"
+      ],
+      "reason": null,
+      "reference": "IA00061023",
+      "status": "eligible",
+      "title": "usine de fabrication des métaux"
+    },
+    {
+      "communes": [
+        "Sainte-Marguerite-de-Carrouges"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/a02dcabd-ba7c-44e8-bf61-6a825a5c4b2b",
+      "insee": [
+        "61419"
+      ],
+      "reason": null,
+      "reference": "IA00061024",
+      "status": "eligible",
+      "title": "haut fourneau, fonderie"
+    },
+    {
+      "communes": [
+        "Saint-Martin-l'Aiguillon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/eb7a8df9-2258-477e-9c1f-e3dfed7313df",
+      "insee": [
+        "61427"
+      ],
+      "reason": null,
+      "reference": "IA00061025",
+      "status": "eligible",
+      "title": "affinerie dite forge de Carrouges"
+    },
+    {
+      "communes": [
+        "Aube"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/c7d7cd67-02fb-46fd-8c05-4e32a6cd3143",
+      "insee": [
+        "61008"
+      ],
+      "reason": null,
+      "reference": "IA00061026",
+      "status": "eligible",
+      "title": "moulin à farine, usine de chaudronnerie dit moulin d'Aube, puis usine de chaudronnerie du moulin d'Aube"
+    },
+    {
+      "communes": [
+        "Beaufai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/8d2fc298-6106-4fb9-ace4-2b7ba53178c4",
+      "insee": [
+        "61032"
+      ],
+      "reason": null,
+      "reference": "IA00061027",
+      "status": "eligible",
+      "title": "usine de passementerie, usine de chaussures"
+    },
+    {
+      "communes": [
+        "Beaufai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/0439fa26-5f51-48aa-a6b7-47d3bb459f21",
+      "insee": [
+        "61032"
+      ],
+      "reason": null,
+      "reference": "IA00061028",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Aube"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/9354356d-808f-412a-95b3-2dc2b2c99cdc",
+      "insee": [
+        "61008"
+      ],
+      "reason": null,
+      "reference": "IA00061029",
+      "status": "eligible",
+      "title": "affinerie"
+    },
+    {
+      "communes": [
+        "Rai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/1bcc0808-2397-4e51-8d4b-cbbb7b198c4a",
+      "insee": [
+        "61342"
+      ],
+      "reason": null,
+      "reference": "IA00061030",
+      "status": "eligible",
+      "title": "moulin à papier, tréfilerie"
+    },
+    {
+      "communes": [
+        "Saint-Sulpice-sur-Risle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/8bd63f82-dbc6-4eda-9f88-373fd5362b08",
+      "insee": [
+        "61456"
+      ],
+      "reason": null,
+      "reference": "IA00061033",
+      "status": "eligible",
+      "title": "tréfilerie"
+    },
+    {
+      "communes": [
+        "Saint-Pierre-du-Regard"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/ad1952b3-870f-448a-b0a9-14cd81aab402",
+      "insee": [
+        "61447"
+      ],
+      "reason": null,
+      "reference": "IA00061034",
+      "status": "eligible",
+      "title": "filature Vente"
+    },
+    {
+      "communes": [
+        "Saint-Pierre-du-Regard"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/e12635a5-8541-4da5-b4ba-5972bd0fa103",
+      "insee": [
+        "61447"
+      ],
+      "reason": null,
+      "reference": "IA00061035",
+      "status": "eligible",
+      "title": "filature des Roches"
+    },
+    {
+      "communes": [
+        "Saint-Pierre-du-Regard"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/f7a22518-67a5-4604-a1c1-e7d0e09169bf",
+      "insee": [
+        "61447"
+      ],
+      "reason": null,
+      "reference": "IA00061036",
+      "status": "eligible",
+      "title": "filature"
+    },
+    {
+      "communes": [
+        "Saint-Pierre-du-Regard"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/5b097d42-cbe4-4079-b0cc-df7323cc90ad",
+      "insee": [
+        "61447"
+      ],
+      "reason": null,
+      "reference": "IA00061037",
+      "status": "eligible",
+      "title": "filature"
+    },
+    {
+      "communes": [
+        "Saint-Pierre-du-Regard"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/432fcd3d-fd42-4915-a432-30afb0d32d2e",
+      "insee": [
+        "61447"
+      ],
+      "reason": null,
+      "reference": "IA00061038",
+      "status": "eligible",
+      "title": "filature"
+    },
+    {
+      "communes": [
+        "Sainte-Honorine-la-Chardonne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/06764c30-6e7a-4bdd-b34b-cfe5726b4b08",
+      "insee": [
+        "61407"
+      ],
+      "reason": null,
+      "reference": "IA00061039",
+      "status": "eligible",
+      "title": "usine d'ouvrages en amiante"
+    },
+    {
+      "communes": [
+        "Athis-de-l'Orne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/ca3d8831-fdbd-4714-a8f9-58e855b5d079",
+      "insee": [
+        "61007"
+      ],
+      "reason": null,
+      "reference": "IA00061040",
+      "status": "eligible",
+      "title": "tissage"
+    },
+    {
+      "communes": [
+        "Flers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/7a9aaa25-6737-4201-9dff-21ba24a9aed8",
+      "insee": [
+        "61169"
+      ],
+      "reason": null,
+      "reference": "IA00061041",
+      "status": "eligible",
+      "title": "tissage du Parc"
+    },
+    {
+      "communes": [
+        "Flers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/2ad6726e-76ab-4abb-bf14-522e50f74408",
+      "insee": [
+        "61169"
+      ],
+      "reason": null,
+      "reference": "IA00061042",
+      "status": "eligible",
+      "title": "tissage dit tissage de la Halle"
+    },
+    {
+      "communes": [
+        "Flers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/13d93ded-5d35-484d-904a-ffde8bf27a69",
+      "insee": [
+        "61169"
+      ],
+      "reason": null,
+      "reference": "IA00061043",
+      "status": "eligible",
+      "title": "tissage"
+    },
+    {
+      "communes": [
+        "La Rouge"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/a2e5cca2-577e-430a-a073-4cfae242d678",
+      "insee": [
+        "61356"
+      ],
+      "reason": null,
+      "reference": "IA00061044",
+      "status": "eligible",
+      "title": "cidrerie distillerie dite cidrerie François, actuellement S.A. les Distilleries Françaises"
+    },
+    {
+      "communes": [
+        "Le Theil"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/001595d5-7e81-4a81-ba0f-8dae22918e84",
+      "insee": [
+        "61484"
+      ],
+      "reason": null,
+      "reference": "IA00061045",
+      "status": "eligible",
+      "title": "cidrerie-distillerie dite cidrerie Dourdoigne, puis les cidreries Réunies"
+    },
+    {
+      "communes": [
+        "Courcerault"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/e3a8cd67-f87a-4692-aa71-8f0423b7d757",
+      "insee": [
+        "61128"
+      ],
+      "reason": null,
+      "reference": "IA00061046",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Maison-Maugis"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/bf72a86c-2f8e-4392-8c73-f758e7bed162",
+      "insee": [
+        "61245"
+      ],
+      "reason": null,
+      "reference": "IA00061047",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Mâle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/fee44f1a-cacf-4e6b-901a-b1db55222375",
+      "insee": [
+        "61246"
+      ],
+      "reason": null,
+      "reference": "IA00061048",
+      "status": "eligible",
+      "title": "fonderie Renaudin, puis Société Nouvelle d'Exploitation Renaudin"
+    },
+    {
+      "communes": [
+        "L'Aigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/49a1d684-9cc4-4e45-8cb0-b31dfafc7998",
+      "insee": [
+        "61214"
+      ],
+      "reason": null,
+      "reference": "IA00061049",
+      "status": "eligible",
+      "title": "fonderie"
+    },
+    {
+      "communes": [
+        "L'Aigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/39c6c270-e09b-47a0-bd20-623f31aa9091",
+      "insee": [
+        "61214"
+      ],
+      "reason": null,
+      "reference": "IA00061050",
+      "status": "eligible",
+      "title": "usine de quincaillerie"
+    },
+    {
+      "communes": [
+        "Aube"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/08f5efae-132f-4369-918c-63a339cf84c1",
+      "insee": [
+        "61008"
+      ],
+      "reason": null,
+      "reference": "IA00061051",
+      "status": "eligible",
+      "title": "moulin à papier, tréfilerie"
+    },
+    {
+      "communes": [
+        "L'Aigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/e23c856b-49bd-4bee-936b-d71617af3d3c",
+      "insee": [
+        "61214"
+      ],
+      "reason": null,
+      "reference": "IA00061052",
+      "status": "eligible",
+      "title": "tannerie, usine de construction mécanique"
+    },
+    {
+      "communes": [
+        "Rai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/a5301085-16d2-414c-9d69-f88ca16e01f8",
+      "insee": [
+        "61342"
+      ],
+      "reason": null,
+      "reference": "IA00061053",
+      "status": "eligible",
+      "title": "tréfilerie Boisthorel, actuellement usine de transformation des métaux dite Tréfimétaux"
+    },
+    {
+      "communes": [
+        "L'Aigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/3df6a5b3-e6ee-419e-b5ec-fb4f19b6384e",
+      "insee": [
+        "61214"
+      ],
+      "reason": null,
+      "reference": "IA00061054",
+      "status": "eligible",
+      "title": "usine d'habillement"
+    },
+    {
+      "communes": [
+        "Saint-Martin-d'Écublei"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/38f266f7-6ce3-4753-a42b-ca89e12456e7",
+      "insee": [
+        "61423"
+      ],
+      "reason": null,
+      "reference": "IA00061055",
+      "status": "eligible",
+      "title": "tréfilerie"
+    },
+    {
+      "communes": [
+        "Crulai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/78e2022c-4f96-40e7-81f1-d3586ae87247",
+      "insee": [
+        "61140"
+      ],
+      "reason": null,
+      "reference": "IA00061056",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Saint-Michel-Tubœuf"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/01a9306d-d8d6-4f87-9ff6-e3d9c6390a8c",
+      "insee": [
+        "61432"
+      ],
+      "reason": null,
+      "reference": "IA00061057",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Chandai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/a1b1a05e-fcce-4e70-a351-f8361501e93f",
+      "insee": [
+        "61092"
+      ],
+      "reason": null,
+      "reference": "IA00061058",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Saint-Martin-d'Écublei"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/6853675e-202c-4a51-a2b6-2a0bda4a7e37",
+      "insee": [
+        "61423"
+      ],
+      "reason": null,
+      "reference": "IA00061059",
+      "status": "eligible",
+      "title": "tréfilerie"
+    },
+    {
+      "communes": [
+        "Boissy-Maugis"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/c86dff7c-53fa-42b1-a982-709d534bbd31",
+      "insee": [
+        "61050"
+      ],
+      "reason": null,
+      "reference": "IA00061061",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Bretoncelles"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/8eee80d5-43fa-407a-9ce7-a1ba9ff7a967",
+      "insee": [
+        "61061"
+      ],
+      "reason": null,
+      "reference": "IA00061062",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Rémalard"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/40375f0f-d4f0-4478-98ed-f724ad669bc7",
+      "insee": [
+        "61345"
+      ],
+      "reason": null,
+      "reference": "IA00061063",
+      "status": "eligible",
+      "title": "tuilerie"
+    },
+    {
+      "communes": [
+        "Bretoncelles"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/441f8072-ca1f-443b-b721-7f63ef81c8b6",
+      "insee": [
+        "61061"
+      ],
+      "reason": null,
+      "reference": "IA00061064",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Bretoncelles"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/cf1828b5-be16-40ca-85de-a6ea86c811a9",
+      "insee": [
+        "61061"
+      ],
+      "reason": null,
+      "reference": "IA00061065",
+      "status": "eligible",
+      "title": "moulin à farine, minoterie"
+    },
+    {
+      "communes": [
+        "Saint-Fulgent-des-Ormes"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/bb8a38b9-a83d-4ec7-92a7-2a44a8f88c7f",
+      "insee": [
+        "61388"
+      ],
+      "reason": null,
+      "reference": "IA00061066",
+      "status": "eligible",
+      "title": "briqueterie"
+    },
+    {
+      "communes": [
+        "Saint-Jouin-de-Blavou"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/11a51e26-2ee5-4307-acbc-36aca7f66577",
+      "insee": [
+        "61411"
+      ],
+      "reason": null,
+      "reference": "IA00061067",
+      "status": "eligible",
+      "title": "tuilerie"
+    },
+    {
+      "communes": [
+        "La Madeleine-Bouvet"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/cdaeb9cd-1e2a-4e4e-aee0-3de9cceff0e3",
+      "insee": [
+        "61241"
+      ],
+      "reason": null,
+      "reference": "IA00061068",
+      "status": "eligible",
+      "title": "haut fourneau"
+    },
+    {
+      "communes": [
+        "Saint-Martin-du-Vieux-Bellême"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/cf003820-a2b8-4a09-8b4d-72a383e46fc0",
+      "insee": [
+        "61426"
+      ],
+      "reason": null,
+      "reference": "IA00061069",
+      "status": "eligible",
+      "title": "manufacture et scierie Bellêmoise"
+    },
+    {
+      "communes": [
+        "Origny-le-Roux"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/445524ea-363d-4f95-b711-b25df0d35ad7",
+      "insee": [
+        "61319"
+      ],
+      "reason": null,
+      "reference": "IA00061070",
+      "status": "eligible",
+      "title": "ferme, briqueterie"
+    },
+    {
+      "communes": [
+        "Tinchebray"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/f1782e41-84e1-4811-8c7e-bb4f5f5fe9db",
+      "insee": [
+        "61486"
+      ],
+      "reason": null,
+      "reference": "IA00061071",
+      "status": "eligible",
+      "title": "usine de quincaillerie dite usine de quincaillerie Mermier Lemarchand Réunis"
+    },
+    {
+      "communes": [
+        "Lonlay-l'Abbaye"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/b3bd13f8-5ad4-472f-9753-b1620129c8fc",
+      "insee": [
+        "61232"
+      ],
+      "reason": null,
+      "reference": "IA00061072",
+      "status": "eligible",
+      "title": "usine de boulangerie dite biscuiterie de l'Abbaye"
+    },
+    {
+      "communes": [
+        "Alençon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/6cd7e92e-7abd-4818-b230-277b63bf11c6",
+      "insee": [
+        "61001"
+      ],
+      "reason": null,
+      "reference": "IA00061073",
+      "status": "eligible",
+      "title": "scierie Prout, puis Scierie Prout Frères, actuellement Maisons France Confort"
+    },
+    {
+      "communes": [
+        "L'Aigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/d4b32cee-3bb8-45da-a23f-051eb6b4d33f",
+      "insee": [
+        "61214"
+      ],
+      "reason": null,
+      "reference": "IA00061074",
+      "status": "eligible",
+      "title": "tuilerie, Briqueterie"
+    },
+    {
+      "communes": [
+        "L'Aigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/6cff45d4-e7e5-4362-888c-08486684a5ce",
+      "insee": [
+        "61214"
+      ],
+      "reason": null,
+      "reference": "IA00061075",
+      "status": "eligible",
+      "title": "usine de chaussures"
+    },
+    {
+      "communes": [
+        "L'Aigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/15df09f0-5249-4691-8e4d-f38157baead0",
+      "insee": [
+        "61214"
+      ],
+      "reason": null,
+      "reference": "IA00061076",
+      "status": "eligible",
+      "title": "usine de quincaillerie"
+    },
+    {
+      "communes": [
+        "L'Aigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/5d5cf67a-a6c8-49cd-b636-8de61c5a1c7c",
+      "insee": [
+        "61214"
+      ],
+      "reason": null,
+      "reference": "IA00061077",
+      "status": "eligible",
+      "title": "usine de quincaillerie"
+    },
+    {
+      "communes": [
+        "L'Aigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/318e026e-c638-45df-91c2-ca88f1affab0",
+      "insee": [
+        "61214"
+      ],
+      "reason": null,
+      "reference": "IA00061078",
+      "status": "eligible",
+      "title": "filature, usine de quincaillerie"
+    },
+    {
+      "communes": [
+        "L'Aigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/e8a863ae-7d94-4ee0-84d0-5c4b8c719e76",
+      "insee": [
+        "61214"
+      ],
+      "reason": null,
+      "reference": "IA00061079",
+      "status": "eligible",
+      "title": "usine de quincaillerie dite Manufacture Lherminier, puis S.A. des Tréfileries Françaises, puis S.A. des Etablissements Dassonville et Fatus, puis S.A.R.L. des Etablissements Fatus et Cie"
+    },
+    {
+      "communes": [
+        "Échauffour"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/310c49b9-7d4e-4738-a2f5-efbda0a838ac",
+      "insee": [
+        "61150"
+      ],
+      "reason": null,
+      "reference": "IA00061080",
+      "status": "eligible",
+      "title": "usine de produits alimentaires, laiterie industrielle dite usine de produits alimentaires Deschamps"
+    },
+    {
+      "communes": [
+        "Sainte-Gauburge-Sainte-Colombe"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/4a78fd5d-d20b-4fbb-9b93-aa0709df8e65",
+      "insee": [
+        "61389"
+      ],
+      "reason": null,
+      "reference": "IA00061081",
+      "status": "eligible",
+      "title": "moulin à farine dit moulin de Feugeroux, puis Tréfilerie Bigot"
+    },
+    {
+      "communes": [
+        "Sainte-Gauburge-Sainte-Colombe"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/fdf456a6-e2ed-4c7b-adfe-f735c0e623cb",
+      "insee": [
+        "61389"
+      ],
+      "reason": null,
+      "reference": "IA00061082",
+      "status": "eligible",
+      "title": "moulin à farine, moulin à huile"
+    },
+    {
+      "communes": [
+        "L'Aigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/30ac1fba-4a0d-488a-bafd-22111ddf4349",
+      "insee": [
+        "61214"
+      ],
+      "reason": null,
+      "reference": "IA00061083",
+      "status": "eligible",
+      "title": "tannerie, usine de blanchiment"
+    },
+    {
+      "communes": [
+        "L'Aigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/00fc960b-2b54-4ca7-a551-14eaa0036322",
+      "insee": [
+        "61214"
+      ],
+      "reason": null,
+      "reference": "IA00061084",
+      "status": "eligible",
+      "title": "usine à gaz"
+    },
+    {
+      "communes": [
+        "L'Aigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/09062914-4bf6-49a2-af2a-f7eb69ebcda1",
+      "insee": [
+        "61214"
+      ],
+      "reason": null,
+      "reference": "IA00061085",
+      "status": "eligible",
+      "title": "usine d'ébénisterie"
+    },
+    {
+      "communes": [
+        "Le Theil"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/37006c13-21a6-4ca9-8b80-a76fd0497710",
+      "insee": [
+        "61484"
+      ],
+      "reason": null,
+      "reference": "IA00061086",
+      "status": "eligible",
+      "title": "usine à papier"
+    },
+    {
+      "communes": [
+        "Livaie"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/f271b311-4b6e-4234-8fb7-30ba3e51c803",
+      "insee": [
+        "61228"
+      ],
+      "reason": null,
+      "reference": "IA00061087",
+      "status": "eligible",
+      "title": "haut fourneau de la Roche"
+    },
+    {
+      "communes": [
+        "Longny-au-Perche"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/01d90608-aa52-4b05-8422-cd3c2f97f60f",
+      "insee": [
+        "61230"
+      ],
+      "reason": null,
+      "reference": "IA00061088",
+      "status": "eligible",
+      "title": "moulin à farine, tréfilerie dite de Brochard"
+    },
+    {
+      "communes": [
+        "L'Hôme-Chamondot"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/68c03c0f-982a-4ae3-bfe9-857298f34591",
+      "insee": [
+        "61206"
+      ],
+      "reason": null,
+      "reference": "IA00061089",
+      "status": "eligible",
+      "title": "usine de flaconnage"
+    },
+    {
+      "communes": [
+        "Le Pin-la-Garenne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/0391153c-cd1e-4907-92a0-9cba93833378",
+      "insee": [
+        "61329"
+      ],
+      "reason": null,
+      "reference": "IA00061090",
+      "status": "eligible",
+      "title": "cidrerie, distillerie, usine de fibre de bois"
+    },
+    {
+      "communes": [
+        "Goulet"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/d04cb8f5-635e-4bf1-abc2-f4441b675c23",
+      "insee": [
+        "61194"
+      ],
+      "reason": null,
+      "reference": "IA00061091",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Saint-Evroult-Notre-Dame-du-Bois"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/96cd783f-63b4-42a4-959f-112236b29d14",
+      "insee": [
+        "61386"
+      ],
+      "reason": null,
+      "reference": "IA00061092",
+      "status": "eligible",
+      "title": "usine de flaconnage"
+    },
+    {
+      "communes": [
+        "Irai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/e42512a0-f7e5-478c-9062-2e67aece815d",
+      "insee": [
+        "61208"
+      ],
+      "reason": null,
+      "reference": "IA00061093",
+      "status": "eligible",
+      "title": "haut fourneau de Gaillon"
+    },
+    {
+      "communes": [
+        "Randonnai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/1605cad5-d82b-4326-a5af-8d2913739cde",
+      "insee": [
+        "61343"
+      ],
+      "reason": null,
+      "reference": "IA00061094",
+      "status": "eligible",
+      "title": "affinerie dite forge de Gaillon"
+    },
+    {
+      "communes": [
+        "L'Hôme-Chamondot"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/061971a0-e7ce-4ace-be21-d4b6f8aa2705",
+      "insee": [
+        "61206"
+      ],
+      "reason": null,
+      "reference": "IA00061095",
+      "status": "eligible",
+      "title": "briqueterie"
+    },
+    {
+      "communes": [
+        "Randonnai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/514c50b3-37f6-4b6b-a099-863c0d458669",
+      "insee": [
+        "61343"
+      ],
+      "reason": null,
+      "reference": "IA00061096",
+      "status": "eligible",
+      "title": "fenderie"
+    },
+    {
+      "communes": [
+        "Frênes"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/1fa9c3b3-0789-42a3-a74a-09e8fd603a86",
+      "insee": [
+        "61177"
+      ],
+      "reason": null,
+      "reference": "IA00061097",
+      "status": "eligible",
+      "title": "moulin à farine, filature, usine de quincaillerie dite usine de quincaillerie Mermier Lemarchand Réunis"
+    },
+    {
+      "communes": [
+        "Malétable"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/08d5bc14-2293-422b-b819-1c4cf7285021",
+      "insee": [
+        "61247"
+      ],
+      "reason": null,
+      "reference": "IA00061098",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Longny-au-Perche"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/61192eb3-696b-4b02-9238-e11f1d03d59c",
+      "insee": [
+        "61230"
+      ],
+      "reason": null,
+      "reference": "IA00061099",
+      "status": "eligible",
+      "title": "moulin à farine dit moulin de Longny"
+    },
+    {
+      "communes": [
+        "Malétable"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/1f7acc4d-e4f4-4894-ac3e-4abc263fcfaf",
+      "insee": [
+        "61247"
+      ],
+      "reason": null,
+      "reference": "IA00061100",
+      "status": "eligible",
+      "title": "moulin à blé"
+    },
+    {
+      "communes": [
+        "Tourouvre"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/84eaa0bf-354c-4c01-bc30-929f562b2b7c",
+      "insee": [
+        "61491"
+      ],
+      "reason": null,
+      "reference": "IA00061101",
+      "status": "eligible",
+      "title": "haut fourneau, moulin à blé"
+    },
+    {
+      "communes": [
+        "Longny-au-Perche"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/188b7cce-7ecd-4d81-93c6-4a69aaa67b25",
+      "insee": [
+        "61230"
+      ],
+      "reason": null,
+      "reference": "IA00061102",
+      "status": "eligible",
+      "title": "haut fourneau, moulin à tan, fenderie, moulin à tan"
+    },
+    {
+      "communes": [
+        "Longny-au-Perche"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/162aba19-a5d3-48be-bea7-56518baba495",
+      "insee": [
+        "61230"
+      ],
+      "reason": null,
+      "reference": "IA00061103",
+      "status": "eligible",
+      "title": "fenderie, actuellement maison"
+    },
+    {
+      "communes": [
+        "Tanville"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/d52d97a6-bf8e-436b-ab58-9fc4ee6d26a8",
+      "insee": [
+        "61480"
+      ],
+      "reason": null,
+      "reference": "IA00061104",
+      "status": "eligible",
+      "title": "usine de flaconnage"
+    },
+    {
+      "communes": [
+        "Normandel"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/645c0d9a-4047-4e02-b244-364eff07562e",
+      "insee": [
+        "61311"
+      ],
+      "reason": null,
+      "reference": "IA00061105",
+      "status": "eligible",
+      "title": "haut fourneau, moulin à blé"
+    },
+    {
+      "communes": [
+        "Randonnai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/14d103d5-dc09-406e-bb94-78a70012fc4e",
+      "insee": [
+        "61343"
+      ],
+      "reason": null,
+      "reference": "IA00061106",
+      "status": "eligible",
+      "title": "fonderie dite Société des Fonderies et Ateliers de Randonnai"
+    },
+    {
+      "communes": [
+        "Bivilliers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/df941cfb-6758-48e8-937f-62020b560891",
+      "insee": [
+        "61045"
+      ],
+      "reason": null,
+      "reference": "IA00061107",
+      "status": "eligible",
+      "title": "moulin à farine, minoterie"
+    },
+    {
+      "communes": [
+        "Chandai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/9b532798-3da1-4d20-b4ef-acf78c44dc69",
+      "insee": [
+        "61092"
+      ],
+      "reason": null,
+      "reference": "IA00061108",
+      "status": "eligible",
+      "title": "tréfilerie dite la Fabrique"
+    },
+    {
+      "communes": [
+        "Boissy-Maugis"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/f0041e5d-9dc5-4e93-88e5-abef1dd0fb34",
+      "insee": [
+        "61050"
+      ],
+      "reason": null,
+      "reference": "IA00061109",
+      "status": "eligible",
+      "title": "moulin à papier"
+    },
+    {
+      "communes": [
+        "Condé-sur-Huisne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/51d60ebb-096a-4d42-a50f-75a129b5bf8b",
+      "insee": [
+        "61116"
+      ],
+      "reason": null,
+      "reference": "IA00061110",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Dorceau"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/a270caa3-6f07-4ba1-8219-e345c47aae98",
+      "insee": [
+        "61147"
+      ],
+      "reason": null,
+      "reference": "IA00061111",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Longny-au-Perche"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/f7f9721f-8fbf-46cb-b669-93dc5606b248",
+      "insee": [
+        "61230"
+      ],
+      "reason": null,
+      "reference": "IA00061112",
+      "status": "eligible",
+      "title": "haut fourneau"
+    },
+    {
+      "communes": [
+        "Saint-Sulpice-sur-Risle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/85be1da1-cd39-444b-bab2-2219605d469c",
+      "insee": [
+        "61456"
+      ],
+      "reason": null,
+      "reference": "IA00061113",
+      "status": "eligible",
+      "title": "laminoir, usine de quincaillerie dite usine de la Batterie"
+    },
+    {
+      "communes": [
+        "Saint-Sulpice-sur-Risle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/ceba62ec-2803-45a0-bc4b-3e2b0ed55d43",
+      "insee": [
+        "61456"
+      ],
+      "reason": null,
+      "reference": "IA00061114",
+      "status": "eligible",
+      "title": "tréfilerie, usine de quincaillerie"
+    },
+    {
+      "communes": [
+        "Saint-Maurice-sur-Huisne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/9fba22e8-2d3b-4ba4-915c-8836bc5ff9a7",
+      "insee": [
+        "61430"
+      ],
+      "reason": null,
+      "reference": "IA00061115",
+      "status": "eligible",
+      "title": "moulin à papier"
+    },
+    {
+      "communes": [
+        "Anceins"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/9873f4af-3d58-43d2-9fdc-c9f6cee314f9",
+      "insee": [
+        "61003"
+      ],
+      "reason": null,
+      "reference": "IA00061116",
+      "status": "eligible",
+      "title": "distillerie, cidrerie"
+    },
+    {
+      "communes": [
+        "Argentan"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/90ded92e-ceb4-42bd-8d71-67e5ae24dd36",
+      "insee": [
+        "61006"
+      ],
+      "reason": null,
+      "reference": "IA00061117",
+      "status": "eligible",
+      "title": "briqueterie Saint-Martin"
+    },
+    {
+      "communes": [
+        "Argentan"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/c85d0cda-0fbf-4f36-9244-abd54538de04",
+      "insee": [
+        "61006"
+      ],
+      "reason": null,
+      "reference": "IA00061118",
+      "status": "eligible",
+      "title": "moulin à farine dit moulin d'Orion, actuellement minoterie Dubois Rioux"
+    },
+    {
+      "communes": [
+        "Athis-de-l'Orne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/b0d5ba20-5410-4029-a240-8f1d3c45de1a",
+      "insee": [
+        "61007"
+      ],
+      "reason": null,
+      "reference": "IA00061119",
+      "status": "eligible",
+      "title": "filature de la Martinique"
+    },
+    {
+      "communes": [
+        "Athis-de-l'Orne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/74a59e69-e811-42ad-8e4c-9e396ccd6a7e",
+      "insee": [
+        "61007"
+      ],
+      "reason": null,
+      "reference": "IA00061120",
+      "status": "eligible",
+      "title": "filature"
+    },
+    {
+      "communes": [
+        "Athis-de-l'Orne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/be32a865-e7dd-4406-9826-f6167f92efc4",
+      "insee": [
+        "61007"
+      ],
+      "reason": null,
+      "reference": "IA00061121",
+      "status": "eligible",
+      "title": "filature"
+    },
+    {
+      "communes": [
+        "Athis-de-l'Orne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/70f47dbf-54da-4754-981f-3b0e6c781ffd",
+      "insee": [
+        "61007"
+      ],
+      "reason": null,
+      "reference": "IA00061122",
+      "status": "eligible",
+      "title": "filature"
+    },
+    {
+      "communes": [
+        "Aube"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/2120a034-92f2-46cb-b640-aeeb5a0e66e0",
+      "insee": [
+        "61008"
+      ],
+      "reason": null,
+      "reference": "IA00061123",
+      "status": "eligible",
+      "title": "centrale électrique"
+    },
+    {
+      "communes": [
+        "Aunou-le-Faucon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/de7d210f-4c99-459a-b60a-0854fe0017e0",
+      "insee": [
+        "61014"
+      ],
+      "reason": null,
+      "reference": "IA00061124",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "L'Aigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/746e2966-9900-4d07-84b9-8f2eb6d28dae",
+      "insee": [
+        "61214"
+      ],
+      "reason": null,
+      "reference": "IA00061125",
+      "status": "eligible",
+      "title": "moulin à foulon dit Moulin à toile"
+    },
+    {
+      "communes": [
+        "Anceins"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/6434f7ad-c920-49ae-93a1-b6894f1adaf7",
+      "insee": [
+        "61003"
+      ],
+      "reason": null,
+      "reference": "IA00061126",
+      "status": "eligible",
+      "title": "usine de quincaillerie"
+    },
+    {
+      "communes": [
+        "Argentan"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/1b8c5ef7-d2e9-44f9-afbc-1d714f6675e7",
+      "insee": [
+        "61006"
+      ],
+      "reason": null,
+      "reference": "IA00061127",
+      "status": "eligible",
+      "title": "usine de matériel électroménager dite usine Moulinex"
+    },
+    {
+      "communes": [
+        "Argentan"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/0a2906f5-3e51-4560-a7c3-1eaa67a50671",
+      "insee": [
+        "61006"
+      ],
+      "reason": null,
+      "reference": "IA00061128",
+      "status": "eligible",
+      "title": "usine d'appareils de levage et de manutention dite usine M.I.C."
+    },
+    {
+      "communes": [
+        "Aube"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/9bb902e6-a884-4942-af81-8beac2cfad03",
+      "insee": [
+        "61008"
+      ],
+      "reason": null,
+      "reference": "IA00061129",
+      "status": "eligible",
+      "title": "fenderie, tréfilerie"
+    },
+    {
+      "communes": [
+        "Bazoches-au-Houlme"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/7cfecbf8-9454-4e10-baae-dd862e9ebfd3",
+      "insee": [
+        "61028"
+      ],
+      "reason": null,
+      "reference": "IA00061130",
+      "status": "eligible",
+      "title": "usine de chaux"
+    },
+    {
+      "communes": [
+        "Bazoches-sur-Hoëne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/590907c8-296c-46c3-a66e-d3591affff46",
+      "insee": [
+        "61029"
+      ],
+      "reason": null,
+      "reference": "IA00061131",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Athis-de-l'Orne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/cde6a40a-13ed-45ff-a6e7-c040a38738bf",
+      "insee": [
+        "61007"
+      ],
+      "reason": null,
+      "reference": "IA00061132",
+      "status": "eligible",
+      "title": "filature"
+    },
+    {
+      "communes": [
+        "Le Bourg-Saint-Léonard"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/a49b849a-2c3f-43da-ba37-1654a0828017",
+      "insee": [
+        "61057"
+      ],
+      "reason": null,
+      "reference": "IA00061133",
+      "status": "eligible",
+      "title": "laiterie industrielle, fromagerie industrielle dite laiterie fromagerie Lavalou"
+    },
+    {
+      "communes": [
+        "Boucé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/8769226f-24f3-4898-8664-bb903cd2e237",
+      "insee": [
+        "61055"
+      ],
+      "reason": null,
+      "reference": "IA00061134",
+      "status": "eligible",
+      "title": "usine de fabrication des métaux"
+    },
+    {
+      "communes": [
+        "Irai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/a5bef7bf-b391-44f0-b9fe-2a4e452370d4",
+      "insee": [
+        "61208"
+      ],
+      "reason": null,
+      "reference": "IA00061135",
+      "status": "eligible",
+      "title": "fonderies du Perche"
+    },
+    {
+      "communes": [
+        "La Madeleine-Bouvet"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/cd6eba3c-0e0f-4238-a6e4-dbb919f73979",
+      "insee": [
+        "61241"
+      ],
+      "reason": null,
+      "reference": "IA00061136",
+      "status": "eligible",
+      "title": "moulin à farine, minoterie"
+    },
+    {
+      "communes": [
+        "Moutiers-au-Perche"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/227665af-a88f-41a6-b714-55a3aa8f2d29",
+      "insee": [
+        "61300"
+      ],
+      "reason": null,
+      "reference": "IA00061137",
+      "status": "eligible",
+      "title": "tuilerie de la Boulaie Blanche"
+    },
+    {
+      "communes": [
+        "Rai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/62b99cac-2c40-42ff-b0b9-fa4840ea2a07",
+      "insee": [
+        "61342"
+      ],
+      "reason": null,
+      "reference": "IA00061138",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Saint-Victor-de-Réno"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/428a9bbb-bd36-43c4-b258-8747403c24dd",
+      "insee": [
+        "61458"
+      ],
+      "reason": null,
+      "reference": "IA00061139",
+      "status": "eligible",
+      "title": "usine de fabrication des métaux, moulin à papier"
+    },
+    {
+      "communes": [
+        "La Mesnière"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/d2ab2e83-4178-427a-a414-61b279bf280a",
+      "insee": [
+        "61277"
+      ],
+      "reason": null,
+      "reference": "IA00061140",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Saint-Victor-de-Réno"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/bf1fdc43-1afc-45d1-876a-bdec4cb71c0a",
+      "insee": [
+        "61458"
+      ],
+      "reason": null,
+      "reference": "IA00061141",
+      "status": "eligible",
+      "title": "moulin à papier"
+    },
+    {
+      "communes": [
+        "Mauves-sur-Huisne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/cdbc105c-77cd-4bd9-81ba-b19cd6ce58ef",
+      "insee": [
+        "61255"
+      ],
+      "reason": null,
+      "reference": "IA00061142",
+      "status": "eligible",
+      "title": "moulin à farine, puis usine génératrice d'électricité"
+    },
+    {
+      "communes": [
+        "Tourouvre"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/419b5693-77d0-430a-a575-eaa983f332ca",
+      "insee": [
+        "61491"
+      ],
+      "reason": null,
+      "reference": "IA00061143",
+      "status": "eligible",
+      "title": "usine de Matériel Electroacoustique dite usine de Matériel Electroacoustique A.C.E.M., puis A.R.E.A.C.E.M."
+    },
+    {
+      "communes": [
+        "Rai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/988ca903-7120-4ac3-af95-b9efd3b0572c",
+      "insee": [
+        "61342"
+      ],
+      "reason": null,
+      "reference": "IA00061144",
+      "status": "eligible",
+      "title": "usine de petite métallurgie dite usine Eurofac"
+    },
+    {
+      "communes": [
+        "Rai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/d634cdd8-9193-480e-9c5b-fa0728b42439",
+      "insee": [
+        "61342"
+      ],
+      "reason": null,
+      "reference": "IA00061145",
+      "status": "eligible",
+      "title": "usine de matériel d'équipement industriel dite usine de Rai Tillières"
+    },
+    {
+      "communes": [
+        "Vitrai-sous-Laigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/d89c08a5-24d5-41d5-a5cd-68ea0f8760df",
+      "insee": [
+        "61510"
+      ],
+      "reason": null,
+      "reference": "IA00061146",
+      "status": "eligible",
+      "title": "moulin à foulon, tréfilerie"
+    },
+    {
+      "communes": [
+        "Saint-Langis-lès-Mortagne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/3624a154-3a9a-40aa-9b62-a284ba7cbb38",
+      "insee": [
+        "61414"
+      ],
+      "reason": null,
+      "reference": "IA00061147",
+      "status": "eligible",
+      "title": "cartonnerie"
+    },
+    {
+      "communes": [
+        "Saint-Hilaire-le-Châtel"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/2e8b7302-9ed3-4cf1-9454-b8c21a8ef41d",
+      "insee": [
+        "61404"
+      ],
+      "reason": null,
+      "reference": "IA00061148",
+      "status": "eligible",
+      "title": "usine de bougies"
+    },
+    {
+      "communes": [
+        "La Chapelle-Montligeon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/faff3673-fa29-418e-ba33-6bb918525ef0",
+      "insee": [
+        "61097"
+      ],
+      "reason": null,
+      "reference": "IA00061149",
+      "status": "eligible",
+      "title": "imprimerie, actuellement ateliers dits ateliers Buguet"
+    },
+    {
+      "communes": [
+        "Crulai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/30c4bf91-0bbf-4ae7-bc37-0b30ee05d616",
+      "insee": [
+        "61140"
+      ],
+      "reason": null,
+      "reference": "IA00061150",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Mauves-sur-Huisne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/0e922ced-3d12-4529-bced-f9255f58383a",
+      "insee": [
+        "61255"
+      ],
+      "reason": null,
+      "reference": "IA00061151",
+      "status": "eligible",
+      "title": "moulin à farine, puis ferme"
+    },
+    {
+      "communes": [
+        "Perche en Nocé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/ea09c374-7b6e-4e36-b5e3-c82c25b2a867",
+      "insee": [],
+      "reason": null,
+      "reference": "IA00061152",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Longny-au-Perche"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/451e1db8-8019-43bb-8934-b6a85c84b000",
+      "insee": [
+        "61230"
+      ],
+      "reason": null,
+      "reference": "IA00061153",
+      "status": "eligible",
+      "title": "affinerie dite forge de Beaumont"
+    },
+    {
+      "communes": [
+        "Saint-Sulpice-sur-Risle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/1d238529-8f37-4a77-af3f-bde40720b882",
+      "insee": [
+        "61456"
+      ],
+      "reason": null,
+      "reference": "IA00061154",
+      "status": "eligible",
+      "title": "tréfilerie, usine de quincaillerie"
+    },
+    {
+      "communes": [
+        "Saint-Sulpice-sur-Risle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/8e086fa2-48a8-45f7-bd02-99d65e20eb6a",
+      "insee": [
+        "61456"
+      ],
+      "reason": null,
+      "reference": "IA00061155",
+      "status": "eligible",
+      "title": "usine de quincaillerie, tréfilerie dite établissements Bohin"
+    },
+    {
+      "communes": [
+        "Vitrai-sous-Laigle"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/20378565-df8d-4dc8-a216-dbe4574ca9b3",
+      "insee": [
+        "61510"
+      ],
+      "reason": null,
+      "reference": "IA00061156",
+      "status": "eligible",
+      "title": "moulin à blé"
+    },
+    {
+      "communes": [
+        "Mortagne-au-Perche"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/8643ea37-b366-45b1-89eb-6ccdecdc9cf0",
+      "insee": [
+        "61293"
+      ],
+      "reason": null,
+      "reference": "IA00061157",
+      "status": "eligible",
+      "title": "tannerie dite tannerie de la Chippe"
+    },
+    {
+      "communes": [
+        "Randonnai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/06407b40-043b-45d5-a00a-8d0ee9938662",
+      "insee": [
+        "61343"
+      ],
+      "reason": null,
+      "reference": "IA00061158",
+      "status": "eligible",
+      "title": "affinerie, tréfilerie, usine de produits chimiques"
+    },
+    {
+      "communes": [
+        "Saint-Langis-lès-Mortagne"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/ccb41139-674c-4e39-b6b2-3c048c619319",
+      "insee": [
+        "61414"
+      ],
+      "reason": null,
+      "reference": "IA00061159",
+      "status": "eligible",
+      "title": "usine à gaz"
+    },
+    {
+      "communes": [
+        "Tourouvre"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/1f8d4f23-4169-4a91-b16c-ae2d24f6ccb2",
+      "insee": [
+        "61491"
+      ],
+      "reason": null,
+      "reference": "IA00061160",
+      "status": "eligible",
+      "title": "tréfilerie actuellement pisciculture"
+    },
+    {
+      "communes": [
+        "Canapville"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/997fbf0b-081a-41ca-afc1-ec45e05f3a54",
+      "insee": [
+        "61072"
+      ],
+      "reason": null,
+      "reference": "IA00061161",
+      "status": "eligible",
+      "title": "moulin à papier"
+    },
+    {
+      "communes": [
+        "Le Châtellier"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/6114675f-173d-430a-9b97-1570bc0b9eaf",
+      "insee": [
+        "61102"
+      ],
+      "reason": null,
+      "reference": "IA00061162",
+      "status": "eligible",
+      "title": "moulin à farine, minoterie"
+    },
+    {
+      "communes": [
+        "La Coulonche"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/c4644856-fe7e-4b15-bb98-ef5fe1b27555",
+      "insee": [
+        "61124"
+      ],
+      "reason": null,
+      "reference": "IA00061163",
+      "status": "eligible",
+      "title": "tuilerie"
+    },
+    {
+      "communes": [
+        "Écouché"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/2a4d542a-1357-46f7-ae07-c36b9c0199d1",
+      "insee": [
+        "61153"
+      ],
+      "reason": null,
+      "reference": "IA00061164",
+      "status": "eligible",
+      "title": "usine de chaux dite Société des Produits Chimiques d'Ecouché, puis Société des Chaux et Engrais d'Ecouché"
+    },
+    {
+      "communes": [
+        "Écouché"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/15e416ab-2849-4912-a7cd-68f31987dcef",
+      "insee": [
+        "61153"
+      ],
+      "reason": null,
+      "reference": "IA00061165",
+      "status": "eligible",
+      "title": "usine de chaux"
+    },
+    {
+      "communes": [
+        "Écouché"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/a1a400fd-3841-4653-a97b-df83a755edee",
+      "insee": [
+        "61153"
+      ],
+      "reason": null,
+      "reference": "IA00061166",
+      "status": "eligible",
+      "title": "cidrerie distillerie dite cidrerie distillerie Pépin"
+    },
+    {
+      "communes": [
+        "Médavy"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/92bb7459-a62c-4108-934c-15456fbc3a02",
+      "insee": [
+        "61256"
+      ],
+      "reason": null,
+      "reference": "IA00061167",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Nonant-le-Pin"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/9850ea9f-77d8-4d11-9179-067c3047291f",
+      "insee": [
+        "61310"
+      ],
+      "reason": null,
+      "reference": "IA00061168",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Orgères"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/68cb8763-2218-4131-846a-292bbcdf73f3",
+      "insee": [
+        "61317"
+      ],
+      "reason": null,
+      "reference": "IA00061169",
+      "status": "eligible",
+      "title": "scierie Marcel et Cie"
+    },
+    {
+      "communes": [
+        "Orville"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/a38b6d1d-ff7b-493d-ba19-80480d3eec81",
+      "insee": [
+        "61320"
+      ],
+      "reason": null,
+      "reference": "IA00061170",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Pontchardon"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/1747b4e8-27f6-4bc5-82dd-5ec1157afffb",
+      "insee": [
+        "61333"
+      ],
+      "reason": null,
+      "reference": "IA00061171",
+      "status": "eligible",
+      "title": "haut fourneau, fonderie"
+    },
+    {
+      "communes": [
+        "Putanges-Pont-Écrepin"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/350abca5-e658-4a75-a79c-4153a3f4cbe5",
+      "insee": [
+        "61339"
+      ],
+      "reason": null,
+      "reference": "IA00061172",
+      "status": "eligible",
+      "title": "usine de fabrication des métaux, moulin"
+    },
+    {
+      "communes": [
+        "Nécy"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/b139a65a-22c9-4a7d-8ec1-90be68a38647",
+      "insee": [
+        "61303"
+      ],
+      "reason": null,
+      "reference": "IA00061173",
+      "status": "eligible",
+      "title": "usine d'extraction"
+    },
+    {
+      "communes": [
+        "Montmerrei"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/ad7f8666-1272-420a-bfef-208adc638206",
+      "insee": [
+        "61288"
+      ],
+      "reason": null,
+      "reference": "IA00061174",
+      "status": "eligible",
+      "title": "fenderie, moulin à blé"
+    },
+    {
+      "communes": [
+        "Le Merlerault"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/9d8fc8db-1efa-43da-b0c8-3111b1b85952",
+      "insee": [
+        "61275"
+      ],
+      "reason": null,
+      "reference": "IA00061175",
+      "status": "eligible",
+      "title": "tannerie"
+    },
+    {
+      "communes": [
+        "Courménil"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/5c0c719e-4f21-4b12-86a4-be055639fbd5",
+      "insee": [
+        "61131"
+      ],
+      "reason": null,
+      "reference": "IA00061176",
+      "status": "eligible",
+      "title": "fromagerie industrielle, haras"
+    },
+    {
+      "communes": [
+        "Chambois"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/ba59eddf-ff3a-4f01-8043-7471ffd85054",
+      "insee": [
+        "61083"
+      ],
+      "reason": null,
+      "reference": "IA00061177",
+      "status": "eligible",
+      "title": "fromagerie industrielle"
+    },
+    {
+      "communes": [
+        "Le Château-d'Almenêches"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/73e981b5-cb79-4e06-9308-304f5e06a260",
+      "insee": [
+        "61101"
+      ],
+      "reason": null,
+      "reference": "IA00061178",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Flers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/f0494843-26ec-42e0-bbf4-8080825095af",
+      "insee": [
+        "61169"
+      ],
+      "reason": null,
+      "reference": "IA00061179",
+      "status": "eligible",
+      "title": "imprimerie"
+    },
+    {
+      "communes": [
+        "Flers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/61fb0335-994b-405b-b856-3656ce4464c5",
+      "insee": [
+        "61169"
+      ],
+      "reason": null,
+      "reference": "IA00061180",
+      "status": "eligible",
+      "title": "usine de confection"
+    },
+    {
+      "communes": [
+        "Flers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/b29aae84-af18-4631-9cf4-93b723417003",
+      "insee": [
+        "61169"
+      ],
+      "reason": null,
+      "reference": "IA00061181",
+      "status": "eligible",
+      "title": "usine d'articles en caoutchouc"
+    },
+    {
+      "communes": [
+        "Flers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/4259792c-93a9-4c04-84d8-f247dde73c2f",
+      "insee": [
+        "61169"
+      ],
+      "reason": null,
+      "reference": "IA00061182",
+      "status": "eligible",
+      "title": "usine de serrurerie"
+    },
+    {
+      "communes": [
+        "Flers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/a309be3b-bd36-4e58-9477-3d40c013effb",
+      "insee": [
+        "61169"
+      ],
+      "reason": null,
+      "reference": "IA00061183",
+      "status": "eligible",
+      "title": "fonderie Fauvel"
+    },
+    {
+      "communes": [
+        "Flers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/a6ab735f-2409-4c1b-87d6-6e2e2125973e",
+      "insee": [
+        "61169"
+      ],
+      "reason": null,
+      "reference": "IA00061184",
+      "status": "eligible",
+      "title": "fonderie des Rochettes"
+    },
+    {
+      "communes": [
+        "Gacé"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/2d0b8b65-128a-41b8-84ea-f7e285191de0",
+      "insee": [
+        "61181"
+      ],
+      "reason": null,
+      "reference": "IA00061185",
+      "status": "eligible",
+      "title": "distillerie, cidrerie"
+    },
+    {
+      "communes": [
+        "Messei"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/6ed31cec-86d1-4f1f-907a-11a00a5fb38c",
+      "insee": [
+        "61278"
+      ],
+      "reason": null,
+      "reference": "IA00061186",
+      "status": "eligible",
+      "title": "usine de transformation des métaux"
+    },
+    {
+      "communes": [
+        "Larchamp"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/699c57f0-e01e-41d9-b930-84b8d7fa8b8f",
+      "insee": [
+        "61223"
+      ],
+      "reason": null,
+      "reference": "IA00061187",
+      "status": "eligible",
+      "title": "affinerie, moulin à farine"
+    },
+    {
+      "communes": [
+        "Larchamp"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/09e650e5-9c9f-4eb4-b94b-33919a83410b",
+      "insee": [
+        "61223"
+      ],
+      "reason": null,
+      "reference": "IA00061188",
+      "status": "eligible",
+      "title": "fenderie de fer"
+    },
+    {
+      "communes": [
+        "Flers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/39a27714-3083-43ee-92c0-69995cdaa3a8",
+      "insee": [
+        "61169"
+      ],
+      "reason": null,
+      "reference": "IA00061189",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Saint-Pierre-du-Regard"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/70887682-2e05-4379-8508-48715db32ccd",
+      "insee": [
+        "61447"
+      ],
+      "reason": null,
+      "reference": "IA00061190",
+      "status": "eligible",
+      "title": "filature"
+    },
+    {
+      "communes": [
+        "Saint-Georges-des-Groseillers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/7d8065d7-1e45-4b91-a03a-de2e1cff3468",
+      "insee": [
+        "61391"
+      ],
+      "reason": null,
+      "reference": "IA00061191",
+      "status": "eligible",
+      "title": "tissage"
+    },
+    {
+      "communes": [
+        "Saint-Loyer-des-Champs"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/b29f7a1a-e314-4639-a3ed-1b832661a43c",
+      "insee": [
+        "61417"
+      ],
+      "reason": null,
+      "reference": "IA00061192",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Saint-Nicolas-des-Laitiers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/beba1c2b-c9f0-4446-96b0-bc38776f6c30",
+      "insee": [
+        "61434"
+      ],
+      "reason": null,
+      "reference": "IA00061193",
+      "status": "eligible",
+      "title": "briqueterie"
+    },
+    {
+      "communes": [
+        "Sévigny"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/9951dd86-5305-45e0-bdb4-2327005bd36e",
+      "insee": [
+        "61472"
+      ],
+      "reason": null,
+      "reference": "IA00061194",
+      "status": "eligible",
+      "title": "tuilerie Sans Pareil"
+    },
+    {
+      "communes": [
+        "Sevrai"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/7ebcc0dc-dce8-474f-81ad-36bb44b1c41d",
+      "insee": [
+        "61473"
+      ],
+      "reason": null,
+      "reference": "IA00061195",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Ticheville"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/163d7741-afdb-4087-9199-5d0f98975646",
+      "insee": [
+        "61485"
+      ],
+      "reason": null,
+      "reference": "IA00061196",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Trun"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/82ece625-4edb-4a32-9547-9305a585b7d1",
+      "insee": [
+        "61494"
+      ],
+      "reason": null,
+      "reference": "IA00061197",
+      "status": "eligible",
+      "title": "tuilerie"
+    },
+    {
+      "communes": [
+        "Saint-Georges-des-Groseillers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/5e90b6f8-af9a-4a95-bff4-17259c8e51e7",
+      "insee": [
+        "61391"
+      ],
+      "reason": null,
+      "reference": "IA00061198",
+      "status": "eligible",
+      "title": "usine de confection"
+    },
+    {
+      "communes": [
+        "Saint-Georges-des-Groseillers"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/d2e40e28-1bce-4663-b0b1-a1d187703ccc",
+      "insee": [
+        "61391"
+      ],
+      "reason": null,
+      "reference": "IA00061199",
+      "status": "eligible",
+      "title": "fromagerie industrielle"
+    },
+    {
+      "communes": [
+        "La Ferrière-aux-Étangs"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/66d20efd-da21-4629-a916-af31169501dc",
+      "insee": [
+        "61163"
+      ],
+      "reason": null,
+      "reference": "IA00061200",
+      "status": "eligible",
+      "title": "cité ouvrière"
+    },
+    {
+      "communes": [
+        "La Ferrière-aux-Étangs"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/88db30e7-e1d6-455f-bdb1-1e8df396a1e4",
+      "insee": [
+        "61163"
+      ],
+      "reason": null,
+      "reference": "IA00061201",
+      "status": "eligible",
+      "title": "cité ouvrière"
+    },
+    {
+      "communes": [
+        "La Ferrière-aux-Étangs"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/66d0a00e-32b7-4c86-8bf8-53ff925f1760",
+      "insee": [
+        "61163"
+      ],
+      "reason": null,
+      "reference": "IA00061202",
+      "status": "eligible",
+      "title": "usine d'extraction"
+    },
+    {
+      "communes": [
+        "Domfront"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/5f52703f-f04a-4fcb-ae05-4d0e785b38f7",
+      "insee": [
+        "61145"
+      ],
+      "reason": null,
+      "reference": "IA00061203",
+      "status": "eligible",
+      "title": "moulin à farine"
+    },
+    {
+      "communes": [
+        "Le Château-d'Almenêches"
+      ],
+      "dossier_type": "dossier individuel",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/49e5b7dc-d567-484c-ae8e-30a071d64f6f",
+      "insee": [
+        "61101"
+      ],
+      "reason": null,
+      "reference": "IA00062725",
+      "status": "eligible",
+      "title": "usine liée au travail du bois"
+    },
+    {
+      "communes": [],
+      "dossier_type": "présentation de l'aire d'étude",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/3ae69f04-34a6-4df5-9789-26075162c736",
+      "insee": [],
+      "reason": "notice_de_presentation_non_site",
+      "reference": "IA61000851",
+      "status": "excluded",
+      "title": "présentation de l'étude d'inventaire du patrimoine industriel de l'Orne"
+    },
+    {
+      "communes": [],
+      "dossier_type": "dossier collectif",
+      "dossier_url": "https://inventaire-patrimoine.normandie.fr/dossier/2cbba5e5-db84-440b-b412-b7be1a7308fe",
+      "insee": [],
+      "reason": null,
+      "reference": "IA61001399",
+      "status": "eligible",
+      "title": "les fromageries industrielles disparues de l'Orne"
+    }
+  ],
+  "search_result_count": 320
+}

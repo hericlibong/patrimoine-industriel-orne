@@ -429,3 +429,20 @@ période sans mélanger les activités successives d'un même site.
 Dans DuckDB, `activites_periodes_v1` fournit une ligne par relation entre une
 phase d'activité et une période. Cette table dérivée est adaptée aux comptages
 et aux croisements entre secteurs, productions et périodes.
+
+## Passage au corpus complet par lots
+
+La phase 8 n'assimile jamais les 319 dossiers sources à 319 sites. La recherche
+avancée de l'API POP sur le cadre d'étude exact renvoie 320 notices. La notice
+de présentation `IA61000851` est exclue, ce qui produit 319 références uniques
+et concorde avec le total du portail régional.
+
+Les notices des nouveaux lots sont conservées en JSON brut depuis l'API POP.
+Le parseur HTML validé pendant les phases 2 et 5 reste une solution de repli.
+Les dossiers sont traités par lots : 30 pilotes, 50 nouveaux dossiers dans le
+lot de calibration, puis quatre lots de 50 et un dernier lot de 39.
+
+Une référence IA crée seulement un candidat. Les activités successives peuvent
+rester rattachées à une même emprise. Une fusion de dossiers ou une séparation
+d'emprises exige une décision documentée. Le nombre canonique n'est calculé
+qu'après la revue complète.

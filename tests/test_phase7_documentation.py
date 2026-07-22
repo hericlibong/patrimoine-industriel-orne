@@ -13,7 +13,7 @@ def test_source_registry_is_complete() -> None:
     registry = yaml.safe_load((ROOT / "config" / "sources.yml").read_text(encoding="utf-8"))
     sources = registry["sources"]
 
-    assert str(registry["version"]) == "1.1"
+    assert str(registry["version"]) == "1.2"
     assert len(sources) == 21
     assert len({source["id"] for source in sources}) == len(sources)
     for source in sources:
@@ -38,8 +38,8 @@ def test_final_classification_registry_is_published() -> None:
         (ROOT / "config" / "classifications.yml").read_text(encoding="utf-8")
     )
 
-    assert registry["version"] == "1.2"
-    assert registry["status"] == "socle_v1"
+    assert registry["version"] == "1.3"
+    assert registry["status"] == "phase8_corpus"
     assert set(registry["methodes_periodes"]) == {
         "chronologie_phase",
         "siecles_source_site",

@@ -9,12 +9,13 @@ reproductible.
 
 ## État du projet
 
-**Phases 0 à 7 terminées — phase 8 autorisée par lots.**
+**Phases 0 à 7 terminées — phase 8 en cours par lots.**
 
 Le socle pilote V1 est approuvé. Il comprend 30 sites et 47 phases d'activité
 avec des périodes filtrables, disponibles en DuckDB, CSV, Parquet et GeoJSON.
-La phase 8 commencera par l'énumération des 319 références puis un premier lot
-de 50 dossiers destiné à mesurer la cadence et les difficultés réelles.
+Les 319 références ont été énumérées par l'API POP. Le premier lot de 50
+dossiers non pilotes est extrait, classé et revu ; 239 dossiers non pilotes
+restent à traiter avant d'établir le nombre départemental de sites.
 
 Le suivi détaillé est maintenu localement dans `docs/roadmap.md`, qui n'est pas
 versionné.
@@ -30,6 +31,7 @@ versionné.
 - [Limites éditoriales](docs/limites_editoriales.md)
 - [Licences des données et droits des images](docs/licences_droits_images.md)
 - [Estimation de charge du corpus complet](docs/estimation_charge_corpus_complet.md)
+- [Constitution du corpus en phase 8](docs/phase8_constitution_corpus.md)
 - [Récits soutenus par les données](docs/recits_soutenus_donnees.md)
 - [Recommandation pour l'application](docs/recommandation_application.md)
 - [Modèle des entités principales](docs/modele_donnees.md)

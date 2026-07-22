@@ -1,6 +1,6 @@
-version: 1.0
-decided_at: 2026-07-20
-status: phase2_validee
+version: 1.1
+decided_at: 2026-07-22
+status: phase8_corpus
 
 common_rules:
   raw_data:
@@ -48,12 +48,13 @@ sources:
   pop_merimee:
     role: canal_structure_du_corpus_principal
     automation: automatique_avec_validation
-    primary_access: html_nextjs_embedded_notice
+    primary_access: pop_public_api_json
     identifier: REF
     secondary_identifiers: [LBASE2, INSEE]
     extraction_steps:
-      - récupérer la page de chaque référence IA attendue
-      - extraire l'objet notice incorporé au flux Next.js
+      - énumérer le corpus par la recherche avancée de l'API sur le cadre d'étude exact
+      - exclure explicitement la notice de présentation IA61000851
+      - récupérer le JSON de chaque référence IA attendue
       - valider la concordance entre REF et la référence demandée
       - conserver coordonnées, texte et valeurs sources séparément
     manual_controls:
@@ -61,6 +62,7 @@ sources:
       - état actuel
       - précision géographique
     fallback:
+      - utiliser le parseur validé de la notice incorporée au HTML Next.js
       - conserver le HTML brut et signaler une rupture de parseur
       - rechercher un export officiel actuel avant de modifier le parseur
 

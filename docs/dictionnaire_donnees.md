@@ -1,4 +1,4 @@
-# Dictionnaire des données — version 1.5
+# Dictionnaire des données — version 1.6
 
 Statut : **socle pilote V1 consolidé le 22 juillet 2026**.
 
@@ -22,9 +22,9 @@ géométrie et la fiabilité de l'information sont trois champs indépendants.
 
 ## Référentiel des classifications V1
 
-Le registre `config/classifications.yml` version 1.2 est la source canonique des
-177 codes publiés. Le dictionnaire en fixe ici le sens ; les libellés exhaustifs
-des 41 activités détaillées et des 32 installations restent dans le registre.
+Le registre `config/classifications.yml` version 1.3 est la source canonique des
+182 codes publiés. Le dictionnaire en fixe ici le sens ; les libellés exhaustifs
+des 45 activités détaillées et des 33 installations restent dans le registre.
 
 ### Secteurs industriels
 
