@@ -512,3 +512,24 @@
   la construction de la publication interactive.
 - Les interprétations liées à l'eau, la forêt, aux minerais et au rail devront
   être recalculées sur ce corpus complet et vérifiées historiquement.
+
+## 2026-07-22 — Phase 6, contrôle cartographique
+
+- Une carte QGIS à chemins relatifs superpose les 30 points POP, 29 emprises
+  documentaires, 30 parcelles actuelles candidates et quatre résultats BAN.
+- Aucun point grossièrement aberrant n'est détecté : tous restent dans
+  l'enveloppe de l'Orne, les transformations de coordonnées sont cohérentes,
+  les communes concordent avec les parcelles et aucun quasi-doublon à moins de
+  50 mètres n'apparaît.
+- Neuf cas sensibles ont été relus et disposent d'une décision explicite : une
+  emprise absente, une très petite, deux très grandes, un point situé à 11,7
+  mètres de son contour, trois adresses non uniques et un résultat BAN rejeté.
+- Les seuils de surface et de distance déclenchent une relecture ; ils ne
+  définissent pas une emprise industrielle correcte.
+- Aucun point n'est déplacé. Les 30 localisations restent approximatives et les
+  parcelles actuelles restent de simples candidates.
+- Le projet QGIS est validé comme XML et ses cinq couches comme GeoJSON. Son
+  rendu devra être vérifié sur un poste équipé de QGIS 3.x, absent de
+  l'environnement d'exécution.
+- Le bloc « Contrôle cartographique » est terminé. Le dernier bloc de validation
+  de la phase 6 peut commencer.

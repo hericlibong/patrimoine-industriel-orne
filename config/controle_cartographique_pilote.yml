@@ -1,0 +1,47 @@
+version: "1.0"
+date_controle: 2026-07-22
+type_controle: revue_manuelle_assistee_par_superposition
+
+seuils_de_detection:
+  surface_documentaire_min_m2: 100
+  surface_documentaire_max_m2: 100000
+  point_hors_emprise_tolerance_m: 5
+  quasi_doublon_m: 50
+
+cas_controles:
+  - reference: IA00061003
+    motifs: [emprise_tres_petite]
+    decision: conserver_zone_documentaire_approximative
+    note: "Le contour de 25 m² est techniquement cohérent mais trop petit pour être présenté comme l'emprise certaine de l'ancien four à chaux."
+  - reference: IA00060901
+    motifs: [emprise_tres_grande]
+    decision: conserver_zone_documentaire_approximative
+    note: "Le contour de 200 749 m² peut décrire un ensemble étendu ; il n'est pas assimilé à une emprise industrielle vérifiée."
+  - reference: IA00060915
+    motifs: [emprise_absente]
+    decision: afficher_point_approximatif_uniquement
+    note: "Aucun contour POP n'est disponible ; aucune emprise de remplacement n'est créée."
+  - reference: IA00061073
+    motifs: [adresse_non_unique]
+    decision: conserver_point_pop_sans_geocodage
+    note: "L'adresse couvre les numéros 4 à 22 ; un point d'adresse unique donnerait une fausse précision."
+  - reference: IA00060969
+    motifs: [adresse_ban_non_concordante]
+    decision: rejeter_point_ban_conserver_point_pop
+    note: "Le résultat BAN est distant d'environ 1,2 km et correspond à une autre voie."
+  - reference: IA00061117
+    motifs: [emprise_tres_grande]
+    decision: conserver_zone_documentaire_approximative
+    note: "Le contour de 120 172 m² peut couvrir l'ensemble de la briqueterie ; sa limite exacte n'est pas vérifiée."
+  - reference: IA00060909
+    motifs: [adresse_non_unique]
+    decision: conserver_point_pop_sans_geocodage
+    note: "L'adresse désigne une rue sans numéro ; aucun point BAN n'est retenu."
+  - reference: IA00061166
+    motifs: [adresse_non_unique]
+    decision: conserver_point_pop_sans_geocodage
+    note: "L'adresse contient deux numéros ; la commune actuelle et la parcelle candidate concordent avec Écouché."
+  - reference: IA00061060
+    motifs: [point_hors_emprise]
+    decision: conserver_point_et_contour_separes_a_verifier
+    note: "Le point POP est à 11,7 m du contour documentaire ; les deux géométries sont conservées sans choisir artificiellement la plus précise."

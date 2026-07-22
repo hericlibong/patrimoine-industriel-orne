@@ -40,6 +40,8 @@ versionné.
 - [Validation finale du corpus pilote](reports/quality/phase5_validation_finale.md)
 - [Contrôle des localisations du pilote](reports/quality/phase6_localisation.md)
 - [Test du contexte territorial](reports/quality/phase6_contexte_territorial.md)
+- [Contrôle cartographique du pilote](reports/quality/phase6_controle_cartographique.md)
+- [Projet QGIS de contrôle](qgis/controle_phase6.qgs)
 
 ## Localisations du pilote
 
@@ -51,11 +53,14 @@ python -m patrimoine_orne.extract.pilot_geography
 python -m patrimoine_orne.geocode.pilot
 python -m patrimoine_orne.extract.territorial_context
 python -m patrimoine_orne.geocode.territorial_context
+python -m patrimoine_orne.geocode.cartographic_control
 ```
 
 La première commande interroge les services publics IGN et archive les réponses.
 La seconde qualifie les résultats sans transformer une géométrie automatique en
 localisation vérifiée.
+Les deux suivantes extraient puis calculent le contexte territorial. La dernière
+reconstruit les cinq couches GeoJSON utilisées par le projet QGIS de contrôle.
 
 ## Base DuckDB de test
 

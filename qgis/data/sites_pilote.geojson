@@ -1,0 +1,875 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          -0.6186115235885614,
+          48.690929837651005
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Saint-Clair-de-Halouze",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 27517.0,
+        "motifs": "",
+        "nom": "usine d'extraction dite Mine de Halouze",
+        "note_manuelle": null,
+        "parcelle": "613760000B0848",
+        "plus_proche_site_m": 9105.5,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061008",
+        "secteurs": "extraction",
+        "site_id": "2bcf41f5-1242-46d9-9809-8fff7fbdae14",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.5486016317751446,
+          48.5986464736866
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Champsecret",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 60081.0,
+        "motifs": "",
+        "nom": "affinerie, moulin à blé",
+        "note_manuelle": null,
+        "parcelle": "61091000ZN0200",
+        "plus_proche_site_m": 11478.4,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00060965",
+        "secteurs": "agroalimentaire, metallurgie_travail_metaux",
+        "site_id": "d7b0b9b0-6817-4057-8535-3ce9b61ed857",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.2965698588180073,
+          48.78773387593912
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Putanges-le-Lac",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 21308.0,
+        "motifs": "",
+        "nom": "centrale hydroélectrique",
+        "note_manuelle": null,
+        "parcelle": "613393640B0022",
+        "plus_proche_site_m": 2743.6,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00060938",
+        "secteurs": "energie",
+        "site_id": "2b6d576e-11fb-4af4-85ba-dc1b950a731d",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.2611416389081272,
+          48.77974105802658
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": true,
+        "commune": "Putanges-le-Lac",
+        "decision_manuelle": "conserver_zone_documentaire_approximative",
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 25.0,
+        "motifs": "emprise_tres_petite",
+        "nom": "four à chaux",
+        "note_manuelle": "Le contour de 25 m² est techniquement cohérent mais trop petit pour être présenté comme l'emprise certaine de l'ancien four à chaux.",
+        "parcelle": "613393540B0032",
+        "plus_proche_site_m": 2743.6,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061003",
+        "secteurs": "verre_ceramique_materiaux_construction",
+        "site_id": "04264fa9-c2d1-4d5e-b709-bdb1d3836a9b",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.192303752081454,
+          48.62883233414116
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Rânes",
+        "decision_manuelle": "conserver_zone_documentaire_approximative",
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 200749.0,
+        "motifs": "emprise_tres_grande",
+        "nom": "affinerie de fer",
+        "note_manuelle": "Le contour de 200 749 m² peut décrire un ensemble étendu ; il n'est pas assimilé à une emprise industrielle vérifiée.",
+        "parcelle": "61344000ZR0033",
+        "plus_proche_site_m": 10827.8,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00060901",
+        "secteurs": "metallurgie_travail_metaux",
+        "site_id": "3495d47b-0c8f-45b9-866b-dcc3357542e7",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.5264803216151851,
+          48.8263948592895
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Athis-Val de Rouvre",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 17427.0,
+        "motifs": "",
+        "nom": "filature de la Martinique",
+        "note_manuelle": null,
+        "parcelle": "610070000A0874",
+        "plus_proche_site_m": 2597.2,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061119",
+        "secteurs": "textile_habillement_cuir",
+        "site_id": "687037bf-bf42-4ee7-a5f4-e79d60a38cc1",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.5743152336616424,
+          48.76742714744118
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Saint-Georges-des-Groseillers",
+        "decision_manuelle": "afficher_point_approximatif_uniquement",
+        "distance_emprise_m": null,
+        "emprise_m2": null,
+        "motifs": "emprise_absente",
+        "nom": "filature de coton dite filature de la Planchette",
+        "note_manuelle": "Aucun contour POP n'est disponible ; aucune emprise de remplacement n'est créée.",
+        "parcelle": "61391000AC0181",
+        "plus_proche_site_m": 7434.4,
+        "point_dans_emprise": null,
+        "precision": "point_approximatif",
+        "reference": "IA00060915",
+        "secteurs": "textile_habillement_cuir",
+        "site_id": "2c664ed5-7ee5-4315-aa61-e9b9032b56c0",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.5113380588965798,
+          48.847518905647895
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Saint-Pierre-du-Regard",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 6932.5,
+        "motifs": "",
+        "nom": "filature des Roches",
+        "note_manuelle": null,
+        "parcelle": "614470000B0396",
+        "plus_proche_site_m": 2597.2,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061035",
+        "secteurs": "textile_habillement_cuir",
+        "site_id": "980da487-203e-40ae-9c1d-cea503be1860",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.4692362808837436,
+          48.86744482145761
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Berjou",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 7979.5,
+        "motifs": "",
+        "nom": "filature, fromagerie industrielle",
+        "note_manuelle": null,
+        "parcelle": "610440000A0400",
+        "plus_proche_site_m": 3048.9,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00060902",
+        "secteurs": "agroalimentaire, textile_habillement_cuir",
+        "site_id": "57368564-3e33-4b35-9d3c-555a5cb0bbc1",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.42778489906881867,
+          48.86456213067169
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Cahan",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 10718.5,
+        "motifs": "",
+        "nom": "filature, usine de chaussures",
+        "note_manuelle": null,
+        "parcelle": "610690000B0452",
+        "plus_proche_site_m": 3048.9,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00060896",
+        "secteurs": "textile_habillement_cuir",
+        "site_id": "2ab6b065-4bf3-4956-a9c2-656c2f9cfbfa",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.08865273502274014,
+          48.432512077974245
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Alençon",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 1811.0,
+        "motifs": "",
+        "nom": "imprimerie Alençonnaise",
+        "note_manuelle": null,
+        "parcelle": "61001000AI1032",
+        "plus_proche_site_m": 1748.2,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061002",
+        "secteurs": "bois_papier_imprimerie",
+        "site_id": "f7b9e26f-4dd7-428f-a7e8-659c432904af",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.09680089770291367,
+          48.41774961815736
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Alençon",
+        "decision_manuelle": "conserver_point_pop_sans_geocodage",
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 27665.5,
+        "motifs": "adresse_non_unique",
+        "nom": "scierie Prout, puis Scierie Prout Frères, actuellement Maisons France Confort",
+        "note_manuelle": "L'adresse couvre les numéros 4 à 22 ; un point d'adresse unique donnerait une fausse précision.",
+        "parcelle": "61001000BK0309",
+        "plus_proche_site_m": 311.0,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061073",
+        "secteurs": "bois_papier_imprimerie",
+        "site_id": "f0bdb9e3-c3bf-41cd-8704-d630daf00661",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.10079551488612261,
+          48.41863958530717
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Alençon",
+        "decision_manuelle": "rejeter_point_ban_conserver_point_pop",
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 93807.0,
+        "motifs": "adresse_ban_non_concordante",
+        "nom": "moulin à farine dit moulin d'Ozé, puis filature d'Ozé, puis usine de matériel électroménager Moulinex",
+        "note_manuelle": "Le résultat BAN est distant d'environ 1,2 km et correspond à une autre voie.",
+        "parcelle": "61001000BH0216",
+        "plus_proche_site_m": 311.0,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00060969",
+        "secteurs": "agroalimentaire, mecanique_electrique, textile_habillement_cuir",
+        "site_id": "4b0fcc92-f32b-4040-ae5d-32a4945b176a",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.05470964099131984,
+          48.46276650506727
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Saint-Denis-sur-Sarthon",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 11884.0,
+        "motifs": "",
+        "nom": "usine de fabrication des métaux",
+        "note_manuelle": null,
+        "parcelle": "613820000G0288",
+        "plus_proche_site_m": 946.0,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00060959",
+        "secteurs": "metallurgie_travail_metaux",
+        "site_id": "3c95b12b-1cb8-4439-a0d9-60152e8a327f",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.04466949682273202,
+          48.4574697462757
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Saint-Denis-sur-Sarthon",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 19389.0,
+        "motifs": "",
+        "nom": "faïencerie",
+        "note_manuelle": null,
+        "parcelle": "61382000AC0106",
+        "plus_proche_site_m": 946.0,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00060997",
+        "secteurs": "verre_ceramique_materiaux_construction",
+        "site_id": "0f433fbc-09eb-42de-ba2f-75eec5c7a050",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.037485884350861635,
+          48.75668430101197
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Argentan",
+        "decision_manuelle": "conserver_zone_documentaire_approximative",
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 120172.0,
+        "motifs": "emprise_tres_grande",
+        "nom": "briqueterie Saint-Martin",
+        "note_manuelle": "Le contour de 120 172 m² peut couvrir l'ensemble de la briqueterie ; sa limite exacte n'est pas vérifiée.",
+        "parcelle": "61006000AP0137",
+        "plus_proche_site_m": 2926.3,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061117",
+        "secteurs": "verre_ceramique_materiaux_construction",
+        "site_id": "af60a402-a20e-4cca-b3c9-a81921d4e2e8",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.10359277019030935,
+          48.76502373879208
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": true,
+        "commune": "Gouffern en Auge",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 6642.5,
+        "motifs": "",
+        "nom": "laiterie industrielle, fromagerie industrielle dite laiterie fromagerie Lavalou",
+        "note_manuelle": null,
+        "parcelle": "614740570D0107",
+        "plus_proche_site_m": 10382.6,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061133",
+        "secteurs": "agroalimentaire",
+        "site_id": "ca91c449-cb94-4c38-a230-023dbec512cd",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.29295608862635,
+          48.7954745243465
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Gacé",
+        "decision_manuelle": "conserver_point_pop_sans_geocodage",
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 8727.5,
+        "motifs": "adresse_non_unique",
+        "nom": "distillerie, cidrerie, laiterie industrielle",
+        "note_manuelle": "L'adresse désigne une rue sans numéro ; aucun point BAN n'est retenu.",
+        "parcelle": "61181000AM0511",
+        "plus_proche_site_m": 14282.2,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00060909",
+        "secteurs": "agroalimentaire",
+        "site_id": "3ae9aff0-231d-4365-a718-039b17021fc0",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.12137461962188618,
+          48.71420362780827
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Écouché-les-Vallées",
+        "decision_manuelle": "conserver_point_pop_sans_geocodage",
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 4699.5,
+        "motifs": "adresse_non_unique",
+        "nom": "cidrerie distillerie dite cidrerie distillerie Pépin",
+        "note_manuelle": "L'adresse contient deux numéros ; la commune actuelle et la parcelle candidate concordent avec Écouché.",
+        "parcelle": "61153000AC0159",
+        "plus_proche_site_m": 4867.3,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061166",
+        "secteurs": "agroalimentaire",
+        "site_id": "35c5c701-5158-4714-aa11-6946f7fae290",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.06584261377186915,
+          48.73816463006711
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Monts-sur-Orne",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 9829.5,
+        "motifs": "",
+        "nom": "moulin à farine",
+        "note_manuelle": null,
+        "parcelle": "611940000B0137",
+        "plus_proche_site_m": 2926.3,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061091",
+        "secteurs": "agroalimentaire",
+        "site_id": "8a492a03-5bac-4aa5-b48e-ed37239720e6",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.5526895033235633,
+          48.74212960732837
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Aube",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 16911.0,
+        "motifs": "",
+        "nom": "affinerie",
+        "note_manuelle": null,
+        "parcelle": "61008000AE0045",
+        "plus_proche_site_m": 5711.3,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061029",
+        "secteurs": "metallurgie_travail_metaux",
+        "site_id": "43d7512d-7196-4864-bc90-64b3b3474bce",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.6568775300978867,
+          48.77913238860982
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Saint-Sulpice-sur-Risle",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 30767.0,
+        "motifs": "",
+        "nom": "usine de quincaillerie, tréfilerie dite établissements Bohin",
+        "note_manuelle": null,
+        "parcelle": "61456000AD0327",
+        "plus_proche_site_m": 798.7,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061155",
+        "secteurs": "metallurgie_travail_metaux",
+        "site_id": "890265c5-e62f-45f7-aed2-08fb1814f457",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.648168264558847,
+          48.77481321857863
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Saint-Sulpice-sur-Risle",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 2912.0,
+        "motifs": "",
+        "nom": "laminoir, usine de quincaillerie dite usine de la Batterie",
+        "note_manuelle": null,
+        "parcelle": "61456000ZR0116",
+        "plus_proche_site_m": 798.7,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061113",
+        "secteurs": "metallurgie_travail_metaux",
+        "site_id": "be1c19ae-3062-4f64-b8db-602ab713f052",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.6256774049932438,
+          48.765865137537546
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": true,
+        "commune": "L'Aigle",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 1884.0,
+        "motifs": "",
+        "nom": "tannerie, usine de construction mécanique",
+        "note_manuelle": null,
+        "parcelle": "61214000AI0215",
+        "plus_proche_site_m": 378.2,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061052",
+        "secteurs": "mecanique_electrique, textile_habillement_cuir",
+        "site_id": "314bf742-7125-4c6c-a4bd-26d6a047a9b1",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.6241236493911818,
+          48.76262194075353
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "L'Aigle",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 826.0,
+        "motifs": "",
+        "nom": "usine d'habillement",
+        "note_manuelle": null,
+        "parcelle": "61214000AO0475",
+        "plus_proche_site_m": 378.2,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061054",
+        "secteurs": "textile_habillement_cuir",
+        "site_id": "3d44d08b-e70d-4622-9387-a7538d86be3f",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.7468896435126247,
+          48.51539072960532
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Longny les Villages",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 9221.0,
+        "motifs": "",
+        "nom": "affinerie dite forge de Beaumont",
+        "note_manuelle": null,
+        "parcelle": "61230000ZV0083",
+        "plus_proche_site_m": 1882.7,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061153",
+        "secteurs": "metallurgie_travail_metaux",
+        "site_id": "b1136ddb-9fff-4209-8328-e5caed705388",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.7279717640432808,
+          48.50400601367125
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": true,
+        "commune": "Longny les Villages",
+        "decision_manuelle": "conserver_point_et_contour_separes_a_verifier",
+        "distance_emprise_m": 11.7,
+        "emprise_m2": 17262.0,
+        "motifs": "point_hors_emprise",
+        "nom": "moulin à papier, grosse forge",
+        "note_manuelle": "Le point POP est à 11,7 m du contour documentaire ; les deux géométries sont conservées sans choisir artificiellement la plus précise.",
+        "parcelle": "61230000ZX0060",
+        "plus_proche_site_m": 1882.7,
+        "point_dans_emprise": false,
+        "precision": "zone_documentaire",
+        "reference": "IA00061060",
+        "secteurs": "agroalimentaire, bois_papier_imprimerie, metallurgie_travail_metaux, textile_habillement_cuir",
+        "site_id": "9435cb9d-0885-4a4b-9834-64e76ac0364b",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.5490432071424247,
+          48.50881005375055
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Saint-Langis-lès-Mortagne",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 45406.5,
+        "motifs": "",
+        "nom": "cartonnerie",
+        "note_manuelle": null,
+        "parcelle": "614140000D0463",
+        "plus_proche_site_m": 13192.6,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061147",
+        "secteurs": "bois_papier_imprimerie",
+        "site_id": "c528f629-8337-49c9-873c-75ecc067a7a3",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.6740319616145599,
+          48.65300669671029
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": true,
+        "commune": "Irai",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 2319.5,
+        "motifs": "",
+        "nom": "fonderies du Perche",
+        "note_manuelle": null,
+        "parcelle": "612080000G0066",
+        "plus_proche_site_m": 5199.3,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061135",
+        "secteurs": "metallurgie_travail_metaux",
+        "site_id": "2f3e86c1-08b4-4131-9a06-8f30764843cb",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.7152285849659745,
+          48.614992408344285
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": true,
+        "commune": "L'Hôme-Chamondot",
+        "decision_manuelle": null,
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 12711.5,
+        "motifs": "",
+        "nom": "briqueterie",
+        "note_manuelle": null,
+        "parcelle": "612060000A0133",
+        "plus_proche_site_m": 5199.3,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061095",
+        "secteurs": "verre_ceramique_materiaux_construction",
+        "site_id": "82718138-99cb-45fb-a081-95b61c5dce48",
+        "statut": "coherent"
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}

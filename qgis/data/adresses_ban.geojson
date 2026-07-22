@@ -1,0 +1,69 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          0.088874,
+          48.432506
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "label": "19 Place Auguste Poulet-Malassis 61000 Alençon",
+        "reference": "IA00061002",
+        "score": 0.7053132867132866,
+        "statut": "adresse_unique_geocodee_concordante"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.089297,
+          48.426496
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "label": "25 Rue du Mans 61000 Alençon",
+        "reference": "IA00060969",
+        "score": 0.5775169696969696,
+        "statut": "adresse_unique_geocodee_non_concordante"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.625691,
+          48.765802
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "label": "12 Rue des Tanneurs 61300 L'Aigle",
+        "reference": "IA00061052",
+        "score": 0.9614063636363636,
+        "statut": "adresse_unique_geocodee_concordante"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.624453,
+          48.763044
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "label": "7 Rue Louis Pasteur 61300 L'Aigle",
+        "reference": "IA00061054",
+        "score": 0.9661609090909091,
+        "statut": "adresse_unique_geocodee_concordante"
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}

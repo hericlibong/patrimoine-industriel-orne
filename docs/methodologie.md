@@ -82,6 +82,23 @@ intersection ne prouve ni l'emprise historique, ni la propriété, ni la présen
 actuelle du site. Une référence cadastrale ancienne différente n'est pas une
 erreur automatique, le parcellaire pouvant avoir évolué.
 
+### Contrôle cartographique
+
+La carte QGIS de contrôle superpose les points POP, les contours documentaires,
+les parcelles candidates et les résultats BAN. Les points sont testés contre
+l'enveloppe de l'Orne, la transformation Lambert-93/WGS84, le code communal de
+la parcelle, l'intersection avec cette parcelle et les quasi-doublons à moins de
+50 mètres.
+
+Une emprise est soumise à relecture lorsque le point se trouve à plus de cinq
+mètres de son contour, lorsqu'elle manque ou lorsque sa surface est inférieure à
+100 m² ou supérieure à 100 000 m². Ces seuils sont des détecteurs d'anomalies,
+pas une définition de la taille normale d'un site industriel.
+
+Chaque cas signalé reçoit une décision et une note. Le contrôle ne déplace
+jamais automatiquement un point et ne relève jamais la précision d'une
+géométrie sur la seule base de sa cohérence visuelle.
+
 ## Contexte territorial
 
 Les distances aux cours d'eau, formations forestières, indices miniers et voies

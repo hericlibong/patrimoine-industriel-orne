@@ -1,0 +1,266 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          -0.2611416389081272,
+          48.77974105802658
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": true,
+        "commune": "Putanges-le-Lac",
+        "decision_manuelle": "conserver_zone_documentaire_approximative",
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 25.0,
+        "motifs": "emprise_tres_petite",
+        "nom": "four à chaux",
+        "note_manuelle": "Le contour de 25 m² est techniquement cohérent mais trop petit pour être présenté comme l'emprise certaine de l'ancien four à chaux.",
+        "parcelle": "613393540B0032",
+        "plus_proche_site_m": 2743.6,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061003",
+        "secteurs": "verre_ceramique_materiaux_construction",
+        "site_id": "04264fa9-c2d1-4d5e-b709-bdb1d3836a9b",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.192303752081454,
+          48.62883233414116
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Rânes",
+        "decision_manuelle": "conserver_zone_documentaire_approximative",
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 200749.0,
+        "motifs": "emprise_tres_grande",
+        "nom": "affinerie de fer",
+        "note_manuelle": "Le contour de 200 749 m² peut décrire un ensemble étendu ; il n'est pas assimilé à une emprise industrielle vérifiée.",
+        "parcelle": "61344000ZR0033",
+        "plus_proche_site_m": 10827.8,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00060901",
+        "secteurs": "metallurgie_travail_metaux",
+        "site_id": "3495d47b-0c8f-45b9-866b-dcc3357542e7",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.5743152336616424,
+          48.76742714744118
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Saint-Georges-des-Groseillers",
+        "decision_manuelle": "afficher_point_approximatif_uniquement",
+        "distance_emprise_m": null,
+        "emprise_m2": null,
+        "motifs": "emprise_absente",
+        "nom": "filature de coton dite filature de la Planchette",
+        "note_manuelle": "Aucun contour POP n'est disponible ; aucune emprise de remplacement n'est créée.",
+        "parcelle": "61391000AC0181",
+        "plus_proche_site_m": 7434.4,
+        "point_dans_emprise": null,
+        "precision": "point_approximatif",
+        "reference": "IA00060915",
+        "secteurs": "textile_habillement_cuir",
+        "site_id": "2c664ed5-7ee5-4315-aa61-e9b9032b56c0",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.09680089770291367,
+          48.41774961815736
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Alençon",
+        "decision_manuelle": "conserver_point_pop_sans_geocodage",
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 27665.5,
+        "motifs": "adresse_non_unique",
+        "nom": "scierie Prout, puis Scierie Prout Frères, actuellement Maisons France Confort",
+        "note_manuelle": "L'adresse couvre les numéros 4 à 22 ; un point d'adresse unique donnerait une fausse précision.",
+        "parcelle": "61001000BK0309",
+        "plus_proche_site_m": 311.0,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061073",
+        "secteurs": "bois_papier_imprimerie",
+        "site_id": "f0bdb9e3-c3bf-41cd-8704-d630daf00661",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.10079551488612261,
+          48.41863958530717
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Alençon",
+        "decision_manuelle": "rejeter_point_ban_conserver_point_pop",
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 93807.0,
+        "motifs": "adresse_ban_non_concordante",
+        "nom": "moulin à farine dit moulin d'Ozé, puis filature d'Ozé, puis usine de matériel électroménager Moulinex",
+        "note_manuelle": "Le résultat BAN est distant d'environ 1,2 km et correspond à une autre voie.",
+        "parcelle": "61001000BH0216",
+        "plus_proche_site_m": 311.0,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00060969",
+        "secteurs": "agroalimentaire, mecanique_electrique, textile_habillement_cuir",
+        "site_id": "4b0fcc92-f32b-4040-ae5d-32a4945b176a",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.037485884350861635,
+          48.75668430101197
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Argentan",
+        "decision_manuelle": "conserver_zone_documentaire_approximative",
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 120172.0,
+        "motifs": "emprise_tres_grande",
+        "nom": "briqueterie Saint-Martin",
+        "note_manuelle": "Le contour de 120 172 m² peut couvrir l'ensemble de la briqueterie ; sa limite exacte n'est pas vérifiée.",
+        "parcelle": "61006000AP0137",
+        "plus_proche_site_m": 2926.3,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061117",
+        "secteurs": "verre_ceramique_materiaux_construction",
+        "site_id": "af60a402-a20e-4cca-b3c9-a81921d4e2e8",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.29295608862635,
+          48.7954745243465
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Gacé",
+        "decision_manuelle": "conserver_point_pop_sans_geocodage",
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 8727.5,
+        "motifs": "adresse_non_unique",
+        "nom": "distillerie, cidrerie, laiterie industrielle",
+        "note_manuelle": "L'adresse désigne une rue sans numéro ; aucun point BAN n'est retenu.",
+        "parcelle": "61181000AM0511",
+        "plus_proche_site_m": 14282.2,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00060909",
+        "secteurs": "agroalimentaire",
+        "site_id": "3ae9aff0-231d-4365-a718-039b17021fc0",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -0.12137461962188618,
+          48.71420362780827
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": false,
+        "commune": "Écouché-les-Vallées",
+        "decision_manuelle": "conserver_point_pop_sans_geocodage",
+        "distance_emprise_m": 0.0,
+        "emprise_m2": 4699.5,
+        "motifs": "adresse_non_unique",
+        "nom": "cidrerie distillerie dite cidrerie distillerie Pépin",
+        "note_manuelle": "L'adresse contient deux numéros ; la commune actuelle et la parcelle candidate concordent avec Écouché.",
+        "parcelle": "61153000AC0159",
+        "plus_proche_site_m": 4867.3,
+        "point_dans_emprise": true,
+        "precision": "zone_documentaire",
+        "reference": "IA00061166",
+        "secteurs": "agroalimentaire",
+        "site_id": "35c5c701-5158-4714-aa11-6946f7fae290",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          0.7279717640432808,
+          48.50400601367125
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "anomalies": "",
+        "cadastre_concordant": true,
+        "commune": "Longny les Villages",
+        "decision_manuelle": "conserver_point_et_contour_separes_a_verifier",
+        "distance_emprise_m": 11.7,
+        "emprise_m2": 17262.0,
+        "motifs": "point_hors_emprise",
+        "nom": "moulin à papier, grosse forge",
+        "note_manuelle": "Le point POP est à 11,7 m du contour documentaire ; les deux géométries sont conservées sans choisir artificiellement la plus précise.",
+        "parcelle": "61230000ZX0060",
+        "plus_proche_site_m": 1882.7,
+        "point_dans_emprise": false,
+        "precision": "zone_documentaire",
+        "reference": "IA00061060",
+        "secteurs": "agroalimentaire, bois_papier_imprimerie, metallurgie_travail_metaux, textile_habillement_cuir",
+        "site_id": "9435cb9d-0885-4a4b-9834-64e76ac0364b",
+        "statut": "sensible_controle"
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}

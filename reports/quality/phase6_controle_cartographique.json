@@ -1,0 +1,120 @@
+{
+  "cas_sensibles": [
+    {
+      "anomalies": [],
+      "decision_manuelle": "conserver_zone_documentaire_approximative",
+      "motifs": [
+        "emprise_tres_petite"
+      ],
+      "note_manuelle": "Le contour de 25 m² est techniquement cohérent mais trop petit pour être présenté comme l'emprise certaine de l'ancien four à chaux.",
+      "reference": "IA00061003"
+    },
+    {
+      "anomalies": [],
+      "decision_manuelle": "conserver_zone_documentaire_approximative",
+      "motifs": [
+        "emprise_tres_grande"
+      ],
+      "note_manuelle": "Le contour de 200 749 m² peut décrire un ensemble étendu ; il n'est pas assimilé à une emprise industrielle vérifiée.",
+      "reference": "IA00060901"
+    },
+    {
+      "anomalies": [],
+      "decision_manuelle": "afficher_point_approximatif_uniquement",
+      "motifs": [
+        "emprise_absente"
+      ],
+      "note_manuelle": "Aucun contour POP n'est disponible ; aucune emprise de remplacement n'est créée.",
+      "reference": "IA00060915"
+    },
+    {
+      "anomalies": [],
+      "decision_manuelle": "conserver_point_pop_sans_geocodage",
+      "motifs": [
+        "adresse_non_unique"
+      ],
+      "note_manuelle": "L'adresse couvre les numéros 4 à 22 ; un point d'adresse unique donnerait une fausse précision.",
+      "reference": "IA00061073"
+    },
+    {
+      "anomalies": [],
+      "decision_manuelle": "rejeter_point_ban_conserver_point_pop",
+      "motifs": [
+        "adresse_ban_non_concordante"
+      ],
+      "note_manuelle": "Le résultat BAN est distant d'environ 1,2 km et correspond à une autre voie.",
+      "reference": "IA00060969"
+    },
+    {
+      "anomalies": [],
+      "decision_manuelle": "conserver_zone_documentaire_approximative",
+      "motifs": [
+        "emprise_tres_grande"
+      ],
+      "note_manuelle": "Le contour de 120 172 m² peut couvrir l'ensemble de la briqueterie ; sa limite exacte n'est pas vérifiée.",
+      "reference": "IA00061117"
+    },
+    {
+      "anomalies": [],
+      "decision_manuelle": "conserver_point_pop_sans_geocodage",
+      "motifs": [
+        "adresse_non_unique"
+      ],
+      "note_manuelle": "L'adresse désigne une rue sans numéro ; aucun point BAN n'est retenu.",
+      "reference": "IA00060909"
+    },
+    {
+      "anomalies": [],
+      "decision_manuelle": "conserver_point_pop_sans_geocodage",
+      "motifs": [
+        "adresse_non_unique"
+      ],
+      "note_manuelle": "L'adresse contient deux numéros ; la commune actuelle et la parcelle candidate concordent avec Écouché.",
+      "reference": "IA00061166"
+    },
+    {
+      "anomalies": [],
+      "decision_manuelle": "conserver_point_et_contour_separes_a_verifier",
+      "motifs": [
+        "point_hors_emprise"
+      ],
+      "note_manuelle": "Le point POP est à 11,7 m du contour documentaire ; les deux géométries sont conservées sans choisir artificiellement la plus précise.",
+      "reference": "IA00061060"
+    }
+  ],
+  "checks_passed": true,
+  "counts": {
+    "cas_sans_decision_manuelle": 0,
+    "cas_sensibles_controles": 9,
+    "emprises_documentaires": 29,
+    "parcelles_candidates": 30,
+    "points_aberrants_grossiers": 0,
+    "points_ban": 4,
+    "sites": 30
+  },
+  "date_controle": "2026-07-22",
+  "decision": "Aucun point grossièrement aberrant. Toutes les géométries restent approximatives ; les cas sensibles conservent une décision explicite.",
+  "enveloppe_testee": {
+    "lat_max": 49.1,
+    "lat_min": 48.2,
+    "lon_max": 1.0,
+    "lon_min": -1.0
+  },
+  "errors": [],
+  "motifs_sensibilite": {
+    "adresse_ban_non_concordante": 1,
+    "adresse_non_unique": 3,
+    "emprise_absente": 1,
+    "emprise_tres_grande": 2,
+    "emprise_tres_petite": 1,
+    "point_hors_emprise": 1
+  },
+  "points_aberrants": [],
+  "schema_version": "1.0",
+  "seuils": {
+    "point_hors_emprise_tolerance_m": 5,
+    "quasi_doublon_m": 50,
+    "surface_documentaire_max_m2": 100000,
+    "surface_documentaire_min_m2": 100
+  }
+}
