@@ -1,0 +1,41 @@
+{
+  "apercu": "reports/quality/phase6_qgis_snapshot.png",
+  "couches": [
+    {
+      "nom": "Sites sensibles",
+      "objets": 9,
+      "source": "./data/sites_sensibles.geojson",
+      "valide": true
+    },
+    {
+      "nom": "Sites pilotes",
+      "objets": 30,
+      "source": "./data/sites_pilote.geojson",
+      "valide": true
+    },
+    {
+      "nom": "Adresses BAN",
+      "objets": 4,
+      "source": "./data/adresses_ban.geojson",
+      "valide": true
+    },
+    {
+      "nom": "Emprises documentaires POP",
+      "objets": 29,
+      "source": "./data/emprises_documentaires.geojson",
+      "valide": true
+    },
+    {
+      "nom": "Parcelles actuelles candidates",
+      "objets": 30,
+      "source": "./data/parcelles_candidates.geojson",
+      "valide": true
+    }
+  ],
+  "crs_projet": "EPSG:2154",
+  "date_validation": "2026-07-22",
+  "fond_osm_valide": true,
+  "projet": "qgis/controle_phase6.qgs",
+  "projet_relu": true,
+  "qgis_version": "3.44.12-Solothurn"
+}

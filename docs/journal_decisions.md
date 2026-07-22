@@ -528,8 +528,11 @@
   définissent pas une emprise industrielle correcte.
 - Aucun point n'est déplacé. Les 30 localisations restent approximatives et les
   parcelles actuelles restent de simples candidates.
-- Le projet QGIS est validé comme XML et ses cinq couches comme GeoJSON. Son
-  rendu devra être vérifié sur un poste équipé de QGIS 3.x, absent de
-  l'environnement d'exécution.
+- Le premier fichier QGIS écrit manuellement ne résolvait pas les couches dans
+  QGIS et a été remplacé. Le projet est désormais généré puis relu avec l'API de
+  QGIS 3.44.12 : les cinq couches, leurs effectifs, le CRS Lambert-93 et le fond
+  OpenStreetMap sont validés par QGIS lui-même.
+- Un aperçu de contrôle et un rapport JSON de validation sont conservés avec le
+  projet afin d'éviter qu'une validation seulement syntaxique soit répétée.
 - Le bloc « Contrôle cartographique » est terminé. Le dernier bloc de validation
   de la phase 6 peut commencer.

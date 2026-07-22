@@ -23,6 +23,16 @@ $env:PYTHONPATH = "src"
 python -m patrimoine_orne.geocode.cartographic_control
 ```
 
+Pour reconstruire ensuite le fichier projet avec l'API du QGIS installé :
+
+```powershell
+& "C:\Program Files\QGIS 3.44.12\bin\python-qgis-ltr.bat" `
+  tools\generate_qgis_project.py
+```
+
+Cette seconde commande écrit le projet avec des chemins relatifs, le relit dans
+QGIS, vérifie les cinq couches et produit un aperçu de contrôle.
+
 Le contrôle détaillé est enregistré dans
 `reports/quality/phase6_controle_cartographique.md`. Cliquer sur un site dans
 QGIS permet de lire son motif de contrôle, la décision manuelle et la note.

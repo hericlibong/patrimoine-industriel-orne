@@ -62,6 +62,14 @@ localisation vérifiée.
 Les deux suivantes extraient puis calculent le contexte territorial. La dernière
 reconstruit les cinq couches GeoJSON utilisées par le projet QGIS de contrôle.
 
+Le fichier projet QGIS est ensuite généré et validé avec l'environnement Python
+fourni par QGIS :
+
+```powershell
+& "C:\Program Files\QGIS 3.44.12\bin\python-qgis-ltr.bat" `
+  tools\generate_qgis_project.py
+```
+
 ## Base DuckDB de test
 
 Le modèle nécessite Python, DuckDB et l'extension DuckDB Spatial. Le jeu

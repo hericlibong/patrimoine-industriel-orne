@@ -68,9 +68,12 @@ Les neuf décisions détaillées et leurs notes sont enregistrées dans
 - les contours POP sont des zones documentaires, pas des relevés du bâti actuel ;
 - les parcelles actuelles ne prouvent ni l'emprise historique ni la conservation ;
 - le fond OpenStreetMap sert au repérage et non à la validation patrimoniale ;
-- le fichier QGIS et les cinq GeoJSON ont été validés structurellement, mais
-  QGIS n'est pas installé dans l'environnement d'exécution : l'ouverture et le
-  rendu final du projet restent à vérifier sur un poste équipé de QGIS 3.x.
+- le projet a été reconstruit puis relu avec QGIS 3.44.12 : les cinq couches
+  GeoJSON sont résolues, leurs effectifs correspondent aux données attendues et
+  le fond OpenStreetMap est reconnu ;
+- un aperçu produit par le moteur cartographique QGIS est conservé dans
+  `reports/quality/phase6_qgis_snapshot.png` et le résultat détaillé dans
+  `reports/quality/phase6_qgis_validation.json`.
 
 ## Décision
 
