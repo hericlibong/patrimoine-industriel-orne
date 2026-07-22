@@ -5,7 +5,7 @@ relatifs et peut donc être déplacé avec tout le dépôt.
 
 ## Couches
 
-- **Sites sensibles** : les neuf cas ayant demandé une décision explicite ;
+- **Localisations à vérifier** : les neuf cas ayant demandé une décision explicite ;
 - **Sites pilotes** : les trente points POP de travail ;
 - **Adresses BAN** : les quatre résultats testés, y compris le résultat rejeté ;
 - **Emprises documentaires POP** : vingt-neuf contours, jamais présentés comme

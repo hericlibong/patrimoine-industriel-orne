@@ -536,3 +536,22 @@
   projet afin d'éviter qu'une validation seulement syntaxique soit répétée.
 - Le bloc « Contrôle cartographique » est terminé. Le dernier bloc de validation
   de la phase 6 peut commencer.
+
+## 2026-07-22 — Validation finale de la phase 6
+
+- Les règles de précision géographique passent en version 1.0. La présence de
+  coordonnées, d'un contour ou d'une parcelle candidate ne suffit jamais à
+  qualifier une géométrie de vérifiée.
+- Les 30 points POP restent `point_approximatif` et les 29 contours restent
+  `zone_documentaire`. Les trois points BAN acceptés et les 30 parcelles
+  candidates restent des géométries secondaires de contrôle.
+- Aucune géométrie n'est qualifiée de vérifiée et aucune coordonnée n'a été
+  inventée ou déplacée.
+- Les 30 points sont valides et cohérents entre Lambert-93 et WGS84. Aucun point
+  grossièrement aberrant n'a été détecté.
+- L'intitulé cartographique « Sites sensibles », trop ambigu, est remplacé par
+  « Localisations à vérifier ». Il décrit une incertitude de localisation, pas
+  un danger, une pollution ou une fragilité patrimoniale.
+- Le bilan de qualité spatiale autorise le passage à la phase 7. Cette décision
+  valide la méthode sur le pilote, pas la précision complète des 319 dossiers.
+- La phase 6 est terminée.

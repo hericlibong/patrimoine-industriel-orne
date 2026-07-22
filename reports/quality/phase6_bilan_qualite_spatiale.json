@@ -1,0 +1,39 @@
+{
+  "checks_passed": true,
+  "counts": {
+    "coordonnees_inventees": 0,
+    "emprises_documentaires": 29,
+    "geocodages_ban_concordants": 3,
+    "geometries_verifiees": 0,
+    "localisations_a_verifier": 9,
+    "parcelles_candidates": 30,
+    "points_aberrants_grossiers": 0,
+    "points_crs_coherents": 30,
+    "points_pop_valides": 30,
+    "references_cadastrales_concordantes": 6,
+    "sites": 30
+  },
+  "crs_export_web": "EPSG:4326",
+  "crs_travail": "EPSG:2154",
+  "date_validation": "2026-07-22",
+  "decision": "phase6_terminee_passage_phase7_autorise",
+  "precision_pilote": {
+    "emprises": "zone_documentaire",
+    "geometries_verifiees": 0,
+    "points_reference": "point_approximatif"
+  },
+  "qgis": {
+    "couches_valides": 5,
+    "fond_osm_valide": true,
+    "projet_relu": true,
+    "version": "3.44.12-Solothurn"
+  },
+  "regles_precision_version": "1.0",
+  "schema_version": "1.0",
+  "sources_controle": [
+    "reports/quality/phase6_localisation.json",
+    "reports/quality/phase6_contexte_territorial.json",
+    "reports/quality/phase6_controle_cartographique.json",
+    "reports/quality/phase6_qgis_validation.json"
+  ]
+}

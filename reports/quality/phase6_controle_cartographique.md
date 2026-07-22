@@ -11,8 +11,8 @@ Contrôle effectué le 22 juillet 2026 sur les 30 sites pilotes.
 | Parcelles actuelles candidates superposées | 30 |
 | Points BAN superposés | 4 |
 | Points grossièrement aberrants | 0 |
-| Cas sensibles relus | 9 |
-| Cas sensibles sans décision | 0 |
+| Localisations à vérifier relues | 9 |
+| Localisations à vérifier sans décision | 0 |
 
 La carte de contrôle se trouve dans `qgis/controle_phase6.qgs`. Elle superpose
 les points POP, les emprises documentaires, les parcelles actuelles candidates,

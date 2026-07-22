@@ -37,7 +37,7 @@ VALIDATION_PATH = ROOT / "reports" / "quality" / "phase6_qgis_validation.json"
 VECTOR_LAYERS = [
     {
         "file": "sites_sensibles.geojson",
-        "name": "Sites sensibles",
+        "name": "Localisations à vérifier",
         "kind": "marker",
         "style": {
             "name": "circle",

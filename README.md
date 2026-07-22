@@ -9,7 +9,7 @@ reproductible.
 
 ## État du projet
 
-**Phases 0 à 5 terminées — phase 6 en cours.**
+**Phases 0 à 6 terminées — phase 7 à lancer.**
 
 Le suivi détaillé est maintenu localement dans `docs/roadmap.md`, qui n'est pas
 versionné.
@@ -29,6 +29,7 @@ versionné.
 - [Règles des secteurs et installations](docs/classifications_secteurs.md)
 - [Chronologie et situation actuelle](docs/classifications_chronologie_situation.md)
 - [Qualité des classifications](docs/classifications_qualite.md)
+- [Règles de précision géographique](docs/regles_precision_geographique.md)
 - [Périmètre opérationnel](config/perimetre.yml)
 - [Méthodes d'extraction validées](config/extraction.yml)
 - [Règles structurelles du modèle](config/regles_modele.yml)
@@ -41,6 +42,7 @@ versionné.
 - [Contrôle des localisations du pilote](reports/quality/phase6_localisation.md)
 - [Test du contexte territorial](reports/quality/phase6_contexte_territorial.md)
 - [Contrôle cartographique du pilote](reports/quality/phase6_controle_cartographique.md)
+- [Bilan de qualité spatiale](reports/quality/phase6_bilan_qualite_spatiale.md)
 - [Projet QGIS de contrôle](qgis/controle_phase6.qgs)
 
 ## Localisations du pilote

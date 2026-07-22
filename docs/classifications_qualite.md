@@ -30,6 +30,11 @@ quatrième dimension : elle indique la solidité de la preuve utilisée.
 Les quatre premiers codes nécessitent une validation humaine. Une coordonnée
 présente dans une source ne devient pas automatiquement une géométrie vérifiée.
 
+Ces règles ont été validées sur le pilote à la clôture de la phase 6. Les 30
+points POP restent `point_approximatif` et les 29 contours disponibles restent
+`zone_documentaire` ; aucune géométrie n'a été promue au rang de géométrie
+vérifiée.
+
 `commune_seule` et `non_localise` sont des statuts de localisation sans
 géométrie de site. Le centre d'une commune ne peut pas servir de faux emplacement.
 

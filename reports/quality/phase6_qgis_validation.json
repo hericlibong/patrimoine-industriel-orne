@@ -2,7 +2,7 @@
   "apercu": "reports/quality/phase6_qgis_snapshot.png",
   "couches": [
     {
-      "nom": "Sites sensibles",
+      "nom": "Localisations à vérifier",
       "objets": 9,
       "source": "./data/sites_sensibles.geojson",
       "valide": true
