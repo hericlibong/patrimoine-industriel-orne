@@ -29,7 +29,7 @@ pilote en corpus complet et ne valide pas encore le socle V1 dans son ensemble.
 | Sites avec une période contemporaine récemment sourcée | 4 |
 | Identifiants concordants entre les formats | oui |
 | Erreurs de validation | 0 |
-| Tests automatisés du projet | 106 réussis |
+| Tests automatisés du projet | 109 réussis |
 
 La base relationnelle contient également :
 

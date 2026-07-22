@@ -28,6 +28,9 @@ versionné.
 - [Registre consolidé des sources](docs/registre_sources.md)
 - [Limites éditoriales](docs/limites_editoriales.md)
 - [Licences des données et droits des images](docs/licences_droits_images.md)
+- [Estimation de charge du corpus complet](docs/estimation_charge_corpus_complet.md)
+- [Récits soutenus par les données](docs/recits_soutenus_donnees.md)
+- [Recommandation pour l'application](docs/recommandation_application.md)
 - [Modèle des entités principales](docs/modele_donnees.md)
 - [Règles du modèle](docs/regles_modele.md)
 - [Journal des décisions](docs/journal_decisions.md)
@@ -53,6 +56,9 @@ versionné.
 - [Consolidation du socle pilote V1](reports/quality/phase7_consolidation.md)
 - [Rapport de qualité du socle pilote V1](reports/quality/phase7_rapport_qualite.md)
 - [Anomalies restantes du socle pilote V1](reports/quality/phase7_anomalies_restantes.md)
+- [Préparation de la suite](reports/quality/phase7_preparation_suite.md)
+- [Évaluation de l'extraction complète](reports/quality/phase7_evaluation_extraction_complete.md)
+- [Première carte interne](reports/maps/carte_pilote_interne.png)
 - [Projet QGIS de contrôle](qgis/controle_phase6.qgs)
 
 ## Produire le socle pilote V1

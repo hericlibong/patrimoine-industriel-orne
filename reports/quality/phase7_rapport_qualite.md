@@ -24,7 +24,7 @@ géométrie n'est qualifiée de vérifiée.
 | Géométries | 59 : 30 points et 29 zones documentaires |
 | Mentions de sources | 148 |
 | Sources enregistrées | 21 |
-| Tests automatisés | 106 réussis |
+| Tests automatisés | 109 réussis |
 
 Les identifiants des 30 sites concordent entre DuckDB, CSV, Parquet et
 GeoJSON. Les 47 phases concordent entre leurs exports CSV et Parquet.

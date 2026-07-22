@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-07-22",
+  "decision": "go_par_lots",
+  "official_corpus": {
+    "announced_records": 319,
+    "pages": 16,
+    "source": "https://inventaire-patrimoine.normandie.fr/dossier/IA61000851/corpus"
+  },
+  "validated_samples": {
+    "phase2_pop_notices": 10,
+    "pilot_pop_notices": 30,
+    "pilot_successful_ref_matches": 30
+  },
+  "volume_estimates": {
+    "pilot_html_bytes": 5114710,
+    "projected_319_html_mib": 51.9,
+    "archive_pages_for_10_test_dossiers": 186,
+    "mechanical_projection_archive_pages": 5933
+  },
+  "readiness": {
+    "reference_enumerator": false,
+    "batch_download_with_resume": false,
+    "structured_pop_parser": true,
+    "pilot_data_model": true,
+    "pilot_spatial_pipeline": true,
+    "generic_human_review_queue": false
+  },
+  "recommended_first_batch": 50,
+  "full_ocr_recommended": false
+}

@@ -61,6 +61,9 @@ Document vivant — dernière mise à jour : 22 juillet 2026
 | LIM-055 | Registre des sources | Le CSV produit en phase 1 décrit l'audit initial et non les produits finalement mobilisés | Deux registres concurrents pourraient créer des licences ou des attributions incohérentes | Désigner `config/sources.yml` version 1.1 comme registre canonique et conserver le CSV comme trace historique | resolue |
 | LIM-056 | Provenance contemporaine | Les quatre observations récentes étaient auparavant regroupées sous une source touristique générique | Le producteur réel et la portée de chaque preuve pouvaient être masqués | Enregistrer séparément EDF, Bohin, Archives de l'Orne et Département de l'Orne | resolue |
 | LIM-057 | Images éditoriales | Le socle ne contient encore aucune photographie tierce ni registre d'autorisations | Une image trouvée dans une notice pourrait être réutilisée à tort pendant la publication | Exclure les droits inconnus et créer le registre prévu avant tout enrichissement photographique | permanente |
+| LIM-058 | Estimation de charge | Le pilote raisonné ne mesure pas une cadence représentative des 319 dossiers | La charge de 180 à 300 heures pour le corpus technique reste une fourchette de planification | Mesurer le temps humain sur le premier lot de 50 et réviser l'estimation | ouverte |
+| LIM-059 | Carte interne | La carte de phase 7 montre uniquement les 30 sites pilotes et des points approximatifs | Elle pourrait être prise pour une géographie exhaustive ou précise du patrimoine industriel | Afficher le périmètre pilote, les alertes et l'avertissement directement dans le visuel | permanente |
+| LIM-060 | Choix applicatif | La pile SvelteKit et MapLibre est une recommandation, pas une dépendance déjà engagée | Un développement précoce pourrait figer l'interface avant stabilisation des besoins | Prototyper après le lot de 50 et réévaluer la pile avant la phase de publication | ouverte |
 
 ## Règle de mise à jour
 

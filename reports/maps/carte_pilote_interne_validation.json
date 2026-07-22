@@ -1,0 +1,22 @@
+{
+  "alert_count": 9,
+  "boundary_source": "API Découpage administratif — communes de l'Orne",
+  "category_counts": {
+    "agroalimentaire": 4,
+    "bois_papier_imprimerie": 3,
+    "energie": 1,
+    "extraction": 1,
+    "metallurgie_travail_metaux": 7,
+    "multi": 5,
+    "textile_habillement_cuir": 5,
+    "verre_ceramique_materiaux_construction": 4
+  },
+  "checks_passed": true,
+  "date": "2026-07-22",
+  "height_px": 1200,
+  "output": "reports/maps/carte_pilote_interne.png",
+  "schema_version": "1.0",
+  "sha256": "34328ccef9da884c7493260199d9b490e0db5b28ec99383700a8d8109a2ae637",
+  "site_count": 30,
+  "width_px": 1800
+}

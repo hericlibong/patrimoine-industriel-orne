@@ -630,3 +630,28 @@
   d'un crédit et d'une preuve avant publication.
 - Les 106 tests automatisés réussissent. Le bloc « Consolider la
   documentation » est terminé ; la phase 7 reste en cours.
+
+## 2026-07-22 — Phase 7, préparation de la suite
+
+- Une première carte autonome de contrôle interne présente les 30 sites par
+  secteur et rend visibles les 9 localisations à vérifier. Elle ne dépend pas
+  d'un serveur de tuiles et affiche ses limites directement dans le visuel.
+- Le portail officiel confirme 319 dossiers sur 16 pages. La récupération POP
+  est validée sur 30 notices, mais l'énumération complète, la reprise par lots
+  et la file de revue humaine doivent encore être généralisées.
+- La phase 8 commencera par la liste contrôlée des 319 références puis un lot
+  de 50 dossiers. Les autres dossiers seront traités par paquets comparables.
+- La charge du corpus technique est estimée entre 180 et 300 heures. Un lot
+  éditorial récent et iconographique de 30 à 50 sites porte le scénario de
+  première publication entre 260 et 420 heures. Ces fourchettes seront
+  recalculées à partir du temps observé sur le premier lot.
+- Les récits immédiatement prototypables portent sur la révélation de la
+  géographie industrielle, les vies successives des sites, la chronologie et
+  l'eau comme indice. Les statistiques départementales, l'état actuel global
+  et les causalités environnementales restent reportés.
+- La recommandation est une publication statique narrative et cartographique,
+  alimentée par DuckDB et des exports web. Une infrastructure serveur n'est pas
+  justifiée pour le MVP.
+- Décisions : `GO` pour la phase 8 par lots et `GO LIMITÉ` pour un prototype
+  applicatif après le premier lot de 50. Le bloc « Préparer la suite » est
+  terminé ; la phase 7 reste ouverte jusqu'à la décision finale de socle.
