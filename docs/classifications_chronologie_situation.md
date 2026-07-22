@@ -20,6 +20,15 @@ Ces périodes sont des filtres calculés. Elles ne remplacent jamais les dates d
 source. Un intervalle qui chevauche une limite appartient à toutes les périodes
 concernées.
 
+Deux calculs sont distingués dans les exports V1. `chronologie_phase` relie une
+activité à une période à partir de ses bornes documentées. `siecles_source_site`
+utilise le champ POP `SCLE` comme repérage lorsque les bornes d'activité ne sont
+pas structurées. `SCLE` date principalement des campagnes de construction ou
+de transformation : il ne démontre pas une production continue pendant toute
+la période. Une troisième méthode, `situation_actuelle_documentee`, ajoute la
+période contemporaine au site seulement lorsqu'une observation récente est
+sourcée. Les trois provenances sont donc exportées séparément.
+
 ## Conservation
 
 La classification décrit uniquement ce qui subsiste matériellement : `conserve`,

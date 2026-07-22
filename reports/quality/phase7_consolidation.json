@@ -1,40 +1,60 @@
 {
   "checks_passed": true,
+  "chronologie": {
+    "activites_avec_dates_normalisees": 30,
+    "activites_avec_periodes_filtrables": 47,
+    "activites_par_chronologie_phase": 30,
+    "activites_par_siecles_source": 17,
+    "sites_avec_periode_contemporaine_sourcee": 4,
+    "sites_avec_periodes_filtrables": 30
+  },
   "date_validation": "2026-07-22",
   "decision": "bloc_consolidation_phase7_valide",
   "errors": [],
   "export_counts": {
+    "activites_csv": 47,
+    "activites_parquet": 47,
     "corpus_consolide": 30,
     "csv": 30,
     "geojson": 30,
     "parquet": 30
   },
   "files": {
+    "data/exports/activites_pilote_v1.csv": {
+      "sha256": "f2c4c1f92b39ede96a2af31565b499bab403c5179fef51c3204de6afc88e4123",
+      "size_bytes": 27109
+    },
+    "data/exports/activites_pilote_v1.parquet": {
+      "sha256": "e4928d6367744f64eaa96e8933b7d1b949d7c9d0ad0c054ee12cf495e537e0b9",
+      "size_bytes": 11977
+    },
     "data/exports/sites_pilote_v1.csv": {
-      "sha256": "2ff02562ea448657a26f560a58e2aefa9378b695e092c92dcf377558766e5df5",
-      "size_bytes": 33763
+      "sha256": "9411e46a71f1dc4f2b82b110cd45ad2115b9367763caa945d3d3edf55a5f3841",
+      "size_bytes": 47326
     },
     "data/exports/sites_pilote_v1.geojson": {
-      "sha256": "d2aabbe12ec20c23d0201c29d287875510d1be49b5699eeac52afb18593dbb99",
-      "size_bytes": 77737
+      "sha256": "462e25aed2411eb536eec19faf71c2a1b3454f5fadd1bf1c9ba691a4609a84c7",
+      "size_bytes": 100990
     },
     "data/exports/sites_pilote_v1.parquet": {
-      "sha256": "392edf55d65c2f765e42cf02ee7b8ccf48c3cae17e6557c45d45276cd018dcbe",
-      "size_bytes": 21606
+      "sha256": "fd12ecb5989e1bad1ed7ca1026dae266e73bc88a81804fa7c6c1b696ccf301fc",
+      "size_bytes": 25777
     },
     "data/processed/corpus_pilote_socle_v1.json": {
-      "sha256": "964598694d959942e3f9a4f2ef5165f4cd371219fd40ad8897e3908fb028d2c4",
-      "size_bytes": 563031
+      "sha256": "f0ce643f4d2f9f588a30826212bffe918cf66c9c30b055925d2548effc90e9d9",
+      "size_bytes": 626940
     },
     "data/processed/patrimoine_orne_socle_v1.duckdb": {
-      "sha256": "76f26c7e351eadbd8a2bf894b390b056c365c944593091007605ed8be7222a31",
-      "size_bytes": 10760192
+      "sha256": "397d4282c1a8df529693d65e57268b57a78172b0fe9a84129d7ffb606d632122",
+      "size_bytes": 11546624
     }
   },
   "identifiants_concordants": true,
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "table_counts": {
     "activites": 47,
+    "activites_export_v1": 47,
+    "activites_periodes_v1": 101,
     "etats_actuels": 30,
     "geometries": 59,
     "identifiants_externes": 61,

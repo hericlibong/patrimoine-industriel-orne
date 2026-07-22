@@ -12,8 +12,8 @@ reproductible.
 **Phases 0 à 6 terminées — phase 7 en cours.**
 
 Le premier bloc de la phase 7 est validé : le socle pilote est disponible en
-DuckDB, CSV, Parquet et GeoJSON. Les quatre formats portent sur les mêmes 30
-sites et utilisent les mêmes identifiants.
+DuckDB, CSV, Parquet et GeoJSON. Les exports des 30 sites et des 47 phases
+d'activité comportent désormais des périodes historiques filtrables.
 
 Le suivi détaillé est maintenu localement dans `docs/roadmap.md`, qui n'est pas
 versionné.
@@ -58,8 +58,10 @@ python -m patrimoine_orne.export.socle_v1
 ```
 
 Cette commande reconstruit la base DuckDB de référence et les exports CSV,
-Parquet et GeoJSON dans `data/processed/` et `data/exports/`. Ces livrables sont
-générés localement et ne sont pas versionnés.
+Parquet et GeoJSON dans `data/processed/` et `data/exports/`. Le fichier
+`sites_pilote_v1.csv` présente une ligne par site ; `activites_pilote_v1.csv`
+présente une ligne par phase d'activité avec ses dates et périodes. Ces
+livrables sont générés localement et ne sont pas versionnés.
 
 ## Localisations du pilote
 

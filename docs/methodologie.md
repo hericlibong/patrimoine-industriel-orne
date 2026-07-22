@@ -396,3 +396,36 @@ La validation finale compare le nombre de sites et l'ensemble de leurs
 identifiants dans le corpus consolidé et dans les trois exports. Elle exécute
 également les contrôles transversaux de la base DuckDB. Un écart ou une erreur
 interrompt la production.
+
+### Correction chronologique du 22 juillet 2026
+
+La première production du socle ne projetait pas les périodes historiques dans
+les exports. Les périodes avaient été définies et testées en phase 4, mais le
+contrôle final vérifiait les formats, les identifiants et les effectifs sans
+tester un usage éditorial élémentaire : filtrer le CSV par période. Le bloc de
+consolidation a donc été rouvert et ce critère est désormais obligatoire.
+
+Les expressions datées des phases d'activité sont normalisées selon les règles
+du modèle. Le texte original reste conservé. Par exemple, `vers 1850` devient
+un intervalle calculé de 1845 à 1855 et non une date exacte. Les périodes sont
+ensuite calculées par chevauchement avec cet intervalle.
+
+Deux provenances temporelles restent distinctes :
+
+- `chronologie_phase` : période calculée depuis le début ou la fin documentée
+  d'une activité ;
+- `siecles_source_site` : période de repérage calculée depuis le champ `SCLE`
+  de POP, qui date des campagnes de construction ou de transformation du site
+  et ne prouve pas à lui seul toute la durée de l'activité industrielle.
+- `situation_actuelle_documentee` : période contemporaine ajoutée au site
+  uniquement lorsqu'une observation récente possède une source.
+
+Le CSV des sites rassemble les périodes documentées pour faciliter le filtrage,
+mais conserve séparément `periodes_activite_codes` et
+`periodes_source_codes`. L'export `activites_pilote_v1.csv` possède une ligne
+par phase d'activité et doit être utilisé pour relier une production à une
+période sans mélanger les activités successives d'un même site.
+
+Dans DuckDB, `activites_periodes_v1` fournit une ligne par relation entre une
+phase d'activité et une période. Cette table dérivée est adaptée aux comptages
+et aux croisements entre secteurs, productions et périodes.

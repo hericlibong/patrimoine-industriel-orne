@@ -10,6 +10,8 @@ from patrimoine_orne.enrich.pilot import (
     load_mh_records,
     load_palissy_records,
     load_yaml,
+    normalize_historical_date,
+    normalize_source_century,
 )
 
 
@@ -43,6 +45,31 @@ class PilotEnrichmentTests(TestCase):
         self.assertEqual(len(activities), 47)
         self.assertTrue(all(activity["activite_code"] for activity in activities))
         self.assertTrue(all(activity["secteur_code"] for activity in activities))
+        self.assertTrue(all(activity["periodes_codes"] for activity in activities))
+        self.assertEqual(
+            sum(activity["periode_methode_code"] == "chronologie_phase" for activity in activities),
+            30,
+        )
+        self.assertEqual(
+            sum(activity["periode_methode_code"] == "siecles_source_site" for activity in activities),
+            17,
+        )
+
+    def test_all_sites_have_filterable_periods(self) -> None:
+        self.assertTrue(all(site["periodes_codes"] for site in self.corpus["sites"]))
+        self.assertTrue(
+            all(site["premiere_annee_documentee"] for site in self.corpus["sites"])
+        )
+        self.assertTrue(
+            all(site["derniere_annee_documentee"] for site in self.corpus["sites"])
+        )
+        self.assertEqual(
+            sum(
+                "periode_contemporaine" in site["periodes_codes"]
+                for site in self.corpus["sites"]
+            ),
+            4,
+        )
 
     def test_reconciliations_and_objects_are_explicit(self) -> None:
         self.assertEqual(self.report["counts"]["protections_mh_confirmees"], 6)
@@ -61,3 +88,29 @@ class PilotEnrichmentTests(TestCase):
         )
         self.assertEqual(self.report["counts"]["sites_situation_actuelle_inconnue"], 26)
         self.assertTrue(self.report["checks_passed"], self.report["errors"])
+
+
+def test_historical_date_normalization_keeps_uncertainty() -> None:
+    assert normalize_historical_date("vers 1850") == {
+        "min": "1845-01-01",
+        "max": "1855-12-31",
+        "precision_code": "vers_annee",
+        "texte_source": "vers 1850",
+    }
+    assert normalize_historical_date("activité attestée après 1900")["min"] == (
+        "1901-01-01"
+    )
+    assert normalize_historical_date("activité attestée après 1900")["max"] is None
+    assert normalize_historical_date("début du 20e siècle")["max"] == "1925-12-31"
+
+
+def test_source_century_normalization() -> None:
+    assert normalize_source_century("3e quart 20e siècle") == {
+        "texte_source": "3e quart 20e siècle",
+        "debut_annee": 1951,
+        "fin_annee": 1975,
+        "precision_code": "quart_siecle",
+    }
+    boundary = normalize_source_century("limite 18e siècle 19e siècle")
+    assert boundary["debut_annee"] == 1795
+    assert boundary["fin_annee"] == 1805

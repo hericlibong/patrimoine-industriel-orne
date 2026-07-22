@@ -455,15 +455,36 @@
       "activites": [
         {
           "activite_code": "extraction_miniere",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "usine_extraction",
           "libelle_source": "usine d'extraction",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres",
+            "modernisation_apres_guerre"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres",
+            "1946-1975 — Modernisation d'après-guerre"
+          ],
           "reference_source": "IA00061008",
           "secteur_code": "extraction",
+          "siecles_source_site": [
+            "1er quart 20e siècle",
+            "3e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -473,13 +494,48 @@
       "commune_historique_code_insee": "61376",
       "commune_historique_nom": "Saint-Clair-de-Halouze",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 2026,
       "fiabilite_code": "forte",
       "historique_source": "Site faisant partie de l'ensemble d'industrie extractive dit mine de Halouze, exploité à partir de 1905 ; puits d'une profondeur de 85 m en 1911 ; comprenait vers 1924 salle des machines, gazogènes, treuil d'extraction, accumulateur à minerai, bureau, remise à locomotives, ateliers de réparation, magasins, scierie, forge, cantine, dortoir et jardins ; modernisé entre 1951 et 1954 ; cessation d'activité en 1980.",
       "lieu_dit": "Puits 2 (Le)",
       "mode_chronologique": "phase_unique",
       "nom_principal": "usine d'extraction dite Mine de Halouze",
+      "periode_methode_codes": [
+        "siecles_source_site",
+        "situation_actuelle_documentee"
+      ],
+      "periodes_activite_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre",
+        "periode_contemporaine"
+      ],
+      "periodes_libelles": [
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres",
+        "1946-1975 — Modernisation d'après-guerre",
+        "Depuis 2001 — Patrimoine et usages contemporains"
+      ],
+      "periodes_situation_actuelle_codes": [
+        "periode_contemporaine"
+      ],
+      "periodes_source_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "premiere_annee_documentee": 1901,
       "protection_mh_reference": null,
       "reference_ia": "IA00061008",
+      "siecles_source": [
+        "1er quart 20e siècle",
+        "3e quart 20e siècle"
+      ],
       "site_id": "2bcf41f5-1242-46d9-9809-8fff7fbdae14",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -531,28 +587,70 @@
       "activites": [
         {
           "activite_code": "affinage_metaux",
+          "debut_max": "1619-12-31",
+          "debut_min": "1619-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "attestée en 1619",
           "fiabilite_code": "forte",
+          "fin_max": "1852-12-31",
+          "fin_min": "1842-01-01",
+          "fin_precision_code": "vers_annee",
           "fin_texte_source": "cessation vers 1847",
           "installation_code": "affinerie",
           "libelle_source": "affinerie",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "avant_1789",
+            "revolution_premiere_industrialisation",
+            "industrialisation_rail_vapeur"
+          ],
+          "periodes_libelles": [
+            "Avant 1789",
+            "1789-1849 — Révolution et première industrialisation",
+            "1850-1913 — Industrialisation, rail et vapeur"
+          ],
           "reference_source": "IA00060965",
           "secteur_code": "metallurgie_travail_metaux",
+          "siecles_source_site": [
+            "4e quart 16e siècle (détruit)",
+            "2e quart 19e siècle",
+            "3e quart 19e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "mouture_cereales",
+          "debut_max": "1852-12-31",
+          "debut_min": "1842-01-01",
+          "debut_precision_code": "vers_annee",
           "debut_texte_source": "conversion vers 1847",
           "fiabilite_code": "forte",
+          "fin_max": null,
+          "fin_min": "1901-01-01",
+          "fin_precision_code": "apres",
           "fin_texte_source": "activité attestée après 1900",
           "installation_code": "moulin",
           "libelle_source": "moulin à blé",
           "note": null,
           "ordre": 2,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "revolution_premiere_industrialisation",
+            "industrialisation_rail_vapeur"
+          ],
+          "periodes_libelles": [
+            "1789-1849 — Révolution et première industrialisation",
+            "1850-1913 — Industrialisation, rail et vapeur"
+          ],
           "reference_source": "IA00060965",
           "secteur_code": "agroalimentaire",
+          "siecles_source_site": [
+            "4e quart 16e siècle (détruit)",
+            "2e quart 19e siècle",
+            "3e quart 19e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -562,13 +660,45 @@
       "commune_historique_code_insee": "61091",
       "commune_historique_nom": "Champsecret",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1901,
       "fiabilite_code": "forte",
       "historique_source": "Affinerie attestée en 1619, construite par de Broon au cours du 4e quart du 16e siècle ; comprenait en 1667 logements, étables, fournils et halle à charbon ; fers vendus aux cloutiers de Chanu et de Tinchebray ; acquise en 1790 par Collet et affectée à la production de boulets de canon ; acquise en 1897 par le comte de Redern avec le fourneau et le fenderie en dépendant, moyennant la Somme de 70 112, 50 francs ; inactive en 1847 et convertie en moulin à farine ; agrandi vers 1862 ; cessation d'activité après 1900.",
       "lieu_dit": "Forge (La)",
       "mode_chronologique": "successives",
       "nom_principal": "affinerie, moulin à blé",
+      "periode_methode_codes": [
+        "chronologie_phase",
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur"
+      ],
+      "periodes_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur"
+      ],
+      "periodes_libelles": [
+        "Avant 1789",
+        "1789-1849 — Révolution et première industrialisation",
+        "1850-1913 — Industrialisation, rail et vapeur"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur"
+      ],
+      "premiere_annee_documentee": 1576,
       "protection_mh_reference": null,
       "reference_ia": "IA00060965",
+      "siecles_source": [
+        "4e quart 16e siècle (détruit)",
+        "2e quart 19e siècle",
+        "3e quart 19e siècle"
+      ],
       "site_id": "d7b0b9b0-6817-4057-8535-3ce9b61ed857",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -612,15 +742,31 @@
       "activites": [
         {
           "activite_code": "production_hydroelectricite",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "centrale_hydroelectrique",
           "libelle_source": "centrale hydroélectrique",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "modernisation_apres_guerre"
+          ],
+          "periodes_libelles": [
+            "1946-1975 — Modernisation d'après-guerre"
+          ],
           "reference_source": "IA00060938",
           "secteur_code": "energie",
+          "siecles_source_site": [
+            "3e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -630,13 +776,39 @@
       "commune_historique_code_insee": "61340",
       "commune_historique_nom": "Rabodanges",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 2026,
       "fiabilite_code": "forte",
       "historique_source": "Projet d'aménagement de la rivière Orne pour l'installation d'une centrale hydroélectrique déposé vers 1920 par la société normande d'études pour l'aménagement du bassin de l'Orne et de ses affluents, comprenant l'aménagement de deux barrages, l'un au Plessis, commune de Rabodanges, l'autre au Breuil, commune de Saint-Philbert-sur-Orne ; redéfini en 1945 et mis a jour par électricité de France entre 1950 et 1956 ; usine construite entre 1956 et 1959 ; production d'énergie hydroélectrique démarrée en 1960 ; usine composée d'un barrage de 160 mètres de longueur et 17 mètres de hauteur, d'une salle souterraine abritant le groupe hydroélectrique composé en 1961 d'une turbine et d'un alternateur triphasé à 5500 volts, et d'un poste de transformation. Existence d'un fonds d'archives privées.",
       "lieu_dit": "Plessis (Le)",
       "mode_chronologique": "phase_unique",
       "nom_principal": "centrale hydroélectrique",
+      "periode_methode_codes": [
+        "siecles_source_site",
+        "situation_actuelle_documentee"
+      ],
+      "periodes_activite_codes": [
+        "modernisation_apres_guerre"
+      ],
+      "periodes_codes": [
+        "modernisation_apres_guerre",
+        "periode_contemporaine"
+      ],
+      "periodes_libelles": [
+        "1946-1975 — Modernisation d'après-guerre",
+        "Depuis 2001 — Patrimoine et usages contemporains"
+      ],
+      "periodes_situation_actuelle_codes": [
+        "periode_contemporaine"
+      ],
+      "periodes_source_codes": [
+        "modernisation_apres_guerre"
+      ],
+      "premiere_annee_documentee": 1951,
       "protection_mh_reference": null,
       "reference_ia": "IA00060938",
+      "siecles_source": [
+        "3e quart 20e siècle"
+      ],
       "site_id": "2b6d576e-11fb-4af4-85ba-dc1b950a731d",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -648,7 +820,7 @@
         "source_id": "tourisme_local",
         "source_url": "https://www.edf.fr/barrage-rabodanges",
         "usages": [
-          "industrie_actuelle"
+          "activite_industrielle"
         ]
       },
       "situation_inventaire_historique": {
@@ -686,15 +858,33 @@
       "activites": [
         {
           "activite_code": "fabrication_chaux_ciment",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "four_chaux",
           "libelle_source": "four à chaux",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "avant_1789",
+            "revolution_premiere_industrialisation"
+          ],
+          "periodes_libelles": [
+            "Avant 1789",
+            "1789-1849 — Révolution et première industrialisation"
+          ],
           "reference_source": "IA00061003",
           "secteur_code": "verre_ceramique_materiaux_construction",
+          "siecles_source_site": [
+            "18e siècle (?)"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -704,13 +894,38 @@
       "commune_historique_code_insee": "61354",
       "commune_historique_nom": "Les Rotours",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1800,
       "fiabilite_code": "forte",
       "historique_source": "Four à chaux, probablement du 18e siècle, en activité au 19e siècle ; cessation d'activité en 1914.",
       "lieu_dit": null,
       "mode_chronologique": "phase_unique",
       "nom_principal": "four à chaux",
+      "periode_methode_codes": [
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation"
+      ],
+      "periodes_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation"
+      ],
+      "periodes_libelles": [
+        "Avant 1789",
+        "1789-1849 — Révolution et première industrialisation"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation"
+      ],
+      "premiere_annee_documentee": 1701,
       "protection_mh_reference": null,
       "reference_ia": "IA00061003",
+      "siecles_source": [
+        "18e siècle (?)"
+      ],
       "site_id": "04264fa9-c2d1-4d5e-b709-bdb1d3836a9b",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -755,15 +970,36 @@
       "activites": [
         {
           "activite_code": "affinage_metaux",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "affinerie",
           "libelle_source": "affinerie",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "avant_1789",
+            "revolution_premiere_industrialisation"
+          ],
+          "periodes_libelles": [
+            "Avant 1789",
+            "1789-1849 — Révolution et première industrialisation"
+          ],
           "reference_source": "IA00060901",
           "secteur_code": "metallurgie_travail_metaux",
+          "siecles_source_site": [
+            "2e quart 16e siècle (détruit)",
+            "2e quart 17e siècle (détruit)",
+            "2e moitié 18e siècle",
+            "1er quart 19e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -773,13 +1009,41 @@
       "commune_historique_code_insee": "61344",
       "commune_historique_nom": "Rânes",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1825,
       "fiabilite_code": "forte",
       "historique_source": "Affinerie établie vers 1540 à l'emplacement d'un moulin à blé ; restaurée vers 1647 par Pierre Guillaume et Jacques Turpin, maîtres de forge ; nouvelles restauration au cours de la 2e moitié du 18e siècle ; construction de logements d'ouvriers en 1817, date portée sur linteau ; produisait essentiellement au 19e siècle des essieux, bandages de roues et socs de charrue. 64 ouvriers en 1857 ; 38 ouvriers en 1861 ; 26 ouvriers en 1867 ; 22 ouvriers en 1870.",
       "lieu_dit": "Forge (La)",
       "mode_chronologique": "phase_unique",
       "nom_principal": "affinerie de fer",
+      "periode_methode_codes": [
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation"
+      ],
+      "periodes_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation"
+      ],
+      "periodes_libelles": [
+        "Avant 1789",
+        "1789-1849 — Révolution et première industrialisation"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation"
+      ],
+      "premiere_annee_documentee": 1526,
       "protection_mh_reference": null,
       "reference_ia": "IA00060901",
+      "siecles_source": [
+        "2e quart 16e siècle (détruit)",
+        "2e quart 17e siècle (détruit)",
+        "2e moitié 18e siècle",
+        "1er quart 19e siècle"
+      ],
       "site_id": "3495d47b-0c8f-45b9-866b-dcc3357542e7",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -823,15 +1087,40 @@
       "activites": [
         {
           "activite_code": "filature_textile",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "filature",
           "libelle_source": "filature",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "revolution_premiere_industrialisation",
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres",
+            "modernisation_apres_guerre"
+          ],
+          "periodes_libelles": [
+            "1789-1849 — Révolution et première industrialisation",
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres",
+            "1946-1975 — Modernisation d'après-guerre"
+          ],
           "reference_source": "IA00061119",
           "secteur_code": "textile_habillement_cuir",
+          "siecles_source_site": [
+            "1er quart 19e siècle",
+            "3e quart 19e siècle",
+            "1er quart 20e siècle",
+            "2e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -841,13 +1130,49 @@
       "commune_historique_code_insee": "61007",
       "commune_historique_nom": "Athis-de-l'Orne",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1950,
       "fiabilite_code": "forte",
       "historique_source": "Filature créée vers 1818 par Pierre Hardy ; construction de nouveaux logements d'ouvriers en 1861 ; agrandissements vers 1865 ; installation en 1868 d'une seconde chaudière à vapeur ; usine incendiée vers 1870 et reconstruite ; exploitée en 1880 par la S.A. de la filature de la Martinique ; installation en 1921 d'une centrale électrique ; tour construite vers 1932 ; usine acquise en 1949 par la S.A. du Ferodo pour la production d'équipement automobile et installation d'ateliers de retorderie et de tissage des tissus d'amiante ; chaufferies transformées en ateliers de réparation ; cessation d'activité vers 1986 et installation d'une usine d'ouate. 29 métiers et 6700 broches en 1853 ; 7200 broches en 1861 ; 14512 broches en 1890 ; 12832 broches en 1900 ; 26592 broches en 1910 dont 784 à retordre. 122 ouvriers en 1853. Existence d'un fonds d'archives.",
       "lieu_dit": "Petite Suisse (La)",
       "mode_chronologique": "phase_unique",
       "nom_principal": "filature de la Martinique",
+      "periode_methode_codes": [
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_libelles": [
+        "1789-1849 — Révolution et première industrialisation",
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres",
+        "1946-1975 — Modernisation d'après-guerre"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "premiere_annee_documentee": 1801,
       "protection_mh_reference": "PA00135514",
       "reference_ia": "IA00061119",
+      "siecles_source": [
+        "1er quart 19e siècle",
+        "3e quart 19e siècle",
+        "1er quart 20e siècle",
+        "2e quart 20e siècle"
+      ],
       "site_id": "687037bf-bf42-4ee7-a5f4-e79d60a38cc1",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -898,15 +1223,33 @@
       "activites": [
         {
           "activite_code": "filature_textile",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "filature",
           "libelle_source": "filature",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres"
+          ],
           "reference_source": "IA00060915",
           "secteur_code": "textile_habillement_cuir",
+          "siecles_source_site": [
+            "1er quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -916,13 +1259,38 @@
       "commune_historique_code_insee": "61391",
       "commune_historique_nom": "Saint-Georges-des-Groseillers",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1925,
       "fiabilite_code": "forte",
       "historique_source": "Filature construite vers 1901 par Emile Duhaze en annexe de son tissage de la Planchette situé à Flers. Agrandie vers 1904. Cessation d'activité vers 1982. Chaudières en place. Machine à vapeur disparue. Fusion en 1907 avec les tissages de la Halle, de la Chaussée et de la Blanchardière établis à Flers pour former la Société Générale des Tissages et Filatures de Flers. Société augmentée vers 1911 du tissage du Pont-des-Vers au Mesnil-Villement dans le Calvados et de la filature du bateau à Ménil-Hubert-sur-Orne construite vers 1927. Société intégrée au groupe Dollfus Mieg en 1971.",
       "lieu_dit": "Planchette (La)",
       "mode_chronologique": "phase_unique",
       "nom_principal": "filature de coton dite filature de la Planchette",
+      "periode_methode_codes": [
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "periodes_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "periodes_libelles": [
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "premiere_annee_documentee": 1901,
       "protection_mh_reference": null,
       "reference_ia": "IA00060915",
+      "siecles_source": [
+        "1er quart 20e siècle"
+      ],
       "site_id": "2c664ed5-7ee5-4315-aa61-e9b9032b56c0",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -967,15 +1335,34 @@
       "activites": [
         {
           "activite_code": "filature_textile",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "filature",
           "libelle_source": "filature",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "revolution_premiere_industrialisation",
+            "industrialisation_rail_vapeur"
+          ],
+          "periodes_libelles": [
+            "1789-1849 — Révolution et première industrialisation",
+            "1850-1913 — Industrialisation, rail et vapeur"
+          ],
           "reference_source": "IA00061035",
           "secteur_code": "textile_habillement_cuir",
+          "siecles_source_site": [
+            "2e quart 19e siècle",
+            "3e quart 19e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -985,13 +1372,39 @@
       "commune_historique_code_insee": "61447",
       "commune_historique_nom": "Saint-Pierre-du-Regard",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1875,
       "fiabilite_code": "forte",
       "historique_source": "Filature établie en 1827 par Edouard et Victor Callais sur un site occupé autrefois par un moulin à grains ; réglementé par ordonnance royale du 27 avril 1831 ; consommait en 1840 70 à 80000 kg de coton américain et produisait 60 à 70000 kg de fils de coton vendus à Flers et à Condé-sur-Noireau ; augmentation de construction vers 1856 par Etienne Guillet ; incendiée en 1885 ; cheminée abattue vers 1965 ; subsiste la chaufferie. 1000 broches en 1840 ; 11 métiers et 2860 broches en 1847 ; 12 métiers et 3009 broches en 1853 ; 2700 broches en 1861. Environ 95 ouvriers en 1840 ; 44 ouvriers en 1847. Existence d'un fonds d'archives.",
       "lieu_dit": null,
       "mode_chronologique": "phase_unique",
       "nom_principal": "filature des Roches",
+      "periode_methode_codes": [
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur"
+      ],
+      "periodes_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur"
+      ],
+      "periodes_libelles": [
+        "1789-1849 — Révolution et première industrialisation",
+        "1850-1913 — Industrialisation, rail et vapeur"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur"
+      ],
+      "premiere_annee_documentee": 1826,
       "protection_mh_reference": null,
       "reference_ia": "IA00061035",
+      "siecles_source": [
+        "2e quart 19e siècle",
+        "3e quart 19e siècle"
+      ],
       "site_id": "980da487-203e-40ae-9c1d-cea503be1860",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -1035,28 +1448,66 @@
       "activites": [
         {
           "activite_code": "filature_textile",
+          "debut_max": "1852-12-31",
+          "debut_min": "1842-01-01",
+          "debut_precision_code": "vers_annee",
           "debut_texte_source": "vers 1847",
           "fiabilite_code": "forte",
+          "fin_max": "1885-12-31",
+          "fin_min": "1875-01-01",
+          "fin_precision_code": "vers_annee",
           "fin_texte_source": "vers 1880",
           "installation_code": "filature",
           "libelle_source": "filature",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "revolution_premiere_industrialisation",
+            "industrialisation_rail_vapeur"
+          ],
+          "periodes_libelles": [
+            "1789-1849 — Révolution et première industrialisation",
+            "1850-1913 — Industrialisation, rail et vapeur"
+          ],
           "reference_source": "IA00060902",
           "secteur_code": "textile_habillement_cuir",
+          "siecles_source_site": [
+            "2e quart 19e siècle",
+            "3e quart 19e siècle",
+            "3e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "transformation_lait",
+          "debut_max": "1925-12-31",
+          "debut_min": "1925-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "réutilisation en 1925",
           "fiabilite_code": "forte",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": "inconnue",
           "installation_code": "fromagerie",
           "libelle_source": "fromagerie industrielle",
           "note": null,
           "ordre": 2,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "guerres_entre_deux_guerres"
+          ],
+          "periodes_libelles": [
+            "1914-1945 — Guerres et entre-deux-guerres"
+          ],
           "reference_source": "IA00060902",
           "secteur_code": "agroalimentaire",
+          "siecles_source_site": [
+            "2e quart 19e siècle",
+            "3e quart 19e siècle",
+            "3e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -1066,13 +1517,47 @@
       "commune_historique_code_insee": "61044",
       "commune_historique_nom": "Berjou",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1975,
       "fiabilite_code": "forte",
       "historique_source": "Filature de coton construite vers 1847 par Jean Delaferté. Agrandie vers 1865 à l'occasion de l'installation d'une machine à vapeur. Cessation d'activité vers 1880. Bâtiments occupés en 1925 par la Société Laitière des Fermiers Normands. Usine exploitée à partir de 1931 par l'entreprise Henri Vallée. Construction de hangars et remises après 1950. Occupait en 1972 une superficie totale de 30000 m² dont 6000 m² couverts. Produisait en 1972 2000000 camemberts par an et 1500 tonnes de beurre, vendus en France. 50 employés en 1972 et 55 employés en 1989.",
       "lieu_dit": "Fromagerie (La)",
       "mode_chronologique": "successives",
       "nom_principal": "filature, fromagerie industrielle",
+      "periode_methode_codes": [
+        "chronologie_phase",
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "periodes_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_libelles": [
+        "1789-1849 — Révolution et première industrialisation",
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres",
+        "1946-1975 — Modernisation d'après-guerre"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "modernisation_apres_guerre"
+      ],
+      "premiere_annee_documentee": 1826,
       "protection_mh_reference": null,
       "reference_ia": "IA00060902",
+      "siecles_source": [
+        "2e quart 19e siècle",
+        "3e quart 19e siècle",
+        "3e quart 20e siècle"
+      ],
       "site_id": "57368564-3e33-4b35-9d3c-555a5cb0bbc1",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -1114,28 +1599,68 @@
       "activites": [
         {
           "activite_code": "filature_textile",
+          "debut_max": "1842-12-31",
+          "debut_min": "1832-01-01",
+          "debut_precision_code": "vers_annee",
           "debut_texte_source": "vers 1837",
           "fiabilite_code": "forte",
+          "fin_max": "1932-12-31",
+          "fin_min": "1922-01-01",
+          "fin_precision_code": "vers_annee",
           "fin_texte_source": "vers 1927",
           "installation_code": "filature",
           "libelle_source": "filature",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "revolution_premiere_industrialisation",
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres"
+          ],
+          "periodes_libelles": [
+            "1789-1849 — Révolution et première industrialisation",
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres"
+          ],
           "reference_source": "IA00060896",
           "secteur_code": "textile_habillement_cuir",
+          "siecles_source_site": [
+            "2e quart 19e siècle",
+            "3e quart 19e siècle",
+            "3e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "fabrication_chaussures",
+          "debut_max": "1932-12-31",
+          "debut_min": "1922-01-01",
+          "debut_precision_code": "vers_annee",
           "debut_texte_source": "conversion vers 1927",
           "fiabilite_code": "forte",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": "inconnue",
           "installation_code": "usine",
           "libelle_source": "usine de chaussures",
           "note": null,
           "ordre": 2,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "guerres_entre_deux_guerres"
+          ],
+          "periodes_libelles": [
+            "1914-1945 — Guerres et entre-deux-guerres"
+          ],
           "reference_source": "IA00060896",
           "secteur_code": "textile_habillement_cuir",
+          "siecles_source_site": [
+            "2e quart 19e siècle",
+            "3e quart 19e siècle",
+            "3e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -1145,13 +1670,47 @@
       "commune_historique_code_insee": "61069",
       "commune_historique_nom": "Cahan",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1975,
       "fiabilite_code": "forte",
       "historique_source": "Filature de coton construite vers 1837 par Nicolas Duros ; agrandie vers 1848 ; nouveaux agrandissements vers 1865 à l'occasion de l'installation d'une machine à vapeur ; cessation d'activité vers 1927 et conversion en usine de chaussures, spécialisée dans la production de bottes et articles recouverts de caoutchouc ; produisait en 1972 1000 paires de bottes par jour écoulées en France et en Italie sous le nom de bottes le Chameau ; occupait en 1972 une superficie totale de 20000 m² dont 5200 m² couverts ; construction de nouveaux bâtiments à usage de magasins et entrepôts industriels vers 1970. Filature occupant 19 ouvriers en 1840 ; usine de chaussures occupant 95 employés en 1972 ; 102 employés en 1989.",
       "lieu_dit": "Fourneaux",
       "mode_chronologique": "successives",
       "nom_principal": "filature, usine de chaussures",
+      "periode_methode_codes": [
+        "chronologie_phase",
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "periodes_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_libelles": [
+        "1789-1849 — Révolution et première industrialisation",
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres",
+        "1946-1975 — Modernisation d'après-guerre"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "modernisation_apres_guerre"
+      ],
+      "premiere_annee_documentee": 1826,
       "protection_mh_reference": null,
       "reference_ia": "IA00060896",
+      "siecles_source": [
+        "2e quart 19e siècle",
+        "3e quart 19e siècle",
+        "3e quart 20e siècle"
+      ],
       "site_id": "2ab6b065-4bf3-4956-a9c2-656c2f9cfbfa",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -1193,15 +1752,37 @@
       "activites": [
         {
           "activite_code": "imprimerie",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "imprimerie",
           "libelle_source": "imprimerie",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres",
+            "modernisation_apres_guerre"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres",
+            "1946-1975 — Modernisation d'après-guerre"
+          ],
           "reference_source": "IA00061002",
           "secteur_code": "bois_papier_imprimerie",
+          "siecles_source_site": [
+            "4e quart 19e siècle",
+            "1er quart 20e siècle",
+            "2e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -1211,13 +1792,44 @@
       "commune_historique_code_insee": "61001",
       "commune_historique_nom": "Alençon",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1950,
       "fiabilite_code": "forte",
       "historique_source": "Création en 1894 de l'imprimerie de l'indépendant de l'Orne par le chanoine Guérin. Agrandie après 1911. Nouveaux agrandissements en 1930 à l'occasion de l'acquisition de l'imprimerie voisine dite imprimerie Supot. S'étendait en 1960 place Poulet-Malassis, rue Porchaine, rue Valaze et rue des Marcheries. Bâtiments abandonnés en 1960 au profit d'ateliers modernes en zone industrielle, rue Edouard Belin. 9 machines à composer, 18 presses typographiques, atelier de premise en train, atelier de brochage et de reliure avec plieuses brocheuses mécaniques, service d'expédition et magasin de stockage attestés en 1960. 10 ouvriers en 1894, 150 ouvriers en 1960, 160 ouvriers en 1972 et 108 ouvriers en 1989. Dirigée par une association ouvrière après 1910. Constitution d'une S.A. en 1921. Filiale du groupe Firmin-Didot depuis 1968.",
       "lieu_dit": null,
       "mode_chronologique": "phase_unique",
       "nom_principal": "imprimerie Alençonnaise",
+      "periode_methode_codes": [
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_libelles": [
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres",
+        "1946-1975 — Modernisation d'après-guerre"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "premiere_annee_documentee": 1876,
       "protection_mh_reference": null,
       "reference_ia": "IA00061002",
+      "siecles_source": [
+        "4e quart 19e siècle",
+        "1er quart 20e siècle",
+        "2e quart 20e siècle"
+      ],
       "site_id": "f7b9e26f-4dd7-428f-a7e8-659c432904af",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -1261,15 +1873,37 @@
       "activites": [
         {
           "activite_code": "sciage_bois",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "scierie",
           "libelle_source": "scierie",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres",
+            "modernisation_apres_guerre"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres",
+            "1946-1975 — Modernisation d'après-guerre"
+          ],
           "reference_source": "IA00061073",
           "secteur_code": "bois_papier_imprimerie",
+          "siecles_source_site": [
+            "3e quart 19e siècle",
+            "4e quart 19e siècle",
+            "2e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -1279,13 +1913,44 @@
       "commune_historique_code_insee": "61001",
       "commune_historique_nom": "Alençon",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1950,
       "fiabilite_code": "forte",
       "historique_source": "Scierie fondée vers 1874 par M. Prout. Cheminée d'usine construite en 1889. Usine exploitée après la Première Guerre mondiale par la société Prout frères. Consommait les bois des forêts de Réno Valdieu, Bellême, Perseigne, Bourse et Ecouves. Produisait jusqu'en 1955 des parquets, ramasse-couverts, jeannettes, chaises longues. Production spécifique pendant la Seconde Guerre mondiale de galoches, caisses, baraquements et piquets pour amarrés de bateaux. Production à partir de 1955 de caravanes, puis de chalets et de maisons à ossature bois. Eclairage électrique et machine à vapeur de 70 à 80 HP attestés en 1919. Installation d'une machine à vapeur à double expansion en 1928, provenant des ateliers Windsor à Rouen. 30 ouvriers vers 1912 et 150 employés en 1987.",
       "lieu_dit": "Perseigne (quartier de)",
       "mode_chronologique": "phase_unique",
       "nom_principal": "scierie Prout, puis Scierie Prout Frères, actuellement Maisons France Confort",
+      "periode_methode_codes": [
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_libelles": [
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres",
+        "1946-1975 — Modernisation d'après-guerre"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "premiere_annee_documentee": 1851,
       "protection_mh_reference": "PA00135513",
       "reference_ia": "IA00061073",
+      "siecles_source": [
+        "3e quart 19e siècle",
+        "4e quart 19e siècle",
+        "2e quart 20e siècle"
+      ],
       "site_id": "f0bdb9e3-c3bf-41cd-8704-d630daf00661",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -1334,41 +1999,99 @@
       "activites": [
         {
           "activite_code": "mouture_cereales",
+          "debut_max": "1809-12-31",
+          "debut_min": "1809-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "attesté en 1809",
           "fiabilite_code": "forte",
+          "fin_max": "1845-12-31",
+          "fin_min": "1835-01-01",
+          "fin_precision_code": "vers_annee",
           "fin_texte_source": "conversion vers 1840",
           "installation_code": "moulin",
           "libelle_source": "moulin à farine",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "revolution_premiere_industrialisation"
+          ],
+          "periodes_libelles": [
+            "1789-1849 — Révolution et première industrialisation"
+          ],
           "reference_source": "IA00060969",
           "secteur_code": "agroalimentaire",
+          "siecles_source_site": [
+            "2e quart 19e siècle",
+            "3e quart 19e siècle",
+            "2e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "filature_textile",
+          "debut_max": "1845-12-31",
+          "debut_min": "1835-01-01",
+          "debut_precision_code": "vers_annee",
           "debut_texte_source": "vers 1840",
           "fiabilite_code": "forte",
+          "fin_max": "1935-12-31",
+          "fin_min": "1925-01-01",
+          "fin_precision_code": "vers_annee",
           "fin_texte_source": "inactive vers 1930",
           "installation_code": "filature",
           "libelle_source": "filature",
           "note": null,
           "ordre": 2,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "revolution_premiere_industrialisation",
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres"
+          ],
+          "periodes_libelles": [
+            "1789-1849 — Révolution et première industrialisation",
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres"
+          ],
           "reference_source": "IA00060969",
           "secteur_code": "textile_habillement_cuir",
+          "siecles_source_site": [
+            "2e quart 19e siècle",
+            "3e quart 19e siècle",
+            "2e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "fabrication_materiel_electrique",
+          "debut_max": "1942-12-31",
+          "debut_min": "1932-01-01",
+          "debut_precision_code": "vers_annee",
           "debut_texte_source": "réutilisation vers 1937",
           "fiabilite_code": "forte",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": "inconnue",
           "installation_code": "usine",
           "libelle_source": "usine de matériel électroménager",
           "note": null,
           "ordre": 3,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "guerres_entre_deux_guerres"
+          ],
+          "periodes_libelles": [
+            "1914-1945 — Guerres et entre-deux-guerres"
+          ],
           "reference_source": "IA00060969",
           "secteur_code": "mecanique_electrique",
+          "siecles_source_site": [
+            "2e quart 19e siècle",
+            "3e quart 19e siècle",
+            "2e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -1378,13 +2101,48 @@
       "commune_historique_code_insee": "61001",
       "commune_historique_nom": "Alençon",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1950,
       "fiabilite_code": "forte",
       "historique_source": null,
       "lieu_dit": null,
       "mode_chronologique": "successives",
       "nom_principal": "moulin à farine dit moulin d'Ozé, puis filature d'Ozé, puis usine de matériel électroménager Moulinex",
+      "periode_methode_codes": [
+        "chronologie_phase",
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "periodes_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_libelles": [
+        "1789-1849 — Révolution et première industrialisation",
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres",
+        "1946-1975 — Modernisation d'après-guerre"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "premiere_annee_documentee": 1809,
       "protection_mh_reference": null,
       "reference_ia": "IA00060969",
+      "siecles_source": [
+        "2e quart 19e siècle",
+        "3e quart 19e siècle",
+        "2e quart 20e siècle"
+      ],
       "site_id": "4b0fcc92-f32b-4040-ae5d-32a4945b176a",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -1426,15 +2184,34 @@
       "activites": [
         {
           "activite_code": "fabrication_metaux",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "usine",
           "libelle_source": "usine de fabrication des métaux",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "avant_1789",
+            "industrialisation_rail_vapeur"
+          ],
+          "periodes_libelles": [
+            "Avant 1789",
+            "1850-1913 — Industrialisation, rail et vapeur"
+          ],
           "reference_source": "IA00060959",
           "secteur_code": "metallurgie_travail_metaux",
+          "siecles_source_site": [
+            "4e quart 17e siècle (détruit)",
+            "3e quart 19e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -1444,13 +2221,39 @@
       "commune_historique_code_insee": "61382",
       "commune_historique_nom": "Saint-Denis-sur-Sarthon",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1875,
       "fiabilite_code": "forte",
       "historique_source": "Usine comprenant haut fourneau, affinerie et fenderie. Affinerie attestée en 1611, inactive au milieu du 17e siècle. Reconstruite entre 1687 et 1689 par Thomas Ruel, fermier général de la baronnie de La Roche-Mabile. Haut fourneau reconstruit entre 1696 et 1698. Usine couplée en 1789 avec le haut fourneau de la Bataille. Acquise en 1854 par Jules Roussel, propriétaire de la forge d'Orthe, en Mayenne et affectée à la production de fonte et coussinets pour les rails du chemin de fer d'Alençon. Haut fourneau reconstruit en 1856. Cessation d'activité vers 1870. Minerai extrait à la Ferrière Bochard. Fer produit destiné à usage agricole et aux cloutiers de Chahains, Tinchebray et Chanu. Une vingtaine d'ouvriers sur place en 1794. 50 ouvriers en 1858.",
       "lieu_dit": "Forge (La)",
       "mode_chronologique": "phase_unique",
       "nom_principal": "usine de fabrication des métaux",
+      "periode_methode_codes": [
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "avant_1789",
+        "industrialisation_rail_vapeur"
+      ],
+      "periodes_codes": [
+        "avant_1789",
+        "industrialisation_rail_vapeur"
+      ],
+      "periodes_libelles": [
+        "Avant 1789",
+        "1850-1913 — Industrialisation, rail et vapeur"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "avant_1789",
+        "industrialisation_rail_vapeur"
+      ],
+      "premiere_annee_documentee": 1676,
       "protection_mh_reference": "PA00110985",
       "reference_ia": "IA00060959",
+      "siecles_source": [
+        "4e quart 17e siècle (détruit)",
+        "3e quart 19e siècle"
+      ],
       "site_id": "3c95b12b-1cb8-4439-a0d9-60152e8a327f",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -1502,15 +2305,31 @@
       "activites": [
         {
           "activite_code": "fabrication_ceramique",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "faiencerie",
           "libelle_source": "faïencerie",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "avant_1789"
+          ],
+          "periodes_libelles": [
+            "Avant 1789"
+          ],
           "reference_source": "IA00060997",
           "secteur_code": "verre_ceramique_materiaux_construction",
+          "siecles_source_site": [
+            "3e quart 18e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -1520,13 +2339,34 @@
       "commune_historique_code_insee": "61382",
       "commune_historique_nom": "Saint-Denis-sur-Sarthon",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1775,
       "fiabilite_code": "forte",
       "historique_source": "Faïencerie construite en 1750 par Jean Ruel de Belleisle, écuyer, propriétaire de la forge de Saint-Denis-sur-Sarthon. Autorisée par arrêt du conseil du 16 décembre 1749 et par lettres patentes du 23 septembre 1750. Dirigée de 1750 à 1755 par Denis Pierre Pelleve, peintre et ouvrier en faïence, de 1759 à 1811 par Nicolas Thomas Ruel de Belleisle et de 1811 à 1848 par Jean Louis Ruel de Belleisle. Comprenait en 1848 logement d'ouvriers, magasins, tournerie, fours, pièces de séchage, étables, hangar et moulin. Cessation d'activité vers 1861. Bâtiments d'exploitation détruits après 1867. Subsistent le logement patronal et un logement d'ouvriers. Terres extraites à la Ferrière-Bochard et Pacé. Production de plats, brocs, pots à boire, moutardiers, assiettes et soupières, encriers, plats à barbe et statuettes.",
       "lieu_dit": null,
       "mode_chronologique": "phase_unique",
       "nom_principal": "faïencerie",
+      "periode_methode_codes": [
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "avant_1789"
+      ],
+      "periodes_codes": [
+        "avant_1789"
+      ],
+      "periodes_libelles": [
+        "Avant 1789"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "avant_1789"
+      ],
+      "premiere_annee_documentee": 1751,
       "protection_mh_reference": null,
       "reference_ia": "IA00060997",
+      "siecles_source": [
+        "3e quart 18e siècle"
+      ],
       "site_id": "0f433fbc-09eb-42de-ba2f-75eec5c7a050",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -1570,15 +2410,33 @@
       "activites": [
         {
           "activite_code": "fabrication_briques",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "briqueterie",
           "libelle_source": "briqueterie",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres"
+          ],
           "reference_source": "IA00061117",
           "secteur_code": "verre_ceramique_materiaux_construction",
+          "siecles_source_site": [
+            "1er quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -1588,13 +2446,38 @@
       "commune_historique_code_insee": "61006",
       "commune_historique_nom": "Argentan",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1925,
       "fiabilite_code": "forte",
       "historique_source": "Briqueterie installée en 1913 par Leduc et Aubry ; équipée d'une machine à vapeur de 15 HP en 1918 ; produisait alors 2500000 briques dites briques belges, vendues aux environs. Four à feu continu de type Hoffman ; essentiel des briques préparées à la presse à main en 1918 ; 8 ouvriers en 1918.",
       "lieu_dit": "Sainte-Anne",
       "mode_chronologique": "phase_unique",
       "nom_principal": "briqueterie Saint-Martin",
+      "periode_methode_codes": [
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "periodes_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "periodes_libelles": [
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "premiere_annee_documentee": 1901,
       "protection_mh_reference": null,
       "reference_ia": "IA00061117",
+      "siecles_source": [
+        "1er quart 20e siècle"
+      ],
       "site_id": "af60a402-a20e-4cca-b3c9-a81921d4e2e8",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -1641,28 +2524,74 @@
       "activites": [
         {
           "activite_code": "transformation_lait",
+          "debut_max": "1893-12-31",
+          "debut_min": "1893-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "1893",
           "fiabilite_code": "forte",
+          "fin_max": "1980-12-31",
+          "fin_min": "1980-01-01",
+          "fin_precision_code": "annee",
           "fin_texte_source": "1980",
           "installation_code": "laiterie",
           "libelle_source": "laiterie industrielle",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres",
+            "modernisation_apres_guerre",
+            "mutations_reconversions"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres",
+            "1946-1975 — Modernisation d'après-guerre",
+            "1976-2000 — Mutations et reconversions"
+          ],
           "reference_source": "IA00061133",
           "secteur_code": "agroalimentaire",
+          "siecles_source_site": [
+            "4e quart 19e siècle",
+            "1er quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "transformation_lait",
+          "debut_max": "1893-12-31",
+          "debut_min": "1893-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "1893",
           "fiabilite_code": "forte",
+          "fin_max": "1980-12-31",
+          "fin_min": "1980-01-01",
+          "fin_precision_code": "annee",
           "fin_texte_source": "1980",
           "installation_code": "fromagerie",
           "libelle_source": "fromagerie industrielle",
           "note": null,
           "ordre": 2,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres",
+            "modernisation_apres_guerre",
+            "mutations_reconversions"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres",
+            "1946-1975 — Modernisation d'après-guerre",
+            "1976-2000 — Mutations et reconversions"
+          ],
           "reference_source": "IA00061133",
           "secteur_code": "agroalimentaire",
+          "siecles_source_site": [
+            "4e quart 19e siècle",
+            "1er quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -1672,13 +2601,46 @@
       "commune_historique_code_insee": "61057",
       "commune_historique_nom": "Le Bourg-Saint-Léonard",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1980,
       "fiabilite_code": "forte",
       "historique_source": "Laiterie-fromagerie établie en 1893 par Constant de Forceville, propriétaire du château du Bourg-Saint-Léonard, dirigée par la famille Lavalou à partir de 1895 et agrandie vers 1917. Machine à vapeur de 15 ch et moteur à gaz pauvre de 30 ch attestés en 1919. Production de 1500 à 3000 tonnes de fromages en 1919. Produisait de 500 à 600000 camemberts en 1934. Etablissement contrôlé par le groupe Besnier en 1979. Cessation d'activité en 1980 et démolition partielle en 1987. 25 à 30 ouvriers en 1919. 50 ouvriers en 1939. Environ 40 employés en 1980.",
       "lieu_dit": null,
       "mode_chronologique": "simultanees",
       "nom_principal": "laiterie industrielle, fromagerie industrielle dite laiterie fromagerie Lavalou",
+      "periode_methode_codes": [
+        "chronologie_phase",
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre",
+        "mutations_reconversions"
+      ],
+      "periodes_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre",
+        "mutations_reconversions"
+      ],
+      "periodes_libelles": [
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres",
+        "1946-1975 — Modernisation d'après-guerre",
+        "1976-2000 — Mutations et reconversions"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "premiere_annee_documentee": 1876,
       "protection_mh_reference": null,
       "reference_ia": "IA00061133",
+      "siecles_source": [
+        "4e quart 19e siècle",
+        "1er quart 20e siècle"
+      ],
       "site_id": "ca91c449-cb94-4c38-a230-023dbec512cd",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -1723,41 +2685,96 @@
       "activites": [
         {
           "activite_code": "distillation_alimentaire",
+          "debut_max": "1910-12-31",
+          "debut_min": "1910-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "1910",
           "fiabilite_code": "forte",
+          "fin_max": "1945-12-31",
+          "fin_min": "1935-01-01",
+          "fin_precision_code": "vers_annee",
           "fin_texte_source": "vers 1940",
           "installation_code": "distillerie",
           "libelle_source": "distillerie",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres"
+          ],
           "reference_source": "IA00060909",
           "secteur_code": "agroalimentaire",
+          "siecles_source_site": [
+            "1er quart 20e siècle",
+            "2e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "production_cidre",
+          "debut_max": "1910-12-31",
+          "debut_min": "1910-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "1910",
           "fiabilite_code": "forte",
+          "fin_max": "1945-12-31",
+          "fin_min": "1935-01-01",
+          "fin_precision_code": "vers_annee",
           "fin_texte_source": "vers 1940",
           "installation_code": "cidrerie",
           "libelle_source": "cidrerie",
           "note": null,
           "ordre": 2,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres"
+          ],
           "reference_source": "IA00060909",
           "secteur_code": "agroalimentaire",
+          "siecles_source_site": [
+            "1er quart 20e siècle",
+            "2e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "transformation_lait",
+          "debut_max": "1948-12-31",
+          "debut_min": "1938-01-01",
+          "debut_precision_code": "vers_annee",
           "debut_texte_source": "vers 1943",
           "fiabilite_code": "forte",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": "inconnue",
           "installation_code": "laiterie",
           "libelle_source": "laiterie industrielle",
           "note": null,
           "ordre": 3,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "guerres_entre_deux_guerres"
+          ],
+          "periodes_libelles": [
+            "1914-1945 — Guerres et entre-deux-guerres"
+          ],
           "reference_source": "IA00060909",
           "secteur_code": "agroalimentaire",
+          "siecles_source_site": [
+            "1er quart 20e siècle",
+            "2e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -1767,13 +2784,43 @@
       "commune_historique_code_insee": "61181",
       "commune_historique_nom": "Gacé",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1950,
       "fiabilite_code": "forte",
       "historique_source": "Distillerie et cidrerie établies à l'emplacement d'un ancien moulin par Leroy, négociant en vins et spiritueux, en 1910. Cessation d'activité vers 1940. Bâtiments réutilisés et agrandis vers 1943 pour les besoins d'une laiterie industrielle, exploitée par la société SADAC. Exploitée depuis 1968 par la société Laiterie des Prairies de l'Orne. Assure la production de poudre de lait. Une machine attestée en 1919. Une dizaine d'ouvriers vers 1913.",
       "lieu_dit": "Planier (Le)",
       "mode_chronologique": "simultanees_puis_succession",
       "nom_principal": "distillerie, cidrerie, laiterie industrielle",
+      "periode_methode_codes": [
+        "chronologie_phase",
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "periodes_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_libelles": [
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres",
+        "1946-1975 — Modernisation d'après-guerre"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "premiere_annee_documentee": 1901,
       "protection_mh_reference": null,
       "reference_ia": "IA00060909",
+      "siecles_source": [
+        "1er quart 20e siècle",
+        "2e quart 20e siècle"
+      ],
       "site_id": "3ae9aff0-231d-4365-a718-039b17021fc0",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -1815,28 +2862,74 @@
       "activites": [
         {
           "activite_code": "production_cidre",
+          "debut_max": "1898-12-31",
+          "debut_min": "1898-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "1898",
           "fiabilite_code": "forte",
+          "fin_max": "1987-12-31",
+          "fin_min": "1987-01-01",
+          "fin_precision_code": "annee",
           "fin_texte_source": "1987",
           "installation_code": "cidrerie",
           "libelle_source": "cidrerie",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres",
+            "modernisation_apres_guerre",
+            "mutations_reconversions"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres",
+            "1946-1975 — Modernisation d'après-guerre",
+            "1976-2000 — Mutations et reconversions"
+          ],
           "reference_source": "IA00061166",
           "secteur_code": "agroalimentaire",
+          "siecles_source_site": [
+            "4e quart 19e siècle",
+            "2e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "distillation_alimentaire",
+          "debut_max": "1898-12-31",
+          "debut_min": "1898-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "1898",
           "fiabilite_code": "forte",
+          "fin_max": "1987-12-31",
+          "fin_min": "1987-01-01",
+          "fin_precision_code": "annee",
           "fin_texte_source": "1987",
           "installation_code": "distillerie",
           "libelle_source": "distillerie",
           "note": null,
           "ordre": 2,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres",
+            "modernisation_apres_guerre",
+            "mutations_reconversions"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres",
+            "1946-1975 — Modernisation d'après-guerre",
+            "1976-2000 — Mutations et reconversions"
+          ],
           "reference_source": "IA00061166",
           "secteur_code": "agroalimentaire",
+          "siecles_source_site": [
+            "4e quart 19e siècle",
+            "2e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -1846,13 +2939,47 @@
       "commune_historique_code_insee": "61153",
       "commune_historique_nom": "Écouché",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1987,
       "fiabilite_code": "forte",
       "historique_source": "Cidrerie distillerie établie en 1898 par pépin ; reconstruite après 1945 avec cuves d'une contenance de 6000 hectolitres ; produisait en 1972 12000 hectolitres de cidre ; cessation d'activité en 1987 après rachat des bâtiments par la cidrerie Anée à Vimoutiers. 2 presses, 2 élévateurs et 2 alambics en 1972. 11 employés en 1972.",
       "lieu_dit": null,
       "mode_chronologique": "simultanees",
       "nom_principal": "cidrerie distillerie dite cidrerie distillerie Pépin",
+      "periode_methode_codes": [
+        "chronologie_phase",
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre",
+        "mutations_reconversions"
+      ],
+      "periodes_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre",
+        "mutations_reconversions"
+      ],
+      "periodes_libelles": [
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres",
+        "1946-1975 — Modernisation d'après-guerre",
+        "1976-2000 — Mutations et reconversions"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "premiere_annee_documentee": 1876,
       "protection_mh_reference": null,
       "reference_ia": "IA00061166",
+      "siecles_source": [
+        "4e quart 19e siècle",
+        "2e quart 20e siècle"
+      ],
       "site_id": "35c5c701-5158-4714-aa11-6946f7fae290",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -1896,15 +3023,31 @@
       "activites": [
         {
           "activite_code": "mouture_cereales",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "moulin",
           "libelle_source": "moulin à farine",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "revolution_premiere_industrialisation"
+          ],
+          "periodes_libelles": [
+            "1789-1849 — Révolution et première industrialisation"
+          ],
           "reference_source": "IA00061091",
           "secteur_code": "agroalimentaire",
+          "siecles_source_site": [
+            "limite 18e siècle 19e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -1914,13 +3057,34 @@
       "commune_historique_code_insee": "61194",
       "commune_historique_nom": "Goulet",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1805,
       "fiabilite_code": "forte",
       "historique_source": "Moulin attesté en 1809, produisant quotidiennement 4 quintaux de farine ; cessation d'activité en 1892. roue hydraulique par en dessous en place, provenant du moulin de Bafolet à Moulins-sur-Orne.",
       "lieu_dit": "Moulin de Goulet",
       "mode_chronologique": "phase_unique",
       "nom_principal": "moulin à farine",
+      "periode_methode_codes": [
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "revolution_premiere_industrialisation"
+      ],
+      "periodes_codes": [
+        "revolution_premiere_industrialisation"
+      ],
+      "periodes_libelles": [
+        "1789-1849 — Révolution et première industrialisation"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "revolution_premiere_industrialisation"
+      ],
+      "premiere_annee_documentee": 1795,
       "protection_mh_reference": null,
       "reference_ia": "IA00061091",
+      "siecles_source": [
+        "limite 18e siècle 19e siècle"
+      ],
       "site_id": "8a492a03-5bac-4aa5-b48e-ed37239720e6",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -1966,28 +3130,70 @@
       "activites": [
         {
           "activite_code": "affinage_metaux",
+          "debut_max": "1545-12-31",
+          "debut_min": "1535-01-01",
+          "debut_precision_code": "vers_annee",
           "debut_texte_source": "vers 1540",
           "fiabilite_code": "forte",
+          "fin_max": "1850-12-31",
+          "fin_min": "1850-01-01",
+          "fin_precision_code": "annee",
           "fin_texte_source": "1850",
           "installation_code": "affinerie",
           "libelle_source": "affinerie",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "avant_1789",
+            "revolution_premiere_industrialisation",
+            "industrialisation_rail_vapeur"
+          ],
+          "periodes_libelles": [
+            "Avant 1789",
+            "1789-1849 — Révolution et première industrialisation",
+            "1850-1913 — Industrialisation, rail et vapeur"
+          ],
           "reference_source": "IA00061029",
           "secteur_code": "metallurgie_travail_metaux",
+          "siecles_source_site": [
+            "1ère moitié 16e siècle",
+            "18e siècle",
+            "3e quart 19e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "forgeage",
+          "debut_max": "1850-12-31",
+          "debut_min": "1850-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "1850",
           "fiabilite_code": "forte",
+          "fin_max": "1939-12-31",
+          "fin_min": "1939-01-01",
+          "fin_precision_code": "annee",
           "fin_texte_source": "1939",
           "installation_code": "forge",
           "libelle_source": "forge",
           "note": "travail du cuivre",
           "ordre": 2,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres"
+          ],
           "reference_source": "IA00061029",
           "secteur_code": "metallurgie_travail_metaux",
+          "siecles_source_site": [
+            "1ère moitié 16e siècle",
+            "18e siècle",
+            "3e quart 19e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -1997,13 +3203,53 @@
       "commune_historique_code_insee": "61008",
       "commune_historique_nom": "Aube",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 2026,
       "fiabilite_code": "forte",
       "historique_source": "Affinerie construite dans la première moitié du 16e siècle, autour des années 1540, sans doute par Charles de Courdemanche, seigneur d'Aube. Reconstruite au 18e siècle dans son emplacement actuel. Affectée jusqu'en 1850 à l'affinage de la fonte produite au haut fourneau du Logeard à Saint-Pierre-des-Loges. Alimentait en fer la fenderie d'Aube. Acquise en 1850 par Pierre Jean Félix Mouchel et affectée au forgeage du cuivre. Installation d'une turbine Calon entre 1864 et 1868, d'un pilon à vapeur entre 1868 et 1895 et d'une soufflerie à piston vers 1902. Four à désulfurer le cuivre construit après 1850. Cessation d'activité en 1939. Forge wallonne à 4 roues hydrauliques. Subsiste la roue du marteau. 10 ouvriers en 1811. Existence d'un fonds d'archives.",
       "lieu_dit": "Forge (La)",
       "mode_chronologique": "successives",
       "nom_principal": "affinerie",
+      "periode_methode_codes": [
+        "chronologie_phase",
+        "siecles_source_site",
+        "situation_actuelle_documentee"
+      ],
+      "periodes_activite_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "periodes_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "periode_contemporaine"
+      ],
+      "periodes_libelles": [
+        "Avant 1789",
+        "1789-1849 — Révolution et première industrialisation",
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres",
+        "Depuis 2001 — Patrimoine et usages contemporains"
+      ],
+      "periodes_situation_actuelle_codes": [
+        "periode_contemporaine"
+      ],
+      "periodes_source_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur"
+      ],
+      "premiere_annee_documentee": 1501,
       "protection_mh_reference": "PA00110731",
       "reference_ia": "IA00061029",
+      "siecles_source": [
+        "1ère moitié 16e siècle",
+        "18e siècle",
+        "3e quart 19e siècle"
+      ],
       "site_id": "43d7512d-7196-4864-bc90-64b3b3474bce",
       "situation_actuelle": {
         "accessibilite_code": "partiellement_visitable",
@@ -2063,28 +3309,66 @@
       "activites": [
         {
           "activite_code": "fabrication_quincaillerie",
+          "debut_max": "1819-12-31",
+          "debut_min": "1819-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "1819",
           "fiabilite_code": "forte",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": "inconnue",
           "installation_code": "usine",
           "libelle_source": "usine de quincaillerie",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "revolution_premiere_industrialisation"
+          ],
+          "periodes_libelles": [
+            "1789-1849 — Révolution et première industrialisation"
+          ],
           "reference_source": "IA00061155",
           "secteur_code": "metallurgie_travail_metaux",
+          "siecles_source_site": [
+            "1er quart 19e siècle",
+            "3e quart 19e siècle",
+            "4e quart 19e siècle",
+            "1er quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "trefilage_metaux",
+          "debut_max": "1900-12-31",
+          "debut_min": "1801-01-01",
+          "debut_precision_code": "siecle",
           "debut_texte_source": "attestée au 19e siècle",
           "fiabilite_code": "forte",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": "inconnue",
           "installation_code": "usine",
           "libelle_source": "tréfilerie",
           "note": null,
           "ordre": 2,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "revolution_premiere_industrialisation"
+          ],
+          "periodes_libelles": [
+            "1789-1849 — Révolution et première industrialisation"
+          ],
           "reference_source": "IA00061155",
           "secteur_code": "metallurgie_travail_metaux",
+          "siecles_source_site": [
+            "1er quart 19e siècle",
+            "3e quart 19e siècle",
+            "4e quart 19e siècle",
+            "1er quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -2094,13 +3378,49 @@
       "commune_historique_code_insee": "61456",
       "commune_historique_nom": "Saint-Sulpice-sur-Risle",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 2026,
       "fiabilite_code": "forte",
       "historique_source": "Usine de boucles de sellerie installée en 1819 par les frères Bouilland à l'emplacement d'un moulin à farine ; réglementée par ordonnance royale du 30 janvier 1822, révisée le 16 novembre 1834 ; production de plumes métalliques, aiguilles et broches à tricoter attestée en 1850 ; usine agrandie en 1856 ; incendiée en 1877 ; reconstruite en 1880 par Benjamin Bohin ; agrandie en 1901. Ajout d'une deuxième roue hydraulique en 1834 ; 20 bobines et 20 machines à épingles en 1869. 23 ouvriers en 1867 ; 34 ouvriers en 1873. Existence d'un fonds d'archives.",
       "lieu_dit": null,
       "mode_chronologique": "simultanees_complementaires",
       "nom_principal": "usine de quincaillerie, tréfilerie dite établissements Bohin",
+      "periode_methode_codes": [
+        "chronologie_phase",
+        "siecles_source_site",
+        "situation_actuelle_documentee"
+      ],
+      "periodes_activite_codes": [
+        "revolution_premiere_industrialisation"
+      ],
+      "periodes_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "periode_contemporaine"
+      ],
+      "periodes_libelles": [
+        "1789-1849 — Révolution et première industrialisation",
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres",
+        "Depuis 2001 — Patrimoine et usages contemporains"
+      ],
+      "periodes_situation_actuelle_codes": [
+        "periode_contemporaine"
+      ],
+      "periodes_source_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "premiere_annee_documentee": 1801,
       "protection_mh_reference": "PA00135530",
       "reference_ia": "IA00061155",
+      "siecles_source": [
+        "1er quart 19e siècle",
+        "3e quart 19e siècle",
+        "4e quart 19e siècle",
+        "1er quart 20e siècle"
+      ],
       "site_id": "890265c5-e62f-45f7-aed2-08fb1814f457",
       "situation_actuelle": {
         "accessibilite_code": "visitable",
@@ -2112,7 +3432,7 @@
         "source_id": "tourisme_local",
         "source_url": "https://www.bohin.com/pages/organiser-sa-visite",
         "usages": [
-          "industrie_actuelle",
+          "activite_industrielle",
           "culture_musee",
           "tourisme_visite"
         ]
@@ -2159,28 +3479,68 @@
       "activites": [
         {
           "activite_code": "laminage_metaux",
+          "debut_max": "1820-12-31",
+          "debut_min": "1820-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "1820",
           "fiabilite_code": "forte",
+          "fin_max": "1867-12-31",
+          "fin_min": "1867-01-01",
+          "fin_precision_code": "annee",
           "fin_texte_source": "1867",
           "installation_code": "laminoir",
           "libelle_source": "laminoir",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "revolution_premiere_industrialisation",
+            "industrialisation_rail_vapeur"
+          ],
+          "periodes_libelles": [
+            "1789-1849 — Révolution et première industrialisation",
+            "1850-1913 — Industrialisation, rail et vapeur"
+          ],
           "reference_source": "IA00061113",
           "secteur_code": "metallurgie_travail_metaux",
+          "siecles_source_site": [
+            "1er quart 19e siècle",
+            "3e quart 19e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "fabrication_quincaillerie",
+          "debut_max": "1867-12-31",
+          "debut_min": "1867-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "1867",
           "fiabilite_code": "forte",
+          "fin_max": "1950-12-31",
+          "fin_min": "1940-01-01",
+          "fin_precision_code": "vers_annee",
           "fin_texte_source": "vers 1945",
           "installation_code": "usine",
           "libelle_source": "usine de quincaillerie",
           "note": null,
           "ordre": 2,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres",
+            "modernisation_apres_guerre"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres",
+            "1946-1975 — Modernisation d'après-guerre"
+          ],
           "reference_source": "IA00061113",
           "secteur_code": "metallurgie_travail_metaux",
+          "siecles_source_site": [
+            "1er quart 19e siècle",
+            "3e quart 19e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -2190,13 +3550,46 @@
       "commune_historique_code_insee": "61456",
       "commune_historique_nom": "Saint-Sulpice-sur-Risle",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1950,
       "fiabilite_code": "forte",
       "historique_source": "Laminoir à cuivre établi en 1820 par le baron de Saillard à l'emplacement de son moulin à tan ; transformé en fabrique de pointes et d'épingles par Bouvry en 1867 ; consommait alors 50000 kg de fer pour la fabrication des pointes et 20000 kg de fer et 1000 kg de laiton pour celle des épingles ; comprenait en 1872 atelier de fabrication, four à recuire, atelier à tremper et logements d'ouvriers et de contremaître ; produisait en 1899 épingles à cheveux, des, agrafés et anneaux ; usine spécialisée dans la fabrication des crochets après son acquisition par Bohin vers 1909 ; production transférée à l'usine de Saint-Sulpice-sur-Risle après 1945 ; bâtiments convertis en logements d'ouvriers et remises. 4 ouvriers à l'intérieur de l'usine et 9 à l'extérieur en 1867. Existence d'un fonds d'archives.",
       "lieu_dit": "Moulin à Tan (Le)",
       "mode_chronologique": "successives",
       "nom_principal": "laminoir, usine de quincaillerie dite usine de la Batterie",
+      "periode_methode_codes": [
+        "chronologie_phase",
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_libelles": [
+        "1789-1849 — Révolution et première industrialisation",
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres",
+        "1946-1975 — Modernisation d'après-guerre"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur"
+      ],
+      "premiere_annee_documentee": 1801,
       "protection_mh_reference": null,
       "reference_ia": "IA00061113",
+      "siecles_source": [
+        "1er quart 19e siècle",
+        "3e quart 19e siècle"
+      ],
       "site_id": "be1c19ae-3062-4f64-b8db-602ab713f052",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -2242,28 +3635,62 @@
       "activites": [
         {
           "activite_code": "tannerie_cuir",
+          "debut_max": "1835-12-31",
+          "debut_min": "1835-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "attestée en 1835",
           "fiabilite_code": "forte",
+          "fin_max": "1893-12-31",
+          "fin_min": "1883-01-01",
+          "fin_precision_code": "vers_annee",
           "fin_texte_source": "vers 1888",
           "installation_code": "tannerie",
           "libelle_source": "tannerie",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "revolution_premiere_industrialisation",
+            "industrialisation_rail_vapeur"
+          ],
+          "periodes_libelles": [
+            "1789-1849 — Révolution et première industrialisation",
+            "1850-1913 — Industrialisation, rail et vapeur"
+          ],
           "reference_source": "IA00061052",
           "secteur_code": "textile_habillement_cuir",
+          "siecles_source_site": [
+            "3e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "construction_mecanique",
+          "debut_max": "1953-12-31",
+          "debut_min": "1953-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "réutilisation en 1953",
           "fiabilite_code": "forte",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": "inconnue",
           "installation_code": "usine",
           "libelle_source": "usine de construction mécanique",
           "note": null,
           "ordre": 2,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "modernisation_apres_guerre"
+          ],
+          "periodes_libelles": [
+            "1946-1975 — Modernisation d'après-guerre"
+          ],
           "reference_source": "IA00061052",
           "secteur_code": "mecanique_electrique",
+          "siecles_source_site": [
+            "3e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -2273,13 +3700,41 @@
       "commune_historique_code_insee": "61214",
       "commune_historique_nom": "L'Aigle",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1975,
       "fiabilite_code": "forte",
       "historique_source": "Tannerie attestée en 1835, propriété de Nicolas Camus ; activité de tannage abandonnée vers 1888 ; bâtiments acquis en 1953 par la société de fabrication de matériel textile pour la production d'aiguilles pour métiers de bonneterie, vendues en France ou exportées en Allemagne et Italie ; agrandissements en 1956 ; nouvelles constructions en 1958 ; création de deux ateliers en 1960 et 1962 ; capacité de production estimée à 22000000 de pièces en 1972 ; cessation d'activité vers 1977 ; bâtiments réoccupés par la société études techniques et représentations industrielles, spécialisée dans la fabrication de composants et de matériels mécaniques, électriques et électroniques. 25 ouvriers en 1954 ; 40 ouvriers en 1955 ; 150 ouvriers en 1960 ; 250 ouvriers en 1962 ; 150 ouvriers en 1972 ; 450 ouvriers vers 1980 ; environ 80 ouvriers en 1989. Existence d'un fonds d'archives.",
       "lieu_dit": null,
       "mode_chronologique": "successives",
       "nom_principal": "tannerie, usine de construction mécanique",
+      "periode_methode_codes": [
+        "chronologie_phase",
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_codes": [
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_libelles": [
+        "1789-1849 — Révolution et première industrialisation",
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1946-1975 — Modernisation d'après-guerre"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "modernisation_apres_guerre"
+      ],
+      "premiere_annee_documentee": 1835,
       "protection_mh_reference": null,
       "reference_ia": "IA00061052",
+      "siecles_source": [
+        "3e quart 20e siècle"
+      ],
       "site_id": "314bf742-7125-4c6c-a4bd-26d6a047a9b1",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -2321,15 +3776,34 @@
       "activites": [
         {
           "activite_code": "confection_habillement",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "usine",
           "libelle_source": "usine d'habillement",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres"
+          ],
           "reference_source": "IA00061054",
           "secteur_code": "textile_habillement_cuir",
+          "siecles_source_site": [
+            "4e quart 19e siècle",
+            "1er quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -2339,13 +3813,39 @@
       "commune_historique_code_insee": "61214",
       "commune_historique_nom": "L'Aigle",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1925,
       "fiabilite_code": "forte",
       "historique_source": "Usine fondée par Pierre Chabaud, maire de l'Aigle, en 1876 ; agrandie vers 1903 et 1909 ; moteur à gaz pauvre de 12 HP attesté en 1919 ; production de 1200 corsets par jour avant la 1ère guerre, vendus en France ; cessation d'activité vers 1975. Vers 1912, 300 ouvriers travaillant à l'atelier ou à domicile ; 80 ouvriers en 1919 ; 88 ouvriers en 1972.",
       "lieu_dit": null,
       "mode_chronologique": "phase_unique",
       "nom_principal": "usine d'habillement",
+      "periode_methode_codes": [
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "periodes_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "periodes_libelles": [
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "premiere_annee_documentee": 1876,
       "protection_mh_reference": null,
       "reference_ia": "IA00061054",
+      "siecles_source": [
+        "4e quart 19e siècle",
+        "1er quart 20e siècle"
+      ],
       "site_id": "3d44d08b-e70d-4622-9387-a7538d86be3f",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -2392,15 +3892,36 @@
       "activites": [
         {
           "activite_code": "affinage_metaux",
+          "debut_max": "1537-12-31",
+          "debut_min": "1537-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "attestée sur le site en 1537",
           "fiabilite_code": "forte",
+          "fin_max": "1875-12-31",
+          "fin_min": "1865-01-01",
+          "fin_precision_code": "vers_annee",
           "fin_texte_source": "inactive vers 1870",
           "installation_code": "affinerie",
           "libelle_source": "affinerie",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "avant_1789",
+            "revolution_premiere_industrialisation",
+            "industrialisation_rail_vapeur"
+          ],
+          "periodes_libelles": [
+            "Avant 1789",
+            "1789-1849 — Révolution et première industrialisation",
+            "1850-1913 — Industrialisation, rail et vapeur"
+          ],
           "reference_source": "IA00061153",
           "secteur_code": "metallurgie_travail_metaux",
+          "siecles_source_site": [
+            "1er quart 18e siècle",
+            "limite 19e siècle 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -2410,13 +3931,43 @@
       "commune_historique_code_insee": "61230",
       "commune_historique_nom": "Longny-au-Perche",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1905,
       "fiabilite_code": "forte",
       "historique_source": null,
       "lieu_dit": "Forge (La)",
       "mode_chronologique": "phase_unique",
       "nom_principal": "affinerie dite forge de Beaumont",
+      "periode_methode_codes": [
+        "chronologie_phase",
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur"
+      ],
+      "periodes_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur"
+      ],
+      "periodes_libelles": [
+        "Avant 1789",
+        "1789-1849 — Révolution et première industrialisation",
+        "1850-1913 — Industrialisation, rail et vapeur"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "avant_1789",
+        "industrialisation_rail_vapeur"
+      ],
+      "premiere_annee_documentee": 1537,
       "protection_mh_reference": null,
       "reference_ia": "IA00061153",
+      "siecles_source": [
+        "1er quart 18e siècle",
+        "limite 19e siècle 20e siècle"
+      ],
       "site_id": "b1136ddb-9fff-4209-8328-e5caed705388",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -2460,67 +4011,167 @@
       "activites": [
         {
           "activite_code": "fabrication_papier",
+          "debut_max": "1537-12-31",
+          "debut_min": "1537-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "attesté dès 1537",
           "fiabilite_code": "forte",
+          "fin_max": "1809-12-31",
+          "fin_min": "1799-01-01",
+          "fin_precision_code": "vers_annee",
           "fin_texte_source": "conversion en 1804",
           "installation_code": "papeterie",
           "libelle_source": "moulin à papier",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "avant_1789",
+            "revolution_premiere_industrialisation"
+          ],
+          "periodes_libelles": [
+            "Avant 1789",
+            "1789-1849 — Révolution et première industrialisation"
+          ],
           "reference_source": "IA00061060",
           "secteur_code": "bois_papier_imprimerie",
+          "siecles_source_site": [
+            "1er quart 18e siècle (détruit)",
+            "19e siècle",
+            "17e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "forgeage",
+          "debut_max": "1809-12-31",
+          "debut_min": "1799-01-01",
+          "debut_precision_code": "vers_annee",
           "debut_texte_source": "conversion en 1804",
           "fiabilite_code": "forte",
+          "fin_max": "1862-12-31",
+          "fin_min": "1862-01-01",
+          "fin_precision_code": "annee",
           "fin_texte_source": "1862",
           "installation_code": "forge",
           "libelle_source": "grosse forge",
           "note": null,
           "ordre": 2,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "revolution_premiere_industrialisation",
+            "industrialisation_rail_vapeur"
+          ],
+          "periodes_libelles": [
+            "1789-1849 — Révolution et première industrialisation",
+            "1850-1913 — Industrialisation, rail et vapeur"
+          ],
           "reference_source": "IA00061060",
           "secteur_code": "metallurgie_travail_metaux",
+          "siecles_source_site": [
+            "1er quart 18e siècle (détruit)",
+            "19e siècle",
+            "17e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "mouture_cereales",
+          "debut_max": "1869-12-31",
+          "debut_min": "1869-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "1869",
           "fiabilite_code": "forte",
+          "fin_max": "1925-12-31",
+          "fin_min": "1901-01-01",
+          "fin_precision_code": "quart_siecle",
           "fin_texte_source": "début du 20e siècle",
           "installation_code": "moulin",
           "libelle_source": "moulin à farine",
           "note": null,
           "ordre": 3,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres"
+          ],
           "reference_source": "IA00061060",
           "secteur_code": "agroalimentaire",
+          "siecles_source_site": [
+            "1er quart 18e siècle (détruit)",
+            "19e siècle",
+            "17e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "preparation_tan",
+          "debut_max": "1925-12-31",
+          "debut_min": "1901-01-01",
+          "debut_precision_code": "quart_siecle",
           "debut_texte_source": "début du 20e siècle",
           "fiabilite_code": "forte",
+          "fin_max": "1925-12-31",
+          "fin_min": "1925-01-01",
+          "fin_precision_code": "annee",
           "fin_texte_source": "1925",
           "installation_code": "moulin",
           "libelle_source": "moulin à tan",
           "note": null,
           "ordre": 4,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres"
+          ],
           "reference_source": "IA00061060",
           "secteur_code": "textile_habillement_cuir",
+          "siecles_source_site": [
+            "1er quart 18e siècle (détruit)",
+            "19e siècle",
+            "17e siècle"
+          ],
           "source_id": "pop_merimee"
         },
         {
           "activite_code": "transformation_lait",
+          "debut_max": "1925-12-31",
+          "debut_min": "1925-01-01",
+          "debut_precision_code": "annee",
           "debut_texte_source": "1925",
           "fiabilite_code": "forte",
+          "fin_max": "1947-12-31",
+          "fin_min": "1947-01-01",
+          "fin_precision_code": "annee",
           "fin_texte_source": "1947",
           "installation_code": "fromagerie",
           "libelle_source": "fromagerie industrielle",
           "note": null,
           "ordre": 5,
+          "periode_methode_code": "chronologie_phase",
+          "periodes_codes": [
+            "guerres_entre_deux_guerres",
+            "modernisation_apres_guerre"
+          ],
+          "periodes_libelles": [
+            "1914-1945 — Guerres et entre-deux-guerres",
+            "1946-1975 — Modernisation d'après-guerre"
+          ],
           "reference_source": "IA00061060",
           "secteur_code": "agroalimentaire",
+          "siecles_source_site": [
+            "1er quart 18e siècle (détruit)",
+            "19e siècle",
+            "17e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -2530,13 +4181,51 @@
       "commune_historique_code_insee": "61230",
       "commune_historique_nom": "Longny-au-Perche",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1947,
       "fiabilite_code": "forte",
       "historique_source": null,
       "lieu_dit": "Poêlerie (La)",
       "mode_chronologique": "successives",
       "nom_principal": "moulin à papier, grosse forge",
+      "periode_methode_codes": [
+        "chronologie_phase",
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_libelles": [
+        "Avant 1789",
+        "1789-1849 — Révolution et première industrialisation",
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres",
+        "1946-1975 — Modernisation d'après-guerre"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "avant_1789",
+        "revolution_premiere_industrialisation",
+        "industrialisation_rail_vapeur"
+      ],
+      "premiere_annee_documentee": 1537,
       "protection_mh_reference": null,
       "reference_ia": "IA00061060",
+      "siecles_source": [
+        "1er quart 18e siècle (détruit)",
+        "19e siècle",
+        "17e siècle"
+      ],
       "site_id": "9435cb9d-0885-4a4b-9834-64e76ac0364b",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -2582,15 +4271,34 @@
       "activites": [
         {
           "activite_code": "fabrication_carton",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "cartonnerie",
           "libelle_source": "cartonnerie",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "guerres_entre_deux_guerres",
+            "modernisation_apres_guerre"
+          ],
+          "periodes_libelles": [
+            "1914-1945 — Guerres et entre-deux-guerres",
+            "1946-1975 — Modernisation d'après-guerre"
+          ],
           "reference_source": "IA00061147",
           "secteur_code": "bois_papier_imprimerie",
+          "siecles_source_site": [
+            "2e quart 20e siècle",
+            "3e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -2600,13 +4308,39 @@
       "commune_historique_code_insee": "61414",
       "commune_historique_nom": "Saint-Langis-lès-Mortagne",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1975,
       "fiabilite_code": "forte",
       "historique_source": "Usine construite en 1948 par la société normande de carton ondulé fondée en 1945 par Maurice et Lucien Barrez ; augmentations de construction entre 1950 et 1970 ; produit du carton ondulé et le transforme en boîtes et paquets d'emballage ; occupait en 1956 une surface bâtie de 7000 m² portée à 17800 m² en 1872 ; produisait en 1955 1000 tonnes de carton ; production portée à 28000 tonnes en 1972 sur une capacité estimée à 34500 tonnes. 120 employés en 1954 ; 265 employés en 1972 dont 17 cadres et 158 non qualifiés. Existence d'un fonds d'archives.",
       "lieu_dit": "Gare (La)",
       "mode_chronologique": "phase_unique",
       "nom_principal": "cartonnerie",
+      "periode_methode_codes": [
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_codes": [
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "periodes_libelles": [
+        "1914-1945 — Guerres et entre-deux-guerres",
+        "1946-1975 — Modernisation d'après-guerre"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "guerres_entre_deux_guerres",
+        "modernisation_apres_guerre"
+      ],
+      "premiere_annee_documentee": 1926,
       "protection_mh_reference": null,
       "reference_ia": "IA00061147",
+      "siecles_source": [
+        "2e quart 20e siècle",
+        "3e quart 20e siècle"
+      ],
       "site_id": "c528f629-8337-49c9-873c-75ecc067a7a3",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -2648,15 +4382,34 @@
       "activites": [
         {
           "activite_code": "fonderie",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "fonderie",
           "libelle_source": "fonderie",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "industrialisation_rail_vapeur",
+            "guerres_entre_deux_guerres"
+          ],
+          "periodes_libelles": [
+            "1850-1913 — Industrialisation, rail et vapeur",
+            "1914-1945 — Guerres et entre-deux-guerres"
+          ],
           "reference_source": "IA00061135",
           "secteur_code": "metallurgie_travail_metaux",
+          "siecles_source_site": [
+            "4e quart 19e siècle",
+            "1er quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -2666,13 +4419,39 @@
       "commune_historique_code_insee": "61208",
       "commune_historique_nom": "Irai",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 1925,
       "fiabilite_code": "forte",
       "historique_source": "Fonderie établie en 1886 par Armand Léon Brault ; agrandie vers 1915 et 1920 ; moulage effectué sans machines jusqu'en 1920 environ ; construction de nouveaux hangars vers 1922 ; installation vers 1924 d'une machine à vapeur et de matériel électrique ; exploitée à partir de 1935 par la S.A.R.L. fonderie Brault et fils ; produit des pièces de fonte pour la construction de machines outils, des appareils de moulins à cylindres, des pièces pour la marine marchande, des instruments de culture et des plaques de cheminée ; occupait en 1983 une surface bâtie de 3000 m². 45 employés en 1919 ; 31 employés en 1983 ; 23 employés en 1984.",
       "lieu_dit": "Cernetterie (La)",
       "mode_chronologique": "phase_unique",
       "nom_principal": "fonderies du Perche",
+      "periode_methode_codes": [
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "periodes_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "periodes_libelles": [
+        "1850-1913 — Industrialisation, rail et vapeur",
+        "1914-1945 — Guerres et entre-deux-guerres"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "industrialisation_rail_vapeur",
+        "guerres_entre_deux_guerres"
+      ],
+      "premiere_annee_documentee": 1876,
       "protection_mh_reference": null,
       "reference_ia": "IA00061135",
+      "siecles_source": [
+        "4e quart 19e siècle",
+        "1er quart 20e siècle"
+      ],
       "site_id": "2f3e86c1-08b4-4131-9a06-8f30764843cb",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",
@@ -2714,15 +4493,31 @@
       "activites": [
         {
           "activite_code": "fabrication_briques",
+          "debut_max": null,
+          "debut_min": null,
+          "debut_precision_code": null,
           "debut_texte_source": null,
           "fiabilite_code": "moyenne",
+          "fin_max": null,
+          "fin_min": null,
+          "fin_precision_code": null,
           "fin_texte_source": null,
           "installation_code": "briqueterie",
           "libelle_source": "briqueterie",
           "note": null,
           "ordre": 1,
+          "periode_methode_code": "siecles_source_site",
+          "periodes_codes": [
+            "mutations_reconversions"
+          ],
+          "periodes_libelles": [
+            "1976-2000 — Mutations et reconversions"
+          ],
           "reference_source": "IA00061095",
           "secteur_code": "verre_ceramique_materiaux_construction",
+          "siecles_source_site": [
+            "4e quart 20e siècle"
+          ],
           "source_id": "pop_merimee"
         }
       ],
@@ -2732,13 +4527,34 @@
       "commune_historique_code_insee": "61206",
       "commune_historique_nom": "L'Hôme-Chamondot",
       "decision_inclusion_code": "inclus",
+      "derniere_annee_documentee": 2000,
       "fiabilite_code": "forte",
       "historique_source": "Briqueterie attestée en 1793, propriété du marquis de Gontaud-Biron, comprenait alors logement, étable, fourneau et halle. Exploitée depuis 1920 par la famille Fontaine. Construction vers 1984 d'un hangar pour la préparation des briques et leur séchage abritant mélangeuse, nettoyeuse et mouleuse. Pièce de séchage pouvant contenir 17000 briques. Période d'activité étalée de mai à novembre. Consomme environ 60 stères de bois et 30 m³ de terre. Fournit essentiellement des briques pour la restauration de monuments historiques. Production de briques flammées. Préparation de 1000 briques par jour. Remplissage du four étalé sur 4 jours. 4 jours de cuisson. Entreprise familiale.",
       "lieu_dit": "Chauffetières (Les)",
       "mode_chronologique": "phase_unique",
       "nom_principal": "briqueterie",
+      "periode_methode_codes": [
+        "siecles_source_site"
+      ],
+      "periodes_activite_codes": [
+        "mutations_reconversions"
+      ],
+      "periodes_codes": [
+        "mutations_reconversions"
+      ],
+      "periodes_libelles": [
+        "1976-2000 — Mutations et reconversions"
+      ],
+      "periodes_situation_actuelle_codes": [],
+      "periodes_source_codes": [
+        "mutations_reconversions"
+      ],
+      "premiere_annee_documentee": 1976,
       "protection_mh_reference": "PA00135522",
       "reference_ia": "IA00061095",
+      "siecles_source": [
+        "4e quart 20e siècle"
+      ],
       "site_id": "82718138-99cb-45fb-a081-95b61c5dce48",
       "situation_actuelle": {
         "accessibilite_code": "inconnu",

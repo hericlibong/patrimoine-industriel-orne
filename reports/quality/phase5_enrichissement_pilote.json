@@ -8,6 +8,8 @@
     "successives": 8
   },
   "counts": {
+    "activites_avec_dates_normalisees": 30,
+    "activites_avec_periodes_filtrables": 47,
     "activites_structurees": 47,
     "anomalies_documentees": 6,
     "mentions_sources": 101,

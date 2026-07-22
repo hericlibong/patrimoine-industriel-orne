@@ -1,4 +1,4 @@
-# Dictionnaire des données — version 1.3
+# Dictionnaire des données — version 1.4
 
 Statut : **modèle et classifications V1 approuvés le 21 juillet 2026**.
 
@@ -60,6 +60,14 @@ vocabulaires distincts.
 
 Ces périodes sont des filtres calculés et ne remplacent jamais les dates des
 sources. Un intervalle peut relever de plusieurs périodes.
+
+La méthode de calcul accompagne toujours la période :
+
+| Code de méthode | Signification |
+|---|---|
+| `chronologie_phase` | période calculée depuis les dates documentées d'une phase d'activité |
+| `siecles_source_site` | période de repérage calculée depuis `SCLE`, sans preuve automatique de continuité de l'activité |
+| `situation_actuelle_documentee` | période contemporaine ajoutée au site lorsqu'une observation récente est sourcée |
 
 ### Situation actuelle
 
@@ -189,6 +197,33 @@ Une ligne représente une phase d'activité sur un site.
 `secteur_code` est déduit de `activite_code`. Il ne décrit jamais directement
 le site entier. Les définitions et les cas multi-secteurs sont documentés dans
 `docs/classifications_secteurs.md`.
+
+Dans le corpus consolidé et les exports, chaque phase possède également
+`periodes_codes`, `periodes_libelles`, `periode_methode_code` et
+`siecles_source_site`. Ces champs sont dérivés : les dates et textes sources
+restent l'information de référence.
+
+## Tables dérivées d'export V1
+
+`sites_export_v1` contient une ligne par site. Les champs temporels ajoutés
+sont :
+
+| Champ | Description |
+|---|---|
+| `siecles_source` | valeurs originales du champ POP `SCLE` |
+| `periodes_activite_codes` | périodes calculées depuis les chronologies des activités |
+| `periodes_source_codes` | périodes de repérage calculées depuis `SCLE` |
+| `periodes_situation_actuelle_codes` | période contemporaine attestée par une observation récente |
+| `periodes_codes` | union des deux listes pour le filtrage des sites |
+| `periodes_libelles` | libellés lisibles correspondant aux codes |
+| `periode_methode_codes` | méthodes utilisées pour produire les périodes |
+| `premiere_annee_documentee` | borne la plus ancienne repérée, sans valeur de date exacte |
+| `derniere_annee_documentee` | borne la plus récente repérée, sans preuve de continuité |
+
+`activites_export_v1` contient une ligne par phase d'activité et conserve ses
+dates structurées, ses périodes et leur méthode. `activites_periodes_v1`
+déplie cette information en une ligne par couple activité-période pour les
+analyses et datavisualisations.
 
 ## Table `energies_activites`
 

@@ -36,6 +36,15 @@ EXPORT_COLUMNS: tuple[tuple[str, str], ...] = (
     ("activites_codes", "VARCHAR"),
     ("activites_libelles", "VARCHAR"),
     ("nombre_activites", "INTEGER"),
+    ("siecles_source", "VARCHAR"),
+    ("periodes_activite_codes", "VARCHAR"),
+    ("periodes_source_codes", "VARCHAR"),
+    ("periodes_situation_actuelle_codes", "VARCHAR"),
+    ("periodes_codes", "VARCHAR"),
+    ("periodes_libelles", "VARCHAR"),
+    ("periode_methode_codes", "VARCHAR"),
+    ("premiere_annee_documentee", "INTEGER"),
+    ("derniere_annee_documentee", "INTEGER"),
     ("historique_source", "VARCHAR"),
     ("conservation_code", "VARCHAR"),
     ("usages_actuels_codes", "VARCHAR"),
@@ -63,6 +72,35 @@ EXPORT_COLUMNS: tuple[tuple[str, str], ...] = (
     ("distance_rail_m", "DOUBLE"),
     ("proximite_rail_code", "VARCHAR"),
     ("source_principale_url", "VARCHAR"),
+)
+
+ACTIVITY_EXPORT_COLUMNS: tuple[tuple[str, str], ...] = (
+    ("activite_id", "VARCHAR"),
+    ("site_id", "VARCHAR"),
+    ("reference_ia", "VARCHAR"),
+    ("nom_site", "VARCHAR"),
+    ("commune_actuelle_code_insee", "VARCHAR"),
+    ("commune_actuelle_nom", "VARCHAR"),
+    ("ordre", "INTEGER"),
+    ("secteur_code", "VARCHAR"),
+    ("activite_code", "VARCHAR"),
+    ("activite_libelle_source", "VARCHAR"),
+    ("installation_code", "VARCHAR"),
+    ("debut_min", "DATE"),
+    ("debut_max", "DATE"),
+    ("debut_precision_code", "VARCHAR"),
+    ("debut_texte_source", "VARCHAR"),
+    ("fin_min", "DATE"),
+    ("fin_max", "DATE"),
+    ("fin_precision_code", "VARCHAR"),
+    ("fin_texte_source", "VARCHAR"),
+    ("periodes_codes", "VARCHAR"),
+    ("periodes_libelles", "VARCHAR"),
+    ("periode_methode_code", "VARCHAR"),
+    ("siecles_source_site", "VARCHAR"),
+    ("fiabilite_code", "VARCHAR"),
+    ("source_reference", "VARCHAR"),
+    ("source_url", "VARCHAR"),
 )
 
 
@@ -146,8 +184,8 @@ def consolidate_corpus(
         sites.append(site)
 
     return {
-        "schema_version": "1.0",
-        "socle_version": "1.0",
+        "schema_version": "1.1",
+        "socle_version": "1.1",
         "corpus_version_source": corpus["corpus_version"],
         "classifications_version": corpus["classifications_version"],
         "date_consolidation": "2026-07-22",
@@ -164,6 +202,8 @@ def consolidate_corpus(
             "statut_sites": "cartographiable",
             "localisation_contexte_et_controle_integres": True,
             "donnees_sources_non_ecrasees": True,
+            "dates_activites_normalisees": True,
+            "periodes_historiques_calculees": True,
         },
         "sites": sites,
         "objets_techniques": sorted(
@@ -207,6 +247,21 @@ def flat_rows(corpus: Mapping[str, Any]) -> list[dict[str, Any]]:
                     activity["libelle_source"] for activity in activities
                 ),
                 "nombre_activites": len(activities),
+                "siecles_source": "|".join(site["siecles_source"]),
+                "periodes_activite_codes": "|".join(
+                    site["periodes_activite_codes"]
+                ),
+                "periodes_source_codes": "|".join(site["periodes_source_codes"]),
+                "periodes_situation_actuelle_codes": "|".join(
+                    site["periodes_situation_actuelle_codes"]
+                ),
+                "periodes_codes": "|".join(site["periodes_codes"]),
+                "periodes_libelles": "|".join(site["periodes_libelles"]),
+                "periode_methode_codes": "|".join(
+                    site["periode_methode_codes"]
+                ),
+                "premiere_annee_documentee": site["premiere_annee_documentee"],
+                "derniere_annee_documentee": site["derniere_annee_documentee"],
                 "historique_source": site["historique_source"],
                 "conservation_code": state["conservation_code"],
                 "usages_actuels_codes": "|".join(state["usages"]),
@@ -244,6 +299,56 @@ def flat_rows(corpus: Mapping[str, Any]) -> list[dict[str, Any]]:
                 "source_principale_url": principal_source["url"],
             }
         )
+    return rows
+
+
+def flat_activity_rows(corpus: Mapping[str, Any]) -> list[dict[str, Any]]:
+    rows = []
+    for site in corpus["sites"]:
+        principal_source = next(
+            source for source in site["sources"] if source["role"] == "notice_principale"
+        )
+        for activity in site["activites"]:
+            activity_id = stable_uuid(
+                "activite",
+                site["site_id"],
+                activity["ordre"],
+                activity["activite_code"],
+            )
+            rows.append(
+                {
+                    "activite_id": activity_id,
+                    "site_id": site["site_id"],
+                    "reference_ia": site["reference_ia"],
+                    "nom_site": site["nom_principal"],
+                    "commune_actuelle_code_insee": site[
+                        "commune_actuelle_code_insee"
+                    ],
+                    "commune_actuelle_nom": site["commune_actuelle_nom"],
+                    "ordre": activity["ordre"],
+                    "secteur_code": activity["secteur_code"],
+                    "activite_code": activity["activite_code"],
+                    "activite_libelle_source": activity["libelle_source"],
+                    "installation_code": activity["installation_code"],
+                    "debut_min": activity["debut_min"],
+                    "debut_max": activity["debut_max"],
+                    "debut_precision_code": activity["debut_precision_code"],
+                    "debut_texte_source": activity["debut_texte_source"],
+                    "fin_min": activity["fin_min"],
+                    "fin_max": activity["fin_max"],
+                    "fin_precision_code": activity["fin_precision_code"],
+                    "fin_texte_source": activity["fin_texte_source"],
+                    "periodes_codes": "|".join(activity["periodes_codes"]),
+                    "periodes_libelles": "|".join(activity["periodes_libelles"]),
+                    "periode_methode_code": activity["periode_methode_code"],
+                    "siecles_source_site": "|".join(
+                        activity["siecles_source_site"]
+                    ),
+                    "fiabilite_code": activity["fiabilite_code"],
+                    "source_reference": activity["reference_source"],
+                    "source_url": principal_source["url"],
+                }
+            )
     return rows
 
 
@@ -421,9 +526,10 @@ def _insert_core_data(
                 INSERT INTO activites (
                     activite_id, site_id, secteur_code, activite_code,
                     activite_libelle_source, type_installation_code,
-                    debut_texte_source, fin_texte_source, principale,
-                    fiabilite_code, notes
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    debut_min, debut_max, debut_precision_code,
+                    debut_texte_source, fin_min, fin_max, fin_precision_code,
+                    fin_texte_source, principale, fiabilite_code, notes
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 [
                     activity_id,
@@ -432,7 +538,13 @@ def _insert_core_data(
                     activity["activite_code"],
                     activity["libelle_source"],
                     activity["installation_code"],
+                    activity["debut_min"],
+                    activity["debut_max"],
+                    activity["debut_precision_code"],
                     activity["debut_texte_source"],
+                    activity["fin_min"],
+                    activity["fin_max"],
+                    activity["fin_precision_code"],
                     activity["fin_texte_source"],
                     activity["ordre"] == 1,
                     activity["fiabilite_code"],
@@ -680,22 +792,61 @@ def _insert_core_data(
 
 
 def _create_flat_table(
-    connection: duckdb.DuckDBPyConnection, rows: Sequence[Mapping[str, Any]]
+    connection: duckdb.DuckDBPyConnection,
+    table_name: str,
+    columns: Sequence[tuple[str, str]],
+    rows: Sequence[Mapping[str, Any]],
 ) -> None:
-    definitions = ", ".join(f"{name} {kind}" for name, kind in EXPORT_COLUMNS)
-    connection.execute(f"CREATE TABLE sites_export_v1 ({definitions})")
-    names = [name for name, _ in EXPORT_COLUMNS]
+    definitions = ", ".join(f"{name} {kind}" for name, kind in columns)
+    connection.execute(f"CREATE TABLE {table_name} ({definitions})")
+    names = [name for name, _ in columns]
     placeholders = ", ".join("?" for _ in names)
     connection.executemany(
-        f"INSERT INTO sites_export_v1 VALUES ({placeholders})",
+        f"INSERT INTO {table_name} VALUES ({placeholders})",
         [[row[name] for name in names] for row in rows],
+    )
+
+
+def _create_activity_period_table(
+    connection: duckdb.DuckDBPyConnection,
+    activity_rows: Sequence[Mapping[str, Any]],
+) -> None:
+    connection.execute(
+        """
+        CREATE TABLE activites_periodes_v1 (
+            activite_id VARCHAR NOT NULL,
+            site_id VARCHAR NOT NULL,
+            periode_code VARCHAR NOT NULL,
+            periode_libelle VARCHAR NOT NULL,
+            periode_methode_code VARCHAR NOT NULL,
+            PRIMARY KEY (activite_id, periode_code)
+        )
+        """
+    )
+    values = []
+    for row in activity_rows:
+        codes = str(row["periodes_codes"]).split("|")
+        labels = str(row["periodes_libelles"]).split("|")
+        values.extend(
+            (
+                row["activite_id"],
+                row["site_id"],
+                code,
+                label,
+                row["periode_methode_code"],
+            )
+            for code, label in zip(codes, labels, strict=True)
+        )
+    connection.executemany(
+        "INSERT INTO activites_periodes_v1 VALUES (?, ?, ?, ?, ?)", values
     )
 
 
 def build_database(
     path: Path,
     corpus: Mapping[str, Any],
-    rows: Sequence[Mapping[str, Any]],
+    site_rows: Sequence[Mapping[str, Any]],
+    activity_rows: Sequence[Mapping[str, Any]],
     source_registry: Mapping[str, Any],
 ) -> dict[str, int]:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -705,7 +856,16 @@ def build_database(
         initialize_database(connection)
         _insert_sources(connection, source_registry)
         _insert_core_data(connection, corpus)
-        _create_flat_table(connection, rows)
+        _create_flat_table(
+            connection, "sites_export_v1", EXPORT_COLUMNS, site_rows
+        )
+        _create_flat_table(
+            connection,
+            "activites_export_v1",
+            ACTIVITY_EXPORT_COLUMNS,
+            activity_rows,
+        )
+        _create_activity_period_table(connection, activity_rows)
         assert_database_valid(connection)
         tables = (
             "sources",
@@ -720,6 +880,8 @@ def build_database(
             "mentions_sources",
             "identifiants_externes",
             "sites_export_v1",
+            "activites_export_v1",
+            "activites_periodes_v1",
         )
         return {
             table: connection.execute(f"SELECT count(*) FROM {table}").fetchone()[0]
@@ -738,8 +900,16 @@ def export_flat_files(
     csv_path: Path,
     parquet_path: Path,
     geojson_path: Path,
+    activities_csv_path: Path,
+    activities_parquet_path: Path,
 ) -> None:
-    for path in (csv_path, parquet_path, geojson_path):
+    for path in (
+        csv_path,
+        parquet_path,
+        geojson_path,
+        activities_csv_path,
+        activities_parquet_path,
+    ):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.unlink(missing_ok=True)
     connection = duckdb.connect(str(database), read_only=True)
@@ -750,6 +920,14 @@ def export_flat_files(
         )
         connection.execute(
             f"COPY sites_export_v1 TO '{_sql_path(parquet_path)}' "
+            "(FORMAT PARQUET, COMPRESSION ZSTD)"
+        )
+        connection.execute(
+            f"COPY activites_export_v1 TO '{_sql_path(activities_csv_path)}' "
+            "(FORMAT CSV, HEADER true, DELIMITER ',')"
+        )
+        connection.execute(
+            f"COPY activites_export_v1 TO '{_sql_path(activities_parquet_path)}' "
             "(FORMAT PARQUET, COMPRESSION ZSTD)"
         )
         names = [name for name, _ in EXPORT_COLUMNS]
@@ -795,11 +973,15 @@ def validate_outputs(
     csv_path: Path,
     parquet_path: Path,
     geojson_path: Path,
+    activities_csv_path: Path,
+    activities_parquet_path: Path,
     consolidated_path: Path,
     table_counts: Mapping[str, int],
 ) -> dict[str, Any]:
     with csv_path.open(encoding="utf-8-sig", newline="") as stream:
         csv_rows = list(csv.DictReader(stream))
+    with activities_csv_path.open(encoding="utf-8-sig", newline="") as stream:
+        activity_csv_rows = list(csv.DictReader(stream))
     connection = duckdb.connect(str(database), read_only=True)
     try:
         parquet_ids = {
@@ -808,6 +990,23 @@ def validate_outputs(
                 f"SELECT site_id FROM read_parquet('{_sql_path(parquet_path)}')"
             ).fetchall()
         }
+        activity_parquet_ids = {
+            str(row[0])
+            for row in connection.execute(
+                "SELECT activite_id FROM "
+                f"read_parquet('{_sql_path(activities_parquet_path)}')"
+            ).fetchall()
+        }
+        database_activities_with_dates = connection.execute(
+            """
+            SELECT count(*)
+            FROM activites
+            WHERE debut_min IS NOT NULL
+               OR debut_max IS NOT NULL
+               OR fin_min IS NOT NULL
+               OR fin_max IS NOT NULL
+            """
+        ).fetchone()[0]
     finally:
         connection.close()
     geojson = load_json(geojson_path)
@@ -822,9 +1021,36 @@ def validate_outputs(
         errors.append("les identifiants diffèrent entre les formats")
     if table_counts["sites"] != 30 or table_counts["activites"] != 47:
         errors.append("les effectifs du modèle relationnel sont incohérents")
-    paths = (database, csv_path, parquet_path, geojson_path, consolidated_path)
+    activity_csv_ids = {row["activite_id"] for row in activity_csv_rows}
+    if len(activity_csv_rows) != 47:
+        errors.append("l'export des activités ne contient pas exactement 47 phases")
+    if activity_csv_ids != activity_parquet_ids:
+        errors.append("les identifiants d'activité diffèrent entre CSV et Parquet")
+    if any(not row["periodes_codes"] for row in csv_rows):
+        errors.append("un site ne possède aucune période filtrable")
+    sites_with_contemporary_period = sum(
+        "periode_contemporaine" in row["periodes_codes"].split("|")
+        for row in csv_rows
+    )
+    if sites_with_contemporary_period != 4:
+        errors.append("les quatre situations actuelles sourcées ne sont pas datées")
+    if any(not row["periodes_codes"] for row in activity_csv_rows):
+        errors.append("une activité ne possède aucune période filtrable")
+    if table_counts["activites_periodes_v1"] < 47:
+        errors.append("la relation activité-période est incomplète")
+    if database_activities_with_dates != 30:
+        errors.append("DuckDB ne contient pas les 30 chronologies normalisées attendues")
+    paths = (
+        database,
+        csv_path,
+        parquet_path,
+        geojson_path,
+        activities_csv_path,
+        activities_parquet_path,
+        consolidated_path,
+    )
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "date_validation": "2026-07-22",
         "checks_passed": not errors,
         "errors": errors,
@@ -834,8 +1060,30 @@ def validate_outputs(
             "parquet": len(parquet_ids),
             "geojson": len(geojson["features"]),
             "corpus_consolide": len(corpus_ids),
+            "activites_csv": len(activity_csv_rows),
+            "activites_parquet": len(activity_parquet_ids),
         },
         "identifiants_concordants": not errors,
+        "chronologie": {
+            "sites_avec_periodes_filtrables": sum(
+                bool(row["periodes_codes"]) for row in csv_rows
+            ),
+            "sites_avec_periode_contemporaine_sourcee": (
+                sites_with_contemporary_period
+            ),
+            "activites_avec_periodes_filtrables": sum(
+                bool(row["periodes_codes"]) for row in activity_csv_rows
+            ),
+            "activites_avec_dates_normalisees": database_activities_with_dates,
+            "activites_par_chronologie_phase": sum(
+                row["periode_methode_code"] == "chronologie_phase"
+                for row in activity_csv_rows
+            ),
+            "activites_par_siecles_source": sum(
+                row["periode_methode_code"] == "siecles_source_site"
+                for row in activity_csv_rows
+            ),
+        },
         "files": {
             str(path).replace("\\", "/"): {
                 "size_bytes": path.stat().st_size,
@@ -880,6 +1128,16 @@ def build_parser() -> argparse.ArgumentParser:
         "--geojson", type=Path, default=Path("data/exports/sites_pilote_v1.geojson")
     )
     parser.add_argument(
+        "--activities-csv",
+        type=Path,
+        default=Path("data/exports/activites_pilote_v1.csv"),
+    )
+    parser.add_argument(
+        "--activities-parquet",
+        type=Path,
+        default=Path("data/exports/activites_pilote_v1.parquet"),
+    )
+    parser.add_argument(
         "--report",
         type=Path,
         default=Path("reports/quality/phase7_consolidation.json"),
@@ -896,14 +1154,30 @@ def main() -> None:
         load_json(args.cartographic_control),
     )
     write_json(consolidated, args.consolidated)
-    rows = flat_rows(consolidated)
-    table_counts = build_database(args.database, consolidated, rows, load_yaml(args.sources))
-    export_flat_files(args.database, args.csv, args.parquet, args.geojson)
+    site_rows = flat_rows(consolidated)
+    activity_rows = flat_activity_rows(consolidated)
+    table_counts = build_database(
+        args.database,
+        consolidated,
+        site_rows,
+        activity_rows,
+        load_yaml(args.sources),
+    )
+    export_flat_files(
+        args.database,
+        args.csv,
+        args.parquet,
+        args.geojson,
+        args.activities_csv,
+        args.activities_parquet,
+    )
     report = validate_outputs(
         args.database,
         args.csv,
         args.parquet,
         args.geojson,
+        args.activities_csv,
+        args.activities_parquet,
         args.consolidated,
         table_counts,
     )

@@ -2,6 +2,7 @@
 
 from patrimoine_orne.export.socle_v1 import (
     consolidate_corpus,
+    flat_activity_rows,
     flat_rows,
     stable_uuid,
 )
@@ -62,12 +63,49 @@ def test_flat_rows_preserve_one_row_per_site() -> None:
         "commune_historique_nom": "Commune",
         "lieu_dit": None,
         "historique_source": "Historique",
+        "siecles_source": ["19e siècle"],
+        "periodes_activite_codes": ["industrialisation_rail_vapeur"],
+        "periodes_source_codes": ["revolution_premiere_industrialisation"],
+        "periodes_situation_actuelle_codes": [],
+        "periodes_codes": [
+            "revolution_premiere_industrialisation",
+            "industrialisation_rail_vapeur",
+        ],
+        "periodes_libelles": [
+            "1789-1849 — Révolution et première industrialisation",
+            "1850-1913 — Industrialisation, rail et vapeur",
+        ],
+        "periode_methode_codes": ["chronologie_phase"],
+        "premiere_annee_documentee": 1845,
+        "derniere_annee_documentee": 1900,
         "protection_mh_reference": None,
         "activites": [
             {
                 "secteur_code": "metal",
                 "activite_code": "forge",
                 "libelle_source": "forge",
+                "installation_code": "forge",
+                "ordre": 1,
+                "debut_min": "1845-01-01",
+                "debut_max": "1855-12-31",
+                "debut_precision_code": "vers_annee",
+                "debut_texte_source": "vers 1850",
+                "fin_min": "1900-01-01",
+                "fin_max": "1900-12-31",
+                "fin_precision_code": "annee",
+                "fin_texte_source": "1900",
+                "periodes_codes": [
+                    "revolution_premiere_industrialisation",
+                    "industrialisation_rail_vapeur",
+                ],
+                "periodes_libelles": [
+                    "1789-1849 — Révolution et première industrialisation",
+                    "1850-1913 — Industrialisation, rail et vapeur",
+                ],
+                "periode_methode_code": "chronologie_phase",
+                "siecles_source_site": ["19e siècle"],
+                "fiabilite_code": "forte",
+                "reference_source": "IA1",
             }
         ],
         "situation_actuelle": {
@@ -108,4 +146,15 @@ def test_flat_rows_preserve_one_row_per_site() -> None:
     assert len(rows) == 1
     assert rows[0]["site_id"] == site["site_id"]
     assert rows[0]["secteurs_codes"] == "metal"
+    assert rows[0]["periodes_codes"] == (
+        "revolution_premiere_industrialisation|industrialisation_rail_vapeur"
+    )
     assert rows[0]["longitude"] == 0.1
+
+    activity_rows = flat_activity_rows({"sites": [site]})
+    assert len(activity_rows) == 1
+    assert activity_rows[0]["activite_code"] == "forge"
+    assert activity_rows[0]["debut_min"] == "1845-01-01"
+    assert "Industrialisation, rail et vapeur" in activity_rows[0][
+        "periodes_libelles"
+    ]

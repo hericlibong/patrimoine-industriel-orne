@@ -136,7 +136,7 @@ situation_actuelle:
     IA00060938:
       conservation_code: inconnu
       accessibilite_code: inconnu
-      usages: [industrie_actuelle]
+      usages: [activite_industrielle]
       fiabilite_code: forte
       methode_verification_code: source_officielle_exploitant
       source_url: https://www.edf.fr/barrage-rabodanges
@@ -144,7 +144,7 @@ situation_actuelle:
     IA00061155:
       conservation_code: conserve
       accessibilite_code: visitable
-      usages: [industrie_actuelle, culture_musee, tourisme_visite]
+      usages: [activite_industrielle, culture_musee, tourisme_visite]
       fiabilite_code: forte
       methode_verification_code: source_officielle_exploitant
       source_url: https://www.bohin.com/pages/organiser-sa-visite

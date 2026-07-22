@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import uuid
 from collections import Counter
 from copy import deepcopy
@@ -12,11 +13,15 @@ from typing import Any, Mapping, Sequence
 
 import yaml
 
+from patrimoine_orne.classify.current_state import period_codes_for_interval
 from patrimoine_orne.classify.sectors import (
     classify_denomination,
     load_classifications,
     load_pop_manifest_sample,
 )
+
+
+UNKNOWN_DATE_VALUES = {"inconnu", "inconnue"}
 
 
 def load_yaml(path: Path) -> dict[str, Any]:
@@ -34,6 +39,224 @@ def as_list(value: Any) -> list[str]:
 def first(value: Any) -> str | None:
     values = as_list(value)
     return values[0] if values else None
+
+
+def _plain_text(value: str) -> str:
+    """Normalise seulement ce qui est nécessaire à l'analyse des dates."""
+    import unicodedata
+
+    normalized = unicodedata.normalize("NFKD", value)
+    return "".join(character for character in normalized if not unicodedata.combining(character)).lower()
+
+
+def _date_string(year: int, end: bool = False) -> str:
+    return f"{year:04d}-{'12-31' if end else '01-01'}"
+
+
+def normalize_historical_date(value: Any) -> dict[str, Any]:
+    """Convertit une expression datée en intervalle sans inventer une date exacte."""
+    text = str(value).strip() if value not in (None, "") else None
+    result = {
+        "min": None,
+        "max": None,
+        "precision_code": None,
+        "texte_source": text,
+    }
+    if text is None or _plain_text(text) in UNKNOWN_DATE_VALUES:
+        return result
+
+    plain = _plain_text(text)
+    year_match = re.search(r"\b(1[0-9]{3}|20[0-9]{2})\b", plain)
+    century_match = re.search(r"\b(\d{1,2})(?:er|e)\s+siecle\b", plain)
+
+    if year_match:
+        year = int(year_match.group(1))
+        if "apres" in plain:
+            result.update(min=_date_string(year + 1), precision_code="apres")
+        elif "avant" in plain:
+            result.update(max=_date_string(year - 1, end=True), precision_code="avant")
+        elif "vers" in plain:
+            result.update(
+                min=_date_string(year - 5),
+                max=_date_string(year + 5, end=True),
+                precision_code="vers_annee",
+            )
+        else:
+            result.update(
+                min=_date_string(year),
+                max=_date_string(year, end=True),
+                precision_code="annee",
+            )
+        return result
+
+    if century_match:
+        century = int(century_match.group(1))
+        start = (century - 1) * 100 + 1
+        end = century * 100
+        if "debut" in plain:
+            end = start + 24
+            precision = "quart_siecle"
+        else:
+            precision = "siecle"
+        result.update(
+            min=_date_string(start),
+            max=_date_string(end, end=True),
+            precision_code=precision,
+        )
+    return result
+
+
+def normalize_source_century(value: str) -> dict[str, Any]:
+    """Convertit un libellé SCLE de POP en intervalle de repérage."""
+    plain = _plain_text(value)
+    centuries = [
+        int(item)
+        for item in re.findall(r"\b(\d{1,2})(?:er|e)\s+siecle\b", plain)
+    ]
+    result = {
+        "texte_source": value,
+        "debut_annee": None,
+        "fin_annee": None,
+        "precision_code": None,
+    }
+    if not centuries:
+        return result
+    if "limite" in plain and len(centuries) >= 2:
+        boundary = centuries[0] * 100
+        result.update(
+            debut_annee=boundary - 5,
+            fin_annee=boundary + 5,
+            precision_code="limite_siecles",
+        )
+        return result
+
+    century = centuries[-1]
+    century_start = (century - 1) * 100 + 1
+    quarter = re.search(r"\b([1-4])(?:er|e)\s+quart\b", plain)
+    half = re.search(r"\b([12])(?:ere|e)\s+moitie\b", plain)
+    if quarter:
+        number = int(quarter.group(1))
+        start = century_start + (number - 1) * 25
+        result.update(
+            debut_annee=start,
+            fin_annee=start + 24,
+            precision_code="quart_siecle",
+        )
+    elif half:
+        number = int(half.group(1))
+        start = century_start if number == 1 else century_start + 50
+        result.update(
+            debut_annee=start,
+            fin_annee=start + 49,
+            precision_code="moitie_siecle",
+        )
+    else:
+        result.update(
+            debut_annee=century_start,
+            fin_annee=century * 100,
+            precision_code="siecle",
+        )
+    return result
+
+
+def _year(value: str | None) -> int | None:
+    return int(value[:4]) if value else None
+
+
+def _periods_for_activity_dates(
+    start: Mapping[str, Any],
+    end: Mapping[str, Any],
+    classifications: Mapping[str, Any],
+) -> list[str]:
+    start_year = _year(start.get("min")) or _year(start.get("max"))
+    end_year = _year(end.get("max")) or _year(end.get("min"))
+    if start_year is None and end_year is None:
+        return []
+    if start_year is None:
+        start_year = end_year
+    if end_year is None:
+        end_year = start_year
+    return period_codes_for_interval(start_year, end_year, classifications)
+
+
+def source_periods(
+    values: Sequence[str], classifications: Mapping[str, Any]
+) -> tuple[list[dict[str, Any]], list[str]]:
+    intervals = [normalize_source_century(value) for value in values]
+    codes: list[str] = []
+    for interval in intervals:
+        for code in period_codes_for_interval(
+            interval["debut_annee"], interval["fin_annee"], classifications
+        ):
+            if code not in codes:
+                codes.append(code)
+    return intervals, codes
+
+
+def build_site_period_summary(
+    activities: Sequence[Mapping[str, Any]],
+    source_centuries: Sequence[str],
+    classifications: Mapping[str, Any],
+    current_state: Mapping[str, Any],
+) -> dict[str, Any]:
+    source_intervals, source_codes = source_periods(source_centuries, classifications)
+    activity_codes = {
+        code for activity in activities for code in activity["periodes_codes"]
+    }
+    current_codes = (
+        ["periode_contemporaine"] if current_state.get("source_url") else []
+    )
+    all_codes = activity_codes | set(source_codes) | set(current_codes)
+    ordered_codes = [
+        code
+        for code in classifications["periodes_historiques"]
+        if code in all_codes
+    ]
+    years = [
+        year
+        for interval in source_intervals
+        for year in (interval["debut_annee"], interval["fin_annee"])
+        if year is not None
+    ]
+    years.extend(
+        year
+        for activity in activities
+        for value in (
+            activity["debut_min"],
+            activity["debut_max"],
+            activity["fin_min"],
+            activity["fin_max"],
+        )
+        if (year := _year(value)) is not None
+    )
+    if current_codes:
+        years.append(int(str(current_state["date_verification"])[:4]))
+    return {
+        "siecles_source": list(source_centuries),
+        "periodes_activite_codes": [
+            code
+            for code in classifications["periodes_historiques"]
+            if code in activity_codes
+        ],
+        "periodes_source_codes": source_codes,
+        "periodes_situation_actuelle_codes": current_codes,
+        "periodes_codes": ordered_codes,
+        "periodes_libelles": [
+            classifications["periodes_historiques"][code]["libelle"]
+            for code in ordered_codes
+        ],
+        "periode_methode_codes": list(
+            dict.fromkeys(
+                [
+                    *(activity["periode_methode_code"] for activity in activities),
+                    *(["siecles_source_site"] if source_codes else []),
+                    *(["situation_actuelle_documentee"] if current_codes else []),
+                ]
+            )
+        ),
+        "premiere_annee_documentee": min(years) if years else None,
+        "derniere_annee_documentee": max(years) if years else None,
+    }
 
 
 def validate_site_ids(sample: Mapping[str, Any], enrichment: Mapping[str, Any]) -> list[str]:
@@ -64,6 +287,10 @@ def build_activities(
     classifications: Mapping[str, Any],
 ) -> tuple[str, list[dict[str, Any]], list[str]]:
     chronology = enrichment.get("chronologies", {}).get(reference)
+    source_centuries = as_list(record.get("SCLE"))
+    _, source_period_codes = source_periods(
+        source_centuries, classifications
+    )
     if chronology:
         mode = str(chronology["mode"])
         phases = chronology["phases"]
@@ -83,15 +310,37 @@ def build_activities(
                 "secteur_code": None,
                 "installation_code": None,
             }
+        start = normalize_historical_date(phase.get("debut"))
+        end = normalize_historical_date(phase.get("fin"))
+        period_codes = _periods_for_activity_dates(start, end, classifications)
+        period_method = "chronologie_phase"
+        if not period_codes:
+            period_codes = list(source_period_codes)
+            period_method = "siecles_source_site"
         activities.append(
             {
                 "ordre": order,
                 "libelle_source": label,
                 **classified,
-                "debut_texte_source": phase.get("debut"),
-                "fin_texte_source": phase.get("fin"),
+                "debut_min": start["min"],
+                "debut_max": start["max"],
+                "debut_precision_code": start["precision_code"],
+                "debut_texte_source": start["texte_source"],
+                "fin_min": end["min"],
+                "fin_max": end["max"],
+                "fin_precision_code": end["precision_code"],
+                "fin_texte_source": end["texte_source"],
+                "periodes_codes": period_codes,
+                "periodes_libelles": [
+                    classifications["periodes_historiques"][code]["libelle"]
+                    for code in period_codes
+                ],
+                "periode_methode_code": period_method,
+                "siecles_source_site": source_centuries,
                 "note": phase.get("note"),
-                "fiabilite_code": "forte" if phase.get("debut") or phase.get("fin") else "moyenne",
+                "fiabilite_code": "forte"
+                if phase.get("debut") or phase.get("fin")
+                else "moyenne",
                 "source_id": "pop_merimee",
                 "reference_source": reference,
             }
@@ -223,6 +472,12 @@ def build_enriched_corpus(
                 }
             )
         current_state = build_current_state(reference, enrichment)
+        period_summary = build_site_period_summary(
+            activities,
+            as_list(record.get("SCLE")),
+            classifications,
+            current_state,
+        )
         if current_state.get("source_url"):
             sources.append(
                 {
@@ -253,6 +508,7 @@ def build_enriched_corpus(
                 "fiabilite_code": "forte",
                 "historique_source": history,
                 "mode_chronologique": mode,
+                **period_summary,
                 "activites": activities,
                 "situation_inventaire_historique": historical_status,
                 "situation_actuelle": current_state,
@@ -268,6 +524,16 @@ def build_enriched_corpus(
         errors.append("la collection Palissy doit contenir 31 notices")
     recent_current = sum(bool(site["situation_actuelle"].get("source_url")) for site in sites)
     activity_count = sum(len(site["activites"]) for site in sites)
+    activities_with_normalized_dates = sum(
+        bool(activity["debut_min"] or activity["debut_max"] or activity["fin_min"] or activity["fin_max"])
+        for site in sites
+        for activity in site["activites"]
+    )
+    activities_with_periods = sum(
+        bool(activity["periodes_codes"])
+        for site in sites
+        for activity in site["activites"]
+    )
     source_mention_count = sum(len(site["sources"]) for site in sites) + len(objects)
     anomalies = list(enrichment["anomalies_connues"])
     corpus = {
@@ -287,6 +553,8 @@ def build_enriched_corpus(
             "sites": len(sites),
             "site_ids_unique": len({site["site_id"] for site in sites}),
             "activites_structurees": activity_count,
+            "activites_avec_dates_normalisees": activities_with_normalized_dates,
+            "activites_avec_periodes_filtrables": activities_with_periods,
             "sites_avec_source_recente_situation_actuelle": recent_current,
             "sites_situation_actuelle_inconnue": len(sites) - recent_current,
             "protections_mh_confirmees": len(protection_links),

@@ -577,3 +577,31 @@
 - Le bloc « Consolider les données » de la phase 7 est terminé. La phase 7
   reste en cours jusqu'à la consolidation documentaire et à l'approbation du
   socle V1.
+
+## 2026-07-22 — Correctif chronologique du socle V1
+
+- Le bloc de consolidation est rouvert après constat que les périodes définies
+  en phase 4 n'étaient pas présentes dans les exports de phase 7.
+- L'écart provient d'un critère de validation incomplet : les formats,
+  identifiants et effectifs étaient contrôlés, mais pas la possibilité de
+  filtrer effectivement le livrable par période.
+- Les identifiants, la géographie et les traitements antérieurs restent
+  inchangés. La correction est additive et utilise les traitements existants.
+- Trente phases d'activité disposent maintenant de bornes normalisées depuis
+  une chronologie explicite. Dix-sept phases sans bornes utilisent le champ POP
+  `SCLE` comme repérage, avec une méthode distincte et visible.
+- Les 30 sites et les 47 phases d'activité possèdent au moins une période
+  filtrable. Aucune date exacte n'est créée à partir d'une expression
+  imprécise.
+- Le CSV des sites sépare les périodes d'activité et les périodes issues de
+  `SCLE`. Un CSV distinct fournit une ligne par phase d'activité.
+- DuckDB contient une relation normalisée `activites_periodes_v1` destinée aux
+  croisements entre périodes, secteurs et productions.
+- La période contemporaine est ajoutée au niveau du site pour les quatre
+  situations actuelles appuyées par une source récente. Elle n'est pas
+  attribuée automatiquement à une activité précise lorsque plusieurs
+  productions historiques coexistent.
+- Le code d'usage provisoire `industrie_actuelle` est corrigé en
+  `activite_industrielle`, qui est la valeur du vocabulaire contrôlé.
+- Un contrôle fonctionnel du filtrage par période est ajouté aux validations
+  finales pour empêcher la réapparition de cet écart.

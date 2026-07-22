@@ -107,6 +107,18 @@ dates_imprecises:
     avant: min_null
     apres: max_null
 
+periodes_calculees:
+  methodes:
+    chronologie_phase: dates_structurees_de_la_phase_activite
+    siecles_source_site: reperage_depuis_scle_sans_preuve_de_continuite
+    situation_actuelle_documentee: observation_contemporaine_avec_source_recente
+  export_site:
+    periodes_activite_et_source_separees: true
+    union_autorisee_pour_filtrage: true
+  export_activite:
+    une_ligne_par_phase: true
+    methode_obligatoire: true
+
 activites_successives:
   changement_activite: nouvelle_phase
   interruption_documentee: nouvelle_phase
