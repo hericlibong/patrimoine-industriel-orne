@@ -48,6 +48,7 @@ patrimoine-orne-calculer-contexte-territorial = "patrimoine_orne.geocode.territo
 patrimoine-orne-controle-cartographique = "patrimoine_orne.geocode.cartographic_control:main"
 patrimoine-orne-produire-socle-v1 = "patrimoine_orne.export.socle_v1:main"
 patrimoine-orne-preparer-phase8-lot1 = "patrimoine_orne.extract.corpus:main"
+patrimoine-orne-reunir-corpus-80 = "patrimoine_orne.transform.corpus_80:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

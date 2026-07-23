@@ -50,3 +50,13 @@ rules:
   - aucune_separation_automatique_ne_cree_des_sites
   - toute_exclusion_fusion_separation_ou_incertitude_est_documentee
   - le_nombre_canonique_reste_inconnu_avant_revue_de_tous_les_lots
+
+progress:
+  updated_at: 2026-07-23
+  enumerated_references: 319
+  common_corpus_dossiers: 80
+  pilot_dossiers_integrated: 30
+  lot1_dossiers_integrated: 50
+  remaining_dossiers: 239
+  common_corpus_file: data/interim/phase8_corpus_80.json
+  canonical_site_count: null

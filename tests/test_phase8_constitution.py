@@ -61,3 +61,24 @@ def test_reference_csv_matches_manifest() -> None:
     ) as stream:
         references = [row["reference"] for row in csv.DictReader(stream)]
     assert references == manifest["references"]
+
+
+def test_common_corpus_80_summary_and_csv() -> None:
+    summary = json.loads(
+        (ROOT / "reports" / "quality" / "phase8_corpus_80_resume.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    with (ROOT / "reports" / "quality" / "phase8_corpus_80.csv").open(
+        encoding="utf-8", newline=""
+    ) as stream:
+        rows = list(csv.DictReader(stream))
+
+    assert summary["counts"]["dossiers"] == 80
+    assert summary["counts"]["pilot"] == 30
+    assert summary["counts"]["lot1"] == 50
+    assert summary["counts"]["activites"] == 109
+    assert summary["counts"]["rapprochements_a_verifier"] == 0
+    assert all(summary["checks"].values())
+    assert len(rows) == 80
+    assert len({row["dossier_reference"] for row in rows}) == 80

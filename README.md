@@ -13,9 +13,10 @@ reproductible.
 
 Le socle pilote V1 est approuvé. Il comprend 30 sites et 47 phases d'activité
 avec des périodes filtrables, disponibles en DuckDB, CSV, Parquet et GeoJSON.
-Les 319 références ont été énumérées par l'API POP. Le premier lot de 50
-dossiers non pilotes est extrait, classé et revu ; 239 dossiers non pilotes
-restent à traiter avant d'établir le nombre départemental de sites.
+Les 319 références ont été énumérées par l'API POP. Les 30 pilotes et le premier
+lot de 50 dossiers sont réunis dans un corpus intermédiaire commun de 80
+dossiers ; 239 dossiers restent à traiter avant d'établir le nombre
+départemental de sites.
 
 Le suivi détaillé est maintenu localement dans `docs/roadmap.md`, qui n'est pas
 versionné.

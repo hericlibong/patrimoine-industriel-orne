@@ -1,0 +1,34 @@
+{
+  "canonical_site_count": null,
+  "checks": {
+    "all_classified": true,
+    "all_have_activities": true,
+    "all_have_source": true,
+    "expected_80_dossiers": true,
+    "lot1_50": true,
+    "no_duplicate_dossier_url": true,
+    "pilot_30": true,
+    "uniform_activity_structure": true,
+    "uniform_record_structure": true,
+    "unique_references": true
+  },
+  "corpus_version": "phase8_80_dossiers_v1",
+  "counts": {
+    "activites": 109,
+    "dossiers": 80,
+    "lot1": 50,
+    "pilot": 30,
+    "rapprochements_a_verifier": 0,
+    "references_uniques": 80,
+    "sites_ids_attribues": 30,
+    "sites_provisoires": 80
+  },
+  "differences_assumees": {
+    "lot1": "données structurées et classées, enrichissement encore à faire",
+    "pilot": "données enrichies, localisées et dotées d'un site_id",
+    "site_id_null_count": 50
+  },
+  "generated_at": "2026-07-23",
+  "next_step": "traiter_les_239_dossiers_restants",
+  "schema_version": "1.0"
+}

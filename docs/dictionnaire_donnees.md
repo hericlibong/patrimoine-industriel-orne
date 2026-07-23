@@ -1,4 +1,4 @@
-# Dictionnaire des données — version 1.6
+# Dictionnaire des données — version 1.7
 
 Statut : **socle pilote V1 consolidé le 22 juillet 2026**.
 
@@ -45,6 +45,20 @@ des 45 activités détaillées et des 33 installations restent dans le registre.
 Le secteur qualifie une phase d'activité, jamais directement le site. Les
 activités, installations, énergies et rôles énergétiques sont quatre
 vocabulaires distincts.
+
+### Corpus intermédiaire de phase 8
+
+`phase8_corpus_80.json` utilise le dossier source comme unité temporaire.
+`dossier_id` et `dossier_reference` contiennent la référence `IA`. `site_id`
+contient l'identifiant interne lorsqu'il a déjà été attribué ; sa valeur nulle
+sur les nouveaux dossiers signifie « pas encore attribué » et non « site sans
+identité ».
+
+`origine` distingue `pilote_30` et `phase8_lot1_50`.
+`statut_traitement` distingue les pilotes enrichis des dossiers seulement
+structurés et classés. `nombre_sites_provisoire` vaut un tant qu'aucune fusion
+ou séparation n'est décidée. Cette valeur ne doit pas être additionnée comme
+un total définitif du département.
 
 ### Périodes historiques
 

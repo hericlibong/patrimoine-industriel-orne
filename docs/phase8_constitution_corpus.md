@@ -104,8 +104,20 @@ Quatre activités et une installation ont été ajoutées au vocabulaire :
 
 ## Ce qui reste à faire
 
-- réintégrer formellement les 30 pilotes dans le corpus commun ;
 - traiter les 239 dossiers non pilotes restants ;
 - revoir le dossier collectif et tous les indices d'emprises multiples ;
 - documenter les rapprochements entre dossiers ;
 - établir le nombre final de sites seulement après ces décisions.
+
+## Corpus commun de 80 dossiers — 23 juillet 2026
+
+Les 30 pilotes et les 50 dossiers du lot 1 ont été réunis dans
+`data/interim/phase8_corpus_80.json`. Le format commun conserve les informations
+riches des pilotes et utilise des valeurs nulles explicites pour les
+enrichissements encore absents du lot 1.
+
+Le contrôle donne 80 références et 80 URLs uniques, 109 activités classées et
+aucun candidat au rapprochement selon les références, adresses, lieux-dits ou
+points sources disponibles. Les 30 pilotes conservent leur `site_id`. Les 50
+nouveaux dossiers restent sans identifiant canonique afin de ne pas figer leur
+statut avant le traitement du corpus complet.

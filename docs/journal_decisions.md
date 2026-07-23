@@ -696,3 +696,20 @@
   été relus et conservés comme quatre sites à activités successives.
 - Le lot 1 contient donc 50 sites provisoires. Le nombre canonique du corpus
   principal reste inconnu jusqu'à la revue de tous les lots.
+
+## 2026-07-23 — Réunion des 30 pilotes et des 50 dossiers du lot 1
+
+- Les deux ensembles sont projetés dans un corpus intermédiaire commun de 80
+  dossiers. Le dossier `IA` est l'unité de cette étape, pas le site canonique.
+- La structure commune conserve les enrichissements des 30 pilotes. Les champs
+  encore absents des 50 nouveaux dossiers restent nuls ou explicitement
+  inconnus ; aucune information n'est inventée pour uniformiser artificiellement
+  les deux ensembles.
+- Les 30 `site_id` existants sont conservés. Aucun `site_id` n'est attribué aux
+  50 nouveaux dossiers avant le traitement des 319 dossiers.
+- Les 80 références et les 80 URLs sont uniques. Les 109 activités possèdent
+  toutes une activité et un secteur contrôlés.
+- Le contrôle par référence, URL, commune-adresse, commune-lieu-dit et proximité
+  des points ne propose aucun rapprochement parmi les 80 dossiers.
+- Le résultat reste intermédiaire : 80 sites provisoires de travail, sans total
+  canonique départemental.

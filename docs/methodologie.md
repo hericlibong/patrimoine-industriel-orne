@@ -446,3 +446,15 @@ Une référence IA crée seulement un candidat. Les activités successives peuve
 rester rattachées à une même emprise. Une fusion de dossiers ou une séparation
 d'emprises exige une décision documentée. Le nombre canonique n'est calculé
 qu'après la revue complète.
+
+### Structure commune intermédiaire
+
+Les ensembles déjà traités sont projetés dans un corpus commun au niveau du
+dossier. Cette projection harmonise les champs sans réduire les informations
+disponibles : les pilotes conservent leurs enrichissements, tandis que les
+champs non encore renseignés des nouveaux dossiers restent nuls ou inconnus.
+
+Le contrôle des doublons compare les références, URLs, couples commune-adresse,
+couples commune-lieu-dit et points sources proches. Il produit uniquement des
+candidats à vérifier. Aucun de ces indices ne fusionne automatiquement deux
+dossiers.
