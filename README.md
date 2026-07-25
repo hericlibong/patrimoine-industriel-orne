@@ -90,6 +90,7 @@ matière historique et iconographique, sans imposer de récit ni valider d'image
 - [Inventaire des médias](reports/quality/phase9_medias_sites_inventaire.md)
 - [Qualification des droits et usages](reports/quality/phase9_droits_medias.md)
 - [Revue éditoriale des sites](reports/quality/phase9_revue_editoriale.md)
+- [Validation du socle narratif et visuel](reports/quality/phase9_validation_narratif_visuel.md)
 
 ## Produire le corpus complet V1
 
@@ -146,6 +147,17 @@ python -m patrimoine_orne.export.revue_editoriale_v1
 Cette commande produit `revue_editoriale_sites_v1.csv`, son Parquet et sa table
 DuckDB. Elle propose des médias à examiner sans les sélectionner ni les rendre
 publiables.
+
+## Valider le socle narratif et visuel V1
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m patrimoine_orne.export.validate_narratif_visuel_v1
+```
+
+Cette commande compare corpus, récits, médias et revue éditoriale. Elle échoue
+si un texte source est perdu, si un média manque de provenance ou si les
+identifiants des 318 sites divergent.
 
 ## Produire le socle pilote V1
 

@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "date_validation": "2026-07-25",
+  "effectifs": {
+    "sites": 318,
+    "recits": 318,
+    "medias": 1900,
+    "revues_editoriales": 318,
+    "duckdb": {
+      "sites": 318,
+      "recits_sites": 318,
+      "medias": 1900,
+      "revue_editoriale_sites": 318
+    }
+  },
+  "textes_sources": {
+    "historiques_attendus": 314,
+    "historiques_conserves": 314,
+    "descriptions_attendues": 257,
+    "descriptions_conservees": 257
+  },
+  "medias": {
+    "avec_provenance_et_statut": 1900,
+    "sans_provenance_complete": 0,
+    "droits": {
+      "inconnus": 117,
+      "protege": 1783
+    },
+    "publication_automatique": 0
+  },
+  "relecture_editoriale": {
+    "sites_a_examiner": 318,
+    "decisions_automatiques": 0
+  },
+  "erreurs": [],
+  "decision": "socle_narratif_visuel_v1_approuve"
+}

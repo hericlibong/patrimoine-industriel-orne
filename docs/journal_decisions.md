@@ -891,3 +891,17 @@
 - Tous les sites restent au statut `a_examiner` ; aucun récit ni média n'est
   sélectionné automatiquement.
 - Décision : **bloc 5 de la phase 9 validé**.
+
+## 2026-07-25 — Validation du socle narratif et visuel V1
+
+- Les 318 sites concordent entre le corpus, `recits_sites`, `medias` et la
+  revue éditoriale.
+- Les 314 historiques et 257 descriptions présents dans le corpus sont tous
+  conservés dans l'export éditorial, avec leur empreinte de contrôle.
+- Les 1 900 relations média-site possèdent une provenance et un statut de
+  droits ; aucune n'est publiable automatiquement.
+- Les 318 sites restent `a_examiner` : aucun récit ou média n'est retenu par
+  le calcul.
+- Le socle narratif et visuel V1 est approuvé comme base de conception de la
+  publication interactive.
+- Décision : **phase 9 terminée ; passage possible à la phase 10**.

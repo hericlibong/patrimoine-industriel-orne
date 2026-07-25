@@ -61,6 +61,7 @@ patrimoine-orne-produire-recits-v1 = "patrimoine_orne.export.editorial_v1:main"
 patrimoine-orne-produire-medias-v1 = "patrimoine_orne.export.medias_v1:main"
 patrimoine-orne-qualifier-medias-v1 = "patrimoine_orne.export.qualifier_medias_v1:main"
 patrimoine-orne-revue-editoriale-v1 = "patrimoine_orne.export.revue_editoriale_v1:main"
+patrimoine-orne-valider-narratif-visuel-v1 = "patrimoine_orne.export.validate_narratif_visuel_v1:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

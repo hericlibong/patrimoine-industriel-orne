@@ -1,15 +1,15 @@
-# Limites éditoriales du socle pilote V1
+# Limites éditoriales du corpus complet et du socle narratif V1
 
-Version 1.0 — 22 juillet 2026
+Version 1.1 — 25 juillet 2026
 
 Ce document traduit les limites techniques en règles de publication. Il doit
 être relu lors de la conception de la première narration et avant toute mise en
 ligne publique.
 
-## Ce que le pilote permet d'affirmer
+## Ce que le corpus complet permet d'affirmer
 
-- les 30 dossiers retenus permettent de tester la méthode de structuration,
-  de rapprochement et de cartographie ;
+- les 318 sites canoniques permettent de décrire les emprises documentées par
+  l'Inventaire industriel de l'Orne ;
 - plusieurs activités peuvent se succéder ou coexister sur une même emprise ;
 - les sources documentent des relations possibles entre les sites et l'eau,
   les forêts, les ressources minérales ou le rail ;
@@ -18,7 +18,7 @@ ligne publique.
 - les sources patrimoniales, juridiques, environnementales et géographiques ne
   décrivent pas le même objet et doivent être croisées.
 
-## Ce que le pilote ne permet pas d'affirmer
+## Ce que le corpus complet ne permet pas d'affirmer
 
 - le nombre total de sites industriels de l'Orne ;
 - la proportion départementale de chaque activité, période ou état de
@@ -127,6 +127,20 @@ Les règles détaillées sont dans `docs/licences_droits_images.md`.
 
 ## Niveau de publication actuel
 
-Le socle pilote est adapté à une carte de contrôle, à une démonstration interne
-et à la préparation d'un prototype narratif. Il n'est pas encore un inventaire
-départemental exhaustif ni un paquet photographique publiable.
+Le corpus complet et son socle narratif sont adaptés à une carte de contrôle,
+à une démonstration interne et à la préparation d'un prototype narratif. Ils ne
+constituent pas encore un inventaire départemental exhaustif ni un paquet
+photographique publiable.
+
+## Limites du socle narratif et visuel V1
+
+Les 314 historiques et 257 descriptions disponibles sont conservés dans leurs
+champs sources ; leur présence ne rend pas leurs textes intégralement
+republiables. Les 4 historiques et 61 descriptions absents restent signalés
+comme tels, sans reconstruction automatique.
+
+Les 1 900 relations média-site sont toutes sourcées, mais aucune image ne peut
+être ajoutée par défaut à une publication publique. Parmi elles, 1 783 possèdent
+un crédit exploitable pour le prototype privé ; les 117 autres restent des
+références internes à compléter. Les candidats d'image principale sont des
+repères de revue, non des choix éditoriaux ou juridiques.

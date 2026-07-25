@@ -18,8 +18,8 @@ def field_index(table: dict) -> dict[str, dict]:
 def test_editorial_configuration_is_versioned_and_documented() -> None:
     config = load_config()
 
-    assert config["version"] == "1.3"
-    assert config["status"] == "phase9_bloc4_valide"
+    assert config["version"] == "1.4"
+    assert config["status"] == "phase9_terminee"
     assert (ROOT / "docs" / "modele_editorial.md").exists()
 
 

@@ -577,3 +577,14 @@ Une même référence peut être associée à plusieurs sites : ces relations so
 conservées. Un doublon n'est écarté que si toutes les métadonnées sources de la
 même relation sont strictement identiques. Les fichiers images ne sont ni
 téléchargés ni versionnés.
+
+### Validation du socle narratif et visuel
+
+La validation de phase compare le corpus canonique, `recits_sites`, `medias`
+et `revue_editoriale_sites`. Elle vérifie notamment que chaque texte source
+présent est identique à sa copie éditoriale (empreinte SHA-256), que chaque
+média porte une provenance et un statut de droits, et que les 318 identifiants
+de sites concordent entre les tables.
+
+Elle ne valide ni un texte journalistique ni une photographie pour publication.
+Les sites et les médias restent soumis à une décision humaine distincte.
