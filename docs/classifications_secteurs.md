@@ -1,6 +1,6 @@
 # Classifications des secteurs et installations
 
-Statut : **finalisé dans le registre 1.2 du socle V1 le 22 juillet 2026**
+Statut : **étendu dans le registre 1.4 du corpus complet le 23 juillet 2026**
 
 Le registre exécutable est `config/classifications.yml`. Ce document en fixe les
 règles de lecture.
@@ -21,6 +21,10 @@ Ordre de travail :
 
 Une correspondance par terme exact peut être automatisée. Une simple présence
 de mot-clé ne suffit pas à valider silencieusement une activité.
+
+Une dénomination patrimoniale peut aussi décrire un composant non productif,
+par exemple une cité ouvrière. Elle est alors conservée dans
+`composants_non_productifs_source` et n'est pas transformée en activité.
 
 ## Dimensions séparées
 

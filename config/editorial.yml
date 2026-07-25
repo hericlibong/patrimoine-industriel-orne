@@ -1,0 +1,198 @@
+version: "1.3"
+status: phase9_bloc4_valide
+updated_at: 2026-07-24
+
+principes:
+  - les textes sources sont conserves sans reecriture
+  - les textes derives sont stockes dans des champs distincts
+  - un texte derive cite les sources utilisees
+  - aucun media ne devient publiable par defaut
+  - la provenance et les droits accompagnent toujours le media
+  - une valeur absente reste absente et ne peut pas etre comblee par inference
+
+niveaux_textes:
+  historique_source:
+    nature: source
+    description: transcription ou texte descriptif fourni par la notice patrimoniale
+    modifiable: false
+    publiable_par_defaut: false
+    usage_interne: autorise_avec_source
+  description_source:
+    nature: source
+    description: description architecturale ou materielle fournie par la notice
+    modifiable: false
+    publiable_par_defaut: false
+    usage_interne: autorise_avec_source
+  resume_documentaire:
+    nature: derivee
+    description: synthese factuelle des sources, sans angle journalistique
+    modifiable: true
+    sources_obligatoires: true
+    validation_humaine_obligatoire: true
+    publiable_par_defaut: false
+  note_journalistique:
+    nature: editoriale
+    description: piste, angle ou texte redige par un journaliste
+    modifiable: true
+    auteur_obligatoire: true
+    validation_editoriale_obligatoire: true
+    publiable_par_defaut: false
+
+recits_sites:
+  cardinalite: un_par_site
+  cle_primaire: site_id
+  relation: sites.site_id
+  champs:
+    - {nom: site_id, type: UUID, obligatoire: true, modifiable: false}
+    - {nom: reference_ia, type: VARCHAR, obligatoire: true, modifiable: false}
+    - {nom: titre_source, type: VARCHAR, obligatoire: false, modifiable: false}
+    - {nom: historique_source, type: TEXT, obligatoire: false, modifiable: false}
+    - {nom: historique_source_statut_code, type: VARCHAR, obligatoire: true, modifiable: false}
+    - {nom: historique_source_sha256, type: VARCHAR, obligatoire: false, modifiable: false}
+    - {nom: description_source, type: TEXT, obligatoire: false, modifiable: false}
+    - {nom: description_source_statut_code, type: VARCHAR, obligatoire: true, modifiable: false}
+    - {nom: description_source_sha256, type: VARCHAR, obligatoire: false, modifiable: false}
+    - {nom: siecles_source, type: JSON, obligatoire: false, modifiable: false}
+    - {nom: periodes_source_codes, type: JSON, obligatoire: true, modifiable: false}
+    - {nom: periodes_activite_codes, type: JSON, obligatoire: true, modifiable: false}
+    - {nom: activites_successives, type: JSON, obligatoire: true, modifiable: false}
+    - {nom: source_id, type: VARCHAR, obligatoire: true, modifiable: false}
+    - {nom: source_reference, type: VARCHAR, obligatoire: true, modifiable: false}
+    - {nom: source_url, type: VARCHAR, obligatoire: true, modifiable: false}
+    - {nom: date_consultation_source, type: DATE, obligatoire: true, modifiable: false}
+    - {nom: references_sources, type: JSON, obligatoire: true, modifiable: false}
+    - {nom: resume_documentaire, type: TEXT, obligatoire: false, modifiable: true}
+    - {nom: resume_documentaire_statut_code, type: VARCHAR, obligatoire: true, modifiable: true}
+    - {nom: resume_documentaire_sources, type: JSON, obligatoire: true, modifiable: true}
+    - {nom: resume_documentaire_auteur, type: VARCHAR, obligatoire: false, modifiable: true}
+    - {nom: resume_documentaire_valide_le, type: DATE, obligatoire: false, modifiable: true}
+    - {nom: note_journalistique, type: TEXT, obligatoire: false, modifiable: true}
+    - {nom: note_journalistique_statut_code, type: VARCHAR, obligatoire: true, modifiable: true}
+    - {nom: note_journalistique_auteur, type: VARCHAR, obligatoire: false, modifiable: true}
+    - {nom: selection_texte_code, type: VARCHAR, obligatoire: true, modifiable: true}
+    - {nom: besoin_recherche_complementaire, type: BOOLEAN, obligatoire: true, modifiable: true}
+    - {nom: notes_editoriales, type: TEXT, obligatoire: false, modifiable: true}
+
+medias:
+  cardinalite: plusieurs_par_site
+  cle_primaire: media_site_id
+  unicite_media: [source_id, media_reference]
+  relation: sites.site_id
+  champs:
+    - {nom: media_site_id, type: UUID, obligatoire: true}
+    - {nom: media_id, type: UUID, obligatoire: true}
+    - {nom: site_id, type: UUID, obligatoire: true}
+    - {nom: reference_ia, type: VARCHAR, obligatoire: true}
+    - {nom: source_id, type: VARCHAR, obligatoire: true}
+    - {nom: media_reference, type: VARCHAR, obligatoire: true}
+    - {nom: type_media_code, type: VARCHAR, obligatoire: true}
+    - {nom: url_media, type: VARCHAR, obligatoire: true}
+    - {nom: url_fichier_source, type: VARCHAR, obligatoire: false}
+    - {nom: url_notice_source, type: VARCHAR, obligatoire: true}
+    - {nom: legende_source, type: TEXT, obligatoire: false}
+    - {nom: auteur_source, type: VARCHAR, obligatoire: false}
+    - {nom: credit_source, type: VARCHAR, obligatoire: false}
+    - {nom: mention_droits_source, type: TEXT, obligatoire: false}
+    - {nom: image_principale_source, type: BOOLEAN, obligatoire: true}
+    - {nom: metadonnees_source, type: JSON, obligatoire: true}
+    - {nom: selection_media_code, type: VARCHAR, obligatoire: true}
+    - {nom: statut_droits_code, type: VARCHAR, obligatoire: true}
+    - {nom: statut_autorisation_code, type: VARCHAR, obligatoire: true}
+    - {nom: usage_media_code, type: VARCHAR, obligatoire: true}
+    - {nom: licence_nom, type: VARCHAR, obligatoire: false}
+    - {nom: licence_url, type: VARCHAR, obligatoire: false}
+    - {nom: preuve_droits_url, type: VARCHAR, obligatoire: false}
+    - {nom: autorisation_demandee_le, type: DATE, obligatoire: false}
+    - {nom: autorisation_repondue_le, type: DATE, obligatoire: false}
+    - {nom: autorisation_expire_le, type: DATE, obligatoire: false}
+    - {nom: conditions_autorisation, type: TEXT, obligatoire: false}
+    - {nom: date_consultation, type: DATE, obligatoire: true}
+    - {nom: chemin_local, type: VARCHAR, obligatoire: false}
+    - {nom: fichier_sha256, type: VARCHAR, obligatoire: false}
+
+revue_editoriale_sites:
+  cardinalite: un_par_site
+  cle_primaire: site_id
+  relation: sites.site_id
+  description: couverture documentaire pour la revue, sans sélection automatique
+  champs:
+    - {nom: site_id, type: UUID, obligatoire: true}
+    - {nom: richesse_historique_score, type: INTEGER, obligatoire: true}
+    - {nom: richesse_historique_code, type: VARCHAR, obligatoire: true}
+    - {nom: chronologie_disponible, type: BOOLEAN, obligatoire: true}
+    - {nom: richesse_iconographique_score, type: INTEGER, obligatoire: true}
+    - {nom: richesse_iconographique_code, type: VARCHAR, obligatoire: true}
+    - {nom: media_principal_candidat_reference, type: VARCHAR, obligatoire: false}
+    - {nom: media_principal_candidat_statut_code, type: VARCHAR, obligatoire: true}
+    - {nom: besoin_recherche_complementaire, type: BOOLEAN, obligatoire: true}
+    - {nom: motifs_recherche, type: JSON, obligatoire: true}
+    - {nom: statut_revue_code, type: VARCHAR, obligatoire: true}
+
+statuts:
+  texte_source: [renseigne, absent_source, illisible, a_verifier]
+  resume_documentaire: [non_produit, brouillon, a_relire, valide, ecarte]
+  note_journalistique: [non_produite, piste, brouillon, a_relire, validee, ecartee]
+  selection_texte:
+    [non_evalue, a_examiner, retenu, secondaire, recherche_complementaire, ecarte]
+  selection_media:
+    [non_evalue, candidat_principal, candidat_secondaire, retenu_interne,
+     retenu_publication, ecarte]
+  droits: [inconnus, protege, licence_identifiee, domaine_public, a_verifier]
+  autorisation:
+    [non_demandee, a_demander, demande_envoyee, accordee,
+     accordee_avec_conditions, refusee, expiree, non_requise_justifiee]
+  usage_media:
+    [metadonnees_seulement, reference_interne, prototype_prive,
+     publication_autorisee, publication_interdite]
+  revue_editoriale: [a_examiner, retenu_humain, ecarte]
+
+prototype_interne:
+  autorise:
+    - donnees_structurees_du_corpus
+    - textes_sources_avec_provenance
+    - resumes_documentaires_marques_brouillon
+    - metadonnees_urls_legendes_et_credits_des_medias
+    - apercus_distants_dans_un_espace_prive_avec_credit
+  interdit_par_defaut:
+    - diffusion_publique_des_images
+    - partage_externe_du_prototype
+    - publication_des_textes_sources_integraux
+    - suppression_des_credits_ou_filigranes
+    - telechargement_massif_des_originaux
+    - versionnement_des_fichiers_images
+  publication_media_exige:
+    usage_media_code: publication_autorisee
+    preuve:
+      - autorisation_accordee
+      - autorisation_accordee_avec_conditions
+      - non_requise_justifiee
+
+integrite:
+  champs_sources_immuables:
+    - titre_source
+    - historique_source
+    - description_source
+    - siecles_source
+    - periodes_source_codes
+    - periodes_activite_codes
+    - activites_successives
+    - source_id
+    - source_reference
+    - source_url
+    - references_sources
+  controle_sha256: [historique_source, description_source]
+  reconstruction:
+    origine: corpus_complet_v1
+    saisie_manuelle_dans_champs_sources: interdite
+    texte_derive_dans_champ_source: interdite
+  regles:
+    - un texte source vide ne peut pas etre remplace par un resume
+    - toute modification de hash exige une nouvelle version de source
+    - un resume valide conserve la liste de ses sources
+    - une note journalistique conserve son auteur et son statut
+    - la production echoue si un champ source du corpus est perdu
+
+references_droits:
+  - https://pop.culture.gouv.fr/conditions-generales-utilisation
+  - https://pop.culture.gouv.fr/aide
+  - https://inventaire-patrimoine.normandie.fr/mentions-legales

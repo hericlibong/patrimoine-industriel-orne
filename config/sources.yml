@@ -1,5 +1,5 @@
-version: 1.2
-updated_at: 2026-07-22
+version: 1.4
+updated_at: 2026-07-24
 
 roles:
   - principale
@@ -63,7 +63,7 @@ sources:
     priority: P2
     role: enrichissement
     url: https://www.data.gouv.fr/datasets/liste-des-objets-proteges-au-titre-des-monuments-historiques
-    access: [html, csv]
+    access: [api_pop_json, html, csv]
     identifier: reference_PM
     audit_status: validee_avec_reserves
     data_license: licence_ouverte_2_0
@@ -74,6 +74,29 @@ sources:
       - export national d'environ 363 Mo
       - liens aux sites parfois indirects
       - export testé limité aux objets protégés
+    metrics_phase8:
+      palissy_orne_records: 5066
+      pm_records: 3343
+      documented_objects_kept: 31
+
+  - id: pop_memoire
+    name: POP - Mémoire
+    producer: Ministère de la Culture
+    priority: P1
+    role: enrichissement
+    url: https://pop.culture.gouv.fr/
+    access: [api_pop_json, html]
+    identifier: reference_Memoire
+    audit_status: validee_avec_reserves
+    data_license: metadonnees_ouvertes_sauf_mention_contraire
+    media_rights: verifier_auteur_credit_et_ayant_droit_media_par_media
+    attribution: Ministère de la Culture - POP / Mémoire
+    rights_url: https://pop.culture.gouv.fr/conditions-generales-utilisation
+    limits:
+      - 1900 relations media-site inventoriees dans le corpus complet V1
+      - les fichiers images ne sont ni telecharges ni versionnes
+      - 117 medias proviennent de notices HTML archivees avec metadonnees partielles
+      - les droits de publication restent a qualifier media par media
 
   - id: monuments_historiques_data_culture
     name: Immeubles protégés au titre des Monuments historiques
@@ -92,6 +115,10 @@ sources:
       orne_records: 420
       with_wgs84: 341
       industrial_keyword_candidates: 18
+    metrics_phase8:
+      merimee_orne_records: 2346
+      pa_records: 410
+      protections_linked_by_explicit_ia: 16
     limits:
       - recense les protections juridiques et non tout le patrimoine industriel
 
@@ -111,7 +138,12 @@ sources:
     metrics_at_audit:
       orne_wfs_records: 2052
       with_xy_wgs84: 209
-      declared_not_geolocated: 1853
+      declared_not_geolocated: 1843
+    metrics_phase8:
+      confirmed_cross_checks: 131
+      canonical_sites_cross_checked: 123
+      unresolved_candidates: 8
+      expansion_candidates_not_integrated: 170
     limits:
       - ne prouve ni pollution ni valeur patrimoniale
       - géométrie WFS potentiellement communale pour les sites non géolocalisés

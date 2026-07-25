@@ -1,0 +1,8 @@
+code,nombre,gravite,bloquant,traitement
+situation_actuelle_inconnue,315,limite_editoriale,non,ne pas déduire l'état actuel depuis la notice historique
+accessibilite_inconnue,316,limite_editoriale,non,ne pas publier de conseil de visite non vérifié
+point_approximatif,290,qualite_spatiale,non,adapter le zoom et afficher le niveau de précision
+activite_sans_chronologie_directe,361,limite_chronologique,non,utiliser séparément la période documentaire du site
+objets_palissy_lien_a_verifier,31,relation_documentaire,non,ne pas présenter comme objets encore présents sur le site
+rapprochements_casias_ambigus,8,rapprochement,non,conserver hors des recoupements affirmatifs
+candidats_casias_elargissement,170,hors_corpus,non,vérifier avant toute intégration patrimoniale

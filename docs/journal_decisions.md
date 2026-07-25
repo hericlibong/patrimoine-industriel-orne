@@ -713,3 +713,181 @@
   des points ne propose aucun rapprochement parmi les 80 dossiers.
 - Le résultat reste intermédiaire : 80 sites provisoires de travail, sans total
   canonique départemental.
+
+## 2026-07-23 — Intégration des références officielles restantes
+
+- Le calcul initial de 239 dossiers restants est corrigé : `IA00061060`, bien
+  que présent dans les 30 pilotes, n'appartient pas à l'énumération officielle
+  actuelle. Le corpus de 80 ne couvrait donc que 79 des 319 références.
+- `IA00061060` reste conservé dans le pilote enrichi mais hors du corpus
+  principal. Les 240 références officielles réellement restantes ont été
+  récupérées pour obtenir exactement 319 dossiers officiels.
+- L'extraction est reprenable : le manifeste est réécrit après chaque notice
+  réussie. Une interruption ne force plus à recommencer les téléchargements.
+- Les 319 dossiers sont harmonisés dans un format commun. Ils représentent des
+  dossiers sources, pas encore le nombre définitif de sites.
+- Le registre des classifications passe en version 1.4. Les 407 dénominations
+  du corpus sont toutes résolues ; 8 occurrences non productives sont
+  conservées comme composants et non transformées en activités.
+- Le contrôle signale 7 paires à examiner pour un rapprochement, le dossier
+  collectif `IA61001399` à décomposer, 4 cités ouvrières à relier sans fusion
+  et 2 moulins dont la production doit être précisée.
+- Aucune fusion, séparation ou relation n'est décidée automatiquement. Le
+  nombre de sites canoniques reste inconnu jusqu'à cette revue.
+
+## 2026-07-23 — Revue canonique et décompte des sites
+
+- Les sept paires proposées automatiquement ont été relues depuis les
+  historiques, adresses, exploitants et emprises. Elles correspondent toutes à
+  des sites distincts ; aucune fusion n'est appliquée.
+- `IA61001399` est requalifié comme dossier de synthèse sans emprise. Ses
+  quinze dossiers individuels de fromageries sont déjà présents. La synthèse
+  reste une source mais sort du décompte des sites.
+- Le corpus principal passe donc de 319 dossiers sources à **318 sites
+  canoniques**.
+- Les quatre cités ouvrières restent quatre sites distincts. Deux sont reliées
+  comme composants de la mine de Halouze et deux comme dépendances de la mine
+  de La Ferrière-aux-Étangs.
+- La fenderie de Larchamp reste distincte de l'affinerie-moulin, avec une
+  relation de dépendance documentée.
+- Les deux activités génériques `moulin` sont remplacées par les productions
+  décrites dans les historiques : mouture, scierie, foulage, préparation du
+  tan et production hydroélectrique.
+- Les 318 sites reçoivent un UUID v4 stable. Les 29 identifiants déjà attribués
+  aux pilotes officiels sont conservés sans modification.
+- Ce total de 318 porte sur le corpus principal de l'Inventaire. De nouveaux
+  sites pourront encore être ajoutés par d'autres sources, notamment CASIAS ou
+  les archives, après vérification.
+
+## 2026-07-23 — Enrichissement et localisation des 318 sites
+
+- L'ancienne API data.culture testée en phase 2 n'est plus utilisable à son
+  ancienne adresse. L'extraction départementale passe par la recherche avancée
+  actuelle de POP ; les réponses brutes restent archivées.
+- Une protection MH est confirmée uniquement quand la notice `PA` cite la
+  référence `IA`. Cette règle confirme 16 protections sur 16 sites.
+- Les 31 objets Palissy des forges de Varenne sont conservés comme associations
+  documentaires à vérifier. Aucun nouvel objet n'est attaché par commune.
+- CASIAS ne modifie pas le total canonique. Sur 2 052 entrées, 131 recoupements
+  sont retenus pour 123 sites. Après revue de 62 cas limites, 44 sont
+  confirmés, 10 rejetés et 8 restent ambigus.
+- Les 170 candidats d'élargissement CASIAS restent hors corpus jusqu'à une
+  vérification patrimoniale.
+- Les 318 sites possèdent un point source valide ; 290 restent des points
+  approximatifs et 28 disposent d'une zone documentaire qualifiée.
+- Le contexte territorial est calculé par tuiles IGN et par enveloppe BRGM. Les
+  proximités sont publiables comme indices, jamais comme causes historiques
+  prouvées.
+
+## 2026-07-24 — Validation du corpus complet V1 et clôture de la phase 8
+
+- Le corpus complet V1 est validé avec 318 sites canoniques et 403 activités.
+- Les exports JSON, DuckDB, CSV, Parquet et GeoJSON possèdent des effectifs et
+  identifiants concordants.
+- Les répartitions sectorielles sont multi-appartenances : elles ne doivent pas
+  être additionnées pour retrouver le total du corpus.
+- Les 318 sites possèdent une période documentaire, mais seules 42 activités
+  sur 403 disposent d'une période calculée depuis une chronologie d'activité.
+  Les deux mesures restent séparées dans les exports.
+- La situation actuelle est insuffisamment couverte : 315 conservations et 316
+  accessibilités restent inconnues. Le corpus n'est donc pas présenté comme un
+  guide de visite départemental.
+- Les 290 points approximatifs restent publiables à l'échelle départementale
+  avec un niveau de précision visible et un zoom adapté.
+- Les 31 liens Palissy, 8 rapprochements CASIAS ambigus et 170 candidats CASIAS
+  d'élargissement restent documentés sans être transformés en certitudes.
+- Les limites restantes sont jugées non bloquantes pour une première
+  publication historique et cartographique.
+- Décision : **phase 8 terminée ; passage possible à la phase 9**.
+
+## 2026-07-24 — Cadrage des données éditoriales
+
+- Les textes sont séparés en trois niveaux : source patrimoniale immuable,
+  résumé documentaire dérivé et texte journalistique.
+- Les résumés conservent leurs sources et passent par une validation humaine ;
+  les textes journalistiques conservent leur auteur et leur statut éditorial.
+- La table `recits_sites` portera une ligne par site et conservera ensemble les
+  textes sources, les repères documentaires et les champs de travail éditorial.
+- La table `medias` portera les métadonnées, crédits, décisions de sélection,
+  statuts de droits, demandes d'autorisation et usages permis.
+- La sélection d'un média et son droit de publication restent deux décisions
+  distinctes.
+- Le prototype interne pourra utiliser les données et les textes sourcés ainsi
+  que les métadonnées et aperçus distants crédités, dans un espace privé. Cette
+  possibilité n'autorise aucune diffusion publique.
+- Les textes sources ne seront pas saisis manuellement dans les tables
+  éditoriales. Ils seront reconstruits depuis le corpus et contrôlés par
+  empreinte SHA-256 ; un texte dérivé ne pourra jamais les remplacer.
+- Décision : **bloc 1 de la phase 9 validé ; aucune extraction de média ni
+  régénération des exports n'est encore engagée**.
+
+## 2026-07-24 — Réintégration de la matière historique
+
+- La matière historique est placée dans une table dédiée `recits_sites`, sans
+  alourdir la table cartographique `sites`.
+- Les 318 sites possèdent chacun une ligne éditoriale et les identifiants
+  concordent exactement avec le corpus complet.
+- 314 historiques sont renseignés et 4 sont explicitement absents de la
+  source.
+- 257 descriptions sont renseignées et 61 sont explicitement absentes de la
+  source.
+- 256 sites possèdent les deux textes ; 3 ne possèdent ni historique ni
+  description.
+- Les textes sont copiés sans réécriture et contrôlés par empreinte SHA-256.
+- Les siècles, périodes documentaires, périodes d'activité, activités
+  successives et références de sources sont conservés.
+- Les champs de résumé documentaire et de texte journalistique restent vides
+  et portent leurs statuts initiaux ; aucun texte n'a été généré à ce stade.
+- Décision : **bloc 2 de la phase 9 validé**.
+
+## 2026-07-24 — Inventaire des médias
+
+- 1 900 relations média-site sont inventoriées pour 316 sites sur 318.
+- Deux notices ne présentent aucun média exploitable : `IA00061048` et
+  `IA00061085`.
+- 1 888 références médias distinctes sont conservées. Huit références sont
+  reliées à plusieurs sites ; ces relations ne sont pas supprimées.
+- Aucun doublon technique strictement identique n'a été trouvé.
+- 1 783 médias possèdent une légende, un crédit et une mention de droits dans
+  les métadonnées JSON archivées ; aucun auteur individuel n'y est renseigné.
+- 117 médias proviennent d'archives HTML de POP : référence et URL sont
+  conservées, mais aucun crédit, auteur ou légende n'est inventé.
+- Les 282 marqueurs d'image principale sont conservés lorsqu'ils existent.
+- Les droits restent `inconnus` et les usages `metadonnees_seulement` jusqu'au
+  bloc de qualification dédié.
+- Décision : **bloc 3 de la phase 9 validé ; aucun fichier image n'est
+  téléchargé ou versionné**.
+
+## 2026-07-24 — Qualification des droits et usages des médias
+
+- Les usages sont séparés en trois niveaux : consultation interne,
+  prototype privé et publication publique.
+- Les 1 900 relations média-site reçoivent toutes le statut d'autorisation
+  `a_demander` : aucun droit de publication n'est déduit des métadonnées POP.
+- 1 783 médias avec crédit source sont classés `protege` et
+  `prototype_prive` ; 117 sans crédit exploitable sont classés `inconnus` et
+  `reference_interne`.
+- Aucun média n'est classé `publication_autorisee`.
+- Le registre contient 1 888 lignes, une par média distinct ; il prépare la
+  trace des demandes et réponses mais n'envoie aucun courriel.
+- Les crédits bruts sont conservés ; les 117 crédits manquants sont marqués à
+  compléter. Aucun fichier image n'est téléchargé ou versionné.
+- Décision : **bloc 4 de la phase 9 validé ; publication publique bloquée tant
+  qu'une licence ou autorisation documentée n'est pas renseignée**.
+
+## 2026-07-24 — Préparation de la sélection éditoriale
+
+- La revue éditoriale mesure la couverture documentaire disponible et ne
+  mesure pas la valeur patrimoniale ou journalistique des sites.
+- Les 318 sites possèdent un repère chronologique ; 268 ont une couverture
+  historique forte, 47 moyenne et 3 faible selon les textes et repères sources.
+- La couverture iconographique est forte pour 286 sites, moyenne pour 1,
+  faible pour 29 et absente pour 2.
+- 284 sites combinent une matière historique au moins moyenne, une chronologie
+  et un média avec crédit à examiner ; 287 candidats d'image principale sont
+  proposés au statut `a_revoir`.
+- 4 sites demandent une recherche historique, 31 une recherche visuelle et 35
+  une recherche complémentaire au total.
+- Tous les sites restent au statut `a_examiner` ; aucun récit ni média n'est
+  sélectionné automatiquement.
+- Décision : **bloc 5 de la phase 9 validé**.

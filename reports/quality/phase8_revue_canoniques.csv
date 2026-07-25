@@ -1,0 +1,16 @@
+type_decision,references,decision,justification
+rapprochement,IA00060967 | IA00061034,rejete_sites_distincts,"Le tissage de mèches et la filature Vente ont des histoires, des fonctions et des points distincts malgré le même lieu-dit Pont-Erembourg."
+rapprochement,IA00060978 | IA00060979,rejete_sites_distincts,"Les deux tissages de Maure ont des dates de fondation, exploitants, adresses et emprises différentes."
+rapprochement,IA00060986 | IA00060998,rejete_sites_distincts,Les deux usines de blanchiment de la rue Pierre-Neveu sont séparées d'environ 94 mètres et sont attribuées à des fondateurs distincts.
+rapprochement,IA00061037 | IA00061038,rejete_sites_distincts,"Deux filatures distinctes sont attestées au Champ-Ferment, avec des propriétaires, des transformations et des bâtiments propres."
+rapprochement,IA00061078 | IA00061079,rejete_sites_distincts,"Les établissements des numéros 15 et 16 rue du Pont-du-Moulin sont deux emprises voisines, mais leurs fondateurs et leurs chronologies diffèrent."
+rapprochement,IA00061147 | IA00061159,rejete_sites_distincts,"La cartonnerie et l'usine à gaz sont deux établissements sans continuité documentée, malgré le lieu-dit commun de la Gare."
+rapprochement,IA00061187 | IA00061188,rejete_sites_distincts,L'affinerie-moulin et la fenderie occupent deux emprises proches mais distinctes. La fenderie dépend historiquement de l'ensemble métallurgique.
+dossier_collectif,IA61001399,exclu_du_decompte_sites,"La notice ne possède ni commune, ni code INSEE, ni adresse, ni historique de site. Elle présente les fromageries industrielles disparues de l'Orne. Les quinze dossiers individuels concernés sont déjà présents dans le corpus officiel."
+relation_site,IA00061009 → IA00060961,composant_de,La notice indique explicitement que la cité ouvrière fait partie de l'ensemble d'industrie extractive de la mine de Halouze.
+relation_site,IA00061011 → IA00060961,composant_de,La notice indique explicitement que la cité Lebardier fait partie de l'ensemble d'industrie extractive de la mine de Halouze.
+relation_site,IA00061200 → IA00060912,depend_de,La cité est construite par la société exploitant la concession minière de La Ferrière-aux-Étangs pour loger sa main-d'œuvre.
+relation_site,IA00061201 → IA00060912,depend_de,La cité du Gué-Plat est construite et agrandie par la société exploitant la mine de La Ferrière-aux-Étangs.
+relation_site,IA00061188 → IA00061187,depend_de,La notice décrit la fenderie comme dépendant de l'affinerie et du haut fourneau de Larchamp.
+activite_precisee,IA00061088,activites_historiques_structurees,moulin à farine attesté en 1340 | scierie attestée de 1854 à 1894
+activite_precisee,IA00061172,activites_historiques_structurees,moulins à blé attestés à partir de 1793 | moulin à foulon attesté en 1793 | moulins à tan attestés à partir de 1793 | usine génératrice d'énergie à partir de 1901

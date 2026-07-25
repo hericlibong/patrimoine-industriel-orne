@@ -66,6 +66,16 @@ def validate_classifications(config: Mapping[str, Any]) -> list[str]:
         if row.get("installation_code") not in installations:
             errors.append(f"{row.get('terme')!r}: installation inconnue")
 
+    for row in config.get("termes_hors_activite", []):
+        term = normalize_term(str(row.get("terme", "")))
+        if not term:
+            errors.append("terme hors activité sans libellé")
+        elif term in seen_terms:
+            errors.append(f"terme présent comme activité et hors activité : {row['terme']!r}")
+        seen_terms.add(term)
+        if not row.get("nature"):
+            errors.append(f"{row.get('terme')!r}: nature hors activité absente")
+
     for row in config.get("correspondances_energies_sources", []):
         energy_code = row.get("energie_code")
         role_code = row.get("role_energie_code")
@@ -99,6 +109,18 @@ def classify_denomination(
         "secteur_code": str(config["activites_detaillees"][activity_code]["secteur_code"]),
         "installation_code": str(row["installation_code"]),
     }
+
+
+def classify_non_activity_term(
+    value: str, config: Mapping[str, Any]
+) -> dict[str, str] | None:
+    """Reconnaît une dénomination patrimoniale qui ne décrit pas une production."""
+    row = _index_by_term(config.get("termes_hors_activite", [])).get(
+        normalize_term(value)
+    )
+    if row is None:
+        return None
+    return {"nature": str(row["nature"])}
 
 
 def classify_energy_terms(
@@ -141,7 +163,9 @@ def classify_pop_records(
     """Mesure la couverture des vocabulaires sur des notices POP structurées."""
     denomination_count = 0
     classified_count = 0
+    outside_activity_count = 0
     unknown_terms: Counter[str] = Counter()
+    outside_activity_terms: Counter[str] = Counter()
     activity_counts: Counter[str] = Counter()
     sector_counts: Counter[str] = Counter()
     installation_counts: Counter[str] = Counter()
@@ -160,7 +184,12 @@ def classify_pop_records(
         for denomination in denominations:
             classification = classify_denomination(denomination, config)
             if classification is None:
-                unknown_terms[denomination] += 1
+                outside = classify_non_activity_term(denomination, config)
+                if outside is None:
+                    unknown_terms[denomination] += 1
+                else:
+                    outside_activity_count += 1
+                    outside_activity_terms[denomination] += 1
                 continue
             classified_count += 1
             classifications.append(classification)
@@ -179,12 +208,18 @@ def classify_pop_records(
         unknown_energy_terms.update(energy_result["inconnus"])
 
     coverage = round(classified_count * 100 / denomination_count, 1) if denomination_count else 0.0
+    resolved = classified_count + outside_activity_count
+    resolved_coverage = round(resolved * 100 / denomination_count, 1) if denomination_count else 0.0
     return {
         "record_count": len(records),
         "denominations": {
             "total": denomination_count,
             "classified": classified_count,
             "coverage_percent": coverage,
+            "outside_activity": outside_activity_count,
+            "outside_activity_terms": dict(sorted(outside_activity_terms.items())),
+            "resolved": resolved,
+            "resolved_percent": resolved_coverage,
             "unknown_terms": dict(sorted(unknown_terms.items())),
         },
         "activity_counts": dict(sorted(activity_counts.items())),

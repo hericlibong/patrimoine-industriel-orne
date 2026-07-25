@@ -12,7 +12,6 @@ from zipfile import ZipFile
 from patrimoine_orne.extract.archive import create_sample_archive, verify_sample_archive
 from patrimoine_orne.extract.metadata import (
     create_retrieval_metadata,
-    metadata_sidecar_path,
     write_metadata_sidecar,
 )
 

@@ -1,0 +1,67 @@
+{
+  "checks_passed": true,
+  "counts": {
+    "activites": 403,
+    "activites_csv": 403,
+    "activites_parquet": 403,
+    "casias": 131,
+    "dossiers_sources": 319,
+    "objets_palissy": 31,
+    "protections_mh": 16,
+    "relations_sites": 5,
+    "sites": 318,
+    "sites_csv": 318,
+    "sites_geojson": 318,
+    "sites_parquet": 318
+  },
+  "date_validation": "2026-07-24",
+  "decision": "corpus_complet_v1_valide",
+  "errors": [],
+  "files": {
+    "data/exports/activites_corpus_complet_v1.csv": {
+      "sha256": "ccf03686d0979e459e90e7d6a53548284110ecd1f56a84f5b2a0ce679e7f864a",
+      "size_bytes": 97901
+    },
+    "data/exports/activites_corpus_complet_v1.parquet": {
+      "sha256": "f9320137301c527565a20f69ce99f2b6d5c3133df5333d76b0a5cb98642d1665",
+      "size_bytes": 29476
+    },
+    "data/exports/sites_corpus_complet_v1.csv": {
+      "sha256": "03eb73cdbff56992d8efc21b1702f5c2635ff10aebae23d439758f4a95233234",
+      "size_bytes": 179680
+    },
+    "data/exports/sites_corpus_complet_v1.geojson": {
+      "sha256": "83b49c10683a31ed628a7cf66f1e0bc038239c2c13d88bf6d447e369316afd1c",
+      "size_bytes": 562902
+    },
+    "data/exports/sites_corpus_complet_v1.parquet": {
+      "sha256": "9a4606106a27f3223e482a573a529a43358aa65cbc6127f5e88a7091aedde8c0",
+      "size_bytes": 44680
+    },
+    "data/processed/corpus_complet_v1.json": {
+      "sha256": "be45e23c6327df26faa6fb319335e9e85419da337d23bb60c9ee84ab0b60a3fe",
+      "size_bytes": 2979098
+    },
+    "data/processed/patrimoine_orne_corpus_complet_v1.duckdb": {
+      "sha256": "120704c2f25c00de683958f7a5a580326c099c7f935b460819b0a2eb00fade10",
+      "size_bytes": 2109440
+    },
+    "reports/quality/phase8_anomalies_restantes.csv": {
+      "sha256": "cf595eb8644cca73a09ed1d90a5a12b4a32628716f1c670841cfebc49ad30112",
+      "size_bytes": 787
+    },
+    "reports/quality/phase8_indicateurs_corpus_complet.json": {
+      "sha256": "c0e858a4dccc6395335862f1457de9b8a99be56f50934192164f734d0592be12",
+      "size_bytes": 6018
+    }
+  },
+  "quality_gates": {
+    "contextes_territoriaux_complets": true,
+    "coordonnees_qualifiees_sans_invention": true,
+    "exports_concordants": true,
+    "identifiants_stables_uniques": true,
+    "limites_editoriales_documentees": true,
+    "sources_sites_et_activites_presentes": true
+  },
+  "schema_version": "1.0"
+}

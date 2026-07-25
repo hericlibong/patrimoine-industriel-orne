@@ -30,6 +30,8 @@ class RetrievalSpec:
     notes: tuple[str, ...] = ()
     headers: Mapping[str, str] = field(default_factory=dict)
     validator: Validator | None = None
+    method: str = "GET"
+    body: bytes | None = None
 
 
 @dataclass(frozen=True)
@@ -76,7 +78,12 @@ def retrieve(
         "Accept": "*/*",
         **dict(spec.headers),
     }
-    request = Request(spec.request_url, headers=headers)
+    request = Request(
+        spec.request_url,
+        data=spec.body,
+        headers=headers,
+        method=spec.method,
+    )
 
     try:
         with urlopen(request, timeout=timeout) as response, temp_file.open("xb") as stream:

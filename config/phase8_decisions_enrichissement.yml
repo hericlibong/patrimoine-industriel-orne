@@ -1,0 +1,75 @@
+version: "1.0"
+date: "2026-07-23"
+portee: "Candidats CASIAS non décidés automatiquement"
+principes:
+  - "Confirmer seulement quand le nom, le lieu-dit, l'adresse ou l'activité désignent clairement le même site."
+  - "Rejeter quand l'établissement ou l'adresse désigne manifestement un autre site."
+  - "Maintenir ambigu quand la seule proximité ne suffit pas."
+
+confirmer:
+  - BNO6100001
+  - BNO6100008
+  - BNO6100037
+  - BNO6100228
+  - BNO6100341
+  - BNO6100427
+  - BNO6100481
+  - BNO6100516
+  - BNO6100519
+  - BNO6100530
+  - BNO6100533
+  - BNO6100541
+  - BNO6100683
+  - BNO6100684
+  - BNO6100689
+  - BNO6100697
+  - BNO6100704
+  - BNO6100720
+  - BNO6100784
+  - BNO6100835
+  - BNO6100856
+  - BNO6100858
+  - BNO6100862
+  - BNO6100883
+  - BNO6100904
+  - BNO6101000
+  - BNO6101004
+  - BNO6101183
+  - BNO6101268
+  - BNO6101306
+  - BNO6101312
+  - BNO6101317
+  - BNO6101318
+  - BNO6101320
+  - BNO6101324
+  - BNO6101338
+  - BNO6101342
+  - BNO6101345
+  - BNO6101482
+  - BNO6101600
+  - BNO6101947
+  - BNO6102006
+  - BNO6102196
+  - BNO6102198
+
+rejeter:
+  - BNO6100145
+  - BNO6100504
+  - BNO6101359
+  - BNO6101946
+  - BNO6101998
+  - BNO6102035
+  - BNO6102195
+  - "0005302231"
+  - "0005302373"
+  - "0100035653"
+
+maintenir_ambigu:
+  - BNO6100147
+  - BNO6100405
+  - BNO6100828
+  - BNO6101017
+  - BNO6101305
+  - BNO6101311
+  - BNO6101321
+  - "0005302468"

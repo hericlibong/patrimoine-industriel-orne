@@ -430,22 +430,30 @@ Dans DuckDB, `activites_periodes_v1` fournit une ligne par relation entre une
 phase d'activité et une période. Cette table dérivée est adaptée aux comptages
 et aux croisements entre secteurs, productions et périodes.
 
-## Passage au corpus complet par lots
+## Passage au corpus complet
 
 La phase 8 n'assimile jamais les 319 dossiers sources à 319 sites. La recherche
 avancée de l'API POP sur le cadre d'étude exact renvoie 320 notices. La notice
 de présentation `IA61000851` est exclue, ce qui produit 319 références uniques
 et concorde avec le total du portail régional.
 
-Les notices des nouveaux lots sont conservées en JSON brut depuis l'API POP.
+Les notices nouvelles sont conservées en JSON brut depuis l'API POP.
 Le parseur HTML validé pendant les phases 2 et 5 reste une solution de repli.
-Les dossiers sont traités par lots : 30 pilotes, 50 nouveaux dossiers dans le
-lot de calibration, puis quatre lots de 50 et un dernier lot de 39.
+Après le lot de calibration, l'extraction restante est devenue reprenable :
+un manifeste est enregistré après chaque notice. Une interruption ne force pas
+à recommencer les téléchargements.
 
 Une référence IA crée seulement un candidat. Les activités successives peuvent
 rester rattachées à une même emprise. Une fusion de dossiers ou une séparation
 d'emprises exige une décision documentée. Le nombre canonique n'est calculé
 qu'après la revue complète.
+
+La revue canonique compare ensuite chaque paire proposée avec les historiques,
+les exploitants, les adresses et les emprises. Sur les 319 dossiers, les 7
+paires proposées décrivent des sites distincts. `IA61001399` est un dossier de
+synthèse sans emprise : il reste une source mais n'est pas compté comme site.
+Le corpus de l'Inventaire comprend donc **318 sites canoniques**. Chacun reçoit
+un UUID v4 stable, conservé dans `config/phase8_site_ids.yml`.
 
 ### Structure commune intermédiaire
 
@@ -458,3 +466,114 @@ Le contrôle des doublons compare les références, URLs, couples commune-adress
 couples commune-lieu-dit et points sources proches. Il produit uniquement des
 candidats à vérifier. Aucun de ces indices ne fusionne automatiquement deux
 dossiers.
+
+## Enrichissement du corpus complet
+
+Les protections Monuments historiques sont rattachées seulement lorsqu'une
+notice `PA` contient explicitement la référence `IA` du site. Une concordance
+de commune ou de nom ne suffit pas. Quand les deux notices possèdent un point,
+la distance est conservée comme contrôle supplémentaire.
+
+Les objets Palissy sont plus difficiles à relier : les notices `PM` peuvent
+décrire des objets déplacés ou un ensemble mobilier sans lien direct vers le
+dossier industriel. Les 31 associations du pilote sont donc conservées comme
+liens documentaires à vérifier. Aucun nouvel objet n'est rattaché sur la seule
+commune.
+
+CASIAS reste séparé du corpus patrimonial. Un recoupement demande la même
+commune et une concordance spatiale ou textuelle ; les cas limites sont relus.
+Les entrées comportant un vocabulaire industriel mais sans correspondance
+suffisante alimentent une file d'élargissement. Elles ne deviennent pas des
+sites sans vérification patrimoniale.
+
+## Localisation et contexte territorial du corpus complet
+
+Le point fourni par POP est conservé en WGS84 et projeté en Lambert-93. Il est
+qualifié `point_approximatif` tant qu'une emprise ou une adresse n'a pas été
+validée. Un point CASIAS ne remplace jamais ce point. Un site sans coordonnée
+resterait `non_localise` ; aucune coordonnée de commune ne serait inventée.
+
+Les couches IGN sont extraites par tuiles avec une marge correspondant au rayon
+de recherche. Cette méthode limite les requêtes tout en contrôlant qu'aucune
+réponse n'est tronquée. Les couches BRGM couvrent l'enveloppe du corpus.
+Les distances à l'eau, à la forêt, au rail et aux indices minéraux sont des
+indices spatiaux. Elles ne prouvent jamais, sans source historique
+complémentaire, un approvisionnement, une causalité ou un impact.
+
+## Production et validation du corpus complet V1
+
+Le corpus complet est produit depuis le corpus canonique enrichi, jamais depuis
+un export aplati. La production génère deux niveaux complémentaires :
+
+- une table de 318 sites pour la carte, les fiches et les filtres généraux ;
+- une table de 403 activités pour représenter les productions successives sans
+  les fusionner dans une seule valeur.
+
+Les secteurs sont comptés par site et peuvent se cumuler. Les périodes issues
+du champ documentaire `SCLE` restent séparées des périodes calculées depuis une
+chronologie d'activité. Une répartition par période documentaire ne doit donc
+pas être appelée « durée d'activité ».
+
+La situation actuelle est comptée uniquement à partir de la valeur structurée.
+Une notice historique ou une absence de destruction documentée ne permet pas
+de classer un site comme conservé. Les valeurs `inconnu` sont conservées dans
+les exports et intégrées au rapport de qualité.
+
+La validation compare les identifiants et les effectifs du JSON, de DuckDB, des
+deux CSV, des deux Parquet et du GeoJSON. Elle contrôle également la présence
+d'une source pour chaque site et activité, la couverture géographique des 318
+sites et l'intégration de leur contexte territorial. Un écart interrompt la
+production.
+
+## Cadrage des données éditoriales
+
+La matière narrative est organisée en trois niveaux qui ne se remplacent pas :
+
+- les textes historiques et descriptifs issus des notices sont conservés tels
+  quels, avec leur provenance ;
+- le résumé documentaire est une synthèse factuelle dérivée, sourcée et soumise
+  à validation humaine ;
+- la note journalistique contient un angle ou une rédaction signée et validée
+  séparément.
+
+Les textes sources sont reconstruits depuis le corpus canonique. Leur empreinte
+SHA-256 permet de détecter une altération ou une disparition. La production des
+livrables éditoriaux devra échouer si un texte source présent dans le corpus
+n'est pas conservé.
+
+Pour les médias, la sélection éditoriale ne vaut pas autorisation de
+publication. Le statut des droits, l'état d'une demande d'autorisation et
+l'usage permis sont enregistrés séparément. Un prototype strictement interne
+peut employer les métadonnées, les liens, les légendes, les crédits et des
+aperçus distants crédités. Cette règle de travail interne ne constitue pas une
+autorisation de diffusion publique.
+
+### Réintégration de la matière historique
+
+La table `recits_sites` est reconstruite depuis
+`data/processed/corpus_complet_v1.json`. Elle possède exactement une ligne par
+`site_id` et ne modifie pas la table cartographique `sites`.
+
+Les champs `historique_source` et `description_source` sont copiés sans
+réécriture. Leur empreinte SHA-256 est recalculée à chaque production. Une
+absence reste vide et reçoit le statut `absent_source`. Les siècles, les
+périodes documentaires, les périodes calculées depuis les activités, la liste
+complète des activités successives et les références de sources sont
+conservés sous forme structurée.
+
+La concordance des identifiants est vérifiée dans les deux sens entre `sites`
+et `recits_sites`. Un identifiant manquant, supplémentaire ou dupliqué
+interrompt la production.
+
+### Inventaire des médias
+
+Les médias sont inventoriés depuis les métadonnées `MEMOIRE` des notices POP
+archivées. Lorsqu'une archive locale est une page HTML plutôt qu'une réponse
+JSON, les références et URLs d'images visibles dans cette page sont récupérées,
+mais aucune légende, aucun auteur ni aucun crédit ne sont déduits.
+
+La table `medias` relie chaque média à un `site_id` et à une référence `IA`.
+Une même référence peut être associée à plusieurs sites : ces relations sont
+conservées. Un doublon n'est écarté que si toutes les métadonnées sources de la
+même relation sont strictement identiques. Les fichiers images ne sont ni
+téléchargés ni versionnés.

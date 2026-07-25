@@ -1,5 +1,5 @@
-version: 1.0
-decided_at: 2026-07-22
+version: 1.1
+decided_at: 2026-07-23
 corpus_source:
   label: Inventaire du patrimoine industriel de l'Orne
   official_url: https://inventaire-patrimoine.normandie.fr/dossier/IA61000851/corpus
@@ -32,31 +32,37 @@ enumeration:
     - total_319
 
 batches:
-  strategy: traitement_par_lots_apres_pilote
+  strategy: extraction_reprenable_puis_integration_commune
   pilot_count: 30
+  pilot_references_in_official_corpus: 29
+  pilot_reference_outside_official_corpus: IA00061060
   first_new_batch_size: 50
   selection_method: echantillonnage_systematique_sur_references_triees
-  remaining_plan:
-    - {lot: 2, maximum: 50}
-    - {lot: 3, maximum: 50}
-    - {lot: 4, maximum: 50}
-    - {lot: 5, maximum: 50}
-    - {lot: 6, maximum: 39}
+  official_references_after_first_common_corpus: 240
+  correction_note: le_corpus_commun_de_80_ne_couvrait_que_79_references_officielles
 
 rules:
   - une_reference_IA_est_un_dossier_source_et_non_un_site_canonique
-  - un_dossier_collectif_reste_dans_le_corpus_et_doit_etre_decompose_en_revue
+  - un_dossier_collectif_sans_emprise_reste_comme_source_hors_decompte_sites
   - aucun_rapprochement_automatique_ne_fusionne_des_emprises
   - aucune_separation_automatique_ne_cree_des_sites
   - toute_exclusion_fusion_separation_ou_incertitude_est_documentee
-  - le_nombre_canonique_reste_inconnu_avant_revue_de_tous_les_lots
+  - le_nombre_canonique_est_calcule_apres_revue_documentee
+  - un_pilote_hors_enumeration_reste_conserve_hors_du_corpus_principal
 
 progress:
   updated_at: 2026-07-23
   enumerated_references: 319
-  common_corpus_dossiers: 80
-  pilot_dossiers_integrated: 30
+  common_corpus_dossiers: 319
+  pilot_dossiers_integrated: 29
+  pilot_dossiers_kept_outside_main_corpus: 1
   lot1_dossiers_integrated: 50
-  remaining_dossiers: 239
-  common_corpus_file: data/interim/phase8_corpus_80.json
-  canonical_site_count: null
+  remaining_dossiers_integrated: 240
+  remaining_dossiers: 0
+  common_corpus_file: data/interim/phase8_corpus_319.json
+  match_candidates_reviewed: 7
+  match_candidates_rejected_as_distinct: 7
+  collective_sources_outside_site_count: 1
+  canonical_site_count: 318
+  canonical_corpus_file: data/processed/corpus_canonique_phase8_v1.json
+  validated_site_relations: 5

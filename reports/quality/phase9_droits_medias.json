@@ -1,0 +1,23 @@
+{
+  "credits_a_completer": 117,
+  "credits_sources_a_conserver": 1783,
+  "date_validation": "2026-07-24",
+  "decision": "droits_medias_v1_valides",
+  "erreurs": [],
+  "medias": 1900,
+  "medias_droits_inconnus": 117,
+  "medias_droits_proteges": 1783,
+  "medias_necessitant_autorisation": 1900,
+  "publication_autorisee": 0,
+  "registre_demandes": 1888,
+  "registre_demandes_duckdb": 1888,
+  "schema_version": "1.0",
+  "statuts_droits": {
+    "inconnus": 117,
+    "protege": 1783
+  },
+  "usages_actuels": {
+    "prototype_prive": 1783,
+    "reference_interne": 117
+  }
+}

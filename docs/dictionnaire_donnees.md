@@ -1,6 +1,6 @@
-# Dictionnaire des données — version 1.7
+# Dictionnaire des données — version 1.9
 
-Statut : **socle pilote V1 consolidé le 22 juillet 2026**.
+Statut : **extension éditoriale cadrée le 24 juillet 2026**.
 
 Le schéma exécutable de référence est
 `src/patrimoine_orne/model/schema.sql`. Les contrôles qui portent sur plusieurs
@@ -22,9 +22,10 @@ géométrie et la fiabilité de l'information sont trois champs indépendants.
 
 ## Référentiel des classifications V1
 
-Le registre `config/classifications.yml` version 1.3 est la source canonique des
-182 codes publiés. Le dictionnaire en fixe ici le sens ; les libellés exhaustifs
-des 45 activités détaillées et des 33 installations restent dans le registre.
+Le registre `config/classifications.yml` version 1.4 et ses 196 codes publiés
+est la source canonique.
+Le dictionnaire en fixe ici le sens ; les libellés exhaustifs des 54 activités
+détaillées et des 38 installations restent dans le registre.
 
 ### Secteurs industriels
 
@@ -46,19 +47,35 @@ Le secteur qualifie une phase d'activité, jamais directement le site. Les
 activités, installations, énergies et rôles énergétiques sont quatre
 vocabulaires distincts.
 
-### Corpus intermédiaire de phase 8
+### Corpus source complet de phase 8
 
-`phase8_corpus_80.json` utilise le dossier source comme unité temporaire.
+`phase8_corpus_319.json` utilise le dossier source comme unité temporaire.
 `dossier_id` et `dossier_reference` contiennent la référence `IA`. `site_id`
 contient l'identifiant interne lorsqu'il a déjà été attribué ; sa valeur nulle
 sur les nouveaux dossiers signifie « pas encore attribué » et non « site sans
 identité ».
 
-`origine` distingue `pilote_30` et `phase8_lot1_50`.
+`origine` distingue `pilote_30`, `phase8_lot1_50` et
+`phase8_restant_officiel`.
 `statut_traitement` distingue les pilotes enrichis des dossiers seulement
 structurés et classés. `nombre_sites_provisoire` vaut un tant qu'aucune fusion
 ou séparation n'est décidée. Cette valeur ne doit pas être additionnée comme
 un total définitif du département.
+
+`type_dossier_source` conserve la distinction entre dossier individuel et
+dossier collectif. `composants_non_productifs_source` conserve les
+dénominations patrimoniales qui ne sont pas des productions, par exemple une
+cité ouvrière, une ferme ou un haras. Ces composants ne créent pas de fausse
+activité ; ils sont reliés ultérieurement au site industriel concerné.
+
+Le corpus principal contient exactement les 319 références de l'énumération
+officielle. Le pilote `IA00061060`, absent de cette énumération actuelle, reste
+conservé dans le corpus pilote enrichi mais n'est pas compté dans les 319.
+
+Après revue, `corpus_canonique_phase8_v1.json` contient 318 sites. Chaque
+`site_id` est un UUID v4 attribué une seule fois et conservé dans
+`config/phase8_site_ids.yml`. Le dossier de synthèse `IA61001399` reste dans
+les sources mais ne reçoit pas de `site_id`, car il ne décrit aucune emprise.
 
 ### Périodes historiques
 
@@ -504,3 +521,129 @@ ne fusionne jamais les sites automatiquement.
 
 Une proposition ouverte conserve deux sites distincts. Une confirmation désigne
 l'un des deux comme canonique ; un rejet conserve définitivement les deux sites.
+
+## Table `recits_sites`
+
+Une ligne représente le dossier éditorial d'un site. Cette table sépare les
+textes patrimoniaux d'origine, les résumés documentaires et les futurs textes
+journalistiques.
+
+| Champ | Type conceptuel | Description |
+|---|---|---|
+| `site_id` | UUID | Clé primaire et clé étrangère vers `sites` |
+| `reference_ia` | texte | Référence de la notice principale |
+| `titre_source` | texte nullable | Titre fourni par la source |
+| `historique_source` | texte nullable | Historique reproduit sans réécriture |
+| `historique_source_statut_code` | code | Renseigné, absent, illisible ou à vérifier |
+| `historique_source_sha256` | texte nullable | Empreinte de contrôle du texte historique |
+| `description_source` | texte nullable | Description reproduite sans réécriture |
+| `description_source_statut_code` | code | Renseignée, absente, illisible ou à vérifier |
+| `description_source_sha256` | texte nullable | Empreinte de contrôle de la description |
+| `siecles_source` | JSON nullable | Siècles explicitement mentionnés par la source |
+| `periodes_source_codes` | JSON | Périodes documentaires structurées |
+| `periodes_activite_codes` | JSON | Périodes calculées depuis les activités datées |
+| `activites_successives` | JSON | Repères sur les activités successives |
+| `source_id` | identifiant | Source du texte patrimonial |
+| `source_reference` | texte | Référence exacte dans la source |
+| `source_url` | URL | Adresse de la notice source |
+| `date_consultation_source` | date | Date de consultation |
+| `references_sources` | JSON | Ensemble des références rattachées au site |
+| `resume_documentaire` | texte nullable | Synthèse factuelle dérivée |
+| `resume_documentaire_statut_code` | code | État de production et de relecture |
+| `resume_documentaire_sources` | JSON | Références utilisées pour la synthèse |
+| `resume_documentaire_auteur` | texte nullable | Auteur ou mode de production |
+| `resume_documentaire_valide_le` | date nullable | Date de validation humaine |
+| `note_journalistique` | texte nullable | Angle, piste ou rédaction journalistique |
+| `note_journalistique_statut_code` | code | État de production et de validation |
+| `note_journalistique_auteur` | texte nullable | Auteur de la note |
+| `selection_texte_code` | code | Décision de sélection éditoriale |
+| `besoin_recherche_complementaire` | booléen | Besoin d'enquête ou de source supplémentaire |
+| `notes_editoriales` | texte nullable | Notes de travail internes |
+
+Les champs sources sont immuables. Un résumé ou une note ne peut jamais être
+enregistré dans `historique_source` ou `description_source`.
+
+## Table `medias`
+
+Une ligne représente le rattachement d'un média à un site. `media_id` identifie
+le média source ; `media_site_id` identifie la relation avec le site.
+
+| Champ | Type conceptuel | Description |
+|---|---|---|
+| `media_site_id` | UUID | Clé primaire de la relation |
+| `media_id` | UUID | Identifiant stable du média |
+| `site_id` | UUID | Clé étrangère vers `sites` |
+| `reference_ia` | texte | Référence de la notice liée |
+| `source_id` | identifiant | Base ou organisme source |
+| `media_reference` | texte | Référence du média dans la source |
+| `type_media_code` | code | Photographie, plan, dessin ou autre type |
+| `url_media` | URL | Adresse du média ou de son aperçu |
+| `url_fichier_source` | URL nullable | Chemin ou URL brute fournie par POP pour le fichier |
+| `url_notice_source` | URL | Adresse de la notice qui le décrit |
+| `legende_source` | texte nullable | Légende fournie par la source |
+| `auteur_source` | texte nullable | Auteur indiqué |
+| `credit_source` | texte nullable | Crédit à conserver |
+| `mention_droits_source` | texte nullable | Mention de droits d'origine |
+| `image_principale_source` | booléen | Indique l'image principale de la notice |
+| `metadonnees_source` | JSON | Métadonnées brutes fournies par la notice |
+| `selection_media_code` | code | Décision de sélection éditoriale |
+| `statut_droits_code` | code | Situation juridique documentée |
+| `statut_autorisation_code` | code | État d'une éventuelle demande |
+| `usage_media_code` | code | Usage actuellement permis dans le projet |
+| `licence_nom` | texte nullable | Nom de la licence |
+| `licence_url` | URL nullable | Texte officiel de la licence |
+| `preuve_droits_url` | URL nullable | Preuve ou justification de l'usage |
+| `autorisation_demandee_le` | date nullable | Date de la demande |
+| `autorisation_repondue_le` | date nullable | Date de la réponse |
+| `autorisation_expire_le` | date nullable | Date d'expiration éventuelle |
+| `conditions_autorisation` | texte nullable | Conditions imposées |
+| `date_consultation` | date | Date de consultation des métadonnées |
+| `chemin_local` | texte nullable | Fichier de travail non versionné |
+| `fichier_sha256` | texte nullable | Empreinte du fichier local |
+
+La sélection éditoriale, les droits, l'autorisation et l'usage sont quatre
+informations distinctes. Un média retenu éditorialement n'est donc pas
+automatiquement publiable.
+
+## Table `demandes_autorisation_medias`
+
+Une ligne représente un média source unique à suivre avant sa publication. La
+table ne constitue pas une autorisation : elle sert à préparer puis conserver
+la trace d'une demande et de sa réponse.
+
+| Champ | Type conceptuel | Description |
+|---|---|---|
+| `demande_autorisation_id` | UUID | Identifiant stable de la demande |
+| `media_id` | UUID | Média source concerné |
+| `source_id`, `media_reference` | identifiant | Source et référence à rappeler au contact |
+| `site_ids`, `references_ia` | JSON | Sites et notices concernés par ce média |
+| `statut_droits_code` | code | Situation documentée, sans inférence |
+| `statut_autorisation_code` | code | État de la demande |
+| `publication_publique_code` | code | `non_autorisee` tant que la preuve manque |
+| `contact_propose` | texte | Contact à vérifier ou service à solliciter |
+| `credit_a_conserver` | texte | Crédit source, ou mention explicite à compléter |
+| `preuve_droits_url` | URL | Page des conditions ou preuve recueillie |
+| dates et conditions | texte/date nullable | Envoi, réponse, échéance et conditions acceptées |
+
+Le registre V1 contient 1 888 lignes, une par média distinct. Il ne déclenche
+aucun envoi de courriel et ne remplace pas une licence ou une autorisation.
+
+## Table `revue_editoriale_sites`
+
+Une ligne par site pour préparer la revue journalistique. Les scores indiquent
+la couverture de la matière disponible, pas l'importance patrimoniale du site.
+Tous les sites entrent au statut `a_examiner` : aucune sélection n'est décidée
+par le calcul.
+
+| Champ | Type conceptuel | Description |
+|---|---|---|
+| `site_id`, `reference_ia`, `nom_site` | identifiant/texte | Identité du site relu |
+| `historique_*`, `description_*` | booléen/entier | Présence et longueur des textes sources |
+| `siecles_nombre`, `periodes_*`, `activites_successives_nombre` | entier | Repères chronologiques disponibles |
+| `richesse_historique_score`, `richesse_historique_code` | entier/code | Couverture historique de 0 à 6 |
+| `medias_*_nombre` | entier | Nombre, crédits, légendes et marqueurs principaux |
+| `richesse_iconographique_score`, `richesse_iconographique_code` | entier/code | Couverture iconographique de 0 à 5 |
+| `media_principal_candidat_*` | texte/URL/code | Candidat à revoir, sans validation ni droit déduit |
+| `combinaison_editoriale_code` | code | Matière prête à examiner ou partielle |
+| `besoin_recherche_*`, `motifs_recherche` | booléen/JSON | Lacunes à traiter ultérieurement |
+| `statut_revue_code` | code | Décision humaine à venir |

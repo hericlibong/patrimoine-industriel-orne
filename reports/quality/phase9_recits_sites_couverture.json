@@ -1,0 +1,22 @@
+{
+  "couverture": {
+    "description_absente_source": 61,
+    "description_couverture_pourcent": 80.8,
+    "description_renseignee": 257,
+    "description_seule": 1,
+    "historique_absent_source": 4,
+    "historique_couverture_pourcent": 98.7,
+    "historique_et_description": 256,
+    "historique_renseigne": 314,
+    "historique_seul": 58,
+    "ni_historique_ni_description": 3
+  },
+  "date_validation": "2026-07-24",
+  "decision": "recits_sites_v1_valide",
+  "erreurs": [],
+  "identifiants_concordants": true,
+  "lignes_duckdb": 318,
+  "lignes_recits_sites": 318,
+  "schema_version": "1.0",
+  "sites_corpus": 318
+}

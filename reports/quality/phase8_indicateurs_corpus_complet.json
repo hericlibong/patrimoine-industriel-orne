@@ -1,0 +1,212 @@
+{
+  "chronologie": {
+    "activites_avec_periode_datee": 42,
+    "note": "Les périodes source datent les constructions ou transformations ; elles ne prouvent pas toute la durée de production.",
+    "periodes_activite_datees": [
+      {
+        "code": "industrialisation_rail_vapeur",
+        "libelle": "1850-1913 — Industrialisation, rail et vapeur",
+        "nombre_sites": 21,
+        "part_sites_pourcent": 6.6
+      },
+      {
+        "code": "guerres_entre_deux_guerres",
+        "libelle": "1914-1945 — Guerres et entre-deux-guerres",
+        "nombre_sites": 17,
+        "part_sites_pourcent": 5.3
+      },
+      {
+        "code": "revolution_premiere_industrialisation",
+        "libelle": "1789-1849 — Révolution et première industrialisation",
+        "nombre_sites": 14,
+        "part_sites_pourcent": 4.4
+      },
+      {
+        "code": "modernisation_apres_guerre",
+        "libelle": "1946-1975 — Modernisation d'après-guerre",
+        "nombre_sites": 10,
+        "part_sites_pourcent": 3.1
+      },
+      {
+        "code": "avant_1789",
+        "libelle": "Avant 1789",
+        "nombre_sites": 7,
+        "part_sites_pourcent": 2.2
+      },
+      {
+        "code": "mutations_reconversions",
+        "libelle": "1976-2000 — Mutations et reconversions",
+        "nombre_sites": 3,
+        "part_sites_pourcent": 0.9
+      }
+    ],
+    "periodes_source_site": [
+      {
+        "code": "industrialisation_rail_vapeur",
+        "libelle": "1850-1913 — Industrialisation, rail et vapeur",
+        "nombre_sites": 242,
+        "part_sites_pourcent": 76.1
+      },
+      {
+        "code": "guerres_entre_deux_guerres",
+        "libelle": "1914-1945 — Guerres et entre-deux-guerres",
+        "nombre_sites": 108,
+        "part_sites_pourcent": 34.0
+      },
+      {
+        "code": "revolution_premiere_industrialisation",
+        "libelle": "1789-1849 — Révolution et première industrialisation",
+        "nombre_sites": 107,
+        "part_sites_pourcent": 33.6
+      },
+      {
+        "code": "modernisation_apres_guerre",
+        "libelle": "1946-1975 — Modernisation d'après-guerre",
+        "nombre_sites": 92,
+        "part_sites_pourcent": 28.9
+      },
+      {
+        "code": "avant_1789",
+        "libelle": "Avant 1789",
+        "nombre_sites": 56,
+        "part_sites_pourcent": 17.6
+      },
+      {
+        "code": "mutations_reconversions",
+        "libelle": "1976-2000 — Mutations et reconversions",
+        "nombre_sites": 7,
+        "part_sites_pourcent": 2.2
+      }
+    ],
+    "sites_avec_periode_activite_datee": 29,
+    "sites_avec_periode_source": 318
+  },
+  "contexte_territorial": {
+    "cours_eau": {
+      "moins_100_m": 110,
+      "moins_2500_m": 21,
+      "moins_25_m": 103,
+      "moins_500_m": 84
+    },
+    "foret": {
+      "dans_formation": 12,
+      "moins_100_m": 151,
+      "moins_2500_m": 25,
+      "moins_500_m": 130
+    },
+    "note": "La proximité est un indice spatial, jamais une causalité prouvée.",
+    "rail": {
+      "hors_rayon_de_recherche": 149,
+      "moins_100_m": 10,
+      "moins_2_km": 55,
+      "moins_500_m": 62,
+      "moins_5_km": 42
+    },
+    "ressource_minerale": {
+      "hors_rayon_de_recherche": 103,
+      "moins_10_km": 118,
+      "moins_1_km": 13,
+      "moins_5_km": 84
+    }
+  },
+  "date_calcul": "2026-07-24",
+  "localisation": {
+    "precision": {
+      "point_approximatif": 290,
+      "zone_documentaire": 28
+    },
+    "sites_localises": 318
+  },
+  "population": {
+    "activites": 403,
+    "composants_non_productifs": 4,
+    "dossiers_sources": 319,
+    "sites_canoniques": 318,
+    "sites_multi_activites": 73,
+    "sites_multi_secteurs": 34,
+    "sites_productifs": 314
+  },
+  "protections_objets_recoupements": {
+    "objets_palissy": 31,
+    "protections_mh": 16,
+    "recoupements_casias": 131,
+    "sites_proteges_mh": 16,
+    "sites_recoupes_casias": 123
+  },
+  "schema_version": "1.0",
+  "secteurs": [
+    {
+      "code": "agroalimentaire",
+      "libelle": "Agroalimentaire",
+      "nombre_sites": 113,
+      "part_sites_pourcent": 35.5
+    },
+    {
+      "code": "metallurgie_travail_metaux",
+      "libelle": "Métallurgie et travail des métaux",
+      "nombre_sites": 79,
+      "part_sites_pourcent": 24.8
+    },
+    {
+      "code": "textile_habillement_cuir",
+      "libelle": "Textile, habillement et cuir",
+      "nombre_sites": 76,
+      "part_sites_pourcent": 23.9
+    },
+    {
+      "code": "bois_papier_imprimerie",
+      "libelle": "Bois, papier et imprimerie",
+      "nombre_sites": 32,
+      "part_sites_pourcent": 10.1
+    },
+    {
+      "code": "verre_ceramique_materiaux_construction",
+      "libelle": "Verre, céramique et matériaux de construction",
+      "nombre_sites": 27,
+      "part_sites_pourcent": 8.5
+    },
+    {
+      "code": "mecanique_electrique",
+      "libelle": "Construction mécanique et électrique",
+      "nombre_sites": 10,
+      "part_sites_pourcent": 3.1
+    },
+    {
+      "code": "extraction",
+      "libelle": "Extraction",
+      "nombre_sites": 9,
+      "part_sites_pourcent": 2.8
+    },
+    {
+      "code": "energie",
+      "libelle": "Production d'énergie",
+      "nombre_sites": 6,
+      "part_sites_pourcent": 1.9
+    },
+    {
+      "code": "chimie_caoutchouc_plastiques",
+      "libelle": "Chimie, caoutchouc et plastiques",
+      "nombre_sites": 3,
+      "part_sites_pourcent": 0.9
+    }
+  ],
+  "situation_actuelle": {
+    "accessibilite": {
+      "inconnu": 316,
+      "partiellement_visitable": 1,
+      "visitable": 1
+    },
+    "conservation": {
+      "conserve": 1,
+      "inconnu": 315,
+      "partiellement_conserve": 2
+    },
+    "situations_documentees_par_source_recente": 4,
+    "usages": {
+      "activite_industrielle": 2,
+      "culture_musee": 2,
+      "inconnu": 315,
+      "tourisme_visite": 2
+    }
+  }
+}

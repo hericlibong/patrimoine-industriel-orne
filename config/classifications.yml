@@ -1,8 +1,8 @@
 # Registre V1 validé à la clôture de la phase 4. Toute modification ultérieure
 # doit changer la version et être inscrite dans le journal des décisions.
-version: "1.3"
+version: "1.4"
 status: phase8_corpus
-updated_at: 2026-07-22
+updated_at: 2026-07-23
 
 secteurs:
   extraction:
@@ -168,11 +168,26 @@ activites_detaillees:
   transformation_viande:
     libelle: Abattage et transformation de viande
     secteur_code: agroalimentaire
+  fabrication_chocolat:
+    libelle: Fabrication de chocolat
+    secteur_code: agroalimentaire
+  fabrication_boulangerie:
+    libelle: Fabrication industrielle de produits de boulangerie
+    secteur_code: agroalimentaire
+  transformation_agroalimentaire:
+    libelle: Transformation agroalimentaire non précisée
+    secteur_code: agroalimentaire
   production_hydroelectricite:
     libelle: Production hydroélectrique
     secteur_code: energie
   production_thermoelectricite:
     libelle: Production thermoélectrique
+    secteur_code: energie
+  production_electricite:
+    libelle: Production d'électricité non précisée
+    secteur_code: energie
+  production_gaz:
+    libelle: Production et distribution de gaz
     secteur_code: energie
   fabrication_produits_chimiques:
     libelle: Fabrication de produits chimiques
@@ -180,12 +195,24 @@ activites_detaillees:
   fabrication_caoutchouc:
     libelle: Fabrication de produits en caoutchouc
     secteur_code: chimie_caoutchouc_plastiques
+  fabrication_bougies:
+    libelle: Fabrication de bougies
+    secteur_code: chimie_caoutchouc_plastiques
+  fabrication_produits_amiante:
+    libelle: Fabrication de produits en amiante
+    secteur_code: verre_ceramique_materiaux_construction
+  ennoblissement_textile:
+    libelle: Blanchiment, teinture et ennoblissement textile
+    secteur_code: textile_habillement_cuir
   construction_mecanique:
     libelle: Construction mécanique
     secteur_code: mecanique_electrique
   fabrication_materiel_electrique:
     libelle: Fabrication de matériel électrique
     secteur_code: mecanique_electrique
+  activite_industrielle_indeterminee:
+    libelle: Activité industrielle non déterminée
+    secteur_code: inconnu
 
 types_installations:
   mine: {libelle: Mine}
@@ -221,6 +248,11 @@ types_installations:
   centrale_hydroelectrique: {libelle: Centrale hydroélectrique}
   centrale_thermique: {libelle: Centrale thermique}
   complexe_industriel: {libelle: Complexe industriel}
+  abattoir: {libelle: Abattoir}
+  chocolaterie: {libelle: Chocolaterie}
+  tonnellerie: {libelle: Tonnellerie}
+  centrale_electrique: {libelle: Centrale électrique}
+  usine_gaz: {libelle: Usine à gaz}
 
 energies:
   hydraulique: {libelle: Énergie hydraulique}
@@ -291,6 +323,42 @@ correspondances_sources:
   - {terme: usine de pâte à papier, activite_code: fabrication_papier, installation_code: usine}
   - {terme: usine de serrurerie, activite_code: fabrication_quincaillerie, installation_code: usine}
   - {terme: usine liée au travail du bois, activite_code: travail_bois, installation_code: usine}
+  - {terme: abattoir, activite_code: transformation_viande, installation_code: abattoir}
+  - {terme: centrale électrique, activite_code: production_electricite, installation_code: centrale_electrique}
+  - {terme: chocolaterie, activite_code: fabrication_chocolat, installation_code: chocolaterie}
+  - {terme: ensemble d'industrie extractive, activite_code: extraction_miniere, installation_code: complexe_industriel}
+  - {terme: mine, activite_code: extraction_miniere, installation_code: mine}
+  - {terme: moulin, activite_code: activite_industrielle_indeterminee, installation_code: moulin}
+  - {terme: tonnellerie, activite_code: travail_bois, installation_code: tonnellerie}
+  - {terme: usine d'appareils de levage et de manutention, activite_code: construction_mecanique, installation_code: usine}
+  - {terme: usine d'articles en caoutchouc, activite_code: fabrication_caoutchouc, installation_code: usine}
+  - {terme: usine d'ouvrages en amiante, activite_code: fabrication_produits_amiante, installation_code: usine}
+  - {terme: usine d'ébénisterie, activite_code: travail_bois, installation_code: usine}
+  - {terme: usine de blanchiment, activite_code: ennoblissement_textile, installation_code: usine}
+  - {terme: usine de boissellerie, activite_code: travail_bois, installation_code: usine}
+  - {terme: usine de bonneterie, activite_code: bonneterie, installation_code: usine}
+  - {terme: usine de bougies, activite_code: fabrication_bougies, installation_code: usine}
+  - {terme: usine de boulangerie, activite_code: fabrication_boulangerie, installation_code: usine}
+  - {terme: usine de chaudronnerie, activite_code: fabrication_metaux, installation_code: usine}
+  - {terme: usine de chaux, activite_code: fabrication_chaux_ciment, installation_code: usine}
+  - {terme: usine de céramique, activite_code: fabrication_ceramique, installation_code: usine}
+  - {terme: usine de fibre de bois, activite_code: travail_bois, installation_code: usine}
+  - {terme: usine de flaconnage, activite_code: fabrication_verre, installation_code: usine}
+  - {terme: usine de matériel électroacoustique, activite_code: fabrication_materiel_electrique, installation_code: usine}
+  - {terme: usine de petite métallurgie, activite_code: fabrication_metaux, installation_code: usine}
+  - {terme: usine de produits agro-alimentaires, activite_code: transformation_agroalimentaire, installation_code: usine}
+  - {terme: usine de produits chimiques, activite_code: fabrication_produits_chimiques, installation_code: usine}
+  - {terme: usine de teinturerie, activite_code: ennoblissement_textile, installation_code: usine}
+  - {terme: usine de transformation des métaux, activite_code: fabrication_metaux, installation_code: usine}
+  - {terme: usine à gaz, activite_code: production_gaz, installation_code: usine_gaz}
+  - {terme: usine à papier, activite_code: fabrication_papier, installation_code: papeterie}
+
+termes_hors_activite:
+  - {terme: cité ouvrière, nature: logement_ouvrier}
+  - {terme: collège, nature: equipement_enseignement}
+  - {terme: édifice sportif, nature: equipement_sportif}
+  - {terme: ferme, nature: composant_agricole}
+  - {terme: haras, nature: composant_agricole}
 
 correspondances_energies_sources:
   - {terme: énergie hydraulique, energie_code: hydraulique}
@@ -301,6 +369,8 @@ correspondances_energies_sources:
 
 termes_hors_energie:
   - {terme: roue hydraulique verticale, nature: equipement_technique}
+  - {terme: moteur thermique à combustion interne, nature: equipement_technique}
+  - {terme: turbine hydraulique, nature: equipement_technique}
 
 regles_affectation_secteurs:
   unite_classee: activite

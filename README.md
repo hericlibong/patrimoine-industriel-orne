@@ -9,17 +9,33 @@ reproductible.
 
 ## État du projet
 
-**Phases 0 à 7 terminées — phase 8 en cours par lots.**
+**Phases 0 à 8 terminées — corpus complet V1 validé.**
 
 Le socle pilote V1 est approuvé. Il comprend 30 sites et 47 phases d'activité
 avec des périodes filtrables, disponibles en DuckDB, CSV, Parquet et GeoJSON.
-Les 319 références ont été énumérées par l'API POP. Les 30 pilotes et le premier
-lot de 50 dossiers sont réunis dans un corpus intermédiaire commun de 80
-dossiers ; 239 dossiers restent à traiter avant d'établir le nombre
-départemental de sites.
+Les 319 références officielles ont été récupérées, harmonisées, enrichies et
+validées. Elles correspondent à **318 sites canoniques** et 403 activités
+structurées. Le seul
+dossier hors décompte est la synthèse sans emprise `IA61001399` ; ses quinze
+fromageries individuelles sont déjà présentes. Les 7 rapprochements possibles
+ont été rejetés comme sites distincts et les 318 sites possèdent un UUID stable.
+Les 318 sites sont cartographiables avec un niveau de précision explicite. Le
+corpus complet est disponible en JSON, DuckDB, CSV, Parquet et GeoJSON.
 
 Le suivi détaillé est maintenu localement dans `docs/roadmap.md`, qui n'est pas
 versionné.
+
+La phase 9 est en cours. La matière historique des 318 sites est désormais
+disponible dans `recits_sites_v1.csv`, `recits_sites_v1.parquet` et dans la
+table `recits_sites` de la base DuckDB du corpus complet.
+
+Les métadonnées de 1 900 relations média-site sont disponibles dans
+`medias_sites_v1.csv`, `medias_sites_v1.parquet` et dans la table `medias`.
+Elles sont qualifiées pour un usage interne ou privé ; aucune image n'est
+publiée automatiquement. Le registre de suivi contient 1 888 médias distincts.
+
+La table `revue_editoriale_sites` prépare la sélection humaine : elle mesure la
+matière historique et iconographique, sans imposer de récit ni valider d'image.
 
 ## Documents de référence
 
@@ -28,6 +44,7 @@ versionné.
 - [Méthodologie](docs/methodologie.md)
 - [Conventions d'extraction](docs/conventions_extraction.md)
 - [Dictionnaire des données](docs/dictionnaire_donnees.md)
+- [Modèle éditorial des textes et médias](docs/modele_editorial.md)
 - [Registre consolidé des sources](docs/registre_sources.md)
 - [Limites éditoriales](docs/limites_editoriales.md)
 - [Licences des données et droits des images](docs/licences_droits_images.md)
@@ -47,6 +64,7 @@ versionné.
 - [Périmètre opérationnel](config/perimetre.yml)
 - [Méthodes d'extraction validées](config/extraction.yml)
 - [Règles structurelles du modèle](config/regles_modele.yml)
+- [Règles éditoriales des textes et médias](config/editorial.yml)
 - [Validation du modèle V1](reports/quality/phase3_validation_modele.md)
 - [Test des secteurs sur l'échantillon](reports/quality/phase4_test_secteurs.md)
 - [Test de la chronologie et de la situation actuelle](reports/quality/phase4_chronologie_situation.md)
@@ -65,6 +83,69 @@ versionné.
 - [Évaluation de l'extraction complète](reports/quality/phase7_evaluation_extraction_complete.md)
 - [Première carte interne](reports/maps/carte_pilote_interne.png)
 - [Projet QGIS de contrôle](qgis/controle_phase6.qgs)
+- [Validation du corpus complet V1](reports/quality/phase8_validation_corpus_complet.md)
+- [Indicateurs du corpus complet](reports/quality/phase8_indicateurs_corpus_complet.json)
+- [Limites restantes du corpus complet](reports/quality/phase8_anomalies_restantes.csv)
+- [Couverture de la matière historique](reports/quality/phase9_recits_sites_couverture.md)
+- [Inventaire des médias](reports/quality/phase9_medias_sites_inventaire.md)
+- [Qualification des droits et usages](reports/quality/phase9_droits_medias.md)
+- [Revue éditoriale des sites](reports/quality/phase9_revue_editoriale.md)
+
+## Produire le corpus complet V1
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m patrimoine_orne.export.corpus_complet_v1
+```
+
+Cette commande recalcule les indicateurs, produit les exports complets et
+interrompt la validation si les effectifs ou identifiants divergent entre
+JSON, DuckDB, CSV, Parquet et GeoJSON.
+
+## Produire les récits de sites V1
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m patrimoine_orne.export.editorial_v1
+```
+
+Cette commande produit les exports éditoriaux CSV et Parquet, ajoute la table
+`recits_sites` à la base DuckDB du corpus complet et vérifie la concordance des
+318 identifiants.
+
+## Produire l'inventaire des médias V1
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m patrimoine_orne.export.medias_v1
+```
+
+Cette commande inventorie les métadonnées médias sans télécharger les images,
+produit les exports CSV et Parquet, ajoute la table `medias` à DuckDB et liste
+les notices sans média exploitable.
+
+## Qualifier les droits des médias V1
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m patrimoine_orne.export.qualifier_medias_v1
+```
+
+Cette commande met à jour les statuts d'usage sans déduire d'autorisation,
+produit le registre `registre_autorisations_medias_v1.csv` et ajoute
+`demandes_autorisation_medias` à DuckDB. Elle ne télécharge aucune image et
+n'envoie aucune demande.
+
+## Produire la revue éditoriale V1
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m patrimoine_orne.export.revue_editoriale_v1
+```
+
+Cette commande produit `revue_editoriale_sites_v1.csv`, son Parquet et sa table
+DuckDB. Elle propose des médias à examiner sans les sélectionner ni les rendre
+publiables.
 
 ## Produire le socle pilote V1
 

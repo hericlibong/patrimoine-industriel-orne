@@ -1,0 +1,8 @@
+reference_1,reference_2,origines,motifs,distance_m,decision
+IA00060967,IA00061034,phase8_restant_officiel,meme_lieu_dit_normalise,233.9,a_verifier
+IA00060978,IA00060979,phase8_restant_officiel,meme_lieu_dit_normalise,176.1,a_verifier
+IA00060986,IA00060998,phase8_restant_officiel,meme_adresse_normalisee,93.8,a_verifier
+IA00061037,IA00061038,phase8_lot1_50 | phase8_restant_officiel,meme_lieu_dit_normalise,81.0,a_verifier
+IA00061078,IA00061079,phase8_restant_officiel,points_sources_a_moins_de_50_m,38.1,a_verifier
+IA00061147,IA00061159,phase8_restant_officiel | pilote_30,meme_lieu_dit_normalise,296.7,a_verifier
+IA00061187,IA00061188,phase8_restant_officiel,meme_lieu_dit_normalise,76.8,a_verifier

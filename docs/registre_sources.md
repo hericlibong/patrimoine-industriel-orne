@@ -1,13 +1,14 @@
-# Registre consolidé des sources — phase 8
+# Registre consolidé des sources — phases 8 et 9
 
-Version : 1.2 — 22 juillet 2026
+Version : 1.4 — 24 juillet 2026
 
 La source canonique lisible par les traitements est `config/sources.yml`. Le
 fichier `reports/audits/registre_sources.csv` conserve l'état de l'audit initial
 de phase 1 ; il ne doit plus être utilisé comme registre opérationnel, car les
 produits géographiques réellement testés ont été précisés pendant la phase 6.
 La version 1.2 ajoute l'API JSON publique de POP comme accès principal aux
-notices Mérimée de l'Inventaire pendant la phase 8.
+notices Mérimée de l'Inventaire. La version 1.3 consigne les extractions et
+rapprochements du corpus complet.
 
 ## Sources effectivement mobilisées dans le pilote
 
@@ -34,11 +35,21 @@ notices Mérimée de l'Inventaire pendant la phase 8.
 
 | Source | Rôle prévu | État |
 |---|---|---|
-| CASIAS | recoupement et élargissement raisonné | 2 052 entrées de l'Orne ; aucun rapprochement automatique au pilote |
+| CASIAS | recoupement et élargissement raisonné | 2 052 entrées ; 131 recoupements sur 123 sites ; 170 candidats d'élargissement hors corpus |
 | IGN — catalogue générique | accès aux produits géographiques | produit, couche, millésime et licence à enregistrer à chaque extraction |
 | BD Forêts anciennes | contexte historique vers 1850 | non intégrée au socle pilote |
 | Gallica | cartes, presse et documents numérisés | recherche manuelle future ; droits à vérifier par document |
 | Sources touristiques locales génériques | accessibilité et information pratique | source volatile, à dater systématiquement |
+
+## Résultats sur le corpus complet
+
+| Source | Extraction | Résultat retenu |
+|---|---:|---:|
+| POP — Mérimée | 2 346 notices de l'Orne, dont 410 `PA` | 16 protections reliées par référence `IA` explicite |
+| POP — Palissy | 5 066 notices, dont 3 343 `PM` | 31 objets documentaires conservés, encore à vérifier |
+| CASIAS | 2 052 entrées | 131 recoupements sur 123 sites ; 8 ambiguïtés restantes |
+| IGN — hydrographie, forêt, rail | 129 tuiles archivées | contexte calculé pour 318 sites |
+| BRGM — lithologie, mines, gîtes | 3 extractions couvrant le corpus | contexte calculé pour 318 sites |
 
 ## Règles opérationnelles
 
@@ -67,3 +78,15 @@ notices Mérimée de l'Inventaire pendant la phase 8.
 
 Le détail des droits et les liens vers les conditions officielles sont repris
 dans `docs/licences_droits_images.md`.
+
+## Ajout phase 9 — POP Mémoire
+
+POP Mémoire est désormais une source explicite du projet. L'inventaire couvre
+les métadonnées `MEMOIRE` liées aux 318 notices `IA` : 1 900 relations
+média-site pour 316 sites. Deux notices ne proposent aucun média exploitable.
+
+Les relations conservent la référence Mémoire, la notice POP correspondante, le
+chemin ou l'URL du fichier source, la légende, le crédit, la mention de droits
+et le marqueur d'image principale lorsqu'ils sont présents. Les droits de
+publication restent à vérifier média par média ; aucun fichier image n'est
+téléchargé ou versionné.

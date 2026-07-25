@@ -1,0 +1,54 @@
+{
+  "ambiguities_a_verifier": 8,
+  "casias": {
+    "ambiguities_restantes": 8,
+    "candidats_elargissement_non_integres": 170,
+    "candidats_soumis_a_revue": 62,
+    "entrees_examinees": 2052,
+    "recoupements_confirmes": 131,
+    "revue_manuelle": {
+      "confirme_apres_revue": 44,
+      "maintenu_ambigu_apres_revue": 8,
+      "rejete_apres_revue": 10
+    },
+    "sites_recoupes": 123
+  },
+  "corpus": {
+    "sites": 318,
+    "sites_localises": 318,
+    "sites_non_localises": 0
+  },
+  "generated_at": "2026-07-23",
+  "localisation": {
+    "coordonnees_dupliquees": 0,
+    "localises": 318,
+    "non_localises": 0,
+    "points_approximatifs": 290,
+    "sites": 318
+  },
+  "monuments_historiques": {
+    "notices_PA_dans_extraction": 410,
+    "protections_avec_points_concordants_a_250_m": 11,
+    "protections_confirmees": 16,
+    "regle": "référence IA explicite dans la notice PA",
+    "sites_proteges": 16
+  },
+  "palissy": {
+    "candidats_supplementaires_non_rattaches": 0,
+    "notices_PM_dans_extraction": 3343,
+    "objets_documentaires_conserves": 31
+  },
+  "principes": [
+    "aucun rapprochement seulement communal n'est confirmé",
+    "aucune coordonnée CASIAS ne remplace la coordonnée patrimoniale",
+    "aucun candidat CASIAS d'élargissement n'est ajouté aux 318 sites",
+    "les coordonnées POP restent qualifiées d'approximatives"
+  ],
+  "schema_version": "1.0",
+  "sources_extraites": {
+    "casias": 2052,
+    "monuments_historiques": 2346,
+    "pop_palissy": 5066
+  },
+  "status": "rapprochements_conservateurs_termines"
+}

@@ -17,6 +17,7 @@ import yaml
 
 from patrimoine_orne.classify.sectors import (
     classify_denomination,
+    classify_non_activity_term,
     load_classifications,
     load_pop_manifest_sample,
 )
@@ -181,6 +182,7 @@ def project_pilot(
         "contexte_territorial": site.get("contexte_territorial"),
         "protection_mh_reference": site.get("protection_mh_reference"),
         "objets_techniques": [dict(item) for item in objects],
+        "composants_non_productifs_source": [],
         "sources": list(site.get("sources", [])),
         "notice_brute": raw_path,
         "decision_inclusion_code": site.get("decision_inclusion_code"),
@@ -193,15 +195,27 @@ def project_lot1(
     *,
     raw_path: str,
     classifications: Mapping[str, Any],
+    origin: str = "phase8_lot1_50",
+    treatment_status: str = "structure_classee_a_enrichir",
+    site_status: str = "site_provisoire_lot1_valide",
 ) -> dict[str, Any]:
     reference = str(notice["REF"])
     source_centuries = _as_list(notice.get("SCLE"))
     _, source_period_codes = source_periods(source_centuries, classifications)
     activities = []
+    non_productive_components = []
     for order, source_label in enumerate(_as_list(notice.get("DENO")), start=1):
         classified = classify_denomination(source_label, classifications)
         if classified is None:
-            raise ValueError(f"dénomination non classée pour {reference}: {source_label!r}")
+            outside = classify_non_activity_term(source_label, classifications)
+            if outside is None:
+                raise ValueError(
+                    f"dénomination non classée pour {reference}: {source_label!r}"
+                )
+            non_productive_components.append(
+                {"libelle_source": source_label, "nature": outside["nature"]}
+            )
+            continue
         activities.append(
             _common_activity(
                 order=order,
@@ -218,9 +232,9 @@ def project_lot1(
     return {
         "dossier_id": reference,
         "dossier_reference": reference,
-        "origine": "phase8_lot1_50",
-        "statut_traitement": "structure_classee_a_enrichir",
-        "statut_site": "site_provisoire_lot1_valide",
+        "origine": origin,
+        "statut_traitement": treatment_status,
+        "statut_site": site_status,
         "site_id": None,
         "nombre_sites_provisoire": 1,
         "titre_source": notice.get("TICO"),
@@ -251,6 +265,7 @@ def project_lot1(
         "contexte_territorial": None,
         "protection_mh_reference": None,
         "objets_techniques": [],
+        "composants_non_productifs_source": non_productive_components,
         "sources": [
             {
                 "fiabilite_code": "forte",

@@ -1,0 +1,2655 @@
+{
+  "completed_at": "2026-07-23T05:07:39Z",
+  "expected_references": [
+    "IA00060884",
+    "IA00060885",
+    "IA00060887",
+    "IA00060888",
+    "IA00060889",
+    "IA00060890",
+    "IA00060891",
+    "IA00060893",
+    "IA00060894",
+    "IA00060895",
+    "IA00060897",
+    "IA00060898",
+    "IA00060900",
+    "IA00060903",
+    "IA00060904",
+    "IA00060905",
+    "IA00060906",
+    "IA00060908",
+    "IA00060910",
+    "IA00060911",
+    "IA00060912",
+    "IA00060913",
+    "IA00060916",
+    "IA00060917",
+    "IA00060918",
+    "IA00060919",
+    "IA00060921",
+    "IA00060922",
+    "IA00060923",
+    "IA00060924",
+    "IA00060925",
+    "IA00060927",
+    "IA00060928",
+    "IA00060929",
+    "IA00060930",
+    "IA00060931",
+    "IA00060933",
+    "IA00060934",
+    "IA00060935",
+    "IA00060936",
+    "IA00060937",
+    "IA00060940",
+    "IA00060941",
+    "IA00060942",
+    "IA00060943",
+    "IA00060944",
+    "IA00060946",
+    "IA00060947",
+    "IA00060948",
+    "IA00060949",
+    "IA00060951",
+    "IA00060952",
+    "IA00060953",
+    "IA00060954",
+    "IA00060955",
+    "IA00060957",
+    "IA00060958",
+    "IA00060960",
+    "IA00060961",
+    "IA00060962",
+    "IA00060964",
+    "IA00060966",
+    "IA00060967",
+    "IA00060968",
+    "IA00060970",
+    "IA00060972",
+    "IA00060973",
+    "IA00060974",
+    "IA00060975",
+    "IA00060976",
+    "IA00060978",
+    "IA00060979",
+    "IA00060980",
+    "IA00060981",
+    "IA00060983",
+    "IA00060984",
+    "IA00060985",
+    "IA00060986",
+    "IA00060987",
+    "IA00060989",
+    "IA00060990",
+    "IA00060991",
+    "IA00060992",
+    "IA00060993",
+    "IA00060995",
+    "IA00060996",
+    "IA00060998",
+    "IA00060999",
+    "IA00061000",
+    "IA00061004",
+    "IA00061005",
+    "IA00061006",
+    "IA00061007",
+    "IA00061009",
+    "IA00061011",
+    "IA00061012",
+    "IA00061013",
+    "IA00061014",
+    "IA00061016",
+    "IA00061017",
+    "IA00061018",
+    "IA00061019",
+    "IA00061020",
+    "IA00061022",
+    "IA00061023",
+    "IA00061024",
+    "IA00061025",
+    "IA00061026",
+    "IA00061028",
+    "IA00061030",
+    "IA00061033",
+    "IA00061034",
+    "IA00061036",
+    "IA00061038",
+    "IA00061039",
+    "IA00061040",
+    "IA00061041",
+    "IA00061042",
+    "IA00061044",
+    "IA00061045",
+    "IA00061046",
+    "IA00061047",
+    "IA00061049",
+    "IA00061050",
+    "IA00061051",
+    "IA00061053",
+    "IA00061055",
+    "IA00061057",
+    "IA00061058",
+    "IA00061059",
+    "IA00061061",
+    "IA00061062",
+    "IA00061064",
+    "IA00061065",
+    "IA00061066",
+    "IA00061067",
+    "IA00061068",
+    "IA00061070",
+    "IA00061071",
+    "IA00061072",
+    "IA00061074",
+    "IA00061075",
+    "IA00061077",
+    "IA00061078",
+    "IA00061079",
+    "IA00061080",
+    "IA00061082",
+    "IA00061083",
+    "IA00061084",
+    "IA00061085",
+    "IA00061086",
+    "IA00061088",
+    "IA00061089",
+    "IA00061090",
+    "IA00061092",
+    "IA00061093",
+    "IA00061096",
+    "IA00061097",
+    "IA00061098",
+    "IA00061099",
+    "IA00061100",
+    "IA00061102",
+    "IA00061103",
+    "IA00061104",
+    "IA00061105",
+    "IA00061106",
+    "IA00061108",
+    "IA00061109",
+    "IA00061110",
+    "IA00061111",
+    "IA00061114",
+    "IA00061115",
+    "IA00061116",
+    "IA00061118",
+    "IA00061120",
+    "IA00061122",
+    "IA00061123",
+    "IA00061124",
+    "IA00061125",
+    "IA00061126",
+    "IA00061128",
+    "IA00061129",
+    "IA00061130",
+    "IA00061131",
+    "IA00061132",
+    "IA00061136",
+    "IA00061137",
+    "IA00061138",
+    "IA00061139",
+    "IA00061140",
+    "IA00061142",
+    "IA00061143",
+    "IA00061144",
+    "IA00061145",
+    "IA00061148",
+    "IA00061149",
+    "IA00061150",
+    "IA00061151",
+    "IA00061152",
+    "IA00061156",
+    "IA00061157",
+    "IA00061158",
+    "IA00061159",
+    "IA00061160",
+    "IA00061162",
+    "IA00061163",
+    "IA00061164",
+    "IA00061165",
+    "IA00061167",
+    "IA00061169",
+    "IA00061170",
+    "IA00061171",
+    "IA00061172",
+    "IA00061173",
+    "IA00061175",
+    "IA00061176",
+    "IA00061177",
+    "IA00061178",
+    "IA00061180",
+    "IA00061181",
+    "IA00061182",
+    "IA00061183",
+    "IA00061184",
+    "IA00061186",
+    "IA00061187",
+    "IA00061188",
+    "IA00061189",
+    "IA00061190",
+    "IA00061192",
+    "IA00061193",
+    "IA00061194",
+    "IA00061195",
+    "IA00061196",
+    "IA00061198",
+    "IA00061199",
+    "IA00061200",
+    "IA00061201",
+    "IA00061202",
+    "IA00062725",
+    "IA61001399"
+  ],
+  "generated_at": "2026-07-23T05:06:19Z",
+  "reference_count": 240,
+  "remaining_count": 0,
+  "retrieved_count": 240,
+  "schema_version": "1.0",
+  "sources": {
+    "pop_merimee": [
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060884__orne_phase8_restant__20260723T050619Z.json",
+        "file_size_bytes": 6489,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060884__orne_phase8_restant__20260723T050619Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060884"
+        },
+        "sha256": "3e313ec067a277e7b1573ba683ea97e32b6dbbddf89ffe105634ea0fd879fad6"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060885__orne_phase8_restant__20260723T050619Z.json",
+        "file_size_bytes": 10272,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060885__orne_phase8_restant__20260723T050619Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060885"
+        },
+        "sha256": "e4c99124c445c36631ef1ab9eaf8fcfc5a0b85286534822aaf5fe494e15360ce"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060887__orne_phase8_restant__20260723T050620Z.json",
+        "file_size_bytes": 17532,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060887__orne_phase8_restant__20260723T050620Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060887"
+        },
+        "sha256": "830df2b43042981177131004cc46340b3269a885184dd4d5ded39f27ddd05af4"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060888__orne_phase8_restant__20260723T050620Z.json",
+        "file_size_bytes": 6860,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060888__orne_phase8_restant__20260723T050620Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060888"
+        },
+        "sha256": "945c56a14f4ea2ba4a2b9a9039bbb64fab1b2f4f947b6291f38b89ff8adf59b6"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060889__orne_phase8_restant__20260723T050620Z.json",
+        "file_size_bytes": 7525,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060889__orne_phase8_restant__20260723T050620Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060889"
+        },
+        "sha256": "a5f8e8ed45544cbb6936845e2d1302517747211c9f9555094d5cd5acca7b50e9"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060890__orne_phase8_restant__20260723T050620Z.json",
+        "file_size_bytes": 6185,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060890__orne_phase8_restant__20260723T050620Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060890"
+        },
+        "sha256": "9267a28a4663130461cbfe8db83dce0b06170688a56fbbac9737ba8387bbb610"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060891__orne_phase8_restant__20260723T050621Z.json",
+        "file_size_bytes": 8873,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060891__orne_phase8_restant__20260723T050621Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060891"
+        },
+        "sha256": "af3bf11fc3f4507f511afa626753c15054291baa51223bcdeb95b767cd6ac9e8"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060893__orne_phase8_restant__20260723T050621Z.json",
+        "file_size_bytes": 10569,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060893__orne_phase8_restant__20260723T050621Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060893"
+        },
+        "sha256": "e34d6667694f6682725d1bc588c8c698db19510a421a73c342498675450a0a09"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060894__orne_phase8_restant__20260723T050621Z.json",
+        "file_size_bytes": 7185,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060894__orne_phase8_restant__20260723T050621Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060894"
+        },
+        "sha256": "859a8810da9ce1c622808223d4b02720952f3305a4b94a4a5b02daa7a497c142"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060895__orne_phase8_restant__20260723T050622Z.json",
+        "file_size_bytes": 6519,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060895__orne_phase8_restant__20260723T050622Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060895"
+        },
+        "sha256": "cd0bc07a61f544899ac928f0349b87042b86993c5351f6a8746b4f4fb5c19ea2"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060897__orne_phase8_restant__20260723T050622Z.json",
+        "file_size_bytes": 11524,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060897__orne_phase8_restant__20260723T050622Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060897"
+        },
+        "sha256": "5949861e44d6ee0319c26d66cba20b4602ac4adb52f4675985cf66752ee95239"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060898__orne_phase8_restant__20260723T050622Z.json",
+        "file_size_bytes": 7414,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060898__orne_phase8_restant__20260723T050622Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060898"
+        },
+        "sha256": "b5af29c17619419fdab9f3f57ddf84b5e129e41818d38b9a2a5b795768c55a9e"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060900__orne_phase8_restant__20260723T050623Z.json",
+        "file_size_bytes": 7281,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060900__orne_phase8_restant__20260723T050623Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060900"
+        },
+        "sha256": "75f850880497361c387c96e9cd49e3ae7db3082d15952fffa2b377b421569364"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060903__orne_phase8_restant__20260723T050623Z.json",
+        "file_size_bytes": 6962,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060903__orne_phase8_restant__20260723T050623Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060903"
+        },
+        "sha256": "e32edd1a17d6f928c86d25308ead56a174084ac82197f92e96de99d805b0bcbf"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060904__orne_phase8_restant__20260723T050623Z.json",
+        "file_size_bytes": 7717,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060904__orne_phase8_restant__20260723T050623Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060904"
+        },
+        "sha256": "2dfd849f8a6ded953580e804859ca137141a94990cec3608fea04a5b5e78212e"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060905__orne_phase8_restant__20260723T050624Z.json",
+        "file_size_bytes": 7922,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060905__orne_phase8_restant__20260723T050624Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060905"
+        },
+        "sha256": "36fe28aad5572ad8b3b9e63316dc746da2007786fa0f63440c1c617e55d9e397"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060906__orne_phase8_restant__20260723T050624Z.json",
+        "file_size_bytes": 8335,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060906__orne_phase8_restant__20260723T050624Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060906"
+        },
+        "sha256": "8d09416dee4e8b63084c7b77ef94c38c9f01be73c0f13ff77005c9bb4acd62e0"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060908__orne_phase8_restant__20260723T050624Z.json",
+        "file_size_bytes": 13567,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060908__orne_phase8_restant__20260723T050624Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060908"
+        },
+        "sha256": "ed8c50c537d6fa0fbdaf0a260a3fac8099715799f8b4dc0c34522809e5150c2a"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060910__orne_phase8_restant__20260723T050624Z.json",
+        "file_size_bytes": 5599,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060910__orne_phase8_restant__20260723T050624Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060910"
+        },
+        "sha256": "0df126d29b990fc787ea22103223f9aa42a747873c82756fed83910c9bd834bc"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060911__orne_phase8_restant__20260723T050625Z.json",
+        "file_size_bytes": 6813,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060911__orne_phase8_restant__20260723T050625Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060911"
+        },
+        "sha256": "f291f204d8ee4297b1c74517e604919c805606054d144a1f279984684568b626"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060912__orne_phase8_restant__20260723T050625Z.json",
+        "file_size_bytes": 11657,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060912__orne_phase8_restant__20260723T050625Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060912"
+        },
+        "sha256": "b6d62102ebf0463afdbe3bbd69ea9021a5876ee8baf41c6c989c88a7f3b58d02"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060913__orne_phase8_restant__20260723T050625Z.json",
+        "file_size_bytes": 13819,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060913__orne_phase8_restant__20260723T050625Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060913"
+        },
+        "sha256": "a52564e367e78d4e2786b06f41692e78d9d9fe460cee33a5420c5fc04497e5a3"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060916__orne_phase8_restant__20260723T050626Z.json",
+        "file_size_bytes": 12381,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060916__orne_phase8_restant__20260723T050626Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060916"
+        },
+        "sha256": "222dded38692833899b0faa07e3a241d093381c80e0cd97333d94f16bc68123e"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060917__orne_phase8_restant__20260723T050626Z.json",
+        "file_size_bytes": 7536,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060917__orne_phase8_restant__20260723T050626Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060917"
+        },
+        "sha256": "0ba2cc93f41592968cc76eaf37f10e40a793e0842b20102581614bb59fe4ce39"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060918__orne_phase8_restant__20260723T050627Z.json",
+        "file_size_bytes": 7860,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060918__orne_phase8_restant__20260723T050627Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060918"
+        },
+        "sha256": "e0333e04599b43c4655f9d2f9542c2c24272f81d434de5e4bb1f47b5efd6921b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060919__orne_phase8_restant__20260723T050627Z.json",
+        "file_size_bytes": 6499,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060919__orne_phase8_restant__20260723T050627Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060919"
+        },
+        "sha256": "02f13f7b700106e29b76fd68fdc9b2c7628538c2906368313ee347fc59f8c6aa"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060921__orne_phase8_restant__20260723T050627Z.json",
+        "file_size_bytes": 6659,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060921__orne_phase8_restant__20260723T050627Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060921"
+        },
+        "sha256": "b025ce3b10392ad81c27b3f198c70f88e3b93fa8cfb5524548979571ccb8b920"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060922__orne_phase8_restant__20260723T050627Z.json",
+        "file_size_bytes": 6702,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060922__orne_phase8_restant__20260723T050627Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060922"
+        },
+        "sha256": "25a8df6e4df40529b3db43c2c780959e03e5d43725bcbe4dd48d2cc39f70dba6"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060923__orne_phase8_restant__20260723T050628Z.json",
+        "file_size_bytes": 7038,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060923__orne_phase8_restant__20260723T050628Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060923"
+        },
+        "sha256": "a9f75dfd8579f3e22566ff28892ee100e1028ca404c4516668a494edf7c23c6a"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060924__orne_phase8_restant__20260723T050628Z.json",
+        "file_size_bytes": 18711,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060924__orne_phase8_restant__20260723T050628Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060924"
+        },
+        "sha256": "5ad02da3a907ce9230b9a68a5ca6aec4b5f6d92ec83de09413042692d1b7cb70"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060925__orne_phase8_restant__20260723T050628Z.json",
+        "file_size_bytes": 6325,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060925__orne_phase8_restant__20260723T050628Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060925"
+        },
+        "sha256": "e8683e8ac6107e92093eb9d56f7c7e059da2de73b33e7166c91545dee1c4029b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060927__orne_phase8_restant__20260723T050629Z.json",
+        "file_size_bytes": 7212,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060927__orne_phase8_restant__20260723T050629Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060927"
+        },
+        "sha256": "40dfa2a96f92733454309f0298c46f5402aa3f5c0d29096e37e130bb7a1bb055"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060928__orne_phase8_restant__20260723T050629Z.json",
+        "file_size_bytes": 6730,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060928__orne_phase8_restant__20260723T050629Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060928"
+        },
+        "sha256": "26ed4e02c0e78b48726954015cc509d9a2b266c0ffd6a2892966ed2dad71f1b6"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060929__orne_phase8_restant__20260723T050629Z.json",
+        "file_size_bytes": 7071,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060929__orne_phase8_restant__20260723T050629Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060929"
+        },
+        "sha256": "d491ae52a2b1f5be9c342ccc4906ee22291d592b40a4b81d4d26059f6f5cab01"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060930__orne_phase8_restant__20260723T050630Z.json",
+        "file_size_bytes": 6980,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060930__orne_phase8_restant__20260723T050630Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060930"
+        },
+        "sha256": "5c44089c9a5d3bcdb5e5e058caeab43e02f9fc5b9e78b9b1548d3e185e85f447"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060931__orne_phase8_restant__20260723T050630Z.json",
+        "file_size_bytes": 9235,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060931__orne_phase8_restant__20260723T050630Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060931"
+        },
+        "sha256": "e020d1ed9a4782dbe54aac8bc8fc85a15b0c89d78e9a739a514e6af71a2719bb"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060933__orne_phase8_restant__20260723T050630Z.json",
+        "file_size_bytes": 5731,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060933__orne_phase8_restant__20260723T050630Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060933"
+        },
+        "sha256": "08da0bc06384fd72f98ad6f069bc71e9527f5ae4bc07e5df9f752d85c63f75d3"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060934__orne_phase8_restant__20260723T050631Z.json",
+        "file_size_bytes": 5306,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060934__orne_phase8_restant__20260723T050631Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060934"
+        },
+        "sha256": "67894c0ab4b8999eeead3db6b4708cbf3cb9d262450e2617cdaf227277534028"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060935__orne_phase8_restant__20260723T050631Z.json",
+        "file_size_bytes": 5213,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060935__orne_phase8_restant__20260723T050631Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060935"
+        },
+        "sha256": "1c1fae78c1804e857c22f0704213e198d383aa9427bbbbfef3e67ee991499be9"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060936__orne_phase8_restant__20260723T050632Z.json",
+        "file_size_bytes": 5560,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060936__orne_phase8_restant__20260723T050632Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060936"
+        },
+        "sha256": "36831937f7c7d4e250b03db02a7af8c3a39ad8236f345c1b0e5f7ff7a78ccf20"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060937__orne_phase8_restant__20260723T050632Z.json",
+        "file_size_bytes": 7145,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060937__orne_phase8_restant__20260723T050632Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060937"
+        },
+        "sha256": "f1da41e774fc5fc7db16f19d902693437b6a93e1f3aaea91e896c044cbcb8013"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060940__orne_phase8_restant__20260723T050632Z.json",
+        "file_size_bytes": 8764,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060940__orne_phase8_restant__20260723T050632Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060940"
+        },
+        "sha256": "57bb1058d6873fdcadea51cb3738e84f248f4bd54f0ca236e957e97f73b4e007"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060941__orne_phase8_restant__20260723T050633Z.json",
+        "file_size_bytes": 7076,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060941__orne_phase8_restant__20260723T050633Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060941"
+        },
+        "sha256": "c33be342af16bb8210cdb5067b0ece0d43e6ac9a4fa102558961f99c1dc5455d"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060942__orne_phase8_restant__20260723T050633Z.json",
+        "file_size_bytes": 11258,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060942__orne_phase8_restant__20260723T050633Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060942"
+        },
+        "sha256": "b41dfcd6eb4be9fb5d3fbfabc13c53a07d0432859a0e3caedc99aa1acee0f550"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060943__orne_phase8_restant__20260723T050633Z.json",
+        "file_size_bytes": 9866,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060943__orne_phase8_restant__20260723T050633Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060943"
+        },
+        "sha256": "68d7c2692f6cfd2f4adedf5aa9b72ebf980104483755bb750e17dbba74b69d23"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060944__orne_phase8_restant__20260723T050634Z.json",
+        "file_size_bytes": 6251,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060944__orne_phase8_restant__20260723T050634Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060944"
+        },
+        "sha256": "045be478170d9b443022931548654e6680493e2aadd83609ac2d1d01badedbf1"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060946__orne_phase8_restant__20260723T050634Z.json",
+        "file_size_bytes": 7633,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060946__orne_phase8_restant__20260723T050634Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060946"
+        },
+        "sha256": "8be4f387ccf723c9a41e3a65682b13d6a1b0004d11bcf6946cf8ef9f3e86a969"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060947__orne_phase8_restant__20260723T050635Z.json",
+        "file_size_bytes": 7322,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060947__orne_phase8_restant__20260723T050635Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060947"
+        },
+        "sha256": "f561b87a23a643bdf398449cab91e08f25492d99eabc7e41c961fb47831ff61b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060948__orne_phase8_restant__20260723T050635Z.json",
+        "file_size_bytes": 7449,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060948__orne_phase8_restant__20260723T050635Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060948"
+        },
+        "sha256": "9318199df442fe7c0847a50f9d42a4d1deab563c65186b869001399a5b6da96f"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060949__orne_phase8_restant__20260723T050635Z.json",
+        "file_size_bytes": 13932,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060949__orne_phase8_restant__20260723T050635Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060949"
+        },
+        "sha256": "003f207ec8ff546d8fa8e7714a62ae6a45a1c8502630cd20c6f7abf4f43dc06b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060951__orne_phase8_restant__20260723T050636Z.json",
+        "file_size_bytes": 6760,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060951__orne_phase8_restant__20260723T050636Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060951"
+        },
+        "sha256": "0a2a79f05e247ac7e92118627f35ef97ba47611fd8de66c7ac128724a2c63df0"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060952__orne_phase8_restant__20260723T050636Z.json",
+        "file_size_bytes": 9391,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060952__orne_phase8_restant__20260723T050636Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060952"
+        },
+        "sha256": "05cf29d84e1065dcc2d5fd93e47c289ee6ea13b3a34df9dffded02c9287f5ed4"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060953__orne_phase8_restant__20260723T050637Z.json",
+        "file_size_bytes": 8613,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060953__orne_phase8_restant__20260723T050637Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060953"
+        },
+        "sha256": "038cadb56dcd8b5e1ae0dbaa5b61005fedb1ea365a915ab3d1985e265210d451"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060954__orne_phase8_restant__20260723T050637Z.json",
+        "file_size_bytes": 9088,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060954__orne_phase8_restant__20260723T050637Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060954"
+        },
+        "sha256": "4b087f153aca769f1cec1c384135ef0278edfd3f7d39cf5cea4e953be5977741"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060955__orne_phase8_restant__20260723T050637Z.json",
+        "file_size_bytes": 6455,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060955__orne_phase8_restant__20260723T050637Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060955"
+        },
+        "sha256": "215b47fe86095f98148dc31802c7405e2dd1b64d6d2a975a312e3f7800c2027b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060957__orne_phase8_restant__20260723T050638Z.json",
+        "file_size_bytes": 7966,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060957__orne_phase8_restant__20260723T050638Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060957"
+        },
+        "sha256": "215794e5b93fefc3ba79e2d5f8b636e3feb227bb1e50fcd437a9700ae09b167a"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060958__orne_phase8_restant__20260723T050638Z.json",
+        "file_size_bytes": 10066,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060958__orne_phase8_restant__20260723T050638Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060958"
+        },
+        "sha256": "afa5f4c816ff9db5db895c4efa45ba923398fe1836d07425f375c601693dda9c"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060960__orne_phase8_restant__20260723T050638Z.json",
+        "file_size_bytes": 7019,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060960__orne_phase8_restant__20260723T050638Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060960"
+        },
+        "sha256": "7ee152a2164a52e16a0aaecd89de1ddf28686d5e945386455f381b175194782f"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060961__orne_phase8_restant__20260723T050638Z.json",
+        "file_size_bytes": 10805,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060961__orne_phase8_restant__20260723T050638Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060961"
+        },
+        "sha256": "e6f46c826798a4f287501161ab47159cdc6feff167885aca82edcf49b8e0085d"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060962__orne_phase8_restant__20260723T050639Z.json",
+        "file_size_bytes": 11789,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060962__orne_phase8_restant__20260723T050639Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060962"
+        },
+        "sha256": "d76903df4d991f2792ac86066582d38a36b4c78fc5e78e1058e6e514e2fdef36"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060964__orne_phase8_restant__20260723T050639Z.json",
+        "file_size_bytes": 26548,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060964__orne_phase8_restant__20260723T050639Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060964"
+        },
+        "sha256": "d7cb365c8c292a547f02386b75fa9c920585c7f689edcb8ee68225ba43463d77"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060966__orne_phase8_restant__20260723T050639Z.json",
+        "file_size_bytes": 7861,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060966__orne_phase8_restant__20260723T050639Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060966"
+        },
+        "sha256": "63ee04261f3337288782d15aaabac0ba7bc33b8d3f70ef4f9f397a203846a389"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060967__orne_phase8_restant__20260723T050640Z.json",
+        "file_size_bytes": 6460,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060967__orne_phase8_restant__20260723T050640Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060967"
+        },
+        "sha256": "ba1175efb1336de5d751b5af6c669df6ac0758178e69858e2337c47014e42980"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060968__orne_phase8_restant__20260723T050640Z.json",
+        "file_size_bytes": 8141,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060968__orne_phase8_restant__20260723T050640Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060968"
+        },
+        "sha256": "15283135c5b04b6d5d99377b68f128dc61ec1ba71d8ee0244bfec5e3919f4e19"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060970__orne_phase8_restant__20260723T050640Z.json",
+        "file_size_bytes": 9366,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060970__orne_phase8_restant__20260723T050640Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060970"
+        },
+        "sha256": "75d3cd7d6e921dddafe847a42a38683fd7dcca9fc820dd06ab7a8a961045f6ab"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060972__orne_phase8_restant__20260723T050641Z.json",
+        "file_size_bytes": 5734,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060972__orne_phase8_restant__20260723T050641Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060972"
+        },
+        "sha256": "45a62bae0226b1559d6a289b3e2cbf9125bf023b92b2cd518613fd0c510daeac"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060973__orne_phase8_restant__20260723T050641Z.json",
+        "file_size_bytes": 10657,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060973__orne_phase8_restant__20260723T050641Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060973"
+        },
+        "sha256": "0c2859927c93f43f1080a87781598ab0b871b9417a7bb77b4302b0d2b5754c62"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060974__orne_phase8_restant__20260723T050641Z.json",
+        "file_size_bytes": 5544,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060974__orne_phase8_restant__20260723T050641Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060974"
+        },
+        "sha256": "98e68be5b9c138f67b4f0ee3cd00c44d909820fe754b5180aa770f033fad466f"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060975__orne_phase8_restant__20260723T050641Z.json",
+        "file_size_bytes": 5899,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060975__orne_phase8_restant__20260723T050641Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060975"
+        },
+        "sha256": "8b60be46af121b16a6438c10f4f6e30a5e37770e1ed8e1dcd44c6ea0f650e320"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060976__orne_phase8_restant__20260723T050642Z.json",
+        "file_size_bytes": 5996,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060976__orne_phase8_restant__20260723T050642Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060976"
+        },
+        "sha256": "4ddffd0ade9a16cb5b825e047d05c33efe7b52041c101d69b3c54a682bf0cb20"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060978__orne_phase8_restant__20260723T050642Z.json",
+        "file_size_bytes": 7166,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060978__orne_phase8_restant__20260723T050642Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060978"
+        },
+        "sha256": "d08aab9963ec22ec684669bed7b5ed30bdf1cce7f09e57c1e8dbf22f2a049673"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060979__orne_phase8_restant__20260723T050642Z.json",
+        "file_size_bytes": 8716,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060979__orne_phase8_restant__20260723T050642Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060979"
+        },
+        "sha256": "b1c3ccec309cd5553130f022ef30c55220b60eb4e48ea43c2bec32d42fe5a266"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060980__orne_phase8_restant__20260723T050643Z.json",
+        "file_size_bytes": 13316,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060980__orne_phase8_restant__20260723T050643Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060980"
+        },
+        "sha256": "c2ab49309ba3f09805541d6cf2262f792c15b0308759259740465d1fc7b12722"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060981__orne_phase8_restant__20260723T050643Z.json",
+        "file_size_bytes": 7822,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060981__orne_phase8_restant__20260723T050643Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060981"
+        },
+        "sha256": "3b933ade49d4d9b26cbcba802b385cb58ea086982ec78fc161365d3b9eab52a0"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060983__orne_phase8_restant__20260723T050644Z.json",
+        "file_size_bytes": 5842,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060983__orne_phase8_restant__20260723T050644Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060983"
+        },
+        "sha256": "376fb95bb2a5644f721f306d7a520b340ef0bbfc3f88c30372527a0fd2d1602f"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060984__orne_phase8_restant__20260723T050644Z.json",
+        "file_size_bytes": 7941,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060984__orne_phase8_restant__20260723T050644Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060984"
+        },
+        "sha256": "5dad7a433b252d4382fd447dd4f8bf949b6958180fd762dd6c9b9b6e8dc2f58f"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060985__orne_phase8_restant__20260723T050644Z.json",
+        "file_size_bytes": 9428,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060985__orne_phase8_restant__20260723T050644Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060985"
+        },
+        "sha256": "24ca018ff3e6780a34304e6ccbdefb8a89632ac3f92cd6c23e295abe50201f89"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060986__orne_phase8_restant__20260723T050645Z.json",
+        "file_size_bytes": 6266,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060986__orne_phase8_restant__20260723T050645Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060986"
+        },
+        "sha256": "04d4cad68a1b92aff060a0df1d2d1ed3c3bd37c0fb4e15b370b2be1977ed06bf"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060987__orne_phase8_restant__20260723T050645Z.json",
+        "file_size_bytes": 5555,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060987__orne_phase8_restant__20260723T050645Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060987"
+        },
+        "sha256": "a406261e7cb6305cbec53aec9b58206af895d5a582e6ea89ac18a4be693bd590"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060989__orne_phase8_restant__20260723T050646Z.json",
+        "file_size_bytes": 13151,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060989__orne_phase8_restant__20260723T050646Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060989"
+        },
+        "sha256": "f558aaf6ebc5b2a5c8e827e52cff7c707bba24e5457b16caaad7d4cf0915368e"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060990__orne_phase8_restant__20260723T050646Z.json",
+        "file_size_bytes": 6999,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060990__orne_phase8_restant__20260723T050646Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060990"
+        },
+        "sha256": "0b4b811d2301254427eb2ade08227b55d62421c986cb3fd6e4f90626ab529327"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060991__orne_phase8_restant__20260723T050646Z.json",
+        "file_size_bytes": 8153,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060991__orne_phase8_restant__20260723T050646Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060991"
+        },
+        "sha256": "6db15196c0b310a0df14398de6ee23222b3e1694a200c3979e6b29fcaad28af4"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060992__orne_phase8_restant__20260723T050646Z.json",
+        "file_size_bytes": 5929,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060992__orne_phase8_restant__20260723T050646Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060992"
+        },
+        "sha256": "4bd60a380f4c4941fe77644444392e89d37142671ffd988324be855976a3658f"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060993__orne_phase8_restant__20260723T050647Z.json",
+        "file_size_bytes": 6248,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060993__orne_phase8_restant__20260723T050647Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060993"
+        },
+        "sha256": "1e4651864a06afef5e68708d66df562575ce1e69c610cd9f9225488e74205a41"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060995__orne_phase8_restant__20260723T050647Z.json",
+        "file_size_bytes": 7196,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060995__orne_phase8_restant__20260723T050647Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060995"
+        },
+        "sha256": "7a492ba4776e308d4c0bac4d988df102d895e8372820ffcafbfc8f5b8e57a570"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060996__orne_phase8_restant__20260723T050647Z.json",
+        "file_size_bytes": 9410,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060996__orne_phase8_restant__20260723T050647Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060996"
+        },
+        "sha256": "5fb22aa380fc32b1bd261ca75dde0428663fbc464de411c7e2fe63f098984446"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060998__orne_phase8_restant__20260723T050648Z.json",
+        "file_size_bytes": 6503,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060998__orne_phase8_restant__20260723T050648Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060998"
+        },
+        "sha256": "cbecffdada9c21fa10980119c24f0fab5cb4cdbe8f17ca85112c5534b2b0cd84"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060999__orne_phase8_restant__20260723T050648Z.json",
+        "file_size_bytes": 9366,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00060999__orne_phase8_restant__20260723T050648Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00060999"
+        },
+        "sha256": "41b7e5e41c634271c23c51726a4f47e8be30db2bacc70cca9b4dc75255a04788"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061000__orne_phase8_restant__20260723T050649Z.json",
+        "file_size_bytes": 6527,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061000__orne_phase8_restant__20260723T050649Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061000"
+        },
+        "sha256": "b8db5f9c0a3fab0b29fa4f26590bee4be51e57bad14f654259a06ed3bf7c8757"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061004__orne_phase8_restant__20260723T050649Z.json",
+        "file_size_bytes": 5124,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061004__orne_phase8_restant__20260723T050649Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061004"
+        },
+        "sha256": "1bb431717c7e9d6709807bea57e4884d49adc80517be914470e9ebec8721e76a"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061005__orne_phase8_restant__20260723T050649Z.json",
+        "file_size_bytes": 9659,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061005__orne_phase8_restant__20260723T050649Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061005"
+        },
+        "sha256": "0336e2507c082409368940897f9489788a818ee682a740503b782939adeded19"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061006__orne_phase8_restant__20260723T050650Z.json",
+        "file_size_bytes": 15350,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061006__orne_phase8_restant__20260723T050650Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061006"
+        },
+        "sha256": "f6722109919682b0c0bced3e32994e4bf80e885022ded79969b9804a61f7f94e"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061007__orne_phase8_restant__20260723T050650Z.json",
+        "file_size_bytes": 9884,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061007__orne_phase8_restant__20260723T050650Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061007"
+        },
+        "sha256": "56ea3bc0731e89d55fed52e4089472769143a58efcb658242c34270389539602"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061009__orne_phase8_restant__20260723T050650Z.json",
+        "file_size_bytes": 9745,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061009__orne_phase8_restant__20260723T050650Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061009"
+        },
+        "sha256": "41e93201b0773ebc372e28495bdfbd60202f6d45a8ef922d330dc151094e5de8"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061011__orne_phase8_restant__20260723T050651Z.json",
+        "file_size_bytes": 5755,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061011__orne_phase8_restant__20260723T050651Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061011"
+        },
+        "sha256": "c849b1ebcbb9a172cae7ab7efb5ff0a802ab1800be113cd916a0b333502ff7ff"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061012__orne_phase8_restant__20260723T050651Z.json",
+        "file_size_bytes": 8344,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061012__orne_phase8_restant__20260723T050651Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061012"
+        },
+        "sha256": "9b65e9a28267abae3bb82352e6a01d35cd6405132d69af0ae94f985a4b2d15b6"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061013__orne_phase8_restant__20260723T050651Z.json",
+        "file_size_bytes": 7143,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061013__orne_phase8_restant__20260723T050651Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061013"
+        },
+        "sha256": "f47b78d00635805482cb4a0f9d791a608bc355dcb9b764cc521bbb9452a27ec3"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061014__orne_phase8_restant__20260723T050652Z.json",
+        "file_size_bytes": 13095,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061014__orne_phase8_restant__20260723T050652Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061014"
+        },
+        "sha256": "39c1eb20e93e35818209594fb3f18b14dff38cb27cb9ffae4a03a742e254a5c5"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061016__orne_phase8_restant__20260723T050652Z.json",
+        "file_size_bytes": 7309,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061016__orne_phase8_restant__20260723T050652Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061016"
+        },
+        "sha256": "ab403932947071533265dc8c6c3cec86687bf7992f9ab5be68700b35c34ce972"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061017__orne_phase8_restant__20260723T050652Z.json",
+        "file_size_bytes": 13443,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061017__orne_phase8_restant__20260723T050652Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061017"
+        },
+        "sha256": "e5801e4f61d7db586a4b7db6692ec58e1dac85cbfe7c0eebf4f5a537e64c1cc5"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061018__orne_phase8_restant__20260723T050653Z.json",
+        "file_size_bytes": 8742,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061018__orne_phase8_restant__20260723T050653Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061018"
+        },
+        "sha256": "3465a86c337735335761b0f4b95c109a40532d59e40dfb80e55da34a63083160"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061019__orne_phase8_restant__20260723T050653Z.json",
+        "file_size_bytes": 6946,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061019__orne_phase8_restant__20260723T050653Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061019"
+        },
+        "sha256": "9b4e4dca6343058b7309435981d044e600e5786183f7ea2243db0bf45ef8f341"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061020__orne_phase8_restant__20260723T050653Z.json",
+        "file_size_bytes": 6444,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061020__orne_phase8_restant__20260723T050653Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061020"
+        },
+        "sha256": "65a556c09bc4d2f1a84a43745c1aab7cc5c8ea19f0625d6cd469a7cbc894d5c5"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061022__orne_phase8_restant__20260723T050654Z.json",
+        "file_size_bytes": 7049,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061022__orne_phase8_restant__20260723T050654Z.json.metadata.json",
+        "observations": {
+          "field_count": 158,
+          "reference": "IA00061022"
+        },
+        "sha256": "03e490cf7e622fcb6dacffe0cc5f0724c211b0518bb818784ad96cac9d3ec340"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061023__orne_phase8_restant__20260723T050654Z.json",
+        "file_size_bytes": 19221,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061023__orne_phase8_restant__20260723T050654Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061023"
+        },
+        "sha256": "8df6270d2553d0d73ebe09deb4360711de14ddba282b5e35a11606052b8a46b3"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061024__orne_phase8_restant__20260723T050654Z.json",
+        "file_size_bytes": 7647,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061024__orne_phase8_restant__20260723T050654Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061024"
+        },
+        "sha256": "e28a5cb858515328ce652aa7f49702eacc2cd6651b3b831271a7e3cafb17a656"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061025__orne_phase8_restant__20260723T050655Z.json",
+        "file_size_bytes": 7848,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061025__orne_phase8_restant__20260723T050655Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061025"
+        },
+        "sha256": "f3b9b0a7f92479dddf3eb8e96d487851a5f056c3ee06af46de8642f4b4a4e80f"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061026__orne_phase8_restant__20260723T050655Z.json",
+        "file_size_bytes": 8054,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061026__orne_phase8_restant__20260723T050655Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061026"
+        },
+        "sha256": "6eb2d77ba0ad0783d344689d3bfc23ceb08a260fad8b4374ff7e01919d2437b9"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061028__orne_phase8_restant__20260723T050655Z.json",
+        "file_size_bytes": 9884,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061028__orne_phase8_restant__20260723T050655Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061028"
+        },
+        "sha256": "594b7e35bd87a9b079082d0b8970b41b19d3197adf80311e7386dc9ec17698dd"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061030__orne_phase8_restant__20260723T050656Z.json",
+        "file_size_bytes": 7162,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061030__orne_phase8_restant__20260723T050656Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061030"
+        },
+        "sha256": "ef03729d6625cae22c6793d1986abe8cbf5c9190b3eeaa7c4663e4c633d4f466"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061033__orne_phase8_restant__20260723T050656Z.json",
+        "file_size_bytes": 8198,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061033__orne_phase8_restant__20260723T050656Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061033"
+        },
+        "sha256": "a79f3f3273453249d894e32a094b7b5906666b78e7a277bc9f69fef48936d89d"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061034__orne_phase8_restant__20260723T050656Z.json",
+        "file_size_bytes": 6794,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061034__orne_phase8_restant__20260723T050656Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061034"
+        },
+        "sha256": "f309bb8a82568514d7ff4a61bfda401813024e89e846e3f025e82aaf2f34af78"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061036__orne_phase8_restant__20260723T050657Z.json",
+        "file_size_bytes": 6722,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061036__orne_phase8_restant__20260723T050657Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061036"
+        },
+        "sha256": "41e131a4b6d658fb50f1ccb648e2d302a115fecc0f50cb2b9c9eae1d72205a84"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061038__orne_phase8_restant__20260723T050657Z.json",
+        "file_size_bytes": 11554,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061038__orne_phase8_restant__20260723T050657Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061038"
+        },
+        "sha256": "e007c6f518b4d43a488e04b4600f7a617b23cc3557b31b7bd4cc2a06a715aa73"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061039__orne_phase8_restant__20260723T050657Z.json",
+        "file_size_bytes": 13462,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061039__orne_phase8_restant__20260723T050657Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061039"
+        },
+        "sha256": "41443ba4f90d30ba6705a8b8ad9c5a64c09c97e224984e1a660c4c0f9b4f9797"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061040__orne_phase8_restant__20260723T050657Z.json",
+        "file_size_bytes": 12527,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061040__orne_phase8_restant__20260723T050657Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061040"
+        },
+        "sha256": "022a0d8390a62627ba6fdcc70be0ce5d788c5283528bfa48b0b9aa5b40937e1e"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061041__orne_phase8_restant__20260723T050658Z.json",
+        "file_size_bytes": 6734,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061041__orne_phase8_restant__20260723T050658Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061041"
+        },
+        "sha256": "96a2dc154626434676a4e36d9b825301e43da3ffce269721e2718834aa16b4b6"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061042__orne_phase8_restant__20260723T050658Z.json",
+        "file_size_bytes": 9942,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061042__orne_phase8_restant__20260723T050658Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061042"
+        },
+        "sha256": "11bb080175ef654ac987db259d4440516624d2be7ccec130649848db926fb7d4"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061044__orne_phase8_restant__20260723T050658Z.json",
+        "file_size_bytes": 9827,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061044__orne_phase8_restant__20260723T050658Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061044"
+        },
+        "sha256": "1b39dd331ab4781c6f2918c6a24d69983181f1999043aeae8a538d82b454b65a"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061045__orne_phase8_restant__20260723T050659Z.json",
+        "file_size_bytes": 13919,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061045__orne_phase8_restant__20260723T050659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061045"
+        },
+        "sha256": "062c9d8c6de15fa6ddb8133ca1ead6c0acc98aa57e87fd695075dc59abb7fe0a"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061046__orne_phase8_restant__20260723T050659Z.json",
+        "file_size_bytes": 6754,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061046__orne_phase8_restant__20260723T050659Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061046"
+        },
+        "sha256": "98db2f86b75f39582318560d79d14cdd56e97014ec53f020fe27697eb29ce1b4"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061047__orne_phase8_restant__20260723T050700Z.json",
+        "file_size_bytes": 7240,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061047__orne_phase8_restant__20260723T050700Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061047"
+        },
+        "sha256": "22683f11d25cf251b42309a719ea215d32ca8249251cd5feecee067103327253"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061049__orne_phase8_restant__20260723T050700Z.json",
+        "file_size_bytes": 7361,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061049__orne_phase8_restant__20260723T050700Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061049"
+        },
+        "sha256": "6e3ddba164f93bad3961a09ad954f8fa3ecd6733c245d0887a95d8e181ac5f17"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061050__orne_phase8_restant__20260723T050701Z.json",
+        "file_size_bytes": 5436,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061050__orne_phase8_restant__20260723T050701Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061050"
+        },
+        "sha256": "a331202882b748b551454153cfc2721fd7bedef11faf379d94149eb9e2c3a44f"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061051__orne_phase8_restant__20260723T050701Z.json",
+        "file_size_bytes": 7286,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061051__orne_phase8_restant__20260723T050701Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061051"
+        },
+        "sha256": "133cc9e7daf39c5a3f5ba562d0d7b5e69a11dc870c9688cbf9a6b7005c82b913"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061053__orne_phase8_restant__20260723T050701Z.json",
+        "file_size_bytes": 23621,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061053__orne_phase8_restant__20260723T050701Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061053"
+        },
+        "sha256": "fdfe8cda73e2ba6d4604bb0aa7efab312a877a3f487c1e27933098f6e047c1a7"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061055__orne_phase8_restant__20260723T050702Z.json",
+        "file_size_bytes": 7286,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061055__orne_phase8_restant__20260723T050702Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061055"
+        },
+        "sha256": "830dcd3ecd35bbe4177a9a1e2f5d37dcdae96ba84692274a6f6794f36502677d"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061057__orne_phase8_restant__20260723T050702Z.json",
+        "file_size_bytes": 6388,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061057__orne_phase8_restant__20260723T050702Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061057"
+        },
+        "sha256": "d32161a23a92325bc44edb621f5e1134c616f6e43f4e1947ed258cfee715aa96"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061058__orne_phase8_restant__20260723T050703Z.json",
+        "file_size_bytes": 6507,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061058__orne_phase8_restant__20260723T050703Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061058"
+        },
+        "sha256": "954033472d9107300ebac244016a2f32526a64ad2504e847ad1d2c7181af41bc"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061059__orne_phase8_restant__20260723T050703Z.json",
+        "file_size_bytes": 7815,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061059__orne_phase8_restant__20260723T050703Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061059"
+        },
+        "sha256": "c116e0b3c5ee9ae1eb50911fd9a8c31f175e5bce0d417a2d809e0b724923e003"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061061__orne_phase8_restant__20260723T050703Z.json",
+        "file_size_bytes": 7240,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061061__orne_phase8_restant__20260723T050703Z.json.metadata.json",
+        "observations": {
+          "field_count": 158,
+          "reference": "IA00061061"
+        },
+        "sha256": "a51dc7d482b88a58c8fe220604cf85be1d132fa8ba47c144ce8b1fb582642725"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061062__orne_phase8_restant__20260723T050704Z.json",
+        "file_size_bytes": 12202,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061062__orne_phase8_restant__20260723T050704Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061062"
+        },
+        "sha256": "0a44ee55761266b242b19f8d1cac29b077669e5505051a6b6024b656ca716973"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061064__orne_phase8_restant__20260723T050704Z.json",
+        "file_size_bytes": 10805,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061064__orne_phase8_restant__20260723T050704Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061064"
+        },
+        "sha256": "f25a7bbea31b89aafc1592ca9db4ba7b55fc17d353795c13a175c417be8ffef9"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061065__orne_phase8_restant__20260723T050705Z.json",
+        "file_size_bytes": 8127,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061065__orne_phase8_restant__20260723T050705Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061065"
+        },
+        "sha256": "9c7baf2570d461829c8dd379b1a7202a023a9d4b3175d1d986c4995d226477af"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061066__orne_phase8_restant__20260723T050705Z.json",
+        "file_size_bytes": 5915,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061066__orne_phase8_restant__20260723T050705Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061066"
+        },
+        "sha256": "9baccece6b4bd44f4f33e9c6a9173b54ac116bbce950bd3b3073abd90b6c0d27"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061067__orne_phase8_restant__20260723T050706Z.json",
+        "file_size_bytes": 7183,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061067__orne_phase8_restant__20260723T050706Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061067"
+        },
+        "sha256": "efc522466f7b1db4cf40c9e2f2eee5e2f0008d41cc3827e6ac59ecc80695ea40"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061068__orne_phase8_restant__20260723T050706Z.json",
+        "file_size_bytes": 6554,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061068__orne_phase8_restant__20260723T050706Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061068"
+        },
+        "sha256": "4b7326bcf9309928d944457830343e9b91d9d1656caf8c27ae47e7ffad4aea4d"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061070__orne_phase8_restant__20260723T050706Z.json",
+        "file_size_bytes": 7720,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061070__orne_phase8_restant__20260723T050706Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061070"
+        },
+        "sha256": "98b1ed0439f2aa6b354b5a02d01a21e9d5e49d6652c727a9c94968799e347dfa"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061071__orne_phase8_restant__20260723T050706Z.json",
+        "file_size_bytes": 13285,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061071__orne_phase8_restant__20260723T050706Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061071"
+        },
+        "sha256": "bd9c1631f2cc5f4aa273be43c2c3fa3ed0e1b1f38c72bf4911ca43b8d27dfbfd"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061072__orne_phase8_restant__20260723T050707Z.json",
+        "file_size_bytes": 10222,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061072__orne_phase8_restant__20260723T050707Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061072"
+        },
+        "sha256": "f531cd12650e12ed37a09c1295514cd08a97cd8ebecacbd06db3fc170dd5a6c5"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061074__orne_phase8_restant__20260723T050707Z.json",
+        "file_size_bytes": 6949,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061074__orne_phase8_restant__20260723T050707Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061074"
+        },
+        "sha256": "95d38f5287b510a68fbeb0e3ae3853efb83c102ace34ce497820895f9493d766"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061075__orne_phase8_restant__20260723T050707Z.json",
+        "file_size_bytes": 6042,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061075__orne_phase8_restant__20260723T050707Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061075"
+        },
+        "sha256": "b0d24bb6b84eb39b15f4f212fd872de60160b182b3206fc505300ffb3fcae8af"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061077__orne_phase8_restant__20260723T050708Z.json",
+        "file_size_bytes": 8254,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061077__orne_phase8_restant__20260723T050708Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061077"
+        },
+        "sha256": "54896f0464a0f128dfe8665ceaf0c6837d021505680166e397f0d373835b7d69"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061078__orne_phase8_restant__20260723T050708Z.json",
+        "file_size_bytes": 6152,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061078__orne_phase8_restant__20260723T050708Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061078"
+        },
+        "sha256": "f9cc656481d688ea6cc7deb3ba84acd0840fd74911679db34cfd2ef9ee2885e2"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061079__orne_phase8_restant__20260723T050708Z.json",
+        "file_size_bytes": 7075,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061079__orne_phase8_restant__20260723T050708Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061079"
+        },
+        "sha256": "34e29bf8c4522afba46a253eb0dae1dcadea291ef4a6ad36c5b6af0f7e899b80"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061080__orne_phase8_restant__20260723T050709Z.json",
+        "file_size_bytes": 7374,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061080__orne_phase8_restant__20260723T050709Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061080"
+        },
+        "sha256": "ebd87e8dc70e2c842aa81edcea2bd3377806744ff74033221c020e08ab062fd2"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061082__orne_phase8_restant__20260723T050709Z.json",
+        "file_size_bytes": 6777,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061082__orne_phase8_restant__20260723T050709Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061082"
+        },
+        "sha256": "f51dd9746f60745c93ab74b2563e867c2839bed2de2d3b8bc608654e23632bfe"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061083__orne_phase8_restant__20260723T050709Z.json",
+        "file_size_bytes": 6261,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061083__orne_phase8_restant__20260723T050709Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061083"
+        },
+        "sha256": "bcf6940b377392741160788fc174f9ccfe867e3418047c3d657359f5ac8fee3a"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061084__orne_phase8_restant__20260723T050709Z.json",
+        "file_size_bytes": 6077,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061084__orne_phase8_restant__20260723T050709Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061084"
+        },
+        "sha256": "1f01deb926d3fa04f1ece5a5f6f12c237a449a6895081e48e90ceb386bba4e1b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061085__orne_phase8_restant__20260723T050710Z.json",
+        "file_size_bytes": 5510,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061085__orne_phase8_restant__20260723T050710Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061085"
+        },
+        "sha256": "8b8cdf1a9a2b9acdd3c4a5fb125029f190184fa8af3d62a2ee24aa65070baac1"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061086__orne_phase8_restant__20260723T050710Z.json",
+        "file_size_bytes": 42944,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061086__orne_phase8_restant__20260723T050710Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061086"
+        },
+        "sha256": "26faea899697c4256ce59bd79541ff7bb9b9744298aa86c1c85a354fbcaa27d0"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061088__orne_phase8_restant__20260723T050710Z.json",
+        "file_size_bytes": 11208,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061088__orne_phase8_restant__20260723T050710Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061088"
+        },
+        "sha256": "1d0d9c447f6e417933f9d52f2c1c162fd97719db6f96c95d27cbba1a75abe268"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061089__orne_phase8_restant__20260723T050711Z.json",
+        "file_size_bytes": 7430,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061089__orne_phase8_restant__20260723T050711Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061089"
+        },
+        "sha256": "d2ce86d52d7054b989af9b9b39f043df80a36c605ca57dbb6474d57e0c95c3c7"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061090__orne_phase8_restant__20260723T050711Z.json",
+        "file_size_bytes": 8119,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061090__orne_phase8_restant__20260723T050711Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061090"
+        },
+        "sha256": "2100e35850e66e1672f01cc39eed35c97dbbccbf52895807fbe779148d726cd7"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061092__orne_phase8_restant__20260723T050712Z.json",
+        "file_size_bytes": 12847,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061092__orne_phase8_restant__20260723T050712Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061092"
+        },
+        "sha256": "1e72d6a889354449dc59d62880351db8788ae535a26681bea5e38922f9e9caee"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061093__orne_phase8_restant__20260723T050712Z.json",
+        "file_size_bytes": 10063,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061093__orne_phase8_restant__20260723T050712Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061093"
+        },
+        "sha256": "377bb5ee0cfa30c9fd64ce06a239fe9db2ae2f9139a556f97ef2d9bafc42eeec"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061096__orne_phase8_restant__20260723T050712Z.json",
+        "file_size_bytes": 6694,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061096__orne_phase8_restant__20260723T050712Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061096"
+        },
+        "sha256": "4b96e5a1fcf8252a5d39e891b3575d6ec158f5bf57e40a683730030a533c4ebb"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061097__orne_phase8_restant__20260723T050713Z.json",
+        "file_size_bytes": 8616,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061097__orne_phase8_restant__20260723T050713Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061097"
+        },
+        "sha256": "a700a1ea0e0b6802c5c91a4c46c231ccfd92a992d04af9216cbf4770a5afcef8"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061098__orne_phase8_restant__20260723T050713Z.json",
+        "file_size_bytes": 6072,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061098__orne_phase8_restant__20260723T050713Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061098"
+        },
+        "sha256": "1ceebe1315bad220b1e9849e7b57277c0d42c53f1132405259e4466531763ce6"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061099__orne_phase8_restant__20260723T050713Z.json",
+        "file_size_bytes": 16411,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061099__orne_phase8_restant__20260723T050713Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061099"
+        },
+        "sha256": "36098c0a9009043ba34252b5f60500be2c1435151bb85f17616a99018a53649b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061100__orne_phase8_restant__20260723T050714Z.json",
+        "file_size_bytes": 8172,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061100__orne_phase8_restant__20260723T050714Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061100"
+        },
+        "sha256": "b753182cf41dd67dd2e61fff9bbca636c55876cd0dce896b9a3f3026263a788f"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061102__orne_phase8_restant__20260723T050714Z.json",
+        "file_size_bytes": 15648,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061102__orne_phase8_restant__20260723T050714Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061102"
+        },
+        "sha256": "fb48db0cff83fadaecdd43ecaeef986bfadc4ec57c10ab907034b8dd4c9c1267"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061103__orne_phase8_restant__20260723T050714Z.json",
+        "file_size_bytes": 14970,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061103__orne_phase8_restant__20260723T050714Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061103"
+        },
+        "sha256": "76d4a8dd886a2f1211ea3e475c087a3267cbf178aa6c5bba30b064cc4975349f"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061104__orne_phase8_restant__20260723T050715Z.json",
+        "file_size_bytes": 8947,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061104__orne_phase8_restant__20260723T050715Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061104"
+        },
+        "sha256": "40244633c7c04c8a579d09e11bf32a99e1c6be30b85552b6a35580be16bd106f"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061105__orne_phase8_restant__20260723T050715Z.json",
+        "file_size_bytes": 7609,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061105__orne_phase8_restant__20260723T050715Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061105"
+        },
+        "sha256": "18f03d56a1d209d272df6cffb7b2e0e853711aba8615930f7f36a24a57e78014"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061106__orne_phase8_restant__20260723T050715Z.json",
+        "file_size_bytes": 8478,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061106__orne_phase8_restant__20260723T050715Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061106"
+        },
+        "sha256": "5fad03cfc8ee31adf5ad2ab000de6595c1d1814b2edaefd400a23977c264d606"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061108__orne_phase8_restant__20260723T050715Z.json",
+        "file_size_bytes": 8778,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061108__orne_phase8_restant__20260723T050715Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061108"
+        },
+        "sha256": "eb946fc4cd08246d7c0dc37fd69e60097971c0ce20558c813d4afe843016f088"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061109__orne_phase8_restant__20260723T050716Z.json",
+        "file_size_bytes": 6355,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061109__orne_phase8_restant__20260723T050716Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061109"
+        },
+        "sha256": "f2a6cf18d2a42c72723a07713f4d02326b24e949b5154902e5f689dc2abcaf1b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061110__orne_phase8_restant__20260723T050716Z.json",
+        "file_size_bytes": 10672,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061110__orne_phase8_restant__20260723T050716Z.json.metadata.json",
+        "observations": {
+          "field_count": 158,
+          "reference": "IA00061110"
+        },
+        "sha256": "f76acb06b3dcebbb170fed2746989aa108cc0212852db9b0d75b0f5e28554740"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061111__orne_phase8_restant__20260723T050716Z.json",
+        "file_size_bytes": 6646,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061111__orne_phase8_restant__20260723T050716Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061111"
+        },
+        "sha256": "63f7752edb3bf8c407dfc0c9d30d99fb58d8f395476ae4775287bf79762387f6"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061114__orne_phase8_restant__20260723T050717Z.json",
+        "file_size_bytes": 7759,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061114__orne_phase8_restant__20260723T050717Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061114"
+        },
+        "sha256": "1d4c157c568cf6fa1f41160a92b154ee548e4f357874e008d29633d08081bbfb"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061115__orne_phase8_restant__20260723T050717Z.json",
+        "file_size_bytes": 7967,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061115__orne_phase8_restant__20260723T050717Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061115"
+        },
+        "sha256": "83cead662ada351fc9ace5dca4ae2c98bc7f9cabfc4a60f94e1733999a7f5835"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061116__orne_phase8_restant__20260723T050717Z.json",
+        "file_size_bytes": 9515,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061116__orne_phase8_restant__20260723T050717Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061116"
+        },
+        "sha256": "0d5509bffb284699edaafa0b0ef98d554006ff7651e2ca6221bed73e18abf2b0"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061118__orne_phase8_restant__20260723T050718Z.json",
+        "file_size_bytes": 7880,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061118__orne_phase8_restant__20260723T050718Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061118"
+        },
+        "sha256": "896a15464f91c7aa1b3f13809f4e997cc8a3f3cbdd8019c0c7f11ea74909f749"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061120__orne_phase8_restant__20260723T050718Z.json",
+        "file_size_bytes": 8815,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061120__orne_phase8_restant__20260723T050718Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061120"
+        },
+        "sha256": "c86605b9d061907364baaf7bd33e4710b40bad51ff70487280771d2316b016dc"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061122__orne_phase8_restant__20260723T050718Z.json",
+        "file_size_bytes": 8948,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061122__orne_phase8_restant__20260723T050718Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061122"
+        },
+        "sha256": "eccb04457760012ef130cd45db4f55e7e48aeea710298e585661c8d81b6d715d"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061123__orne_phase8_restant__20260723T050719Z.json",
+        "file_size_bytes": 7716,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061123__orne_phase8_restant__20260723T050719Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061123"
+        },
+        "sha256": "598d22fee9a68546b599676d60ca34ad2ac821c584dd60118750310650f6e261"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061124__orne_phase8_restant__20260723T050719Z.json",
+        "file_size_bytes": 7052,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061124__orne_phase8_restant__20260723T050719Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061124"
+        },
+        "sha256": "0937222b75ee45fe1cd0f926fcdd9810f4b0db156035368121ec8ceb00ccd4d7"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061125__orne_phase8_restant__20260723T050719Z.json",
+        "file_size_bytes": 5151,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061125__orne_phase8_restant__20260723T050719Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061125"
+        },
+        "sha256": "f4c5357b8fe65800b81c72ae87832237928b287da7cda0925211646d893c69c5"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061126__orne_phase8_restant__20260723T050719Z.json",
+        "file_size_bytes": 5767,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061126__orne_phase8_restant__20260723T050719Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061126"
+        },
+        "sha256": "23ee3d3282c19a0ac9beb8b89a58eed0d26d3e6f4e3fe9060e5d48298bde3d5a"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061128__orne_phase8_restant__20260723T050720Z.json",
+        "file_size_bytes": 7735,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061128__orne_phase8_restant__20260723T050720Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061128"
+        },
+        "sha256": "8e450c34c008a1612f1e888d6963afdb267b74f6570b0ea54650a9fc9add6521"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061129__orne_phase8_restant__20260723T050720Z.json",
+        "file_size_bytes": 8669,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061129__orne_phase8_restant__20260723T050720Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061129"
+        },
+        "sha256": "8cb77b306369136c8d012d65591474c53d33610a4b9ae54b3ff56538ccee6738"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061130__orne_phase8_restant__20260723T050720Z.json",
+        "file_size_bytes": 6008,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061130__orne_phase8_restant__20260723T050720Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061130"
+        },
+        "sha256": "29f844e21486170276b31ca3679dd530918c0aa9734385c1cb980d6659c36ed0"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061131__orne_phase8_restant__20260723T050720Z.json",
+        "file_size_bytes": 6774,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061131__orne_phase8_restant__20260723T050720Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061131"
+        },
+        "sha256": "1ddf6d866aaa9b7ead83a7d34e4097ea6b3e13c541187e17dd94443346f5d99c"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061132__orne_phase8_restant__20260723T050721Z.json",
+        "file_size_bytes": 10852,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061132__orne_phase8_restant__20260723T050721Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061132"
+        },
+        "sha256": "e2c20e7af23580bb121faf78ff64ffc7393f3c370d0115e6faaa2c57bc26a726"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061136__orne_phase8_restant__20260723T050721Z.json",
+        "file_size_bytes": 8221,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061136__orne_phase8_restant__20260723T050721Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061136"
+        },
+        "sha256": "388dc7a2f1d5f3a44ca912d18ceebcdf5e0c5ed8f2c47fcb3a75486ff9da2451"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061137__orne_phase8_restant__20260723T050721Z.json",
+        "file_size_bytes": 7240,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061137__orne_phase8_restant__20260723T050721Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061137"
+        },
+        "sha256": "c487fdeebbca41dbe5e28ffab4d8dfa21b5b0ca288b9256877db75fe5767fb9b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061138__orne_phase8_restant__20260723T050722Z.json",
+        "file_size_bytes": 7758,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061138__orne_phase8_restant__20260723T050722Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061138"
+        },
+        "sha256": "4c7b4593b2c277572e1b55284783c714e82762ee937c2b42c8e189206b74e74b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061139__orne_phase8_restant__20260723T050722Z.json",
+        "file_size_bytes": 12873,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061139__orne_phase8_restant__20260723T050722Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061139"
+        },
+        "sha256": "d38c9e7d217871663a672d75795a97bc8ae1d1812b764f98ddff8be0886eeec6"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061140__orne_phase8_restant__20260723T050723Z.json",
+        "file_size_bytes": 6896,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061140__orne_phase8_restant__20260723T050723Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061140"
+        },
+        "sha256": "057f87ded70ea3c97609219cf5ea188d2869f7625de1fc4c89527e454fe5c7a4"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061142__orne_phase8_restant__20260723T050723Z.json",
+        "file_size_bytes": 10513,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061142__orne_phase8_restant__20260723T050723Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061142"
+        },
+        "sha256": "29c503cf7ab2e3760fc8e9763b9a1a819bb404ed2ab78cf4728dbf74d2cd484c"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061143__orne_phase8_restant__20260723T050723Z.json",
+        "file_size_bytes": 9235,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061143__orne_phase8_restant__20260723T050723Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061143"
+        },
+        "sha256": "1ba076d784fa9578f3dff507e7f5ca488bb96e4e35fcb03f5a134a086ec4e2f5"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061144__orne_phase8_restant__20260723T050724Z.json",
+        "file_size_bytes": 8355,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061144__orne_phase8_restant__20260723T050724Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061144"
+        },
+        "sha256": "d7bb0e0b6e63cd174123d0c8c9f3a5131ee05db445d88e923834c9e3f19d753b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061145__orne_phase8_restant__20260723T050724Z.json",
+        "file_size_bytes": 10299,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061145__orne_phase8_restant__20260723T050724Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061145"
+        },
+        "sha256": "d1a311eecb8997dd4362dbec233752d653c54489626411a0a3cce5d266525b39"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061148__orne_phase8_restant__20260723T050724Z.json",
+        "file_size_bytes": 7281,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061148__orne_phase8_restant__20260723T050724Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061148"
+        },
+        "sha256": "d994ae0c74ca94717cabf9f1ee14964b0fb24b387b3d6b08a6f340061224c9d8"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061149__orne_phase8_restant__20260723T050725Z.json",
+        "file_size_bytes": 32064,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061149__orne_phase8_restant__20260723T050725Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061149"
+        },
+        "sha256": "ad3d5f75020f2e33be4675369a5e29d8e7a898d4e0fb31c087d5948732bbe24e"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061150__orne_phase8_restant__20260723T050725Z.json",
+        "file_size_bytes": 6504,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061150__orne_phase8_restant__20260723T050725Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061150"
+        },
+        "sha256": "e2be847be63751f074412a70d5c3a3a4432da8221aea5b07dc9cfa043d9dfe0e"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061151__orne_phase8_restant__20260723T050725Z.json",
+        "file_size_bytes": 9690,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061151__orne_phase8_restant__20260723T050725Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061151"
+        },
+        "sha256": "18e38d9e0f297503b230e0b1dc228c70e34f28e7fcd574a1d31ada5953ecf1c2"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061152__orne_phase8_restant__20260723T050725Z.json",
+        "file_size_bytes": 8431,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061152__orne_phase8_restant__20260723T050725Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061152"
+        },
+        "sha256": "c98cd644efb341018fcb1a6bca9973263518a800f432fbd9d02cdb7f294191cd"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061156__orne_phase8_restant__20260723T050726Z.json",
+        "file_size_bytes": 6340,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061156__orne_phase8_restant__20260723T050726Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061156"
+        },
+        "sha256": "af67ad2f5d7ea9963997a28824c1708b8369bf37efbe049fa93876010a33c33b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061157__orne_phase8_restant__20260723T050726Z.json",
+        "file_size_bytes": 6209,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061157__orne_phase8_restant__20260723T050726Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061157"
+        },
+        "sha256": "a8e6e3549dba76dc0dea7c07e4058d3efb5658186877b2af0b6d557ffe2386a9"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061158__orne_phase8_restant__20260723T050727Z.json",
+        "file_size_bytes": 6444,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061158__orne_phase8_restant__20260723T050727Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061158"
+        },
+        "sha256": "3bdfe608a3579919c568efe3cab8b4198a9bc44806b20c3c5d5db0485d17cf93"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061159__orne_phase8_restant__20260723T050727Z.json",
+        "file_size_bytes": 5900,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061159__orne_phase8_restant__20260723T050727Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061159"
+        },
+        "sha256": "07d94ef30466943bff57f385ce73f79c307357822f13ff5c9cb3c8a7c15c760b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061160__orne_phase8_restant__20260723T050728Z.json",
+        "file_size_bytes": 13867,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061160__orne_phase8_restant__20260723T050728Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061160"
+        },
+        "sha256": "a0c46657ca4519c7d388278138b0b3783d6ff183e4223fc47a35133e6e01da2d"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061162__orne_phase8_restant__20260723T050728Z.json",
+        "file_size_bytes": 11620,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061162__orne_phase8_restant__20260723T050728Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061162"
+        },
+        "sha256": "0cf8714e62496c4a8829578d2f18c98f05ac8c2d419b3d187b53669700ea05d5"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061163__orne_phase8_restant__20260723T050728Z.json",
+        "file_size_bytes": 11018,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061163__orne_phase8_restant__20260723T050728Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061163"
+        },
+        "sha256": "4475d1255de9fd859fad76c2bfdbb33935a79f265954b576d5385ad639bc5aa7"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061164__orne_phase8_restant__20260723T050729Z.json",
+        "file_size_bytes": 10826,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061164__orne_phase8_restant__20260723T050729Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061164"
+        },
+        "sha256": "67a0a5c5ef9197e97ff7d5ec6dd55cf66efd16b405c2260690138820ff9b480a"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061165__orne_phase8_restant__20260723T050729Z.json",
+        "file_size_bytes": 6919,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061165__orne_phase8_restant__20260723T050729Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061165"
+        },
+        "sha256": "e0bdc194191536cde60b22c09629ad504bb72a92ad3889d25ffec212e951e771"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061167__orne_phase8_restant__20260723T050729Z.json",
+        "file_size_bytes": 5643,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061167__orne_phase8_restant__20260723T050729Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061167"
+        },
+        "sha256": "66765378049e36d36e92da83a73f1e0ceba9fe6c9719b6a4dda1dccecdbc7459"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061169__orne_phase8_restant__20260723T050730Z.json",
+        "file_size_bytes": 9057,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061169__orne_phase8_restant__20260723T050730Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061169"
+        },
+        "sha256": "2845caacc843d8ddb5aadcc938223d690a33314b3546f5f8a22daa73add7d52d"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061170__orne_phase8_restant__20260723T050730Z.json",
+        "file_size_bytes": 8018,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061170__orne_phase8_restant__20260723T050730Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061170"
+        },
+        "sha256": "55247a0b051b17b3a9ba4b2e1ecd4f2e2d5dddbfacac3576066fc3f5a0c91dc2"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061171__orne_phase8_restant__20260723T050730Z.json",
+        "file_size_bytes": 15061,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061171__orne_phase8_restant__20260723T050730Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061171"
+        },
+        "sha256": "3db7cd431e460726cdeabae9e1fdc082c1fffdd67dfb792206f64dbf60b8afaa"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061172__orne_phase8_restant__20260723T050731Z.json",
+        "file_size_bytes": 7792,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061172__orne_phase8_restant__20260723T050731Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061172"
+        },
+        "sha256": "c0db35520627aa4ff10c131b8fd22667a18238ae031957863ac80cefe9b01c66"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061173__orne_phase8_restant__20260723T050731Z.json",
+        "file_size_bytes": 5502,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061173__orne_phase8_restant__20260723T050731Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061173"
+        },
+        "sha256": "ed76e913a8126ece61e7ecdbcad3bf1bd5436669fa62ad47d432a23ed7b6bb0b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061175__orne_phase8_restant__20260723T050732Z.json",
+        "file_size_bytes": 5910,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061175__orne_phase8_restant__20260723T050732Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061175"
+        },
+        "sha256": "1ae826dc4f832eccf888011254382e30175e1d73ac3bff197cb7e06c0d7c4208"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061176__orne_phase8_restant__20260723T050732Z.json",
+        "file_size_bytes": 6401,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061176__orne_phase8_restant__20260723T050732Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061176"
+        },
+        "sha256": "956906128bd8e3ed97856ccca6eee04324ba7c6ac1c546fb9d8e9f14f979436d"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061177__orne_phase8_restant__20260723T050733Z.json",
+        "file_size_bytes": 8247,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061177__orne_phase8_restant__20260723T050733Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061177"
+        },
+        "sha256": "188f5b435008d5262a6c07e76a34b527ae1077ebf68782aba8b266036df6cd86"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061178__orne_phase8_restant__20260723T050733Z.json",
+        "file_size_bytes": 6316,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061178__orne_phase8_restant__20260723T050733Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061178"
+        },
+        "sha256": "515cf20f6c5fa89ac980c0cab6bdf6bdad1c5a2d816d35e73265c806c748049b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061180__orne_phase8_restant__20260723T050733Z.json",
+        "file_size_bytes": 5999,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061180__orne_phase8_restant__20260723T050733Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061180"
+        },
+        "sha256": "cdc137ecb600be68dd5f47967c2b48fc45164477e8d6d5c6c9e2841ee4382899"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061181__orne_phase8_restant__20260723T050733Z.json",
+        "file_size_bytes": 8927,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061181__orne_phase8_restant__20260723T050733Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061181"
+        },
+        "sha256": "dc1a26d7e3a2a9c5c9f6f410e1ad209f1844673d57ffe9cebd5fe058a3e48f5b"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061182__orne_phase8_restant__20260723T050734Z.json",
+        "file_size_bytes": 5379,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061182__orne_phase8_restant__20260723T050734Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061182"
+        },
+        "sha256": "6aed665641c3bce83430c7d2ff06e7df36837c127492870be8df7cce52aa9f9a"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061183__orne_phase8_restant__20260723T050734Z.json",
+        "file_size_bytes": 7098,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061183__orne_phase8_restant__20260723T050734Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061183"
+        },
+        "sha256": "026fad091fd52e452cf8de2a1ea90b9c4327e5d8d89ed211c252694d611eeb6c"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061184__orne_phase8_restant__20260723T050734Z.json",
+        "file_size_bytes": 7520,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061184__orne_phase8_restant__20260723T050734Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061184"
+        },
+        "sha256": "6070088784c30435b12e54dfb66608b05a0c2112f330006915557adc030c8683"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061186__orne_phase8_restant__20260723T050735Z.json",
+        "file_size_bytes": 7991,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061186__orne_phase8_restant__20260723T050735Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061186"
+        },
+        "sha256": "ebc1841031bdf2babacd1fa947545dae695925b0c9218d17371e9fce77347a35"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061187__orne_phase8_restant__20260723T050735Z.json",
+        "file_size_bytes": 8862,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061187__orne_phase8_restant__20260723T050735Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061187"
+        },
+        "sha256": "b1b7bba3accb5f2001f7c7117cce6af55e49aff1cecbfe999bceb3ae09210ec0"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061188__orne_phase8_restant__20260723T050735Z.json",
+        "file_size_bytes": 7279,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061188__orne_phase8_restant__20260723T050735Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061188"
+        },
+        "sha256": "7cfd2e8ccae35bbad010b1448447cbd503e40aa7692beeea3ac20cc014e82a9d"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061189__orne_phase8_restant__20260723T050735Z.json",
+        "file_size_bytes": 5861,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061189__orne_phase8_restant__20260723T050735Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061189"
+        },
+        "sha256": "d1e809e451d70d0eebbbd71610a093dcb54de15195388c92cd46ff26e7896b31"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061190__orne_phase8_restant__20260723T050736Z.json",
+        "file_size_bytes": 7773,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061190__orne_phase8_restant__20260723T050736Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061190"
+        },
+        "sha256": "61fd2c6b5bf94bb1ff450733cd7c6c7f4048b911d5ed7fdbb3fb7fd8d8943f8f"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061192__orne_phase8_restant__20260723T050736Z.json",
+        "file_size_bytes": 7609,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061192__orne_phase8_restant__20260723T050736Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061192"
+        },
+        "sha256": "3394a481f0747f309187bea9254bbace018e42d397ac942ca264ca0fb2a07717"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061193__orne_phase8_restant__20260723T050736Z.json",
+        "file_size_bytes": 5874,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061193__orne_phase8_restant__20260723T050736Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061193"
+        },
+        "sha256": "48213a62aae1554e0316f3c432127f2c51539d45ebf9e2e9dc45360ae2719849"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061194__orne_phase8_restant__20260723T050737Z.json",
+        "file_size_bytes": 8334,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061194__orne_phase8_restant__20260723T050737Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061194"
+        },
+        "sha256": "77c6559cfc5dbe0246422f57246fb6f929adf714a4400454424a8471ea80e2d4"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061195__orne_phase8_restant__20260723T050737Z.json",
+        "file_size_bytes": 7280,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061195__orne_phase8_restant__20260723T050737Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061195"
+        },
+        "sha256": "769987b940f2a6fddd71b679e81004f8658a14c32e706e2f8fe9366f425792c9"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061196__orne_phase8_restant__20260723T050737Z.json",
+        "file_size_bytes": 7160,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061196__orne_phase8_restant__20260723T050737Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061196"
+        },
+        "sha256": "6b7b3235eae298ede33fc3886e0816aebe9c3dcbf6753f650404b44a90b5a632"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061198__orne_phase8_restant__20260723T050738Z.json",
+        "file_size_bytes": 7035,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061198__orne_phase8_restant__20260723T050738Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061198"
+        },
+        "sha256": "edfe37ab98f5d388d968f420fb92afa8289be916f6671a443a43ff3bb758c333"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061199__orne_phase8_restant__20260723T050738Z.json",
+        "file_size_bytes": 7066,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061199__orne_phase8_restant__20260723T050738Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061199"
+        },
+        "sha256": "447311502b22d8c94d03414b7fed95ea38048d6ef89a7af5bd576b6e6397f34d"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061200__orne_phase8_restant__20260723T050738Z.json",
+        "file_size_bytes": 5958,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061200__orne_phase8_restant__20260723T050738Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061200"
+        },
+        "sha256": "d45d4919184d3e2631746cf9999d1667c91cc98e2e99a596cfe1209dc7fd6224"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061201__orne_phase8_restant__20260723T050738Z.json",
+        "file_size_bytes": 8239,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061201__orne_phase8_restant__20260723T050738Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061201"
+        },
+        "sha256": "d74f117e54e4f573c7bf3e661b512b19491d904c005e0f2ba39c3ff73791ecbb"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061202__orne_phase8_restant__20260723T050739Z.json",
+        "file_size_bytes": 11110,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00061202__orne_phase8_restant__20260723T050739Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00061202"
+        },
+        "sha256": "abe8d8dbf2bddd143c1df180aa1f30ce72368f5abb3e97d9fa7df15a2e12c3a7"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00062725__orne_phase8_restant__20260723T050739Z.json",
+        "file_size_bytes": 12856,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia00062725__orne_phase8_restant__20260723T050739Z.json.metadata.json",
+        "observations": {
+          "field_count": 157,
+          "reference": "IA00062725"
+        },
+        "sha256": "473aa356e488e9d369856b65685714e01842b64183344c8027ba50b28b4e5796"
+      },
+      {
+        "data_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia61001399__orne_phase8_restant__20260723T050739Z.json",
+        "file_size_bytes": 4899,
+        "metadata_file": "data/raw/pop_merimee/2026/2026-07-23/pop_merimee__ia61001399__orne_phase8_restant__20260723T050739Z.json.metadata.json",
+        "observations": {
+          "field_count": 156,
+          "reference": "IA61001399"
+        },
+        "sha256": "29426f40f35a30898b868173b69f0310f68a69cca90f997d62a79992f1e1169f"
+      }
+    ]
+  },
+  "status": "complete"
+}

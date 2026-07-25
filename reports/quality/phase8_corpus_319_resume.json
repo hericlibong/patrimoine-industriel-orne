@@ -1,0 +1,40 @@
+{
+  "anomaly_count": 8,
+  "canonical_site_count": null,
+  "checks": {
+    "all_have_classified_content": true,
+    "all_have_source": true,
+    "all_terms_resolved": true,
+    "expected_319_dossiers": true,
+    "first_50": true,
+    "official_pilot_29": true,
+    "remaining_240": true,
+    "uniform_record_structure": true,
+    "unique_references": true
+  },
+  "classifications": {
+    "couverture_resolue_pourcent": 100.0,
+    "denominations_resolues": 407,
+    "denominations_total": 407,
+    "termes_inconnus": {},
+    "version": "1.4"
+  },
+  "corpus_version": "phase8_319_dossiers_officiels_v1",
+  "counts": {
+    "activites": 400,
+    "dossiers_composants_non_productifs": 4,
+    "dossiers_multi_activites": 73,
+    "dossiers_multi_secteurs": 34,
+    "dossiers_officiels": 319,
+    "dossiers_restants_traites": 240,
+    "pilotes_officiels": 29,
+    "premiers_dossiers": 50,
+    "rapprochements_a_verifier": 7,
+    "references_uniques": 319,
+    "separations_a_verifier": 1,
+    "site_ids_attribues": 29
+  },
+  "generated_at": "2026-07-23",
+  "next_step": "revoir_les_rapprochements_et_separations_puis_attribuer_les_site_id",
+  "schema_version": "1.0"
+}

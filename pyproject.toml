@@ -49,6 +49,18 @@ patrimoine-orne-controle-cartographique = "patrimoine_orne.geocode.cartographic_
 patrimoine-orne-produire-socle-v1 = "patrimoine_orne.export.socle_v1:main"
 patrimoine-orne-preparer-phase8-lot1 = "patrimoine_orne.extract.corpus:main"
 patrimoine-orne-reunir-corpus-80 = "patrimoine_orne.transform.corpus_80:main"
+patrimoine-orne-extraire-reste-phase8 = "patrimoine_orne.extract.remaining:main"
+patrimoine-orne-reunir-corpus-319 = "patrimoine_orne.transform.corpus_319:main"
+patrimoine-orne-canoniser-phase8 = "patrimoine_orne.transform.canonical:main"
+patrimoine-orne-extraire-enrichissement-complet = "patrimoine_orne.extract.full_enrichment:main"
+patrimoine-orne-enrichir-corpus-complet = "patrimoine_orne.enrich.full_corpus:main"
+patrimoine-orne-extraire-contexte-complet = "patrimoine_orne.extract.full_territorial_context:main"
+patrimoine-orne-calculer-contexte-complet = "patrimoine_orne.geocode.full_territorial_context:main"
+patrimoine-orne-produire-corpus-complet-v1 = "patrimoine_orne.export.corpus_complet_v1:main"
+patrimoine-orne-produire-recits-v1 = "patrimoine_orne.export.editorial_v1:main"
+patrimoine-orne-produire-medias-v1 = "patrimoine_orne.export.medias_v1:main"
+patrimoine-orne-qualifier-medias-v1 = "patrimoine_orne.export.qualifier_medias_v1:main"
+patrimoine-orne-revue-editoriale-v1 = "patrimoine_orne.export.revue_editoriale_v1:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

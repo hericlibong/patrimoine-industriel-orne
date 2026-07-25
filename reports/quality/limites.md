@@ -1,13 +1,13 @@
 # Registre des limites
 
-Document vivant — dernière mise à jour : 22 juillet 2026
+Document vivant — dernière mise à jour : 24 juillet 2026
 
 | ID | Source ou étape | Limite constatée | Conséquence | Traitement prévu | Statut |
 |---|---|---|---|---|---|
-| LIM-001 | Comptage général | Une notice n'équivaut pas nécessairement à un site | Le nombre final de lieux est encore inconnu | Compter séparément notices, candidats, sites rapprochés, cartographiables et publiés | ouverte |
-| LIM-002 | Inventaire normand | Aucun export global actuel des 319 dossiers n'a été identifié | Extraction complète non garantie automatiquement | Utiliser POP pour les champs, les dossiers statiques pour les scans, puis mesurer la part d'OCR et de contrôle humain | ouverte |
-| LIM-003 | Inventaire normand | Plusieurs dossiers ne sont pas géolocalisés | Une partie du corpus peut rester sans point précis | Rechercher adresse, parcelle, plans et sources complémentaires | ouverte |
-| LIM-004 | CASIAS | 1 853 entrées sur 2 052 sont déclarées non géolocalisées dans la couche testée | CASIAS seul ne permet pas de placer la majorité des candidats | Ne jamais utiliser la commune comme faux emplacement ; recouper adresses, archives et cartes | ouverte |
+| LIM-001 | Comptage général | Une notice n'équivaut pas nécessairement à un site | Le total des dossiers pourrait être présenté comme le nombre de lieux | La revue établit 318 sites pour 319 dossiers sources | resolue |
+| LIM-002 | Inventaire normand | Aucun export global direct des 319 dossiers n'a été identifié | L'extraction ne pouvait pas reposer sur le seul portail régional | Les 319 références ont été énumérées et extraites via POP avec contrôle du champ `REF` | resolue |
+| LIM-003 | Inventaire normand | Les points sources ne donnent pas tous une emprise précise | 290 sites restent localisés approximativement | Conserver le point source, afficher sa précision et rechercher parcelles ou plans pour les études de cas | permanente |
+| LIM-004 | CASIAS | 1 843 entrées sur 2 052 n'ont pas de coordonnées explicites dans la couche extraite | CASIAS seul ne permet pas de placer la majorité des candidats | Ne jamais utiliser la commune comme faux emplacement ; recouper adresses, archives et cartes | permanente |
 | LIM-005 | CASIAS | Le champ d'activité est vide dans la couche WFS régionale testée | Filtrage patrimonial impossible à partir de cette couche seule | Tester le CSV national et les fiches détaillées | ouverte |
 | LIM-006 | CASIAS | La base comprend de nombreuses activités de service sans intérêt patrimonial direct | Surestimation possible du corpus industriel | Classifier puis vérifier chaque candidat avant inclusion | ouverte |
 | LIM-007 | Monuments historiques | La source ne couvre que les immeubles protégés | Une absence ne signifie pas absence de patrimoine | Employer la source comme enrichissement, jamais comme corpus exhaustif | permanente |
@@ -55,18 +55,21 @@ Document vivant — dernière mise à jour : 22 juillet 2026
 | LIM-049 | Géologie et minerais | La lithologie est simplifiée au 1:1 000 000 et un indice minier proche ne prouve pas un approvisionnement | Les relations entre ressource et production ne peuvent pas être automatisées | Utiliser les résultats comme pistes, puis vérifier les textes et archives site par site | permanente |
 | LIM-050 | Contrôle cartographique | Une superposition cohérente entre point, contour et parcelle actuelle ne prouve pas l'emprise historique ni le bâtiment conservé | La carte de contrôle pourrait être prise à tort pour une validation de terrain | Maintenir toutes les géométries en précision approximative et demander une source historique, une orthophotographie ou une observation pour relever la précision | permanente |
 | LIM-051 | Exports plats du socle V1 | CSV, Parquet et GeoJSON regroupent les relations multiples dans une seule ligne par site | Une activité, une source ou un objet pourrait être interprété sans sa relation détaillée | Utiliser DuckDB comme référence et réserver les exports plats à la consultation, l'analyse et la cartographie | permanente |
-| LIM-052 | Socle pilote V1 | Les livrables actuels ne contiennent que les 30 sites pilotes | Ils ne permettent ni un décompte départemental ni des proportions représentatives | Appliquer la chaîne validée aux 319 dossiers sources pendant la phase 8 | ouverte |
+| LIM-052 | Socle pilote V1 | Les premiers livrables ne contenaient que les 30 sites pilotes | Ils ne permettaient ni un décompte départemental ni des proportions représentatives | Le corpus complet V1 contient désormais 318 sites canoniques | resolue |
 | LIM-053 | Datation POP `SCLE` | `SCLE` date des campagnes de construction ou de transformation et non nécessairement la durée d'une activité industrielle | Une période de bâtiment pourrait être interprétée comme une période continue de production | Conserver `periodes_source_codes` séparé de `periodes_activite_codes` et publier la méthode avec chaque période | permanente |
-| LIM-054 | Chronologie des activités du pilote | 30 phases ont des dates normalisées issues d'une chronologie explicite ; 17 phases utilisent `SCLE` comme repérage faute de bornes d'activité structurées | Les 17 périodes de repli sont moins précises pour analyser la durée de production | Afficher `periode_methode_code`, conserver le texte source et compléter les chronologies lors du passage au corpus complet | ouverte |
-| LIM-055 | Registre des sources | Le CSV produit en phase 1 décrit l'audit initial et non les produits finalement mobilisés | Deux registres concurrents pourraient créer des licences ou des attributions incohérentes | Désigner `config/sources.yml` version 1.2 comme registre canonique et conserver le CSV comme trace historique | resolue |
+| LIM-054 | Chronologie des activités | 42 activités sur 403 possèdent une période issue d'une chronologie directe ; les autres utilisent seulement les périodes documentaires du site | Une période de construction pourrait être interprétée comme une durée de production | Séparer les deux mesures dans les exports et afficher leur méthode | permanente |
+| LIM-055 | Registre des sources | Le CSV produit en phase 1 décrit l'audit initial et non les produits finalement mobilisés | Deux registres concurrents pourraient créer des licences ou des attributions incohérentes | Désigner `config/sources.yml` version 1.3 comme registre canonique et conserver le CSV comme trace historique | resolue |
 | LIM-056 | Provenance contemporaine | Les quatre observations récentes étaient auparavant regroupées sous une source touristique générique | Le producteur réel et la portée de chaque preuve pouvaient être masqués | Enregistrer séparément EDF, Bohin, Archives de l'Orne et Département de l'Orne | resolue |
 | LIM-057 | Images éditoriales | Le socle ne contient encore aucune photographie tierce ni registre d'autorisations | Une image trouvée dans une notice pourrait être réutilisée à tort pendant la publication | Exclure les droits inconnus et créer le registre prévu avant tout enrichissement photographique | permanente |
 | LIM-058 | Estimation de charge | Le pilote raisonné ne mesure pas une cadence représentative des 319 dossiers | La charge de 180 à 300 heures pour le corpus technique reste une fourchette de planification | Mesurer le temps humain sur le premier lot de 50 et réviser l'estimation | ouverte |
 | LIM-059 | Carte interne | La carte de phase 7 montre uniquement les 30 sites pilotes et des points approximatifs | Elle pourrait être prise pour une géographie exhaustive ou précise du patrimoine industriel | Afficher le périmètre pilote, les alertes et l'avertissement directement dans le visuel | permanente |
 | LIM-060 | Choix applicatif | La pile SvelteKit et MapLibre est une recommandation, pas une dépendance déjà engagée | Un développement précoce pourrait figer l'interface avant stabilisation des besoins | Prototyper après le lot de 50 et réévaluer la pile avant la phase de publication | ouverte |
 | LIM-061 | Énumération du corpus | La recherche POP par cadre d'étude renvoie 320 notices, dont une notice de présentation, et diffère de l'ancienne plage de références | Une plage numérique ou un filtre sur le type de dossier produirait un corpus incomplet | Utiliser la recherche API, exclure seulement IA61000851 et exiger 319 références uniques | resolue |
-| LIM-062 | Dossier collectif | IA61001399 est un dossier collectif inclus dans les 319 résultats | Le traiter comme un site unique ferait sous-compter les emprises | Le conserver comme dossier source et le décomposer pendant la revue | ouverte |
-| LIM-063 | Total canonique | Le lot 1 donne 50 sites provisoires pour 50 dossiers, mais 239 dossiers non pilotes restent à traiter | Le total du lot pourrait être présenté à tort comme une règle générale | Ne publier aucun total départemental avant la revue de tous les lots | permanente |
+| LIM-062 | Dossier collectif | IA61001399 est une synthèse sans emprise incluse dans les 319 résultats | Le traiter comme un site créerait un faux lieu | Le conserver comme source hors décompte ; ses quinze dossiers individuels sont déjà présents | resolue |
+| LIM-063 | Périmètre pilote/corpus officiel | IA00061060 appartient au pilote enrichi mais pas à l'énumération officielle actuelle | Le calcul 30 + 50 + 239 aurait laissé une référence officielle absente | Conserver IA00061060 hors corpus principal et intégrer les 240 références officielles restantes | resolue |
+| LIM-064 | Dossiers non productifs | Quatre dossiers décrivent uniquement des cités ouvrières | Les forcer dans une activité industrielle fausserait les répartitions sectorielles | Les conserver comme emprises patrimoniales et les relier à leur site industriel sans fusion | resolue |
+| LIM-065 | Activité générique | Deux notices portent seulement la dénomination `moulin` | La production ne peut pas être déduite depuis la seule dénomination | Les activités ont été précisées depuis les historiques des deux notices | resolue |
+| LIM-066 | Total canonique | 319 dossiers sources ne signifient pas 319 sites | Le total des dossiers pourrait être présenté à tort comme le nombre de lieux | La revue établit 318 sites ; préciser que ce total porte uniquement sur le corpus principal de l'Inventaire | permanente |
 
 ## Règle de mise à jour
 
@@ -74,3 +77,22 @@ Ce registre est mis à jour pendant chaque phase. Une limite passe à `resolue`
 uniquement lorsque la méthode et le résultat du contrôle sont documentés. Les
 limites structurelles restent `permanente` et sont reprises dans le rapport de
 qualité final.
+## Synthèse après validation du corpus complet V1
+
+Mise à jour : 24 juillet 2026.
+
+Le corpus complet comprend 318 sites, mais les limites suivantes doivent rester
+visibles dans toute publication :
+
+- 315 états de conservation sont inconnus ;
+- 316 accessibilités sont inconnues ;
+- 290 localisations sont des points approximatifs ;
+- 361 activités sur 403 ne possèdent pas encore de chronologie directe
+  structurée ;
+- 31 objets Palissy restent des liens documentaires à vérifier ;
+- 8 rapprochements CASIAS restent ambigus ;
+- 170 candidats CASIAS restent hors corpus.
+
+Ces limites ne bloquent pas une carte historique départementale. Elles bloquent
+en revanche une présentation exhaustive de l'état actuel, de la visitabilité,
+des emprises exactes ou de la durée précise de toutes les activités.

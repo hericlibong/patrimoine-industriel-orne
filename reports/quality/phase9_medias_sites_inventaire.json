@@ -1,0 +1,21 @@
+{
+  "date_validation": "2026-07-24",
+  "decision": "medias_sites_v1_valide",
+  "doublons_techniques_supprimes": 0,
+  "erreurs": [],
+  "lignes_duckdb": 1900,
+  "medias_avec_auteur": 0,
+  "medias_avec_credit": 1783,
+  "medias_avec_legende": 1783,
+  "medias_avec_mention_droits": 1783,
+  "medias_extraits_depuis_archive_html": 117,
+  "medias_inventories": 1900,
+  "medias_marques_principaux": 282,
+  "references_medias_uniques": 1888,
+  "references_reutilisees_entre_relations": 8,
+  "relations_avec_reference_reutilisee": 20,
+  "schema_version": "1.0",
+  "sites_avec_media": 316,
+  "sites_corpus": 318,
+  "sites_sans_media_exploitable": 2
+}

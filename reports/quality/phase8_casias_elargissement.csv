@@ -1,0 +1,171 @@
+reference_casias,nom,adresse,code_insee,commune,avec_coordonnees,statut,motif,source_url
+BNO6100009,La filature de Saint Clair,forge la,61376,SAINT CLAIR DE HALOUZE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795698
+BNO6100010,Haut Fourneau de Varennes,la forge de Halouze,61376,SAINT CLAIR DE HALOUZE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795699
+BNO6100034,FONDERIE,Hameau forges les,61369,SAINT BOMER LES FORGES,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795722
+BNO6100043,Moulin de la Picarderie.,,61176,FRANCHEVILLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795730
+BNO6100045,Usine de la Fonderie.,,61055,BOUCE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795732
+BNO6100054,FONDERIE,,61006,ARGENTAN,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795739
+BNO6100084,FONDERIE DE SUIF EN BRANCHE AU BAIN MARIE.,,61006,ARGENTAN,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795765
+BNO6100091,Usine à gaz.,,61006,ARGENTAN,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795772
+BNO6100103,Manufacture à quatre alambics de goudron et d'acide,"lieu dit ""rue des teniers""",61460,LE SAP,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795784
+BNO6100138,MOULIN A TAN,Chemin vicinal n°8,61346,LE RENOUARD,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795809
+BNO6100139,MOULIN FOULON HAUT,"1 lieu dit "" le moulin Foulon"" Voie communale n°.",61139,CROUTTES,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795810
+BNO6100154,USINE DE SAINT SULPICE,,61456,SAINT SULPICE SUR RISLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795821
+BNO6100168,USINE DU SIFLET,,61003,ANCEINS,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795831
+BNO6100170,USINE DE TERNANT,,61282,MONNAI,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795833
+BNO6100183,VERRERIE DE SAINT EVROULT N.D.D.B.,,61167,LA FERTE FRENEL,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795845
+BNO6100187,FONDERIE DE CUIVRE,,61092,CHANDAI,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795849
+BNO6100188,TREFILERIE DU GRAND MOULIN,LE GRAND MOULIN,61092,CHANDAI,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795850
+BNO6100219,LE MOULIN LEGUME,57 rue Mamers de,61001,ALENCON,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795878
+BNO6100239,FONDERIE,,61001,ALENCON,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795897
+BNO6100241,FONDERIE DE SUIF,Chemin chapelle vieille de la,61001,ALENCON,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795899
+BNO6100275,,Usine à gaz d'Alençon,61001,ALENCON,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795931
+BNO6100294,MOULIN DE GUICHET OU MOULIN DES SOEURS CLAIRES,,61001,ALENCON,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795950
+BNO6100328,USINE D OZE,1 Allée inst sur la rivière de la Sarthe à  km en amont d'Alençon,61001,ALENCON,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3795983
+BNO6100350,,"""Le Moulin""",61255,MAUVES SUR HUISNE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796005
+BNO6100356,PAPETERIE DE LA FRETTE,lieu dit de la Frette. Commune de Saint Victor,61458,SAINT VICTOR DE RENO,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796011
+BNO6100385,FONDERIE,,61293,MORTAGNE AU PERCHE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796039
+BNO6100389,USINE DE MORTAGNE,ZI,61293,MORTAGNE AU PERCHE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796043
+BNO6100400,FONDERIE DE SUIF,8 Place GAULLE de,61258,LE MELE SUR SARTHE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796054
+BNO6100403,,route moulin de marche du,61126,COULONGES SUR SARTHE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796057
+BNO6100404,MOULIN DE BLUTEAU,,61245,MAISON MAUGIS,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796058
+BNO6100406,FONDERIE DE SUIF EN BRANCHE,pas à la Chapelle Montligeon,61097,LA CHAPELLE MONTLIGEON,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796060
+BNO6100425,,rue vieux moulin du,61230,LONGNY AU PERCHE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796077
+BNO6100430,MOULIN DE LA BADIERE,BLARDIERE LA,61165,LA FERRIERE BOCHARD,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796081
+BNO6100443,VERRERIE DE BELLOY,,61250,MARCHAINVILLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796094
+BNO6100451,MOULIN A TAN  ET MOULIN A PLATRE,,61345,REMALARD,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796102
+BNO6100455,MOULIN DE LA CALABRIERE,,61426,SAINT MARTIN DU VIEUX BELLEME,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796106
+BNO6100456,FONDERIE DE SUIF,fonderie de Suif,61426,SAINT MARTIN DU VIEUX BELLEME,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796107
+BNO6100468,FONDERIE,15 rue Saint Pierre,61038,BELLEME,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796119
+BNO6100469,FONDERIE DE SUIF,,61038,BELLEME,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796120
+BNO6100470,FONDERIE DE SUIF,16 rue Alençon d',61038,BELLEME,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796121
+BNO6100471,FONDERIE,,61038,BELLEME,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796122
+BNO6100477,USINE DE CHEREPENINE(BRIQUETERIE),,61319,ORIGNY LE ROUX,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796128
+BNO6100483,USINE DU THEIL,"""La Pêcherie""",61484,LE THEIL,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796133
+BNO6100495,,Moulin de Villeray,61115,CONDEAU,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796145
+BNO6100507,MOULIN DE BRIEUX,moulin le,61062,BRIEUX,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796157
+BNO6100509,SCIERIE,"""Les Hauts Vents""",61283,MONTABARD,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796159
+BNO6100512,MOULIN DE MANDEVILLE,,61276,MERRI,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796162
+BNO6100513,,moulins les,61303,NECY,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796163
+BNO6100525,LE MOULIN AUX FERRONS,LE MOULIN  AUX   FERRONS,61150,ECHAUFFOUR,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796174
+BNO6100529,USINE DE BOISTHOREL,,61342,RAI,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796178
+BNO6100538,SCIERIE DE MAUBUISSON,,61342,RAI,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796183
+BNO6100539,USINE BOISTHOREL,,61342,RAI,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796184
+BNO6100542,USINE DE BOISTHOREL,,61342,RAI,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796187
+BNO6100551,LA FORGE DE RANDONNAI,,61343,RANDONNAI,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796196
+BNO6100555,FONDERIES,,61343,RANDONNAI,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796200
+BNO6100561,USINE JACQUEMEART,,61343,RANDONNAI,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796206
+BNO6100565,EMPOITERIE ET SCIERIE DE L'AIGLE,,61214,L'AIGLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796209
+BNO6100568,,"rue Docteur Blaizot du, usine",61214,L'AIGLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796212
+BNO6100569,USINE DE LA MOUSSE,ZI,61214,L'AIGLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796213
+BNO6100571,USINE DES HAYE,,61214,L'AIGLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796215
+BNO6100576,L'USINE DU PONT DU MOULIN,"14 rue Pont du moulin du, L'Aigle",61214,L'AIGLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796220
+BNO6100578,FONDERIE,"rue pont de pierre du, L'Aigle",61214,L'AIGLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796222
+BNO6100594,USINES DES HAIES,,61214,L'AIGLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796237
+BNO6100603,USINE DE MOYENNE MECANIQUE,"lieu dit ""Mérouvel"", commune de l'Aigle",61214,L'AIGLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796246
+BNO6100605,USINE COLMONT,7 bis rue Gavenne de la,61214,L'AIGLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796248
+BNO6100625,L'USINE DU GRU,,61214,L'AIGLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796267
+BNO6100629,,19 rue moulin du,61214,L'AIGLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796271
+BNO6100631,FONDERIE DE SUIF,,61214,L'AIGLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796273
+BNO6100643,USINE A GAZ,rue garenne de la,61214,L'AIGLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796284
+BNO6100662,,rue moulin du,61486,TINCHEBRAY,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796303
+BNO6100664,FILATURE DE ROCHEFORT,,61486,TINCHEBRAY,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796305
+BNO6100673,MOULIN A PAPIER DES VALLEES,,61031,BEAUCHENE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796314
+BNO6100674,PAPETERIE,,61031,BEAUCHENE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796315
+BNO6100675,MOULIN A PAPIER DES PETITS ETANGS,Lonlay,61031,BEAUCHENE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796316
+BNO6100677,USINE DE PLANQUIVON,lieu dit PLANQUIVON,61007,ATHIS DE L'ORNE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796318
+BNO6100685,FILATURE DU ROQUERET,,61069,CAHAN,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796326
+BNO6100687,MOULIN DE CALIGNY,,61070,CALIGNY,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796328
+BNO6100688,FILATURE,,61070,CALIGNY,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796329
+BNO6100691,FILATURE DE MONNERIE,,61070,CALIGNY,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796331
+BNO6100693,USINE DU PONT,pont le,61070,CALIGNY,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796333
+BNO6100698,USINE DES FONTAINES,,61287,MONTILLY SUR NOIREAU,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796337
+BNO6100701,FERLAM TECNOLOGIES anciennement USINE D'OUVRAGE EN AMIANTE,"lieu dit ""Le Plafond""",61407,SAINTE HONORINE LA CHARDONNE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796340
+BNO6100706,FILATURE DU BOIS BARAMET,,61447,SAINT PIERRE DU REGARD,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796343
+BNO6100707,FILATURE LE BARRENET,,61447,SAINT PIERRE DU REGARD,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796344
+BNO6100708,FILATURE DE LA PLANCHE à L'ANE,,61447,SAINT PIERRE DU REGARD,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796345
+BNO6100712,?  anciennement le Moulin de la ROQUE,,61447,SAINT PIERRE DU REGARD,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796347
+BNO6100715,LE MOULIN DE PELLERAT,Moulin De Pellerat le,61445,SAINT PIERRE D'ENTREMONT,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796349
+BNO6100719,Usine de St Philibert,,61444,SAINT PHILBERT SUR ORNE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796352
+BNO6100721,USINE DE FER DE PONTCHON,Dans la cour du moulin de PONTCHARDON,61333,PONTCHARDON,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796354
+BNO6100722,USINE DE FER DE SAINT MARTIN DE PONTCHARDON,La cour  du Pont,61333,PONTCHARDON,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796355
+BNO6100723,USINE DE PONTCHARDON,,61333,PONTCHARDON,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796356
+BNO6100724,FONDERIES DE PONTCHARDON,248 Route nationale En bordure de la  de Vimoutiers à Montreuil L'Aigle,61333,PONTCHARDON,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796357
+BNO6100737,ANCIENNE USINE à GAZ DE VIMOUTIERS,13 rue P. CRETON,61508,VIMOUTIERS,oui,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796370
+BNO6100753,FONDERIE DE SUIF EN BRANCHE,rue Ferrey du,61508,VIMOUTIERS,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796386
+BNO6100756,QUINCAILLERIE CATENA,19 rue moulin du,61508,VIMOUTIERS,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796389
+BNO6100774,,moulin Noir le,61486,TINCHEBRAY,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796407
+BNO6100777,USINE DES RONDES NOES,,61486,TINCHEBRAY,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796410
+BNO6100783,SCIERIE MECANIQUE,,61503,VIEUX PONT,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796416
+BNO6100788,LES FORGES DU CHAMPS DE LA PIERRE,Gare La,61090,CHAMPS,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796421
+BNO6100792,STATION HYDROELECTRIQUE DE LA FORGE : MOULIN DE LA FORGE,rue forge de la,61339,PUTANGES PONT ECREPIN,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796424
+BNO6100794,,"rue Forge de la, embarcadère",61339,PUTANGES PONT ECREPIN,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796426
+BNO6100795,USINE DE PUTANGES,Fresnaye du Sauvage,61339,PUTANGES PONT ECREPIN,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796427
+BNO6100799,FORGES DE PUTANGES,,61339,PUTANGES PONT ECREPIN,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796431
+BNO6100812,,"LA BRIQUETERIE (anc.""Le Tremblay"")",61218,LA LANDE PATRY,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796444
+BNO6100830,FORGE DE VARENNES,,61091,CHAMPSECRET,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796462
+BNO6100831,FORGE,,61091,CHAMPSECRET,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796463
+BNO6100848,MINES DE FER DE LA FERRIERE AUX ETANGS,"""Le gué Plat""",61163,LA FERRIERE AUX ETANGS,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796480
+BNO6100852,HAUTS FOURNEAUX FORGES ET ACIERIES DE DENAIN ET D'ANZIN (SA),Le Guillot,61163,LA FERRIERE AUX ETANGS,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796484
+BNO6100853,USINE DES LANDELLES,,61169,FLERS,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796485
+BNO6100867,USINE DE FLERS,"""Le tremblay""",61169,FLERS,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796496
+BNO6100870,EDF-GDF,21 rue fonderie de la,61169,FLERS,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796499
+BNO6100891,,Usine de la Planchette,61169,FLERS,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796518
+BNO6100900,ANCIENNE USINE A GAZ,rue fonderie de la,61169,FLERS,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796527
+BNO6100927,FABRIQUE DE CHANDELLES,rue tournée du moulin de la,61169,FLERS,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796551
+BNO6100930,FONDERIE DE SUIF,,61169,FLERS,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796554
+BNO6100957,ATELIER DE FORGEAGE DE METAUX A LA MAIN,99 rue Paris de,61169,FLERS,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796580
+BNO6101046,MOULIN A TAN : MOULIN DE BORDEAUX,MOULIN VERT LE,61358,SAI,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796661
+BNO6101050,FONDERIE,,61294,MORTREE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796665
+BNO6101062,FONDERIE DE CUIVRE,,61432,SAINT MICHEL TUBOEUF,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796677
+BNO6101065,USINE DE LA DEMOISELLE,,61432,SAINT MICHEL TUBOEUF,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796680
+BNO6101067,PAPETERIE DE SAINT HILAIRE,le bourg 61270 St Hilaire sur rille,61406,SAINT HILAIRE SUR RISLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796682
+BNO6101074,MOULIN 0 PAPIER DE SAINT HILAIRE,,61406,SAINT HILAIRE SUR RISLE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796687
+BNO6101082,PAPETERIE DU SIEUR HILAIRE,,61389,SAINTE GAUBURGE SAINTE COLOMBE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796695
+BNO6101083,MOULIN RENARD,,61389,SAINTE GAUBURGE SAINTE COLOMBE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796696
+BNO6101094,USINE D'AUBETTE,,61008,AUBE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796704
+BNO6101106,,"lieu dit ""L'USINE""",61200,HALEINE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796716
+BNO6101108,,route St Denis 61330 Sept forges,61469,SEPT FORGES,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796718
+BNO6101120,CENTRALE DE COUTERNE,,61135,COUTERNE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796730
+BNO6101121,FONDERIE DE SUIF,,61135,COUTERNE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796731
+BNO6101133,FORGE,avenue P. LOWELL,61022,BAGNOLES-DE-L'ORNE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796742
+BNO6101156,imprimerie compedit beauregard sa,ZI beaurega bp 39,61168,LA FERTE MACE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796762
+BNO6101164,,à la place du moulin de Finbrune,61168,LA FERTE MACE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796770
+BNO6101221,FONDERIE,,61145,DOMFRONT,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796825
+BNO6101236,,rue du Pressoir anc. Rue des abattoirs,61145,DOMFRONT,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796838
+BNO6101243,FORGES DE SAINT DENIS,"lieu dit ""La Forge""",61382,SAINT DENIS SUR SARTHON,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796842
+BNO6101246,FONDERIE DE SUIF,,61382,SAINT DENIS SUR SARTHON,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796845
+BNO6101259,FORGES DE CARROUGES,,61074,CARROUGES,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796854
+BNO6101260,FONDERIE DE SUIF,,61074,CARROUGES,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796855
+BNO6101270,FORGES DE LA ROCHE MABILE,,61350,LA ROCHE MABILE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796865
+BNO6101272,CARRIERE DE ROUPERROUX,le plessis  61320 rouperroux,61357,ROUPERROUX,oui,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796867
+BNO6101274,FORGE DE SAINT PATRICE DU DESERT,,61442,SAINT PATRICE DU DESERT,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796868
+BNO6101280,MOULIN A TAN,,61341,RADON,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796874
+BNO6101302,USINE DE QUINCAILLERIE,"lieu dit ""le Sifflet""",61001,ALENCON,oui,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796895
+BNO6101328,MOULIN A PAPIER / GROSSE FORGE,"lieu dit ""La Poëlerie""",61230,LONGNY AU PERCHE,oui,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796920
+BNO6101362,"EXPLOITATION EDF/GDF, ancienne usine à gaz",7 boulevard Duchamp et 109 rue de Bretagne,61001,ALENCON,oui,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796953
+BNO6101364,P.C.A.S. ( Socitété de Produits Chimiques Auxiliaires de Synthèse),"lieu dit ""L'usine"" Usine de Couterne - Route de Lassay",61200,HALEINE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796954
+BNO6101366,DEPOT DE SAINT CLAIR DE HALOUZE,Anciennes mines de Saint Clair de Halouze,61376,SAINT CLAIR DE HALOUZE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796956
+BNO6101372,"INSTALLATION TECHNIQUE EDF-GDF, Ancienne usine à gaz",rue cinq frères Robinet des,61243,MAGNY LE DESERT,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796961
+BNO6101390,GRAPH 2000 IMPRIMERIE,boulevard expansion de l',61006,ARGENTAN,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3796977
+BNO6101538,IMPRIMERIE BELLENOISE SA,"route Mans du, ZI",61038,BELLEME,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797112
+BNO6101593,Sté FILIX-LATEX,Usine de la Tellerie RD 20,61007,ATHIS DE L'ORNE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797151
+BNO6101640,VIAFRANCE,Carrière Pascual,61081,CHAILLOUE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797195
+BNO6101670,Sté DES TRANSPORTS BOUDESSEUL,"""Moulin Robert""",61243,MAGNY LE DESERT,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797223
+BNO6101717,THEMOCOAX et Cie Sté,Usine Planquivon,61447,SAINT PIERRE DU REGARD,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797268
+BNO6101810,STATION ESSO,"""Les Forges""",61369,SAINT BOMER LES FORGES,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797355
+BNO6101823,SA. LE FEUVRIER PIERRE,Carrière de la Noë gris,61486,TINCHEBRAY,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797368
+BNO6101824,SA. JOUIN PIERRE,"""Le moulin noir""",61486,TINCHEBRAY,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797369
+BNO6101871,MANUFACTURE SCIERIE BELLEMOISE,,61426,SAINT MARTIN DU VIEUX BELLEME,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797413
+BNO6101875,Sté CHIMIQUE DE LA ROUTE,"""Le Moulin""",61466,LA SELLE LA FORGE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797417
+BNO6101900,SIRCOM D'ARGENTAN,rue Forge de la - lotissement communal,61339,PUTANGES PONT ECREPIN,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797442
+BNO6101927,,"""La Forgerie""",61025,LA BAROCHE SOUS LUCE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797468
+BNO6101936,DEPOT D'ORDURES MENAGERES,"""La Carrière""",61210,JOUE DU PLAIN,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797477
+BNO6102057,Martineau imprimerie,Place Notre Dame,61339,PUTANGES PONT ECREPIN,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797597
+BNO6102059,Sté A.H.M.C,Verrerie LA,61491,TOUROUVRE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797599
+BNO6102061,Sté Nouvelle des Fonderie du Perche,,61208,IRAI,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797601
+BNO6102078,Imprimerie,9 rue république de la,61169,FLERS,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797616
+BNO6102082,TRAPPE René,4 rue Jean Moulin,61211,JUVIGNY SOUS ANDAINE,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797620
+BNO6102184,ancienne forge dans le Bois de Livet,bois de livet,61342,RAI,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797715
+BNO6102185,"LA CLOUTERIE ""Moulin de Rai""",,61342,RAI,non,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP3797716
+0005302820,ENTREPRISE DUMOULIN,Sous le Bois,61183,GAPREE,oui,candidat_elargissement_non_integre,mot_cle_industriel_conservateur,https://fiches-risques.brgm.fr/georisques/casias/SSP502708

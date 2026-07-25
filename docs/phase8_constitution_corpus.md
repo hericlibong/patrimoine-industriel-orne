@@ -1,23 +1,24 @@
 # Phase 8 — Constitution du corpus
 
-Statut : **en cours par lots depuis le 22 juillet 2026**.
+Statut : **phase terminée ; corpus complet V1 validé le 24 juillet 2026**.
 
 ## Adaptation du bloc initial
 
-Le bloc ne peut pas être exécuté comme une opération unique sur 319 dossiers.
-Il est découpé en un lot d'énumération, le pilote déjà traité, un premier lot
-de 50 nouveaux dossiers, puis cinq lots supplémentaires. Les cases portant sur
-le corpus entier resteront ouvertes jusqu'au traitement du dernier lot.
+Le travail a d'abord été calibré sur le pilote puis sur 50 nouveaux dossiers.
+Les références restantes ont ensuite été récupérées par une extraction
+reprenable, avec un point de contrôle après chaque notice. Le découpage
+technique n'affecte pas le résultat : tous les dossiers sont projetés dans le
+même format commun.
 
 Répartition prévue :
 
 | Ensemble | Dossiers | Rôle |
 |---|---:|---|
-| pilote existant | 30 | méthode déjà validée |
+| pilotes appartenant au corpus officiel | 29 | méthode déjà validée |
+| pilote conservé hors corpus officiel | 1 | `IA00061060` |
 | lot 1 | 50 | calibration de la chaîne complète |
-| lots 2 à 5 | 50 chacun | généralisation contrôlée |
-| lot 6 | 39 | solde du corpus |
-| total | 319 | dossiers sources, pas nombre final de sites |
+| références officielles restantes | 240 | extraction reprenable et harmonisation |
+| total officiel | 319 | dossiers sources, pas nombre final de sites |
 
 ## Énumération définitive
 
@@ -102,12 +103,14 @@ Quatre activités et une installation ont été ajoutées au vocabulaire :
 `haut_fourneau`. Le registre passe de la version 1.2 à la version 1.3 et de 177
 à 182 codes publiés.
 
-## Ce qui reste à faire
+## Correction du calcul 239 → 240
 
-- traiter les 239 dossiers non pilotes restants ;
-- revoir le dossier collectif et tous les indices d'emprises multiples ;
-- documenter les rapprochements entre dossiers ;
-- établir le nombre final de sites seulement après ces décisions.
+Le corpus commun de 80 contenait bien 30 pilotes et 50 nouveaux dossiers, mais
+seulement 79 de ces références appartenaient aux 319 références officielles.
+Le pilote `IA00061060` est une ancienne référence valide et enrichie, mais il
+n'apparaît plus dans le cadre d'étude officiel actuel. Il reste conservé hors
+du corpus principal. Pour compléter exactement les 319 références officielles,
+il fallait donc traiter **240 références**, et non 239.
 
 ## Corpus commun de 80 dossiers — 23 juillet 2026
 
@@ -121,3 +124,98 @@ aucun candidat au rapprochement selon les références, adresses, lieux-dits ou
 points sources disponibles. Les 30 pilotes conservent leur `site_id`. Les 50
 nouveaux dossiers restent sans identifiant canonique afin de ne pas figer leur
 statut avant le traitement du corpus complet.
+
+## Corpus commun des 319 dossiers — 23 juillet 2026
+
+Les 240 références officielles restantes ont été récupérées avec contrôle du
+champ `REF`, archivage brut, empreinte et manifeste de reprise. Les 319 dossiers
+officiels sont maintenant harmonisés dans
+`data/interim/phase8_corpus_319.json`.
+
+Résultats :
+
+- 319 références officielles uniques ;
+- 400 activités structurées ;
+- 73 dossiers multi-activités et 34 dossiers multi-secteurs ;
+- 407 dénominations sources résolues à 100 % ;
+- 8 occurrences reconnues comme composants non productifs et non comme
+  activités ;
+- 7 paires de dossiers proposées à la revue de rapprochement ;
+- 1 dossier collectif proposé à la revue de séparation ;
+- 4 dossiers de cités ouvrières à relier à un site industriel sans fusion ;
+- 2 dénominations génériques `moulin` dont la production doit être précisée.
+
+Le registre des classifications passe en version 1.4. Les nouveaux termes sont
+classés par correspondance exacte. `cité ouvrière`, `collège`, `édifice
+sportif`, `ferme` et `haras` sont explicitement séparés des activités
+productives.
+
+Les sorties de contrôle sont :
+
+- `reports/quality/phase8_corpus_319_resume.json` ;
+- `reports/quality/phase8_corpus_319.csv` ;
+- `reports/quality/phase8_corpus_319_rapprochements.csv` ;
+- `reports/quality/phase8_corpus_319_separations.csv` ;
+- `reports/quality/phase8_corpus_319_anomalies.csv`.
+
+## Revue canonique — 23 juillet 2026
+
+Les sept rapprochements proposés ont été relus à partir des historiques,
+adresses, exploitants et points sources. Ils sont tous rejetés comme sites
+distincts. La proximité ou le même lieu-dit ne suffisent donc pas à fusionner
+deux emprises.
+
+`IA61001399` est une synthèse départementale sans commune, code INSEE, adresse
+ou historique de site. Ses quinze fromageries individuelles sont déjà présentes
+dans le corpus. La synthèse est conservée comme source mais exclue du décompte.
+
+Le résultat est de **318 sites canoniques pour 319 dossiers sources** :
+
+- 314 sites avec au moins une activité productive ;
+- 4 cités ouvrières conservées comme sites non productifs ;
+- 403 activités structurées ;
+- 5 relations entre sites validées ;
+- 318 UUID v4 stables.
+
+Les décisions détaillées sont dans
+`config/phase8_decisions_canoniques.yml`. Le rapport de résultat est
+`reports/quality/phase8_corpus_canonique.md`.
+
+## Enrichissement et localisation — 23 juillet 2026
+
+Le corpus canonique a été rapproché des extractions départementales POP et
+CASIAS. La règle reste conservatrice : une même commune ou une proximité ne
+suffisent pas à créer un lien.
+
+- 16 protections MH sont confirmées par une référence `IA` explicite ;
+- 31 objets Palissy déjà repérés sont conservés avec un lien encore à vérifier ;
+- 131 rapprochements CASIAS recoupent 123 sites ;
+- 170 entrées CASIAS restent une file d'élargissement, sans intégration ;
+- 318 sites ont un point source, dont 290 qualifiés d'approximatifs ;
+- 8 rapprochements CASIAS restent ambigus après revue.
+
+Le contexte territorial est calculé pour les 318 sites à partir de couches IGN
+et BRGM archivées par tuiles. Les distances sont des indices de lecture et non
+des preuves de causalité historique. Le compte rendu détaillé est
+`reports/quality/phase8_enrichissement_localisation.md`.
+
+## Validation du corpus complet V1 — 24 juillet 2026
+
+Les répartitions éditoriales et les indicateurs territoriaux ont été recalculés
+sur les 318 sites. Les exports JSON, DuckDB, CSV, Parquet et GeoJSON concordent
+sur 318 sites et 403 activités.
+
+Le corpus est validé pour une publication historique, narrative et
+cartographique. Cette validation ne signifie pas que toutes les dimensions sont
+complètes :
+
+- 315 états de conservation restent inconnus ;
+- 316 accessibilités restent inconnues ;
+- 290 localisations restent approximatives ;
+- seules 42 activités possèdent une période directement calculée depuis une
+  chronologie d'activité ;
+- 31 liens Palissy et 8 rapprochements CASIAS restent à traiter avec prudence.
+
+Ces limites sont non bloquantes parce qu'elles sont conservées comme telles et
+ne sont pas remplacées par des déductions. Le rapport final est
+`reports/quality/phase8_validation_corpus_complet.md`.

@@ -1,15 +1,24 @@
 # Licences des données et droits des images
 
-Version 1.0 — 22 juillet 2026
+Version 1.1 — 24 juillet 2026
 
 Ce document fixe les règles de travail du projet. Il ne remplace pas un avis
 juridique pour un cas complexe ou une exploitation commerciale particulière.
 
-## Situation du socle pilote
+## Situation du corpus complet V1
 
-Le socle V1 ne contient aucune photographie patrimoniale destinée à la
-publication. Les URL de notices sont conservées, mais leurs images ne sont ni
-téléchargées ni redistribuées.
+Le corpus complet V1 inventorie 1 900 relations média-site, correspondant à
+1 888 médias distincts. Les URL, références, crédits et mentions disponibles
+sont conservés, mais les fichiers images ne sont ni téléchargés ni redistribués.
+
+La qualification ne déduit aucune autorisation : 1 783 médias avec un crédit
+source sont limités à un aperçu distant crédité dans un prototype privé ; 117
+médias sans crédit exploitable restent à la référence interne. Aucun média
+n'est automatiquement autorisé pour la publication publique.
+
+Le fichier `data/exports/registre_autorisations_medias_v1.csv` permet de suivre
+une demande par média distinct. Il est initialisé au statut `a_demander` et ne
+provoque aucun envoi automatique.
 
 Les deux PNG versionnés dans `reports/quality/` sont des visuels techniques
 produits par le projet à partir des données du pilote. Ils servent au contrôle
@@ -112,7 +121,7 @@ peuvent confirmer une information contemporaine. Leurs textes et images ne sont
 pas copiés sans licence explicite ou autorisation. Un lien et une courte
 reformulation factuelle sourcée sont privilégiés.
 
-## Registre à créer lors de l'enrichissement photographique
+## Registre des autorisations
 
 | Champ | Rôle |
 |---|---|
@@ -128,6 +137,11 @@ reformulation factuelle sourcée sont privilégiés.
 | `preuve_droits` | URL, courriel ou convention conservée |
 | `date_verification` | date du dernier contrôle |
 | `decision_publication` | utilisable, autorisation requise ou exclue |
+
+Pour la V1, le crédit à afficher ou conserver est le `credit_source` sans
+réécriture. Lorsqu'il manque, la fiche est marquée **à compléter** et ne peut
+pas être publiée. Une attribution est indispensable mais ne vaut jamais, à elle
+seule, autorisation.
 
 ## Validation avant publication
 

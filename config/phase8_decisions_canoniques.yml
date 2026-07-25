@@ -1,0 +1,148 @@
+version: "1.0"
+decided_at: 2026-07-23
+scope: corpus_officiel_319_dossiers
+
+regles:
+  fusion_automatique: interdite
+  unite_canonique: emprise_physique_stable
+  dossier_collectif_sans_emprise: conserve_comme_source_hors_decompte_sites
+  complexe_industriel: parent_et_composants_restent_des_sites_distincts_relies
+
+rapprochements:
+  - references: [IA00060967, IA00061034]
+    decision: rejete_sites_distincts
+    justification: >-
+      Le tissage de mèches et la filature Vente ont des histoires, des
+      fonctions et des points distincts malgré le même lieu-dit
+      Pont-Erembourg.
+  - references: [IA00060978, IA00060979]
+    decision: rejete_sites_distincts
+    justification: >-
+      Les deux tissages de Maure ont des dates de fondation, exploitants,
+      adresses et emprises différentes.
+  - references: [IA00060986, IA00060998]
+    decision: rejete_sites_distincts
+    justification: >-
+      Les deux usines de blanchiment de la rue Pierre-Neveu sont séparées
+      d'environ 94 mètres et sont attribuées à des fondateurs distincts.
+  - references: [IA00061037, IA00061038]
+    decision: rejete_sites_distincts
+    justification: >-
+      Deux filatures distinctes sont attestées au Champ-Ferment, avec des
+      propriétaires, des transformations et des bâtiments propres.
+  - references: [IA00061078, IA00061079]
+    decision: rejete_sites_distincts
+    justification: >-
+      Les établissements des numéros 15 et 16 rue du Pont-du-Moulin sont deux
+      emprises voisines, mais leurs fondateurs et leurs chronologies diffèrent.
+  - references: [IA00061147, IA00061159]
+    decision: rejete_sites_distincts
+    justification: >-
+      La cartonnerie et l'usine à gaz sont deux établissements sans continuité
+      documentée, malgré le lieu-dit commun de la Gare.
+  - references: [IA00061187, IA00061188]
+    decision: rejete_sites_distincts
+    justification: >-
+      L'affinerie-moulin et la fenderie occupent deux emprises proches mais
+      distinctes. La fenderie dépend historiquement de l'ensemble métallurgique.
+
+dossier_collectif:
+  reference: IA61001399
+  decision: exclu_du_decompte_sites
+  nature: dossier_de_synthese_sans_emprise
+  justification: >-
+    La notice ne possède ni commune, ni code INSEE, ni adresse, ni historique
+    de site. Elle présente les fromageries industrielles disparues de l'Orne.
+    Les quinze dossiers individuels concernés sont déjà présents dans le
+    corpus officiel.
+  dossiers_individuels_deja_presents:
+    - IA00060890
+    - IA00060891
+    - IA00060902
+    - IA00060905
+    - IA00060937
+    - IA00060939
+    - IA00060940
+    - IA00060943
+    - IA00060955
+    - IA00060970
+    - IA00060993
+    - IA00061133
+    - IA00061176
+    - IA00061177
+    - IA00061199
+
+relations_sites:
+  - source_reference: IA00061009
+    target_reference: IA00060961
+    type_relation_code: composant_de
+    fiabilite_code: forte
+    justification: >-
+      La notice indique explicitement que la cité ouvrière fait partie de
+      l'ensemble d'industrie extractive de la mine de Halouze.
+  - source_reference: IA00061011
+    target_reference: IA00060961
+    type_relation_code: composant_de
+    fiabilite_code: forte
+    justification: >-
+      La notice indique explicitement que la cité Lebardier fait partie de
+      l'ensemble d'industrie extractive de la mine de Halouze.
+  - source_reference: IA00061200
+    target_reference: IA00060912
+    type_relation_code: depend_de
+    fiabilite_code: forte
+    justification: >-
+      La cité est construite par la société exploitant la concession minière
+      de La Ferrière-aux-Étangs pour loger sa main-d'œuvre.
+  - source_reference: IA00061201
+    target_reference: IA00060912
+    type_relation_code: depend_de
+    fiabilite_code: forte
+    justification: >-
+      La cité du Gué-Plat est construite et agrandie par la société exploitant
+      la mine de La Ferrière-aux-Étangs.
+  - source_reference: IA00061188
+    target_reference: IA00061187
+    type_relation_code: depend_de
+    fiabilite_code: forte
+    justification: >-
+      La notice décrit la fenderie comme dépendant de l'affinerie et du haut
+      fourneau de Larchamp.
+
+activites_a_preciser:
+  IA00061088:
+    supprimer_code: activite_industrielle_indeterminee
+    ajouter:
+      - libelle_source: moulin à farine attesté en 1340
+        activite_code: mouture_cereales
+        secteur_code: agroalimentaire
+        installation_code: moulin
+        note: Moulin à farine remplacé par la tréfilerie en 1680.
+      - libelle_source: scierie attestée de 1854 à 1894
+        activite_code: sciage_bois
+        secteur_code: bois_papier_imprimerie
+        installation_code: scierie
+        note: Activité documentée dans l'historique de la notice.
+  IA00061172:
+    supprimer_code: activite_industrielle_indeterminee
+    ajouter:
+      - libelle_source: moulins à blé attestés à partir de 1793
+        activite_code: mouture_cereales
+        secteur_code: agroalimentaire
+        installation_code: moulin
+        note: Trois moulins à blé sont attestés en 1832.
+      - libelle_source: moulin à foulon attesté en 1793
+        activite_code: foulage_textile
+        secteur_code: textile_habillement_cuir
+        installation_code: moulin
+        note: Activité documentée dans l'historique de la notice.
+      - libelle_source: moulins à tan attestés à partir de 1793
+        activite_code: preparation_tan
+        secteur_code: textile_habillement_cuir
+        installation_code: moulin
+        note: Deux moulins à tan sont attestés en 1832.
+      - libelle_source: usine génératrice d'énergie à partir de 1901
+        activite_code: production_hydroelectricite
+        secteur_code: energie
+        installation_code: centrale_hydroelectrique
+        note: Production arrêtée vers 1955 lors de la création de Rabodanges.
