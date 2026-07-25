@@ -27,3 +27,7 @@ data/exports/*
 !data/exports/.gitkeep
 data/archive/*
 !data/archive/.gitkeep
+
+# Couches QGIS générées localement pour les contrôles visuels
+qgis/data/*
+!qgis/data/.gitkeep
