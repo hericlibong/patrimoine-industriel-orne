@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1024" viewBox="0 0 1440 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Maquette de l'accueil — Atlas industriel vivant</title>
+  <desc id="desc">Accueil de la publication avec titre éditorial, accès au récit et à l'exploration, carte de l'Orne, chiffres clés et emplacement photographique.</desc>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#CBC4B8" stroke-width="0.6" opacity="0.55"/>
+    </pattern>
+    <pattern id="halftone" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#FFFDF8" opacity="0.35"/>
+    </pattern>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#171A1C" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      .sans { font-family: "IBM Plex Sans", Arial, sans-serif; }
+      .serif { font-family: "Newsreader", Georgia, serif; }
+      .mono { font-family: "IBM Plex Mono", Consolas, monospace; }
+      .ink { fill: #171A1C; }
+      .muted { fill: #5E6568; }
+      .oxide { fill: #9B3F2B; }
+      .smallcaps { font-size: 12px; font-weight: 600; letter-spacing: 1.8px; }
+    </style>
+  </defs>
+
+  <rect width="1440" height="1024" fill="#F3EFE6"/>
+  <rect x="0" y="0" width="1440" height="88" fill="#FFFDF8"/>
+  <line x1="0" y1="88" x2="1440" y2="88" stroke="#CBC4B8"/>
+
+  <g class="sans ink">
+    <circle cx="64" cy="44" r="13" fill="#9B3F2B"/>
+    <circle cx="64" cy="44" r="5" fill="#FFFDF8"/>
+    <text x="90" y="50" font-size="17" font-weight="700" letter-spacing="0.8">L’ORNE INDUSTRIELLE</text>
+    <text x="865" y="49" font-size="15">Le récit</text>
+    <text x="965" y="49" font-size="15">Explorer</text>
+    <text x="1064" y="49" font-size="15">Les portraits</text>
+    <text x="1192" y="49" font-size="15">Méthode</text>
+    <rect x="1303" y="27" width="72" height="34" rx="17" fill="none" stroke="#171A1C"/>
+    <text x="1322" y="49" font-size="13" font-weight="600">Menu</text>
+  </g>
+
+  <g transform="translate(70 137)">
+    <text class="mono oxide smallcaps" x="0" y="18">ENQUÊTE · PATRIMOINE · CARTOGRAPHIE</text>
+    <text class="serif ink" x="0" y="105" font-size="82" font-weight="600">L’Orne</text>
+    <text class="serif ink" x="0" y="180" font-size="82" font-weight="600">industrielle</text>
+    <path d="M4 208H150" stroke="#9B3F2B" stroke-width="5"/>
+    <text class="sans ink" x="0" y="258" font-size="24" font-weight="500">Ce que 318 sites documentés racontent</text>
+    <text class="sans ink" x="0" y="291" font-size="24" font-weight="500">des productions, des lieux et de leurs transformations.</text>
+    <text class="sans muted" x="0" y="346" font-size="17">Une enquête visuelle à lire, parcourir ou interroger par la carte.</text>
+
+    <g transform="translate(0 386)" class="sans">
+      <rect width="190" height="54" rx="3" fill="#9B3F2B"/>
+      <text x="27" y="34" fill="#FFFDF8" font-size="16" font-weight="650">Commencer le récit</text>
+      <rect x="206" width="176" height="54" rx="3" fill="#FFFDF8" stroke="#171A1C"/>
+      <text x="233" y="34" class="ink" font-size="16" font-weight="600">Explorer la carte</text>
+    </g>
+
+    <g transform="translate(0 472)" class="sans">
+      <text class="mono muted" x="0" y="17" font-size="12" letter-spacing="1.2">OU RECHERCHER DIRECTEMENT</text>
+      <rect x="0" y="32" width="382" height="50" rx="3" fill="#FFFDF8" stroke="#CBC4B8"/>
+      <circle cx="27" cy="57" r="8" fill="none" stroke="#5E6568" stroke-width="1.6"/>
+      <line x1="33" y1="63" x2="39" y2="69" stroke="#5E6568" stroke-width="1.6"/>
+      <text x="52" y="63" fill="#777E80" font-size="15">Commune, activité, nom d’un site…</text>
+    </g>
+  </g>
+
+  <g transform="translate(716 124)" filter="url(#softShadow)">
+    <rect width="654" height="618" rx="4" fill="#FFFDF8"/>
+    <rect x="20" y="20" width="614" height="578" fill="url(#grid)"/>
+    <text class="mono muted smallcaps" x="44" y="55">LA GÉOGRAPHIE INDUSTRIELLE APPARAÎT</text>
+    <text class="sans muted" x="44" y="82" font-size="14">Chaque point représente un site canonique du corpus.</text>
+
+    <g transform="translate(56 105)">
+      <path d="M52 194 L82 147 L132 124 L174 79 L230 82 L268 107 L315 96 L350 51 L405 33 L446 57 L473 94 L523 116 L542 160 L519 193 L548 240 L526 279 L546 322 L512 347 L490 395 L452 414 L425 450 L380 436 L344 460 L306 437 L274 406 L234 413 L207 382 L164 391 L129 359 L86 370 L59 339 L33 300 L49 259 L23 230 Z"
+            fill="#F3EFE6" stroke="#171A1C" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M89 166 C161 174 188 205 234 219 C286 235 317 188 368 203 C413 217 435 259 498 266"
+            fill="none" stroke="#2F6F8F" stroke-width="3"/>
+      <path d="M152 328 C208 304 250 320 286 350 C324 380 362 380 426 350"
+            fill="none" stroke="#2F6F8F" stroke-width="2" opacity="0.72"/>
+      <g fill="#171A1C" stroke="#FFFDF8" stroke-width="2">
+        <circle cx="98" cy="196" r="6"/><circle cx="115" cy="245" r="5"/><circle cx="141" cy="151" r="5"/>
+        <circle cx="158" cy="197" r="5"/><circle cx="177" cy="226" r="6"/><circle cx="202" cy="166" r="5"/>
+        <circle cx="218" cy="260" r="5"/><circle cx="237" cy="214" r="6"/><circle cx="256" cy="291" r="5"/>
+        <circle cx="275" cy="178" r="5"/><circle cx="293" cy="236" r="5"/><circle cx="314" cy="146" r="5"/>
+        <circle cx="330" cy="270" r="6"/><circle cx="346" cy="206" r="5"/><circle cx="365" cy="315" r="5"/>
+        <circle cx="386" cy="169" r="5"/><circle cx="401" cy="239" r="5"/><circle cx="420" cy="286" r="6"/>
+        <circle cx="438" cy="129" r="5"/><circle cx="457" cy="205" r="5"/><circle cx="478" cy="252" r="6"/>
+        <circle cx="453" cy="331" r="5"/><circle cx="394" cy="363" r="5"/><circle cx="333" cy="381" r="5"/>
+        <circle cx="268" cy="365" r="5"/><circle cx="212" cy="336" r="5"/><circle cx="157" cy="315" r="5"/>
+      </g>
+      <g fill="#9B3F2B" stroke="#FFFDF8" stroke-width="3">
+        <circle cx="177" cy="226" r="9"/><circle cx="293" cy="236" r="9"/><circle cx="401" cy="239" r="9"/>
+      </g>
+      <g class="sans ink" font-size="12" font-weight="600">
+        <text x="74" y="218">Flers</text>
+        <text x="252" y="259">Argentan</text>
+        <text x="425" y="218">L’Aigle</text>
+        <text x="240" y="400">Alençon</text>
+      </g>
+    </g>
+
+    <g transform="translate(44 545)" class="sans">
+      <circle cx="6" cy="6" r="5" fill="#171A1C"/>
+      <text x="19" y="11" class="muted" font-size="12">site du corpus</text>
+      <circle cx="128" cy="6" r="7" fill="#9B3F2B" stroke="#FFFDF8" stroke-width="2"/>
+      <text x="143" y="11" class="muted" font-size="12">cas du récit</text>
+      <line x1="257" y1="6" x2="282" y2="6" stroke="#2F6F8F" stroke-width="3"/>
+      <text x="291" y="11" class="muted" font-size="12">hydrographie</text>
+    </g>
+  </g>
+
+  <g transform="translate(70 785)">
+    <rect width="600" height="170" rx="3" fill="#363B3D"/>
+    <rect width="600" height="170" fill="url(#halftone)"/>
+    <path d="M0 136 H600 V170 H0 Z" fill="#202426"/>
+    <path d="M44 137 V77 H136 V137 M164 137 V58 H276 V137 M305 137 V91 H378 V137 M406 137 V42 H506 V137"
+          fill="#74797A"/>
+    <path d="M447 42 V13 H462 V42 M470 42 V22 H481 V42" fill="#171A1C"/>
+    <path d="M44 77 L90 50 L136 77 M164 58 L220 31 L276 58 M406 42 L456 16 L506 42" fill="#94999A"/>
+    <rect x="16" y="15" width="236" height="28" rx="2" fill="#FFFDF8" opacity="0.92"/>
+    <text class="mono ink" x="28" y="34" font-size="11" font-weight="600">VISUEL DE TRAVAIL · À SÉLECTIONNER</text>
+    <text class="sans" x="18" y="194" font-size="13" fill="#5E6568">L’image finale sera sourcée, légendée et créditée à cet emplacement.</text>
+  </g>
+
+  <g transform="translate(730 790)">
+    <line x1="0" y1="0" x2="640" y2="0" stroke="#CBC4B8"/>
+    <g transform="translate(0 35)">
+      <text class="serif oxide" x="0" y="55" font-size="66" font-weight="650">318</text>
+      <text class="sans ink" x="0" y="84" font-size="16" font-weight="600">sites canoniques</text>
+      <text class="sans muted" x="0" y="107" font-size="13">localisés avec une précision explicite</text>
+    </g>
+    <g transform="translate(220 35)">
+      <text class="serif ink" x="0" y="55" font-size="66" font-weight="650">403</text>
+      <text class="sans ink" x="0" y="84" font-size="16" font-weight="600">phases d’activité</text>
+      <text class="sans muted" x="0" y="107" font-size="13">pour suivre les transformations</text>
+    </g>
+    <g transform="translate(440 35)">
+      <text class="serif ink" x="0" y="55" font-size="66" font-weight="650">9</text>
+      <text class="sans ink" x="0" y="84" font-size="16" font-weight="600">familles de production</text>
+      <text class="sans muted" x="0" y="107" font-size="13">sans réduire un site à une seule vie</text>
+    </g>
+  </g>
+</svg>

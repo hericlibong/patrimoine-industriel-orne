@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1000" viewBox="0 0 1440 1000" role="img" aria-label="Nouvelle maquette de l'exploration cartographique avec chronologie et statut du site d'Ozé">
+  <defs>
+    <filter id="panel-shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#173F35" flood-opacity="0.22"/>
+    </filter>
+    <clipPath id="oze-photo"><rect x="1014" y="232" width="358" height="160" rx="12"/></clipPath>
+  </defs>
+  <rect width="1440" height="1000" fill="#E6EEE8"/>
+
+  <rect width="1440" height="78" fill="#173F35"/>
+  <g font-family="Inter, Arial, sans-serif" fill="#FCFAF5">
+    <text x="42" y="49" font-size="17" font-weight="760" letter-spacing="0.8">PATRIMOINE INDUSTRIEL OUBLIÉ</text>
+    <g font-size="14" font-weight="650">
+      <text x="820" y="49">Le récit</text>
+      <rect x="902" y="18" width="106" height="43" rx="21.5" fill="#C94333"/>
+      <text x="928" y="46">Explorer</text>
+      <text x="1040" y="49">Les lieux</text>
+      <text x="1134" y="49">Méthode</text>
+    </g>
+  </g>
+
+  <g transform="translate(38 99)" font-family="Inter, Arial, sans-serif">
+    <rect width="1364" height="68" rx="18" fill="#FCFAF5"/>
+    <g transform="translate(24 18)">
+      <circle cx="15" cy="15" r="11" fill="none" stroke="#526861" stroke-width="2"/>
+      <line x1="23" y1="23" x2="31" y2="31" stroke="#526861" stroke-width="2"/>
+      <text x="46" y="22" font-size="14" fill="#526861">Chercher un lieu, une commune, une activité…</text>
+    </g>
+    <line x1="385" y1="13" x2="385" y2="55" stroke="#D2DDD6"/>
+    <text x="414" y="27" font-size="12" font-weight="740" fill="#24352F">ACTIVITÉ</text>
+    <text x="414" y="48" font-size="13" fill="#526861">Toutes⌄</text>
+    <line x1="540" y1="13" x2="540" y2="55" stroke="#D2DDD6"/>
+    <text x="570" y="27" font-size="12" font-weight="740" fill="#24352F">PÉRIODE</text>
+    <text x="570" y="48" font-size="13" fill="#526861">Toutes⌄</text>
+    <line x1="696" y1="13" x2="696" y2="55" stroke="#D2DDD6"/>
+    <text x="726" y="27" font-size="12" font-weight="740" fill="#24352F">SITUATION ACTUELLE</text>
+    <text x="726" y="48" font-size="13" fill="#526861">Tous⌄</text>
+    <line x1="900" y1="13" x2="900" y2="55" stroke="#D2DDD6"/>
+    <text x="930" y="27" font-size="12" font-weight="740" fill="#24352F">PRÉCISION</text>
+    <text x="930" y="48" font-size="13" fill="#526861">Toutes⌄</text>
+    <rect x="1125" y="11" width="212" height="46" rx="23" fill="#173F35"/>
+    <text x="1161" y="40" font-size="13" font-weight="720" fill="#FFFFFF">Afficher la liste accessible</text>
+  </g>
+
+  <g transform="translate(36 190)">
+    <rect width="1368" height="774" rx="22" fill="#FCFAF5"/>
+    <image href="map_orne_context_reel.svg" x="0" y="52" width="1010" height="657" preserveAspectRatio="xMidYMid meet"/>
+    <g transform="translate(23 18)" font-family="Inter, Arial, sans-serif">
+      <rect width="354" height="43" rx="21.5" fill="#FFFFFF" stroke="#D3DED7"/>
+      <text x="21" y="27" font-size="12" font-weight="720" fill="#31463F">COUCHES VISIBLES</text>
+      <circle cx="143" cy="22" r="5" fill="#4F89A8"/><text x="154" y="27" font-size="12" fill="#526861">Eau</text>
+      <rect x="198" y="17" width="10" height="10" fill="#C8DDCB"/><text x="215" y="27" font-size="12" fill="#526861">Forêts</text>
+      <line x1="273" y1="22" x2="293" y2="22" stroke="#424A46" stroke-dasharray="4 3"/><text x="300" y="27" font-size="12" fill="#526861">Rail actuel</text>
+    </g>
+    <g transform="translate(26 720)" font-family="Inter, Arial, sans-serif" font-size="11" fill="#596A64">
+      <text>318 sites affichés · 290 points approximatifs · 28 zones documentaires</text>
+      <text x="652">Les couches de contexte sont actuelles ; elles ne prouvent pas une relation historique.</text>
+    </g>
+
+    <g transform="translate(416 515)">
+      <circle r="17" fill="#FCFAF5" stroke="#E45240" stroke-width="5"/>
+      <circle r="5" fill="#E45240"/>
+      <circle r="25" fill="none" stroke="#E45240" stroke-width="2" stroke-dasharray="5 5"/>
+    </g>
+
+    <g filter="url(#panel-shadow)">
+      <rect x="984" y="20" width="400" height="730" rx="20" fill="#FCFAF5"/>
+    </g>
+    <g font-family="Inter, Arial, sans-serif">
+      <text x="1015" y="58" font-size="12" font-weight="780" letter-spacing="1.6" fill="#C94333">SITE SÉLECTIONNÉ · ALENÇON</text>
+      <text x="1344" y="59" font-size="17" fill="#3E504A">×</text>
+      <text x="1015" y="100" font-family="Georgia, 'Times New Roman', serif" font-size="31" font-weight="700" fill="#17211D">Du moulin d'Ozé</text>
+      <text x="1015" y="135" font-family="Georgia, 'Times New Roman', serif" font-size="31" font-weight="700" fill="#17211D">à Moulinex</text>
+      <text x="1015" y="165" font-size="13" fill="#536760">Un même lieu, trois activités documentées.</text>
+
+      <g clip-path="url(#oze-photo)">
+        <image href="reference_oze_1987.jpg" x="1014" y="232" width="358" height="160" preserveAspectRatio="xMidYMid slice"/>
+      </g>
+      <text x="1015" y="215" font-size="11" font-weight="740" fill="#344841">IMAGE DU SITE · 1987</text>
+
+      <text x="1015" y="426" font-size="11" font-weight="760" letter-spacing="1.2" fill="#344841">ÉVOLUTION DOCUMENTÉE</text>
+      <line x1="1026" y1="467" x2="1344" y2="467" stroke="#A4B5AE" stroke-width="3"/>
+      <circle cx="1026" cy="467" r="9" fill="#2F6F8F"/>
+      <circle cx="1155" cy="467" r="9" fill="#FFD166"/>
+      <circle cx="1281" cy="467" r="9" fill="#E45240"/>
+      <path d="M1281 467 L1344 467" stroke="#7B5B8E" stroke-width="3" stroke-dasharray="5 5"/>
+      <g font-size="11" fill="#253831">
+        <text x="1015" y="493" font-weight="740">1809</text><text x="1015" y="509">Moulin</text>
+        <text x="1125" y="493" font-weight="740">vers 1840</text><text x="1125" y="509">Filature</text>
+        <text x="1250" y="493" font-weight="740">vers 1937</text><text x="1250" y="509">Moulinex</text>
+        <text x="1306" y="446" fill="#7B5B8E">fin inconnue</text>
+      </g>
+
+      <text x="1015" y="535" font-size="11" font-weight="760" letter-spacing="1.2" fill="#344841">SITUATION ACTUELLE</text>
+      <rect x="1015" y="550" width="358" height="72" rx="12" fill="#F1EEF5"/>
+      <circle cx="1036" cy="574" r="6" fill="#7B5B8E"/>
+      <text x="1051" y="578" font-size="13" font-weight="740" fill="#4D3E5B">Non documentée</text>
+      <text x="1030" y="605" font-size="11" fill="#665A6F">Conservation, usage actuel et accessibilité : inconnus</text>
+
+      <text x="1015" y="645" font-size="11" font-weight="760" letter-spacing="1.2" fill="#344841">LOCALISATION</text>
+      <rect x="1015" y="658" width="160" height="31" rx="15.5" fill="#F4F0F7"/>
+      <rect x="1029" y="668" width="9" height="9" rx="1" fill="none" stroke="#7B5B8E"/>
+      <text x="1046" y="678" font-size="11" fill="#5D4A6C">Zone documentaire</text>
+      <text x="1202" y="678" font-size="11" fill="#536760">Source principale ↗</text>
+
+      <line x1="1015" y1="706" x2="1372" y2="706" stroke="#D6DFDA"/>
+      <text x="1015" y="733" font-size="13" font-weight="750" fill="#C94333">Ouvrir l'étude de cas →</text>
+      <text x="1244" y="733" font-size="13" font-weight="700" fill="#173F35">Toutes les sources</text>
+    </g>
+  </g>
+</svg>

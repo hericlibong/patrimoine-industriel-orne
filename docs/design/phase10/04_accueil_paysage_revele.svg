@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1024" viewBox="0 0 1440 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Nouvelle maquette d'accueil — Paysage révélé</title>
+  <desc id="desc">Un paysage actuel de l'Orne sert de point de départ. Le contour réel du département et les sites du corpus apparaissent comme une couche de données.</desc>
+  <defs>
+    <linearGradient id="shade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#10251F" stop-opacity="0.96"/>
+      <stop offset="0.48" stop-color="#10251F" stop-opacity="0.76"/>
+      <stop offset="0.76" stop-color="#10251F" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#10251F" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="mapveil" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FCFAF5" stop-opacity="0.94"/>
+      <stop offset="1" stop-color="#DDE9DF" stop-opacity="0.90"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#17211D" flood-opacity="0.24"/>
+    </filter>
+    <style>
+      .sans { font-family: Inter, Arial, sans-serif; }
+      .serif { font-family: "Source Serif 4", Georgia, serif; }
+    </style>
+  </defs>
+
+  <rect width="1440" height="1024" fill="#173F35"/>
+  <image href="reference_paysage_orne.jpg" x="0" y="0" width="1440" height="1024" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1440" height="1024" fill="url(#shade)"/>
+
+  <g class="sans" fill="#FCFAF5">
+    <text x="62" y="55" font-size="15" font-weight="750" letter-spacing="0.7">L’AUTRE ORNE</text>
+    <g font-size="14" font-weight="600">
+      <text x="974" y="55">Le récit</text>
+      <text x="1058" y="55">Explorer</text>
+      <text x="1146" y="55">Les lieux</text>
+      <text x="1232" y="55">Méthode</text>
+    </g>
+    <rect x="1330" y="30" width="49" height="32" rx="16" fill="none" stroke="#FCFAF5" stroke-opacity="0.8"/>
+    <text x="1344" y="51" font-size="12" font-weight="700">FR</text>
+  </g>
+  <line x1="62" y1="79" x2="1378" y2="79" stroke="#FCFAF5" stroke-opacity="0.35"/>
+
+  <g transform="translate(66 166)">
+    <text class="sans" x="0" y="0" fill="#FFD166" font-size="13" font-weight="800" letter-spacing="2.1">ENQUÊTE · DONNÉES · PATRIMOINE OUBLIÉ</text>
+    <text class="serif" x="0" y="102" fill="#FCFAF5" font-size="88" font-weight="650">L’autre</text>
+    <text class="serif" x="0" y="184" fill="#FCFAF5" font-size="88" font-weight="650">Orne</text>
+    <text class="sans" x="4" y="237" fill="#FCFAF5" font-size="21" font-weight="650">Sur les traces d’un patrimoine industriel oublié</text>
+    <line x1="4" y1="272" x2="66" y2="272" stroke="#F05A47" stroke-width="7"/>
+    <text class="serif" x="0" y="330" fill="#FCFAF5" font-size="31" font-style="italic">Ce paysage raconte-t-il</text>
+    <text class="serif" x="0" y="368" fill="#FCFAF5" font-size="31" font-style="italic">toute l’histoire du territoire ?</text>
+    <text class="sans" x="0" y="424" fill="#FCFAF5" fill-opacity="0.86" font-size="17">Vallées, forêts, prairies : cette image est réelle.</text>
+    <text class="sans" x="0" y="451" fill="#FCFAF5" fill-opacity="0.86" font-size="17">Les données montrent qu’elle est incomplète.</text>
+
+    <g transform="translate(0 496)" class="sans">
+      <rect width="204" height="56" rx="28" fill="#C94333"/>
+      <text x="26" y="35" fill="#FCFAF5" font-size="16" font-weight="750">Révéler l’autre Orne</text>
+      <text x="221" y="35" fill="#FCFAF5" font-size="15" font-weight="700">ou explorer directement →</text>
+    </g>
+  </g>
+
+  <g transform="translate(733 143)" filter="url(#shadow)">
+    <path d="M0 48 Q0 0 48 0 H625 Q667 0 667 42 V679 Q667 721 625 721 H42 Q0 721 0 679 Z" fill="url(#mapveil)"/>
+    <g transform="translate(30 62)">
+      <text class="sans" x="0" y="0" fill="#173F35" font-size="12" font-weight="800" letter-spacing="1.7">FAIRE APPARAÎTRE CE QUE LE PAYSAGE NE MONTRE PLUS</text>
+      <text class="serif" x="0" y="54" fill="#17211D" font-size="31" font-weight="650">318 sites documentés</text>
+      <text class="sans" x="0" y="82" fill="#475B54" font-size="14">Le contour et les localisations sont issus du corpus réel.</text>
+      <image href="map_orne_corpus_reel.svg" x="0" y="115" width="607" height="392"/>
+      <g transform="translate(0 545)" class="sans">
+        <text x="0" y="0" fill="#F05A47" font-size="54" font-weight="850">403</text>
+        <text x="112" y="-5" fill="#17211D" font-size="16" font-weight="750">phases d’activité</text>
+        <text x="112" y="19" fill="#475B54" font-size="13">forges, moulins, filatures, mines, laiteries…</text>
+        <line x1="0" y1="53" x2="607" y2="53" stroke="#A9BCB0"/>
+        <text x="0" y="82" fill="#475B54" font-size="12">Un corpus de l’Inventaire, pas le total historique des sites de l’Orne.</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(66 948)" class="sans">
+    <text x="0" y="0" fill="#FCFAF5" font-size="11">Image de travail : Les Méandres de l’Orne · © C. Aubert / Conseil départemental de l’Orne</text>
+    <text x="1190" y="0" fill="#FCFAF5" font-size="12" font-weight="700">Faire défiler ↓</text>
+  </g>
+</svg>

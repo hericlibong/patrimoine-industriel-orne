@@ -905,3 +905,428 @@
 - Le socle narratif et visuel V1 est approuvé comme base de conception de la
   publication interactive.
 - Décision : **phase 9 terminée ; passage possible à la phase 10**.
+
+## 2026-07-26 — Phase 10, cadrage éditorial et produit
+
+- La première publication est définie comme une expérience statique de
+  datajournalisme associant un récit visuel et une exploration libre du même
+  corpus.
+- L'accueil recommande le data storytelling, mais donne immédiatement accès à
+  la carte exploratoire et à la recherche. Le récit ne constitue pas un
+  parcours obligatoire.
+- Le récit est prévu sur une page continue composée de chapitres identifiables
+  et partageables. L'exploration, les fiches et la méthode disposent de leurs
+  propres espaces.
+- Le public principal est un lecteur curieux sans connaissance préalable. Les
+  habitants et passionnés locaux ainsi que les lecteurs experts sont servis par
+  des niveaux de détail progressifs, sans créer plusieurs produits.
+- La promesse est de faire apparaître la géographie industrielle documentée de
+  l'Orne, de montrer les transformations de certains lieux et de permettre
+  l'exploration des sites, des sources et des incertitudes.
+- La datavisualisation doit révéler la géographie du corpus, comparer les
+  activités documentées, suivre des trajectoires multi-activités et représenter
+  les incertitudes. Elle ne doit produire ni classement départemental
+  exhaustif, ni causalité automatique, ni bilan artificiel de l'état actuel.
+- Les proximités à l'eau, à la forêt, aux minerais et au rail restent des
+  indices spatiaux et des supports d'études de cas.
+- La chronologie distingue les périodes documentaires disponibles pour les 318
+  sites des périodes d'activité datées, disponibles pour seulement 29 sites et
+  42 activités.
+- Le MVP comprend quatre espaces : accueil-récit, exploration, fiches de sites
+  et méthode. Il reste statique et ne comporte ni serveur, ni CMS, ni comptes,
+  ni administration en ligne.
+- Les 318 sites disposent d'une fiche documentaire structurée ; 30 à 50 fiches
+  sont enrichies après revue éditoriale humaine et peuvent alimenter le récit.
+- Les quatre filtres initiaux sont l'activité ou le secteur, la période, la
+  commune ou recherche textuelle et la précision géographique.
+- La diffusion est progressive : prototype privé, version candidate relue,
+  puis première version publique. L'interface fonctionne sans photographie et
+  aucun média n'est publié sans sélection, crédit et droit documentés.
+- Le cadrage consolidé est conservé dans
+  `docs/phase10_cadrage_editorial_ux.md`.
+- Décision : **bloc 1 de la phase 10 terminé ; le parcours narratif et le data
+  storytelling peuvent être conçus dans le bloc 2**.
+
+## 2026-07-26 — Rectification du cadrage éditorial de la phase 10
+
+- L'adresse éditoriale n'est plus formulée à partir d'un public principal ou de
+  personas. Le projet est un sujet documentaire, datajournalistique,
+  interactif et publié en ligne, destiné aux personnes intéressées par le sujet
+  et par sa forme.
+- L'intention première est journalistique : exactitude des informations,
+  intérêt de l'enquête, articulation entre données, sources, images, cartes et
+  récit.
+- Les quatre usages déjà définis sont conservés, mais ils décrivent les
+  possibilités offertes par le sujet et non des segments de public.
+- La phase 10 vise directement une forme complète avec photographies, documents
+  visuels et datavisualisations. Elle ne planifie pas une version éditoriale
+  appauvrie sans images.
+- Le cadrage part de l'hypothèse de travail que les autorisations nécessaires
+  seront obtenues pour les images retenues. Les crédits et preuves restent
+  suivis conformément au modèle éditorial de phase 9.
+- Il n'existe pas de catalogue autonome des 318 sites. Tous les sites sont
+  sélectionnables dans l'exploration et apparaissent dans un panneau de détail
+  lié à la carte, à la recherche ou à une visualisation.
+- Trente à cinquante cas peuvent recevoir un portrait éditorial plus ample,
+  articulant récit journalistique, images, chronologie, carte, données et
+  sources.
+- Les éventuels prototypes intermédiaires sont des outils de conception de la
+  forme finale et non des niveaux de publication distincts.
+- Cette rectification remplace les décisions du cadrage initial concernant le
+  public principal, la diffusion progressive sans images et les 318 fiches
+  documentaires conçues comme pages autonomes.
+
+## 2026-07-27 — Phase 10, parcours narratif et data storytelling
+
+- Le parcours narratif comprend un prologue, cinq chapitres et une conclusion
+  méthodologique : révélation de la géographie, diversité des productions, eau,
+  transformations successives, réseaux extérieurs, traces actuelles et
+  construction de l'enquête.
+- La démonstration repose sur sept familles de visualisations : carte de
+  révélation, secteurs, eau, trajectoires multi-activités, flux documentés,
+  connaissances contemporaines et constitution du corpus.
+- Les vues globales décrivent uniquement les 318 sites du corpus de
+  l'Inventaire. Les relations historiques et causalités éventuelles sont
+  racontées par des études de cas sourcées.
+- Une chronologie animée des 403 activités est écartée : seules 42 activités
+  et 29 sites disposent d'une période d'activité suffisamment datée. Les
+  chronologies restent attachées aux cas documentés.
+- Douze études de cas principales sont retenues après lecture humaine :
+  Putanges-Pont-Écrepin, Brochard, Bohin, Rabodanges, Ozé-Moulinex,
+  Sainte-Gauburge, Sées, l'usine à papier Abadie, la chocolaterie de Tinchebray,
+  l'usine de flaconnage de Saint-Evroult, la Grosse Forge d'Aube et la mine de
+  Halouze.
+- Six cas complémentaires sont conservés en réserve pour la cohérence
+  iconographique, géographique ou sectorielle.
+- Le chapitre sur l'eau distingue les distances calculées sur tout le corpus
+  des relations fonctionnelles établies dans les historiques de sites.
+- Le chapitre sur les réseaux extérieurs utilise uniquement des flux
+  documentés : papier, chocolat, flaconnage, appareils de levage et imprimés.
+- Le chapitre sur la situation actuelle montre d'abord la lacune documentaire :
+  quatre situations récentes seulement, sans produire de bilan départemental.
+- Le récit reste non linéaire : chaque chapitre peut rejoindre l'exploration,
+  un panneau de site, un portrait ou la méthode, puis revenir à son état
+  précédent.
+- Chaque visualisation dispose d'une alternative textuelle ou tabulaire et
+  aucune information n'est accessible uniquement au survol.
+- Le storyboard détaillé est conservé dans
+  `docs/phase10_parcours_narratif_datastorytelling.md`.
+- Décision : **bloc 2 de la phase 10 terminé ; la direction artistique et le
+  modèle visuel peuvent être conçus dans le bloc 3**.
+
+## 2026-07-27 — Phase 10, proposition de direction artistique
+
+- Le benchmark est limité à cinq références et à des mécanismes précis :
+  essai visuel, récit cartographique, scrollytelling accessible, relation
+  lieu-image-récit et exploration d'un patrimoine industriel. Aucun gabarit
+  existant n'est repris comme modèle complet.
+- Trois directions ont été comparées : `Atlas industriel vivant`, `Dossier
+  d'atelier` et `Paysage productif`.
+- `Atlas industriel vivant` est la direction recommandée. Elle associe un fond
+  papier chaud, une encre sombre, un accent oxyde, une grille contemporaine et
+  une hiérarchie donnant une place équivalente aux données, aux cartes, aux
+  textes et aux images.
+- Le trio typographique proposé est Newsreader pour les titres, IBM Plex Sans
+  pour le texte et l'interface, et IBM Plex Mono pour les données, sources et
+  identifiants.
+- La carte générale ne doit pas attribuer un secteur principal artificiel à
+  chaque site. Les correspondances sectorielles apparaissent au moment du
+  filtrage ; les sites multi-secteurs restent sélectionnables par chacune de
+  leurs activités.
+- La précision et l'incertitude combinent forme, motif et libellé. La couleur
+  seule ne porte jamais l'information.
+- Les images ne reçoivent ni sépia automatique ni colorisation. Les crédits et
+  légendes restent visibles sous les médias ; les maquettes utilisent des
+  emplacements de travail et ne constituent pas une sélection de publication.
+- Trois écrans ont été matérialisés : accueil, exploration en trois zones et
+  portrait enrichi de l'usine à papier Abadie. Ils sont conservés dans
+  `docs/design/phase10/`.
+- Le système visuel est volontairement limité aux quinze éléments nécessaires
+  à ces écrans et au storyboard ; aucun composant générique spéculatif n'est
+  ajouté.
+- La proposition complète est conservée dans
+  `docs/phase10_direction_artistique.md`.
+- Décision provisoire : **le bloc 3 reste en cours jusqu'à l'arbitrage de la
+  direction recommandée et des trois écrans ; aucun développement d'interface
+  n'est engagé**.
+
+## 2026-07-27 — Phase 10, rejet de l'atlas et retour à l'angle initial
+
+- La direction `Atlas industriel vivant` est rejetée. Elle est jugée froide,
+  stéréotypée, trop proche d'un dossier institutionnel ou d'un catalogue et
+  insuffisamment datajournalistique.
+- Les silhouettes d'usines, le fond papier, l'oxyde et la grille technique
+  traduisaient le mot « industriel » au lieu de traduire l'enquête.
+- Le titre de travail « L'Orne industrielle » est abandonné. Il déplaçait le
+  sujet vers une présentation générale du département industriel et effaçait
+  l'idée d'un patrimoine oublié derrière l'image rurale actuelle.
+- Le cadrage initial contenait déjà la bonne tension : partir des paysages
+  ruraux, puis révéler la couche industrielle. La dérive se situait dans le
+  titre, l'ouverture du storyboard et leur traduction visuelle.
+- Le récit est rectifié sans opposer artificiellement ruralité et industrie :
+  l'image rurale est réelle mais incomplète ; les activités industrielles,
+  agricoles, les ressources, les bourgs et les paysages se superposaient.
+- En l'absence de comparaison avec d'autres départements, la publication ne
+  qualifiera pas encore l'Orne de territoire à concentration industrielle
+  supérieure. Elle montrera le nombre, la diversité et la répartition des
+  sites du corpus.
+- La version 0.5 du cadrage remplace l'accroche « Faire apparaître l'Orne
+  industrielle » par « Révéler l'autre Orne ». La version 1.1 du parcours
+  déplace le passage technique de 319 dossiers à 318 sites vers la conclusion
+  méthodologique.
+- Une nouvelle direction `Paysage révélé` est proposée. Elle organise
+  l'ouverture selon la séquence paysage actuel → question → données → carte
+  réelle → étude de cas.
+- `L'autre Orne — sur les traces d'un patrimoine industriel oublié` est un
+  titre de travail destiné aux maquettes, pas une décision définitive.
+- Les nouvelles cartes utilisent le contour réel de l'Orne et les 318
+  localisations du corpus. L'exploration place la carte avant l'interface et
+  n'affiche un panneau de site qu'après sélection.
+- Les maquettes utilisent une photographie réelle des méandres de l'Orne et la
+  vue aérienne Abadie `IVR25_19886100649X`, avec crédits visibles. Elles ne
+  valent pas sélection définitive pour publication.
+- La première proposition est archivée et reste exclue de toute base de
+  développement.
+- Décision provisoire : **le bloc 3 reste en cours ; la direction `Paysage
+  révélé`, son titre de travail et ses trois écrans doivent être arbitrés avant
+  toute conception technique de l'interface**.
+
+## 2026-07-27 — Phase 10, seconde revue de la direction visuelle
+
+- La direction `Paysage révélé` n'est pas validée. L'accueil est jugé plus
+  engageant dans sa composition, mais l'ensemble reste trop abstrait et
+  s'éloigne encore de la vision du projet.
+- Le titre `L'autre Orne` est rejeté. Il n'a jamais été formulé par l'auteur du
+  projet. Le travail de titre devra repartir de l'idée initiale de
+  **patrimoine industriel oublié**.
+- La silhouette départementale avec points est rejetée comme modèle de carte,
+  sur l'accueil comme dans l'exploration. Elle porte les 318 coordonnées du
+  corpus, mais ne montre ni rivières, ni végétation, ni bourgs, ni rail et ne
+  constitue donc pas la carte vivante attendue.
+- Le contrôle contre les 381 contours communaux actuels trouve 317 points dans
+  un contour et un point source de la centrale hydroélectrique de
+  Saint-Philbert-sur-Orne à environ 1,9 m de la limite communale. Les marqueurs
+  larges et le contour simplifié de la maquette amplifient visuellement les
+  débordements. La future carte devra rendre la précision approximative
+  explicite et conserver ce cas de bord au contrôle.
+- Le panneau contextuel de l'exploration est retenu comme base de travail. Il
+  pourra réunir activités successives, dates disponibles, explication courte,
+  précision, sources et éventuellement une image éditorialement sélectionnée.
+- Le libellé et la rubrique `Les lieux` ne sont pas validés. Les portraits ne
+  formeront pas une section autonome par défaut : chaque cas long devra répondre
+  à une question précise du récit.
+- La photographie Abadie peut documenter la coexistence d'une usine, d'un bourg,
+  de champs et d'une rivière, mais l'image ne définit pas à elle seule la
+  démonstration. Son usage doit être rattaché à une question éditoriale et, si
+  une comparaison avec aujourd'hui est envisagée, à une source contemporaine.
+- La validation d'un écran d'exploration a été anticipée dans le bloc 3 alors
+  que le fond géographique, les couches, les échelles et les interactions
+  appartiennent au cadrage du bloc 4. Aucune nouvelle maquette ne sera produite
+  avant cet arbitrage fonctionnel.
+
+## 2026-07-27 — Phase 10, troisième proposition visuelle
+
+- Rectification : la demande précédente n'était pas de supprimer `Les lieux`,
+  mais d'en expliquer l'utilité. La rubrique est conservée comme base de
+  travail et ne vaut toujours pas catalogue des 318 sites.
+- Sa fonction proposée associe trois lectures : inscription spatiale sur une
+  photographie annotée, évolution historique documentée et situation actuelle.
+- Activité, conservation matérielle, usage actuel, accessibilité et précision
+  géographique restent des dimensions distinctes. Une cessation d'activité ne
+  permet pas de déduire la conservation du bâti ou son usage présent.
+- Le cas Abadie matérialise cette règle : la cessation vers 1978 est
+  documentée ; conservation, usage actuel et accessibilité sont indiqués comme
+  inconnus dans le corpus.
+- La carte des nouvelles maquettes utilise les 318 localisations et les couches
+  géographiques locales disponibles : limites communales, cours d'eau, forêts,
+  rail actuel et principaux bourgs. Elle remplace la silhouette schématique
+  rejetée, sans préjuger des choix fonctionnels détaillés du bloc 4.
+- Le panneau de l'usine d'Ozé montre une photographie, trois phases d'activité,
+  les dates disponibles, la précision `zone documentaire`, les sources et
+  l'absence de situation récente documentée.
+- Trois écrans sont produits dans `docs/design/phase10/` : accueil `07`,
+  exploration `08` et `Les lieux` `09`.
+- Décision provisoire : **cette troisième proposition constitue une base
+  d'arbitrage, pas une direction artistique implicitement validée**.
+
+## 2026-07-27 — Phase 10, validation de la direction artistique
+
+- La troisième proposition est explicitement validée comme **bon point de
+  départ** et devient la direction visuelle de référence pour la suite de la
+  phase 10.
+- La validation porte sur l'atmosphère générale, l'accueil immersif, la place
+  centrale d'une carte géographique réelle, le panneau contextuel, la fonction
+  de `Les lieux` et le système visuel minimal.
+- Cette validation ne fige pas l'interface au pixel près. Les couches, filtres,
+  niveaux de zoom et interactions seront précisés dans le bloc 4 ; le
+  comportement du data scrollytelling sera précisé lors du prototypage.
+- Les ajustements issus des tests responsive, d'accessibilité ou de
+  compréhension pourront être appliqués sans rouvrir toute la direction
+  artistique.
+- Décision : **bloc 3 de la phase 10 terminé ; le bloc 4 peut commencer**.
+
+## 2026-07-27 — Phase 10, lancement du bloc 4
+
+- Une proposition fonctionnelle de carte exploratoire et de filtres est
+  produite dans `docs/phase10_carte_exploratoire_filtres.md`.
+- La vue initiale montre les 318 sites sans agrégats, sans filtre et sans
+  panneau ouvert. Les couches d'eau, de forêt et de rail actuel restent des
+  contextes cartographiques et ne modifient pas les résultats.
+- Les quatre filtres proposés sont l'activité, la période d'activité, la
+  situation actuelle et la précision géographique. La commune passe par la
+  recherche.
+- Le filtre temporel utilise seulement les 42 phases réellement datées,
+  concernant 29 sites. Les repères documentaires issus des siècles de
+  construction ne sont pas présentés comme des durées d'activité.
+- Lorsqu'activité et période sont combinées, elles doivent correspondre à une
+  même phase. Les résultats sont toujours dédupliqués par `site_id`.
+- La situation actuelle sépare conservation, usages et accessibilité. Le
+  contraste entre quatre situations récentes documentées et 314 non
+  documentées reste explorable.
+- `Point approximatif` et `Zone documentaire` reçoivent deux symboles
+  distincts. Comme le GeoJSON public actuel contient uniquement des points,
+  aucune emprise fictive n'est dessinée pour une zone documentaire.
+- La liste et le détail alternent dans un panneau unique afin d'éviter une
+  interface permanente en trois colonnes. La liste constitue l'alternative
+  accessible aux 318 marqueurs.
+- Une planche fonctionnelle est conservée dans
+  `docs/design/phase10/10_exploration_etats_fonctionnels.*`.
+- Décision provisoire : **bloc 4 en cours ; les interactions restent à
+  arbitrer avant validation**.
+
+## 2026-07-27 — Phase 10, validation du bloc 4
+
+- L'architecture de la carte exploratoire et des filtres est validée comme
+  **point de départ évolutif**.
+- La validation porte sur la vue départementale sans agrégats, les quatre
+  filtres initiaux, la séparation entre couches et filtres, le panneau unique
+  liste-détail, le volet mobile et la liste accessible.
+- Les règles de données sont confirmées : période limitée aux phases réellement
+  datées, correspondance activité-période sur une même phase, situation actuelle
+  multidimensionnelle et précision toujours visible.
+- Les seuils de zoom, la densité cartographique, les libellés, l'ordre des
+  contrôles et les dimensions des panneaux restent ajustables pendant le
+  prototypage lorsqu'un test concret le justifie.
+- Décision : **bloc 4 de la phase 10 terminé ; le bloc 5 peut commencer**.
+
+## 2026-07-27 — Phase 10, lancement du bloc 5
+
+- Une proposition de gabarits est produite dans
+  `docs/phase10_fiches_sites_methode.md`.
+- Trois niveaux sont distingués : aperçu court, panneau cartographique
+  disponible pour les 318 sites et page `Les lieux` réservée à une sélection
+  éditoriale humaine.
+- Une page longue n'est jamais créée automatiquement à partir d'un score, d'un
+  nombre de médias ou d'une longueur d'historique.
+- Le panneau reste factuel et compact. L'image est omise si aucun média n'est
+  retenu ; aucun placeholder industriel générique ne la remplace.
+- Le gabarit `Les lieux` possède des blocs obligatoires de preuve mais autorise
+  seulement les modules facultatifs nécessaires à la question du cas.
+- La chronologie distingue phase datée, activités ordonnées sans dates,
+  repères de construction et situation actuelle. Une fin inconnue ne se
+  prolonge jamais artificiellement jusqu'à aujourd'hui.
+- Les formulations d'absence, d'inconnu et d'incertitude sont définies. Les
+  termes `disparu`, `sans usage`, `inaccessible` ou `non protégé` ne remplacent
+  jamais une donnée inconnue.
+- Les médias conservent légende, crédit, référence et lien à proximité. Le
+  cadrage suppose les autorisations obtenues, mais l'export public doit toujours
+  vérifier la preuve correspondante.
+- Les retours vers le récit ou la carte restaurent le chapitre, les filtres, le
+  cadrage et la sélection antérieurs.
+- La page méthode est conçue comme une page éditoriale publique en huit
+  sections ; les scripts, tables et chemins locaux restent dans la maintenance.
+- Une planche fonctionnelle est conservée dans
+  `docs/design/phase10/11_fiches_lieux_methode.*`.
+- Décision provisoire : **bloc 5 en cours ; les gabarits restent à arbitrer
+  avant validation**.
+
+## 2026-07-27 — Phase 10, validation du bloc 5
+
+- L'architecture des panneaux, des pages `Les lieux` et de la méthode est
+  validée comme **point de départ évolutif**.
+- Les trois niveaux sont confirmés : aperçu court, panneau disponible pour les
+  318 sites et page longue réservée aux cas sélectionnés humainement.
+- Les règles de preuve sont confirmées : chronologie adaptée à la qualité des
+  dates, situation actuelle séparée, inconnues explicites, sources et crédits à
+  proximité.
+- La page méthode publique en huit sections est confirmée ; la documentation
+  technique détaillée reste dans la maintenance.
+- Les longueurs de texte, le nombre final de pages `Les lieux`, l'ordre des
+  modules facultatifs, la densité et le responsive restent ajustables pendant
+  le prototypage lorsqu'un test concret le justifie.
+- Décision : **bloc 5 de la phase 10 terminé ; le bloc 6 peut commencer**.
+
+## 2026-07-27 — Phase 10, lancement du bloc 6
+
+- Un prototype navigable 0.1 est produit dans `prototype/phase10/`.
+- Il matérialise l'accueil, un data scrollytelling en six étapes, l'exploration
+  libre, la liste accessible, le panneau synthétique, trois récits `Les lieux`
+  et la page méthode.
+- Le prototype utilise les 318 sites et les 403 phases du corpus. Les pages
+  longues restent limitées à trois cas choisis éditorialement : Ozé–Moulinex,
+  Abadie et Bohin.
+- La carte de contexte est générée à partir des couches géographiques réelles
+  déjà préparées. Elle reste volontairement statique dans cette première
+  version ; le moteur cartographique, le zoom et les optimisations relèvent du
+  MVP après validation de la composition.
+- Les filtres respectent les règles du socle : activité et période sur une même
+  phase, quatre situations actuelles documentées, distinction entre point
+  approximatif et zone documentaire.
+- Le contrôle interne a vérifié les deux modes de lecture, les changements
+  d'état du récit, la recherche, les filtres, les couches, l'état sans résultat,
+  la liste, les panneaux, le clavier et un format mobile.
+- Aucun framework, serveur applicatif ou système de composants supplémentaire
+  n'est introduit pour cette étape de validation.
+- Décision provisoire : **bloc 6 en cours ; le prototype 0.1 doit être examiné
+  avant tout développement complet**.
+
+## 2026-07-27 — Phase 10, validation réservée du bloc 6
+
+- Le prototype 0.1 est validé comme **point de départ concret** afin de pouvoir
+  poursuivre la phase 10.
+- Cette décision valide le résultat du bloc — l'existence d'un prototype
+  navigable — mais pas la qualité ni la forme définitive de l'expérience.
+- La revue relève trop d'incohérences, d'abstractions artificielles et de
+  séquences difficiles à comprendre ou inopérantes.
+- Les difficultés concernent tous les niveaux : récit, exploration et pages
+  `Les lieux`.
+- La direction artistique devra elle aussi être réexaminée ; sa validation
+  antérieure comme point de départ ne la rend pas définitive.
+- Le bloc 7 ne doit donc pas industrialiser directement le prototype 0.1. Il
+  commencera par distinguer, à partir de problèmes concrets, ce qui doit être
+  conservé, repris ou supprimé.
+- Cette reprise devra rester ciblée et éviter une nouvelle couche de conception
+  abstraite, de surcode ou de composants inutiles.
+- Décision : **bloc 6 terminé avec réserves importantes ; le bloc 7 peut
+  commencer sans considérer l'expérience actuelle comme validée**.
+
+## 2026-07-27 — Phase 10, lancement du bloc 7 comme refondation
+
+- Après examen sur grand écran, le porteur du projet conclut que le prototype
+  0.1 n'est pas seulement imparfait : il engage une mauvaise direction
+  visuelle, narrative et fonctionnelle.
+- Le résultat est jugé illisible et non publiable. Il ressemble à un site web
+  à rubriques ou à un catalogue, et non à une publication de
+  datajournalisme suffisamment originale et construite.
+- Le récit cartographique, l'exploration et les pages `Les lieux` sont tous
+  considérés comme incompréhensibles ou inopérants dans leur forme actuelle.
+- Les problèmes signalés comprennent notamment les superpositions de points,
+  la réaction peu intelligible des filtres, la grossièreté des panneaux, les
+  volumes typographiques excessifs et l'absence de démonstration claire pendant
+  le défilement.
+- La direction artistique validée précédemment comme point de départ n'est plus
+  retenue comme référence à développer.
+- Le prototype devient un contre-exemple documenté. Les données, les sources et
+  les règles de preuve restent acquises ; l'interface et le storyboard ne le
+  sont pas.
+- Le bloc 7 commence donc par une refondation : reformulation de la
+  démonstration journalistique, choix d'une forme éditoriale principale,
+  recherche visuelle sur contenu réel et validation d'une tranche verticale
+  avant tout développement complet.
+- Toute nouvelle direction devra être évaluée dans le navigateur à sa taille
+  réelle, notamment sur une fenêtre de 1440 px.
+- Le projet ira jusqu'à la fin du bloc 7 puis s'arrêtera pour une nouvelle
+  évaluation. Le bloc 8 ne sera pas lancé automatiquement afin de ne pas
+  investir dans le contrôle d'une expérience qui resterait insatisfaisante.
+- Décision : **bloc 7 lancé comme phase de refondation du MVP ; aucun nouveau
+  code d'interface ne doit être produit avant les nouveaux arbitrages**.

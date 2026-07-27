@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1000" viewBox="0 0 1440 1000" role="img" aria-label="Nouvelle maquette d'accueil du projet Patrimoine industriel oublié">
+  <defs>
+    <linearGradient id="photo-shade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#102D27" stop-opacity="0.94"/>
+      <stop offset="0.58" stop-color="#102D27" stop-opacity="0.54"/>
+      <stop offset="1" stop-color="#102D27" stop-opacity="0.16"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#0E2722" flood-opacity="0.24"/>
+    </filter>
+    <clipPath id="map-card"><rect x="786" y="170" width="594" height="650" rx="22"/></clipPath>
+  </defs>
+
+  <image href="reference_paysage_orne.jpg" x="0" y="0" width="1440" height="1000" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1440" height="1000" fill="url(#photo-shade)"/>
+
+  <g font-family="Inter, Arial, sans-serif" fill="#FCFAF5">
+    <text x="58" y="62" font-size="18" font-weight="750" letter-spacing="1.2">PATRIMOINE INDUSTRIEL OUBLIÉ</text>
+    <g font-size="15" font-weight="650">
+      <text x="820" y="61">Le récit</text>
+      <text x="920" y="61">Explorer</text>
+      <text x="1022" y="61">Les lieux</text>
+      <text x="1120" y="61">Méthode</text>
+    </g>
+  </g>
+  <line x1="0" y1="92" x2="1440" y2="92" stroke="#FCFAF5" stroke-opacity="0.24"/>
+
+  <g transform="translate(72 172)">
+    <text font-family="Inter, Arial, sans-serif" font-size="14" font-weight="760" letter-spacing="2.2" fill="#FFD166">UN RÉCIT CARTOGRAPHIQUE SUR L'ORNE</text>
+    <text y="86" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="700" fill="#FCFAF5">
+      <tspan x="0" dy="0">Patrimoine</tspan>
+      <tspan x="0" dy="78">industriel oublié</tspan>
+    </text>
+    <rect x="0" y="205" width="72" height="6" fill="#E45240"/>
+    <text x="0" y="264" font-family="Georgia, 'Times New Roman', serif" font-size="29" font-style="italic" fill="#FCFAF5">
+      <tspan x="0" dy="0">Moulins, filatures, forges, mines, laiteries :</tspan>
+      <tspan x="0" dy="42">318 sites documentés racontent une histoire</tspan>
+      <tspan x="0" dy="42">encore peu visible de l'Orne.</tspan>
+    </text>
+    <text x="0" y="412" font-family="Inter, Arial, sans-serif" font-size="17" fill="#E7EFEA">
+      Une lecture par les cartes, les transformations des lieux et les sources.
+    </text>
+
+    <g transform="translate(0 462)" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="750">
+      <rect width="205" height="58" rx="29" fill="#C94333"/>
+      <text x="32" y="36" fill="#FFFFFF">Commencer le récit</text>
+      <rect x="223" width="190" height="58" rx="29" fill="#FCFAF5"/>
+      <text x="256" y="36" fill="#173F35">Explorer la carte</text>
+    </g>
+
+    <g transform="translate(0 574)" font-family="Inter, Arial, sans-serif">
+      <line x1="0" y1="0" x2="620" y2="0" stroke="#FCFAF5" stroke-opacity="0.35"/>
+      <g transform="translate(0 34)">
+        <text font-family="Georgia, 'Times New Roman', serif" font-size="38" font-weight="700" fill="#FCFAF5">318</text>
+        <text x="80" y="5" font-size="13" font-weight="700" fill="#FCFAF5">SITES DU CORPUS</text>
+        <text x="80" y="25" font-size="12" fill="#D9E5DE">localisations qualifiées</text>
+      </g>
+      <g transform="translate(246 34)">
+        <text font-family="Georgia, 'Times New Roman', serif" font-size="38" font-weight="700" fill="#FCFAF5">73</text>
+        <text x="68" y="5" font-size="13" font-weight="700" fill="#FCFAF5">LIEUX À PLUSIEURS VIES</text>
+        <text x="68" y="25" font-size="12" fill="#D9E5DE">plusieurs activités structurées</text>
+      </g>
+    </g>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="786" y="170" width="594" height="650" rx="22" fill="#FCFAF5"/>
+    <g clip-path="url(#map-card)">
+      <image href="map_orne_context_reel.svg" x="794" y="242" width="578" height="376" preserveAspectRatio="xMidYMid meet"/>
+    </g>
+    <rect x="786" y="170" width="594" height="72" rx="22" fill="#FCFAF5"/>
+    <rect x="786" y="220" width="594" height="22" fill="#FCFAF5"/>
+    <text x="818" y="204" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="760" letter-spacing="1.4" fill="#C94333">LA CARTE DU CORPUS</text>
+    <text x="818" y="225" font-family="Inter, Arial, sans-serif" font-size="12" fill="#50645D">Sites, cours d'eau, forêts et rail actuel</text>
+    <g transform="translate(820 660)" font-family="Inter, Arial, sans-serif">
+      <text font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700" fill="#17211D">Un territoire de productions</text>
+      <text y="38" font-size="14" fill="#51645D">
+        La carte n'est pas une illustration : elle devient l'espace principal
+      </text>
+      <text y="61" font-size="14" fill="#51645D">pour chercher, filtrer et suivre les changements d'activité.</text>
+      <g transform="translate(0 91)">
+        <rect width="183" height="47" rx="23.5" fill="#173F35"/>
+        <text x="27" y="29" font-size="14" font-weight="720" fill="#FFFFFF">Ouvrir l'exploration</text>
+        <text x="398" y="30" font-size="12" fill="#6A7772">Données et limites →</text>
+      </g>
+    </g>
+  </g>
+
+  <text x="72" y="965" font-family="Inter, Arial, sans-serif" font-size="11" fill="#E2EBE6">Photographie de travail : Méandres de l'Orne · C. Aubert / Conseil départemental de l'Orne</text>
+</svg>
