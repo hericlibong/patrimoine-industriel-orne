@@ -1464,3 +1464,59 @@ tables `sites`, `sites_activites`, `activites` et `recits_sites`.
   éditoriales externes, avec des règles d'emploi qui les maintiennent hors du
   corpus tant qu'une vérification n'a pas eu lieu ; une place leur sera prévue
   dans la publication**.
+
+## 2026-07-28 — Lecture de `PR-2026-001` : une chaîne du fer documentée et vivante
+
+- Le texte de l'article a été communiqué par le porteur du projet. Il décrit le
+  **chevalement de la mine de fer de Saint-Clair-de-Halouze**, en fonctionnement
+  de 1907 à 1976, importé d'Allemagne en 1953, avec des galeries à plus de
+  360 mètres et 42 nationalités employées sur le site.
+- Le premier rattachement supposé, `IA00060960` — *affinerie, filature* au
+  lieu-dit « Forge (La) » — est **écarté** : il reposait sur le mot « forge »,
+  le lieu-dit et la position en forêt, non sur le contenu. Le sujet est la mine.
+  L'épisode confirme la règle : un rattachement est une décision vérifiée, pas
+  une déduction.
+- Le site pressenti devient `IA00061008`, lieu-dit « Puits 2 (Le) », dont la
+  notice mentionne une modernisation entre 1951 et 1954 cohérente avec le
+  chevalement de 1953, et qui est le seul site de la commune déjà classé
+  `partiellement_conserve`. `IA00061007` reste à départager.
+- **L'article documente une situation actuelle pour plusieurs sites.**
+  L'association « le Savoir et le Fer », active depuis plus de vingt-cinq ans,
+  entretient et ouvre à la visite le carreau de la mine, les fours de la
+  Butte-Rouge à Dompierre, les Forges de Varenne à Champsecret, la Maison du Fer
+  et la Halle du Fer. Le corpus ne compte que quatre situations actuelles
+  documentées ; cet article peut porter le total à six ou sept.
+- **Réserve de saisonnalité retenue** : « visitable les mardis et jeudis à 11 h
+  pendant l'été » n'est pas « visitable ». Toute valeur d'accessibilité versée
+  devra porter sa condition et sa période, sous peine d'envoyer un lecteur
+  devant une grille fermée hors saison.
+- **Contradictions conservées** : l'article donne 1907–1976, les notices
+  `IA00061007` et `IA00061008` donnent 1905 et 1980. Aucune valeur n'est
+  corrigée ; l'écart est enregistré et sera arbitré source contre source. La
+  profondeur — 360 m dans l'article, 85 m en 1911 dans la notice — relève
+  vraisemblablement d'une évolution et non d'une contradiction.
+- **Constat éditorial majeur.** Les notices du corpus documentent d'elles-mêmes
+  la chaîne que l'association fait visiter : `IA00060894`, à Dompierre,
+  « alimentait en gueuses l'affinerie de Varenne à Champsecret » ; `IA00060964`,
+  à Varenne, était « alimentée en fonte par le haut fourneau de Dompierre » ;
+  `IA00060965` indique que les fers étaient « vendus aux cloutiers de Chanu et
+  de Tinchebray ». Il existe donc, du minerai au clou, une **relation historique
+  établie par les sources** et non déduite d'une proximité spatiale — le niveau
+  de preuve que la méthode exige pour affirmer un lien.
+- Le bassin de Halouze–Dompierre–Champsecret réunit ainsi trois qualités que la
+  vallée de la Risle n'a pas au même degré : des relations entre sites
+  documentées, une protection Monuments historiques sur `IA00060964`, 31 objets
+  Palissy rattachés à `IA00060965`, et surtout un **présent vivant** — une
+  association, des visites, des témoins — là où le corpus est presque muet sur
+  la situation actuelle.
+- Le choix de la vallée de la Risle comme première tranche verticale n'est pas
+  modifié à ce stade : il appartient au porteur du projet. Le bassin du fer est
+  enregistré comme alternative sérieuse et, en tout état de cause, comme second
+  cas de la typologie des ensembles.
+- **Troisième anomalie de texte source** relevée : l'historique de `IA00060961`
+  commence par « 955 ; », visiblement tronqué au début. À traiter avec les
+  historiques corrompus `IA00060969` et `IA00061153`.
+- Décision : **article `PR-2026-001` qualifié ; versement des situations
+  actuelles à programmer par le circuit des mentions de sources, avec condition
+  de saisonnalité ; le bassin du fer est retenu comme second cas de la typologie
+  et comme alternative possible pour la première tranche verticale**.
