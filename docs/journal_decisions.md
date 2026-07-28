@@ -1426,3 +1426,41 @@ tables `sites`, `sites_activites`, `activites` et `recits_sites`.
 - Décision : **bloc 2 rouvert sur une structure de descente d'échelle ;
   la vallée de la Risle sert de première tranche verticale ; les blocs 4 et 5
   restent acquis**.
+
+## 2026-07-28 — Ouverture d'un registre de revue de presse
+
+- Le porteur du projet signale un reportage paru le jour même dans l'édition
+  Normandie d'`actu.fr` sur un lieu de Saint-Clair-de-Halouze, commune du
+  corpus, et demande qu'un fichier soit créé pour référencer ce type de
+  ressource.
+- Le registre est créé dans `docs/revue_de_presse.md`. Il est distinct du
+  registre des sources du corpus : un article de presse est une source
+  secondaire et n'entre dans le modèle de données que par le circuit normal des
+  mentions de sources, avec une date d'observation, une méthode de vérification
+  et un niveau de fiabilité.
+- Ces ressources répondent à un manque identifié : 315 des 318 sites ont une
+  conservation inconnue et 316 une accessibilité inconnue. La presse locale et
+  les associations sont l'une des rares voies permettant de documenter une
+  situation actuelle sans enquête de terrain systématique. Un article ne prouve
+  toutefois ni une autorisation d'accès, ni une protection, ni une relation
+  historique.
+- Le contenu de l'article n'a pas pu être lu : le domaine `actu.fr` refuse la
+  récupération automatique. La référence est donc enregistrée avec son titre
+  reconstitué depuis l'adresse de la page, sans résumé ni exploitation.
+- Le site pressenti est `IA00060960`, *affinerie, filature*, lieu-dit
+  « Forge (La) », situé à 27 mètres d'une formation forestière actuelle. La
+  désignation employée par le porteur du projet, le lieu-dit et la position en
+  forêt concordent. L'ensemble extractif `IA00060961`, situé à l'intérieur d'une
+  formation forestière, reste une possibilité à écarter ou confirmer.
+- Le rattachement reste `a_confirmer` et aucune valeur du corpus n'a été
+  modifiée.
+- Ce site présente par ailleurs un intérêt éditorial propre, indépendant de
+  l'article : affinerie de 1530 fondée par le comte de Flers, convertie en
+  filature vers 1840, consommant en 1841 de 120 000 à 130 000 kg de coton de
+  Louisiane et de Géorgie, détruite par un incendie en 1897. Il illustre à la
+  fois le motif de réemploi d'un site hydraulique et l'ouverture de l'industrie
+  ornaise sur des marchés lointains.
+- Décision : **`docs/revue_de_presse.md` créé comme registre des ressources
+  éditoriales externes, avec des règles d'emploi qui les maintiennent hors du
+  corpus tant qu'une vérification n'a pas eu lieu ; une place leur sera prévue
+  dans la publication**.

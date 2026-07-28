@@ -46,6 +46,7 @@ matière historique et iconographique, sans imposer de récit ni valider d'image
 - [Dictionnaire des données](docs/dictionnaire_donnees.md)
 - [Modèle éditorial des textes et médias](docs/modele_editorial.md)
 - [Registre consolidé des sources](docs/registre_sources.md)
+- [Revue de presse et ressources éditoriales externes](docs/revue_de_presse.md)
 - [Limites éditoriales](docs/limites_editoriales.md)
 - [Licences des données et droits des images](docs/licences_droits_images.md)
 - [Estimation de charge du corpus complet](docs/estimation_charge_corpus_complet.md)
