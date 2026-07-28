@@ -151,11 +151,39 @@ inutilisable. Détail dans `docs/methodologie.md`.
 - **`autre` ≠ `inconnu` ≠ `NULL`** : valeur hors vocabulaire, question examinée
   sans réponse, champ absent de la source.
 
+## Discipline de traçabilité — non négociable
+
+Le porteur du projet exige que **toute modification, orientation ou décision soit
+justifiée, notée, documentée et répercutée** dans le suivi. Le socle a été
+construit ainsi jusqu'à la phase 9 ; ce niveau d'exigence ne baisse pas parce que
+l'on passe à l'interface. Une décision non écrite est une décision perdue.
+
+À la fin de toute unité de travail, **avant de la déclarer terminée** :
+
+1. **`docs/journal_decisions.md`** (versionné) — ajouter une entrée datée
+   `## AAAA-MM-JJ — <objet>`, avec le raisonnement, les constats vérifiés et les
+   options écartées, terminée par une ligne `Décision : **…**`. Une réouverture
+   d'un bloc déjà validé s'y inscrit obligatoirement, avec son motif.
+2. **`docs/roadmap.md`** (non versionné, présent localement) — mettre à jour les
+   cases `[ ]` / `[-]` / `[x]`, le statut du bloc et son point de validation. Une
+   tâche n'est cochée que si son résultat est vérifiable.
+3. **Le document de phase concerné** (`docs/phase10_*.md`) — faire évoluer sa
+   version et son statut plutôt que d'empiler un nouveau fichier.
+4. **`CLAUDE.md`** — si la règle de travail elle-même change.
+
+Règles d'écriture qui découlent de la méthode du projet :
+
+- Toute affirmation chiffrée indique sa population de référence et sa source de
+  calcul ; un résultat non reproductible n'entre pas dans un document.
+- Une orientation prise sans preuve est signalée comme hypothèse, pas comme
+  constat.
+- Un bloc dont le point de validation n'est pas atteint n'est pas clos : le cas
+  du bloc 6, clos « avec réserves », est le précédent à ne pas reproduire.
+- Les documents antérieurs ne sont pas réécrits pour masquer un changement de
+  cap ; la décision qui les rouvre est datée et motivée.
+
 ## Conventions de travail
 
-- Le suivi d'avancement vit dans `docs/roadmap.md` (**non versionné**, présent
-  localement) ; les arbitrages structurants dans `docs/journal_decisions.md`
-  (versionné), datés, terminés par une ligne `Décision : **…**`.
 - Messages de commit en français, préfixe conventionnel (`feat:`, `fix:`,
   `docs:`, `chore:`).
 - `ruff` : ligne à 100 caractères, cible py311.

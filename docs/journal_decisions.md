@@ -1330,3 +1330,99 @@
   investir dans le contrôle d'une expérience qui resterait insatisfaisante.
 - Décision : **bloc 7 lancé comme phase de refondation du MVP ; aucun nouveau
   code d'interface ne doit être produit avant les nouveaux arbitrages**.
+
+## 2026-07-28 — Phase 10, réouverture du bloc 2 et choix de l'unité intermédiaire
+
+### Réponses du porteur du projet aux quatre questions de cadrage
+
+- **Sujet** : mettre en avant le patrimoine industriel oublié de l'Orne et
+  montrer comment il a façonné le paysage du département, ou comment il s'est
+  adapté à sa géographie et à son hydrographie, contre l'image d'un département
+  essentiellement rural.
+- **Échelle** : les **318 sites**. Le démonstrateur de vingt à trente lieux
+  évoqué au début du projet n'était qu'un échantillon destiné à établir un
+  motif de travail ; il n'est pas le livrable.
+- **Phrase à emporter** : « Dans l'Orne, les paysages ne se regardent pas
+  seulement : ils se lisent comme les traces d'une ancienne géographie
+  industrielle. »
+- **Rôle de la carte** : instrument de démonstration, jamais sujet du récit.
+  Le récit pose la question, la carte apporte la preuve, l'exploration libre
+  vient ensuite. Trois fonctions : prouver, comparer, explorer.
+- **Nature du sujet** : datajournalistique, à vocation historique et
+  culturelle. Le projet n'est pas un relevé topologique, géographique ou
+  technique ; ces aspects sont un cadre, pas le contenu.
+- **Images** : la conception se fait comme si les autorisations d'utilisation
+  étaient acquises. La question des droits reste traitée par le porteur du
+  projet et ne conditionne plus les arbitrages de forme.
+
+### Constats vérifiés dans le corpus complet V1
+
+Calculs effectués sur `data/processed/patrimoine_orne_corpus_complet_v1.duckdb`,
+tables `sites`, `sites_activites`, `activites` et `recits_sites`.
+
+- **Deux géographies industrielles distinctes.** Médianes de distance au cours
+  d'eau par secteur : énergie 29 m, métallurgie 30 m, textile 32 m,
+  agroalimentaire 36 m — contre extraction 301 m, verre-céramique-matériaux
+  344 m et chimie 430 m. 82 % des sites métallurgiques, 81 % des sites textiles
+  et 75 % des sites agroalimentaires sont à moins de 100 m d'un cours d'eau,
+  contre 17 % des sites de verre, céramique et matériaux.
+- **Les sites d'extraction sont sur la ressource** : 825 m d'un indice minéral
+  en médiane, contre 7 709 m pour l'ensemble du corpus.
+- **77 % du corpus s'organise en ensembles.** Un regroupement des 318 sites
+  localisés par lien de proximité à 3 km produit 88 ensembles ; 246 sites
+  appartiennent à un ensemble d'au moins trois sites et 44 sites seulement
+  restent isolés.
+- **L'unité intermédiaire prend trois formes** : la vallée (Risle 43 sites,
+  Noireau 23, Flers 21, La Ferté-Macé 12, Tinchebray 9, Randonnai 9), le bassin
+  de ressource (La Ferrière-aux-Étangs à 1 273 m d'un indice minéral,
+  Saint-Clair-de-Halouze à 2 531 m) et le pôle urbain (Alençon, Argentan, à
+  plus de 250 m de l'eau).
+- **Les ensembles ont une spécialité marquée** : La Ferté-Macé 100 % textile,
+  Noireau 87 % textile, Randonnai 78 % métallurgie, Risle 56 % métallurgie.
+  Deux vallées voisines et hydrauliques produisent des industries différentes :
+  l'eau fournit la force, l'histoire décide de la production.
+- **La progression chronologique n'est pas démontrable.** Seules 25 activités
+  possèdent une date de début exploitable. Les périodes issues de `SCLE` vont
+  dans le sens d'un éloignement de l'eau et d'un rapprochement du rail au fil
+  du temps, mais ce champ date des campagnes de construction, il est multivalué
+  et un site compte dans plusieurs périodes. Cet indice ne peut pas porter la
+  structure du récit.
+- **Le signal forestier est peu discriminant** : médiane du corpus à 94 m d'une
+  formation forestière. Seule la métallurgie s'en détache (56 m) et le cas
+  demande un examen site par site.
+
+### Anomalie éditoriale relevée
+
+- Les champs `historique_source` des sites `IA00060969` (moulin d'Ozé, puis
+  filature, puis Moulinex) et `IA00061153` (affinerie dite forge de Beaumont)
+  valent `$26`. Les notices sources contiennent des textes complets. Les deux
+  sites appartiennent à l'échantillon pilote de la phase 5 et ont donc été
+  enrichis par le parseur HTML plutôt que par l'API JSON.
+- La validation de la phase 9 n'a pas pu le détecter : elle contrôle
+  l'intégrité SHA-256 des textes, c'est-à-dire leur conservation, et non leur
+  plausibilité. Une valeur corrompue a donc été conservée fidèlement.
+- `IA00060969` est l'une des douze études de cas du bloc 2 et l'une des trois
+  pages `Les lieux` du prototype 0.1.
+- Correction à programmer dans le bloc 7, avec un contrôle de plausibilité des
+  textes sources ajouté à la validation.
+
+### Conséquences retenues
+
+- Le bloc 2 est **rouvert**. Sa structure en prologue, cinq chapitres et
+  conclusion reposait sur une progression temporelle que les données ne
+  soutiennent pas.
+- La structure de remplacement est une **descente d'échelle** : département,
+  puis ensemble cohérent, puis lieu. Elle oppose des géographies au lieu de
+  suivre une chronologie.
+- Les 318 sites ne doivent jamais être présentés comme 318 objets individuels
+  sur une vue d'ensemble. C'est ce traitement, et non leur nombre, qui a produit
+  l'effet de catalogue du prototype 0.1.
+- La **vallée de la Risle** est retenue comme premier cas travaillé : ensemble
+  le plus dense, spécialité lisible du fil métallique et de la quincaillerie,
+  et présence de trois des études de cas déjà sélectionnées.
+- Les blocs 4 et 5 ne sont pas rouverts. Leurs architectures fonctionnelles
+  restent valides ; c'est leur exécution dans le prototype et la direction
+  artistique qui sont en cause.
+- Décision : **bloc 2 rouvert sur une structure de descente d'échelle ;
+  la vallée de la Risle sert de première tranche verticale ; les blocs 4 et 5
+  restent acquis**.
