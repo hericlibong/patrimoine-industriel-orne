@@ -1654,3 +1654,40 @@ version 1.0. Principaux résultats.
   datajournalisme, à récit non linéaire, organisée autour d'une douzaine de
   systèmes industriels ; cadrage V2 arrêté ; la carte sera encadrée et habillée,
   jamais en plein écran**.
+
+## 2026-07-29 — Reconstruction de la roadmap de la phase 10
+
+- La section « phase 10 » de `docs/roadmap.md` était devenue illisible : quatre
+  couches successives y avaient été empilées en trois jours — réouverture du
+  bloc 2, direction de travail, étape de lecture, cadrage V2 — sans que la
+  structure d'ensemble soit reprise.
+- Le porteur du projet demande une roadmap reconstruite sur le cadrage V2,
+  avec des phases résumées, un objectif et un livrable affichés, et des tâches
+  cochables tenues à jour au fil de l'avancement.
+- L'ancienne organisation en neuf blocs est remplacée par **neuf phases**
+  allant de 10.A à 10.I : compléter les données manquantes, constituer et lire
+  les systèmes, arbitrer l'architecture, construire une vue de référence,
+  direction artistique, écrire la matière éditoriale, construire
+  l'application, qualité et accessibilité, publication.
+- Chaque phase affiche un résumé en deux phrases, son objectif, son livrable et
+  son point de validation. Les tâches sont regroupées en sous-ensembles
+  numérotés lorsque la phase le justifie.
+- L'ordre retenu place la **vue de référence avant la direction artistique**.
+  Cette vue est volontairement neutre sur le plan graphique : elle éprouve la
+  compréhension et la structure, pas l'esthétique. La direction artistique
+  n'intervient qu'ensuite, sur une forme dont on sait qu'elle fonctionne.
+- L'écriture éditoriale complète est également placée **après** la validation de
+  la vue, afin de ne pas rédiger les textes de douze systèmes avant de savoir
+  si la forme tient.
+- Le travail des blocs 1 à 7 de la première tentative est conservé dans une
+  section « historique », qui distingue ce qui reste utilisable — architectures
+  fonctionnelles des blocs 4 et 5 — de ce qui ne fait plus référence.
+- Les règles de suivi en tête de fichier sont renforcées : mise à jour au fil
+  de l'eau et non après coup, et interdiction de cocher une tâche dont le
+  résultat n'est pas vérifiable par un tiers.
+- Rappel : `docs/roadmap.md` figure dans le `.gitignore` et n'existe donc que
+  sur la machine du porteur du projet. Le présent journal est la seule trace
+  versionnée de cette réorganisation.
+- Décision : **roadmap de la phase 10 reconstruite en neuf phases 10.A à 10.I
+  sur le cadrage V2 ; la vue de référence précède la direction artistique et
+  l'écriture éditoriale complète**.
