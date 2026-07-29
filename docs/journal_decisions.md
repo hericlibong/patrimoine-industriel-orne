@@ -1613,3 +1613,44 @@ version 1.0. Principaux résultats.
   spatiale et filière — un paysage déjà équipé, une vallée qui est une chaîne
   de production, une filière encore lisible aujourd'hui ; le chantier
   d'extraction des dates en texte libre est ouvert à l'arbitrage**.
+
+## 2026-07-29 — Changement de nature du produit : une application, pas un site
+
+- Le porteur du projet corrige une erreur de cadrage qui remonte au début de la
+  phase 10 : **le produit n'est pas un site web**. C'est une **application web
+  interactive de datajournalisme**, créative et originale, qui peut se résumer
+  à une carte et un tableau de bord.
+- C'est la cause profonde de l'échec du prototype 0.1. Décliné en site, le
+  projet a produit des rubriques, des pages, un défilement et des gabarits
+  applicables à n'importe quel lieu, c'est-à-dire un catalogue. Le diagnostic
+  antérieur attribuait ce résultat au traitement des 318 sites ; la cause
+  première est la nature même de l'objet.
+- **Le récit n'est pas linéaire.** Le lecteur choisit son entrée, son
+  exploration et ses vues. Le récit naît de l'exploration : la carte annote ce
+  qu'elle montre, la sélection ouvre une histoire, les liens entre sites se
+  dessinent avec la phrase qui les prouve.
+- Deux règles d'écriture en découlent : chaque vue doit se suffire à elle-même,
+  et la démonstration se construit par répétition depuis des angles différents
+  plutôt que par accumulation d'étapes. Des amorces cliquables sont
+  obligatoires, faute de quoi une carte ouverte reste un outil et non une
+  publication.
+- **Trois niveaux d'écriture** sont arrêtés : l'annotation de quelques lignes
+  écrite pour une situation précise, le texte d'ensemble de deux cents mots
+  écrit par nous, et le texte de lieu d'une centaine de mots tiré de la notice.
+  Une entrée complète a été rédigée et validée comme exemple de référence :
+  filtre « travail du métal », vallée de la Risle, chaîne du haut fourneau de
+  1491 aux épingles, puis tréfilerie de La Fonte et ses 135 ouvriers de 1867
+  dont 10 enfants.
+- **Réserve du porteur du projet sur la carte** : elle ne doit pas être en
+  plein écran. Sur les grands écrans, une carte à bord perdu devient grossière.
+  Elle doit être encadrée et habillée — cadre assumé, marge, titre de vue,
+  légende, indicateurs, source. Contrainte structurante pour la direction
+  artistique, à respecter dès la première proposition visuelle.
+- Un **nouveau document de cadrage** est produit,
+  `docs/phase10_cadrage_v2_application.md`, version 2.0. Il ne corrige pas
+  `docs/phase10_cadrage_editorial_ux.md` : il repart d'une autre définition du
+  produit et le remplace. L'ancien document est conservé sans modification.
+- Décision : **le produit est une application web interactive de
+  datajournalisme, à récit non linéaire, organisée autour d'une douzaine de
+  systèmes industriels ; cadrage V2 arrêté ; la carte sera encadrée et habillée,
+  jamais en plein écran**.
