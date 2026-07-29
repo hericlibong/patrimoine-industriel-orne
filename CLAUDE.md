@@ -198,8 +198,10 @@ Règles pour tout compte rendu :
 - **Dire à quoi ça sert.** Toute tâche accomplie se termine par ce qu'elle
   change concrètement dans la publication. « Des traits entre les points sur la
   carte », pas « une table de relations peuplée ».
-- **Pas de tableau de chiffres** en guise d'explication. Les volumes viennent
-  après le sens, jamais à la place.
+- **Un tableau est bienvenu quand il est expliqué.** Il donne à voir d'un coup
+  d'œil ce qu'un paragraphe rendrait pénible. Ce qui ne va pas, c'est le
+  tableau posé *à la place* d'une explication : les chiffres accompagnent le
+  sens, ils ne le remplacent pas.
 - **Ne pas nommer les fichiers et les tables** dans le corps d'une explication.
   Ils vont dans la documentation, pas dans la conversation.
 - **Dire ce qui coince**, en langage clair, et ce que ça demande comme décision.
