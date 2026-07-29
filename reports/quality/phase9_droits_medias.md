@@ -1,6 +1,6 @@
 # Qualification des droits et usages des médias V1
 
-Date : 2026-07-24
+Date : 2026-07-29
 
 ## Décision d'usage
 

@@ -8,10 +8,19 @@
 
 Les textes historiques des notices affirment des liens entre sites — un haut
 fourneau qui alimente une forge, une usine rachetée par un industriel, une
-production transférée ailleurs. Ces liens ne figurent dans aucune table : la
-table `relations_sites` du modèle existe depuis la phase 3 mais elle est vide.
+production transférée ailleurs.
 
-Sans eux, la carte de l'application reste un semis de points. Avec eux, elle
+**Rectification du 29 juillet 2026.** Il a d'abord été écrit dans ce document
+que la table `relations_sites` était vide. C'est faux : elle contenait déjà cinq
+relations établies en phase 8 — deux cités ouvrières rattachées à la mine de
+Halouze, deux à celle de La Ferrière-aux-Étangs, et la fenderie de Larchamp
+dépendant de son affinerie. Cette dernière avait même été présentée à tort comme
+un ajout manuel de la phase 10 : elle existait depuis la phase 8, avec la même
+justification.
+
+Ce qui manquait n'était donc pas la table, mais les relations de production.
+
+Sans elles, la carte de l'application reste un semis de points. Avec elles, elle
 peut montrer un réseau.
 
 Le script est `tools/extraire_relations_sites.py`. Il ne modifie rien : il

@@ -8,13 +8,13 @@
     "dossiers_sources": 319,
     "objets_palissy": 31,
     "protections_mh": 16,
-    "relations_sites": 5,
+    "relations_sites": 23,
     "sites": 318,
     "sites_csv": 318,
     "sites_geojson": 318,
     "sites_parquet": 318
   },
-  "date_validation": "2026-07-24",
+  "date_validation": "2026-07-29",
   "decision": "corpus_complet_v1_valide",
   "errors": [],
   "files": {
@@ -39,11 +39,11 @@
       "size_bytes": 44680
     },
     "data/processed/corpus_complet_v1.json": {
-      "sha256": "be45e23c6327df26faa6fb319335e9e85419da337d23bb60c9ee84ab0b60a3fe",
-      "size_bytes": 2979098
+      "sha256": "523ab431afbe960a9c964be3477bcc0c9cff88123d2e0c2e6aed186fc47fce4a",
+      "size_bytes": 2988907
     },
     "data/processed/patrimoine_orne_corpus_complet_v1.duckdb": {
-      "sha256": "120704c2f25c00de683958f7a5a580326c099c7f935b460819b0a2eb00fade10",
+      "sha256": "c2053949ccccf3550e3e9403400f1662411b4927f5f5d79316b74e2e9019ed56",
       "size_bytes": 2109440
     },
     "reports/quality/phase8_anomalies_restantes.csv": {
@@ -51,7 +51,7 @@
       "size_bytes": 787
     },
     "reports/quality/phase8_indicateurs_corpus_complet.json": {
-      "sha256": "c0e858a4dccc6395335862f1457de9b8a99be56f50934192164f734d0592be12",
+      "sha256": "efb78e27f49e73c3b1c9d0a2a82a373885adcf729c04fdcee91128324be51255",
       "size_bytes": 6018
     }
   },

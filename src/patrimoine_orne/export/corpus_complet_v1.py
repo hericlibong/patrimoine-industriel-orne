@@ -660,7 +660,7 @@ def validate_outputs(
         "protections_mh": 16,
         "objets_palissy": 31,
         "casias": 131,
-        "relations_sites": 5,
+        "relations_sites": 23,
     }
     if dict(database_counts) != expected_counts:
         errors.append(

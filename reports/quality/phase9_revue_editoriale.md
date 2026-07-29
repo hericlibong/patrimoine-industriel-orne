@@ -1,6 +1,6 @@
 # Revue éditoriale des sites V1
 
-Date : 2026-07-24
+Date : 2026-07-29
 
 Cette revue mesure la matière disponible ; elle ne choisit ni récit final ni image publiée.
 

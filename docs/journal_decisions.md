@@ -1691,3 +1691,71 @@ version 1.0. Principaux résultats.
 - Décision : **roadmap de la phase 10 reconstruite en neuf phases 10.A à 10.I
   sur le cadrage V2 ; la vue de référence précède la direction artistique et
   l'écriture éditoriale complète**.
+
+## 2026-07-29 — Extraction des relations entre sites et extension du modèle
+
+### Rectification d'un constat erroné
+
+- Il a été écrit à plusieurs reprises que la table `relations_sites` était vide.
+  **C'est faux.** Elle contenait cinq relations établies en phase 8 : deux cités
+  ouvrières rattachées à l'ensemble extractif de Halouze, deux à celui de
+  La Ferrière-aux-Étangs, et la fenderie `IA00061188` dépendant de l'affinerie
+  `IA00061187` à Larchamp.
+- Cette dernière relation avait été présentée le 29 juillet comme un ajout
+  manuel de la phase 10, rattrapé après une exclusion à tort du filtre. Elle
+  existait depuis la phase 8, avec une justification identique. L'erreur venait
+  d'une vérification faite sur le schéma du modèle plutôt que sur le contenu de
+  la base.
+
+### Extension du vocabulaire contrôlé
+
+- Les cinq types de relations définis en phase 3 — `composant_de`,
+  `transfert_vers`, `successeur_de`, `depend_de`,
+  `partage_infrastructure_avec` — décrivent tous des relations de **structure**.
+  Aucun ne représente un **flux de production**.
+- Or quatorze des vingt liens extraits des textes sont de cette nature : un haut
+  fourneau qui envoie sa fonte à une forge. Les ranger sous `depend_de` aurait
+  confondu deux réalités distinctes — une cité ouvrière qui dépend de sa mine,
+  et une forge qui achète de la fonte à son voisin.
+- Le porteur du projet a validé l'ajout d'un sixième type, **`approvisionne`** :
+  le site source fournit une matière au site cible.
+- **Règle d'orientation fixée** : la relation est toujours enregistrée du
+  fournisseur vers le destinataire, quelle que soit la formulation de la source.
+  « Alimentait la forge de la Roche » et « alimentée en fer par la forge du
+  Champ-de-la-Pierre » produisent des lignes de même sens.
+- Modifications : contrainte `CHECK` de `model/schema.sql` et
+  `docs/modele_donnees.md`.
+
+### Versement par la chaîne de production
+
+- Les 18 relations nouvelles ont été inscrites dans
+  `config/phase8_decisions_canoniques.yml`, avec leurs identifiants stables dans
+  `config/phase8_site_ids.yml`, puis la chaîne complète a été rejouée :
+  canonisation, enrichissement du corpus, contexte territorial, production du
+  corpus complet.
+- Une écriture directe dans la base aurait disparu à la première
+  reconstruction. Le passage par la configuration garantit la reproductibilité.
+- La reconstruction du corpus efface les tables éditoriales de la phase 9. Elles
+  ont été refabriquées et la validation du socle narratif et visuel repasse au
+  vert.
+
+### Contrôles
+
+- Quatre tests ont échoué en gardant l'ancien effectif de cinq relations. C'est
+  leur fonction : empêcher qu'un changement d'effectif passe inaperçu. Ils ont
+  été mis à jour avec le motif du changement inscrit en commentaire.
+- Les 162 tests passent. Les effectifs du corpus sont inchangés : 319 dossiers
+  sources, 318 sites, 403 activités.
+
+### Résultat
+
+- **23 relations en base, reliant 36 sites.**
+- La chaîne la plus complète est à Randonnai : le haut fourneau de Gaillon à
+  Irai alimente deux affineries à Randonnai, qui alimentent la fenderie de
+  Conturbie. Quatre sites, trois niveaux, entièrement sourcés.
+- Trois relations de transfert vers les établissements Bohin sont marquées
+  comme interprétées : la source dit « l'usine de Saint-Sulpice-sur-Risle » sans
+  la nommer, et la commune compte cinq sites.
+- Décision : **type `approvisionne` ajouté au modèle ; 18 relations de
+  production versées par la chaîne de production ; l'orientation est toujours
+  du fournisseur vers le destinataire**.

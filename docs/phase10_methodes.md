@@ -123,3 +123,77 @@ Un lien a été supprimé : l'usine citée est dans la Sarthe, donc hors sujet.
 
 Toutes ces décisions sont dans un fichier à part, avec le motif de chacune. Rien
 n'est modifié en douce : on peut retrouver qui a décidé quoi et pourquoi.
+
+---
+
+## Phase 10.A.1 — Inscrire les liens dans la base
+
+**Fait le 29 juillet 2026.**
+
+### Une erreur à corriger d'abord
+
+J'avais écrit que la base ne contenait aucun lien entre sites. C'était faux.
+Elle en contenait déjà cinq, posés pendant la phase 8 : des cités ouvrières
+rattachées à leur mine, et une fenderie dépendant de sa forge. Et ce dernier
+lien, que j'avais présenté comme rattrapé à la main, existait depuis un an.
+
+### L'obstacle rencontré
+
+Le modèle n'acceptait que cinq sortes de liens, toutes de **structure** : qui
+appartient à quoi, qui succède à qui, qui dépend de qui.
+
+Or ce qu'on venait de trouver était d'une autre nature : un **flux de matière**.
+Un haut fourneau qui envoie sa fonte à une forge ne « dépend » pas d'elle et
+n'en est pas un composant. Il lui vend quelque chose.
+
+Quatorze des vingt liens étaient dans ce cas. Il n'y avait pas de case pour eux.
+
+### La décision
+
+Une sixième sorte de lien a été ajoutée : **approvisionne**. Ce lieu fournissait
+une matière à cet autre.
+
+L'alternative était de les ranger sous « dépend de ». On l'a écartée parce
+qu'elle aurait mélangé deux choses très différentes : une cité ouvrière qui
+dépend de sa mine, et une forge qui achète de la fonte à son voisin.
+
+Un point de vocabulaire a été fixé au passage. Les notices disent tantôt
+« alimentait la forge de la Roche », tantôt « alimentée en fer par la forge du
+Champ-de-la-Pierre » — la même relation vue des deux bouts. On l'enregistre
+toujours dans le même sens : du fournisseur vers celui qui reçoit.
+
+### Comment les liens sont entrés
+
+Pas à la main dans la base. Ils ont été écrits dans le fichier de décisions du
+projet, puis toute la chaîne de fabrication a été rejouée : la mise au propre du
+corpus, l'enrichissement, le calcul des distances au paysage, puis la
+reconstruction complète.
+
+C'est plus long, mais ça garantit qu'en relançant la fabrication dans six mois,
+les liens seront toujours là. Une modification faite directement dans la base
+aurait disparu à la première reconstruction.
+
+### Ce qui s'est passé pendant
+
+Quatre contrôles automatiques ont échoué, exactement comme ils devaient. Ils
+vérifiaient qu'il y avait bien cinq liens, pas un de plus. C'est leur rôle :
+empêcher qu'un changement passe inaperçu. On les a mis à jour en écrivant
+pourquoi le nombre change.
+
+Reconstruire le corpus a aussi effacé les tables de textes et d'images de la
+phase 9. Elles ont été refabriquées dans la foulée, et leur propre contrôle
+final est repassé au vert.
+
+### Résultat
+
+**Vingt-trois liens en base, reliant trente-six sites.**
+
+La chaîne la plus complète est à Randonnai : un haut fourneau à Irai alimente
+deux forges, qui alimentent une fenderie. Quatre usines, trois niveaux, tout
+écrit dans les sources.
+
+### Ce que ça change dans la publication
+
+La carte peut maintenant tracer des traits entre les usines. Trente-six sites
+sur trois cent dix-huit cessent d'être des points isolés : ils deviennent les
+maillons de quelque chose.
