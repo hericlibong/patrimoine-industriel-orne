@@ -182,6 +182,31 @@ Règles d'écriture qui découlent de la méthode du projet :
 - Les documents antérieurs ne sont pas réécrits pour masquer un changement de
   cap ; la décision qui les rouvre est datée et motivée.
 
+## Comment rendre compte au porteur du projet — non négociable
+
+Le porteur du projet est journaliste, pas ingénieur. Un rapport technique est
+un rapport inutile : s'il ne peut pas se représenter concrètement ce qui a été
+fait, il ne peut pas décider, et le travail part dans la mauvaise direction
+sans que personne s'en aperçoive.
+
+Règles pour tout compte rendu :
+
+- **Parler comme à un humain.** Phrases courtes, mots ordinaires. Pas de
+  vocabulaire de métier là où un mot courant existe.
+- **Montrer avant de résumer.** Un exemple réel — une phrase de notice, un nom,
+  une date — vaut mieux qu'une description abstraite de ce qu'on a fait.
+- **Dire à quoi ça sert.** Toute tâche accomplie se termine par ce qu'elle
+  change concrètement dans la publication. « Des traits entre les points sur la
+  carte », pas « une table de relations peuplée ».
+- **Pas de tableau de chiffres** en guise d'explication. Les volumes viennent
+  après le sens, jamais à la place.
+- **Ne pas nommer les fichiers et les tables** dans le corps d'une explication.
+  Ils vont dans la documentation, pas dans la conversation.
+- **Dire ce qui coince**, en langage clair, et ce que ça demande comme décision.
+
+Les méthodes de chaque phase sont expliquées dans `docs/phase10_methodes.md`,
+tenu à jour au fur et à mesure et rédigé dans la même langue simple.
+
 ## Conventions de travail
 
 - Messages de commit en français, préfixe conventionnel (`feat:`, `fix:`,

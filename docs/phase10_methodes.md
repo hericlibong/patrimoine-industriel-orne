@@ -1,0 +1,125 @@
+# Comment on travaille, phase par phase
+
+Ce document explique en langage ordinaire ce qui est fait à chaque étape de la
+phase 10, pourquoi, et ce que ça change dans la publication. Il est complété au
+fur et à mesure.
+
+Les détails techniques restent dans les documents de méthode propres à chaque
+étape. Ici, on explique.
+
+---
+
+## Phase 10.A.1 — Retrouver les liens entre les usines
+
+**Fait le 29 juillet 2026.**
+
+### Le problème
+
+Jusqu'ici, la base connaissait chaque usine toute seule. Elle savait qu'il y
+avait un haut fourneau à Dompierre et une forge à Champsecret, mais pas que le
+premier envoyait sa fonte à la seconde.
+
+Or c'est écrit noir sur blanc dans les fiches historiques. Simplement, personne
+ne l'avait sorti des textes.
+
+### Ce qu'on a fait
+
+On a relu les textes des 318 fiches en cherchant les phrases où une usine parle
+d'une autre usine. Par exemple :
+
+> *« alimentait en gueuses l'affinerie de Varenne à Champsecret »*
+
+Un programme repère ces formulations, puis essaie de deviner de quelle usine il
+s'agit, en croisant deux indices : le nom de lieu cité, et le type d'usine
+mentionné. Une « affinerie de Varenne » doit renvoyer à un site situé à
+Varenne, pas à n'importe quelle affinerie du département.
+
+### Ce qu'on a décidé de compter comme un lien
+
+Cinq cas : une usine qui en approvisionne une autre, une usine qui reçoit d'une
+autre, une usine qui dépend d'une autre, une production qui déménage d'un site à
+l'autre, et deux sites physiquement reliés par une voie ferrée.
+
+### Ce qu'on a décidé de ne pas compter
+
+Trois cas, et ces exclusions comptent autant que le reste.
+
+**Un moulin devenu usine n'est pas un lien entre deux sites.** C'est le même
+lieu qui change de métier. Il est déjà traité comme tel.
+
+**« Dépendant de l'abbaye de Sées » ou « du château de Flers » n'est pas un lien
+industriel.** C'est un propriétaire, pas une usine qui en alimente une autre.
+
+**Une gare n'est pas une usine.** « Relié à la gare du Châtellier » décrit une
+voie ferrée, pas un autre site du corpus.
+
+### Ce qu'on a trouvé
+
+Le même schéma revient dans sept endroits du département : **un haut fourneau
+qui fait de la fonte, et à côté une forge qui la transforme en fer.** Dompierre
+et Champsecret, Livaie, Randonnai, Longny, Carrouges, Saint-Patrice, et la
+vallée de la Risle.
+
+À Randonnai, la chaîne va même plus loin : un haut fourneau à Irai alimente deux
+forges à Randonnai, qui alimentent une fenderie. Trois niveaux.
+
+À côté, deux autres familles : les usines de Rai qui travaillent le métal de
+leur grande voisine, et un groupe du XXᵉ siècle, le Ferodo, qui fait circuler
+l'amiante entre plusieurs de ses sites.
+
+### Ce qu'on a ramassé au passage
+
+**Ce que ces usines achetaient et vendaient loin.** Coton de Louisiane et de
+Géorgie, cacao de Côte d'Ivoire et du Cameroun transformé à Berlin avant
+d'arriver dans l'Orne, minerai vendu en Allemagne et en Belgique, bois de Chine,
+de Hongrie et du Canada, colorants d'Inde.
+
+**Qui possédait quoi.** Benjamin Bohin revient six fois, le Ferodo cinq fois.
+Mais attention : ça, on l'a déduit en voyant le même nom dans plusieurs fiches.
+Aucune source ne dit « ces six usines appartiennent au même homme ». C'est donc
+mis de côté, en attendant vérification.
+
+### Ce que ça change dans la publication
+
+**Des traits entre les points sur la carte.**
+
+Aujourd'hui, afficher les 318 sites donne une poussière de points. Demain, quand
+on regardera la métallurgie, on verra des paires reliées, et on comprendra d'un
+coup d'œil que ces usines formaient des chaînes.
+
+En cliquant sur un trait, on lira la phrase du XIXᵉ siècle qui le prouve.
+
+---
+
+## Phase 10.A.1 — Vérification et arbitrage
+
+**Fait le 29 juillet 2026.**
+
+### Ce qu'on a vérifié
+
+Les treize liens trouvés ont été relus un par un, avec leur phrase.
+
+Dix sont nets. Deux étaient incomplets : la phrase citait **deux** forges et le
+programme n'en avait retenu qu'une. Un est douteux, et c'est la source
+elle-même qui doute — elle écrit « peut-être ».
+
+### Ce qu'on a tranché
+
+Cinq cas où le texte disait « l'usine de Saint-Sulpice » sans préciser laquelle.
+Il y a cinq usines dans cette commune. On a décidé en lisant : les trois sites
+concernés avaient tous été rachetés par Benjamin Bohin, donc l'usine qui reçoit
+leur production après 1945 ne peut être que la sienne.
+
+**Mais on ne fait pas semblant que la source le dise.** Ces trois liens sont
+marqués comme une interprétation, pas comme une lecture littérale. Si quelqu'un
+conteste, il verra tout de suite que c'est un choix et pourquoi il a été fait.
+
+Un lien a été ajouté à la main : le programme l'avait écarté parce que la phrase
+mélangeait une dépendance industrielle réelle et un titre de noblesse.
+
+Un lien a été supprimé : l'usine citée est dans la Sarthe, donc hors sujet.
+
+### Où c'est écrit
+
+Toutes ces décisions sont dans un fichier à part, avec le motif de chacune. Rien
+n'est modifié en douce : on peut retrouver qui a décidé quoi et pourquoi.
