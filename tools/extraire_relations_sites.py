@@ -174,7 +174,7 @@ def load_sites(connection: duckdb.DuckDBPyConnection) -> list[dict[str, Any]]:
                 "reference": reference,
                 "nom": nom or "",
                 "communes": [c.strip() for c in (communes or "").split("|") if c.strip()],
-                "lieux_dits": [l.strip() for l in (lieux_dits or "").split("|") if l.strip()],
+                "lieux_dits": [d.strip() for d in (lieux_dits or "").split("|") if d.strip()],
             }
         )
     return sites
