@@ -1520,3 +1520,96 @@ tables `sites`, `sites_activites`, `activites` et `recits_sites`.
   actuelles à programmer par le circuit des mentions de sources, avec condition
   de saisonnalité ; le bassin du fer est retenu comme second cas de la typologie
   et comme alternative possible pour la première tranche verticale**.
+
+## 2026-07-29 — Direction de travail : lire d'abord, dessiner ensuite
+
+- Le porteur du projet constate que la reprise part dans plusieurs directions à
+  la fois et demande une ligne unique et clairement écrite. Le constat est
+  fondé : trois fils ont été ouverts en deux jours — analyse spatiale par
+  secteur, revue de presse, bassin du fer — sans qu'aucun soit refermé.
+- **Diagnostic retenu.** Tout ce qui a été produit en phase 10 a été conçu à
+  partir de chiffres sur le corpus — 318 sites, 403 phases, 73 lieux à
+  plusieurs vies, 9 secteurs — et jamais à partir de son contenu. Les 314 textes
+  historiques ont été extraits, contrôlés, empreintés et validés, mais ils
+  n'ont pas été lus. On ne produit pas de journalisme avec des effectifs ; on
+  produit un catalogue. C'est ce qui explique des gabarits applicables à
+  n'importe quel lieu.
+- La découverte de deux historiques valant `$26`, dont celui d'une des douze
+  études de cas retenues, confirme matériellement que ces textes n'ont jamais
+  été ouverts.
+- **Direction arrêtée** : la reprise commence par la lecture de la matière sur
+  un ensemble cohérent et de taille lisible, les 43 sites de la vallée de la
+  Risle. Aucune forme, aucun écran et aucune direction artistique ne sont
+  produits avant que cette lecture ait rendu son résultat.
+- La lecture cherche les personnes, les entreprises, les productions, les
+  effectifs, les ruptures, et surtout les relations que les notices établissent
+  entre elles — le type de lien qu'aucune analyse spatiale ne peut trouver,
+  comme l'a montré la chaîne Dompierre–Varenne.
+- **Un seul fil ouvert à la fois.** Le bassin du fer reste le deuxième cas et
+  n'est pas traité maintenant, malgré l'avantage de son présent documenté.
+  Correction des historiques, versement des situations actuelles et revue de
+  presse sont différés après la lecture.
+- Décision : **lire les 43 notices de la vallée de la Risle et en consigner le
+  résultat avant toute proposition de forme ; les autres chantiers restent
+  fermés jusque-là**.
+
+## 2026-07-29 — Résultat de la lecture de la vallée de la Risle
+
+Lecture complète des 43 notices consignée dans `docs/phase10_lecture_risle.md`,
+version 1.0. Principaux résultats.
+
+- **La vallée fabriquait de très petits objets métalliques** : épingles,
+  aiguilles, pointes, clous, boucles de sellerie, dés, agrafes, crochets,
+  cardes, plumes métalliques, broches à tricoter. Ce fait n'apparaît dans
+  aucune statistique du corpus, puisque les neuf secteurs rangent ces
+  productions sous « métallurgie et travail des métaux », au même titre qu'un
+  haut fourneau. Il a fallu lire pour le voir.
+- **Les notices établissent elles-mêmes une chaîne de production complète.**
+  `IA00061017`, haut fourneau du Logeard attesté en 1491, « alimentait en fonte
+  la forge d'Aube » ; `IA00061029`, affinerie d'Aube, était « affectée jusqu'en
+  1850 à l'affinage de la fonte produite au haut fourneau du Logeard » et
+  « alimentait en fer la fenderie d'Aube » ; `IA00061129` est « dépendant de la
+  forge d'Aube ». La filière fonte–fer–fil–épingle s'étire sur environ
+  vingt-cinq kilomètres et chaque maillon est un site distinct du corpus.
+- **Seize notices sur quarante-trois** mentionnent une usine établie sur
+  l'emplacement d'un moulin, ou la conversion d'un moulin. L'industrie ne
+  s'installe pas dans un paysage vierge : elle réutilise une chute d'eau déjà
+  équipée. C'est la démonstration la plus directe de la phrase retenue pour le
+  lecteur.
+- **La concentration industrielle est cartographiable** : six sites du corpus
+  portent le nom de Benjamin Bohin, dont cinq rachats, et trois d'entre eux
+  voient leur production « transférée à l'usine de Saint-Sulpice-sur-Risle »
+  après 1945. Les familles Mouchel et Turquet apparaissent chacune sur deux à
+  trois sites.
+- **La sortie de l'énergie hydraulique est documentée sans rupture
+  géographique** : la fenderie d'Aube devient usine hydroélectrique vers 1909,
+  la centrale d'Aube alimente à partir de 1919 Boisthorel, Bohin et des usines
+  de L'Aigle. Le réseau électrique dessert exactement les usines que la rivière
+  faisait tourner.
+- **Trois usines de Rai étaient encore actives à la fin des années 1980**, liées
+  entre elles : Eurofac et Rai-Tillières transforment des métaux « produits à
+  l'usine voisine de Boisthorel » et livrés par voie ferrée particulière. La
+  filière ne s'est pas éteinte, elle s'est resserrée.
+- Quatre lieux sont retenus pour un traitement long : `IA00061029` affinerie
+  d'Aube, `IA00061155` Bohin, `IA00061053` Boisthorel et `IA00061017` haut
+  fourneau du Logeard.
+
+### Correction d'un constat antérieur
+
+- Il a été écrit le 28 juillet que la progression chronologique n'était pas
+  démontrable, seules 25 activités du corpus possédant une date de début
+  exploitable. Ce constat portait sur les données **structurées** et reste
+  exact à ce titre : sur les 65 activités des 43 sites de la Risle, 8
+  seulement ont une date de début structurée.
+- Mais les textes de ces mêmes 43 notices citent **321 années distinctes**. La
+  mention « chronologie détaillée non encore structurée pour ce dossier »
+  figure dans la quasi-totalité des activités.
+- La chronologie n'est donc pas absente du corpus : elle est présente en texte
+  libre et n'a pas été extraite. L'abandon de l'arc chronologique reste valable
+  pour l'instant, mais son motif change : ce n'est pas que les dates manquent,
+  c'est qu'elles ne sont pas exploitables en l'état. Un chantier d'extraction
+  est possible et doit être arbitré.
+- Décision : **lecture de la Risle close ; la démonstration retenue est
+  spatiale et filière — un paysage déjà équipé, une vallée qui est une chaîne
+  de production, une filière encore lisible aujourd'hui ; le chantier
+  d'extraction des dates en texte libre est ouvert à l'arbitrage**.
