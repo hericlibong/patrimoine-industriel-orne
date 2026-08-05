@@ -197,3 +197,86 @@ deux forges, qui alimentent une fenderie. Quatre usines, trois niveaux, tout
 La carte peut maintenant tracer des traits entre les usines. Trente-six sites
 sur trois cent dix-huit cessent d'être des points isolés : ils deviennent les
 maillons de quelque chose.
+
+---
+
+## Phase 10.A.2 — Retrouver les dates
+
+**Fait le 5 août 2026.**
+
+### Le problème
+
+Le corpus ne contient que **25 activités datées sur 403**. Autant dire rien : on
+ne peut pas raconter une histoire dans le temps avec ça.
+
+Sauf que les textes des fiches, eux, citent **plus de deux mille années**. Elles
+étaient là depuis le début, dans des phrases comme « incendiée en 1877 » ou
+« reconstruite en 1880 par Benjamin Bohin ». Simplement, personne ne les avait
+sorties du texte.
+
+### La décision qui change tout
+
+On aurait pu se contenter de relever les années. Ça n'aurait servi à rien.
+
+**Une année seule ne dit rien. Ce qui compte, c'est ce qui s'est passé cette
+année-là.** On a donc extrait des *événements datés* : une date, ce qui est
+arrivé, et la phrase qui le prouve.
+
+Douze sortes d'événements ont été retenues : la création, la première mention
+dans les archives, la reconstruction, l'agrandissement, l'installation d'une
+machine, le rachat, le changement de métier, l'incendie ou la destruction,
+l'autorisation administrative, la fermeture, les chiffres de production et les
+effectifs.
+
+### Les règles de datation
+
+On n'a rien inventé : les règles existaient déjà depuis la phase 3.
+
+« Vers 1850 » ne devient jamais 1850. Ça devient un intervalle de 1845 à 1855, et
+le texte d'origine reste affiché. « Avant 1867 » n'a pas de date de début.
+« Après 1945 » n'a pas de date de fin. Un siècle reste un siècle entier.
+
+Et la formulation d'origine est toujours conservée à côté du calcul, pour qu'un
+lecteur puisse vérifier.
+
+### Ce qu'on a trouvé
+
+**2 344 événements datés, sur 312 des 318 sites.**
+
+Voici ce que ça donne pour une usine, la tréfilerie de La Fonte à
+Saint-Sulpice-sur-Risle :
+
+| Quand | Quoi |
+| --- | --- |
+| 1780 | Le marquis de L'Aigle établit la tréfilerie |
+| vers 1830 | Une seconde roue hydraulique est installée |
+| vers 1860 | Agrandissements |
+| 1867 | 135 ouvriers, dont dix enfants |
+| 1887 | Benjamin Bohin la rachète et la passe au laiton |
+| vers 1891 | Nouveaux agrandissements |
+| après 1945 | La production part chez Bohin, à deux kilomètres |
+
+Sept lignes. Une vie d'usine, du marquis d'Ancien Régime à l'absorption par le
+voisin. Tout vient du même paragraphe de la fiche, qu'aucun lecteur n'aurait lu
+en entier.
+
+### Un défaut corrigé en cours de route
+
+En relisant la fiche de Bohin, dont je connaissais le texte, j'ai vu que
+« reconstruite en 1880 » était classée comme une *création*. La raison est
+bête : le mot « reconstruite » contient le mot « construit ».
+
+Corrigé, avec deux autres défauts du même genre. Le nombre d'événements mal
+classés est passé de 429 à 280 sur 2 344.
+
+### Ce que ça change dans la publication
+
+Le temps devient utilisable. On peut montrer la vie d'un lieu comme une frise,
+et surtout comparer : quand les vallées se sont-elles équipées, quand les usines
+ont-elles fermé, à quel moment les effectifs se sont effondrés.
+
+C'est la dimension qu'on avait abandonnée faute de dates. Elle revient.
+
+### Où on en est
+
+Rien n'est encore inscrit dans la base. La liste attend une relecture.
