@@ -1,31 +1,39 @@
-"""Extrait des textes de notices les événements datés de chaque site.
+"""Produit la chronologie des sites : un événement daté par ligne.
 
-Les textes citent plus de deux mille années qui ne sont structurées nulle part.
-Une année seule ne sert à rien : ce qui compte, c'est ce qui s'est passé cette
-année-là. Le script extrait donc des **événements datés** — une date, un type
-d'événement, la formulation d'origine et la phrase qui l'établit.
+Les textes des notices citent plus de deux mille années qui ne sont structurées
+nulle part. Une année seule ne sert à rien : ce qui compte, c'est ce qui s'est
+passé cette année-là. Ce module extrait donc des **événements datés** — une
+date, un type d'événement, la formulation d'origine et la phrase qui l'établit —
+puis les écrit dans la table ``chronologie_sites`` du corpus.
 
-Les conventions de datation sont celles de ``config/regles_modele.yml`` et de
-``docs/regles_modele.md`` : une date imprécise reste un intervalle, la marge de
-« vers une année » est de cinq ans, et une borne ouverte reste nulle. Le milieu
-d'un intervalle n'est jamais présenté comme une date réelle.
+Les conventions de datation sont celles de ``config/regles_modele.yml`` : une
+date imprécise reste un intervalle, la marge de « vers une année » est de cinq
+ans, une borne ouverte reste nulle, et le milieu d'un intervalle n'est jamais
+présenté comme une date réelle.
 
-Aucune écriture dans le corpus. La sortie est une proposition à relire.
+Les événements écartés par la revue humaine sont déclarés dans
+``config/chronologie_decisions.yml``. Rien n'est écarté sans motif écrit.
 """
 
 from __future__ import annotations
 
 import argparse
 import csv
+import json
 import re
 import unicodedata
+from datetime import date
 from pathlib import Path
 
 import duckdb
+import yaml
 
 
 DEFAULT_DATABASE = Path("data/processed/patrimoine_orne_corpus_complet_v1.duckdb")
-DEFAULT_OUTPUT = Path("data/interim/evenements_dates.csv")
+DEFAULT_DECISIONS = Path("config/chronologie_decisions.yml")
+DEFAULT_CSV = Path("data/exports/chronologie_sites_v1.csv")
+DEFAULT_PARQUET = Path("data/exports/chronologie_sites_v1.parquet")
+DEFAULT_REPORT = Path("reports/quality/phase10_chronologie_sites.json")
 
 MARGE_VERS_ANNEE = 5
 
@@ -38,8 +46,8 @@ MOIS = {
 DERNIER_JOUR = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30,
                 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
 
-# Type d'événement, reconnu par les mots de la phrase. L'ordre compte : le
-# premier motif rencontré l'emporte, du plus spécifique au plus général.
+# Type d'événement, reconnu par les mots qui précèdent la date. L'ordre compte :
+# le premier motif rencontré l'emporte, du plus spécifique au plus général.
 TYPES_EVENEMENT: tuple[tuple[str, str], ...] = (
     # « fermeture » et non « fermentation » : le motif exige une fin de mot.
     ("cessation", r"\bcessation|\bcesse\b|arr[êe]t de l|\bferm(?:é|ée|ee|eture)\b|"
@@ -115,14 +123,18 @@ def borne_annee(annee: int, debut: bool) -> str:
 def resoudre_date(code: str, match: re.Match[str]) -> tuple[str, str, str]:
     """Retourne (minimum, maximum, code_precision) selon les règles du projet."""
     if code == "intervalle":
-        return borne_annee(int(match.group(1)), True), borne_annee(int(match.group(2)), False), "intervalle"
+        return (borne_annee(int(match.group(1)), True),
+                borne_annee(int(match.group(2)), False), "intervalle")
     if code == "jour":
-        jour, mois, annee = int(match.group(1)), MOIS[normalise(match.group(2))], int(match.group(3))
+        jour = int(match.group(1))
+        mois = MOIS[normalise(match.group(2))]
+        annee = int(match.group(3))
         valeur = f"{annee}-{mois:02d}-{jour:02d}"
         return valeur, valeur, "jour"
     if code == "mois":
         mois, annee = MOIS[normalise(match.group(1))], int(match.group(2))
-        return f"{annee}-{mois:02d}-01", f"{annee}-{mois:02d}-{DERNIER_JOUR[mois]:02d}", "mois"
+        return (f"{annee}-{mois:02d}-01",
+                f"{annee}-{mois:02d}-{DERNIER_JOUR[mois]:02d}", "mois")
     if code == "vers_annee":
         annee = int(match.group(1))
         return (borne_annee(annee - MARGE_VERS_ANNEE, True),
@@ -144,20 +156,23 @@ def resoudre_date(code: str, match: re.Match[str]) -> tuple[str, str, str]:
         return borne_annee(debut, True), borne_annee(debut + 49, False), "moitie_siecle"
     if code == "siecle":
         siecle = int(match.group(1))
-        return borne_annee((siecle - 1) * 100 + 1, True), borne_annee(siecle * 100, False), "siecle"
+        return (borne_annee((siecle - 1) * 100 + 1, True),
+                borne_annee(siecle * 100, False), "siecle")
     annee = int(match.group(1))
     return borne_annee(annee, True), borne_annee(annee, False), "annee"
 
 
-def type_evenement(segment: str) -> str:
-    plain = normalise(segment)
+def type_evenement(contexte: str) -> str:
+    plain = normalise(contexte)
     for nom, motif in TYPES_EVENEMENT:
         if re.search(normalise(motif), plain):
             return nom
     return "indetermine"
 
 
-def charger_communes(connection: duckdb.DuckDBPyConnection) -> tuple[dict[str, str], set[str]]:
+def charger_communes(
+    connection: duckdb.DuckDBPyConnection,
+) -> tuple[dict[str, str], set[str]]:
     """Commune de chaque site, et ensemble des communes du corpus."""
     par_site: dict[str, str] = {}
     toutes: set[str] = set()
@@ -172,9 +187,60 @@ def charger_communes(connection: duckdb.DuckDBPyConnection) -> tuple[dict[str, s
     return par_site, toutes
 
 
-def extraire(database: Path, output: Path) -> dict[str, int]:
+def charger_exclusions(chemin: Path) -> set[tuple[str, str]]:
+    """Événements écartés par la revue humaine, chacun avec son motif écrit."""
+    if not chemin.exists():
+        return set()
+    decisions = yaml.safe_load(chemin.read_text(encoding="utf-8")) or {}
+    return {
+        (ligne["reference_ia"], str(ligne["texte_source"]))
+        for ligne in decisions.get("exclusions", [])
+    }
+
+
+def charger_activites(
+    connection: duckdb.DuckDBPyConnection,
+) -> dict[str, list[tuple[str, str]]]:
+    """Libellé et code de chaque activité, par site."""
+    activites: dict[str, list[tuple[str, str]]] = {}
+    for reference, libelle, code in connection.execute(
+        """
+        select reference_ia, libelle_source, activite_code
+        from activites
+        where libelle_source is not null
+        """
+    ).fetchall():
+        activites.setdefault(reference, []).append((libelle, code))
+    return activites
+
+
+def activite_nommee(phrase: str, activites: list[tuple[str, str]]) -> str:
+    """Activité du site explicitement nommée dans la phrase, s'il y en a une.
+
+    « Converti en tréfilerie vers 1877 » rattache l'événement à l'activité de
+    tréfilage du site. Une phrase qui n'en nomme aucune, ou qui en nomme
+    plusieurs, ne rattache rien : le doute ne se tranche pas tout seul.
+    """
+    plain = normalise(phrase)
+    trouvees = {
+        code
+        for libelle, code in activites
+        if any(len(mot) >= 6 and mot in plain for mot in normalise(libelle).split())
+    }
+    return next(iter(trouvees)) if len(trouvees) == 1 else ""
+
+
+def extraire(
+    database: Path = DEFAULT_DATABASE,
+    decisions: Path = DEFAULT_DECISIONS,
+) -> tuple[list[dict[str, str]], dict[str, int]]:
     connection = duckdb.connect(str(database), read_only=True)
     communes_par_site, communes_corpus = charger_communes(connection)
+    activites_par_site = charger_activites(connection)
+    exclusions = charger_exclusions(decisions)
+    identifiants = dict(
+        connection.execute("select reference_ia, site_id from sites").fetchall()
+    )
     notices = connection.execute(
         """
         select reference_ia, nom_site, historique_source
@@ -184,6 +250,7 @@ def extraire(database: Path, output: Path) -> dict[str, int]:
     ).fetchall()
 
     lignes: list[dict[str, str]] = []
+    ecartes = 0
     for reference, nom, historique in notices:
         for ordre, segment in enumerate(split_segments(historique), 1):
             positions_prises: list[tuple[int, int]] = []
@@ -195,34 +262,39 @@ def extraire(database: Path, output: Path) -> dict[str, int]:
                     if any(d <= match.start() < f for d, f in positions_prises):
                         continue
                     # « 1500 tonnes » est une quantité, pas une année.
-                    if re.match(rf"\s*(?:{UNITES})", segment[match.end():], re.IGNORECASE):
+                    if re.match(
+                        rf"\s*(?:{UNITES})", segment[match.end():], re.IGNORECASE
+                    ):
                         continue
                     positions_prises.append((match.start(), match.end()))
                     trouvees.append((match.start(), match.end(), code, match))
 
             trouvees.sort()
-            for index, (debut, fin, code, match) in enumerate(trouvees):
+            for index, (_, fin, code, match) in enumerate(trouvees):
+                if (reference, match.group(0)) in exclusions:
+                    ecartes += 1
+                    continue
                 # Le type se lit dans le texte qui précède immédiatement la
                 # date, non dans tout le segment : « construction d'une filature
                 # en 1903, agrandie en 1907 » contient deux événements
                 # différents.
                 origine = trouvees[index - 1][1] if index else 0
-                contexte = segment[origine:fin]
-                type_lu = type_evenement(contexte)
+                type_lu = type_evenement(segment[origine:fin])
                 if type_lu == "indetermine":
                     type_lu = type_evenement(segment)
                 minimum, maximum, precision = resoudre_date(code, match)
                 # Une phrase qui nomme une autre commune peut dater le site
-                # voisin plutôt que celui-ci. Le cas est signalé, jamais tranché
-                # automatiquement.
+                # voisin. Le cas est signalé, jamais tranché automatiquement.
                 plain = normalise(segment)
                 autres = sorted(
                     commune
                     for commune in communes_corpus
-                    if commune in plain and commune not in communes_par_site.get(reference, "")
+                    if commune in plain
+                    and commune not in communes_par_site.get(reference, "")
                 )
                 lignes.append(
                     {
+                        "site_id": identifiants.get(reference, ""),
                         "reference_ia": reference,
                         "nom_site": nom,
                         "ordre_segment": str(ordre),
@@ -231,32 +303,127 @@ def extraire(database: Path, output: Path) -> dict[str, int]:
                         "date_max": maximum,
                         "precision_code": precision,
                         "texte_source": match.group(0),
+                        "activite_code": activite_nommee(
+                            segment, activites_par_site.get(reference, [])
+                        ),
                         "autre_lieu_cite": autres[0] if autres else "",
                         "phrase_source": segment,
                     }
                 )
 
-    output.parent.mkdir(parents=True, exist_ok=True)
-    lignes.sort(key=lambda r: (r["reference_ia"], int(r["ordre_segment"]), r["date_min"]))
-    with output.open("w", encoding="utf-8", newline="") as handle:
+    connection.close()
+    lignes.sort(
+        key=lambda r: (r["reference_ia"], int(r["ordre_segment"]), r["date_min"])
+    )
+    mesures = {
+        "notices_lues": len(notices),
+        "evenements": len(lignes),
+        "evenements_ecartes_par_revue": ecartes,
+        "sites_concernes": len({ligne["reference_ia"] for ligne in lignes}),
+        "evenements_rattaches_a_une_activite": sum(
+            1 for ligne in lignes if ligne["activite_code"]
+        ),
+        "evenements_a_verifier": sum(1 for ligne in lignes if ligne["autre_lieu_cite"]),
+        "evenements_sans_type": sum(
+            1 for ligne in lignes if ligne["type_evenement"] == "indetermine"
+        ),
+    }
+    return lignes, mesures
+
+
+def ecrire(database: Path, lignes: list[dict[str, str]],
+           csv_path: Path, parquet_path: Path) -> int:
+    """Écrit la table dans le corpus et produit les exports plats."""
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
+    with csv_path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(lignes[0]))
         writer.writeheader()
         writer.writerows(lignes)
 
-    return {
-        "notices_lues": len(notices),
-        "evenements_dates": len(lignes),
-        "sites_concernes": len({ligne["reference_ia"] for ligne in lignes}),
+    connection = duckdb.connect(str(database))
+    connection.execute("DROP TABLE IF EXISTS chronologie_sites")
+    connection.execute(
+        """
+        CREATE TABLE chronologie_sites (
+            site_id VARCHAR NOT NULL,
+            reference_ia VARCHAR NOT NULL,
+            nom_site VARCHAR,
+            ordre_segment INTEGER NOT NULL,
+            type_evenement VARCHAR NOT NULL,
+            date_min DATE,
+            date_max DATE,
+            precision_code VARCHAR NOT NULL,
+            texte_source VARCHAR NOT NULL,
+            activite_code VARCHAR,
+            autre_lieu_cite VARCHAR,
+            phrase_source VARCHAR NOT NULL
+        )
+        """
+    )
+    connection.executemany(
+        "INSERT INTO chronologie_sites VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+        [
+            (
+                ligne["site_id"], ligne["reference_ia"], ligne["nom_site"],
+                int(ligne["ordre_segment"]), ligne["type_evenement"],
+                ligne["date_min"] or None, ligne["date_max"] or None,
+                ligne["precision_code"], ligne["texte_source"],
+                ligne["activite_code"] or None,
+                ligne["autre_lieu_cite"] or None, ligne["phrase_source"],
+            )
+            for ligne in lignes
+        ],
+    )
+    total = connection.execute("select count(*) from chronologie_sites").fetchone()[0]
+    parquet_path.parent.mkdir(parents=True, exist_ok=True)
+    connection.execute(
+        f"COPY chronologie_sites TO '{parquet_path.as_posix()}' (FORMAT PARQUET)"
+    )
+    connection.close()
+    return total
+
+
+def produire(database: Path = DEFAULT_DATABASE,
+             decisions: Path = DEFAULT_DECISIONS) -> dict[str, object]:
+    lignes, mesures = extraire(database, decisions)
+    total = ecrire(database, lignes, DEFAULT_CSV, DEFAULT_PARQUET)
+    controles = {
+        "table_concordante_avec_le_csv": total == len(lignes),
+        "tous_les_evenements_ont_un_site": all(ligne["site_id"] for ligne in lignes),
+        "aucune_date_sans_borne": all(
+            ligne["date_min"] or ligne["date_max"] for ligne in lignes
+        ),
+        "texte_source_toujours_conserve": all(ligne["texte_source"] for ligne in lignes),
     }
+    rapport = {
+        "schema_version": "1.0",
+        "date_production": str(date.today()),
+        "counts": dict(mesures, lignes_en_base=total),
+        "controles": controles,
+        "checks_passed": all(controles.values()),
+        "regles": (
+            "Les dates imprécises restent des intervalles. Le milieu d'un "
+            "intervalle n'est jamais une date réelle. Une borne ouverte reste "
+            "nulle. La formulation d'origine est toujours conservée."
+        ),
+    }
+    DEFAULT_REPORT.parent.mkdir(parents=True, exist_ok=True)
+    DEFAULT_REPORT.write_text(
+        json.dumps(rapport, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    return rapport
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--database", type=Path, default=DEFAULT_DATABASE)
-    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--decisions", type=Path, default=DEFAULT_DECISIONS)
     args = parser.parse_args()
-    for key, value in extraire(args.database, args.output).items():
-        print(f"{key}: {value}")
+    rapport = produire(args.database, args.decisions)
+    print(json.dumps(rapport, ensure_ascii=False, sort_keys=True))
+    if not rapport["checks_passed"]:
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":
