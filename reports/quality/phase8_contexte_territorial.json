@@ -11,7 +11,7 @@
     "echange_web": "EPSG:4326",
     "travail": "EPSG:2154"
   },
-  "date_controle": "2026-07-29",
+  "date_controle": "2026-08-05",
   "errors": [],
   "interpretation": "Les proximités sont des indices spatiaux, jamais des causes historiques prouvées.",
   "proximites": {

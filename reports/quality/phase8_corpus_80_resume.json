@@ -28,7 +28,7 @@
     "pilot": "données enrichies, localisées et dotées d'un site_id",
     "site_id_null_count": 50
   },
-  "generated_at": "2026-07-23",
+  "generated_at": "2026-08-05",
   "next_step": "traiter_les_239_dossiers_restants",
   "schema_version": "1.0"
 }

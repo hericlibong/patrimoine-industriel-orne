@@ -14,7 +14,7 @@
     "sites_geojson": 318,
     "sites_parquet": 318
   },
-  "date_validation": "2026-07-29",
+  "date_validation": "2026-08-05",
   "decision": "corpus_complet_v1_valide",
   "errors": [],
   "files": {
@@ -39,8 +39,8 @@
       "size_bytes": 44680
     },
     "data/processed/corpus_complet_v1.json": {
-      "sha256": "523ab431afbe960a9c964be3477bcc0c9cff88123d2e0c2e6aed186fc47fce4a",
-      "size_bytes": 2988907
+      "sha256": "f94fc60a73987037c1b7333798217103a0bad744815769039d941145c2cb9cbd",
+      "size_bytes": 2992173
     },
     "data/processed/patrimoine_orne_corpus_complet_v1.duckdb": {
       "sha256": "c2053949ccccf3550e3e9403400f1662411b4927f5f5d79316b74e2e9019ed56",
@@ -51,7 +51,7 @@
       "size_bytes": 787
     },
     "reports/quality/phase8_indicateurs_corpus_complet.json": {
-      "sha256": "efb78e27f49e73c3b1c9d0a2a82a373885adcf729c04fdcee91128324be51255",
+      "sha256": "68f932f709cf5bba79b094c3a2d1cc8e6a8230eb47d22213b23814ee2bd66037",
       "size_bytes": 6018
     }
   },
@@ -61,7 +61,8 @@
     "exports_concordants": true,
     "identifiants_stables_uniques": true,
     "limites_editoriales_documentees": true,
-    "sources_sites_et_activites_presentes": true
+    "sources_sites_et_activites_presentes": true,
+    "textes_sources_vraisemblables": true
   },
   "schema_version": "1.0"
 }

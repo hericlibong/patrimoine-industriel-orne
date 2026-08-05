@@ -29,10 +29,29 @@ DEFAULT_PILOT_CORPUS = Path("data/processed/corpus_pilote_socle_v1.json")
 DEFAULT_PILOT_MANIFEST = Path("reports/audits/phase5_pop_manifest.json")
 DEFAULT_LOT_MANIFEST = Path("reports/audits/phase8_lot1_pop_manifest.json")
 DEFAULT_LOT_CONFIG = Path("config/phase8_lot1.yml")
+DEFAULT_CORRECTIONS = Path("data/manual/corrections_textes_sources.yml")
 DEFAULT_OUTPUT = Path("data/interim/phase8_corpus_80.json")
 DEFAULT_SUMMARY = Path("reports/quality/phase8_corpus_80_resume.json")
 DEFAULT_CSV = Path("reports/quality/phase8_corpus_80.csv")
 DEFAULT_MATCHES = Path("reports/quality/phase8_corpus_80_rapprochements.csv")
+
+
+def corrections_historiques(
+    chemin: Path = DEFAULT_CORRECTIONS,
+) -> dict[str, str]:
+    """Textes sources repris à la main, avec leur provenance documentée.
+
+    Le parseur HTML de la phase 5 a renvoyé « $26 » à la place de deux
+    historiques. Les archives JSON de la même campagne contiennent le texte
+    complet : on le reprend, on ne l'écrit pas.
+    """
+    if not chemin.exists():
+        return {}
+    donnees = yaml.safe_load(chemin.read_text(encoding="utf-8")) or {}
+    return {
+        reference: entree["texte"]
+        for reference, entree in (donnees.get("historiques") or {}).items()
+    }
 
 
 def _as_list(value: Any) -> list[str]:
@@ -158,7 +177,9 @@ def project_pilot(
         "lieux_dits_source": _as_list(notice.get("LIEU")),
         "denominations_source": _as_list(notice.get("DENO")),
         "siecles_source": _as_list(notice.get("SCLE")),
-        "historique_source": notice.get("HIST") or site.get("historique_source"),
+        "historique_source": corrections_historiques().get(
+            reference, notice.get("HIST") or site.get("historique_source")
+        ),
         "description_source": notice.get("DESC"),
         "dossier_url": notice.get("DOSURL"),
         "classifications_version": classifications_version,

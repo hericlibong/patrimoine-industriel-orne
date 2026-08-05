@@ -49,3 +49,38 @@ def test_reconstruire_n_est_pas_construire() -> None:
 
 def test_une_fermentation_n_est_pas_une_fermeture() -> None:
     assert type_evenement("installation de cuves de fermentation") != "cessation"
+
+
+def test_un_texte_source_absurde_est_refuse() -> None:
+    from patrimoine_orne.export.corpus_complet_v1 import textes_sources_absurdes
+
+    corpus = {
+        "sites": [
+            {"reference_ia": "IA_JETON", "historique_source": "$26"},
+            {"reference_ia": "IA_BALISE", "historique_source": "<div>"},
+            {"reference_ia": "IA_VIDE", "historique_source": "null"},
+            {
+                "reference_ia": "IA_VRAI",
+                "historique_source": "Moulin attesté en 1809, converti vers 1840.",
+            },
+        ]
+    }
+    assert textes_sources_absurdes(corpus) == {"IA_JETON", "IA_BALISE", "IA_VIDE"}
+
+
+def test_les_historiques_repares_sont_dans_le_corpus() -> None:
+    import duckdb
+
+    base = ROOT / "data" / "processed" / "patrimoine_orne_corpus_complet_v1.duckdb"
+    if not base.exists():
+        return
+    connection = duckdb.connect(str(base), read_only=True)
+    longueurs = dict(
+        connection.execute(
+            "select reference_ia, length(historique_source) from recits_sites"
+            " where reference_ia in ('IA00060969', 'IA00061153')"
+        ).fetchall()
+    )
+    connection.close()
+    assert longueurs["IA00060969"] > 1000
+    assert longueurs["IA00061153"] > 1000

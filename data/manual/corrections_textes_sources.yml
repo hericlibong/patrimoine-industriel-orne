@@ -1,0 +1,42 @@
+# Corrections humaines de textes sources
+#
+# Le parseur HTML utilise pendant la phase 5 pour les trente sites pilotes a
+# renvoye la valeur « $26 » a la place de l'historique de deux notices. Les
+# archives JSON de la meme campagne contiennent le texte complet : la
+# correction consiste a reprendre ce texte, non a en ecrire un.
+#
+# La provenance de chaque correction est donnee. Aucun mot n'est ajoute.
+
+version: 1
+date_correction: 2026-08-05
+auteur: revue humaine assistee
+
+historiques:
+  IA00060969:
+    valeur_erronee: "$26"
+    origine: data/raw/monuments_historiques_data_culture/2026/2026-07-23/monuments_historiques_data_culture__orne_page_1500__orne_phase8_complet__20260723T062204Z.json
+    motif: >-
+      Historique perdu par le parseur HTML de la phase 5 ; texte repris
+      integralement de l'archive JSON de la meme notice.
+    texte: |-
+      Moulin à farine attesté en 1809, produisant quotidiennement 12 quintaux de farine. Converti vers 1840 par le baron Mercier, représentant la S.A. pour la filature du chanvre à Alençon, en filature de chanvre. Agrandie vers 1853. Réglementée par décret du 17 avril 1850 et par arrêtes du 20 décembre 1852, du 25 août 1855 et du 16 novembre 1858. Comprenait en 1912 un atelier ce tissage, supprimé vers 1915. Produisait en 1918 fils de chanvre et de lin, étoupes de chanvre et lin, fils de corderie, fils de caret et fils pour chaussures. Consommait du chanvre de la Sarthe et d'Italie, du lin de France et de Russie. Usine inactive vers 1930. Bâtiments réutilisés vers 1937 par Mantelet, président de la société Le Moulin à légumes, pour la fabrication d'articles ménagers. Usine agrandie après 1945. Commercialisation d'appareils avec moteur électrique à partir de 1956.Deux roues hydrauliques attestées en 1843, dont une de type Poncelet. Une machine à vapeur de 150 HP en 1919.300 employés en 1887 ; 175 employés en 1913 ; 125 employés en 1919 ; 450 employés en 1953 ; 8000 employés en 1972 ; 3130 employés en 1975 ; 2027 employés en 1989.
+
+  IA00061153:
+    valeur_erronee: "$26"
+    origine: data/raw/monuments_historiques_data_culture/2026/2026-07-23/monuments_historiques_data_culture__orne_page_1500__orne_phase8_complet__20260723T062204Z.json
+    motif: >-
+      Historique perdu par le parseur HTML de la phase 5 ; texte repris
+      integralement de l'archive JSON de la meme notice.
+    texte: |-
+      Une affinerie est attestée à Longny dès 1482. Elle était alors dirigée par un marchand, Richard Brunout, à qui le baron de Longny avait confié en 1473 la construction le long du ruisseau de Vaugelé d’un « haut fourneau ou […] renardière », et par un marteleur, Girard Gillecquin. Son emplacement n’est pas précisé, peut-être déjà sur le site de Beaumont où elle est précisément attestée en 1537. Elle semble fonctionner sans discontinuité jusqu’en 1664 au moins avant que Barbe Servien, marquise de la Frette et baronne de Longny, ne la remplace par un moulin à papier dans le dernier quart du 17e siècle. En 1705, Antoine Crozat, receveur des finances de Bordeaux, procureur du duc de Vendôme et baron de Longny, afferme la terre de Longny à Nicolas Le Redde, marchand de Nonancourt, ce dernier s’engageant à « faire construire a ses frais une grosse forge a deux affineries, fourneau, fenderie […], dans l’emplacement ou il pourra y en avoir eue cy devant une et ou est presentement le moulin a papier ». La maison du maître de forges n’est toujours pas achevée en 1718, ce dernier résidant alors provisoirement dans une partie du château de Longny, comme le prévoyaient les conditions du bail. Le chantier de construction semble s’achever vers 1719-1720. En 1764, l’affinerie de Beaumont produit 630 à 640 milliers de fer par an. Elle est exploitée en 1771, avec le haut fourneau et la fenderie, par une société formée par les sieurs Duriez et Caquet, en 1813 par Louis-Charles Guillain, associé à Goupil, propriétaire des forges de Dampierre (Maillebois, Eure-et-Loir). Inactive vers 1870, elle est démolie au début des années 1880, tout comme les logements d’ouvriers qui consistaient en deux corps de bâtiments composés de plusieurs logements identiques, aux baies cintrés. Il subsiste la maison du maître de forges (ses dépendances ont été reconstruites à la fin du 19e siècle ou au début du 20e siècle), le bief, la retenue d’eau et un petit logement d’ouvriers, modifié et agrandi au cours du 20e siècle.
+
+# Defaut de source, non corrigeable
+#
+# IA00060961, ensemble d'industrie extractive dit mine de Halouze : l'historique
+# commence par « 955 ; », visiblement tronque en tete. Toutes les archives dont
+# nous disposons contiennent la meme troncature : le defaut vient de la source
+# et non de notre extraction. Rien n'est reconstitue.
+defauts_de_source:
+  - reference_ia: IA00060961
+    constat: historique tronque en tete dans la source elle-meme
+    action: aucune ; a signaler au lecteur et a verifier aupres de l'Inventaire

@@ -6,6 +6,7 @@ import argparse
 import csv
 import hashlib
 import json
+import re
 from collections import Counter
 from copy import deepcopy
 from datetime import date
@@ -693,6 +694,11 @@ def validate_outputs(
     export_site_ids = {row["site_id"] for row in site_export}
     if export_site_ids != set(site_ids):
         errors.append("les identifiants des exports ne concordent pas avec le corpus")
+    absurdes = textes_sources_absurdes(corpus)
+    if absurdes:
+        errors.append(
+            "textes sources invraisemblables : " + ", ".join(sorted(absurdes))
+        )
     return {
         "schema_version": "1.0",
         "date_validation": date.today().isoformat(),
@@ -724,6 +730,7 @@ def validate_outputs(
             "contextes_territoriaux_complets": True,
             "exports_concordants": True,
             "limites_editoriales_documentees": True,
+            "textes_sources_vraisemblables": not textes_sources_absurdes(corpus),
         },
     }
 
@@ -788,6 +795,43 @@ def produce(
     report = validate_outputs(final, sites, activities, database_counts, files)
     _write_json(DEFAULT_REPORT, report)
     return report
+
+
+# Un texte source peut être perdu par un parseur sans que rien ne le signale :
+# la validation vérifiait jusqu'ici que le texte n'avait pas changé, pas qu'il
+# voulait dire quelque chose. « $26 » a ainsi traversé toute la chaîne.
+MOTIFS_ABSURDES = (
+    r"^\s*\$\d+\s*$",           # jeton de gabarit laissé par le parseur
+    r"^\s*<",                    # fragment de balise HTML
+    r"^\s*(?:nan|null|none)\s*$",
+)
+
+LONGUEUR_MINIMALE_HISTORIQUE = 25
+
+DEROGATIONS_TEXTES_COURTS = ("IA00060933",)
+
+
+def textes_sources_absurdes(corpus: Mapping[str, Any]) -> set[str]:
+    """Références dont l'historique ne peut pas être un texte réel.
+
+    Le contrôle ne juge pas la qualité du texte : il refuse ce qui n'en est
+    manifestement pas un. Une notice réellement brève reste admise par
+    dérogation nommée.
+    """
+    suspects: set[str] = set()
+    for site in corpus["sites"]:
+        texte = (site.get("historique_source") or "").strip()
+        if not texte:
+            continue
+        reference = str(site.get("reference_ia", ""))
+        if any(re.match(motif, texte, re.IGNORECASE) for motif in MOTIFS_ABSURDES):
+            suspects.add(reference)
+        elif (
+            len(texte) < LONGUEUR_MINIMALE_HISTORIQUE
+            and reference not in DEROGATIONS_TEXTES_COURTS
+        ):
+            suspects.add(reference)
+    return suspects
 
 
 def main() -> None:
