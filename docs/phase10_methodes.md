@@ -280,3 +280,75 @@ C'est la dimension qu'on avait abandonnée faute de dates. Elle revient.
 ### Où on en est
 
 Rien n'est encore inscrit dans la base. La liste attend une relecture.
+
+---
+
+## Phase 10.A.2 — Vérifier les dates
+
+**Fait le 5 août 2026.**
+
+### Comment on a contrôlé
+
+On a tiré trente sites au hasard et relu leurs deux cent huit dates une par une,
+en les comparant à la phrase d'origine. Quatre défauts sont apparus.
+
+### Défaut 1 — des nombres pris pour des années
+
+Le texte d'une filature dit : *« 8 métiers et 1920 broches en 1841 »*.
+
+Le programme avait compris qu'il s'était passé quelque chose en **1920**. Il
+s'agissait de mille neuf cent vingt bobines de fil.
+
+Douze cas de ce genre : mille cinq cents tonnes de beurre, mille six cent cinq
+hectares de concession minière, mille cinq cents mètres carrés d'atelier.
+Corrigé en refusant de lire comme une année tout nombre suivi d'une unité de
+mesure.
+
+### Défaut 2 — une fermentation prise pour une fermeture
+
+*« Installation de cuves de fermentation vers 1927 »* était classé comme la
+fermeture de l'usine. Le mot « fermentation » commence par « ferme ».
+
+Un seul cas, corrigé.
+
+### Défaut 3 — deux événements dans la même phrase
+
+C'était le plus gênant. Le texte d'un tissage de Flers dit :
+
+> *« Construction d'une filature en 1903, agrandie en 1907 »*
+
+Le programme donnait le même sens aux deux dates : deux constructions. Or il y a
+une construction, puis un agrandissement.
+
+Il lisait le sens de la phrase entière et l'appliquait à toutes ses dates.
+Désormais il lit ce qui précède immédiatement chaque date. Résultat : 1903 est
+une construction, 1907 un agrandissement.
+
+C'est cette correction qui a le plus amélioré l'ensemble. Les événements sans
+type identifié sont passés de 280 à 204.
+
+### Défaut 4 — des dates qui appartiennent au voisin
+
+Le plus subtil, et celui qu'on ne peut pas corriger tout seul.
+
+Le texte d'un tissage de Flers dit : *« alimenté en fils de coton par la filature
+de la Planchette construite en 1896 à Saint-Georges-des-Groseillers »*.
+
+**1896 est la date de construction de la Planchette, pas celle du tissage.** Le
+programme l'attribuait au mauvais site.
+
+Cinquante-six dates sont dans ce cas de figure : leur phrase cite une autre
+commune. Toutes ne sont pas fausses — *« acquise en 1928 par le Ferodo pour
+installer un atelier »* concerne bien le site, même si le Ferodo est ailleurs.
+
+On ne peut pas trancher automatiquement. Ces cinquante-six dates portent donc
+une marque : *une autre commune est citée dans cette phrase, vérifier avant
+d'utiliser*. Elles seront relues avant d'entrer dans la base.
+
+### Ce qui reste imparfait
+
+Deux cent quatre dates sur deux mille trois cent trente et une n'ont pas de type
+identifié — 9 %. Ce sont des phrases comme *« un moteur à gaz pauvre Winterthur
+en 1920 »* ou *« occupait en 1972 une superficie de trente mille mètres
+carrés »*. Elles restent utilisables comme repères de temps, simplement on ne
+sait pas dire quel genre d'événement elles décrivent.

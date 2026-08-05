@@ -41,8 +41,9 @@ DERNIER_JOUR = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30,
 # Type d'événement, reconnu par les mots de la phrase. L'ordre compte : le
 # premier motif rencontré l'emporte, du plus spécifique au plus général.
 TYPES_EVENEMENT: tuple[tuple[str, str], ...] = (
-    ("cessation", r"\bcessation|\bcesse\b|arr[êe]t de l|\bferm(?:é|ee|ature)|"
-                  r"\babandon|\binactif|\binactive|\bdésaffect"),
+    # « fermeture » et non « fermentation » : le motif exige une fin de mot.
+    ("cessation", r"\bcessation|\bcesse\b|arr[êe]t de l|\bferm(?:é|ée|ee|eture)\b|"
+                  r"\babandon|\binactif|\binactive|\bd[ée]saffect"),
     ("destruction", r"\bincendi|\bd[ée]trui|\bd[ée]moli|\bruin[ée]|\bsinistre|\bbombard"),
     # Placé avant la création : « reconstruite » contient « construit ».
     ("reconstruction", r"\breconstru|\brestaur|\br[ée]am[ée]nag|\br[ée]nov|\brelev[ée]"),
@@ -65,8 +66,19 @@ TYPES_EVENEMENT: tuple[tuple[str, str], ...] = (
                    r"\bbroches|\bm[ée]tiers|\bfourneaux|\bpilons|\bmachines"),
     ("reglementation", r"\br[ée]glement|ordonnance royale|arr[êe]t[ée] pr[ée]fectoral|"
                        r"\bd[ée]cret|\bautoris"),
-    ("production", r"\bproduis|\bproduction|\bconsommait|\btonnes|\bkg de|\brames"),
+    ("exploitation", r"\bexploit[ée]e?\s+(?:en|à partir|depuis|par)|"
+                     r"b[âa]timents? occup[ée]|\bint[ée]gr[ée]e?\s+au|\brepris[e]?\s+par"),
+    ("production", r"\bproduis|\bproduction|\bconsommait|\btonnes|\bkg de|\brames|"
+                   r"\bpressait|capacit[ée] de production|\bsuperficie|\bsurface"),
     ("emploi", r"\bouvriers|\bouvri[èe]res|\bemploy[ée]s|personnes employ|\bsalari"),
+)
+
+# Unités qui suivent un nombre : « 1500 tonnes » n'est pas l'année 1500.
+UNITES = (
+    r"tonnes?|kg|quintaux|hectolitres?|litres?|m2|m²|francs?|broches?|"
+    r"m[ée]tiers?|fuseaux|bobines?|ouvriers?|ouvri[èe]res?|employ[ée]s?|"
+    r"camemberts?|rames?|hectares?|HP|CV|ch\b|kw|volts?|pi[èe]ces?|fromages?|"
+    r"paires?|douzaines?|st[èe]res?|mm|cm|habitants?|personnes"
 )
 
 # Motifs de date, du plus spécifique au plus général.
@@ -145,8 +157,24 @@ def type_evenement(segment: str) -> str:
     return "indetermine"
 
 
+def charger_communes(connection: duckdb.DuckDBPyConnection) -> tuple[dict[str, str], set[str]]:
+    """Commune de chaque site, et ensemble des communes du corpus."""
+    par_site: dict[str, str] = {}
+    toutes: set[str] = set()
+    for reference, communes in connection.execute(
+        "select reference_ia, communes_source from sites"
+    ).fetchall():
+        par_site[reference] = normalise(communes or "")
+        for commune in (communes or "").split("|"):
+            valeur = normalise(commune.strip())
+            if len(valeur) > 5:
+                toutes.add(valeur)
+    return par_site, toutes
+
+
 def extraire(database: Path, output: Path) -> dict[str, int]:
     connection = duckdb.connect(str(database), read_only=True)
+    communes_par_site, communes_corpus = charger_communes(connection)
     notices = connection.execute(
         """
         select reference_ia, nom_site, historique_source
@@ -159,27 +187,54 @@ def extraire(database: Path, output: Path) -> dict[str, int]:
     for reference, nom, historique in notices:
         for ordre, segment in enumerate(split_segments(historique), 1):
             positions_prises: list[tuple[int, int]] = []
+            trouvees: list[tuple[int, int, str, re.Match[str]]] = []
             for code, motif in MOTIFS_DATE:
                 for match in re.finditer(motif, segment, re.IGNORECASE):
                     # Une même date ne doit pas être comptée deux fois par un
                     # motif plus général : « vers 1850 » ne redevient pas 1850.
                     if any(d <= match.start() < f for d, f in positions_prises):
                         continue
+                    # « 1500 tonnes » est une quantité, pas une année.
+                    if re.match(rf"\s*(?:{UNITES})", segment[match.end():], re.IGNORECASE):
+                        continue
                     positions_prises.append((match.start(), match.end()))
-                    minimum, maximum, precision = resoudre_date(code, match)
-                    lignes.append(
-                        {
-                            "reference_ia": reference,
-                            "nom_site": nom,
-                            "ordre_segment": str(ordre),
-                            "type_evenement": type_evenement(segment),
-                            "date_min": minimum,
-                            "date_max": maximum,
-                            "precision_code": precision,
-                            "texte_source": match.group(0),
-                            "phrase_source": segment,
-                        }
-                    )
+                    trouvees.append((match.start(), match.end(), code, match))
+
+            trouvees.sort()
+            for index, (debut, fin, code, match) in enumerate(trouvees):
+                # Le type se lit dans le texte qui précède immédiatement la
+                # date, non dans tout le segment : « construction d'une filature
+                # en 1903, agrandie en 1907 » contient deux événements
+                # différents.
+                origine = trouvees[index - 1][1] if index else 0
+                contexte = segment[origine:fin]
+                type_lu = type_evenement(contexte)
+                if type_lu == "indetermine":
+                    type_lu = type_evenement(segment)
+                minimum, maximum, precision = resoudre_date(code, match)
+                # Une phrase qui nomme une autre commune peut dater le site
+                # voisin plutôt que celui-ci. Le cas est signalé, jamais tranché
+                # automatiquement.
+                plain = normalise(segment)
+                autres = sorted(
+                    commune
+                    for commune in communes_corpus
+                    if commune in plain and commune not in communes_par_site.get(reference, "")
+                )
+                lignes.append(
+                    {
+                        "reference_ia": reference,
+                        "nom_site": nom,
+                        "ordre_segment": str(ordre),
+                        "type_evenement": type_lu,
+                        "date_min": minimum,
+                        "date_max": maximum,
+                        "precision_code": precision,
+                        "texte_source": match.group(0),
+                        "autre_lieu_cite": autres[0] if autres else "",
+                        "phrase_source": segment,
+                    }
+                )
 
     output.parent.mkdir(parents=True, exist_ok=True)
     lignes.sort(key=lambda r: (r["reference_ia"], int(r["ordre_segment"]), r["date_min"]))
