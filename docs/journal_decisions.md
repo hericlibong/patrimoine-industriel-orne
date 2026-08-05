@@ -1759,3 +1759,25 @@ version 1.0. Principaux résultats.
 - Décision : **type `approvisionne` ajouté au modèle ; 18 relations de
   production versées par la chaîne de production ; l'orientation est toujours
   du fournisseur vers le destinataire**.
+
+## 2026-08-05 — Un écran, pour décider si le projet tient
+
+- Le porteur du projet constate que le pilotage a pris la place de la vision :
+  phases, mouvements, tables et rapports se sont substitués à ce qu'on cherche
+  à raconter, et il est devenu spectateur de son propre projet.
+- Décision de méthode : arrêter la préparation et fabriquer un écran réel sur la
+  vallée de la Risle, avec les vraies données, pour qu'il juge si ce qu'il voit
+  raconte l'histoire qu'il veut porter — ou s'il faut arrêter.
+- L'écran est un fichier autonome, `prototype/risle/index.html`, sans serveur ni
+  dépendance. Il contient les 43 usines de la vallée, le tracé réel de la Risle
+  et de ses affluents, les liens entre sites, et 368 événements datés.
+- Trois principes du cadrage V2 y sont éprouvés : la carte est encadrée et
+  habillée et non en plein écran ; le récit naît de l'exploration au lieu d'être
+  imposé ; l'annotation est posée sur la carte, à côté de la forme qu'elle
+  décrit.
+- Un ajout non prévu s'est révélé indispensable : **la carte se recadre sur ce
+  qu'elle démontre**. Atténuer quelques points sur une vue large ne se remarque
+  pas — c'est exactement le défaut relevé sur le prototype 0.1. Une mise en
+  évidence n'est une démonstration que si le cadrage suit.
+- Décision : **l'écran de la vallée de la Risle est produit et remis au porteur
+  du projet ; la suite du projet dépend de son jugement sur cet écran**.
