@@ -1781,3 +1781,24 @@ version 1.0. Principaux résultats.
   évidence n'est une démonstration que si le cadrage suit.
 - Décision : **l'écran de la vallée de la Risle est produit et remis au porteur
   du projet ; la suite du projet dépend de son jugement sur cet écran**.
+
+## 2026-08-05 — Un système peut en alimenter un autre
+
+- La lecture de Flers, troisième système, fait apparaître une relation que le
+  modèle ne sait pas représenter : **la vallée du Noireau filait le coton que
+  la ville de Flers tissait**.
+- Cinq notices du Noireau indiquent que leurs fils étaient « vendus à Flers et à
+  Condé-sur-Noireau ». Les notices de Flers décrivent des tissages, non des
+  filatures. La complémentarité est documentée des deux côtés.
+- Un seul de ces liens est exprimable dans `relations_sites`, parce qu'il désigne
+  un site précis : la filature de la Planchette alimente le tissage de la
+  Planchette, construits par le même homme. Les autres pointent vers une
+  **ville**, pas vers un site.
+- La table des relations relie des sites. Ici, la relation lie **deux
+  systèmes**. C'est une question ouverte pour l'application : faut-il un niveau
+  de relation entre ensembles, ou bien la relation reste-t-elle un fait
+  éditorial exposé dans le texte sans être modélisé ?
+- La décision est reportée jusqu'à la lecture des douze systèmes : si le cas ne
+  se reproduit pas, il ne justifie pas une modification du modèle.
+- Décision : **relation Noireau–Flers consignée dans les documents de lecture ;
+  l'arbitrage sur sa modélisation attend la fin des lectures**.
