@@ -1823,3 +1823,16 @@ version 1.0. Principaux résultats.
 - Consigné dans `docs/limites_editoriales.md` et dans la lecture d'Alençon.
 - Décision : **le périmètre « productions avec usine » est explicité comme
   limite affichée de la publication, et non traité comme un manque**.
+
+## 2026-08-10 — Deuxième relation entre systèmes, la question se confirme
+
+- La lecture de La Ferté-Macé fait apparaître un second cas de relation entre
+  deux systèmes : le tissage des Peupliers `IA00060982` est « acquis en 1904 par
+  la Société Générale des Tissages et Filatures de Flers ».
+- C'est la société flérienne — née officiellement de la fusion de 1907 — qui
+  achète une usine de La Ferté-Macé trois ans plus tôt.
+- Après la relation Noireau → Flers relevée le 5 août, le cas n'est donc pas une
+  exception. La question posée alors reste ouverte mais gagne en poids : le
+  modèle relie des sites, pas des ensembles.
+- Aucune décision n'est prise avant la fin des douze lectures. Si un troisième
+  cas apparaît, l'arbitrage deviendra nécessaire.
