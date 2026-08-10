@@ -184,3 +184,14 @@ a_verser_apres_lectures:
     remarque: >-
       Le type `acquisition_site` n'existe pas encore dans le vocabulaire du
       modèle. À arbitrer avec les autres relations entre systèmes.
+  - source: IA00061106
+    cible: IA00061171
+    type: acquisition_site
+    fiabilite: forte
+    trouve_dans: lecture de Randonnai, 10 août 2026
+    motif: >-
+      « usine acquise par la société des fonderies et ateliers de Randonnai en
+      1961 et agrandie à l'occasion du transfert à Pontchardon de ses ateliers
+      de Vitry, Nanterre et Gravigny ». Une entreprise de Randonnai rachète une
+      usine de Pontchardon pour y installer ses ateliers de la région
+      parisienne. Quatrième relation dépassant les limites d'un système.
