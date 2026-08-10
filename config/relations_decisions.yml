@@ -195,3 +195,14 @@ a_verser_apres_lectures:
       de Vitry, Nanterre et Gravigny ». Une entreprise de Randonnai rachète une
       usine de Pontchardon pour y installer ses ateliers de la région
       parisienne. Quatrième relation dépassant les limites d'un système.
+  - source: IA00061101
+    cibles: [IA00061094, IA00061158]
+    type: approvisionnement
+    fiabilite: forte
+    trouve_dans: lecture de Malétable, 10 août 2026
+    motif: >-
+      « Fournissait en 1780 des gueuses aux forges de Gaillon et Randonnai ».
+      Le haut fourneau de Tourouvre alimentait les deux affineries du système de
+      Randonnai. Manqué par l'extraction, dont le motif d'approvisionnement
+      n'attrape pas le verbe « fournir ». Cinquième relation dépassant les
+      limites d'un système.

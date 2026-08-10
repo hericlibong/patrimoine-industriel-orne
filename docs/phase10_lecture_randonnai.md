@@ -15,7 +15,7 @@ est la mieux documentée.
 
 ---
 
-## 1. Les plus vieilles dates du corpus
+## 1. Les plus vieilles fondations métallurgiques du corpus
 
 | Année | Site | Fondateur |
 | ---: | --- | --- |
@@ -25,9 +25,15 @@ est la mieux documentée.
 | après 1511 | `IA00061093` — haut fourneau de Gaillon | remplace celui de Conturbie |
 | après 1674 | `IA00061105` — haut fourneau de la Motte Rouge | les seigneurs de la Frette |
 
-**1474.** C'est la plus ancienne fondation datée rencontrée dans le corpus —
-antérieure de dix-sept ans au haut fourneau du Logeard sur la Risle, et de
+**1474.** C'est la plus ancienne fondation **métallurgique** datée du corpus,
+antérieure de dix-sept ans au haut fourneau du Logeard sur la Risle et de
 cinquante-six ans à la forge de Halouze.
+
+**Rectification du 10 août 2026.** Il avait d'abord été écrit ici « les plus
+vieilles dates du corpus », ce qui est faux. Plusieurs moulins à farine sont
+plus anciens : le moulin Rougé au Châtellier est attesté **au 12ᵉ siècle**, et
+trois autres remontent au 14ᵉ. Randonnai détient l'ancienneté de l'industrie du
+fer, non celle du corpus.
 
 ---
 
@@ -177,8 +183,8 @@ indicateur doit être manié avec prudence dans la publication.
 
 ## 8. Ce que ce système démontre
 
-1. **L'industrie de l'Orne est plus ancienne que l'industrialisation.** 1474,
-   1487, 1511 : trois générations avant la machine à vapeur.
+1. **La métallurgie de l'Orne est plus ancienne que l'industrialisation.** 1474,
+   1487, 1511 : trois siècles avant la machine à vapeur.
 2. **Une famille peut tenir une filière entière**, et les sources le disent.
 3. **Une filière meurt d'un bloc.** Les quatre maillons s'arrêtent en vingt ans,
    après avoir déjà chômé ensemble en 1804.
@@ -192,7 +198,7 @@ indicateur doit être manié avec prudence dans la publication.
 | | Risle | Noireau | Flers | Halouze | Alençon | La Ferté-Macé | Tinchebray | Randonnai |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Sites | 43 | 23 | 21 | 13 | 13 | 12 | 9 | 9 |
-| Fondation la plus ancienne | 1491 | 1809 | 1809 | 1530 | 1809 | 1809 | 1809 | **1474** |
+| Fondation métallurgique la plus ancienne | 1491 | — | — | 1530 | — | — | — | **1474** |
 | Liens internes | 7 | 1 | 1 | 3 | 0 | 0 | 0 | **4** |
 | Dominante | métal | textile | textile | extraction | aucune | textile | métal | **métal 78 %** |
 | Encore actif en fin de source | 0 | 0 | quelques-uns | 0 | 2 | 2 | 6 | **1, depuis 1793** |
