@@ -104,7 +104,47 @@ Une usine qui transforme la forêt de l'Orne en voie ferrée française.
 
 ---
 
-## 5. Une limite de la source, à signaler
+## 5. La dentelle d'Alençon n'est pas là
+
+La production la plus célèbre de la ville est **totalement absente du corpus**.
+
+Vérification faite : aucun des 318 sites, aucune des 403 activités et aucun des
+314 textes historiques ne mentionne la dentelle. Le mot ne figure pas non plus
+dans le vocabulaire des classifications du projet.
+
+Ce n'est pas une perte à l'extraction. Dans les sources brutes de l'Orne, la
+dentelle apparaît onze fois : dans des églises, des manoirs, un lieu-dit nommé
+Argentelles — et dans **un seul objet inventorié**, `PM61002792`, « pièce de
+dentelle, aiguillier, dé à coudre, ciseaux ».
+
+**La dentelle d'Alençon existe dans le patrimoine comme objet, pas comme lieu.**
+
+L'explication tient à la nature même du corpus, et elle doit être vérifiée
+auprès de l'Inventaire avant d'être affirmée : le point d'Alençon est une
+dentelle à l'aiguille, faite à la main, à domicile ou en petit atelier. Elle n'a
+pas de bâtiment de production, pas de machine, pas de force motrice. Une enquête
+sur le *patrimoine industriel* — celle qui a produit ces 319 dossiers — n'avait
+aucune raison de la rencontrer.
+
+Le corpus contient d'ailleurs les métiers textiles voisins qui, eux, étaient
+mécanisés : une usine de bonneterie à Alençon, deux usines de passementerie à
+Aube et à Beaufai.
+
+### Pourquoi cela dépasse Alençon
+
+Ce cas pose une question qui vaut pour toute la publication : **combien d'autres
+productions connues manquent pour la même raison ?**
+
+Le corpus documente des usines. Tout ce qui s'est fabriqué sans usine —
+artisanat organisé, travail à domicile, ateliers familiaux — en est absent par
+construction, non par oubli.
+
+Un lecteur d'Alençon remarquera l'absence immédiatement. Elle doit donc être
+écrite dans la publication, et non subie.
+
+---
+
+## 6. Une limite de la source, à signaler
 
 **Deux notices sur treize n'ont aucun historique** : la tannerie `IA00060971` et
 l'imprimerie `IA00060974`. Ce sont des sites du corpus, localisés et classés,
@@ -116,7 +156,7 @@ dire plutôt que de meubler.
 
 ---
 
-## 6. Ce que ce système démontre
+## 7. Ce que ce système démontre
 
 1. **Une ville-préfecture n'est pas un système industriel.** C'est une
    juxtaposition d'entreprises sans lien entre elles, dont la seule ressource
@@ -128,7 +168,7 @@ dire plutôt que de meubler.
 
 ---
 
-## 7. Comparaison des cinq systèmes lus
+## 8. Comparaison des cinq systèmes lus
 
 | | Risle | Noireau | Flers | Halouze | Alençon |
 | --- | --- | --- | --- | --- | --- |

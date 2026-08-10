@@ -1802,3 +1802,24 @@ version 1.0. Principaux résultats.
   se reproduit pas, il ne justifie pas une modification du modèle.
 - Décision : **relation Noireau–Flers consignée dans les documents de lecture ;
   l'arbitrage sur sa modélisation attend la fin des lectures**.
+
+## 2026-08-10 — La dentelle d'Alençon, ou ce que le corpus ne peut pas contenir
+
+- Le porteur du projet relève l'absence de la dentelle dans le système
+  d'Alençon. Vérification faite, elle est absente de tout le corpus : aucun des
+  318 sites, aucune des 403 activités, aucun des 314 historiques.
+- L'absence ne vient pas de notre extraction. Dans les sources brutes, la
+  dentelle n'apparaît que dans des édifices religieux, des manoirs, un lieu-dit
+  homonyme et un unique objet inventorié, `PM61002792`.
+- Explication retenue, à confirmer auprès de l'Inventaire : le point d'Alençon
+  est une dentelle à l'aiguille, faite à la main, sans bâtiment de production ni
+  machine. Une enquête sur le patrimoine **industriel** ne la rencontre pas.
+- **Portée générale.** Le corpus documente des usines ; tout ce qui s'est
+  fabriqué sans usine en est absent par construction. Ce n'est pas une lacune à
+  combler mais une définition du périmètre.
+- Conséquence éditoriale : l'absence doit être écrite dans la publication. Un
+  lecteur qui connaît son territoire la repérera immédiatement — c'est ce qui
+  vient de se produire.
+- Consigné dans `docs/limites_editoriales.md` et dans la lecture d'Alençon.
+- Décision : **le périmètre « productions avec usine » est explicité comme
+  limite affichée de la publication, et non traité comme un manque**.
