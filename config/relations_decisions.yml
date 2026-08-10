@@ -159,3 +159,28 @@ ecartes:
       « énergie électrique fournie par l'usine d'Avezé dans la Sarthe ». Avezé
       n'est pas dans l'Orne : la cible est hors corpus. La mention rejoint les
       liens vers l'extérieur.
+
+# ---------------------------------------------------------------------------
+# Liens trouvés pendant les lectures de systèmes, à verser en un seul lot
+# ---------------------------------------------------------------------------
+# L'extraction automatique manque une classe entière de liens : ceux dont
+# l'acheteur nommé est lui-même un site du corpus. Le motif le range alors parmi
+# les exploitants et non parmi les relations entre sites.
+#
+# Ces liens sont collectés au fil des lectures et seront versés ensemble à la
+# fin des douze, pour éviter de rejouer la chaîne de production douze fois.
+a_verser_apres_lectures:
+  - source: IA00061071
+    cible: IA00061097
+    type: acquisition_site
+    fiabilite: forte
+    trouve_dans: lecture de Tinchebray, 10 août 2026
+    motif: >-
+      Les deux notices s'accordent. IA00061071 : « voie particulière établie
+      vers 1929 lors de l'acquisition de l'usine de la Monnerie à Frênes ».
+      IA00061097 : « Bâtiments acquis en 1929 par les établissements Mermier et
+      Cie de Tinchebray ». Le lien traverse deux systèmes, Tinchebray et le
+      Noireau.
+    remarque: >-
+      Le type `acquisition_site` n'existe pas encore dans le vocabulaire du
+      modèle. À arbitrer avec les autres relations entre systèmes.
