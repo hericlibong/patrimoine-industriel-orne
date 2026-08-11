@@ -1900,3 +1900,25 @@ Décision du porteur du projet.
 Décision : **douze systèmes comme cœur éditorial ; aucun site écarté ; seuil
 maintenu à trois kilomètres ; analyse courte des 72 sites dispersés, sans
 présumer qu'ils étaient historiquement isolés**.
+
+## 2026-08-11 — Les 72 sites dispersés : un constat, pas un chapitre
+
+Décision du porteur du projet.
+
+- Les 72 sites seuls ou par paires **ne font pas l'objet d'une entrée
+  éditoriale**. Ils restent tous visibles et consultables sur la carte.
+- La présentation générale pourra signaler le **constat vérifié** : ces sites
+  sont plus souvent agroalimentaires ou liés aux matériaux — 50 % et 14 %,
+  contre 27 % et 6 % chez les sites regroupés — quand le métal et le textile
+  dominent les systèmes.
+- **Aucune explication causale non sourcée ne sera avancée.** La formulation
+  proposée dans le compte rendu — « les moulins suivent les ruisseaux, les
+  tuileries suivent l'argile » — est une interprétation qui n'est appuyée par
+  aucune source du corpus. Elle est écartée.
+- Sur tout le reste, ces sites sont identiques aux autres : début médian 1854
+  contre 1827, fin médiane 1937 contre 1935, durée médiane 100 ans contre 114,
+  et 28 % encore actifs après 1950 contre 30 %.
+
+Décision : **pas de chapitre sur les sites dispersés ; le constat de
+répartition par métier est signalé dans la présentation générale, sans
+explication causale**.
