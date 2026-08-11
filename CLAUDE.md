@@ -206,6 +206,26 @@ Règles pour tout compte rendu :
   Ils vont dans la documentation, pas dans la conversation.
 - **Dire ce qui coince**, en langage clair, et ce que ça demande comme décision.
 
+### La forme d'une explication qui demande une décision
+
+Ordre imposé, éprouvé le 11 août 2026 :
+
+1. **Les faits nus d'abord.** Les nombres qui composent le problème, en une ou
+   deux lignes. Aucune option, aucune recommandation avant que le paysage soit
+   posé.
+2. **Ce qui ne change pas.** Dire immédiatement ce qui n'est pas menacé — c'est
+   presque toujours l'inquiétude de fond, et une phrase suffit à la lever.
+3. **La question, réduite à une seule.** Si elle ne tient pas en une phrase,
+   c'est qu'elle n'est pas encore comprise.
+4. **La recommandation, avec deux ou trois raisons courtes.**
+5. **La nuance, s'il y en a une**, clairement séparée du reste.
+6. **La décision rédigée**, formulée pour que le porteur du projet puisse la
+   reprendre telle quelle.
+
+**Ne jamais se corriger au milieu d'une explication.** Une erreur se signale une
+fois, au début, puis on repart proprement. Les autocorrections en cours de route
+rendent le propos illisible et font douter de tout le reste.
+
 Les méthodes de chaque phase sont expliquées dans `docs/phase10_methodes.md`,
 tenu à jour au fur et à mesure et rédigé dans la même langue simple.
 

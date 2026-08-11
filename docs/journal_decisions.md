@@ -1863,3 +1863,40 @@ version 1.0. Principaux résultats.
      ensembles de trois à six sites, 72 isolés ou par paires.
 - Décision : **phase 10.B.2 close ; les arbitrages différés sont désormais
   bloquants pour la suite**.
+
+## 2026-08-11 — Périmètre éditorial arrêté : douze systèmes, aucun site écarté
+
+Décision du porteur du projet.
+
+- Les **douze systèmes** lus sont validés comme **cœur éditorial de
+  l'application**. Ils rassemblent 172 des 318 sites.
+- Les **72 sites seuls ou par paires** restent visibles et consultables
+  individuellement sur la carte, avec leur notice et leur chronologie.
+- Les **74 sites des 18 petits ensembles** de trois à six sites sont conservés.
+  Leur lecture éditoriale est **reportée**, non annulée : ils pourront devenir
+  de nouveaux systèmes si leur étude fait apparaître une histoire suffisamment
+  forte.
+- **Aucun site n'est écarté du projet.**
+- Le seuil de regroupement reste à **trois kilomètres**. L'élargir à cinq
+  couvrirait 80 % du corpus mais fusionnerait le Noireau, Flers et Tinchebray
+  en un seul bloc, ainsi que Halouze et La Ferrière : les deux meilleures
+  démonstrations du travail disparaîtraient.
+
+### Nuance retenue sur le mot « isolé »
+
+- « Isolé » ne signifie ici qu'une chose : **aucun autre site du corpus à moins
+  de trois kilomètres**. C'est le résultat d'une règle que nous avons choisie.
+- Cela ne prouve **ni** que l'usine fonctionnait seule, **ni** qu'elle
+  n'appartenait à aucun réseau historique. Les documents de lecture ne doivent
+  pas laisser croire le contraire.
+- Ces 72 sites sont hétérogènes : beaucoup de moulins et de fromageries, mais
+  aussi des tuileries, des papeteries et des usines métallurgiques. Ils ne
+  forment pas encore un sujet.
+- Une **analyse courte** est validée pour vérifier si leur dispersion raconte
+  réellement quelque chose. Si une démonstration solide apparaît, elle pourra
+  devenir une entrée éditoriale ; sinon ils resteront des sites individuels
+  consultables.
+
+Décision : **douze systèmes comme cœur éditorial ; aucun site écarté ; seuil
+maintenu à trois kilomètres ; analyse courte des 72 sites dispersés, sans
+présumer qu'ils étaient historiquement isolés**.
