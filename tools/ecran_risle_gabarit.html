@@ -67,6 +67,8 @@
   input[type=range]{width:100%;accent-color:var(--signal);margin:0}
   .bornes{display:flex;justify-content:space-between;font-size:11.5px;
           color:var(--gris);margin-top:3px;font-variant-numeric:tabular-nums}
+  .avertissement{font-size:11.5px;color:var(--gris);margin:9px 0 0;line-height:1.4;
+                 padding-top:8px;border-top:1px solid var(--trait)}
   /* annotation posée sur la carte, à côté de la forme qu'elle décrit */
   .annotation{position:absolute;max-width:270px;background:rgba(250,248,244,.96);
     border-left:3px solid var(--signal);padding:9px 12px;font-size:13.5px;
@@ -123,7 +125,7 @@
     </ul>
 
     <p class="note">Cliquez sur un point pour ouvrir l'histoire d'une usine.
-    Faites glisser la réglette pour voir la vallée se remplir, puis se vider.</p>
+    Faites glisser la réglette pour voir la vallée se remplir, puis se vider — elle montre ce qui est documenté, pas ce qui tournait.</p>
   </div>
 
   <div>
@@ -150,11 +152,14 @@
     <div class="reglette">
       <div class="haut">
         <span class="annee" id="annee">1900</span>
-        <span class="actives"><b id="actives">0</b> usines en activité cette année-là</span>
+        <span class="actives"><b id="actives">0</b> sites dont la période documentée couvre cette année</span>
       </div>
       <input type="range" id="curseur" min="1300" max="1990" value="1900" step="1"
              aria-label="Année observée">
       <div class="bornes"><span>1300</span><span>1990</span></div>
+      <p class="avertissement">Une période documentée n'est pas une preuve
+      d'activité continue. La date de départ est souvent une première mention :
+      un moulin attesté en 1809 existait avant.</p>
     </div>
 
     <div class="fiche" id="fiche">
