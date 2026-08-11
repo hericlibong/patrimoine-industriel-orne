@@ -1836,3 +1836,30 @@ version 1.0. Principaux résultats.
   modèle relie des sites, pas des ensembles.
 - Aucune décision n'est prise avant la fin des douze lectures. Si un troisième
   cas apparaît, l'arbitrage deviendra nécessaire.
+
+## 2026-08-11 — Les douze systèmes sont lus
+
+- La lecture des douze systèmes industriels est terminée : **172 sites sur 318**,
+  soit 54 % du corpus, lus notice par notice.
+- Douze formes distinctes, dont aucune ne reproduit la précédente : une chaîne
+  de production, une vallée qui change de fibre, une ville qui tisse, deux
+  bassins miniers de modèles opposés, une préfecture sans métier, une monoculture
+  textile, une ville qui n'a pas fermé, une dynastie de cinq siècles, un pays où
+  l'industrie recule, un système qui monte, et une lisière.
+- **Cinq relations entre systèmes** ont été relevées au fil des lectures :
+  Noireau → Flers, Flers → La Ferté-Macé, Tinchebray → Frênes, Randonnai →
+  Pontchardon, Tourouvre → Gaillon et Randonnai. Trois d'entre elles manquent à
+  la base et attendent un versement groupé.
+- **Une lacune d'extraction est identifiée** : lorsque l'acheteur nommé dans une
+  notice est lui-même un site du corpus, le motif le range parmi les exploitants
+  et non parmi les relations. Une classe entière de liens échappe ainsi à
+  l'extraction automatique.
+- Trois décisions restent en attente et doivent être prises avant de poursuivre :
+  1. verser les trois relations manquantes, ce qui suppose d'arbitrer le type
+     `acquisition_site`, absent du vocabulaire du modèle ;
+  2. décider si une relation entre **systèmes** doit être représentée, ou si elle
+     reste un fait éditorial exposé par le texte ;
+  3. décider du sort des 146 sites hors des douze systèmes — 74 dans des
+     ensembles de trois à six sites, 72 isolés ou par paires.
+- Décision : **phase 10.B.2 close ; les arbitrages différés sont désormais
+  bloquants pour la suite**.
