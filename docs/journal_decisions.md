@@ -1922,3 +1922,22 @@ Décision du porteur du projet.
 Décision : **pas de chapitre sur les sites dispersés ; le constat de
 répartition par métier est signalé dans la présentation générale, sans
 explication causale**.
+
+## 2026-08-11 — Titre de travail, arrivée et amorces : la phase 10.C est close
+
+Décisions du porteur du projet.
+
+- **Titre de travail** : « Voyage dans l'Orne industrielle ». Provisoire.
+- **À l'arrivée**, le lecteur voit directement la carte de l'Orne, les douze
+  systèmes, les autres sites et les commandes de recherche et de filtrage.
+  Aucun parcours ni récit ne lui est imposé.
+- **Les amorces cliquables sont reportées.** Elles pourront être ajoutées après
+  matérialisation de la visualisation, si elles apportent une aide réelle. Leurs
+  intitulés devront décrire exactement ce que la commande affiche, sans
+  formulation abstraite.
+- L'objection avancée le 29 juillet — une carte ouverte sans amorce reste un
+  outil et non une publication — n'est pas écartée mais différée. Elle sera
+  tranchée devant l'écran réel plutôt que sur une hypothèse.
+
+Décision : **phase 10.C close ; les neuf décisions d'architecture sont
+arrêtées et documentées dans `docs/phase10_architecture.md`**.

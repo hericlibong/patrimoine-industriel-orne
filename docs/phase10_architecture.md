@@ -181,3 +181,45 @@ pas et qui parasiterait la lecture.
 
 **Réserve.** À revoir si le besoin d'un zoom profond apparaît : le SVG atteint
 ses limites au-delà de l'échelle du site.
+
+---
+
+## 8. Titre de travail
+
+**Décision.** La publication porte le titre de travail **« Voyage dans l'Orne
+industrielle »**. Il est provisoire et pourra changer.
+
+---
+
+## 9. Ce que voit le lecteur en arrivant
+
+**Décision.** Le lecteur voit **directement la carte de l'Orne** : les douze
+systèmes, les autres sites, et les commandes de recherche et de filtrage.
+**Aucun parcours ni récit ne lui est imposé.**
+
+**Conséquence à l'écran.** Pas d'écran d'accueil, pas de séquence introductive,
+pas de bouton « commencer ». L'outil est là, immédiatement manipulable.
+
+**Motif.** Le produit est une application, pas un article. Imposer une entrée
+narrative reproduirait la logique de site qui a fait échouer la première
+tentative.
+
+---
+
+## 10. Les amorces cliquables sont reportées
+
+**Décision.** Les amorces ne sont **pas définies maintenant**. Elles pourront
+être ajoutées après matérialisation de la visualisation, **si elles apportent
+une aide réelle**.
+
+**Règle de rédaction, si elles sont ajoutées.** Les intitulés resteront
+**concrets et décriront exactement ce que la commande affiche**. Pas de
+formulation abstraite ni de question rhétorique.
+
+Exemple de ce qui est attendu : « les usines à moins de 100 mètres d'un cours
+d'eau ». Exemple de ce qui est écarté : « pourquoi toutes au bord de l'eau ? ».
+
+**Note.** Il avait été avancé qu'une carte ouverte sans amorce resterait un
+outil plutôt qu'une publication. L'objection n'est pas écartée mais **différée** :
+elle sera tranchée devant la visualisation réelle, ce qui est plus sûr que de la
+trancher sur une hypothèse.
