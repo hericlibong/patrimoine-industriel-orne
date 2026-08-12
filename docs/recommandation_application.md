@@ -1,118 +1,153 @@
 # Recommandation pour l'application
 
-Version 1.0 — 22 juillet 2026
+**Version :** 2.0
+
+**Date :** 12 août 2026
+
+**Statut :** recommandation actualisée après validation de l'architecture
 
 ## Décision recommandée
 
-**Construire une publication web narrative et cartographique, pas un dashboard
-et pas encore une application avec serveur.**
+Construire une **visualisation web interactive de datajournalisme**, statique,
+rapide et partageable, consacrée aux 318 sites industriels documentés dans
+l'Orne.
 
-La première version doit être une publication statique, rapide et partageable,
-alimentée par des exports générés depuis DuckDB. Le développement de l'interface
-doit commencer après le premier lot significatif du corpus complet, pas après
-l'enrichissement exhaustif des 319 dossiers.
+Le produit s'ouvre directement sur une carte manipulable. Il ne prend la forme
+ni d'un article à chapitres, ni d'un catalogue de fiches, ni d'un tableau de
+bord. Le lecteur choisit librement un système, un métier, une époque ou un lieu.
 
-## Forme du produit
+Le titre de travail est **« Voyage dans l'Orne industrielle »**. Il est
+provisoire.
 
-La publication doit combiner quatre espaces :
+## Forme recommandée
 
-1. **un récit guidé** en cinq ou six chapitres ;
-2. **une carte exploratoire** avec filtres par période, secteur et précision ;
-3. **des fiches de sites** affichant activités successives, sources et niveau
-   d'incertitude ;
-4. **une page méthode** expliquant corpus, classifications et limites.
+La visualisation combine dans un même espace :
 
-Ce n'est pas un simple inventaire : l'entrée principale reste le récit. La
-carte libre vient ensuite pour prolonger l'exploration.
+1. une carte départementale montrant les douze systèmes comme objets
+   principaux et les 146 autres sites plus discrètement ;
+2. des commandes limitées au métier, à l'époque et à la proximité de l'eau ;
+3. une recherche par nom, commune, activité ou référence ;
+4. une liste textuelle synchronisée avec la carte ;
+5. des vues de système et de site portant les textes, dates, relations, sources
+   et limites disponibles.
 
-## Architecture technique proposée
+Aucun parcours n'est imposé. Les amorces éventuelles seront décidées devant la
+visualisation réelle et devront décrire concrètement ce qu'elles affichent.
+
+## Périmètre éditorial
+
+Les douze systèmes déjà lus constituent le cœur éditorial. Ils couvrent 172
+sites.
+
+Les 146 autres sites restent tous visibles et consultables :
+
+- 74 sites forment 18 petits ensembles de trois à six sites. Leur lecture est
+  reportée et pourra enrichir ultérieurement l'application ;
+- 72 sites sont seuls ou par paires selon la règle de proximité retenue. Ils ne
+  font pas l'objet d'un chapitre particulier.
+
+Aucun site n'est supprimé. Le seuil de trois kilomètres sert à organiser la
+lecture ; il ne définit pas une frontière historique.
+
+## Architecture technique recommandée
 
 ```text
-Sources brutes
+Sources brutes et corrections documentées
     ↓
-Python — extraction, rapprochement, validation
+Python — extraction, rapprochement et validation
     ↓
 DuckDB — référence éditoriale interne
     ↓
-Exports web versionnés — JSON / GeoJSON / Parquet
+Exports web légers et versionnés
     ↓
-Application statique — récit + carte + fiches
+Application statique — carte SVG + liste + panneaux d'information
 ```
 
-### Données
+Principes techniques :
 
 - DuckDB reste la base de référence hors ligne ;
-- le navigateur ne charge pas directement la base complète ;
-- un export par site alimente les fiches ;
-- un export allégé alimente la carte ;
-- les activités et périodes restent liées pour éviter les filtres trompeurs ;
-- les géométries publiques peuvent être simplifiées ou dégradées selon leur
-  précision et la sensibilité du site.
+- le navigateur reçoit seulement des exports adaptés au web ;
+- la carte est un SVG généré depuis les données et les couches locales ;
+- l'application ne dépend ni d'une API ni d'un serveur de tuiles ;
+- l'état partageable est conservé après le `#` dans l'adresse ;
+- chaque information cartographique possède un équivalent textuel ;
+- le choix d'un framework JavaScript n'est pas nécessaire avant qu'un besoin
+  concret le justifie.
 
-### Interface
+Le SVG est retenu pour la simplicité et la composition sur mesure. Ce choix
+pourra être réexaminé si l'application exige plus tard un zoom profond ou des
+volumes de données sensiblement supérieurs.
 
-Une pile cohérente serait :
+## Règles fonctionnelles
 
-- [**SvelteKit en export statique**](https://svelte.dev/docs/kit/adapter-static)
-  pour les pages et composants narratifs ;
-- [**MapLibre GL JS**](https://maplibre.org/maplibre-gl-js/docs/) pour la carte
-  interactive ;
-- [**Observable Plot**](https://observablehq.com/plot/) ou SVG natif pour les
-  graphiques simples ;
-- hébergement statique sur [GitHub Pages](https://docs.github.com/en/pages),
-  Netlify ou équivalent pendant le MVP.
+- La carte s'ouvre sur le département puis permet d'entrer dans un système.
+- Elle se recadre sur le résultat d'un filtre au lieu de seulement atténuer les
+  autres points.
+- Un système apparaît comme un groupe de sites nommé, jamais comme une zone aux
+  frontières supposées.
+- Le filtre temporel indique une **période documentée**, pas une activité
+  certaine et continue.
+- La distance à l'eau reste une mesure, pas une explication causale.
+- Les sources, incertitudes et niveaux de précision restent visibles.
 
-Ce choix évite une API, un serveur applicatif et une authentification tant que
-le projet reste une publication éditoriale mise à jour par lots.
+## Première réalisation recommandée
 
-## MVP recommandé
+Construire une seule vue fonctionnelle complète avec des données réelles pour
+valider :
 
-Le MVP public peut contenir :
+- l'arrivée sur le département ;
+- la sélection d'un système ;
+- un filtre et le recadrage de la carte ;
+- l'ouverture d'un site ;
+- la liste synchronisée ;
+- la navigation au clavier ;
+- le retour à la vue départementale.
 
-- le récit en six étapes proposé dans `recits_soutenus_donnees.md` ;
-- le corpus complet minimalement cartographié ;
-- 30 à 50 fiches plus riches sélectionnées éditorialement ;
-- des filtres secteur, période et précision géographique ;
-- l'affichage systématique des sources et incertitudes ;
-- une page méthodologique ;
-- aucune fonction de compte, contribution ou administration publique.
+Cette vue doit être propre et lisible, mais ne porte pas encore l'identité
+visuelle définitive. Son rôle est de vérifier la structure et les interactions.
 
-Les autres sites peuvent être présents avec une fiche plus courte. Il n'est pas
-nécessaire d'attendre une recherche contemporaine et photographique exhaustive
-sur les 319 dossiers pour publier une V1 honnête.
+## Direction artistique
 
-## Évolution vers une véritable application
+Une fois la vue fonctionnelle comprise et validée, la direction artistique est
+appliquée sur ce contenu réel. Elle doit traiter au minimum :
 
-Une architecture avec API, base en ligne et espace d'administration ne devient
-utile que si le projet doit gérer :
+- la typographie et les niveaux de titre ;
+- la palette et le contraste ;
+- la représentation des systèmes, des sites, des relations et des
+  incertitudes ;
+- la densité de l'interface ;
+- les annotations, images, légendes et crédits ;
+- les comportements sur grand écran, ordinateur portable et mobile.
 
-- des mises à jour fréquentes par plusieurs personnes ;
-- une collecte participative ;
-- des parcours touristiques actualisés ;
-- des comptes partenaires ;
-- des médias volumineux ou des droits différenciés ;
-- plusieurs départements ou plusieurs corpus.
-
-L'orientation touristique reste compatible avec le modèle actuel. Elle
-nécessitera plus tard des champs récents et vérifiés : visitabilité, horaires,
-visibilité depuis l'espace public, propriété, services, accessibilité, durée de
-parcours et date de mise à jour. Ces champs ne doivent pas être déduits des
-notices historiques.
+Cette étape ne doit pas être repoussée jusqu'à la fin de l'application : elle
+vient immédiatement après la validation de la vue de référence.
 
 ## Ordre de réalisation
 
-1. généraliser l'extraction et traiter le premier lot de 50 ;
-2. produire un prototype de récit avec la carte interne ;
-3. terminer le corpus technique des 319 dossiers ;
-4. sélectionner 30 à 50 sites éditoriaux ;
-5. construire la publication statique ;
-6. rechercher des partenaires pour la photographie, l'histoire, le graphisme
-   et la future dimension touristique ;
-7. décider seulement ensuite si une application avec serveur est nécessaire.
+1. construire et valider la vue fonctionnelle de référence ;
+2. définir et appliquer la direction artistique à cette vue ;
+3. écrire les contenus nécessaires pour les systèmes et les sites ;
+4. étendre la vue validée à l'ensemble du corpus ;
+5. contrôler accessibilité, exactitude, performances et droits ;
+6. publier une version statique documentée et reproductible.
+
+## Évolutions possibles
+
+Après stabilisation de la première version, le projet pourra accueillir :
+
+- la lecture éditoriale de certains des 18 petits ensembles ;
+- des vues par exploitant ou propriétaire lorsque les données seront validées ;
+- de nouvelles commandes réellement justifiées par les données ;
+- des informations contemporaines vérifiées ;
+- une architecture avec API seulement si des mises à jour fréquentes, plusieurs
+  contributeurs ou une collecte participative le nécessitent.
+
+Ces possibilités ne doivent pas retarder la construction de la première
+version.
 
 ## Recommandation finale
 
-**GO LIMITÉ pour l'application :** commencer le prototypage narratif après le
-premier lot de 50 dossiers, tout en poursuivant le corpus complet. Ne pas
-construire encore d'infrastructure serveur ni d'application touristique
-opérationnelle.
+**GO pour une application statique de visualisation interactive**, construite
+par étapes à partir d'une vue fonctionnelle puis d'une direction artistique
+validée. Aucun serveur applicatif, compte utilisateur ou administration en
+ligne n'est nécessaire pour la première version.

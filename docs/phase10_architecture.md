@@ -1,12 +1,13 @@
 # Phase 10.C — Architecture de l'application
 
-**Version :** 1.0 — six décisions arrêtées
+**Version :** 1.1 — dix décisions arrêtées, aucun point structurant ouvert
 **Statut :** validé par le porteur du projet le 11 août 2026
-**Date :** 11 août 2026
+**Date :** 11 août 2026, décompte et en-tête corrigés le 12 août 2026
 
-Chaque décision porte son motif et l'option écartée. Les points laissés ouverts
-— nom de la publication, premières secondes, amorces cliquables — sont traités
-séparément.
+Chaque décision porte son motif et l'option écartée. Les trois points restés
+ouverts au moment de la première rédaction — nom de la publication, premières
+secondes, amorces cliquables — ont été tranchés le 11 août et figurent
+désormais dans ce document, aux sections 8, 9 et 10.
 
 ---
 
@@ -44,7 +45,7 @@ commune principale.
 | Levier | Ce qu'il fait | Pourquoi il tient |
 | --- | --- | --- |
 | **Métier** | les neuf secteurs du corpus | c'est lui qui fait apparaître le contraste Risle/Noireau |
-| **Époque** | une réglette d'années | 2 320 événements datés le rendent enfin possible |
+| **Époque** | une réglette d'années | 2 360 événements datés le rendent enfin possible |
 | **Proximité de l'eau** | distance mesurée au cours d'eau le plus proche | médianes de 21 à 30 m dans les vallées contre 344 m pour les matériaux |
 | *Recherche* | nom, commune, activité, référence | seule façon d'atteindre un site précis parmi 318 |
 

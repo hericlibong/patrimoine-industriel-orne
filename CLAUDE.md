@@ -58,7 +58,19 @@ QGIS s'exécute avec son propre interpréteur, pas avec `.venv` :
 & "C:\Program Files\QGIS 3.44.12\bin\python-qgis-ltr.bat" tools\generate_qgis_project.py
 ```
 
-### Prototype phase 10
+### Prototypes phase 10
+
+Vue de référence actuelle — l'écran de la vallée de la Risle, fichier autonome
+qui s'ouvre directement dans un navigateur :
+
+```powershell
+python tools/generer_ecran_risle.py            # régénère prototype/risle/index.html
+```
+
+Ce script lit directement la base du corpus complet et n'importe pas le paquet :
+pas de `PYTHONPATH`, mais `data/processed/` doit avoir été produit au préalable.
+
+Prototype 0.1, conservé comme contre-exemple (voir « État actuel ») :
 
 ```powershell
 python tools/generate_phase10_prototype.py     # régénère prototype/phase10/data/
@@ -66,7 +78,8 @@ node tools/generate_phase10_context_map.mjs    # régénère la carte de context
 python -m http.server 8765 --bind 127.0.0.1    # puis /prototype/phase10/
 ```
 
-L'ouverture directe de `index.html` ne fonctionne pas (chargements `fetch`).
+Pour ce dernier, l'ouverture directe de `index.html` ne fonctionne pas
+(chargements `fetch`).
 
 ## Architecture
 
@@ -236,15 +249,34 @@ tenu à jour au fur et à mesure et rédigé dans la même langue simple.
 - `ruff` : ligne à 100 caractères, cible py311.
 - Documentation en français avec accentuation complète.
 
-## État actuel — phase 10, bloc 7
+## État actuel — phase 10.D, construction de la vue de référence
 
-Le prototype `prototype/phase10/` (version 0.1) est explicitement **retenu comme
-contre-exemple**, pas comme base à enrichir : direction artistique, récit
-cartographique, exploration et pages « Les lieux » sont jugés non publiables
-(diagnostic détaillé dans `docs/phase10_bloc7_refondation_mvp.md`).
+Les documents qui font foi sont, dans cet ordre :
+`docs/phase10_cadrage_v2_application.md` (cadrage général, version 2.1),
+`docs/phase10_architecture.md` (les dix décisions d'interface, version 1.1) et
+`docs/phase10_demonstration.md` (ce que les douze systèmes établissent).
 
-La décision du 27 juillet 2026 est qu'**aucun nouveau code d'interface ne doit
-être produit avant les nouveaux arbitrages** du bloc 7. Les données, sources et
-règles de preuve restent acquises ; l'interface et le storyboard ne le sont pas.
+Ce qui est arrêté et ne se rediscute pas sans passer par le journal : le produit
+est une **application de visualisation interactive**, pas un site ni un article ;
+elle s'ouvre directement sur la carte départementale sans parcours imposé ;
+les leviers sont le métier, l'époque et la proximité de l'eau, plus la
+recherche ; la carte se recadre au lieu d'atténuer ; l'état est partageable
+après le `#` ; tout ce que la carte montre existe aussi en texte ; la carte est
+un SVG produit depuis nos données, sans moteur cartographique.
+
+L'interdiction du 27 juillet de produire du code d'interface est **levée** :
+elle attendait les arbitrages du bloc 7, clos le 11 août 2026 avec la phase
+10.C. La phase 10.D consiste précisément à construire une vue fonctionnelle de
+référence, sur données réelles, volontairement neutre sur le plan graphique.
+La direction artistique vient après, jamais avant.
+
+Deux prototypes coexistent, à ne pas confondre. `prototype/phase10/`
+(version 0.1) reste un **contre-exemple** : direction artistique, récit
+cartographique, exploration et pages « Les lieux » jugés non publiables,
+diagnostic dans `docs/phase10_bloc7_refondation_mvp.md`. `prototype/risle/`,
+produit le 5 août 2026, est la **première vue de référence** : elle a validé le
+cadre habillé, le recadrage et l'annotation posée sur la forme, mais ne porte
+aucune identité visuelle définitive.
+
 Toute proposition visuelle doit être évaluée dans un navigateur à taille réelle,
 notamment en 1440 px.

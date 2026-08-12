@@ -1941,3 +1941,49 @@ Décisions du porteur du projet.
 
 Décision : **phase 10.C close ; les neuf décisions d'architecture sont
 arrêtées et documentées dans `docs/phase10_architecture.md`**.
+
+## 2026-08-12 — Mise à jour des documents généraux de référence
+
+- Le cadrage V2 du 29 juillet ne reflétait plus plusieurs décisions prises en
+  phases 10.B et 10.C : il rendait les amorces obligatoires, conservait les
+  anciens effectifs des systèmes et décrivait encore une logique plus
+  narrative que la visualisation libre désormais retenue.
+- `docs/phase10_cadrage_v2_application.md` passe en version 2.1 et devient la
+  présentation générale à jour : 318 sites, douze systèmes couvrant 172 sites,
+  146 autres sites tous conservés, arrivée directe sur la carte, filtres
+  validés, règles du temps et architecture SVG statique.
+- Le `README.md`, qui annonçait encore la phase 9 en cours, est aligné sur
+  l'avancement réel et donne accès en premier aux documents de phase 10.
+- `docs/recommandation_application.md`, version 1.0 du 22 juillet, décrivait
+  l'ancien site narratif et recommandait MapLibre. Sa version 2.0 recommande
+  l'application statique de visualisation interactive et reprend l'ordre
+  validé : vue fonctionnelle, direction artistique, contenus, extension.
+
+Relecture de cohérence effectuée le même jour. Les effectifs des quatre
+documents ont été recoupés un par un avec les rapports de contrôle versionnés :
+2 360 événements datés sur 314 sites, 314 textes historiques, 1 888 médias
+distincts, neuf secteurs, conservation inconnue pour 315 sites sur 318,
+172 sites en systèmes et 146 hors systèmes. Tous concordent. Le passage de
+2 320 à 2 360 est la conséquence de la réparation des deux historiques
+corrompus en phase 10.A.3, non un recomptage.
+
+Deux écarts relevés à cette occasion et corrigés :
+
+- L'en-tête de `docs/phase10_architecture.md` était resté celui de la première
+  rédaction : il annonçait « six décisions » et renvoyait à un traitement
+  séparé du titre, des premières secondes et des amorces, alors que le document
+  en contient dix et traite ces trois points aux sections 8, 9 et 10. L'entrée
+  du 11 août parlait de son côté de neuf décisions. Le décompte exact est
+  **dix** ; le document passe en version 1.1. Aucune décision n'est modifiée,
+  seul le décompte l'est.
+- `CLAUDE.md` décrivait encore l'état du bloc 7 et maintenait l'interdiction du
+  27 juillet de produire du code d'interface. Cette interdiction attendait les
+  arbitrages désormais rendus : elle est **levée**, la phase 10.D consistant
+  précisément à construire une vue fonctionnelle. La section d'état renvoie
+  maintenant aux trois documents qui font foi et distingue les deux prototypes,
+  le contre-exemple de la première tentative et l'écran de la Risle du 5 août.
+
+Décision : **le cadrage V2 version 2.1, l'architecture version 1.1, le README
+et la recommandation version 2.0 sont les documents généraux actualisés avant
+l'ouverture de la phase 10.D ; l'interdiction de produire du code d'interface
+est levée**.
