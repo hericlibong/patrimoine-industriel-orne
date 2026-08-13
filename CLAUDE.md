@@ -60,15 +60,23 @@ QGIS s'exécute avec son propre interpréteur, pas avec `.venv` :
 
 ### Prototypes phase 10
 
-Vue de référence actuelle — l'écran de la vallée de la Risle, fichier autonome
-qui s'ouvre directement dans un navigateur :
+Vue de référence de la phase 10.D — trois niveaux, département → Risle → site,
+avec les données de Crulai embarquées pour le contrôle de robustesse :
+
+```powershell
+python tools/generer_vue_reference.py          # régénère prototype/vue_reference/index.html
+```
+
+Premier écran d'essai du 5 août, conservé comme jalon :
 
 ```powershell
 python tools/generer_ecran_risle.py            # régénère prototype/risle/index.html
 ```
 
-Ce script lit directement la base du corpus complet et n'importe pas le paquet :
-pas de `PYTHONPATH`, mais `data/processed/` doit avoir été produit au préalable.
+Ces deux scripts lisent directement la base du corpus complet et n'importent pas
+le paquet : pas de `PYTHONPATH`, mais `data/processed/` doit avoir été produit au
+préalable. Le générateur de la vue de référence **sort en code 1** si un effectif
+ne correspond plus au registre `config/phase10_systemes.yml`.
 
 Prototype 0.1, conservé comme contre-exemple (voir « État actuel ») :
 
@@ -270,13 +278,16 @@ elle attendait les arbitrages du bloc 7, clos le 11 août 2026 avec la phase
 référence, sur données réelles, volontairement neutre sur le plan graphique.
 La direction artistique vient après, jamais avant.
 
-Deux prototypes coexistent, à ne pas confondre. `prototype/phase10/`
+Trois prototypes coexistent, à ne pas confondre. `prototype/phase10/`
 (version 0.1) reste un **contre-exemple** : direction artistique, récit
 cartographique, exploration et pages « Les lieux » jugés non publiables,
 diagnostic dans `docs/phase10_bloc7_refondation_mvp.md`. `prototype/risle/`,
-produit le 5 août 2026, est la **première vue de référence** : elle a validé le
-cadre habillé, le recadrage et l'annotation posée sur la forme, mais ne porte
-aucune identité visuelle définitive.
+produit le 5 août 2026, est le **premier écran d'essai** : il a validé le cadre
+habillé, le recadrage et l'annotation posée sur la forme. `prototype/vue_reference/`,
+produit le 13 août 2026, est la **vue de référence de la phase 10.D** : trois
+niveaux, filtre métier, liste synchronisée, liens prouvés accessibles au
+clavier. Aucun des trois ne porte d'identité visuelle définitive — celle-ci
+relève de la phase 10.E, qui ne s'ouvre qu'après jugement de la vue.
 
 Toute proposition visuelle doit être évaluée dans un navigateur à taille réelle,
 notamment en 1440 px.

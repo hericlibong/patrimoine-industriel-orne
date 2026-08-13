@@ -1987,3 +1987,102 @@ Décision : **le cadrage V2 version 2.1, l'architecture version 1.1, le README
 et la recommandation version 2.0 sont les documents généraux actualisés avant
 l'ouverture de la phase 10.D ; l'interdiction de produire du code d'interface
 est levée**.
+
+## 2026-08-13 — Ouverture de la phase 10.D et arbitrages de périmètre
+
+Le bloc est ouvert après l'actualisation des documents généraux de la veille.
+Il s'agit de construire une seule vue fonctionnelle, sur données réelles,
+volontairement neutre sur le plan graphique.
+
+**Système retenu : la vallée de la Risle.** C'est le système le plus documenté
+du corpus — 43 sites, cinq liens prouvés, 368 événements datés — il est déjà lu
+en profondeur, et l'écran du 5 août en a construit une partie. L'objection est
+retenue : la Risle est le cas le plus favorable, donc une forme qui y fonctionne
+ne prouve rien sur un système pauvre. D'où le contrôle final ci-dessous.
+
+**Contrôle de robustesse : Crulai**, sept sites et peu de matière. Les données
+de Crulai sont basculées dans la même vue. Décision du porteur : **aucune
+seconde vue n'est construite** — il s'agit de vérifier que la forme résiste, pas
+de produire un deuxième écran.
+
+Arbitrages du porteur du projet à l'ouverture :
+
+- **Le levier éprouvé est le métier**, et non la réglette temporelle. Le temps a
+  déjà été manipulé dans l'écran du 5 août ; le métier est le levier qui fait
+  apparaître les contrastes entre systèmes et il n'a jamais été testé.
+- **L'annotation posée sur la carte est un essai, pas une condition de
+  validation.** Elle peut être éprouvée ; si elle est conservée, elle doit rester
+  concrète et correspondre exactement à ce que la carte montre à cet instant.
+  La vue est validée sans elle si elle n'apporte rien.
+- **Les phrases qui prouvent les liens entre sites doivent être atteignables au
+  clic et au clavier**, pas seulement au survol. Une preuve accessible à la
+  seule souris n'est pas une preuve publiée.
+- **Le périmètre est strictement département → Risle → site.** Rien d'autre
+  n'est construit dans ce bloc.
+
+Deux tâches manquaient à la liste du bloc alors qu'elles figuraient dans la
+recommandation actualisée et dans les décisions d'architecture : la **liste
+textuelle synchronisée** et le **retour à la vue départementale**. Omissions de
+rédaction, sans changement de cap. Elles sont ajoutées officiellement à la
+roadmap.
+
+Décision : **phase 10.D ouverte sur la vallée de la Risle, trois niveaux,
+filtre métier, annotation non bloquante, preuves des liens accessibles au
+clavier, contrôle final sur les données de Crulai sans seconde vue**.
+
+## 2026-08-13 — La vue de référence est construite et remise au jugement
+
+La vue est en place et s'ouvre dans un navigateur sans serveur ni dépendance.
+Elle porte les trois niveaux arrêtés le matin même : le département, la vallée
+de la Risle, un site.
+
+**Ce qui a été vérifié, pas seulement construit.**
+
+- Les effectifs sont contrôlés à la génération : douze systèmes, 172 sites
+  regroupés, 146 hors systèmes, 43 sites et cinq liens pour la Risle. La
+  production échoue si un seul de ces nombres bouge.
+- Carte et liste annoncent le même chiffre. Avec le filtre « Métallurgie et
+  travail des métaux » : 24 points sur la carte, 24 lignes dans la liste,
+  « 24 sites sur 43 » en tête de vue.
+- Le clavier fait tout ce que fait la souris : ordre de tabulation contrôlé,
+  activation par Entrée, retour au département par Échap, changements de vue
+  annoncés aux lecteurs d'écran.
+- Les cinq phrases qui prouvent les liens sont atteignables des deux façons,
+  sur la carte et dans le panneau, conformément à l'arbitrage du matin.
+
+**Décisions prises pendant la construction.**
+
+- *Ancrage des systèmes par commune, et non par rang de taille.* Quatre
+  systèmes partagent leur effectif avec un autre ; le rang ne les distingue pas.
+  Le registre `config/phase10_systemes.yml` fixe donc pour chacun une commune
+  d'ancrage, et la génération échoue si un effectif ne correspond plus.
+- *Les noms géographiques seuls sont affichés.* Les noms de travail issus des
+  lectures — « la vallée du fil » — ne sont pas validés : ils apparaissent
+  uniquement comme propositions signalées, jamais en titre.
+- *Le fond hydrographique est réduit aux cours d'eau qui longent les sites.*
+  Le réseau complet noyait les usines sous un chevelu de ruisseaux sans rapport
+  avec elles.
+- *Les noms de sites sont abrégés dans les listes.* Les intitulés de
+  l'Inventaire cumulent l'état ancien et l'état actuel ; le nom entier reste
+  dans la fiche.
+- *L'annotation est conservée.* Elle n'apparaît qu'avec un filtre actif et
+  n'énonce qu'un rapport exact — « Textile, habillement et cuir : 9 des 43 sites
+  de ce système ». Elle reste non bloquante pour la validation.
+
+**Lacune relevée, hors périmètre du bloc.** La typologie des événements datés,
+arrêtée en phase 10.A.2, n'a jamais été versée au vocabulaire contrôlé de la
+phase 4. Ses libellés sont pour l'instant portés par le générateur de la vue.
+Leur place est dans `config/classifications.yml` ; le déplacement n'est pas fait
+ici pour ne pas déborder du périmètre.
+
+**Ce que le contrôle sur Crulai apprend.** La vue tient : sept sites, aucun lien
+établi par une source, et elle l'écrit — « Aucun lien entre ces sites n'est
+établi par une source. Rien n'est déduit de leur proximité. » Un système pauvre
+se déclare pauvre au lieu de faire nombre. En revanche, sa liste de sites
+répète trois fois « moulin à farine », distingués par la seule commune : sur les
+systèmes peu documentés, le nom d'un site ne suffit pas à l'identifier. Constat
+à traiter au moment d'écrire les contenus.
+
+Décision : **la vue de référence est construite et vérifiée ; elle est remise au
+jugement du porteur du projet. La phase 10.D n'est pas close tant que ce
+jugement n'a pas eu lieu.**

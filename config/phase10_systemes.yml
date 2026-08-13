@@ -1,0 +1,106 @@
+# Les douze systèmes industriels de la phase 10
+#
+# Le découpage est calculé : sont regroupés les sites distants de moins de trois
+# kilomètres de proche en proche. Le calcul donne 88 groupes ; les douze plus
+# gros rassemblent 172 des 318 sites et constituent le périmètre éditorial
+# arrêté le 11 août 2026.
+#
+# Ce fichier n'est pas une configuration technique : il fixe l'identité
+# éditoriale de chaque système. La taille seule ne suffit pas à les distinguer
+# — quatre effectifs sont ex aequo — d'où l'ancrage par commune, qui rend
+# l'identification déterministe et vérifiable.
+#
+# `nom` est le nom géographique, seul nom employé dans l'interface tant que la
+# nomination éditoriale n'est pas validée. `nom_de_travail` est la proposition
+# issue de la lecture du système ; elle reste une proposition et ne doit pas
+# être affichée comme un titre acquis.
+
+version: 1.0
+date: 2026-08-13
+seuil_regroupement_m: 3000
+effectif_total_attendu: 172
+
+systemes:
+  - code: risle
+    nom: Vallée de la Risle
+    commune_ancrage: L'Aigle
+    sites_attendus: 43
+    nom_de_travail: la vallée du fil
+    lecture: docs/phase10_lecture_risle.md
+
+  - code: noireau
+    nom: Vallée du Noireau
+    commune_ancrage: Saint-Pierre-du-Regard
+    sites_attendus: 23
+    nom_de_travail: la vallée qui a changé de fibre
+    lecture: docs/phase10_lecture_noireau.md
+
+  - code: flers
+    nom: Flers
+    commune_ancrage: Flers
+    sites_attendus: 21
+    nom_de_travail: la ville qui tissait
+    lecture: docs/phase10_lecture_flers.md
+
+  - code: halouze
+    nom: Bassin de Halouze
+    commune_ancrage: Saint-Clair-de-Halouze
+    sites_attendus: 13
+    nom_de_travail: le pays qui a cessé de fondre son fer
+    lecture: docs/phase10_lecture_halouze.md
+
+  - code: alencon
+    nom: Alençon
+    commune_ancrage: Alençon
+    sites_attendus: 13
+    nom_de_travail: la ville et son usine
+    lecture: docs/phase10_lecture_alencon.md
+
+  - code: la_ferte_mace
+    nom: La Ferté-Macé
+    commune_ancrage: La Ferté-Macé
+    sites_attendus: 12
+    nom_de_travail: la ville qui faisait grève
+    lecture: docs/phase10_lecture_la_ferte_mace.md
+
+  - code: tinchebray
+    nom: Tinchebray
+    commune_ancrage: Tinchebray
+    sites_attendus: 9
+    nom_de_travail: la ville qui n'a pas fermé
+    lecture: docs/phase10_lecture_tinchebray.md
+
+  - code: randonnai
+    nom: Randonnai
+    commune_ancrage: Randonnai
+    sites_attendus: 9
+    nom_de_travail: le plus vieux feu
+    lecture: docs/phase10_lecture_randonnai.md
+
+  - code: maletable
+    nom: Malétable
+    commune_ancrage: Malétable
+    sites_attendus: 8
+    nom_de_travail: le pays où l'industrie a reculé
+    lecture: docs/phase10_lecture_maletable.md
+
+  - code: la_ferriere
+    nom: La Ferrière-aux-Étangs
+    commune_ancrage: La Ferrière-aux-Étangs
+    sites_attendus: 7
+    nom_de_travail: la mine du Nord
+    lecture: docs/phase10_lecture_la_ferriere.md
+
+  - code: argentan
+    nom: Argentan
+    commune_ancrage: Argentan
+    sites_attendus: 7
+    nom_de_travail: l'industrie d'après
+    lecture: docs/phase10_lecture_argentan.md
+
+  - code: crulai
+    nom: Crulai et Chandai
+    commune_ancrage: Crulai
+    sites_attendus: 7
+    nom_de_travail: là où l'industrie n'a pas pris
+    lecture: docs/phase10_lecture_crulai.md
