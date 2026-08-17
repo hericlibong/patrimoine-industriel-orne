@@ -1,5 +1,28 @@
 # Maquettes de direction artistique — phase 10
 
+## Photographies retirées du dépôt le 17 août 2026
+
+Le dépôt distant est public. Les quatre photographies de référence que le projet
+n'a pas produites en ont été retirées, ainsi que les rendus `.png` et `.jpg` qui
+les incorporent en pleine page : `04`, `06`, `07`, `08`, `09` et `11`. Le motif
+est l'invariant du projet — une image en ligne n'est pas une autorisation — et
+la note ci-dessous, qui signalait déjà l'absence d'autorisation de publication.
+
+**Conséquence à connaître avant d'ouvrir un fichier.** Les maquettes
+vectorielles `04`, `06`, `07`, `08`, `09` et `11` sont conservées : elles ne
+contiennent aucune photographie, seulement un renvoi vers un fichier absent.
+Elles s'affichent donc avec un vide à l'emplacement de l'image. Ce n'est pas un
+défaut de la maquette.
+
+Les fichiers retirés restent sur le poste de travail et sont exclus du
+versionnement. La conception interne n'est pas entravée ; seule la diffusion
+l'est. La question des droits devra être tranchée avant toute publication de
+médias, par une autorisation demandée ou un remplacement.
+
+Les maquettes `01`, `02`, `03`, `05` et `10` et les cartes `map_orne_*` ne
+référencent que des tracés produits depuis nos propres données : elles sont
+complètes.
+
 ## Direction de référence validée
 
 Cette troisième série est validée comme bon point de départ pour le prototypage.

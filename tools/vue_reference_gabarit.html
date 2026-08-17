@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Voyage dans l'Orne industrielle — vue de référence</title>
+<title>Le patrimoine oublié de l'Orne</title>
 <style>
   :root{
     --encre:#20222a; --gris:#5c6070; --trait:#d8d5cd; --fond:#f7f5f0;
@@ -25,6 +25,22 @@
   .bandeau .essai{font-size:11.5px;color:var(--signal);border:1px solid currentColor;
     border-radius:3px;padding:2px 7px;letter-spacing:.02em}
 
+  .accueil{max-width:1440px;margin:0 auto;padding:18px 30px 4px}
+  .accueil[hidden]{display:none}
+  .propos p{margin:0 0 8px;font-size:14.5px;line-height:1.58;max-width:74ch;
+    color:#33363f}
+  .propos .chapo{font-size:18px;line-height:1.42;color:var(--encre);
+    margin-bottom:12px;max-width:60ch}
+  .propos b{font-weight:600;color:var(--encre)}
+  .propos .conduite{color:var(--gris);margin-top:11px}
+
+  .mode-emploi{margin:0 0 12px;padding-bottom:12px;
+    border-bottom:1px dashed var(--trait)}
+  .mode-emploi p{margin:0 0 6px;font-size:13px;line-height:1.5;color:var(--gris);
+    max-width:84ch}
+  .mode-emploi p:last-child{margin-bottom:0}
+  .mode-emploi b{color:var(--appui);font-weight:600}
+
   .fil{padding:10px 30px;border-bottom:1px solid var(--trait);font-size:13px;
     display:flex;align-items:center;gap:8px}
   .fil button{background:none;border:0;padding:4px 6px;border-radius:4px;
@@ -43,8 +59,7 @@
   .plaque h2{font-size:17px}
   .compte{font-size:13px;color:var(--gris);font-variant-numeric:tabular-nums}
 
-  .filtres{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;
-    padding-bottom:12px;border-bottom:1px dashed var(--trait)}
+  .filtres{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
   .filtres .etiquette{font-size:12.5px;color:var(--gris);align-self:center;
     margin-right:4px}
   .filtres button{background:#fff;border:1px solid var(--trait);border-radius:14px;
@@ -131,7 +146,7 @@
     outline:2px solid var(--signal);outline-offset:2px}
 
   @media (max-width:1180px){
-    main{grid-template-columns:1fr}
+    main,.accueil{grid-template-columns:1fr}
     .liste{max-height:none}
   }
 </style>
@@ -139,10 +154,26 @@
 <body>
 
 <div class="bandeau">
-  <h1>Voyage dans l'Orne industrielle</h1>
-  <span class="mention">titre de travail</span>
+  <h1>Le patrimoine oublié de l'Orne</h1>
+  <span class="mention">Voyage dans l'Orne industrielle</span>
   <span class="essai">vue de référence — structure à l'essai, sans habillage graphique</span>
 </div>
+
+<section class="accueil" aria-labelledby="chapo">
+  <div class="propos">
+    <p id="chapo" class="chapo">Derrière l'image rurale aujourd'hui associée à
+    l'Orne, son patrimoine industriel reste peu visible.</p>
+    <p>Les inventaires et les archives recensent pourtant <b>318 lieux de
+    production</b>, du Moyen Âge au XX<sup>e</sup> siècle : moulins et laiteries,
+    forges et hauts fourneaux, filatures et tissages, papeteries, tuileries,
+    mines.</p>
+    <p><b>Seize sont protégés au titre des monuments historiques — un sur
+    vingt.</b> Pour la grande majorité des autres, ce qui subsiste aujourd'hui
+    reste à documenter.</p>
+    <p class="conduite">Cette carte permet d'explorer leur répartition, ce qu'on y
+    produisait et ce que les sources en disent encore.</p>
+  </div>
+</section>
 
 <nav class="fil" aria-label="Niveau de lecture">
   <button id="filDepartement">L'Orne</button>
@@ -156,9 +187,11 @@
   <section aria-labelledby="titreVue">
     <div class="plaque">
       <header>
-        <h2 id="titreVue">L'Orne industrielle</h2>
+        <h2 id="titreVue">Où ces lieux se trouvaient</h2>
         <span class="compte" id="compte"></span>
       </header>
+
+      <div class="mode-emploi" id="modeEmploi"></div>
 
       <div class="filtres" role="group" aria-label="Filtrer par métier">
         <span class="etiquette">Métier</span>
@@ -183,9 +216,9 @@
   la carte, les chiffres, les dates et les phrases citées viennent du corpus
   validé. L'apparence n'est pas la forme définitive ; elle sera arrêtée
   séparément.</p>
-  <p><b>Ce que cette vue ne dit pas.</b> Les textes éditoriaux des systèmes ne
+  <p><b>Ce que cette vue ne dit pas.</b> Les textes éditoriaux des ensembles ne
   sont pas encore écrits : ce qui est affiché ici se calcule à partir des
-  données. Un système est un regroupement de sites distants de moins de trois
+  données. Un ensemble réunit les sites distants de moins de trois
   kilomètres — ce n'est pas un territoire historique aux frontières établies. Un
   point situe un site selon un niveau de précision indiqué ; il ne représente
   pas son emprise.</p>
@@ -284,7 +317,7 @@ function dessinerDepartement(){
   viderCarte();
   CARTE.appendChild(titreAccessible(
     "Carte de l'Orne",
-    `${systemes.length} systèmes industriels et ${autres.length} autres sites,
+    `${systemes.length} ensembles industriels et ${autres.length} autres sites,
      sur le contour du département`));
 
   for (const boucle of D.departement.contour){
@@ -315,7 +348,7 @@ function dessinerDepartement(){
       fill:"rgba(154,52,18,.16)",stroke:"#9a3412","stroke-width":1.4}));
     const cible = el("circle",{cx:x.toFixed(1),cy:y.toFixed(1),r:Math.max(rayon,12).toFixed(1),
       fill:"transparent",class:"groupe",tabindex:"0",role:"button",
-      "aria-label":`${systeme.nom}, ${nombre} site${nombre>1?"s":""}. Ouvrir ce système.`});
+      "aria-label":`${systeme.nom}, ${nombre} site${nombre>1?"s":""}. Ouvrir cet ensemble.`});
     const ouvrir = () => allerAuSysteme(systeme.code);
     cible.addEventListener("click", ouvrir);
     cible.addEventListener("keydown", evenement => {
@@ -445,7 +478,7 @@ function annoter(){
   const retenus = detail.sites.filter(garde).length;
   if (!retenus) return;
   boite.innerHTML = `${echapper(libelle(etat.metier))} :
-    <b>${retenus}</b> des ${detail.sites.length} sites de ce système.`;
+    <b>${retenus}</b> des ${detail.sites.length} sites de cet ensemble.`;
   boite.style.left = "16px";
   boite.style.bottom = "14px";
   boite.style.top = "auto";
@@ -465,18 +498,19 @@ function panneauDepartement(){
 
   return `
   <div class="carton">
-    <h3>Les douze systèmes</h3>
-    <div class="sous">Regroupements de sites distants de moins de trois kilomètres</div>
-    <ul class="liste">${lignes || "<li><p>Aucun système ne comporte ce métier.</p></li>"}</ul>
-    <div class="avertissement">Dans cette vue de référence, seuls deux systèmes
+    <h3>Les douze ensembles étudiés</h3>
+    <div class="sous">172 lieux lus notice par notice. Chaque ensemble fait
+      apparaître une histoire distincte.</div>
+    <ul class="liste">${lignes || "<li><p>Aucun ensemble ne comporte ce métier.</p></li>"}</ul>
+    <div class="avertissement">Dans cette vue de référence, seuls deux ensembles
     sont ouverts : la vallée de la Risle, et Crulai qui sert de contrôle. Les
     autres apparaissent sur la carte mais ne s'ouvrent pas encore.</div>
   </div>
   <div class="carton">
     <h3>Les autres sites</h3>
-    <div class="sous">Hors des douze systèmes</div>
+    <div class="sous">Hors des douze ensembles</div>
     <p><b>${autres.length}</b> site${autres.length>1?"s":""} ${etat.metier ? "de ce métier " : ""}ne
-    ${autres.length>1?"font":"fait"} partie d'aucun des douze systèmes. Ils restent
+    ${autres.length>1?"font":"fait"} partie d'aucun des douze ensembles. Ils restent
     consultables. Cette dispersion est calculée : elle ne prouve pas qu'ils étaient
     historiquement isolés.</p>
   </div>`;
@@ -532,7 +566,7 @@ function panneauSysteme(){
     </div>
     <p style="font-size:12.5px;margin-top:10px"><b>Métiers présents :</b> ${metiers}.</p>
     <div class="avertissement">Ces chiffres sont calculés depuis le corpus. Le texte
-    éditorial de ce système reste à écrire ; le nom de travail proposé à la lecture,
+    éditorial de cet ensemble reste à écrire ; le nom de travail proposé à la lecture,
     « ${echapper(definition.nomDeTravail)} », n'est pas encore validé.</div>
   </div>
 
@@ -540,15 +574,15 @@ function panneauSysteme(){
     <h3>Ce que les sources établissent</h3>
     <div class="sous">${detail.liens.length
       ? `${detail.liens.length} lien${detail.liens.length>1?"s":""} entre sites de ce
-         système, chacun porté par une phrase`
-      : "Aucun lien entre sites de ce système"}</div>
+         ensemble, chacun porté par une phrase`
+      : "Aucun lien entre sites de cet ensemble"}</div>
     ${preuves ? `<ul class="preuves">${preuves}</ul>`
       : detail.liens.length
         ? `<p style="font-size:12.5px">Aucun lien ne relie deux sites de ce métier.</p>`
         : `<p style="font-size:12.5px">Aucun lien entre ces sites n'est établi par une
            source. Rien n'est déduit de leur proximité.</p>`}
     ${masques ? `<p style="font-size:11.5px;color:#5c6070;margin-top:8px">${masques}
-      lien${masques>1?"s":""} de ce système ${masques>1?"sont":"est"} masqué${masques>1?"s":""}
+      lien${masques>1?"s":""} de cet ensemble ${masques>1?"sont":"est"} masqué${masques>1?"s":""}
       par le filtre en cours.</p>` : ""}
   </div>
 
@@ -621,12 +655,12 @@ function panneauSite(){
 /* ------------------------------------------------------------ navigation */
 function allerAuSysteme(code){
   if (!D.detail[code]) {
-    annoncer("Ce système n'est pas ouvert dans la vue de référence.");
+    annoncer("Cet ensemble n'est pas ouvert dans la vue de référence.");
     return;
   }
   etat.niveau = "systeme"; etat.systeme = code; etat.site = null; etat.lien = null;
   rendre();
-  annoncer(`Système ouvert : ${D.departement.systemes.find(s=>s.code===code).nom}.`);
+  annoncer(`Ensemble ouvert : ${D.departement.systemes.find(s=>s.code===code).nom}.`);
 }
 function allerAuSite(reference){
   etat.niveau = "site"; etat.site = reference; etat.lien = null;
@@ -674,10 +708,10 @@ function rendreEnTete(){
     const autres = D.departement.autresSites.filter(autreGarde);
     const enSysteme = systemes.reduce((total, s) =>
       total + (etat.metier ? s.sitesParMetier[etat.metier] : s.nbSites), 0);
-    titre.textContent = "L'Orne industrielle";
+    titre.textContent = "Où ces lieux se trouvaient";
     compte.textContent = etat.metier
-      ? `${enSysteme + autres.length} sites · ${libelle(etat.metier)} · ${systemes.length} systèmes concernés`
-      : `${D.departement.nbSites} sites documentés · 12 systèmes`;
+      ? `${enSysteme + autres.length} sites · ${libelle(etat.metier)} · ${systemes.length} ensembles concernés`
+      : `${D.departement.nbSites} sites documentés · 12 ensembles`;
   } else {
     const detail = D.detail[etat.systeme];
     const definition = D.departement.systemes.find(s => s.code === etat.systeme);
@@ -689,14 +723,39 @@ function rendreEnTete(){
   }
 }
 
+/* Ce qu'on regarde, dit avant la carte plutôt qu'après : le mot « système » ne
+   s'explique pas par sa règle de calcul, et personne ne devine ce qu'on peut
+   faire d'une carte muette. */
+function rendreModeEmploi(){
+  const texte = document.getElementById("modeEmploi");
+  if (etat.niveau === "departement"){
+    texte.innerHTML = `<p>Les cercles orange représentent les <b>douze principaux
+      ensembles étudiés</b>. Ils réunissent 172 lieux de production proches, lus
+      notice par notice. Chaque ensemble fait apparaître une histoire différente :
+      une vallée, une ville, un bassin minier ou un groupe de communes.</p>
+      <p>Un cercle est un repère : <b>sa taille indique le nombre de lieux, et non
+      l'étendue d'un territoire</b>. Cliquez pour voir les sites un par un, avec
+      leurs activités, leurs dates et les éventuels liens établis par les sources.
+      Les points gris représentent les 146 autres sites, tous consultables
+      individuellement.</p>`;
+  } else {
+    const detail = D.detail[etat.systeme];
+    texte.innerHTML = `<p>Chaque point est un lieu de production documenté par une
+      notice d'archive. Les traits relient deux lieux dont une source établit
+      qu'ils travaillaient ensemble — cliquez-les pour lire la phrase qui le
+      prouve. <b>Cliquez sur un point pour ouvrir l'histoire d'un lieu</b>, parmi
+      les ${detail.sites.length} de cet ensemble.</p>`;
+  }
+}
+
 function rendreLegende(){
   const legende = document.getElementById("legende");
   if (etat.niveau === "departement"){
     legende.innerHTML = `
-      <span><i style="background:rgba(154,52,18,.35);border:1.4px solid #9a3412"></i>système industriel — la taille suit le nombre de sites</span>
-      <span><i style="background:#a9a49a"></i>site hors des douze systèmes</span>
+      <span><i style="background:rgba(154,52,18,.35);border:1.4px solid #9a3412"></i>ensemble d'usines — la taille suit le nombre de sites</span>
+      <span><i style="background:#a9a49a"></i>site hors des douze ensembles</span>
       <span class="source">Inventaire du patrimoine industriel de l'Orne ·
-      contours communaux API Géo · un système est un regroupement calculé, sans
+      contours communaux API Géo · un ensemble est un regroupement calculé, sans
       contour historique</span>`;
   } else {
     legende.innerHTML = `
@@ -715,7 +774,9 @@ function rendre(){
   rendreFiltres();
   rendreFil();
   rendreEnTete();
+  rendreModeEmploi();
   rendreLegende();
+  document.querySelector(".accueil").hidden = etat.niveau !== "departement";
   if (etat.niveau === "departement") dessinerDepartement();
   else dessinerSysteme(etat.systeme);
   annoter();

@@ -168,7 +168,11 @@ inutilisable. Détail dans `docs/methodologie.md`.
 - **Les contradictions entre sources sont conservées**, jamais écrasées.
 - **Une image en ligne n'est pas une autorisation.** Les médias sont
   inventoriés par métadonnées ; aucune image n'est téléchargée ni publiée. Les
-  aperçus crédités sont tolérés en prototype **strictement interne**.
+  aperçus crédités sont tolérés en prototype **strictement interne**. Le dépôt
+  distant étant public, « interne » signifie **non versionné** : les
+  photographies de tiers et les rendus qui les incorporent sont exclus par
+  `.gitignore` depuis le 17 août 2026, et un fichier image nouveau se vérifie
+  avant tout envoi.
 - **`autre` ≠ `inconnu` ≠ `NULL`** : valeur hors vocabulaire, question examinée
   sans réponse, champ absent de la source.
 
@@ -266,11 +270,21 @@ Les documents qui font foi sont, dans cet ordre :
 
 Ce qui est arrêté et ne se rediscute pas sans passer par le journal : le produit
 est une **application de visualisation interactive**, pas un site ni un article ;
-elle s'ouvre directement sur la carte départementale sans parcours imposé ;
-les leviers sont le métier, l'époque et la proximité de l'eau, plus la
-recherche ; la carte se recadre au lieu d'atténuer ; l'état est partageable
-après le `#` ; tout ce que la carte montre existe aussi en texte ; la carte est
-un SVG produit depuis nos données, sans moteur cartographique.
+elle s'ouvre sans parcours imposé ; les leviers sont le métier, l'époque et la
+proximité de l'eau, plus la recherche ; la carte se recadre au lieu d'atténuer ;
+l'état est partageable après le `#` ; tout ce que la carte montre existe aussi en
+texte ; la carte est un SVG produit depuis nos données, sans moteur
+cartographique.
+
+Deux points ont bougé le 14 août 2026, après le jugement de la vue de référence.
+**L'arrivée n'est plus la carte nue** : le lecteur ne comprenait pas ce qu'il
+regardait. Un titre — « Le patrimoine oublié de l'Orne » — un texte d'arrivée et
+un mode d'emploi sont posés sur la page elle-même, sans écran bloquant ni
+séquence obligatoire ; le refus du parcours imposé est intact, la carte nue ne
+l'est plus. Et **le mot « système » ne s'affiche plus** : c'est « ensemble »
+partout où le lecteur le lit, les identifiants techniques et le registre gardant
+leur nom. Le sujet, enfin, est le **patrimoine** — l'histoire industrielle en est
+le moyen, pas l'objet.
 
 L'interdiction du 27 juillet de produire du code d'interface est **levée** :
 elle attendait les arbitrages du bloc 7, clos le 11 août 2026 avec la phase

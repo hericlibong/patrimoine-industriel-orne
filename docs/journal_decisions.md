@@ -2086,3 +2086,133 @@ systèmes peu documentés, le nom d'un site ne suffit pas à l'identifier. Const
 Décision : **la vue de référence est construite et vérifiée ; elle est remise au
 jugement du porteur du projet. La phase 10.D n'est pas close tant que ce
 jugement n'a pas eu lieu.**
+
+## 2026-08-14 — L'arrivée de la vue de référence est corrigée
+
+Le jugement du 13 août portait un constat sans appel : à l'arrivée, on ne
+comprend pas ce qu'on regarde. Trois manques nommés — le sujet absent, l'époque
+non dite, le mot « système » expliqué par sa règle de calcul plutôt que par ce
+qu'il désigne. Le détail du recueil est dans
+`docs/phase10_jugement_vue_reference.md`.
+
+**Ce que ce retour rouvre.** Deux des dix décisions d'architecture du 11 août :
+la neuvième — la carte directement, sans rien avant — et la dixième — les amorces
+reportées. L'objection avait été formulée le 29 juillet, puis délibérément
+différée le 11 août au motif qu'elle serait mieux jugée devant l'écran réel. La
+méthode a fonctionné ; le verdict tombe contre la décision prise. Il est inscrit
+tel quel, sans réécrire les documents antérieurs.
+
+**Ce que ce retour ne remet pas en cause.** Ni les données, ni les règles de
+preuve, ni la descente à trois niveaux, ni la mécanique de filtrage. Le problème
+est un manque de contexte à l'arrivée, pas une erreur de structure.
+
+**Le refus d'un parcours imposé tient toujours.** Expliquer de quoi il s'agit se
+fait sur la page elle-même : aucun écran d'accueil bloquant, aucune séquence
+obligatoire avant la carte. Le texte se replie dès qu'on descend d'un niveau.
+
+**Trois arbitrages du porteur du projet.**
+
+- *Aucun public cible n'est défini.* On ne segmente pas par profil : la
+  contextualisation doit fonctionner sans aucun prérequis. Exigence plus forte,
+  non plus faible.
+- *Le sujet est le patrimoine, pas l'histoire industrielle.* L'histoire est le
+  moyen, le patrimoine est l'objet. Le projet portant sur des lieux, c'est
+  « patrimoine industriel » qui est conservé, avec la limite que le mot engage :
+  l'état de conservation est inconnu pour 315 des 318 sites, la publication
+  établit donc un patrimoine documenté, non un état des lieux physique.
+- *Le texte d'arrivée se valide avant toute mise en page.* Aucune implémentation
+  tant que la formulation n'est pas arrêtée.
+
+**Le texte arrêté.** Titre « Le patrimoine oublié de l'Orne », sous-titre
+« Voyage dans l'Orne industrielle ». Quatre phrases : l'écart entre l'image
+rurale et le passé industriel ; 318 lieux de production du Moyen Âge au XXe
+siècle avec l'énumération des métiers ; seize sites protégés, un sur vingt ; ce
+que la carte permet de faire.
+
+Faits vérifiés : premier événement daté en 1101 et critère d'entrée fixé à 1950 ;
+16 sites protégés sur 318, soit 5,03 % ; énumération ordonnée selon le poids réel
+des métiers — agroalimentaire 113, métallurgie 79, textile 76, bois et papier 32,
+matériaux 27, extraction 9. Une seule phrase n'est pas vérifiable et l'assume :
+la première, prémisse de journaliste sur l'image que l'on se fait de l'Orne.
+
+Piste écartée : « plus d'une commune sur trois ». Les 143 communes citées
+mélangent communes actuelles et communes anciennes fusionnées ; 95 seulement
+figurent au référentiel actuel, qui en compte 381. Le rapport n'a pas de sens.
+
+Réserve levée par le porteur du projet : « ce qui subsiste aujourd'hui reste à
+documenter » est conservé sans la précision « sur le terrain » proposée en
+réserve.
+
+**Deux corrections qui ne sont pas des arbitrages du porteur**, appliquées pour
+traiter les deux autres manques du retour, et qui attendent son jugement :
+
+- *« Système » devient « ensemble » partout où le mot est affiché.* Le mot
+  n'appartient pas à la langue courante et laisse entendre une organisation
+  historique que nos sources n'établissent pas ; « ensemble » ne prétend rien de
+  plus que ce qui est vrai. Le registre `config/phase10_systemes.yml` et les
+  identifiants techniques gardent leur nom.
+- *Un mode d'emploi est posé au-dessus de la carte*, différent à chaque niveau :
+  ce qu'est un cercle, ce que sa taille signifie — le nombre de lieux, non
+  l'étendue d'un territoire — ce qu'est un point, ce qu'est un trait. Le titre de
+  la vue départementale devient « Où ces lieux se trouvaient ».
+
+**Vérifié.** La régénération reproduit ces corrections à l'identique et les
+contrôles d'effectifs passent sans écart : douze ensembles, 172 sites regroupés,
+146 hors ensembles, 43 sites et cinq liens pour la Risle, sept sites et aucun
+lien pour Crulai. Aucun chiffre n'a bougé.
+
+Décision : **le texte d'arrivée est arrêté et implémenté ; le mot « ensemble » et
+le mode d'emploi sont des corrections proposées, soumises au même jugement. La
+phase 10.D reste ouverte tant que l'écran corrigé n'a pas été jugé.**
+
+## 2026-08-17 — Les photographies de tiers ne sont plus versionnées
+
+Trente-sept commits attendaient d'être envoyés — rien n'avait été poussé depuis
+le 25 juillet. Le contrôle avant envoi a montré ce que contenait le lot.
+
+**Les faits.** 121 fichiers, environ 17 900 lignes, presque uniquement du texte :
+documentation de phase, journal, registres, scripts, tests. Aucun secret, aucune
+donnée personnelle, aucun livrable reproductible qui aurait dû rester local.
+Mais huit photographies que le projet n'a pas produites, et dix rendus de
+maquettes qui les incorporent en pleine page. L'écran d'accueil de la maquette
+validée le 27 juillet est une vue aérienne de bocage sur toute la surface,
+créditée « Méandres de l'Orne · C. Aubert / Conseil départemental de l'Orne ».
+Le crédit existe, l'autorisation non.
+
+**Pourquoi c'était bloquant.** Le dépôt distant est public : l'envoi valait
+publication. Or l'invariant du projet est explicite — une image en ligne n'est
+pas une autorisation, les aperçus crédités ne sont tolérés qu'en prototype
+strictement interne. Le dossier de maquettes le notait déjà lui-même : ces médias
+« ne valent ni sélection définitive ni autorisation de publication ». Et
+l'historique d'un dépôt public ne s'efface pas après coup.
+
+**Option écartée : passer le dépôt en privé.** C'était plus simple et
+réversible, mais cela ne faisait que différer la question tout en gardant les
+images dans l'historique. Le porteur du projet a tranché pour le dépôt public et
+le retrait des images.
+
+**Ce qui a été fait.** Les dix-huit fichiers ont été retirés des trente-sept
+commits, pas seulement de l'état final, et ajoutés au fichier d'exclusion. Ils
+restent sur le poste de travail : la conception interne n'est pas entravée, seule
+la diffusion l'est. L'envoi s'est fait sans forçage, le distant étant resté un
+ancêtre de la branche.
+
+**Vérifié après envoi, sur le dépôt distant et non en local.** Aucun des
+dix-huit fichiers n'apparaît dans un seul objet de la branche poussée. Les sept
+images qui subsistent sont les maquettes 01, 02, 03, 05 et 10, qui ne référencent
+que des cartes produites depuis nos propres données.
+
+**Conséquence assumée.** Les maquettes vectorielles 04, 06, 07, 08, 09 et 11
+pointent vers une photographie absente du dépôt et s'affichent avec un vide à son
+emplacement ; le prototype 0.1, déjà classé comme contre-exemple, perd son image
+de fond. C'est noté dans le dossier de maquettes.
+
+**Ce que cela ne règle pas.** Le jour où des images seront publiées avec
+l'application, la question des droits devra être traitée sur le fond :
+autorisation demandée, ou médias remplacés. Le présent retrait protège le dépôt,
+pas la publication à venir.
+
+Décision : **les photographies de tiers et les rendus qui les incorporent sont
+retirés de l'historique versionné et exclus définitivement ; le dépôt reste
+public ; la question des droits de publication est rouverte avant toute mise en
+ligne de médias.**
