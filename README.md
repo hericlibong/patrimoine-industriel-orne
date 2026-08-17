@@ -1,17 +1,21 @@
 # Patrimoine industriel de l'Orne
 
 Projet datajournalistique consacré à **318 sites industriels documentés dans
-l'Orne**. Le corpus validé alimente désormais une application web de
-visualisation interactive : une carte, des filtres, une recherche et des vues
-de systèmes et de sites que le lecteur explore librement.
+l'Orne**. Le corpus validé alimente une application web de visualisation
+interactive : une carte, des filtres, une recherche et des vues d'ensembles et
+de sites que le lecteur explore librement.
 
-Le titre de travail de la publication est **« Voyage dans l'Orne
-industrielle »**. Il reste provisoire.
+La publication s'intitule **« Le patrimoine oublié de l'Orne »**, sous-titrée
+*Voyage dans l'Orne industrielle*. Le sujet est le **patrimoine** : l'histoire
+industrielle en est le moyen, pas l'objet. Le mot engage une limite qui reste
+affichée partout — l'état de conservation est inconnu pour 315 des 318 sites, si
+bien que la publication établit un patrimoine **documenté**, non un état des
+lieux physique.
 
 ## État du projet
 
-**Phases 0 à 9 terminées. Phase 10 en cours : architecture validée, prochaine
-étape — vue fonctionnelle de référence.**
+**Phases 0 à 9 terminées. Phase 10.D en cours : la vue de référence est
+construite et corrigée, son jugement n'est pas rendu.**
 
 Les 319 références officielles récupérées correspondent à **318 sites
 canoniques** et **403 activités structurées**. Les sites sont cartographiables
@@ -23,23 +27,41 @@ La matière éditoriale comprend notamment 314 textes historiques, 2 360
 l'inventaire de 1 888 médias distincts avec leurs statuts de droits. Une
 information inconnue n'est jamais complétée par déduction.
 
-Les **douze systèmes industriels** déjà lus forment le cœur éditorial et
+Les **douze ensembles industriels** déjà lus forment le cœur éditorial et
 rassemblent 172 sites. Les 146 autres sites restent tous visibles et
 consultables. Parmi eux, 74 pourront faire l'objet de lectures complémentaires
-ultérieures au sein de 18 petits ensembles.
+ultérieures au sein de 18 petits ensembles. Le mot « ensemble » a remplacé
+« système » le 14 août 2026 partout où le lecteur le lit ; le registre
+`config/phase10_systemes.yml` et les identifiants techniques gardent leur nom.
 
-L'application s'ouvrira directement sur la carte départementale, sans parcours
-imposé. Les décisions d'architecture sont arrêtées ; la direction artistique
-interviendra après validation d'une vue fonctionnelle sur contenu réel.
+Un lien entre deux sites n'existe que si une phrase de source l'établit. La
+proximité géographique ne prouve rien et ne crée aucun lien : un regroupement
+est un calcul, jamais un contour historique.
+
+L'application ne s'ouvre plus sur la carte nue. Le jugement du 13 août 2026 a
+montré qu'on ne comprenait pas ce qu'on regardait en arrivant : un titre, un
+texte d'arrivée et un mode d'emploi sont désormais posés sur la page elle-même,
+sans écran bloquant ni séquence obligatoire. Le refus du parcours imposé reste
+entier. Les décisions d'architecture sont arrêtées ; la direction artistique
+interviendra après validation de la vue sur contenu réel.
 
 Le suivi détaillé est maintenu localement dans `docs/roadmap.md`, qui n'est pas
 versionné.
+
+**Images et droits.** Aucune image n'est téléchargée ni publiée : les médias sont
+inventoriés par métadonnées. Les photographies de tiers servant à la conception
+interne ne sont pas versionnées — le dépôt étant public, les y placer vaudrait
+publication. Six maquettes de la phase 10 s'affichent donc avec un vide à
+l'emplacement de leur photographie ; c'est voulu, et documenté dans
+`docs/design/phase10/README.md`.
 
 ## Documents de référence
 
 - [Cadrage de référence de l'application](docs/phase10_cadrage_v2_application.md)
 - [Architecture validée de l'application](docs/phase10_architecture.md)
-- [Ce que les douze systèmes permettent d'établir](docs/phase10_demonstration.md)
+- [Ce que les douze ensembles permettent d'établir](docs/phase10_demonstration.md)
+- [Jugement de la vue de référence](docs/phase10_jugement_vue_reference.md)
+- [Méthodes de la phase 10, en langue simple](docs/phase10_methodes.md)
 - [Recommandation actualisée pour l'application](docs/recommandation_application.md)
 - [Cadrage](docs/cadrage.md)
 - [Pistes éditoriales et datavisualisation](docs/pistes_editoriales.md)
@@ -173,14 +195,38 @@ produit les exports CSV et Parquet et conserve la formulation source. Une date
 imprécise reste imprécise et une période documentée n'est pas assimilée à une
 activité continue.
 
+## Régénérer la vue de référence
+
+```powershell
+python tools/generer_vue_reference.py
+```
+
+Vue de référence de la phase 10.D : un fichier HTML autonome portant trois
+niveaux — département, ensemble, site — avec le filtre par métier, la liste
+synchronisée avec la carte et les phrases de source qui prouvent les liens,
+atteignables au clavier comme à la souris. Les données de Crulai y sont
+embarquées pour le contrôle de robustesse.
+
+La commande **sort en code 1 si un effectif ne correspond plus** au registre
+`config/phase10_systemes.yml` : douze ensembles, 172 sites regroupés, 146 hors
+ensembles, 43 sites et cinq liens pour la Risle, sept sites et aucun lien pour
+Crulai.
+
+Elle lit directement la base du corpus complet et n'importe pas le paquet : pas
+de `PYTHONPATH`, mais `data/processed/` doit avoir été produit au préalable. La
+vue est volontairement neutre sur le plan graphique — elle éprouve la
+compréhension et la structure, jamais l'esthétique.
+
 ## Régénérer la première vue de la Risle
 
 ```powershell
 python tools/generer_ecran_risle.py
 ```
 
-Cette vue autonome a servi à valider le principe général de l'application. Elle
-reste une référence fonctionnelle, pas une direction artistique définitive.
+Cette vue autonome, produite le 5 août 2026, a servi à valider le principe
+général de l'application : le cadre habillé, le recadrage de la carte et
+l'annotation posée sur la forme. Elle est conservée comme jalon et ne porte
+aucune direction artistique définitive.
 
 ## Produire le socle pilote V1
 
