@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1024" viewBox="0 0 1440 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Maquette d'un portrait de site — Usine à papier Abadie</title>
+  <desc id="desc">Portrait éditorial enrichi avec titre, thèse journalistique, grande image créditée, chronologie et carte de flux documentés.</desc>
+  <defs>
+    <pattern id="photoDots" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.3" fill="#FFFDF8" opacity="0.30"/>
+    </pattern>
+    <pattern id="paperGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#CBC4B8" stroke-width="0.55" opacity="0.45"/>
+    </pattern>
+    <style>
+      .sans { font-family: "IBM Plex Sans", Arial, sans-serif; }
+      .serif { font-family: "Newsreader", Georgia, serif; }
+      .mono { font-family: "IBM Plex Mono", Consolas, monospace; }
+      .ink { fill: #171A1C; }
+      .muted { fill: #5E6568; }
+      .oxide { fill: #9B3F2B; }
+      .smallcaps { font-size: 11px; font-weight: 650; letter-spacing: 1.5px; }
+    </style>
+  </defs>
+
+  <rect width="1440" height="1024" fill="#F3EFE6"/>
+  <rect width="1440" height="76" fill="#FFFDF8"/>
+  <line y1="76" x2="1440" y2="76" stroke="#CBC4B8"/>
+  <g class="sans ink">
+    <circle cx="38" cy="38" r="12" fill="#9B3F2B"/>
+    <circle cx="38" cy="38" r="4" fill="#FFFDF8"/>
+    <text x="62" y="44" font-size="15" font-weight="700" letter-spacing="0.7">L’ORNE INDUSTRIELLE</text>
+    <text x="755" y="44" font-size="14">Le récit</text>
+    <text x="833" y="44" font-size="14">Explorer</text>
+    <rect x="913" y="19" width="120" height="38" rx="19" fill="#171A1C"/>
+    <text x="933" y="44" fill="#FFFDF8" font-size="14" font-weight="650">Les portraits</text>
+    <text x="1063" y="44" font-size="14">Méthode</text>
+  </g>
+
+  <g transform="translate(64 106)">
+    <text class="sans oxide" x="0" y="16" font-size="13" font-weight="650">← Retour au chapitre « De l’Orne vers d’autres réseaux »</text>
+    <text class="mono muted smallcaps" x="0" y="62">PORTRAIT · LE THEIL · IA00061086</text>
+    <text class="serif ink" x="0" y="139" font-size="70" font-weight="650">L’usine à papier</text>
+    <text class="serif ink" x="0" y="206" font-size="70" font-weight="650">Abadie</text>
+    <path d="M2 231 H128" stroke="#9B3F2B" stroke-width="5"/>
+    <text class="sans ink" x="0" y="281" font-size="22" font-weight="550">Du moulin de Mâle aux marchés extérieurs,</text>
+    <text class="sans ink" x="0" y="312" font-size="22" font-weight="550">le papier relie un site ornais à un réseau plus vaste.</text>
+
+    <g transform="translate(0 355)" class="sans">
+      <rect width="134" height="34" rx="17" fill="#171A1C"/>
+      <text x="18" y="22" fill="#FFFDF8" font-size="12" font-weight="650">Bois · papier</text>
+      <rect x="146" width="142" height="34" rx="17" fill="#FFFDF8" stroke="#CBC4B8"/>
+      <text class="ink" x="163" y="22" font-size="12" font-weight="650">XIXe–XXe siècle</text>
+      <rect x="300" width="186" height="34" rx="17" fill="#FFFDF8" stroke="#74638F"/>
+      <text x="316" y="22" fill="#74638F" font-size="12" font-weight="650">Position approximative</text>
+    </g>
+
+    <g transform="translate(0 428)">
+      <text class="sans ink" x="0" y="21" font-size="17">Le dossier décrit une chaîne productive complète : préparation de la pâte,</text>
+      <text class="sans ink" x="0" y="49" font-size="17">fabrication, transport interne et expédition. Ce portrait ne généralise pas</text>
+      <text class="sans ink" x="0" y="77" font-size="17">ce fonctionnement aux 318 sites ; il documente un cas où les connexions sont</text>
+      <text class="sans ink" x="0" y="105" font-size="17">explicitement mentionnées par les sources.</text>
+    </g>
+  </g>
+
+  <g transform="translate(705 112)">
+    <rect width="671" height="440" rx="3" fill="#3B4042"/>
+    <rect width="671" height="440" fill="url(#photoDots)"/>
+    <path d="M0 348 H671 V440 H0 Z" fill="#202426"/>
+    <path d="M44 348 V201 H189 V348 M221 348 V129 H452 V348 M478 348 V235 H620 V348" fill="#747A7B"/>
+    <path d="M44 201 L116 159 L189 201 M221 129 L336 70 L452 129 M478 235 L549 193 L620 235" fill="#9BA0A1"/>
+    <path d="M385 104 V24 H409 V104 M422 113 V47 H439 V113" fill="#171A1C"/>
+    <path d="M389 25 C418 4 454 31 470 8" fill="none" stroke="#C8CCCD" stroke-width="10" opacity="0.42"/>
+    <rect x="22" y="20" width="258" height="30" rx="2" fill="#FFFDF8" opacity="0.93"/>
+    <text class="mono ink" x="35" y="40" font-size="10" font-weight="650">IMAGE DE TRAVAIL · MÉDIA À SÉLECTIONNER</text>
+    <text class="sans ink" x="0" y="468" font-size="13">Vue aérienne de situation prise du nord-ouest.</text>
+    <text class="sans muted" x="0" y="489" font-size="12">© Région Normandie — Inventaire général · IVR25_19886100649X · Voir la notice</text>
+  </g>
+
+  <g transform="translate(64 626)">
+    <line x1="0" y1="0" x2="1312" y2="0" stroke="#CBC4B8"/>
+    <text class="mono oxide smallcaps" x="0" y="36">UNE TRAJECTOIRE DOCUMENTÉE</text>
+    <text class="serif ink" x="0" y="83" font-size="37" font-weight="650">Produire, relier, exporter</text>
+
+    <g transform="translate(0 118)">
+      <line x1="6" y1="40" x2="742" y2="40" stroke="#171A1C" stroke-width="2"/>
+      <g class="sans">
+        <g transform="translate(6 0)">
+          <circle cy="40" r="8" fill="#9B3F2B" stroke="#F3EFE6" stroke-width="4"/>
+          <text class="mono oxide" x="-4" y="13" font-size="11">1</text>
+          <text class="ink" x="0" y="76" font-size="14" font-weight="700">Fondation et essor</text>
+          <text class="muted" x="0" y="98" font-size="12">Repères datés du dossier</text>
+        </g>
+        <g transform="translate(252 0)">
+          <circle cy="40" r="8" fill="#9B3F2B" stroke="#F3EFE6" stroke-width="4"/>
+          <text class="mono oxide" x="-4" y="13" font-size="11">2</text>
+          <text class="ink" x="0" y="76" font-size="14" font-weight="700">Voie étroite vers Mâle</text>
+          <text class="muted" x="0" y="98" font-size="12">Relation locale documentée</text>
+        </g>
+        <g transform="translate(500 0)">
+          <circle cy="40" r="8" fill="#9B3F2B" stroke="#F3EFE6" stroke-width="4"/>
+          <text class="mono oxide" x="-4" y="13" font-size="11">3</text>
+          <text class="ink" x="0" y="76" font-size="14" font-weight="700">Marchés extérieurs</text>
+          <text class="muted" x="0" y="98" font-size="12">Exportations citées par la source</text>
+        </g>
+        <g transform="translate(742 0)">
+          <circle cy="40" r="8" fill="#74638F" stroke="#F3EFE6" stroke-width="4"/>
+          <text class="mono" x="-4" y="13" font-size="11" fill="#74638F">4</text>
+          <text class="ink" x="-32" y="76" font-size="14" font-weight="700">Aujourd’hui</text>
+          <text x="-32" y="98" font-size="12" fill="#74638F">État à documenter</text>
+        </g>
+      </g>
+    </g>
+
+    <g transform="translate(824 92)">
+      <rect width="488" height="242" rx="3" fill="#FFFDF8"/>
+      <rect width="488" height="242" fill="url(#paperGrid)"/>
+      <text class="mono muted smallcaps" x="22" y="29">FLUX MENTIONNÉS DANS LE DOSSIER</text>
+      <path d="M135 135 C213 78 277 74 360 124" fill="none" stroke="#9B3F2B" stroke-width="3"/>
+      <path d="M353 116 L366 126 L351 132" fill="none" stroke="#9B3F2B" stroke-width="3"/>
+      <path d="M135 139 C204 178 269 187 382 166" fill="none" stroke="#A66E16" stroke-width="2.5"/>
+      <path d="M373 158 L386 165 L375 174" fill="none" stroke="#A66E16" stroke-width="2.5"/>
+      <circle cx="132" cy="137" r="16" fill="#9B3F2B" stroke="#FFFDF8" stroke-width="4"/>
+      <circle cx="365" cy="126" r="10" fill="#171A1C"/>
+      <circle cx="384" cy="166" r="10" fill="#171A1C"/>
+      <text class="sans ink" x="91" y="177" font-size="13" font-weight="700">Le Theil</text>
+      <text class="sans ink" x="338" y="106" font-size="12" font-weight="650">Mâle</text>
+      <text class="sans ink" x="341" y="198" font-size="12" font-weight="650">Marchés extérieurs</text>
+      <text class="sans muted" x="22" y="222" font-size="11">Traits continus : relations historiques sourcées, non flux calculés.</text>
+    </g>
+  </g>
+
+  <g transform="translate(64 972)" class="sans">
+    <text class="oxide" x="0" y="16" font-size="13" font-weight="650">Voir ce site dans l’exploration →</text>
+    <text class="muted" x="1063" y="16" font-size="12">Sources · Crédits · Limites</text>
+    <text class="oxide" x="1286" y="16" font-size="16">＋</text>
+  </g>
+</svg>

@@ -193,6 +193,22 @@ Types initiaux :
 - `depend_de` : le site source dépend fonctionnellement du site cible ;
 - `partage_infrastructure_avec` : relation symétrique documentée.
 
+Type ajouté le 29 juillet 2026, à l'ouverture de la phase 10 :
+
+- `approvisionne` : le site source fournit une matière au site cible.
+
+Les cinq types initiaux décrivent des relations de **structure** — appartenance,
+succession, dépendance. Aucun ne représentait un **flux de production**, c'est-à-dire
+le fait qu'un haut fourneau envoie sa fonte à une forge voisine. Or l'extraction
+des textes de notices a montré que ce lien est le plus fréquemment attesté du
+corpus. Le ranger sous `depend_de` aurait confondu deux réalités distinctes :
+une cité ouvrière dépend de sa mine, une forge achète de la fonte à son voisin.
+
+La relation `approvisionne` est toujours orientée du fournisseur vers le
+destinataire, quelle que soit la formulation de la source. « Alimentait la forge
+de la Roche » et « alimentée en fer par la forge du Champ-de-la-Pierre »
+produisent donc des lignes de même sens.
+
 Chaque relation possède une direction, sauf les types explicitement
 symétriques. Une relation ne peut pas relier un site à lui-même. Une relation
 fonctionnelle incertaine peut rester au statut `a_verifier`, mais une hypothèse

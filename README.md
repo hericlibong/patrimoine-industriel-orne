@@ -1,44 +1,46 @@
 # Patrimoine industriel de l'Orne
 
-Projet datajournalistique destiné à montrer comment l'industrie a façonné le
-territoire de l'Orne et ce qu'il en reste aujourd'hui.
+Projet datajournalistique consacré à **318 sites industriels documentés dans
+l'Orne**. Le corpus validé alimente désormais une application web de
+visualisation interactive : une carte, des filtres, une recherche et des vues
+de systèmes et de sites que le lecteur explore librement.
 
-La première étape ne consiste pas à développer l'application publique. Elle
-consiste à construire un socle de données vérifiable, documenté et
-reproductible.
+Le titre de travail de la publication est **« Voyage dans l'Orne
+industrielle »**. Il reste provisoire.
 
 ## État du projet
 
-**Phases 0 à 8 terminées — corpus complet V1 validé.**
+**Phases 0 à 9 terminées. Phase 10 en cours : architecture validée, prochaine
+étape — vue fonctionnelle de référence.**
 
-Le socle pilote V1 est approuvé. Il comprend 30 sites et 47 phases d'activité
-avec des périodes filtrables, disponibles en DuckDB, CSV, Parquet et GeoJSON.
-Les 319 références officielles ont été récupérées, harmonisées, enrichies et
-validées. Elles correspondent à **318 sites canoniques** et 403 activités
-structurées. Le seul
-dossier hors décompte est la synthèse sans emprise `IA61001399` ; ses quinze
-fromageries individuelles sont déjà présentes. Les 7 rapprochements possibles
-ont été rejetés comme sites distincts et les 318 sites possèdent un UUID stable.
-Les 318 sites sont cartographiables avec un niveau de précision explicite. Le
+Les 319 références officielles récupérées correspondent à **318 sites
+canoniques** et **403 activités structurées**. Les sites sont cartographiables
+avec un niveau de précision explicite et disposent d'identifiants stables. Le
 corpus complet est disponible en JSON, DuckDB, CSV, Parquet et GeoJSON.
+
+La matière éditoriale comprend notamment 314 textes historiques, 2 360
+événements datés sur 314 sites, les relations sourcées entre sites et
+l'inventaire de 1 888 médias distincts avec leurs statuts de droits. Une
+information inconnue n'est jamais complétée par déduction.
+
+Les **douze systèmes industriels** déjà lus forment le cœur éditorial et
+rassemblent 172 sites. Les 146 autres sites restent tous visibles et
+consultables. Parmi eux, 74 pourront faire l'objet de lectures complémentaires
+ultérieures au sein de 18 petits ensembles.
+
+L'application s'ouvrira directement sur la carte départementale, sans parcours
+imposé. Les décisions d'architecture sont arrêtées ; la direction artistique
+interviendra après validation d'une vue fonctionnelle sur contenu réel.
 
 Le suivi détaillé est maintenu localement dans `docs/roadmap.md`, qui n'est pas
 versionné.
 
-La phase 9 est en cours. La matière historique des 318 sites est désormais
-disponible dans `recits_sites_v1.csv`, `recits_sites_v1.parquet` et dans la
-table `recits_sites` de la base DuckDB du corpus complet.
-
-Les métadonnées de 1 900 relations média-site sont disponibles dans
-`medias_sites_v1.csv`, `medias_sites_v1.parquet` et dans la table `medias`.
-Elles sont qualifiées pour un usage interne ou privé ; aucune image n'est
-publiée automatiquement. Le registre de suivi contient 1 888 médias distincts.
-
-La table `revue_editoriale_sites` prépare la sélection humaine : elle mesure la
-matière historique et iconographique, sans imposer de récit ni valider d'image.
-
 ## Documents de référence
 
+- [Cadrage de référence de l'application](docs/phase10_cadrage_v2_application.md)
+- [Architecture validée de l'application](docs/phase10_architecture.md)
+- [Ce que les douze systèmes permettent d'établir](docs/phase10_demonstration.md)
+- [Recommandation actualisée pour l'application](docs/recommandation_application.md)
 - [Cadrage](docs/cadrage.md)
 - [Pistes éditoriales et datavisualisation](docs/pistes_editoriales.md)
 - [Méthodologie](docs/methodologie.md)
@@ -46,12 +48,12 @@ matière historique et iconographique, sans imposer de récit ni valider d'image
 - [Dictionnaire des données](docs/dictionnaire_donnees.md)
 - [Modèle éditorial des textes et médias](docs/modele_editorial.md)
 - [Registre consolidé des sources](docs/registre_sources.md)
+- [Revue de presse et ressources éditoriales externes](docs/revue_de_presse.md)
 - [Limites éditoriales](docs/limites_editoriales.md)
 - [Licences des données et droits des images](docs/licences_droits_images.md)
 - [Estimation de charge du corpus complet](docs/estimation_charge_corpus_complet.md)
 - [Constitution du corpus en phase 8](docs/phase8_constitution_corpus.md)
 - [Récits soutenus par les données](docs/recits_soutenus_donnees.md)
-- [Recommandation pour l'application](docs/recommandation_application.md)
 - [Modèle des entités principales](docs/modele_donnees.md)
 - [Règles du modèle](docs/regles_modele.md)
 - [Journal des décisions](docs/journal_decisions.md)
@@ -158,6 +160,27 @@ python -m patrimoine_orne.export.validate_narratif_visuel_v1
 Cette commande compare corpus, récits, médias et revue éditoriale. Elle échoue
 si un texte source est perdu, si un média manque de provenance ou si les
 identifiants des 318 sites divergent.
+
+## Produire la chronologie des sites
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m patrimoine_orne.export.chronologie_v1
+```
+
+Cette commande extrait et verse les événements datés dans `chronologie_sites`,
+produit les exports CSV et Parquet et conserve la formulation source. Une date
+imprécise reste imprécise et une période documentée n'est pas assimilée à une
+activité continue.
+
+## Régénérer la première vue de la Risle
+
+```powershell
+python tools/generer_ecran_risle.py
+```
+
+Cette vue autonome a servi à valider le principe général de l'application. Elle
+reste une référence fonctionnelle, pas une direction artistique définitive.
 
 ## Produire le socle pilote V1
 

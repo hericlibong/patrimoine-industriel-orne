@@ -1,0 +1,22 @@
+{
+  "checks_passed": true,
+  "controles": {
+    "aucune_date_sans_borne": true,
+    "table_concordante_avec_le_csv": true,
+    "texte_source_toujours_conserve": true,
+    "tous_les_evenements_ont_un_site": true
+  },
+  "counts": {
+    "evenements": 2360,
+    "evenements_a_verifier": 45,
+    "evenements_ecartes_par_revue": 11,
+    "evenements_rattaches_a_une_activite": 481,
+    "evenements_sans_type": 209,
+    "lignes_en_base": 2360,
+    "notices_lues": 314,
+    "sites_concernes": 314
+  },
+  "date_production": "2026-08-05",
+  "regles": "Les dates imprécises restent des intervalles. Le milieu d'un intervalle n'est jamais une date réelle. Une borne ouverte reste nulle. La formulation d'origine est toujours conservée.",
+  "schema_version": "1.0"
+}

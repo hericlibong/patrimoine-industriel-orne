@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1024" viewBox="0 0 1440 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Nouvelle maquette de portrait — l'usine Abadie dans son paysage</title>
+  <desc id="desc">La vue aérienne réelle de l'usine Abadie est annotée pour montrer ensemble l'usine, le bourg, la rivière et les champs. Le récit et la chronologie prolongent cette preuve visuelle.</desc>
+  <defs>
+    <linearGradient id="leftshade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#10251F" stop-opacity="0.96"/>
+      <stop offset="0.46" stop-color="#10251F" stop-opacity="0.65"/>
+      <stop offset="0.74" stop-color="#10251F" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#10251F" stop-opacity="0"/>
+    </linearGradient>
+    <style>
+      .sans { font-family: Inter, Arial, sans-serif; }
+      .serif { font-family: "Source Serif 4", Georgia, serif; }
+    </style>
+  </defs>
+
+  <rect width="1440" height="1024" fill="#FCFAF5"/>
+  <rect width="1440" height="74" fill="#173F35"/>
+  <g class="sans" fill="#FCFAF5">
+    <text x="42" y="46" font-size="15" font-weight="800">L’AUTRE ORNE</text>
+    <text x="709" y="46" font-size="14" font-weight="650">Le récit</text>
+    <text x="786" y="46" font-size="14" font-weight="650">Explorer</text>
+    <rect x="872" y="18" width="105" height="38" rx="19" fill="#C94333"/>
+    <text x="893" y="43" font-size="14" font-weight="750">Les lieux</text>
+    <text x="1006" y="46" font-size="14" font-weight="650">Méthode</text>
+  </g>
+
+  <g transform="translate(0 74)">
+    <image href="reference_abadie_vue_aerienne.jpg" x="0" y="0" width="1440" height="635" preserveAspectRatio="xMidYMid slice"/>
+    <rect width="1440" height="635" fill="url(#leftshade)"/>
+
+    <g transform="translate(62 71)">
+      <text class="sans" x="0" y="0" fill="#FFD166" font-size="12" font-weight="850" letter-spacing="1.8">PORTRAIT · CHAPITRE 4 · DES RÉSEAUX PLUS VASTES</text>
+      <text class="serif" x="0" y="80" fill="#FCFAF5" font-size="64" font-weight="650">Une usine</text>
+      <text class="serif" x="0" y="143" fill="#FCFAF5" font-size="64" font-weight="650">dans le paysage</text>
+      <text class="sans" x="4" y="194" fill="#FCFAF5" font-size="20" font-weight="750">L’usine à papier Abadie · Le Theil</text>
+      <line x1="4" y1="224" x2="70" y2="224" stroke="#F05A47" stroke-width="7"/>
+      <text class="serif" x="0" y="279" fill="#FCFAF5" font-size="27" font-style="italic">La photographie ne montre pas une enclave.</text>
+      <text class="serif" x="0" y="314" fill="#FCFAF5" font-size="27" font-style="italic">Elle montre une usine, un bourg, des champs</text>
+      <text class="serif" x="0" y="349" fill="#FCFAF5" font-size="27" font-style="italic">et un cours d’eau dans le même cadre.</text>
+      <text class="sans" x="0" y="405" fill="#FCFAF5" fill-opacity="0.88" font-size="15">Cette relation visuelle ouvre l’enquête ; les sources</text>
+      <text class="sans" x="0" y="429" fill="#FCFAF5" fill-opacity="0.88" font-size="15">documentent ensuite production, transport et exportation.</text>
+      <text class="sans" x="0" y="486" fill="#FCFAF5" font-size="14" font-weight="750">Lire le portrait ↓</text>
+    </g>
+
+    <g class="sans" font-size="12" font-weight="800">
+      <circle cx="865" cy="427" r="7" fill="#F05A47" stroke="#FCFAF5" stroke-width="3"/>
+      <path d="M865 427 L965 368" stroke="#F05A47" stroke-width="2"/>
+      <rect x="959" y="339" width="86" height="31" rx="15" fill="#C94333"/>
+      <text x="978" y="359" fill="#FCFAF5">L’usine</text>
+
+      <circle cx="521" cy="480" r="7" fill="#FFD166" stroke="#FCFAF5" stroke-width="3"/>
+      <path d="M521 480 L618 527" stroke="#FFD166" stroke-width="2"/>
+      <rect x="612" y="515" width="82" height="31" rx="15" fill="#FFD166"/>
+      <text x="634" y="535" fill="#17211D">Le bourg</text>
+
+      <circle cx="692" cy="232" r="7" fill="#2F6F8F" stroke="#FCFAF5" stroke-width="3"/>
+      <path d="M692 232 L799 177" stroke="#2F6F8F" stroke-width="2"/>
+      <rect x="793" y="148" width="91" height="31" rx="15" fill="#2F6F8F"/>
+      <text x="813" y="168" fill="#FCFAF5">La rivière</text>
+
+      <circle cx="1097" cy="155" r="7" fill="#DDE9DF" stroke="#173F35" stroke-width="3"/>
+      <path d="M1097 155 L1198 108" stroke="#FCFAF5" stroke-width="2"/>
+      <rect x="1192" y="79" width="99" height="31" rx="15" fill="#FCFAF5"/>
+      <text x="1214" y="99" fill="#173F35">Les champs</text>
+    </g>
+
+    <rect x="0" y="594" width="1440" height="41" fill="#10251F" fill-opacity="0.82"/>
+    <text class="sans" x="62" y="619" fill="#FCFAF5" font-size="11">Vue aérienne de situation prise du nord-ouest · © Région Normandie — Inventaire général · IVR25_19886100649X</text>
+    <text class="sans" x="1267" y="619" fill="#FCFAF5" font-size="11" font-weight="700">Voir l’image entière</text>
+  </g>
+
+  <g transform="translate(62 754)">
+    <text class="sans" x="0" y="0" fill="#C94333" font-size="11" font-weight="850" letter-spacing="1.7">CE QUE LE DOSSIER PERMET D’ÉTABLIR</text>
+    <text class="serif" x="0" y="50" fill="#17211D" font-size="38" font-weight="650">Du papier produit ici, relié à d’autres territoires</text>
+    <text class="sans" x="0" y="88" fill="#475B54" font-size="15">Le dossier mentionne la voie étroite vers le moulin de Mâle, les ateliers,</text>
+    <text class="sans" x="0" y="112" fill="#475B54" font-size="15">les logements ouvriers et des marchés extérieurs. Ces relations concernent</text>
+    <text class="sans" x="0" y="136" fill="#475B54" font-size="15">ce cas documenté ; elles ne sont pas généralisées à l’ensemble du corpus.</text>
+  </g>
+
+  <g transform="translate(817 755)">
+    <text class="sans" x="0" y="0" fill="#173F35" font-size="11" font-weight="850" letter-spacing="1.7">TRAJECTOIRE DU LIEU</text>
+    <line x1="9" y1="56" x2="500" y2="56" stroke="#93AA9C" stroke-width="3"/>
+    <circle cx="9" cy="56" r="9" fill="#2F6F8F"/>
+    <circle cx="253" cy="56" r="9" fill="#F05A47"/>
+    <circle cx="500" cy="56" r="9" fill="#755A91"/>
+    <g class="sans">
+      <text x="0" y="92" fill="#17211D" font-size="13" font-weight="800">Production</text>
+      <text x="222" y="92" fill="#17211D" font-size="13" font-weight="800">Réseaux</text>
+      <text x="445" y="92" fill="#17211D" font-size="13" font-weight="800">Aujourd’hui</text>
+      <text x="0" y="114" fill="#475B54" font-size="11">papier et ateliers</text>
+      <text x="222" y="114" fill="#475B54" font-size="11">transport et marchés</text>
+      <text x="445" y="114" fill="#755A91" font-size="11">état à documenter</text>
+    </g>
+    <rect x="0" y="152" width="230" height="48" rx="24" fill="#C94333"/>
+    <text class="sans" x="27" y="182" fill="#FCFAF5" font-size="13" font-weight="800">Continuer vers les flux →</text>
+    <text class="sans" x="265" y="182" fill="#173F35" font-size="13" font-weight="750">Sources et limites ＋</text>
+  </g>
+</svg>

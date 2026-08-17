@@ -144,3 +144,30 @@ Les 1 900 relations média-site sont toutes sourcées, mais aucune image ne peut
 un crédit exploitable pour le prototype privé ; les 117 autres restent des
 références internes à compléter. Les candidats d'image principale sont des
 repères de revue, non des choix éditoriaux ou juridiques.
+
+## Ce que le corpus ne peut pas contenir : les productions sans usine
+
+Constat établi le 10 août 2026 à propos de la dentelle d'Alençon.
+
+La production la plus célèbre du chef-lieu est absente du corpus : aucun des
+318 sites, aucune des 403 activités et aucun des 314 historiques ne la
+mentionne. Dans les sources brutes de l'Orne, la dentelle n'apparaît que dans
+des édifices religieux, des manoirs et **un objet inventorié** — « pièce de
+dentelle, aiguillier, dé à coudre, ciseaux ».
+
+La dentelle d'Alençon existe dans le patrimoine comme objet, pas comme lieu.
+
+L'explication tient à la nature du corpus et reste à confirmer auprès de
+l'Inventaire : le point d'Alençon est une dentelle à l'aiguille, faite à la
+main, à domicile ou en petit atelier. Sans bâtiment de production, sans machine
+et sans force motrice, elle n'entre pas dans le champ d'une enquête sur le
+patrimoine industriel.
+
+**Portée générale.** Le corpus documente des usines. Tout ce qui s'est fabriqué
+sans usine — artisanat organisé, travail à domicile, ateliers familiaux — en est
+absent par construction, non par oubli. Cette absence n'est donc pas une lacune
+à combler mais une **définition du périmètre**, et elle doit être écrite dans la
+publication.
+
+Un lecteur qui connaît son territoire repérera immédiatement ce qui manque. Le
+projet doit lui répondre avant qu'il pose la question.

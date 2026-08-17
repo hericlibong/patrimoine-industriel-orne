@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La vallée du fil — patrimoine industriel de l'Orne</title>
+<style>
+  :root{
+    --papier:#f4f1ea; --encre:#1c1a17; --gris:#6f6a61; --trait:#c9c2b4;
+    --eau:#3f7c9c; --metal:#1c1a17; --autre:#a49b8c; --signal:#c2410c;
+    --plaque:#faf8f4;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--papier);color:var(--encre);
+       font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+       font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .bandeau{padding:18px 28px 12px;border-bottom:1px solid var(--trait);
+           display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+  .bandeau h1{margin:0;font-family:Georgia,"Times New Roman",serif;
+              font-size:26px;font-weight:600;letter-spacing:-.2px}
+  .bandeau .lieu{color:var(--gris);font-size:13px;letter-spacing:.08em;
+                 text-transform:uppercase}
+  main{display:grid;grid-template-columns:300px minmax(0,1fr);gap:26px;
+       padding:22px 28px 36px;max-width:1330px;margin:0 auto;align-items:start}
+  .colonne p{margin:0 0 14px}
+  .these{font-family:Georgia,serif;font-size:18px;line-height:1.45}
+  .these b{font-weight:600;box-shadow:inset 0 -.42em 0 rgba(194,65,12,.16)}
+  .amorces{margin:22px 0 0;padding:0;list-style:none}
+  .amorces li{margin:0 0 8px}
+  .amorces button{width:100%;text-align:left;cursor:pointer;font:inherit;
+    background:transparent;border:1px solid var(--trait);border-radius:2px;
+    padding:9px 12px;color:var(--encre);line-height:1.35;transition:.15s}
+  .amorces button:hover{border-color:var(--encre);background:var(--plaque)}
+  .amorces button[aria-pressed=true]{border-color:var(--signal);
+    background:#fff;box-shadow:inset 3px 0 0 var(--signal)}
+  .note{font-size:12.5px;color:var(--gris);margin-top:20px;
+        padding-top:14px;border-top:1px solid var(--trait)}
+  /* la carte est un objet posé, encadré, jamais un fond d'écran */
+  .plaque{border:1px solid var(--trait);background:var(--plaque);
+          box-shadow:0 1px 0 rgba(0,0,0,.03)}
+  .plaque header{display:flex;justify-content:space-between;align-items:baseline;
+    gap:16px;padding:11px 16px;border-bottom:1px solid var(--trait);flex-wrap:wrap}
+  .plaque header h2{margin:0;font-size:13px;letter-spacing:.09em;
+                    text-transform:uppercase;font-weight:600}
+  .plaque header .compte{font-size:13px;color:var(--gris);
+                         font-variant-numeric:tabular-nums}
+  .carte{position:relative;padding:8px}
+  svg{display:block;width:100%;height:auto;transition:none}
+  #carte{transition:none}
+  .site{cursor:pointer}
+  .site circle{transition:opacity .25s,fill .25s,r .2s}
+  .eteint{opacity:.13}
+  .legende{display:flex;gap:22px;align-items:center;flex-wrap:wrap;white-space:nowrap;
+    padding:9px 16px;border-top:1px solid var(--trait);
+    font-size:12px;color:var(--gris)}
+  .legende span{display:inline-flex;align-items:center;gap:6px}
+  .legende i{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .source{margin-left:auto;font-size:11.5px}
+  .reglette{margin-top:14px;border:1px solid var(--trait);background:var(--plaque);
+            padding:13px 16px}
+  .reglette .haut{display:flex;justify-content:space-between;align-items:baseline;
+                  margin-bottom:7px}
+  .reglette .annee{font-family:Georgia,serif;font-size:25px;font-weight:600;
+                   font-variant-numeric:tabular-nums}
+  .reglette .actives{font-size:13px;color:var(--gris)}
+  .reglette .actives b{color:var(--signal);font-variant-numeric:tabular-nums}
+  input[type=range]{width:100%;accent-color:var(--signal);margin:0}
+  .bornes{display:flex;justify-content:space-between;font-size:11.5px;
+          color:var(--gris);margin-top:3px;font-variant-numeric:tabular-nums}
+  .avertissement{font-size:11.5px;color:var(--gris);margin:9px 0 0;line-height:1.4;
+                 padding-top:8px;border-top:1px solid var(--trait)}
+  /* annotation posée sur la carte, à côté de la forme qu'elle décrit */
+  .annotation{position:absolute;max-width:270px;background:rgba(250,248,244,.96);
+    border-left:3px solid var(--signal);padding:9px 12px;font-size:13.5px;
+    line-height:1.4;pointer-events:none;opacity:0;transition:opacity .3s}
+  .annotation.vue{opacity:1}
+  .annotation b{font-weight:600}
+  .fiche{margin-top:14px;border:1px solid var(--trait);background:#fff;
+         padding:0;display:none}
+  .fiche.ouverte{display:block}
+  .fiche .tete{display:flex;justify-content:space-between;align-items:flex-start;
+    gap:16px;padding:14px 18px 10px;border-bottom:1px solid var(--trait)}
+  .fiche h3{margin:0 0 3px;font-family:Georgia,serif;font-size:19px;font-weight:600}
+  .fiche .ou{font-size:13px;color:var(--gris)}
+  .fiche .fermer{background:none;border:0;font-size:20px;cursor:pointer;
+                 color:var(--gris);line-height:1;padding:0 2px}
+  .fiche .corps{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:26px;
+                padding:16px 18px 18px}
+  .frise{margin:0;padding:0;list-style:none;font-size:13.5px}
+  .frise li{display:grid;grid-template-columns:96px 1fr;gap:12px;
+            padding:3px 0;border-bottom:1px dotted var(--trait)}
+  .frise li:last-child{border-bottom:0}
+  .frise .quand{color:var(--signal);font-variant-numeric:tabular-nums;
+                white-space:nowrap}
+  .fiche .apropos{font-size:13px;color:var(--gris)}
+  .fiche .apropos h4{margin:0 0 5px;font-size:11.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--encre)}
+  .fiche .apropos p{margin:0 0 12px}
+  .fiche .inconnu{color:#7c3aed}
+  .fiche a{color:var(--signal)}
+  @media (max-width:1100px){
+    main{grid-template-columns:1fr;gap:22px;padding:18px}
+    .fiche .corps{grid-template-columns:1fr;gap:16px}
+  }
+</style>
+</head>
+<body>
+
+<div class="bandeau">
+  <h1>La vallée du fil</h1>
+  <span class="lieu">Risle · Orne · 43 usines documentées</span>
+</div>
+
+<main>
+  <div class="colonne">
+    <p class="these">Sur vingt-cinq kilomètres de rivière, on a fabriqué pendant
+    cinq siècles <b>des épingles, des aiguilles et des clous</b>.</p>
+    <p>Les usines ne se sont pas installées là par hasard : seize d'entre elles
+    ont pris la place d'un moulin qui tournait déjà.</p>
+
+    <ul class="amorces">
+      <li><button data-vue="eau" aria-pressed="false">Pourquoi toutes au bord de l'eau&nbsp;?</button></li>
+      <li><button data-vue="metier" aria-pressed="false">Qu'est-ce qu'on fabriquait ici&nbsp;?</button></li>
+      <li><button data-vue="chaine" aria-pressed="false">Comment le fer descendait la vallée</button></li>
+    </ul>
+
+    <p class="note">Cliquez sur un point pour ouvrir l'histoire d'une usine.
+    Faites glisser la réglette pour voir la vallée se remplir, puis se vider — elle montre ce qui est documenté, pas ce qui tournait.</p>
+  </div>
+
+  <div>
+    <div class="plaque">
+      <header>
+        <h2 id="titreVue">La vallée de la Risle</h2>
+        <span class="compte" id="compte">43 usines</span>
+      </header>
+      <div class="carte">
+        <svg id="carte" viewBox="0 0 1000 430" role="img"
+             aria-label="Carte de la vallée de la Risle et de ses usines"></svg>
+        <div class="annotation" id="annotation"></div>
+      </div>
+      <div class="legende">
+        <span><i style="background:var(--metal)"></i>travail du métal</span>
+        <span><i style="background:var(--autre)"></i>autre production</span>
+        <span><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4"
+          stroke="var(--eau)" stroke-width="2"/></svg>cours d'eau</span>
+        <span class="source">Inventaire du patrimoine · IGN BD Topo ·
+          les points situent les sites approximativement</span>
+      </div>
+    </div>
+
+    <div class="reglette">
+      <div class="haut">
+        <span class="annee" id="annee">1900</span>
+        <span class="actives"><b id="actives">0</b> sites dont la période documentée couvre cette année</span>
+      </div>
+      <input type="range" id="curseur" min="1300" max="1990" value="1900" step="1"
+             aria-label="Année observée">
+      <div class="bornes"><span>1300</span><span>1990</span></div>
+      <p class="avertissement">Une période documentée n'est pas une preuve
+      d'activité continue. La date de départ est souvent une première mention :
+      un moulin attesté en 1809 existait avant.</p>
+    </div>
+
+    <div class="fiche" id="fiche">
+      <div class="tete">
+        <div>
+          <h3 id="ficheNom"></h3>
+          <div class="ou" id="ficheOu"></div>
+        </div>
+        <button class="fermer" id="ficheFermer" aria-label="Fermer">×</button>
+      </div>
+      <div class="corps">
+        <ul class="frise" id="ficheFrise"></ul>
+        <div class="apropos" id="ficheApropos"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+const D = __DONNEES__;
+
+/* ---------- projection ---------- */
+const lons = D.sites.map(s => s.lon), lats = D.sites.map(s => s.lat);
+const M = 0.012;
+const bb = {x0:Math.min(...lons)-M, x1:Math.max(...lons)+M,
+            y0:Math.min(...lats)-M, y1:Math.max(...lats)+M};
+const W = 1000, H = 430, pad = 22;
+const kx = Math.cos((bb.y0+bb.y1)/2 * Math.PI/180);
+const larg = (bb.x1-bb.x0)*kx, haut = bb.y1-bb.y0;
+const ech = Math.min((W-2*pad)/larg, (H-2*pad)/haut);
+const dx = (W - larg*ech)/2, dy = (H - haut*ech)/2;
+const px = lon => dx + (lon-bb.x0)*kx*ech;
+const py = lat => dy + (bb.y1-lat)*ech;
+
+/* ---------- durée de vie d'un site, depuis sa chronologie ---------- */
+const an = d => d ? parseInt(d.slice(0,4),10) : null;
+const duree = {};
+for (const s of D.sites) {
+  const evs = D.chronologie[s.ref] || [];
+  const debuts = evs.filter(e => ['creation','attestation'].includes(e.type))
+                    .map(e => an(e.min)).filter(Boolean);
+  const fins = evs.filter(e => e.type === 'cessation')
+                  .map(e => an(e.max) || an(e.min)).filter(Boolean);
+  const tous = evs.map(e => an(e.min) || an(e.max)).filter(Boolean);
+  if (!tous.length) continue;
+  duree[s.ref] = {debut: debuts.length ? Math.min(...debuts) : Math.min(...tous),
+                  fin: fins.length ? Math.max(...fins) : null};
+}
+
+const estMetal = s => s.secteurs.some(c => c.includes('metallurgie'));
+const SVG = 'http://www.w3.org/2000/svg';
+const el = (n,a) => { const e = document.createElementNS(SVG,n);
+  for (const k in a) e.setAttribute(k,a[k]); return e; };
+
+/* ---------- dessin ---------- */
+const carte = document.getElementById('carte');
+const defs = el('defs',{});
+const fleche = el('marker',{id:'fleche', viewBox:'0 0 10 10', refX:'9', refY:'5',
+  markerWidth:'5', markerHeight:'5', orient:'auto-start-reverse'});
+fleche.append(el('path',{d:'M0 0 L10 5 L0 10 z', fill:'var(--signal)'}));
+defs.append(fleche);
+const gEau = el('g',{}), gLiens = el('g',{}), gSites = el('g',{});
+carte.append(defs, gEau, gLiens, gSites);
+
+for (const t of D.riviere) {
+  const d = t.map((p,i) => (i?'L':'M') + px(p[0]).toFixed(1) + ' ' + py(p[1]).toFixed(1)).join(' ');
+  gEau.append(el('path',{d, fill:'none', stroke:'var(--eau)',
+    'stroke-width':1.1, 'stroke-opacity':.5, 'stroke-linecap':'round'}));
+}
+
+const parRef = Object.fromEntries(D.sites.map(s => [s.ref, s]));
+for (const l of D.liens) {
+  const a = parRef[l.de], b = parRef[l.vers];
+  if (!a || !b) continue;
+  const x1=px(a.lon), y1=py(a.lat), x2=px(b.lon), y2=py(b.lat);
+  const mx=(x1+x2)/2, my=(y1+y2)/2, ox=-(y2-y1)*.18, oy=(x2-x1)*.18;
+  gLiens.append(el('path',{d:`M${x1} ${y1} Q${mx+ox} ${my+oy} ${x2} ${y2}`,
+    fill:'none', stroke:'var(--signal)', 'stroke-width':2.2,
+    opacity:0, class:'lien', 'marker-end':'url(#fleche)'}));
+}
+
+const noeuds = {};
+for (const s of D.sites) {
+  const g = el('g',{class:'site', tabindex:'0', role:'button'});
+  const titre = el('title',{});
+  titre.textContent = `${s.nom} — ${s.commune}`;
+  g.append(titre);
+  const c = el('circle',{cx:px(s.lon), cy:py(s.lat),
+    r: s.nbActivites > 1 ? 6 : 4.4,
+    fill: estMetal(s) ? 'var(--metal)' : 'var(--autre)',
+    stroke:'var(--plaque)', 'stroke-width':1.2});
+  g.append(c);
+  g.addEventListener('click', () => ouvrir(s.ref));
+  g.addEventListener('keydown', e => { if (e.key==='Enter') ouvrir(s.ref); });
+  gSites.append(g); noeuds[s.ref] = {g, c, s};
+}
+
+/* ---------- états ---------- */
+const annot = document.getElementById('annotation');
+let vue = null;
+let cadre = {x:0, y:0, w:W, h:H};
+
+/* La carte ne se contente pas d'atténuer : elle se rapproche de ce qu'elle
+   montre. Sans cela, mettre en évidence quelques points sur une vue large ne
+   se remarque pas. */
+function cadrer(sites) {
+  if (!sites.length) { cadre = {x:0, y:0, w:W, h:H}; }
+  else {
+    const xs = sites.map(s => px(s.lon)), ys = sites.map(s => py(s.lat));
+    const m = 70;
+    let x0 = Math.min(...xs)-m, x1 = Math.max(...xs)+m;
+    let y0 = Math.min(...ys)-m, y1 = Math.max(...ys)+m;
+    const ratio = W/H;
+    let w = x1-x0, h = y1-y0;
+    if (w/h < ratio) { const nw = h*ratio; x0 -= (nw-w)/2; w = nw; }
+    else { const nh = w/ratio; y0 -= (nh-h)/2; h = nh; }
+    cadre = {x:x0, y:y0, w, h};
+  }
+  carte.setAttribute('viewBox', `${cadre.x} ${cadre.y} ${cadre.w} ${cadre.h}`);
+  const k = W/cadre.w;
+  gEau.setAttribute('stroke-width', 1/k);
+  document.querySelectorAll('.lien').forEach(p =>
+    p.setAttribute('stroke-width', 2.2/k));
+  for (const ref in noeuds) noeuds[ref].k = k;
+}
+
+function poserAnnotation(html, lon, lat) {
+  annot.innerHTML = html;
+  const r = carte.getBoundingClientRect();
+  const sx = (px(lon)-cadre.x)/cadre.w*r.width;
+  const sy = (py(lat)-cadre.y)/cadre.h*r.height;
+  annot.style.left = Math.max(6, Math.min(sx + 16, r.width-292)) + 'px';
+  annot.style.top  = Math.max(6, Math.min(sy - 58, r.height-110)) + 'px';
+  annot.classList.add('vue');
+}
+
+function appliquer() {
+  const annee = +curseur.value;
+  document.getElementById('annee').textContent = annee;
+  let actives = 0;
+  for (const ref in noeuds) {
+    const {g, c, s} = noeuds[ref];
+    const d = duree[ref];
+    const vivant = d && d.debut <= annee && (d.fin === null || annee <= d.fin);
+    if (vivant) actives++;
+    let visible = vivant;
+    if (vue === 'eau') visible = vivant && s.eau !== null && s.eau < 100;
+    if (vue === 'metier') visible = vivant && estMetal(s);
+    if (vue === 'chaine') visible = vivant && D.liens.some(l => l.de===ref || l.vers===ref);
+    g.classList.toggle('eteint', !visible);
+    const k = W/cadre.w;
+    c.setAttribute('r', (visible && s.nbActivites > 1 ? 6 : 4.4)/Math.sqrt(k));
+  }
+  document.getElementById('actives').textContent = actives;
+  const montres = Object.values(noeuds).filter(n => !n.g.classList.contains('eteint'));
+  document.getElementById('compte').textContent =
+    montres.length + (montres.length > 1 ? ' usines' : ' usine');
+  document.querySelectorAll('.lien').forEach(p =>
+    p.setAttribute('opacity', vue === 'chaine' ? .95 : 0));
+}
+
+const VUES = {
+  eau: {titre:'Les usines à moins de cent mètres de la rivière',
+        texte:'<b>Trente-sept usines sur quarante-trois</b> touchent presque la Risle. La rivière ne les longe pas : elle les fait tourner.'},
+  metier:{titre:'Le travail du métal',
+        texte:'Vingt-quatre usines de métal, dans la même vallée. Fil de fer, épingles, aiguilles, clous, boucles de sellerie.'},
+  chaine:{titre:'La chaîne du fer',
+        texte:'Un haut fourneau fait la fonte, une forge la change en fer, les tréfileries l\'étirent en fil. <b>Chaque trait est écrit dans une notice.</b>'}
+};
+
+document.querySelectorAll('.amorces button').forEach(b => {
+  b.addEventListener('click', () => {
+    const cible = b.dataset.vue;
+    vue = (vue === cible) ? null : cible;
+    document.querySelectorAll('.amorces button').forEach(o =>
+      o.setAttribute('aria-pressed', String(o.dataset.vue === vue)));
+    const t = document.getElementById('titreVue');
+    if (vue) {
+      t.textContent = VUES[vue].titre;
+      const concernes = D.sites.filter(s =>
+        vue === 'eau' ? (s.eau !== null && s.eau < 100)
+      : vue === 'metier' ? estMetal(s)
+      : D.liens.some(l => l.de === s.ref || l.vers === s.ref));
+      cadrer(concernes);
+      appliquer();
+      const c = concernes[Math.floor(concernes.length/2)] || D.sites[0];
+      poserAnnotation(VUES[vue].texte, c.lon, c.lat);
+    } else {
+      t.textContent = 'La vallée de la Risle';
+      annot.classList.remove('vue');
+      cadrer([]);
+      appliquer();
+    }
+    return;
+  });
+});
+
+const curseur = document.getElementById('curseur');
+curseur.addEventListener('input', appliquer);
+
+/* ---------- fiche d'un lieu ---------- */
+const LIB = {creation:'Construction', attestation:'Première mention',
+  reconstruction:'Reconstruction', agrandissement:'Agrandissement',
+  equipement:'Machines', acquisition:'Rachat', conversion:'Changement de métier',
+  destruction:'Incendie ou destruction', cessation:'Fermeture',
+  reglementation:'Autorisation', production:'Production', emploi:'Ouvriers',
+  exploitation:'Exploitation', indetermine:'—'};
+
+function ouvrir(ref) {
+  const s = parRef[ref];
+  document.getElementById('ficheNom').textContent =
+    s.nom.charAt(0).toUpperCase() + s.nom.slice(1);
+  document.getElementById('ficheOu').textContent =
+    [s.commune, s.lieuDit].filter(Boolean).join(' · ');
+
+  const evs = (D.chronologie[ref] || [])
+    .filter(e => e.type !== 'indetermine')
+    .sort((a,b) => (a.min||a.max).localeCompare(b.min||b.max));
+  document.getElementById('ficheFrise').innerHTML = evs.length
+    ? evs.map(e => `<li><span class="quand">${e.texte}</span>
+        <span>${LIB[e.type]||e.type} — ${e.phrase.length>150 ? e.phrase.slice(0,150)+'…' : e.phrase}</span></li>`).join('')
+    : '<li><span class="quand">—</span><span>Aucune date structurée dans la notice.</span></li>';
+
+  const liens = D.liens.filter(l => l.de===ref || l.vers===ref);
+  const inc = v => v==='inconnu' || !v;
+  document.getElementById('ficheApropos').innerHTML = `
+    <h4>Aujourd'hui</h4>
+    <p>${inc(s.conservation) ? '<span class="inconnu">Ce qu\'il en reste n\'est pas documenté.</span>' : s.conservation}</p>
+    ${liens.length ? `<h4>Relié à</h4><p>${liens.map(l =>
+        (l.de===ref ? 'fournissait ' : 'recevait de ') +
+        (parRef[l.de===ref?l.vers:l.de]||{}).nom).join('<br>')}</p>` : ''}
+    <h4>Localisation</h4>
+    <p>${s.precision === 'zone_documentaire'
+        ? 'Zone indiquée par la source, pas une emprise vérifiée.'
+        : 'Le point situe le site approximativement.'}</p>
+    <p><a href="${s.url}" target="_blank" rel="noopener">Voir la notice d'origine ↗</a></p>`;
+
+  document.getElementById('fiche').classList.add('ouverte');
+  document.getElementById('fiche').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+document.getElementById('ficheFermer').addEventListener('click', () =>
+  document.getElementById('fiche').classList.remove('ouverte'));
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('fiche').classList.remove('ouverte');
+});
+
+appliquer();
+</script>
+</body>
+</html>

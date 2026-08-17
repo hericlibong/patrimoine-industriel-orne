@@ -905,3 +905,1314 @@
 - Le socle narratif et visuel V1 est approuvé comme base de conception de la
   publication interactive.
 - Décision : **phase 9 terminée ; passage possible à la phase 10**.
+
+## 2026-07-26 — Phase 10, cadrage éditorial et produit
+
+- La première publication est définie comme une expérience statique de
+  datajournalisme associant un récit visuel et une exploration libre du même
+  corpus.
+- L'accueil recommande le data storytelling, mais donne immédiatement accès à
+  la carte exploratoire et à la recherche. Le récit ne constitue pas un
+  parcours obligatoire.
+- Le récit est prévu sur une page continue composée de chapitres identifiables
+  et partageables. L'exploration, les fiches et la méthode disposent de leurs
+  propres espaces.
+- Le public principal est un lecteur curieux sans connaissance préalable. Les
+  habitants et passionnés locaux ainsi que les lecteurs experts sont servis par
+  des niveaux de détail progressifs, sans créer plusieurs produits.
+- La promesse est de faire apparaître la géographie industrielle documentée de
+  l'Orne, de montrer les transformations de certains lieux et de permettre
+  l'exploration des sites, des sources et des incertitudes.
+- La datavisualisation doit révéler la géographie du corpus, comparer les
+  activités documentées, suivre des trajectoires multi-activités et représenter
+  les incertitudes. Elle ne doit produire ni classement départemental
+  exhaustif, ni causalité automatique, ni bilan artificiel de l'état actuel.
+- Les proximités à l'eau, à la forêt, aux minerais et au rail restent des
+  indices spatiaux et des supports d'études de cas.
+- La chronologie distingue les périodes documentaires disponibles pour les 318
+  sites des périodes d'activité datées, disponibles pour seulement 29 sites et
+  42 activités.
+- Le MVP comprend quatre espaces : accueil-récit, exploration, fiches de sites
+  et méthode. Il reste statique et ne comporte ni serveur, ni CMS, ni comptes,
+  ni administration en ligne.
+- Les 318 sites disposent d'une fiche documentaire structurée ; 30 à 50 fiches
+  sont enrichies après revue éditoriale humaine et peuvent alimenter le récit.
+- Les quatre filtres initiaux sont l'activité ou le secteur, la période, la
+  commune ou recherche textuelle et la précision géographique.
+- La diffusion est progressive : prototype privé, version candidate relue,
+  puis première version publique. L'interface fonctionne sans photographie et
+  aucun média n'est publié sans sélection, crédit et droit documentés.
+- Le cadrage consolidé est conservé dans
+  `docs/phase10_cadrage_editorial_ux.md`.
+- Décision : **bloc 1 de la phase 10 terminé ; le parcours narratif et le data
+  storytelling peuvent être conçus dans le bloc 2**.
+
+## 2026-07-26 — Rectification du cadrage éditorial de la phase 10
+
+- L'adresse éditoriale n'est plus formulée à partir d'un public principal ou de
+  personas. Le projet est un sujet documentaire, datajournalistique,
+  interactif et publié en ligne, destiné aux personnes intéressées par le sujet
+  et par sa forme.
+- L'intention première est journalistique : exactitude des informations,
+  intérêt de l'enquête, articulation entre données, sources, images, cartes et
+  récit.
+- Les quatre usages déjà définis sont conservés, mais ils décrivent les
+  possibilités offertes par le sujet et non des segments de public.
+- La phase 10 vise directement une forme complète avec photographies, documents
+  visuels et datavisualisations. Elle ne planifie pas une version éditoriale
+  appauvrie sans images.
+- Le cadrage part de l'hypothèse de travail que les autorisations nécessaires
+  seront obtenues pour les images retenues. Les crédits et preuves restent
+  suivis conformément au modèle éditorial de phase 9.
+- Il n'existe pas de catalogue autonome des 318 sites. Tous les sites sont
+  sélectionnables dans l'exploration et apparaissent dans un panneau de détail
+  lié à la carte, à la recherche ou à une visualisation.
+- Trente à cinquante cas peuvent recevoir un portrait éditorial plus ample,
+  articulant récit journalistique, images, chronologie, carte, données et
+  sources.
+- Les éventuels prototypes intermédiaires sont des outils de conception de la
+  forme finale et non des niveaux de publication distincts.
+- Cette rectification remplace les décisions du cadrage initial concernant le
+  public principal, la diffusion progressive sans images et les 318 fiches
+  documentaires conçues comme pages autonomes.
+
+## 2026-07-27 — Phase 10, parcours narratif et data storytelling
+
+- Le parcours narratif comprend un prologue, cinq chapitres et une conclusion
+  méthodologique : révélation de la géographie, diversité des productions, eau,
+  transformations successives, réseaux extérieurs, traces actuelles et
+  construction de l'enquête.
+- La démonstration repose sur sept familles de visualisations : carte de
+  révélation, secteurs, eau, trajectoires multi-activités, flux documentés,
+  connaissances contemporaines et constitution du corpus.
+- Les vues globales décrivent uniquement les 318 sites du corpus de
+  l'Inventaire. Les relations historiques et causalités éventuelles sont
+  racontées par des études de cas sourcées.
+- Une chronologie animée des 403 activités est écartée : seules 42 activités
+  et 29 sites disposent d'une période d'activité suffisamment datée. Les
+  chronologies restent attachées aux cas documentés.
+- Douze études de cas principales sont retenues après lecture humaine :
+  Putanges-Pont-Écrepin, Brochard, Bohin, Rabodanges, Ozé-Moulinex,
+  Sainte-Gauburge, Sées, l'usine à papier Abadie, la chocolaterie de Tinchebray,
+  l'usine de flaconnage de Saint-Evroult, la Grosse Forge d'Aube et la mine de
+  Halouze.
+- Six cas complémentaires sont conservés en réserve pour la cohérence
+  iconographique, géographique ou sectorielle.
+- Le chapitre sur l'eau distingue les distances calculées sur tout le corpus
+  des relations fonctionnelles établies dans les historiques de sites.
+- Le chapitre sur les réseaux extérieurs utilise uniquement des flux
+  documentés : papier, chocolat, flaconnage, appareils de levage et imprimés.
+- Le chapitre sur la situation actuelle montre d'abord la lacune documentaire :
+  quatre situations récentes seulement, sans produire de bilan départemental.
+- Le récit reste non linéaire : chaque chapitre peut rejoindre l'exploration,
+  un panneau de site, un portrait ou la méthode, puis revenir à son état
+  précédent.
+- Chaque visualisation dispose d'une alternative textuelle ou tabulaire et
+  aucune information n'est accessible uniquement au survol.
+- Le storyboard détaillé est conservé dans
+  `docs/phase10_parcours_narratif_datastorytelling.md`.
+- Décision : **bloc 2 de la phase 10 terminé ; la direction artistique et le
+  modèle visuel peuvent être conçus dans le bloc 3**.
+
+## 2026-07-27 — Phase 10, proposition de direction artistique
+
+- Le benchmark est limité à cinq références et à des mécanismes précis :
+  essai visuel, récit cartographique, scrollytelling accessible, relation
+  lieu-image-récit et exploration d'un patrimoine industriel. Aucun gabarit
+  existant n'est repris comme modèle complet.
+- Trois directions ont été comparées : `Atlas industriel vivant`, `Dossier
+  d'atelier` et `Paysage productif`.
+- `Atlas industriel vivant` est la direction recommandée. Elle associe un fond
+  papier chaud, une encre sombre, un accent oxyde, une grille contemporaine et
+  une hiérarchie donnant une place équivalente aux données, aux cartes, aux
+  textes et aux images.
+- Le trio typographique proposé est Newsreader pour les titres, IBM Plex Sans
+  pour le texte et l'interface, et IBM Plex Mono pour les données, sources et
+  identifiants.
+- La carte générale ne doit pas attribuer un secteur principal artificiel à
+  chaque site. Les correspondances sectorielles apparaissent au moment du
+  filtrage ; les sites multi-secteurs restent sélectionnables par chacune de
+  leurs activités.
+- La précision et l'incertitude combinent forme, motif et libellé. La couleur
+  seule ne porte jamais l'information.
+- Les images ne reçoivent ni sépia automatique ni colorisation. Les crédits et
+  légendes restent visibles sous les médias ; les maquettes utilisent des
+  emplacements de travail et ne constituent pas une sélection de publication.
+- Trois écrans ont été matérialisés : accueil, exploration en trois zones et
+  portrait enrichi de l'usine à papier Abadie. Ils sont conservés dans
+  `docs/design/phase10/`.
+- Le système visuel est volontairement limité aux quinze éléments nécessaires
+  à ces écrans et au storyboard ; aucun composant générique spéculatif n'est
+  ajouté.
+- La proposition complète est conservée dans
+  `docs/phase10_direction_artistique.md`.
+- Décision provisoire : **le bloc 3 reste en cours jusqu'à l'arbitrage de la
+  direction recommandée et des trois écrans ; aucun développement d'interface
+  n'est engagé**.
+
+## 2026-07-27 — Phase 10, rejet de l'atlas et retour à l'angle initial
+
+- La direction `Atlas industriel vivant` est rejetée. Elle est jugée froide,
+  stéréotypée, trop proche d'un dossier institutionnel ou d'un catalogue et
+  insuffisamment datajournalistique.
+- Les silhouettes d'usines, le fond papier, l'oxyde et la grille technique
+  traduisaient le mot « industriel » au lieu de traduire l'enquête.
+- Le titre de travail « L'Orne industrielle » est abandonné. Il déplaçait le
+  sujet vers une présentation générale du département industriel et effaçait
+  l'idée d'un patrimoine oublié derrière l'image rurale actuelle.
+- Le cadrage initial contenait déjà la bonne tension : partir des paysages
+  ruraux, puis révéler la couche industrielle. La dérive se situait dans le
+  titre, l'ouverture du storyboard et leur traduction visuelle.
+- Le récit est rectifié sans opposer artificiellement ruralité et industrie :
+  l'image rurale est réelle mais incomplète ; les activités industrielles,
+  agricoles, les ressources, les bourgs et les paysages se superposaient.
+- En l'absence de comparaison avec d'autres départements, la publication ne
+  qualifiera pas encore l'Orne de territoire à concentration industrielle
+  supérieure. Elle montrera le nombre, la diversité et la répartition des
+  sites du corpus.
+- La version 0.5 du cadrage remplace l'accroche « Faire apparaître l'Orne
+  industrielle » par « Révéler l'autre Orne ». La version 1.1 du parcours
+  déplace le passage technique de 319 dossiers à 318 sites vers la conclusion
+  méthodologique.
+- Une nouvelle direction `Paysage révélé` est proposée. Elle organise
+  l'ouverture selon la séquence paysage actuel → question → données → carte
+  réelle → étude de cas.
+- `L'autre Orne — sur les traces d'un patrimoine industriel oublié` est un
+  titre de travail destiné aux maquettes, pas une décision définitive.
+- Les nouvelles cartes utilisent le contour réel de l'Orne et les 318
+  localisations du corpus. L'exploration place la carte avant l'interface et
+  n'affiche un panneau de site qu'après sélection.
+- Les maquettes utilisent une photographie réelle des méandres de l'Orne et la
+  vue aérienne Abadie `IVR25_19886100649X`, avec crédits visibles. Elles ne
+  valent pas sélection définitive pour publication.
+- La première proposition est archivée et reste exclue de toute base de
+  développement.
+- Décision provisoire : **le bloc 3 reste en cours ; la direction `Paysage
+  révélé`, son titre de travail et ses trois écrans doivent être arbitrés avant
+  toute conception technique de l'interface**.
+
+## 2026-07-27 — Phase 10, seconde revue de la direction visuelle
+
+- La direction `Paysage révélé` n'est pas validée. L'accueil est jugé plus
+  engageant dans sa composition, mais l'ensemble reste trop abstrait et
+  s'éloigne encore de la vision du projet.
+- Le titre `L'autre Orne` est rejeté. Il n'a jamais été formulé par l'auteur du
+  projet. Le travail de titre devra repartir de l'idée initiale de
+  **patrimoine industriel oublié**.
+- La silhouette départementale avec points est rejetée comme modèle de carte,
+  sur l'accueil comme dans l'exploration. Elle porte les 318 coordonnées du
+  corpus, mais ne montre ni rivières, ni végétation, ni bourgs, ni rail et ne
+  constitue donc pas la carte vivante attendue.
+- Le contrôle contre les 381 contours communaux actuels trouve 317 points dans
+  un contour et un point source de la centrale hydroélectrique de
+  Saint-Philbert-sur-Orne à environ 1,9 m de la limite communale. Les marqueurs
+  larges et le contour simplifié de la maquette amplifient visuellement les
+  débordements. La future carte devra rendre la précision approximative
+  explicite et conserver ce cas de bord au contrôle.
+- Le panneau contextuel de l'exploration est retenu comme base de travail. Il
+  pourra réunir activités successives, dates disponibles, explication courte,
+  précision, sources et éventuellement une image éditorialement sélectionnée.
+- Le libellé et la rubrique `Les lieux` ne sont pas validés. Les portraits ne
+  formeront pas une section autonome par défaut : chaque cas long devra répondre
+  à une question précise du récit.
+- La photographie Abadie peut documenter la coexistence d'une usine, d'un bourg,
+  de champs et d'une rivière, mais l'image ne définit pas à elle seule la
+  démonstration. Son usage doit être rattaché à une question éditoriale et, si
+  une comparaison avec aujourd'hui est envisagée, à une source contemporaine.
+- La validation d'un écran d'exploration a été anticipée dans le bloc 3 alors
+  que le fond géographique, les couches, les échelles et les interactions
+  appartiennent au cadrage du bloc 4. Aucune nouvelle maquette ne sera produite
+  avant cet arbitrage fonctionnel.
+
+## 2026-07-27 — Phase 10, troisième proposition visuelle
+
+- Rectification : la demande précédente n'était pas de supprimer `Les lieux`,
+  mais d'en expliquer l'utilité. La rubrique est conservée comme base de
+  travail et ne vaut toujours pas catalogue des 318 sites.
+- Sa fonction proposée associe trois lectures : inscription spatiale sur une
+  photographie annotée, évolution historique documentée et situation actuelle.
+- Activité, conservation matérielle, usage actuel, accessibilité et précision
+  géographique restent des dimensions distinctes. Une cessation d'activité ne
+  permet pas de déduire la conservation du bâti ou son usage présent.
+- Le cas Abadie matérialise cette règle : la cessation vers 1978 est
+  documentée ; conservation, usage actuel et accessibilité sont indiqués comme
+  inconnus dans le corpus.
+- La carte des nouvelles maquettes utilise les 318 localisations et les couches
+  géographiques locales disponibles : limites communales, cours d'eau, forêts,
+  rail actuel et principaux bourgs. Elle remplace la silhouette schématique
+  rejetée, sans préjuger des choix fonctionnels détaillés du bloc 4.
+- Le panneau de l'usine d'Ozé montre une photographie, trois phases d'activité,
+  les dates disponibles, la précision `zone documentaire`, les sources et
+  l'absence de situation récente documentée.
+- Trois écrans sont produits dans `docs/design/phase10/` : accueil `07`,
+  exploration `08` et `Les lieux` `09`.
+- Décision provisoire : **cette troisième proposition constitue une base
+  d'arbitrage, pas une direction artistique implicitement validée**.
+
+## 2026-07-27 — Phase 10, validation de la direction artistique
+
+- La troisième proposition est explicitement validée comme **bon point de
+  départ** et devient la direction visuelle de référence pour la suite de la
+  phase 10.
+- La validation porte sur l'atmosphère générale, l'accueil immersif, la place
+  centrale d'une carte géographique réelle, le panneau contextuel, la fonction
+  de `Les lieux` et le système visuel minimal.
+- Cette validation ne fige pas l'interface au pixel près. Les couches, filtres,
+  niveaux de zoom et interactions seront précisés dans le bloc 4 ; le
+  comportement du data scrollytelling sera précisé lors du prototypage.
+- Les ajustements issus des tests responsive, d'accessibilité ou de
+  compréhension pourront être appliqués sans rouvrir toute la direction
+  artistique.
+- Décision : **bloc 3 de la phase 10 terminé ; le bloc 4 peut commencer**.
+
+## 2026-07-27 — Phase 10, lancement du bloc 4
+
+- Une proposition fonctionnelle de carte exploratoire et de filtres est
+  produite dans `docs/phase10_carte_exploratoire_filtres.md`.
+- La vue initiale montre les 318 sites sans agrégats, sans filtre et sans
+  panneau ouvert. Les couches d'eau, de forêt et de rail actuel restent des
+  contextes cartographiques et ne modifient pas les résultats.
+- Les quatre filtres proposés sont l'activité, la période d'activité, la
+  situation actuelle et la précision géographique. La commune passe par la
+  recherche.
+- Le filtre temporel utilise seulement les 42 phases réellement datées,
+  concernant 29 sites. Les repères documentaires issus des siècles de
+  construction ne sont pas présentés comme des durées d'activité.
+- Lorsqu'activité et période sont combinées, elles doivent correspondre à une
+  même phase. Les résultats sont toujours dédupliqués par `site_id`.
+- La situation actuelle sépare conservation, usages et accessibilité. Le
+  contraste entre quatre situations récentes documentées et 314 non
+  documentées reste explorable.
+- `Point approximatif` et `Zone documentaire` reçoivent deux symboles
+  distincts. Comme le GeoJSON public actuel contient uniquement des points,
+  aucune emprise fictive n'est dessinée pour une zone documentaire.
+- La liste et le détail alternent dans un panneau unique afin d'éviter une
+  interface permanente en trois colonnes. La liste constitue l'alternative
+  accessible aux 318 marqueurs.
+- Une planche fonctionnelle est conservée dans
+  `docs/design/phase10/10_exploration_etats_fonctionnels.*`.
+- Décision provisoire : **bloc 4 en cours ; les interactions restent à
+  arbitrer avant validation**.
+
+## 2026-07-27 — Phase 10, validation du bloc 4
+
+- L'architecture de la carte exploratoire et des filtres est validée comme
+  **point de départ évolutif**.
+- La validation porte sur la vue départementale sans agrégats, les quatre
+  filtres initiaux, la séparation entre couches et filtres, le panneau unique
+  liste-détail, le volet mobile et la liste accessible.
+- Les règles de données sont confirmées : période limitée aux phases réellement
+  datées, correspondance activité-période sur une même phase, situation actuelle
+  multidimensionnelle et précision toujours visible.
+- Les seuils de zoom, la densité cartographique, les libellés, l'ordre des
+  contrôles et les dimensions des panneaux restent ajustables pendant le
+  prototypage lorsqu'un test concret le justifie.
+- Décision : **bloc 4 de la phase 10 terminé ; le bloc 5 peut commencer**.
+
+## 2026-07-27 — Phase 10, lancement du bloc 5
+
+- Une proposition de gabarits est produite dans
+  `docs/phase10_fiches_sites_methode.md`.
+- Trois niveaux sont distingués : aperçu court, panneau cartographique
+  disponible pour les 318 sites et page `Les lieux` réservée à une sélection
+  éditoriale humaine.
+- Une page longue n'est jamais créée automatiquement à partir d'un score, d'un
+  nombre de médias ou d'une longueur d'historique.
+- Le panneau reste factuel et compact. L'image est omise si aucun média n'est
+  retenu ; aucun placeholder industriel générique ne la remplace.
+- Le gabarit `Les lieux` possède des blocs obligatoires de preuve mais autorise
+  seulement les modules facultatifs nécessaires à la question du cas.
+- La chronologie distingue phase datée, activités ordonnées sans dates,
+  repères de construction et situation actuelle. Une fin inconnue ne se
+  prolonge jamais artificiellement jusqu'à aujourd'hui.
+- Les formulations d'absence, d'inconnu et d'incertitude sont définies. Les
+  termes `disparu`, `sans usage`, `inaccessible` ou `non protégé` ne remplacent
+  jamais une donnée inconnue.
+- Les médias conservent légende, crédit, référence et lien à proximité. Le
+  cadrage suppose les autorisations obtenues, mais l'export public doit toujours
+  vérifier la preuve correspondante.
+- Les retours vers le récit ou la carte restaurent le chapitre, les filtres, le
+  cadrage et la sélection antérieurs.
+- La page méthode est conçue comme une page éditoriale publique en huit
+  sections ; les scripts, tables et chemins locaux restent dans la maintenance.
+- Une planche fonctionnelle est conservée dans
+  `docs/design/phase10/11_fiches_lieux_methode.*`.
+- Décision provisoire : **bloc 5 en cours ; les gabarits restent à arbitrer
+  avant validation**.
+
+## 2026-07-27 — Phase 10, validation du bloc 5
+
+- L'architecture des panneaux, des pages `Les lieux` et de la méthode est
+  validée comme **point de départ évolutif**.
+- Les trois niveaux sont confirmés : aperçu court, panneau disponible pour les
+  318 sites et page longue réservée aux cas sélectionnés humainement.
+- Les règles de preuve sont confirmées : chronologie adaptée à la qualité des
+  dates, situation actuelle séparée, inconnues explicites, sources et crédits à
+  proximité.
+- La page méthode publique en huit sections est confirmée ; la documentation
+  technique détaillée reste dans la maintenance.
+- Les longueurs de texte, le nombre final de pages `Les lieux`, l'ordre des
+  modules facultatifs, la densité et le responsive restent ajustables pendant
+  le prototypage lorsqu'un test concret le justifie.
+- Décision : **bloc 5 de la phase 10 terminé ; le bloc 6 peut commencer**.
+
+## 2026-07-27 — Phase 10, lancement du bloc 6
+
+- Un prototype navigable 0.1 est produit dans `prototype/phase10/`.
+- Il matérialise l'accueil, un data scrollytelling en six étapes, l'exploration
+  libre, la liste accessible, le panneau synthétique, trois récits `Les lieux`
+  et la page méthode.
+- Le prototype utilise les 318 sites et les 403 phases du corpus. Les pages
+  longues restent limitées à trois cas choisis éditorialement : Ozé–Moulinex,
+  Abadie et Bohin.
+- La carte de contexte est générée à partir des couches géographiques réelles
+  déjà préparées. Elle reste volontairement statique dans cette première
+  version ; le moteur cartographique, le zoom et les optimisations relèvent du
+  MVP après validation de la composition.
+- Les filtres respectent les règles du socle : activité et période sur une même
+  phase, quatre situations actuelles documentées, distinction entre point
+  approximatif et zone documentaire.
+- Le contrôle interne a vérifié les deux modes de lecture, les changements
+  d'état du récit, la recherche, les filtres, les couches, l'état sans résultat,
+  la liste, les panneaux, le clavier et un format mobile.
+- Aucun framework, serveur applicatif ou système de composants supplémentaire
+  n'est introduit pour cette étape de validation.
+- Décision provisoire : **bloc 6 en cours ; le prototype 0.1 doit être examiné
+  avant tout développement complet**.
+
+## 2026-07-27 — Phase 10, validation réservée du bloc 6
+
+- Le prototype 0.1 est validé comme **point de départ concret** afin de pouvoir
+  poursuivre la phase 10.
+- Cette décision valide le résultat du bloc — l'existence d'un prototype
+  navigable — mais pas la qualité ni la forme définitive de l'expérience.
+- La revue relève trop d'incohérences, d'abstractions artificielles et de
+  séquences difficiles à comprendre ou inopérantes.
+- Les difficultés concernent tous les niveaux : récit, exploration et pages
+  `Les lieux`.
+- La direction artistique devra elle aussi être réexaminée ; sa validation
+  antérieure comme point de départ ne la rend pas définitive.
+- Le bloc 7 ne doit donc pas industrialiser directement le prototype 0.1. Il
+  commencera par distinguer, à partir de problèmes concrets, ce qui doit être
+  conservé, repris ou supprimé.
+- Cette reprise devra rester ciblée et éviter une nouvelle couche de conception
+  abstraite, de surcode ou de composants inutiles.
+- Décision : **bloc 6 terminé avec réserves importantes ; le bloc 7 peut
+  commencer sans considérer l'expérience actuelle comme validée**.
+
+## 2026-07-27 — Phase 10, lancement du bloc 7 comme refondation
+
+- Après examen sur grand écran, le porteur du projet conclut que le prototype
+  0.1 n'est pas seulement imparfait : il engage une mauvaise direction
+  visuelle, narrative et fonctionnelle.
+- Le résultat est jugé illisible et non publiable. Il ressemble à un site web
+  à rubriques ou à un catalogue, et non à une publication de
+  datajournalisme suffisamment originale et construite.
+- Le récit cartographique, l'exploration et les pages `Les lieux` sont tous
+  considérés comme incompréhensibles ou inopérants dans leur forme actuelle.
+- Les problèmes signalés comprennent notamment les superpositions de points,
+  la réaction peu intelligible des filtres, la grossièreté des panneaux, les
+  volumes typographiques excessifs et l'absence de démonstration claire pendant
+  le défilement.
+- La direction artistique validée précédemment comme point de départ n'est plus
+  retenue comme référence à développer.
+- Le prototype devient un contre-exemple documenté. Les données, les sources et
+  les règles de preuve restent acquises ; l'interface et le storyboard ne le
+  sont pas.
+- Le bloc 7 commence donc par une refondation : reformulation de la
+  démonstration journalistique, choix d'une forme éditoriale principale,
+  recherche visuelle sur contenu réel et validation d'une tranche verticale
+  avant tout développement complet.
+- Toute nouvelle direction devra être évaluée dans le navigateur à sa taille
+  réelle, notamment sur une fenêtre de 1440 px.
+- Le projet ira jusqu'à la fin du bloc 7 puis s'arrêtera pour une nouvelle
+  évaluation. Le bloc 8 ne sera pas lancé automatiquement afin de ne pas
+  investir dans le contrôle d'une expérience qui resterait insatisfaisante.
+- Décision : **bloc 7 lancé comme phase de refondation du MVP ; aucun nouveau
+  code d'interface ne doit être produit avant les nouveaux arbitrages**.
+
+## 2026-07-28 — Phase 10, réouverture du bloc 2 et choix de l'unité intermédiaire
+
+### Réponses du porteur du projet aux quatre questions de cadrage
+
+- **Sujet** : mettre en avant le patrimoine industriel oublié de l'Orne et
+  montrer comment il a façonné le paysage du département, ou comment il s'est
+  adapté à sa géographie et à son hydrographie, contre l'image d'un département
+  essentiellement rural.
+- **Échelle** : les **318 sites**. Le démonstrateur de vingt à trente lieux
+  évoqué au début du projet n'était qu'un échantillon destiné à établir un
+  motif de travail ; il n'est pas le livrable.
+- **Phrase à emporter** : « Dans l'Orne, les paysages ne se regardent pas
+  seulement : ils se lisent comme les traces d'une ancienne géographie
+  industrielle. »
+- **Rôle de la carte** : instrument de démonstration, jamais sujet du récit.
+  Le récit pose la question, la carte apporte la preuve, l'exploration libre
+  vient ensuite. Trois fonctions : prouver, comparer, explorer.
+- **Nature du sujet** : datajournalistique, à vocation historique et
+  culturelle. Le projet n'est pas un relevé topologique, géographique ou
+  technique ; ces aspects sont un cadre, pas le contenu.
+- **Images** : la conception se fait comme si les autorisations d'utilisation
+  étaient acquises. La question des droits reste traitée par le porteur du
+  projet et ne conditionne plus les arbitrages de forme.
+
+### Constats vérifiés dans le corpus complet V1
+
+Calculs effectués sur `data/processed/patrimoine_orne_corpus_complet_v1.duckdb`,
+tables `sites`, `sites_activites`, `activites` et `recits_sites`.
+
+- **Deux géographies industrielles distinctes.** Médianes de distance au cours
+  d'eau par secteur : énergie 29 m, métallurgie 30 m, textile 32 m,
+  agroalimentaire 36 m — contre extraction 301 m, verre-céramique-matériaux
+  344 m et chimie 430 m. 82 % des sites métallurgiques, 81 % des sites textiles
+  et 75 % des sites agroalimentaires sont à moins de 100 m d'un cours d'eau,
+  contre 17 % des sites de verre, céramique et matériaux.
+- **Les sites d'extraction sont sur la ressource** : 825 m d'un indice minéral
+  en médiane, contre 7 709 m pour l'ensemble du corpus.
+- **77 % du corpus s'organise en ensembles.** Un regroupement des 318 sites
+  localisés par lien de proximité à 3 km produit 88 ensembles ; 246 sites
+  appartiennent à un ensemble d'au moins trois sites et 44 sites seulement
+  restent isolés.
+- **L'unité intermédiaire prend trois formes** : la vallée (Risle 43 sites,
+  Noireau 23, Flers 21, La Ferté-Macé 12, Tinchebray 9, Randonnai 9), le bassin
+  de ressource (La Ferrière-aux-Étangs à 1 273 m d'un indice minéral,
+  Saint-Clair-de-Halouze à 2 531 m) et le pôle urbain (Alençon, Argentan, à
+  plus de 250 m de l'eau).
+- **Les ensembles ont une spécialité marquée** : La Ferté-Macé 100 % textile,
+  Noireau 87 % textile, Randonnai 78 % métallurgie, Risle 56 % métallurgie.
+  Deux vallées voisines et hydrauliques produisent des industries différentes :
+  l'eau fournit la force, l'histoire décide de la production.
+- **La progression chronologique n'est pas démontrable.** Seules 25 activités
+  possèdent une date de début exploitable. Les périodes issues de `SCLE` vont
+  dans le sens d'un éloignement de l'eau et d'un rapprochement du rail au fil
+  du temps, mais ce champ date des campagnes de construction, il est multivalué
+  et un site compte dans plusieurs périodes. Cet indice ne peut pas porter la
+  structure du récit.
+- **Le signal forestier est peu discriminant** : médiane du corpus à 94 m d'une
+  formation forestière. Seule la métallurgie s'en détache (56 m) et le cas
+  demande un examen site par site.
+
+### Anomalie éditoriale relevée
+
+- Les champs `historique_source` des sites `IA00060969` (moulin d'Ozé, puis
+  filature, puis Moulinex) et `IA00061153` (affinerie dite forge de Beaumont)
+  valent `$26`. Les notices sources contiennent des textes complets. Les deux
+  sites appartiennent à l'échantillon pilote de la phase 5 et ont donc été
+  enrichis par le parseur HTML plutôt que par l'API JSON.
+- La validation de la phase 9 n'a pas pu le détecter : elle contrôle
+  l'intégrité SHA-256 des textes, c'est-à-dire leur conservation, et non leur
+  plausibilité. Une valeur corrompue a donc été conservée fidèlement.
+- `IA00060969` est l'une des douze études de cas du bloc 2 et l'une des trois
+  pages `Les lieux` du prototype 0.1.
+- Correction à programmer dans le bloc 7, avec un contrôle de plausibilité des
+  textes sources ajouté à la validation.
+
+### Conséquences retenues
+
+- Le bloc 2 est **rouvert**. Sa structure en prologue, cinq chapitres et
+  conclusion reposait sur une progression temporelle que les données ne
+  soutiennent pas.
+- La structure de remplacement est une **descente d'échelle** : département,
+  puis ensemble cohérent, puis lieu. Elle oppose des géographies au lieu de
+  suivre une chronologie.
+- Les 318 sites ne doivent jamais être présentés comme 318 objets individuels
+  sur une vue d'ensemble. C'est ce traitement, et non leur nombre, qui a produit
+  l'effet de catalogue du prototype 0.1.
+- La **vallée de la Risle** est retenue comme premier cas travaillé : ensemble
+  le plus dense, spécialité lisible du fil métallique et de la quincaillerie,
+  et présence de trois des études de cas déjà sélectionnées.
+- Les blocs 4 et 5 ne sont pas rouverts. Leurs architectures fonctionnelles
+  restent valides ; c'est leur exécution dans le prototype et la direction
+  artistique qui sont en cause.
+- Décision : **bloc 2 rouvert sur une structure de descente d'échelle ;
+  la vallée de la Risle sert de première tranche verticale ; les blocs 4 et 5
+  restent acquis**.
+
+## 2026-07-28 — Ouverture d'un registre de revue de presse
+
+- Le porteur du projet signale un reportage paru le jour même dans l'édition
+  Normandie d'`actu.fr` sur un lieu de Saint-Clair-de-Halouze, commune du
+  corpus, et demande qu'un fichier soit créé pour référencer ce type de
+  ressource.
+- Le registre est créé dans `docs/revue_de_presse.md`. Il est distinct du
+  registre des sources du corpus : un article de presse est une source
+  secondaire et n'entre dans le modèle de données que par le circuit normal des
+  mentions de sources, avec une date d'observation, une méthode de vérification
+  et un niveau de fiabilité.
+- Ces ressources répondent à un manque identifié : 315 des 318 sites ont une
+  conservation inconnue et 316 une accessibilité inconnue. La presse locale et
+  les associations sont l'une des rares voies permettant de documenter une
+  situation actuelle sans enquête de terrain systématique. Un article ne prouve
+  toutefois ni une autorisation d'accès, ni une protection, ni une relation
+  historique.
+- Le contenu de l'article n'a pas pu être lu : le domaine `actu.fr` refuse la
+  récupération automatique. La référence est donc enregistrée avec son titre
+  reconstitué depuis l'adresse de la page, sans résumé ni exploitation.
+- Le site pressenti est `IA00060960`, *affinerie, filature*, lieu-dit
+  « Forge (La) », situé à 27 mètres d'une formation forestière actuelle. La
+  désignation employée par le porteur du projet, le lieu-dit et la position en
+  forêt concordent. L'ensemble extractif `IA00060961`, situé à l'intérieur d'une
+  formation forestière, reste une possibilité à écarter ou confirmer.
+- Le rattachement reste `a_confirmer` et aucune valeur du corpus n'a été
+  modifiée.
+- Ce site présente par ailleurs un intérêt éditorial propre, indépendant de
+  l'article : affinerie de 1530 fondée par le comte de Flers, convertie en
+  filature vers 1840, consommant en 1841 de 120 000 à 130 000 kg de coton de
+  Louisiane et de Géorgie, détruite par un incendie en 1897. Il illustre à la
+  fois le motif de réemploi d'un site hydraulique et l'ouverture de l'industrie
+  ornaise sur des marchés lointains.
+- Décision : **`docs/revue_de_presse.md` créé comme registre des ressources
+  éditoriales externes, avec des règles d'emploi qui les maintiennent hors du
+  corpus tant qu'une vérification n'a pas eu lieu ; une place leur sera prévue
+  dans la publication**.
+
+## 2026-07-28 — Lecture de `PR-2026-001` : une chaîne du fer documentée et vivante
+
+- Le texte de l'article a été communiqué par le porteur du projet. Il décrit le
+  **chevalement de la mine de fer de Saint-Clair-de-Halouze**, en fonctionnement
+  de 1907 à 1976, importé d'Allemagne en 1953, avec des galeries à plus de
+  360 mètres et 42 nationalités employées sur le site.
+- Le premier rattachement supposé, `IA00060960` — *affinerie, filature* au
+  lieu-dit « Forge (La) » — est **écarté** : il reposait sur le mot « forge »,
+  le lieu-dit et la position en forêt, non sur le contenu. Le sujet est la mine.
+  L'épisode confirme la règle : un rattachement est une décision vérifiée, pas
+  une déduction.
+- Le site pressenti devient `IA00061008`, lieu-dit « Puits 2 (Le) », dont la
+  notice mentionne une modernisation entre 1951 et 1954 cohérente avec le
+  chevalement de 1953, et qui est le seul site de la commune déjà classé
+  `partiellement_conserve`. `IA00061007` reste à départager.
+- **L'article documente une situation actuelle pour plusieurs sites.**
+  L'association « le Savoir et le Fer », active depuis plus de vingt-cinq ans,
+  entretient et ouvre à la visite le carreau de la mine, les fours de la
+  Butte-Rouge à Dompierre, les Forges de Varenne à Champsecret, la Maison du Fer
+  et la Halle du Fer. Le corpus ne compte que quatre situations actuelles
+  documentées ; cet article peut porter le total à six ou sept.
+- **Réserve de saisonnalité retenue** : « visitable les mardis et jeudis à 11 h
+  pendant l'été » n'est pas « visitable ». Toute valeur d'accessibilité versée
+  devra porter sa condition et sa période, sous peine d'envoyer un lecteur
+  devant une grille fermée hors saison.
+- **Contradictions conservées** : l'article donne 1907–1976, les notices
+  `IA00061007` et `IA00061008` donnent 1905 et 1980. Aucune valeur n'est
+  corrigée ; l'écart est enregistré et sera arbitré source contre source. La
+  profondeur — 360 m dans l'article, 85 m en 1911 dans la notice — relève
+  vraisemblablement d'une évolution et non d'une contradiction.
+- **Constat éditorial majeur.** Les notices du corpus documentent d'elles-mêmes
+  la chaîne que l'association fait visiter : `IA00060894`, à Dompierre,
+  « alimentait en gueuses l'affinerie de Varenne à Champsecret » ; `IA00060964`,
+  à Varenne, était « alimentée en fonte par le haut fourneau de Dompierre » ;
+  `IA00060965` indique que les fers étaient « vendus aux cloutiers de Chanu et
+  de Tinchebray ». Il existe donc, du minerai au clou, une **relation historique
+  établie par les sources** et non déduite d'une proximité spatiale — le niveau
+  de preuve que la méthode exige pour affirmer un lien.
+- Le bassin de Halouze–Dompierre–Champsecret réunit ainsi trois qualités que la
+  vallée de la Risle n'a pas au même degré : des relations entre sites
+  documentées, une protection Monuments historiques sur `IA00060964`, 31 objets
+  Palissy rattachés à `IA00060965`, et surtout un **présent vivant** — une
+  association, des visites, des témoins — là où le corpus est presque muet sur
+  la situation actuelle.
+- Le choix de la vallée de la Risle comme première tranche verticale n'est pas
+  modifié à ce stade : il appartient au porteur du projet. Le bassin du fer est
+  enregistré comme alternative sérieuse et, en tout état de cause, comme second
+  cas de la typologie des ensembles.
+- **Troisième anomalie de texte source** relevée : l'historique de `IA00060961`
+  commence par « 955 ; », visiblement tronqué au début. À traiter avec les
+  historiques corrompus `IA00060969` et `IA00061153`.
+- Décision : **article `PR-2026-001` qualifié ; versement des situations
+  actuelles à programmer par le circuit des mentions de sources, avec condition
+  de saisonnalité ; le bassin du fer est retenu comme second cas de la typologie
+  et comme alternative possible pour la première tranche verticale**.
+
+## 2026-07-29 — Direction de travail : lire d'abord, dessiner ensuite
+
+- Le porteur du projet constate que la reprise part dans plusieurs directions à
+  la fois et demande une ligne unique et clairement écrite. Le constat est
+  fondé : trois fils ont été ouverts en deux jours — analyse spatiale par
+  secteur, revue de presse, bassin du fer — sans qu'aucun soit refermé.
+- **Diagnostic retenu.** Tout ce qui a été produit en phase 10 a été conçu à
+  partir de chiffres sur le corpus — 318 sites, 403 phases, 73 lieux à
+  plusieurs vies, 9 secteurs — et jamais à partir de son contenu. Les 314 textes
+  historiques ont été extraits, contrôlés, empreintés et validés, mais ils
+  n'ont pas été lus. On ne produit pas de journalisme avec des effectifs ; on
+  produit un catalogue. C'est ce qui explique des gabarits applicables à
+  n'importe quel lieu.
+- La découverte de deux historiques valant `$26`, dont celui d'une des douze
+  études de cas retenues, confirme matériellement que ces textes n'ont jamais
+  été ouverts.
+- **Direction arrêtée** : la reprise commence par la lecture de la matière sur
+  un ensemble cohérent et de taille lisible, les 43 sites de la vallée de la
+  Risle. Aucune forme, aucun écran et aucune direction artistique ne sont
+  produits avant que cette lecture ait rendu son résultat.
+- La lecture cherche les personnes, les entreprises, les productions, les
+  effectifs, les ruptures, et surtout les relations que les notices établissent
+  entre elles — le type de lien qu'aucune analyse spatiale ne peut trouver,
+  comme l'a montré la chaîne Dompierre–Varenne.
+- **Un seul fil ouvert à la fois.** Le bassin du fer reste le deuxième cas et
+  n'est pas traité maintenant, malgré l'avantage de son présent documenté.
+  Correction des historiques, versement des situations actuelles et revue de
+  presse sont différés après la lecture.
+- Décision : **lire les 43 notices de la vallée de la Risle et en consigner le
+  résultat avant toute proposition de forme ; les autres chantiers restent
+  fermés jusque-là**.
+
+## 2026-07-29 — Résultat de la lecture de la vallée de la Risle
+
+Lecture complète des 43 notices consignée dans `docs/phase10_lecture_risle.md`,
+version 1.0. Principaux résultats.
+
+- **La vallée fabriquait de très petits objets métalliques** : épingles,
+  aiguilles, pointes, clous, boucles de sellerie, dés, agrafes, crochets,
+  cardes, plumes métalliques, broches à tricoter. Ce fait n'apparaît dans
+  aucune statistique du corpus, puisque les neuf secteurs rangent ces
+  productions sous « métallurgie et travail des métaux », au même titre qu'un
+  haut fourneau. Il a fallu lire pour le voir.
+- **Les notices établissent elles-mêmes une chaîne de production complète.**
+  `IA00061017`, haut fourneau du Logeard attesté en 1491, « alimentait en fonte
+  la forge d'Aube » ; `IA00061029`, affinerie d'Aube, était « affectée jusqu'en
+  1850 à l'affinage de la fonte produite au haut fourneau du Logeard » et
+  « alimentait en fer la fenderie d'Aube » ; `IA00061129` est « dépendant de la
+  forge d'Aube ». La filière fonte–fer–fil–épingle s'étire sur environ
+  vingt-cinq kilomètres et chaque maillon est un site distinct du corpus.
+- **Seize notices sur quarante-trois** mentionnent une usine établie sur
+  l'emplacement d'un moulin, ou la conversion d'un moulin. L'industrie ne
+  s'installe pas dans un paysage vierge : elle réutilise une chute d'eau déjà
+  équipée. C'est la démonstration la plus directe de la phrase retenue pour le
+  lecteur.
+- **La concentration industrielle est cartographiable** : six sites du corpus
+  portent le nom de Benjamin Bohin, dont cinq rachats, et trois d'entre eux
+  voient leur production « transférée à l'usine de Saint-Sulpice-sur-Risle »
+  après 1945. Les familles Mouchel et Turquet apparaissent chacune sur deux à
+  trois sites.
+- **La sortie de l'énergie hydraulique est documentée sans rupture
+  géographique** : la fenderie d'Aube devient usine hydroélectrique vers 1909,
+  la centrale d'Aube alimente à partir de 1919 Boisthorel, Bohin et des usines
+  de L'Aigle. Le réseau électrique dessert exactement les usines que la rivière
+  faisait tourner.
+- **Trois usines de Rai étaient encore actives à la fin des années 1980**, liées
+  entre elles : Eurofac et Rai-Tillières transforment des métaux « produits à
+  l'usine voisine de Boisthorel » et livrés par voie ferrée particulière. La
+  filière ne s'est pas éteinte, elle s'est resserrée.
+- Quatre lieux sont retenus pour un traitement long : `IA00061029` affinerie
+  d'Aube, `IA00061155` Bohin, `IA00061053` Boisthorel et `IA00061017` haut
+  fourneau du Logeard.
+
+### Correction d'un constat antérieur
+
+- Il a été écrit le 28 juillet que la progression chronologique n'était pas
+  démontrable, seules 25 activités du corpus possédant une date de début
+  exploitable. Ce constat portait sur les données **structurées** et reste
+  exact à ce titre : sur les 65 activités des 43 sites de la Risle, 8
+  seulement ont une date de début structurée.
+- Mais les textes de ces mêmes 43 notices citent **321 années distinctes**. La
+  mention « chronologie détaillée non encore structurée pour ce dossier »
+  figure dans la quasi-totalité des activités.
+- La chronologie n'est donc pas absente du corpus : elle est présente en texte
+  libre et n'a pas été extraite. L'abandon de l'arc chronologique reste valable
+  pour l'instant, mais son motif change : ce n'est pas que les dates manquent,
+  c'est qu'elles ne sont pas exploitables en l'état. Un chantier d'extraction
+  est possible et doit être arbitré.
+- Décision : **lecture de la Risle close ; la démonstration retenue est
+  spatiale et filière — un paysage déjà équipé, une vallée qui est une chaîne
+  de production, une filière encore lisible aujourd'hui ; le chantier
+  d'extraction des dates en texte libre est ouvert à l'arbitrage**.
+
+## 2026-07-29 — Changement de nature du produit : une application, pas un site
+
+- Le porteur du projet corrige une erreur de cadrage qui remonte au début de la
+  phase 10 : **le produit n'est pas un site web**. C'est une **application web
+  interactive de datajournalisme**, créative et originale, qui peut se résumer
+  à une carte et un tableau de bord.
+- C'est la cause profonde de l'échec du prototype 0.1. Décliné en site, le
+  projet a produit des rubriques, des pages, un défilement et des gabarits
+  applicables à n'importe quel lieu, c'est-à-dire un catalogue. Le diagnostic
+  antérieur attribuait ce résultat au traitement des 318 sites ; la cause
+  première est la nature même de l'objet.
+- **Le récit n'est pas linéaire.** Le lecteur choisit son entrée, son
+  exploration et ses vues. Le récit naît de l'exploration : la carte annote ce
+  qu'elle montre, la sélection ouvre une histoire, les liens entre sites se
+  dessinent avec la phrase qui les prouve.
+- Deux règles d'écriture en découlent : chaque vue doit se suffire à elle-même,
+  et la démonstration se construit par répétition depuis des angles différents
+  plutôt que par accumulation d'étapes. Des amorces cliquables sont
+  obligatoires, faute de quoi une carte ouverte reste un outil et non une
+  publication.
+- **Trois niveaux d'écriture** sont arrêtés : l'annotation de quelques lignes
+  écrite pour une situation précise, le texte d'ensemble de deux cents mots
+  écrit par nous, et le texte de lieu d'une centaine de mots tiré de la notice.
+  Une entrée complète a été rédigée et validée comme exemple de référence :
+  filtre « travail du métal », vallée de la Risle, chaîne du haut fourneau de
+  1491 aux épingles, puis tréfilerie de La Fonte et ses 135 ouvriers de 1867
+  dont 10 enfants.
+- **Réserve du porteur du projet sur la carte** : elle ne doit pas être en
+  plein écran. Sur les grands écrans, une carte à bord perdu devient grossière.
+  Elle doit être encadrée et habillée — cadre assumé, marge, titre de vue,
+  légende, indicateurs, source. Contrainte structurante pour la direction
+  artistique, à respecter dès la première proposition visuelle.
+- Un **nouveau document de cadrage** est produit,
+  `docs/phase10_cadrage_v2_application.md`, version 2.0. Il ne corrige pas
+  `docs/phase10_cadrage_editorial_ux.md` : il repart d'une autre définition du
+  produit et le remplace. L'ancien document est conservé sans modification.
+- Décision : **le produit est une application web interactive de
+  datajournalisme, à récit non linéaire, organisée autour d'une douzaine de
+  systèmes industriels ; cadrage V2 arrêté ; la carte sera encadrée et habillée,
+  jamais en plein écran**.
+
+## 2026-07-29 — Reconstruction de la roadmap de la phase 10
+
+- La section « phase 10 » de `docs/roadmap.md` était devenue illisible : quatre
+  couches successives y avaient été empilées en trois jours — réouverture du
+  bloc 2, direction de travail, étape de lecture, cadrage V2 — sans que la
+  structure d'ensemble soit reprise.
+- Le porteur du projet demande une roadmap reconstruite sur le cadrage V2,
+  avec des phases résumées, un objectif et un livrable affichés, et des tâches
+  cochables tenues à jour au fil de l'avancement.
+- L'ancienne organisation en neuf blocs est remplacée par **neuf phases**
+  allant de 10.A à 10.I : compléter les données manquantes, constituer et lire
+  les systèmes, arbitrer l'architecture, construire une vue de référence,
+  direction artistique, écrire la matière éditoriale, construire
+  l'application, qualité et accessibilité, publication.
+- Chaque phase affiche un résumé en deux phrases, son objectif, son livrable et
+  son point de validation. Les tâches sont regroupées en sous-ensembles
+  numérotés lorsque la phase le justifie.
+- L'ordre retenu place la **vue de référence avant la direction artistique**.
+  Cette vue est volontairement neutre sur le plan graphique : elle éprouve la
+  compréhension et la structure, pas l'esthétique. La direction artistique
+  n'intervient qu'ensuite, sur une forme dont on sait qu'elle fonctionne.
+- L'écriture éditoriale complète est également placée **après** la validation de
+  la vue, afin de ne pas rédiger les textes de douze systèmes avant de savoir
+  si la forme tient.
+- Le travail des blocs 1 à 7 de la première tentative est conservé dans une
+  section « historique », qui distingue ce qui reste utilisable — architectures
+  fonctionnelles des blocs 4 et 5 — de ce qui ne fait plus référence.
+- Les règles de suivi en tête de fichier sont renforcées : mise à jour au fil
+  de l'eau et non après coup, et interdiction de cocher une tâche dont le
+  résultat n'est pas vérifiable par un tiers.
+- Rappel : `docs/roadmap.md` figure dans le `.gitignore` et n'existe donc que
+  sur la machine du porteur du projet. Le présent journal est la seule trace
+  versionnée de cette réorganisation.
+- Décision : **roadmap de la phase 10 reconstruite en neuf phases 10.A à 10.I
+  sur le cadrage V2 ; la vue de référence précède la direction artistique et
+  l'écriture éditoriale complète**.
+
+## 2026-07-29 — Extraction des relations entre sites et extension du modèle
+
+### Rectification d'un constat erroné
+
+- Il a été écrit à plusieurs reprises que la table `relations_sites` était vide.
+  **C'est faux.** Elle contenait cinq relations établies en phase 8 : deux cités
+  ouvrières rattachées à l'ensemble extractif de Halouze, deux à celui de
+  La Ferrière-aux-Étangs, et la fenderie `IA00061188` dépendant de l'affinerie
+  `IA00061187` à Larchamp.
+- Cette dernière relation avait été présentée le 29 juillet comme un ajout
+  manuel de la phase 10, rattrapé après une exclusion à tort du filtre. Elle
+  existait depuis la phase 8, avec une justification identique. L'erreur venait
+  d'une vérification faite sur le schéma du modèle plutôt que sur le contenu de
+  la base.
+
+### Extension du vocabulaire contrôlé
+
+- Les cinq types de relations définis en phase 3 — `composant_de`,
+  `transfert_vers`, `successeur_de`, `depend_de`,
+  `partage_infrastructure_avec` — décrivent tous des relations de **structure**.
+  Aucun ne représente un **flux de production**.
+- Or quatorze des vingt liens extraits des textes sont de cette nature : un haut
+  fourneau qui envoie sa fonte à une forge. Les ranger sous `depend_de` aurait
+  confondu deux réalités distinctes — une cité ouvrière qui dépend de sa mine,
+  et une forge qui achète de la fonte à son voisin.
+- Le porteur du projet a validé l'ajout d'un sixième type, **`approvisionne`** :
+  le site source fournit une matière au site cible.
+- **Règle d'orientation fixée** : la relation est toujours enregistrée du
+  fournisseur vers le destinataire, quelle que soit la formulation de la source.
+  « Alimentait la forge de la Roche » et « alimentée en fer par la forge du
+  Champ-de-la-Pierre » produisent des lignes de même sens.
+- Modifications : contrainte `CHECK` de `model/schema.sql` et
+  `docs/modele_donnees.md`.
+
+### Versement par la chaîne de production
+
+- Les 18 relations nouvelles ont été inscrites dans
+  `config/phase8_decisions_canoniques.yml`, avec leurs identifiants stables dans
+  `config/phase8_site_ids.yml`, puis la chaîne complète a été rejouée :
+  canonisation, enrichissement du corpus, contexte territorial, production du
+  corpus complet.
+- Une écriture directe dans la base aurait disparu à la première
+  reconstruction. Le passage par la configuration garantit la reproductibilité.
+- La reconstruction du corpus efface les tables éditoriales de la phase 9. Elles
+  ont été refabriquées et la validation du socle narratif et visuel repasse au
+  vert.
+
+### Contrôles
+
+- Quatre tests ont échoué en gardant l'ancien effectif de cinq relations. C'est
+  leur fonction : empêcher qu'un changement d'effectif passe inaperçu. Ils ont
+  été mis à jour avec le motif du changement inscrit en commentaire.
+- Les 162 tests passent. Les effectifs du corpus sont inchangés : 319 dossiers
+  sources, 318 sites, 403 activités.
+
+### Résultat
+
+- **23 relations en base, reliant 36 sites.**
+- La chaîne la plus complète est à Randonnai : le haut fourneau de Gaillon à
+  Irai alimente deux affineries à Randonnai, qui alimentent la fenderie de
+  Conturbie. Quatre sites, trois niveaux, entièrement sourcés.
+- Trois relations de transfert vers les établissements Bohin sont marquées
+  comme interprétées : la source dit « l'usine de Saint-Sulpice-sur-Risle » sans
+  la nommer, et la commune compte cinq sites.
+- Décision : **type `approvisionne` ajouté au modèle ; 18 relations de
+  production versées par la chaîne de production ; l'orientation est toujours
+  du fournisseur vers le destinataire**.
+
+## 2026-08-05 — Un écran, pour décider si le projet tient
+
+- Le porteur du projet constate que le pilotage a pris la place de la vision :
+  phases, mouvements, tables et rapports se sont substitués à ce qu'on cherche
+  à raconter, et il est devenu spectateur de son propre projet.
+- Décision de méthode : arrêter la préparation et fabriquer un écran réel sur la
+  vallée de la Risle, avec les vraies données, pour qu'il juge si ce qu'il voit
+  raconte l'histoire qu'il veut porter — ou s'il faut arrêter.
+- L'écran est un fichier autonome, `prototype/risle/index.html`, sans serveur ni
+  dépendance. Il contient les 43 usines de la vallée, le tracé réel de la Risle
+  et de ses affluents, les liens entre sites, et 368 événements datés.
+- Trois principes du cadrage V2 y sont éprouvés : la carte est encadrée et
+  habillée et non en plein écran ; le récit naît de l'exploration au lieu d'être
+  imposé ; l'annotation est posée sur la carte, à côté de la forme qu'elle
+  décrit.
+- Un ajout non prévu s'est révélé indispensable : **la carte se recadre sur ce
+  qu'elle démontre**. Atténuer quelques points sur une vue large ne se remarque
+  pas — c'est exactement le défaut relevé sur le prototype 0.1. Une mise en
+  évidence n'est une démonstration que si le cadrage suit.
+- Décision : **l'écran de la vallée de la Risle est produit et remis au porteur
+  du projet ; la suite du projet dépend de son jugement sur cet écran**.
+
+## 2026-08-05 — Un système peut en alimenter un autre
+
+- La lecture de Flers, troisième système, fait apparaître une relation que le
+  modèle ne sait pas représenter : **la vallée du Noireau filait le coton que
+  la ville de Flers tissait**.
+- Cinq notices du Noireau indiquent que leurs fils étaient « vendus à Flers et à
+  Condé-sur-Noireau ». Les notices de Flers décrivent des tissages, non des
+  filatures. La complémentarité est documentée des deux côtés.
+- Un seul de ces liens est exprimable dans `relations_sites`, parce qu'il désigne
+  un site précis : la filature de la Planchette alimente le tissage de la
+  Planchette, construits par le même homme. Les autres pointent vers une
+  **ville**, pas vers un site.
+- La table des relations relie des sites. Ici, la relation lie **deux
+  systèmes**. C'est une question ouverte pour l'application : faut-il un niveau
+  de relation entre ensembles, ou bien la relation reste-t-elle un fait
+  éditorial exposé dans le texte sans être modélisé ?
+- La décision est reportée jusqu'à la lecture des douze systèmes : si le cas ne
+  se reproduit pas, il ne justifie pas une modification du modèle.
+- Décision : **relation Noireau–Flers consignée dans les documents de lecture ;
+  l'arbitrage sur sa modélisation attend la fin des lectures**.
+
+## 2026-08-10 — La dentelle d'Alençon, ou ce que le corpus ne peut pas contenir
+
+- Le porteur du projet relève l'absence de la dentelle dans le système
+  d'Alençon. Vérification faite, elle est absente de tout le corpus : aucun des
+  318 sites, aucune des 403 activités, aucun des 314 historiques.
+- L'absence ne vient pas de notre extraction. Dans les sources brutes, la
+  dentelle n'apparaît que dans des édifices religieux, des manoirs, un lieu-dit
+  homonyme et un unique objet inventorié, `PM61002792`.
+- Explication retenue, à confirmer auprès de l'Inventaire : le point d'Alençon
+  est une dentelle à l'aiguille, faite à la main, sans bâtiment de production ni
+  machine. Une enquête sur le patrimoine **industriel** ne la rencontre pas.
+- **Portée générale.** Le corpus documente des usines ; tout ce qui s'est
+  fabriqué sans usine en est absent par construction. Ce n'est pas une lacune à
+  combler mais une définition du périmètre.
+- Conséquence éditoriale : l'absence doit être écrite dans la publication. Un
+  lecteur qui connaît son territoire la repérera immédiatement — c'est ce qui
+  vient de se produire.
+- Consigné dans `docs/limites_editoriales.md` et dans la lecture d'Alençon.
+- Décision : **le périmètre « productions avec usine » est explicité comme
+  limite affichée de la publication, et non traité comme un manque**.
+
+## 2026-08-10 — Deuxième relation entre systèmes, la question se confirme
+
+- La lecture de La Ferté-Macé fait apparaître un second cas de relation entre
+  deux systèmes : le tissage des Peupliers `IA00060982` est « acquis en 1904 par
+  la Société Générale des Tissages et Filatures de Flers ».
+- C'est la société flérienne — née officiellement de la fusion de 1907 — qui
+  achète une usine de La Ferté-Macé trois ans plus tôt.
+- Après la relation Noireau → Flers relevée le 5 août, le cas n'est donc pas une
+  exception. La question posée alors reste ouverte mais gagne en poids : le
+  modèle relie des sites, pas des ensembles.
+- Aucune décision n'est prise avant la fin des douze lectures. Si un troisième
+  cas apparaît, l'arbitrage deviendra nécessaire.
+
+## 2026-08-11 — Les douze systèmes sont lus
+
+- La lecture des douze systèmes industriels est terminée : **172 sites sur 318**,
+  soit 54 % du corpus, lus notice par notice.
+- Douze formes distinctes, dont aucune ne reproduit la précédente : une chaîne
+  de production, une vallée qui change de fibre, une ville qui tisse, deux
+  bassins miniers de modèles opposés, une préfecture sans métier, une monoculture
+  textile, une ville qui n'a pas fermé, une dynastie de cinq siècles, un pays où
+  l'industrie recule, un système qui monte, et une lisière.
+- **Cinq relations entre systèmes** ont été relevées au fil des lectures :
+  Noireau → Flers, Flers → La Ferté-Macé, Tinchebray → Frênes, Randonnai →
+  Pontchardon, Tourouvre → Gaillon et Randonnai. Trois d'entre elles manquent à
+  la base et attendent un versement groupé.
+- **Une lacune d'extraction est identifiée** : lorsque l'acheteur nommé dans une
+  notice est lui-même un site du corpus, le motif le range parmi les exploitants
+  et non parmi les relations. Une classe entière de liens échappe ainsi à
+  l'extraction automatique.
+- Trois décisions restent en attente et doivent être prises avant de poursuivre :
+  1. verser les trois relations manquantes, ce qui suppose d'arbitrer le type
+     `acquisition_site`, absent du vocabulaire du modèle ;
+  2. décider si une relation entre **systèmes** doit être représentée, ou si elle
+     reste un fait éditorial exposé par le texte ;
+  3. décider du sort des 146 sites hors des douze systèmes — 74 dans des
+     ensembles de trois à six sites, 72 isolés ou par paires.
+- Décision : **phase 10.B.2 close ; les arbitrages différés sont désormais
+  bloquants pour la suite**.
+
+## 2026-08-11 — Périmètre éditorial arrêté : douze systèmes, aucun site écarté
+
+Décision du porteur du projet.
+
+- Les **douze systèmes** lus sont validés comme **cœur éditorial de
+  l'application**. Ils rassemblent 172 des 318 sites.
+- Les **72 sites seuls ou par paires** restent visibles et consultables
+  individuellement sur la carte, avec leur notice et leur chronologie.
+- Les **74 sites des 18 petits ensembles** de trois à six sites sont conservés.
+  Leur lecture éditoriale est **reportée**, non annulée : ils pourront devenir
+  de nouveaux systèmes si leur étude fait apparaître une histoire suffisamment
+  forte.
+- **Aucun site n'est écarté du projet.**
+- Le seuil de regroupement reste à **trois kilomètres**. L'élargir à cinq
+  couvrirait 80 % du corpus mais fusionnerait le Noireau, Flers et Tinchebray
+  en un seul bloc, ainsi que Halouze et La Ferrière : les deux meilleures
+  démonstrations du travail disparaîtraient.
+
+### Nuance retenue sur le mot « isolé »
+
+- « Isolé » ne signifie ici qu'une chose : **aucun autre site du corpus à moins
+  de trois kilomètres**. C'est le résultat d'une règle que nous avons choisie.
+- Cela ne prouve **ni** que l'usine fonctionnait seule, **ni** qu'elle
+  n'appartenait à aucun réseau historique. Les documents de lecture ne doivent
+  pas laisser croire le contraire.
+- Ces 72 sites sont hétérogènes : beaucoup de moulins et de fromageries, mais
+  aussi des tuileries, des papeteries et des usines métallurgiques. Ils ne
+  forment pas encore un sujet.
+- Une **analyse courte** est validée pour vérifier si leur dispersion raconte
+  réellement quelque chose. Si une démonstration solide apparaît, elle pourra
+  devenir une entrée éditoriale ; sinon ils resteront des sites individuels
+  consultables.
+
+Décision : **douze systèmes comme cœur éditorial ; aucun site écarté ; seuil
+maintenu à trois kilomètres ; analyse courte des 72 sites dispersés, sans
+présumer qu'ils étaient historiquement isolés**.
+
+## 2026-08-11 — Les 72 sites dispersés : un constat, pas un chapitre
+
+Décision du porteur du projet.
+
+- Les 72 sites seuls ou par paires **ne font pas l'objet d'une entrée
+  éditoriale**. Ils restent tous visibles et consultables sur la carte.
+- La présentation générale pourra signaler le **constat vérifié** : ces sites
+  sont plus souvent agroalimentaires ou liés aux matériaux — 50 % et 14 %,
+  contre 27 % et 6 % chez les sites regroupés — quand le métal et le textile
+  dominent les systèmes.
+- **Aucune explication causale non sourcée ne sera avancée.** La formulation
+  proposée dans le compte rendu — « les moulins suivent les ruisseaux, les
+  tuileries suivent l'argile » — est une interprétation qui n'est appuyée par
+  aucune source du corpus. Elle est écartée.
+- Sur tout le reste, ces sites sont identiques aux autres : début médian 1854
+  contre 1827, fin médiane 1937 contre 1935, durée médiane 100 ans contre 114,
+  et 28 % encore actifs après 1950 contre 30 %.
+
+Décision : **pas de chapitre sur les sites dispersés ; le constat de
+répartition par métier est signalé dans la présentation générale, sans
+explication causale**.
+
+## 2026-08-11 — Titre de travail, arrivée et amorces : la phase 10.C est close
+
+Décisions du porteur du projet.
+
+- **Titre de travail** : « Voyage dans l'Orne industrielle ». Provisoire.
+- **À l'arrivée**, le lecteur voit directement la carte de l'Orne, les douze
+  systèmes, les autres sites et les commandes de recherche et de filtrage.
+  Aucun parcours ni récit ne lui est imposé.
+- **Les amorces cliquables sont reportées.** Elles pourront être ajoutées après
+  matérialisation de la visualisation, si elles apportent une aide réelle. Leurs
+  intitulés devront décrire exactement ce que la commande affiche, sans
+  formulation abstraite.
+- L'objection avancée le 29 juillet — une carte ouverte sans amorce reste un
+  outil et non une publication — n'est pas écartée mais différée. Elle sera
+  tranchée devant l'écran réel plutôt que sur une hypothèse.
+
+Décision : **phase 10.C close ; les neuf décisions d'architecture sont
+arrêtées et documentées dans `docs/phase10_architecture.md`**.
+
+## 2026-08-12 — Mise à jour des documents généraux de référence
+
+- Le cadrage V2 du 29 juillet ne reflétait plus plusieurs décisions prises en
+  phases 10.B et 10.C : il rendait les amorces obligatoires, conservait les
+  anciens effectifs des systèmes et décrivait encore une logique plus
+  narrative que la visualisation libre désormais retenue.
+- `docs/phase10_cadrage_v2_application.md` passe en version 2.1 et devient la
+  présentation générale à jour : 318 sites, douze systèmes couvrant 172 sites,
+  146 autres sites tous conservés, arrivée directe sur la carte, filtres
+  validés, règles du temps et architecture SVG statique.
+- Le `README.md`, qui annonçait encore la phase 9 en cours, est aligné sur
+  l'avancement réel et donne accès en premier aux documents de phase 10.
+- `docs/recommandation_application.md`, version 1.0 du 22 juillet, décrivait
+  l'ancien site narratif et recommandait MapLibre. Sa version 2.0 recommande
+  l'application statique de visualisation interactive et reprend l'ordre
+  validé : vue fonctionnelle, direction artistique, contenus, extension.
+
+Relecture de cohérence effectuée le même jour. Les effectifs des quatre
+documents ont été recoupés un par un avec les rapports de contrôle versionnés :
+2 360 événements datés sur 314 sites, 314 textes historiques, 1 888 médias
+distincts, neuf secteurs, conservation inconnue pour 315 sites sur 318,
+172 sites en systèmes et 146 hors systèmes. Tous concordent. Le passage de
+2 320 à 2 360 est la conséquence de la réparation des deux historiques
+corrompus en phase 10.A.3, non un recomptage.
+
+Deux écarts relevés à cette occasion et corrigés :
+
+- L'en-tête de `docs/phase10_architecture.md` était resté celui de la première
+  rédaction : il annonçait « six décisions » et renvoyait à un traitement
+  séparé du titre, des premières secondes et des amorces, alors que le document
+  en contient dix et traite ces trois points aux sections 8, 9 et 10. L'entrée
+  du 11 août parlait de son côté de neuf décisions. Le décompte exact est
+  **dix** ; le document passe en version 1.1. Aucune décision n'est modifiée,
+  seul le décompte l'est.
+- `CLAUDE.md` décrivait encore l'état du bloc 7 et maintenait l'interdiction du
+  27 juillet de produire du code d'interface. Cette interdiction attendait les
+  arbitrages désormais rendus : elle est **levée**, la phase 10.D consistant
+  précisément à construire une vue fonctionnelle. La section d'état renvoie
+  maintenant aux trois documents qui font foi et distingue les deux prototypes,
+  le contre-exemple de la première tentative et l'écran de la Risle du 5 août.
+
+Décision : **le cadrage V2 version 2.1, l'architecture version 1.1, le README
+et la recommandation version 2.0 sont les documents généraux actualisés avant
+l'ouverture de la phase 10.D ; l'interdiction de produire du code d'interface
+est levée**.
+
+## 2026-08-13 — Ouverture de la phase 10.D et arbitrages de périmètre
+
+Le bloc est ouvert après l'actualisation des documents généraux de la veille.
+Il s'agit de construire une seule vue fonctionnelle, sur données réelles,
+volontairement neutre sur le plan graphique.
+
+**Système retenu : la vallée de la Risle.** C'est le système le plus documenté
+du corpus — 43 sites, cinq liens prouvés, 368 événements datés — il est déjà lu
+en profondeur, et l'écran du 5 août en a construit une partie. L'objection est
+retenue : la Risle est le cas le plus favorable, donc une forme qui y fonctionne
+ne prouve rien sur un système pauvre. D'où le contrôle final ci-dessous.
+
+**Contrôle de robustesse : Crulai**, sept sites et peu de matière. Les données
+de Crulai sont basculées dans la même vue. Décision du porteur : **aucune
+seconde vue n'est construite** — il s'agit de vérifier que la forme résiste, pas
+de produire un deuxième écran.
+
+Arbitrages du porteur du projet à l'ouverture :
+
+- **Le levier éprouvé est le métier**, et non la réglette temporelle. Le temps a
+  déjà été manipulé dans l'écran du 5 août ; le métier est le levier qui fait
+  apparaître les contrastes entre systèmes et il n'a jamais été testé.
+- **L'annotation posée sur la carte est un essai, pas une condition de
+  validation.** Elle peut être éprouvée ; si elle est conservée, elle doit rester
+  concrète et correspondre exactement à ce que la carte montre à cet instant.
+  La vue est validée sans elle si elle n'apporte rien.
+- **Les phrases qui prouvent les liens entre sites doivent être atteignables au
+  clic et au clavier**, pas seulement au survol. Une preuve accessible à la
+  seule souris n'est pas une preuve publiée.
+- **Le périmètre est strictement département → Risle → site.** Rien d'autre
+  n'est construit dans ce bloc.
+
+Deux tâches manquaient à la liste du bloc alors qu'elles figuraient dans la
+recommandation actualisée et dans les décisions d'architecture : la **liste
+textuelle synchronisée** et le **retour à la vue départementale**. Omissions de
+rédaction, sans changement de cap. Elles sont ajoutées officiellement à la
+roadmap.
+
+Décision : **phase 10.D ouverte sur la vallée de la Risle, trois niveaux,
+filtre métier, annotation non bloquante, preuves des liens accessibles au
+clavier, contrôle final sur les données de Crulai sans seconde vue**.
+
+## 2026-08-13 — La vue de référence est construite et remise au jugement
+
+La vue est en place et s'ouvre dans un navigateur sans serveur ni dépendance.
+Elle porte les trois niveaux arrêtés le matin même : le département, la vallée
+de la Risle, un site.
+
+**Ce qui a été vérifié, pas seulement construit.**
+
+- Les effectifs sont contrôlés à la génération : douze systèmes, 172 sites
+  regroupés, 146 hors systèmes, 43 sites et cinq liens pour la Risle. La
+  production échoue si un seul de ces nombres bouge.
+- Carte et liste annoncent le même chiffre. Avec le filtre « Métallurgie et
+  travail des métaux » : 24 points sur la carte, 24 lignes dans la liste,
+  « 24 sites sur 43 » en tête de vue.
+- Le clavier fait tout ce que fait la souris : ordre de tabulation contrôlé,
+  activation par Entrée, retour au département par Échap, changements de vue
+  annoncés aux lecteurs d'écran.
+- Les cinq phrases qui prouvent les liens sont atteignables des deux façons,
+  sur la carte et dans le panneau, conformément à l'arbitrage du matin.
+
+**Décisions prises pendant la construction.**
+
+- *Ancrage des systèmes par commune, et non par rang de taille.* Quatre
+  systèmes partagent leur effectif avec un autre ; le rang ne les distingue pas.
+  Le registre `config/phase10_systemes.yml` fixe donc pour chacun une commune
+  d'ancrage, et la génération échoue si un effectif ne correspond plus.
+- *Les noms géographiques seuls sont affichés.* Les noms de travail issus des
+  lectures — « la vallée du fil » — ne sont pas validés : ils apparaissent
+  uniquement comme propositions signalées, jamais en titre.
+- *Le fond hydrographique est réduit aux cours d'eau qui longent les sites.*
+  Le réseau complet noyait les usines sous un chevelu de ruisseaux sans rapport
+  avec elles.
+- *Les noms de sites sont abrégés dans les listes.* Les intitulés de
+  l'Inventaire cumulent l'état ancien et l'état actuel ; le nom entier reste
+  dans la fiche.
+- *L'annotation est conservée.* Elle n'apparaît qu'avec un filtre actif et
+  n'énonce qu'un rapport exact — « Textile, habillement et cuir : 9 des 43 sites
+  de ce système ». Elle reste non bloquante pour la validation.
+
+**Lacune relevée, hors périmètre du bloc.** La typologie des événements datés,
+arrêtée en phase 10.A.2, n'a jamais été versée au vocabulaire contrôlé de la
+phase 4. Ses libellés sont pour l'instant portés par le générateur de la vue.
+Leur place est dans `config/classifications.yml` ; le déplacement n'est pas fait
+ici pour ne pas déborder du périmètre.
+
+**Ce que le contrôle sur Crulai apprend.** La vue tient : sept sites, aucun lien
+établi par une source, et elle l'écrit — « Aucun lien entre ces sites n'est
+établi par une source. Rien n'est déduit de leur proximité. » Un système pauvre
+se déclare pauvre au lieu de faire nombre. En revanche, sa liste de sites
+répète trois fois « moulin à farine », distingués par la seule commune : sur les
+systèmes peu documentés, le nom d'un site ne suffit pas à l'identifier. Constat
+à traiter au moment d'écrire les contenus.
+
+Décision : **la vue de référence est construite et vérifiée ; elle est remise au
+jugement du porteur du projet. La phase 10.D n'est pas close tant que ce
+jugement n'a pas eu lieu.**
+
+## 2026-08-14 — L'arrivée de la vue de référence est corrigée
+
+Le jugement du 13 août portait un constat sans appel : à l'arrivée, on ne
+comprend pas ce qu'on regarde. Trois manques nommés — le sujet absent, l'époque
+non dite, le mot « système » expliqué par sa règle de calcul plutôt que par ce
+qu'il désigne. Le détail du recueil est dans
+`docs/phase10_jugement_vue_reference.md`.
+
+**Ce que ce retour rouvre.** Deux des dix décisions d'architecture du 11 août :
+la neuvième — la carte directement, sans rien avant — et la dixième — les amorces
+reportées. L'objection avait été formulée le 29 juillet, puis délibérément
+différée le 11 août au motif qu'elle serait mieux jugée devant l'écran réel. La
+méthode a fonctionné ; le verdict tombe contre la décision prise. Il est inscrit
+tel quel, sans réécrire les documents antérieurs.
+
+**Ce que ce retour ne remet pas en cause.** Ni les données, ni les règles de
+preuve, ni la descente à trois niveaux, ni la mécanique de filtrage. Le problème
+est un manque de contexte à l'arrivée, pas une erreur de structure.
+
+**Le refus d'un parcours imposé tient toujours.** Expliquer de quoi il s'agit se
+fait sur la page elle-même : aucun écran d'accueil bloquant, aucune séquence
+obligatoire avant la carte. Le texte se replie dès qu'on descend d'un niveau.
+
+**Trois arbitrages du porteur du projet.**
+
+- *Aucun public cible n'est défini.* On ne segmente pas par profil : la
+  contextualisation doit fonctionner sans aucun prérequis. Exigence plus forte,
+  non plus faible.
+- *Le sujet est le patrimoine, pas l'histoire industrielle.* L'histoire est le
+  moyen, le patrimoine est l'objet. Le projet portant sur des lieux, c'est
+  « patrimoine industriel » qui est conservé, avec la limite que le mot engage :
+  l'état de conservation est inconnu pour 315 des 318 sites, la publication
+  établit donc un patrimoine documenté, non un état des lieux physique.
+- *Le texte d'arrivée se valide avant toute mise en page.* Aucune implémentation
+  tant que la formulation n'est pas arrêtée.
+
+**Le texte arrêté.** Titre « Le patrimoine oublié de l'Orne », sous-titre
+« Voyage dans l'Orne industrielle ». Quatre phrases : l'écart entre l'image
+rurale et le passé industriel ; 318 lieux de production du Moyen Âge au XXe
+siècle avec l'énumération des métiers ; seize sites protégés, un sur vingt ; ce
+que la carte permet de faire.
+
+Faits vérifiés : premier événement daté en 1101 et critère d'entrée fixé à 1950 ;
+16 sites protégés sur 318, soit 5,03 % ; énumération ordonnée selon le poids réel
+des métiers — agroalimentaire 113, métallurgie 79, textile 76, bois et papier 32,
+matériaux 27, extraction 9. Une seule phrase n'est pas vérifiable et l'assume :
+la première, prémisse de journaliste sur l'image que l'on se fait de l'Orne.
+
+Piste écartée : « plus d'une commune sur trois ». Les 143 communes citées
+mélangent communes actuelles et communes anciennes fusionnées ; 95 seulement
+figurent au référentiel actuel, qui en compte 381. Le rapport n'a pas de sens.
+
+Réserve levée par le porteur du projet : « ce qui subsiste aujourd'hui reste à
+documenter » est conservé sans la précision « sur le terrain » proposée en
+réserve.
+
+**Deux corrections qui ne sont pas des arbitrages du porteur**, appliquées pour
+traiter les deux autres manques du retour, et qui attendent son jugement :
+
+- *« Système » devient « ensemble » partout où le mot est affiché.* Le mot
+  n'appartient pas à la langue courante et laisse entendre une organisation
+  historique que nos sources n'établissent pas ; « ensemble » ne prétend rien de
+  plus que ce qui est vrai. Le registre `config/phase10_systemes.yml` et les
+  identifiants techniques gardent leur nom.
+- *Un mode d'emploi est posé au-dessus de la carte*, différent à chaque niveau :
+  ce qu'est un cercle, ce que sa taille signifie — le nombre de lieux, non
+  l'étendue d'un territoire — ce qu'est un point, ce qu'est un trait. Le titre de
+  la vue départementale devient « Où ces lieux se trouvaient ».
+
+**Vérifié.** La régénération reproduit ces corrections à l'identique et les
+contrôles d'effectifs passent sans écart : douze ensembles, 172 sites regroupés,
+146 hors ensembles, 43 sites et cinq liens pour la Risle, sept sites et aucun
+lien pour Crulai. Aucun chiffre n'a bougé.
+
+Décision : **le texte d'arrivée est arrêté et implémenté ; le mot « ensemble » et
+le mode d'emploi sont des corrections proposées, soumises au même jugement. La
+phase 10.D reste ouverte tant que l'écran corrigé n'a pas été jugé.**
+
+## 2026-08-17 — Les photographies de tiers ne sont plus versionnées
+
+Trente-sept commits attendaient d'être envoyés — rien n'avait été poussé depuis
+le 25 juillet. Le contrôle avant envoi a montré ce que contenait le lot.
+
+**Les faits.** 121 fichiers, environ 17 900 lignes, presque uniquement du texte :
+documentation de phase, journal, registres, scripts, tests. Aucun secret, aucune
+donnée personnelle, aucun livrable reproductible qui aurait dû rester local.
+Mais huit photographies que le projet n'a pas produites, et dix rendus de
+maquettes qui les incorporent en pleine page. L'écran d'accueil de la maquette
+validée le 27 juillet est une vue aérienne de bocage sur toute la surface,
+créditée « Méandres de l'Orne · C. Aubert / Conseil départemental de l'Orne ».
+Le crédit existe, l'autorisation non.
+
+**Pourquoi c'était bloquant.** Le dépôt distant est public : l'envoi valait
+publication. Or l'invariant du projet est explicite — une image en ligne n'est
+pas une autorisation, les aperçus crédités ne sont tolérés qu'en prototype
+strictement interne. Le dossier de maquettes le notait déjà lui-même : ces médias
+« ne valent ni sélection définitive ni autorisation de publication ». Et
+l'historique d'un dépôt public ne s'efface pas après coup.
+
+**Option écartée : passer le dépôt en privé.** C'était plus simple et
+réversible, mais cela ne faisait que différer la question tout en gardant les
+images dans l'historique. Le porteur du projet a tranché pour le dépôt public et
+le retrait des images.
+
+**Ce qui a été fait.** Les dix-huit fichiers ont été retirés des trente-sept
+commits, pas seulement de l'état final, et ajoutés au fichier d'exclusion. Ils
+restent sur le poste de travail : la conception interne n'est pas entravée, seule
+la diffusion l'est. L'envoi s'est fait sans forçage, le distant étant resté un
+ancêtre de la branche.
+
+**Vérifié après envoi, sur le dépôt distant et non en local.** Aucun des
+dix-huit fichiers n'apparaît dans un seul objet de la branche poussée. Les sept
+images qui subsistent sont les maquettes 01, 02, 03, 05 et 10, qui ne référencent
+que des cartes produites depuis nos propres données.
+
+**Conséquence assumée.** Les maquettes vectorielles 04, 06, 07, 08, 09 et 11
+pointent vers une photographie absente du dépôt et s'affichent avec un vide à son
+emplacement ; le prototype 0.1, déjà classé comme contre-exemple, perd son image
+de fond. C'est noté dans le dossier de maquettes.
+
+**Ce que cela ne règle pas.** Le jour où des images seront publiées avec
+l'application, la question des droits devra être traitée sur le fond :
+autorisation demandée, ou médias remplacés. Le présent retrait protège le dépôt,
+pas la publication à venir.
+
+Décision : **les photographies de tiers et les rendus qui les incorporent sont
+retirés de l'historique versionné et exclus définitivement ; le dépôt reste
+public ; la question des droits de publication est rouverte avant toute mise en
+ligne de médias.**

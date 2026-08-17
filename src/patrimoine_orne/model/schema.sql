@@ -364,7 +364,8 @@ CREATE TABLE IF NOT EXISTS relations_sites (
             'transfert_vers',
             'successeur_de',
             'depend_de',
-            'partage_infrastructure_avec'
+            'partage_infrastructure_avec',
+            'approvisionne'
         )
     ),
     CHECK (debut_min IS NULL OR debut_max IS NULL OR debut_min <= debut_max),

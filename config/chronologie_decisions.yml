@@ -1,0 +1,65 @@
+# Arbitrage humain des événements datés — phase 10.A.2, mouvement 2
+#
+# Les 56 événements dont la phrase citait une autre commune ont été relus un par
+# un. Quarante-cinq concernent bien le site ; onze datent un autre lieu et sont
+# écartés ici.
+#
+# Voir docs/phase10_methodes.md.
+
+version: 1
+date_decision: 2026-08-05
+auteur: revue humaine assistée
+
+# ---------------------------------------------------------------------------
+# Événements écartés : la date appartient à un autre site.
+# ---------------------------------------------------------------------------
+exclusions:
+  - reference_ia: IA00060913
+    texte_source: "1896"
+    motif: >-
+      « alimenté en fils de coton par la filature de la Planchette construite en
+      1896 à Saint-Georges-des-Groseillers ». 1896 est la date de construction
+      de la Planchette, site IA00060915, et non celle de ce tissage.
+
+  # Les tissages de Flers appartenaient à une même société, dont l'expansion
+  # hors du département est racontée dans chacune de leurs notices. Ces dates
+  # concernent des usines du Calvados qui n'appartiennent pas au corpus.
+  - reference_ia: IA00060913
+    texte_source: "vers 1911"
+    motif: agrandissement de la société par un tissage du Calvados, hors corpus
+  - reference_ia: IA00060913
+    texte_source: "vers 1927"
+    motif: agrandissement de la société par une filature du Calvados, hors corpus
+  - reference_ia: IA00060914
+    texte_source: "vers 1911"
+    motif: agrandissement de la société par un tissage du Calvados, hors corpus
+  - reference_ia: IA00060914
+    texte_source: "1927"
+    motif: agrandissement de la société par une filature du Calvados, hors corpus
+  - reference_ia: IA00060915
+    texte_source: "vers 1911"
+    motif: agrandissement de la société par un tissage du Calvados, hors corpus
+  - reference_ia: IA00060915
+    texte_source: "vers 1927"
+    motif: agrandissement de la société par une filature du Calvados, hors corpus
+  - reference_ia: IA00061042
+    texte_source: "vers 1911"
+    motif: agrandissement de la société par un tissage du Calvados, hors corpus
+  - reference_ia: IA00061042
+    texte_source: "vers 1927"
+    motif: agrandissement de la société par une filature du Calvados, hors corpus
+  - reference_ia: IA00061043
+    texte_source: "vers 1911"
+    motif: agrandissement de la société par un tissage du Calvados, hors corpus
+  - reference_ia: IA00061043
+    texte_source: "1927"
+    motif: agrandissement de la société par une filature du Calvados, hors corpus
+
+# ---------------------------------------------------------------------------
+# Événements conservés malgré la mention d'une autre commune.
+# ---------------------------------------------------------------------------
+# Quarante-cinq cas. Le motif est toujours le même : la commune citée est
+# incidente. Un titre de noblesse — « le marquis de L'Aigle », « le duc
+# d'Alençon » —, l'adresse d'un acheteur, un site voisin approvisionné, ou une
+# concession qui s'étend sur plusieurs communes ne déplacent pas l'événement.
+conserves_malgre_mention_externe: 45

@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Prototype de la publication interactive consacrée au patrimoine industriel oublié de l'Orne."
+    />
+    <title>Patrimoine industriel oublié — prototype</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+    <header class="site-header">
+      <a class="brand" href="#accueil">Patrimoine industriel oublié</a>
+      <nav aria-label="Navigation principale">
+        <a data-route="recit" href="#recit">Le récit</a>
+        <a data-route="explorer" href="#explorer">Explorer</a>
+        <a data-route="place" href="#lieux/abadie">Les lieux</a>
+        <a data-route="method" href="#methode">Méthode</a>
+      </nav>
+    </header>
+
+    <main id="contenu" tabindex="-1">
+      <div id="view-home" class="view" data-view="home">
+        <section class="hero">
+          <div class="hero-shade"></div>
+          <div class="hero-content">
+            <p class="eyebrow">Un récit cartographique sur l’Orne</p>
+            <h1>Patrimoine<br />industriel oublié</h1>
+            <p class="hero-lead">
+              Moulins, filatures, forges, mines, laiteries : 318 sites
+              documentés racontent une histoire encore peu visible de l’Orne.
+            </p>
+            <p class="hero-note">
+              Une lecture par les cartes, les transformations des lieux et les
+              sources.
+            </p>
+            <div class="button-row">
+              <a class="button button-accent" href="#recit">Commencer le récit</a>
+              <a class="button button-light" href="#explorer">Explorer la carte</a>
+            </div>
+            <dl class="hero-metrics">
+              <div>
+                <dt>318</dt>
+                <dd>sites du corpus</dd>
+              </div>
+              <div>
+                <dt>403</dt>
+                <dd>phases d’activité</dd>
+              </div>
+              <div>
+                <dt>73</dt>
+                <dd>sites à plusieurs vies</dd>
+              </div>
+            </dl>
+          </div>
+          <p class="media-credit">
+            Photographie de travail : Méandres de l’Orne · C. Aubert / Conseil
+            départemental de l’Orne
+          </p>
+        </section>
+
+        <section id="recit" class="story" aria-labelledby="story-title">
+          <div class="story-intro">
+            <p class="eyebrow">Le récit</p>
+            <h2 id="story-title">Ce paysage raconte-t-il toute l’histoire ?</h2>
+            <p>
+              Le texte avance à gauche. La carte reste visible et change d’état
+              seulement lorsqu’une nouvelle preuve entre dans le récit.
+            </p>
+          </div>
+
+          <div class="story-layout">
+            <div class="story-steps">
+              <article class="story-step" data-story-state="0" tabindex="0">
+                <p class="step-number">01</p>
+                <h3>Une image réelle, mais incomplète</h3>
+                <p>
+                  Vallées, prairies et forêts décrivent bien l’Orne actuelle.
+                  Elles ne suffisent pourtant pas à raconter les activités qui
+                  ont transformé ses bourgs et ses cours d’eau.
+                </p>
+              </article>
+              <article class="story-step" data-story-state="1" tabindex="0">
+                <p class="step-number">02</p>
+                <h3>Un territoire de productions</h3>
+                <p>
+                  Le corpus documente neuf secteurs. Ici, le textile apparaît
+                  sans attribuer pour autant une identité unique aux sites qui
+                  ont connu plusieurs productions.
+                </p>
+              </article>
+              <article class="story-step" data-story-state="2" tabindex="0">
+                <p class="step-number">03</p>
+                <h3>L’eau : proximité n’est pas causalité</h3>
+                <p>
+                  213 sites sont situés à moins de 100 mètres d’un cours d’eau
+                  dans les calculs du corpus. Une relation fonctionnelle doit
+                  néanmoins être établie site par site.
+                </p>
+              </article>
+              <article class="story-step" data-story-state="3" tabindex="0">
+                <p class="step-number">04</p>
+                <h3>Un lieu, plusieurs vies</h3>
+                <p>
+                  73 sites comportent plusieurs activités. Le moulin d’Ozé
+                  devient filature, puis usine Moulinex : la trajectoire
+                  individuelle donne un sens concret au chiffre.
+                </p>
+                <a class="text-link" href="#lieux/oze-moulinex"
+                  >Lire le cas d’Ozé →</a
+                >
+              </article>
+              <article class="story-step" data-story-state="4" tabindex="0">
+                <p class="step-number">05</p>
+                <h3>Ce que l’on sait aujourd’hui</h3>
+                <p>
+                  Quatre situations seulement sont appuyées par une source
+                  récente. Le manque d’information devient une donnée visible,
+                  pas une conclusion automatique sur l’état des lieux.
+                </p>
+              </article>
+              <article class="story-step story-exit" data-story-state="5" tabindex="0">
+                <p class="step-number">06</p>
+                <h3>À vous d’explorer</h3>
+                <p>
+                  La carte complète permet maintenant de rechercher un lieu,
+                  filtrer les phases et vérifier la précision de chaque point.
+                </p>
+                <a class="button button-accent" href="#explorer"
+                  >Ouvrir l’exploration</a
+                >
+              </article>
+            </div>
+
+            <aside class="story-visual" aria-label="Visualisation du récit">
+              <div class="map-frame story-map" id="story-map">
+                <div class="map-base" data-map-base></div>
+                <div class="marker-layer" id="story-markers" aria-hidden="true"></div>
+                <div class="story-map-caption" aria-live="polite">
+                  <span id="story-map-caption">318 sites documentés</span>
+                </div>
+              </div>
+              <p class="map-limit">
+                Points approximatifs et zones documentaires · contexte
+                géographique actuel
+              </p>
+            </aside>
+          </div>
+
+          <details class="text-alternative">
+            <summary>Lire l’alternative textuelle de la visualisation</summary>
+            <p>
+              La carte part des 318 sites, met ensuite en évidence les sites
+              textiles, les proximités à l’eau, les 73 sites à plusieurs
+              activités, puis les quatre situations actuelles documentées.
+            </p>
+          </details>
+        </section>
+      </div>
+
+      <section id="view-explorer" class="view explorer-view" data-view="explorer" hidden>
+        <div class="page-heading">
+          <p class="eyebrow">Exploration libre</p>
+          <h1>Explorer les 318 sites documentés</h1>
+          <p>
+            Rechercher, filtrer et ouvrir un site sans créer de précision ou de
+            relation artificielle.
+          </p>
+        </div>
+
+        <form class="filter-bar" id="filters-form">
+          <label class="search-field">
+            <span>Rechercher</span>
+            <input
+              type="search"
+              id="search-filter"
+              name="query"
+              placeholder="Lieu, commune, activité ou référence…"
+              autocomplete="off"
+            />
+          </label>
+          <label>
+            <span>Activité</span>
+            <select name="activity" id="activity-filter">
+              <option value="">Toutes</option>
+            </select>
+          </label>
+          <label>
+            <span>Période d’activité</span>
+            <select name="period" id="period-filter">
+              <option value="">Toutes</option>
+            </select>
+          </label>
+          <label>
+            <span>Situation actuelle</span>
+            <select name="situation" id="current-filter">
+              <option value="">Toutes</option>
+              <option value="documented">Documentée récemment</option>
+              <option value="unknown">Non documentée récemment</option>
+            </select>
+          </label>
+          <label>
+            <span>Précision</span>
+            <select name="precision" id="precision-filter">
+              <option value="">Toutes</option>
+              <option value="point_approximatif">Point approximatif</option>
+              <option value="zone_documentaire">Zone documentaire</option>
+            </select>
+          </label>
+          <button class="reset-button" id="reset-filters" type="button" hidden>Tout effacer</button>
+        </form>
+
+        <div class="explorer-status">
+          <p id="result-count" aria-live="polite">318 sites dans le corpus</p>
+          <button class="list-toggle" id="list-toggle" type="button" aria-expanded="false">
+            Afficher la liste
+          </button>
+        </div>
+        <ul id="result-list" class="result-list" hidden></ul>
+
+        <div class="explorer-layout">
+          <div class="map-column">
+            <div class="map-frame explorer-map" id="explorer-map" aria-label="Carte des résultats">
+              <div class="map-base" data-map-base></div>
+              <div class="marker-layer" id="explorer-markers" aria-hidden="true"></div>
+              <div class="layer-controls" aria-label="Couches cartographiques">
+                <span>Couches</span>
+                <label><input type="checkbox" data-layer="water" value="water" checked /> Eau</label>
+                <label
+                  ><input type="checkbox" data-layer="forests" value="forests" checked /> Forêts</label
+                >
+                <label><input type="checkbox" data-layer="rail" value="rail" checked /> Rail actuel</label>
+                <label
+                  ><input type="checkbox" data-layer="communes" value="communes" checked /> Communes</label
+                >
+              </div>
+              <div class="map-legend">
+                <span><i class="legend-dot"></i> Point approximatif</span>
+                <span><i class="legend-zone"></i> Zone documentaire</span>
+              </div>
+              <div class="no-results" id="no-results" hidden>
+                <strong>Aucun site ne correspond à ces critères.</strong>
+                <button type="button" id="clear-empty-filters">Tout effacer</button>
+              </div>
+            </div>
+            <p class="map-limit">
+              Les couches de contexte sont actuelles ; elles ne prouvent pas
+              une relation historique.
+            </p>
+          </div>
+
+          <aside class="result-drawer" id="site-drawer" aria-label="Résultats et détail">
+            <div class="drawer-content" id="drawer-content">
+              <div class="drawer-empty">
+              <p class="eyebrow">Aucun site sélectionné</p>
+              <h2>Choisissez un point ou ouvrez la liste</h2>
+              <p>
+                Le détail apparaîtra ici sans vous faire perdre l’état de la
+                carte.
+              </p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <article id="place-page" class="view place-view" data-view="place" hidden></article>
+
+      <section id="view-method" class="view method-view" data-view="method" hidden>
+        <div class="method-hero">
+          <p class="eyebrow">Méthode</p>
+          <h1>Une carte construite, pas une évidence</h1>
+          <p>
+            Cette page explique ce que les données permettent d’affirmer, ce
+            qu’elles laissent inconnu et comment le corpus a été constitué.
+          </p>
+          <dl>
+            <div><dt>319</dt><dd>dossiers sources</dd></div>
+            <div><dt>318</dt><dd>sites canoniques</dd></div>
+            <div><dt>403</dt><dd>phases d’activité</dd></div>
+          </dl>
+        </div>
+
+        <div class="method-layout">
+          <nav class="method-toc" aria-label="Sommaire de la méthode">
+            <a href="#methode-perimetre">1. Périmètre</a>
+            <a href="#methode-corpus">2. Des sources aux sites</a>
+            <a href="#methode-activites">3. Activités et secteurs</a>
+            <a href="#methode-temps">4. Temps</a>
+            <a href="#methode-carte">5. Carte et précision</a>
+            <a href="#methode-situation">6. Situation actuelle</a>
+            <a href="#methode-medias">7. Textes, images et droits</a>
+            <a href="#methode-limites">8. Sources et limites</a>
+          </nav>
+          <div class="method-content">
+            <section id="methode-perimetre">
+              <h2>1. Périmètre</h2>
+              <p>
+                Les 318 sites représentent le corpus étudié à partir de
+                l’Inventaire industriel de l’Orne. Ils ne constituent pas le
+                nombre total de sites industriels ayant existé dans le
+                département.
+              </p>
+            </section>
+            <section id="methode-corpus">
+              <h2>2. Des sources aux sites</h2>
+              <div class="method-flow" aria-label="Chaîne de constitution">
+                <span>Sources</span><b>→</b><span>Rapprocher</span><b>→</b
+                ><span>Sites</span><b>→</b><span>Publier</span>
+              </div>
+              <p>
+                Les rapprochements conservent les références d’origine et les
+                décisions humaines. Un dossier collectif hors décompte explique
+                le passage de 319 dossiers à 318 sites.
+              </p>
+            </section>
+            <section id="methode-activites">
+              <h2>3. Activités et secteurs</h2>
+              <p>
+                Le classement porte sur chaque phase d’activité. Aucun secteur
+                principal permanent n’est imposé aux sites multi-activités.
+              </p>
+            </section>
+            <section id="methode-temps">
+              <h2>4. Temps</h2>
+              <p>
+                Seules 42 phases concernant 29 sites possèdent une période
+                d’activité suffisamment structurée. Les siècles de construction
+                restent des repères documentaires distincts.
+              </p>
+            </section>
+            <section id="methode-carte">
+              <h2>5. Carte et précision</h2>
+              <p>
+                290 localisations sont des points approximatifs et 28 des zones
+                documentaires. Aucun symbole ne représente une emprise bâtie
+                vérifiée.
+              </p>
+            </section>
+            <section id="methode-situation">
+              <h2>6. Situation actuelle</h2>
+              <p>
+                Conservation, usage et accessibilité sont trois dimensions
+                séparées. Quatre situations seulement disposent d’une source
+                récente.
+              </p>
+            </section>
+            <section id="methode-medias">
+              <h2>7. Textes, images et droits</h2>
+              <p>
+                Les textes sources, les synthèses documentaires et l’écriture
+                journalistique ne sont jamais confondus. Chaque média conserve
+                sa légende, son crédit et sa preuve d’autorisation.
+              </p>
+            </section>
+            <section id="methode-limites">
+              <h2>8. Sources, version et limites</h2>
+              <p>
+                Prototype phase 10 · données V1 · 27 juillet 2026. Les contenus
+                et médias des études de cas restent soumis à revue éditoriale.
+              </p>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Prototype de conception · aucune publication définitive</p>
+      <a href="#methode">Méthode et limites</a>
+    </footer>
+    <p id="app-error" class="app-error" hidden>
+      Le prototype n’a pas pu charger ses données. Lancez-le depuis un serveur local.
+    </p>
+  </body>
+</html>

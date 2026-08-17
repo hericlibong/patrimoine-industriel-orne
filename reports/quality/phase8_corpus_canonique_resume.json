@@ -14,12 +14,12 @@
     "activites": 403,
     "dossiers_sources_hors_decompte": 1,
     "rapprochements_rejetes": 7,
-    "relations_sites_validees": 5,
+    "relations_sites_validees": 23,
     "sites": 318,
     "sites_avec_activites_productives": 314,
     "sites_composants_non_productifs": 4
   },
-  "generated_at": "2026-07-23",
+  "generated_at": "2026-08-05",
   "next_step": "enrichir_et_localiser_les_318_sites_canoniques",
   "schema_version": "1.0",
   "source_dossier_count": 319

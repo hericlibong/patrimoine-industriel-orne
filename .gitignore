@@ -31,3 +31,25 @@ data/archive/*
 # Couches QGIS générées localement pour les contrôles visuels
 qgis/data/*
 !qgis/data/.gitkeep
+
+# Photographies de tiers et rendus qui les incorporent — conception interne
+# uniquement. Aucune autorisation de publication n'a été obtenue ; ces fichiers
+# restent sur le poste de travail et ne sont pas versionnés.
+docs/design/phase10/reference_abadie_vue_aerienne.jpg
+docs/design/phase10/reference_bohin_1982.jpg
+docs/design/phase10/reference_oze_1987.jpg
+docs/design/phase10/reference_paysage_orne.jpg
+prototype/phase10/assets/abadie-1988.jpg
+prototype/phase10/assets/bohin-1982.jpg
+prototype/phase10/assets/oze-1987.jpg
+prototype/phase10/assets/paysage-orne.jpg
+docs/design/phase10/04_accueil_paysage_revele.png
+docs/design/phase10/06_portrait_abadie_paysage_revele.png
+docs/design/phase10/07_accueil_patrimoine_industriel_oublie.png
+docs/design/phase10/07_accueil_patrimoine_industriel_oublie.jpg
+docs/design/phase10/08_exploration_carte_vivante.png
+docs/design/phase10/08_exploration_carte_vivante.jpg
+docs/design/phase10/09_les_lieux_abadie_temps_statut.png
+docs/design/phase10/09_les_lieux_abadie_temps_statut.jpg
+docs/design/phase10/11_fiches_lieux_methode.png
+docs/design/phase10/11_fiches_lieux_methode.jpg
