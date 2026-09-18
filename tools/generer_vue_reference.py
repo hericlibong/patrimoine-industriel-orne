@@ -37,6 +37,7 @@ COMMUNES = (
 CLASSIFICATIONS = RACINE / "config" / "classifications.yml"
 GABARIT = Path(__file__).resolve().parent / "vue_reference_gabarit.html"
 SORTIE = RACINE / "prototype" / "vue_reference" / "index.html"
+D3_LOCAL = RACINE / "tools" / "vendor" / "d3.v7.9.0.min.js"
 
 SEUIL_REGROUPEMENT_M = 3000
 MARGE_DEGRES = 0.02
@@ -409,6 +410,36 @@ def resume_systeme(sites: list[dict], liens: list[dict], chronologie: dict) -> d
     }
 
 
+def geojson_systeme(sites: list[dict], eau: list[dict]) -> dict:
+    """Embarque les géométries de la Risle sans modifier les données sources."""
+    return {
+        "lieux": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "id": site["ref"],
+                    "properties": dict(site),
+                    "geometry": {"type": "Point", "coordinates": [site["lon"], site["lat"]]},
+                }
+                for site in sites
+            ],
+        },
+        "eau": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "id": troncon["id"],
+                    "properties": {"id": troncon["id"], "categorie": troncon["categorie"]},
+                    "geometry": {"type": "LineString", "coordinates": troncon["points"]},
+                }
+                for troncon in eau
+            ],
+        },
+    }
+
+
 def construire() -> dict:
     registre = yaml.safe_load(REGISTRE.read_text(encoding="utf-8"))
     connection = duckdb.connect(str(BASE), read_only=True)
@@ -471,6 +502,7 @@ def construire() -> dict:
         }
         if code == "risle":
             detail[code]["reperes"] = reperes_risle(detail[code]["eau"])
+            detail[code]["geojson"] = geojson_systeme(sites, detail[code]["eau"])
 
     autres = [
         {
@@ -559,8 +591,11 @@ def main() -> None:
 
     gabarit = GABARIT.read_text(encoding="utf-8")
     charge = json.dumps(donnees, ensure_ascii=False, separators=(",", ":"))
+    d3 = D3_LOCAL.read_text(encoding="utf-8")
     SORTIE.parent.mkdir(parents=True, exist_ok=True)
-    SORTIE.write_text(gabarit.replace("__DONNEES__", charge), encoding="utf-8")
+    SORTIE.write_text(
+        gabarit.replace("__D3__", d3).replace("__DONNEES__", charge), encoding="utf-8"
+    )
 
     rapport = {
         "controles": controles,

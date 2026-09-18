@@ -96,6 +96,13 @@
 
   .cadre{position:relative;background:#fbfaf6;border:1px solid var(--trait);
     border-radius:4px;overflow:hidden}
+  .commandes-zoom{display:flex;gap:6px;align-items:center;padding:8px 10px;
+    border-bottom:1px solid var(--trait);background:rgba(255,254,251,.92)}
+  .commandes-zoom[hidden]{display:none}
+  .commandes-zoom button{min-width:32px;height:30px;padding:2px 8px;border:1px solid var(--trait);
+    border-radius:4px;background:#fff;color:var(--appui);font-size:16px;line-height:1}
+  .commandes-zoom button:hover,.commandes-zoom button:focus-visible{border-color:var(--gris);background:#f2f0ea}
+  .commandes-zoom .zoom-initiale{font-size:12px;margin-left:4px}
   svg.carte{display:block;width:100%;height:auto}
   .annotation{position:absolute;max-width:270px;background:rgba(255,254,251,.96);
     border-left:3px solid var(--signal);padding:8px 11px;font-size:12.5px;
@@ -285,6 +292,11 @@
       <div class="legende" id="legende"></div>
 
       <div class="cadre">
+        <div class="commandes-zoom" id="commandesZoom" hidden aria-label="Commandes de la carte">
+          <button type="button" id="zoomMoins" aria-label="Réduire le zoom">−</button>
+          <button type="button" id="zoomPlus" aria-label="Augmenter le zoom">+</button>
+          <button type="button" class="zoom-initiale" id="zoomInitiale">Vue initiale</button>
+        </div>
         <svg class="carte" id="carte" viewBox="0 0 1000 640"
              role="group" aria-labelledby="titreCarte descCarte"></svg>
         <div class="annotation" id="annotation" hidden></div>
@@ -321,6 +333,7 @@
 
 <div class="invisible" role="status" aria-live="polite" id="annonce"></div>
 
+<script>__D3__</script>
 <script>
 const D = __DONNEES__;
 
@@ -328,6 +341,10 @@ const D = __DONNEES__;
 const etat = {niveau:"departement", systeme:null, site:null, metier:null, lien:null};
 const accordeons = {};
 const CARTE = document.getElementById("carte");
+const COMMANDES_ZOOM = document.getElementById("commandesZoom");
+const ZOOM_PLUS = document.getElementById("zoomPlus");
+const ZOOM_MOINS = document.getElementById("zoomMoins");
+const ZOOM_INITIALE = document.getElementById("zoomInitiale");
 const LARGEUR = 1000, MARGE = 30;
 let HAUTEUR = 520;
 const NS = "http://www.w3.org/2000/svg";
@@ -352,6 +369,11 @@ const metiersDuCorpus = (() => {
 /* Recalculée à chaque vue : la carte se recadre sur ce qu'elle montre, et les
    symboles gardent la même taille à l'écran quel que soit le cadrage. */
 let projeter = null;
+let projectionD3 = null;
+let contenuCarte = null;
+let coucheInterface = null;
+let zoomRisle = d3.zoomIdentity;
+let zoomComportement = null;
 
 function poserHauteur(hauteur){
   HAUTEUR = hauteur;
@@ -372,6 +394,12 @@ function cadrer(points){
     decalageX + (lon*cos - x0)*k,
     decalageY + (-lat - y0)*k
   ];
+  projectionD3 = d3.geoTransform({
+    point(lon, lat){
+      this.stream.point(decalageX + (lon*cos - x0)*k,
+        decalageY + (-lat - y0)*k);
+    }
+  });
 }
 
 /* ------------------------------------------------------------- fabrique */
@@ -383,6 +411,8 @@ function el(nom, attributs){
 }
 const echapper = texte => String(texte ?? "").replace(/[&<>"]/g,
   c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function ajouterCarte(noeud){ (contenuCarte || CARTE).appendChild(noeud); }
 
 /* ------------------------------------------------------------- sélection */
 function sitesDuSysteme(code){
@@ -399,7 +429,11 @@ function autreGarde(site){
 }
 
 /* ----------------------------------------------------------- dessin carte */
-function viderCarte(){ while (CARTE.firstChild) CARTE.removeChild(CARTE.firstChild); }
+function viderCarte(){
+  while (CARTE.firstChild) CARTE.removeChild(CARTE.firstChild);
+  contenuCarte = null;
+  coucheInterface = null;
+}
 
 function dessinerDepartement(){
   const systemes = D.departement.systemes.filter(systemeGarde);
@@ -418,7 +452,7 @@ function dessinerDepartement(){
 
   for (const boucle of D.departement.contour){
     const d = boucle.map((p,i) => (i ? "L" : "M") + projeter(p[0],p[1]).map(v=>v.toFixed(1)).join(" ")).join(" ");
-    CARTE.appendChild(el("path",{d:d+" Z",fill:"#f1efe8",stroke:"#cdc9be","stroke-width":1}));
+    ajouterCarte(el("path",{d:d+" Z",fill:"#f1efe8",stroke:"#cdc9be","stroke-width":1}));
   }
 
   const groupeAutres = el("g",{});
@@ -427,7 +461,7 @@ function dessinerDepartement(){
     groupeAutres.appendChild(el("circle",{cx:x.toFixed(1),cy:y.toFixed(1),r:2.6,
       fill:"#a9a49a"}));
   }
-  CARTE.appendChild(groupeAutres);
+  ajouterCarte(groupeAutres);
 
   /* Les étiquettes sont placées après les cercles, en évitant les recouvrements :
      un nom illisible ne vaut pas mieux qu'un nom absent. */
@@ -455,7 +489,7 @@ function dessinerDepartement(){
       if (evenement.key === "Enter" || evenement.key === " "){ evenement.preventDefault(); ouvrir(); }
     });
     groupe.appendChild(cible);
-    CARTE.appendChild(groupe);
+    ajouterCarte(groupe);
     return {systeme, x, y, rayon, nombre};
   });
 
@@ -483,18 +517,25 @@ function dessinerDepartement(){
       "pointer-events":"none", "paint-order":"stroke", stroke:"#f7f5f0",
       "stroke-width":3, "stroke-linejoin":"round"});
     etiquette.textContent = texte;
-    CARTE.appendChild(etiquette);
+    ajouterCarte(etiquette);
   }
 }
 
 function dessinerSysteme(code){
   const detail = D.detail[code];
   const definition = D.departement.systemes.find(s => s.code === code);
-  const retenus = detail.sites.filter(garde);
-  const aCadrer = retenus.length ? retenus : detail.sites;
+  const sitesGeographiques = code === "risle" && detail.geojson
+    ? detail.geojson.lieux.features.map(feature => ({
+        ...feature.properties,
+        lon: feature.geometry.coordinates[0],
+        lat: feature.geometry.coordinates[1],
+      }))
+    : detail.sites;
+  const retenus = sitesGeographiques.filter(garde);
+  const aCadrer = retenus.length ? retenus : sitesGeographiques;
   poserHauteur(560);
   // Risle : emprise stable autorisée, mêmes 43 lieux et quatre bourgs à chaque état.
-  const pointsCadre = code === "risle" ? detail.sites.concat(detail.reperes.bourgs) : aCadrer;
+  const pointsCadre = code === "risle" ? sitesGeographiques.concat(detail.reperes.bourgs) : aCadrer;
   cadrer(pointsCadre.map(s => [s.lon, s.lat]));
 
   viderCarte();
@@ -503,15 +544,33 @@ function dessinerSysteme(code){
     `${retenus.length} lieu${retenus.length>1?"x":""} affiché${retenus.length>1?"s":""}
      sur ${detail.sites.length}, et les cours d'eau qui les traversent`));
 
-  for (const troncon of detail.eau){
-    const principale = troncon.categorie === "principale";
-    const d = troncon.points.map((p,i) => (i ? "L" : "M") + projeter(p[0],p[1]).map(v=>v.toFixed(1)).join(" ")).join(" ");
-    CARTE.appendChild(el("path",{d,fill:"none",stroke:principale ? "#4f8fac" : "#8fb4cc",
-      "stroke-width":principale ? 2.2 : 1.3,"stroke-opacity":principale ? .85 : .55,
-      "stroke-linecap":"round","data-troncon":troncon.id}));
+  contenuCarte = el("g",{id:"contenuCarte"});
+  CARTE.appendChild(contenuCarte);
+  coucheInterface = el("g",{id:"coucheInterface","pointer-events":"none"});
+  CARTE.appendChild(coucheInterface);
+
+  if(code === "risle" && detail.geojson && projectionD3){
+    const chemin = d3.geoPath(projectionD3);
+    for(const feature of detail.geojson.eau.features){
+      const principale = feature.properties.categorie === "principale";
+      ajouterCarte(el("path",{d:chemin(feature),fill:"none",
+        stroke:principale ? "#4f8fac" : "#8fb4cc",
+        "stroke-width":principale ? 2.2 : 1.3,
+        "stroke-opacity":principale ? .85 : .55,"stroke-linecap":"round",
+        "vector-effect":"non-scaling-stroke",
+        "data-troncon":feature.properties.id}));
+    }
+  } else {
+    for (const troncon of detail.eau){
+      const principale = troncon.categorie === "principale";
+      const d = troncon.points.map((p,i) => (i ? "L" : "M") + projeter(p[0],p[1]).map(v=>v.toFixed(1)).join(" ")).join(" ");
+      ajouterCarte(el("path",{d,fill:"none",stroke:principale ? "#4f8fac" : "#8fb4cc",
+        "stroke-width":principale ? 2.2 : 1.3,"stroke-opacity":principale ? .85 : .55,
+        "stroke-linecap":"round","vector-effect":"non-scaling-stroke","data-troncon":troncon.id}));
+    }
   }
 
-  const parReference = Object.fromEntries(detail.sites.map(s => [s.ref, s]));
+  const parReference = Object.fromEntries(sitesGeographiques.map(s => [s.ref, s]));
   for (const [index, lien] of detail.liens.entries()){
     const depart = parReference[lien.de], arrivee = parReference[lien.vers];
     if (!depart || !arrivee) continue;
@@ -533,7 +592,8 @@ function dessinerSysteme(code){
       d:`M${x1.toFixed(1)} ${y1.toFixed(1)} Q${controleX.toFixed(1)} ${controleY.toFixed(1)}`
         + ` ${x2.toFixed(1)} ${y2.toFixed(1)}`,
       stroke: actif ? "#9a3412" : "#7a736a", "stroke-width": actif ? 2.8 : 1.6,
-      "stroke-dasharray": actif ? null : "5 4", fill:"none", class:"relation",
+      "stroke-dasharray": actif ? null : "5 4", "vector-effect":"non-scaling-stroke",
+      fill:"none", class:"relation",
       tabindex:"0", role:"button",
       "aria-label":`Lien documenté : ${depart.nomCourt} vers ${arrivee.nomCourt}. Afficher la phrase qui l'établit.`});
     const montrer = () => {
@@ -550,17 +610,19 @@ function dessinerSysteme(code){
     trace.addEventListener("keydown", evenement => {
       if (evenement.key === "Enter" || evenement.key === " "){ evenement.preventDefault(); montrer(); }
     });
-    CARTE.appendChild(trace);
+    ajouterCarte(trace);
   }
 
-  for (const site of detail.sites){
+  for (const site of sitesGeographiques){
     const retenu = garde(site);
     if (!retenu && etat.metier) continue;
     const [x,y] = projeter(site.lon, site.lat);
     const choisi = etat.site === site.ref;
     const cercle = el("circle",{cx:x.toFixed(1),cy:y.toFixed(1),
       r: choisi ? 8 : 5.5, class:"site",
+      "data-taille-base": choisi ? 8 : 5.5,
       fill: choisi ? "#9a3412" : "#c2703f", stroke:"#fffefb","stroke-width":1.4,
+      "vector-effect":"non-scaling-stroke",
       tabindex:"0", role:"button",
       "aria-label":`${site.nomCourt}, ${site.commune}. Ouvrir cette fiche.`});
     const ouvrir = () => allerAuSite(site.ref);
@@ -580,7 +642,7 @@ function dessinerSysteme(code){
     cercle.addEventListener("keydown", evenement => {
       if (evenement.key === "Enter" || evenement.key === " "){ evenement.preventDefault(); ouvrir(); }
     });
-    CARTE.appendChild(cercle);
+    ajouterCarte(cercle);
   }
 }
 
@@ -593,7 +655,7 @@ function dessinerReperesRisle(){
   const echelle = LARGEUR / (largeur || LARGEUR);
   const taille = Math.max(14, 12 * echelle), marge = Math.max(6, 3 * echelle);
   const groupe = el("g",{id:"reperesRisle","pointer-events":"none"});
-  CARTE.appendChild(groupe);
+  ajouterCarte(groupe);
   const obstacles = [], boites = [];
   const obstacle = (x,y,r) => obstacles.push({x0:x-r,x1:x+r,y0:y-r,y1:y+r});
   // Réserver tous les lieux et relations, même filtrés : éviter le déplacement
@@ -632,7 +694,7 @@ function dessinerReperesRisle(){
     const texte=el("text",{"font-size":taille,"font-family":"Arial, sans-serif",
       "font-style":riviere?"italic":"normal",fill:riviere?"#4f8fac":"#20222a",
       "paint-order":"stroke",stroke:"#fbfaf6","stroke-width":2,
-      "stroke-linejoin":"round","data-repere":repere.nom});
+      "stroke-linejoin":"round","data-repere":repere.nom,"data-taille-base":taille});
     const lignes=largeur<480 && repere.nom==="Sainte-Gauburge-Sainte-Colombe"
       ? ["Sainte-Gauburge-","Sainte-Colombe"] : [repere.nom];
     const spans=[];
@@ -686,31 +748,128 @@ function retirerIdentification(){
     CARTE.removeChild(bulleIdentification);
   bulleIdentification = null;
 }
+function positionnerBulleIdentification(){
+  if(!bulleIdentification || !projeter || !zoomRisle)return;
+  const reference = bulleIdentification.dataset.reference;
+  const site = D.detail.risle.sites.find(item => item.ref === reference);
+  if(!site){ retirerIdentification(); return; }
+  const [baseX,baseY] = projeter(site.lon,site.lat);
+  const [x,y] = zoomRisle.apply([baseX,baseY]);
+  const largeur = Number(bulleIdentification.dataset.largeur);
+  const hauteur = Number(bulleIdentification.dataset.hauteur);
+  const dansCadre = x >= 0 && x <= LARGEUR && y >= 0 && y <= HAUTEUR;
+  if(!dansCadre){
+    bulleIdentification.setAttribute("visibility","hidden");
+    return;
+  }
+  bulleIdentification.removeAttribute("visibility");
+  const marge = 7;
+  const droite = x + 12 + largeur <= LARGEUR - 8;
+  const gauche = droite ? x + 12 : x - 12 - largeur;
+  const left = Math.max(8, Math.min(LARGEUR - largeur - 8, gauche));
+  const above = y - hauteur - 12 >= 8;
+  const top = Math.max(8, Math.min(HAUTEUR - hauteur - 8,
+    above ? y - hauteur - 12 : y + 12));
+  const rect = bulleIdentification.querySelector("rect");
+  rect.setAttribute("x",left); rect.setAttribute("y",top);
+  bulleIdentification.querySelectorAll("text").forEach((texte,index) => {
+    texte.setAttribute("x",left + marge);
+    texte.setAttribute("y",top + marge + 13 + index * 17);
+  });
+}
+function creerBulleIdentification(reference){
+  if(!coucheInterface || !projeter)return;
+  const site = D.detail.risle.sites.find(item => item.ref === reference);
+  if(!site)return;
+  const activites = site.secteurs.map(code => libelle(code));
+  const lignes = [site.nomCourt, site.commune, activites.join(" · ")];
+  const taille = 13, marge = 7, hauteur = lignes.length * 17 + marge * 2;
+  const largeur = Math.min(900, Math.max(150,
+    Math.max(...lignes.map(ligne => ligne.length * 7.1)) + marge * 2));
+  const groupe = el("g",{id:"identificationTooltip",class:"identification-tooltip",
+    "aria-label":`${site.nomCourt}, ${site.commune}. Activités : ${activites.join(", ")}`,
+    "data-reference":reference,"data-largeur":largeur,"data-hauteur":hauteur,
+    "pointer-events":"none"});
+  groupe.appendChild(el("rect",{width:largeur,height:hauteur,rx:3,
+    fill:"#fffefb",stroke:"#9a3412","stroke-width":1,"fill-opacity":.97,
+    "vector-effect":"non-scaling-stroke"}));
+  lignes.forEach((ligne,index)=>{
+    const texte=el("text",{"font-size":taille,fill:index===0?"#20222a":"#3f4a5a"});
+    texte.textContent=ligne;groupe.appendChild(texte);
+  });
+  bulleIdentification = groupe;
+  coucheInterface.appendChild(groupe);
+  positionnerBulleIdentification();
+}
 function changerIdentification(reference, origine){
   pointIdentification[origine] = reference;
   retirerIdentification();
   const actif = pointIdentification.focus || pointIdentification.hover;
   if(!actif || !etat.systeme || etat.systeme !== "risle" || etat.niveau === "departement")return;
-  const site = D.detail.risle.sites.find(item => item.ref === actif);
-  if(!site || !projeter)return;
-  const [x,y] = projeter(site.lon,site.lat);
-  const activites = site.secteurs.map(code => libelle(code));
-  const lignes = [site.nomCourt, site.commune, activites.join(" · ")];
-  const taille = 13, marge = 7, hauteur = lignes.length * 17 + marge * 2;
-  const largeur = Math.min(900, Math.max(150, Math.max(...lignes.map(ligne => ligne.length * 7.1)) + marge * 2));
-  const gauche = Math.max(8, Math.min(LARGEUR - largeur - 8, x + 12));
-  const haut = Math.max(8, Math.min(HAUTEUR - hauteur - 8, y - hauteur - 12));
-  const groupe = el("g",{id:"identificationTooltip",class:"identification-tooltip",
-    "aria-label":`${site.nomCourt}, ${site.commune}. Activités : ${activites.join(", ")}`});
-  groupe.appendChild(el("rect",{x:gauche,y:haut,width:largeur,height:hauteur,rx:3,
-    fill:"#fffefb",stroke:"#9a3412","stroke-width":1,"fill-opacity":.97}));
-  lignes.forEach((ligne,index)=>{
-    const texte=el("text",{x:gauche+marge,y:haut+marge+taille+index*17,
-      "font-size":taille,fill:index===0?"#20222a":"#3f4a5a"});
-    texte.textContent=ligne;groupe.appendChild(texte);
+  creerBulleIdentification(actif);
+}
+
+/* -------------------------------------------------------------- zoom Risle */
+function ajusterTailleZoom(transform){
+  const k = transform.k || 1;
+  if (!contenuCarte) return;
+  contenuCarte.querySelectorAll("circle.site").forEach(cercle => {
+    const base = Number(cercle.dataset.tailleBase || 5.5);
+    cercle.setAttribute("r", (base / k).toFixed(2));
   });
-  bulleIdentification = groupe;
-  CARTE.appendChild(groupe);
+  contenuCarte.querySelectorAll("text[data-repere]").forEach(texte => {
+    const base = Number(texte.dataset.tailleBase || 12);
+    texte.setAttribute("font-size", (base / k).toFixed(2));
+    texte.setAttribute("stroke-width", (2 / k).toFixed(2));
+  });
+}
+
+function appliquerZoomRisle(evenement){
+  zoomRisle = evenement.transform;
+  if (contenuCarte) contenuCarte.setAttribute("transform", zoomRisle);
+  ajusterTailleZoom(zoomRisle);
+  positionnerBulleIdentification();
+}
+
+function installerZoomRisle(){
+  const svg = d3.select(CARTE);
+  if (zoomComportement) svg.on(".zoom", null);
+  zoomComportement = d3.zoom()
+    .scaleExtent([1, 6])
+    .extent([[0, 0], [LARGEUR, HAUTEUR]])
+    .translateExtent([[0, 0], [LARGEUR, HAUTEUR]])
+    .clickDistance(6)
+    .filter(evenement => evenement.type !== "wheel" &&
+      evenement.type !== "dblclick" && (!evenement.button || evenement.type === "touchstart"))
+    .on("zoom", appliquerZoomRisle);
+  svg.call(zoomComportement)
+    .on("wheel.zoom", null)
+    .on("dblclick.zoom", null)
+    .call(zoomComportement.transform, zoomRisle);
+}
+
+function desinstallerZoom(){
+  d3.select(CARTE).on(".zoom", null);
+  zoomComportement = null;
+  COMMANDES_ZOOM.hidden = true;
+}
+
+function afficherCommandesZoom(){
+  const actif = etat.niveau !== "departement" && etat.systeme === "risle";
+  COMMANDES_ZOOM.hidden = !actif;
+  if (actif) installerZoomRisle();
+  else desinstallerZoom();
+}
+
+function zoomerRisle(facteur){
+  if (!zoomComportement || etat.systeme !== "risle") return;
+  d3.select(CARTE).call(zoomComportement.scaleBy, facteur,
+    [LARGEUR / 2, HAUTEUR / 2]);
+}
+
+function vueInitialeRisle(){
+  if (!zoomComportement || etat.systeme !== "risle") return;
+  d3.select(CARTE).call(zoomComportement.transform, d3.zoomIdentity);
 }
 
 if(typeof ResizeObserver !== "undefined"){
@@ -718,7 +877,7 @@ if(typeof ResizeObserver !== "undefined"){
     if(etat.systeme !== "risle" || etat.niveau === "departement")return;
     const largeur=CARTE.getBoundingClientRect().width;
     if(Math.abs(largeur-largeurReperes)<1)return;
-    dessinerSysteme("risle");annoter();dessinerReperesRisle();
+    dessinerSysteme("risle");annoter();dessinerReperesRisle();afficherCommandesZoom();
   }).observe(CARTE);
 }
 
@@ -926,6 +1085,7 @@ function allerAuSysteme(code){
     return;
   }
   etat.niveau = "systeme"; etat.systeme = code; etat.site = null; etat.lien = null;
+  zoomRisle = d3.zoomIdentity;
   accordeons[code] = {lieux:false, relations:false};
   rendre();
   annoncer(`Ensemble ouvert : ${D.departement.systemes.find(s=>s.code===code).nom}.`);
@@ -938,6 +1098,7 @@ function allerAuSite(reference){
 }
 function allerAuDepartement(){
   etat.niveau = "departement"; etat.systeme = null; etat.site = null; etat.lien = null;
+  zoomRisle = d3.zoomIdentity;
   rendre();
   annoncer("Retour à la carte du département.");
 }
@@ -1103,6 +1264,7 @@ function rendre(){
   else dessinerSysteme(etat.systeme);
   annoter();
   if(etat.systeme === "risle" && etat.niveau !== "departement") dessinerReperesRisle();
+  afficherCommandesZoom();
   const panneau = document.getElementById("panneau");
   panneau.innerHTML = etat.niveau === "departement" ? panneauDepartement()
     : etat.niveau === "systeme" ? panneauSysteme()
@@ -1137,6 +1299,9 @@ document.addEventListener("toggle", evenement => {
 
 const commandeMetier = document.getElementById("commandeMetier");
 const listeMetiers = document.getElementById("listeMetiers");
+ZOOM_PLUS.addEventListener("click", () => zoomerRisle(1.5));
+ZOOM_MOINS.addEventListener("click", () => zoomerRisle(1 / 1.5));
+ZOOM_INITIALE.addEventListener("click", vueInitialeRisle);
 commandeMetier.addEventListener("click", () => {
   if (commandeMetier.getAttribute("aria-expanded") === "true") fermerFiltre(true);
   else ouvrirFiltre();
