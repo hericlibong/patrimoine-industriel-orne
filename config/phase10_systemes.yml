@@ -26,6 +26,10 @@ systemes:
     commune_ancrage: L'Aigle
     sites_attendus: 43
     nom_de_travail: la vallée du fil
+    presentation_courte: >-
+      De la fonte aux petits objets métalliques, les sources reconstituent une
+      chaîne de production le long de la Risle. De nombreux établissements ont
+      réutilisé des moulins et leurs chutes d'eau.
     lecture: docs/phase10_lecture_risle.md
 
   - code: noireau
@@ -103,4 +107,9 @@ systemes:
     commune_ancrage: Crulai
     sites_attendus: 7
     nom_de_travail: là où l'industrie n'a pas pris
+    presentation_courte: >-
+      Aux portes de L'Aigle, les sources documentent une fabrique d'aiguilles,
+      une tréfilerie et un laminoir parmi plusieurs moulins. Deux de ces
+      tentatives cessent ou reviennent à la farine : l'industrialisation reste
+      fragile.
     lecture: docs/phase10_lecture_crulai.md

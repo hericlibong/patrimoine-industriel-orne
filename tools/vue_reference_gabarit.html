@@ -25,8 +25,9 @@
   .bandeau .essai{font-size:11.5px;color:var(--signal);border:1px solid currentColor;
     border-radius:3px;padding:2px 7px;letter-spacing:.02em}
 
-  .accueil{max-width:1440px;margin:0 auto;padding:18px 30px 4px}
+  .accueil{max-width:1440px;margin:0 auto;padding:26px 30px 25px}
   .accueil[hidden]{display:none}
+  .propos{max-width:920px}
   .propos p{margin:0 0 8px;font-size:14.5px;line-height:1.58;max-width:74ch;
     color:#33363f}
   .propos .chapo{font-size:18px;line-height:1.42;color:var(--encre);
@@ -34,8 +35,22 @@
   .propos b{font-weight:600;color:var(--encre)}
   .propos .conduite{color:var(--gris);margin-top:11px}
 
+  .exploration-entete{max-width:1440px;margin:0 auto;padding:21px 30px 0;
+    border-top:1px solid var(--trait)}
+  .exploration-entete > header{display:flex;justify-content:space-between;
+    align-items:baseline;gap:18px;flex-wrap:wrap}
+  .exploration-entete h2{font-size:23px;line-height:1.3}
+  .exploration-intro{max-width:960px;margin:8px 0 17px;color:var(--gris);
+    font-size:14.5px}
+  .exploration-intro[hidden]{display:none}
+  .titre-travail{margin:5px 0 0;color:var(--encre);font-size:18px}
+  .titre-travail[hidden]{display:none}
+  .titre-travail span{display:block;color:var(--gris);font-size:11px;
+    font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
+
   .mode-emploi{margin:0 0 12px;padding-bottom:12px;
     border-bottom:1px dashed var(--trait)}
+  .mode-emploi[hidden]{display:none}
   .mode-emploi p{margin:0 0 6px;font-size:13px;line-height:1.5;color:var(--gris);
     max-width:84ch}
   .mode-emploi p:last-child{margin-bottom:0}
@@ -49,24 +64,35 @@
   .fil .ici{color:var(--gris);padding:4px 0}
   .fil .sep{color:var(--pale)}
 
-  main{max-width:1440px;margin:0 auto;padding:22px 30px 40px;
-    display:grid;grid-template-columns:minmax(0,1fr) 384px;gap:26px;align-items:start}
+  main{max-width:1440px;margin:0 auto;padding:18px 30px 40px;
+    display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:28px;align-items:start}
 
   .plaque{background:var(--plaque);border:1px solid var(--trait);border-radius:6px;
     padding:16px 18px 12px}
-  .plaque > header{display:flex;justify-content:space-between;align-items:baseline;
-    gap:14px;margin-bottom:12px;flex-wrap:wrap}
-  .plaque h2{font-size:17px}
   .compte{font-size:13px;color:var(--gris);font-variant-numeric:tabular-nums}
+  .compte[hidden]{display:none}
 
-  .filtres{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
-  .filtres .etiquette{font-size:12.5px;color:var(--gris);align-self:center;
-    margin-right:4px}
-  .filtres button{background:#fff;border:1px solid var(--trait);border-radius:14px;
-    padding:4px 11px;font-size:12.5px;color:var(--appui)}
-  .filtres button:hover{border-color:var(--gris)}
-  .filtres button[aria-pressed="true"]{background:var(--appui);border-color:var(--appui);
-    color:#fff}
+  .filtres{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0}
+  .filtres .etiquette{font-size:13px;font-weight:600;color:var(--encre)}
+  .selecteur-metier{position:relative;min-width:290px}
+  .commande-metier{width:100%;display:flex;align-items:center;gap:5px;text-align:left;
+    background:#fff;border:1px solid var(--trait);border-radius:4px;padding:7px 11px;
+    font-size:13px;color:var(--appui)}
+  .commande-metier:hover,.commande-metier[aria-expanded="true"]{border-color:var(--gris)}
+  .commande-metier strong{font-weight:600;flex:1}
+  .commande-metier .chevron{font-size:12px;transition:transform .15s}
+  .commande-metier[aria-expanded="true"] .chevron{transform:rotate(180deg)}
+  .liste-metiers{position:absolute;z-index:10;left:0;right:0;top:calc(100% + 5px);
+    max-height:320px;overflow-y:auto;background:var(--plaque);border:1px solid var(--trait);
+    border-radius:4px;box-shadow:0 8px 24px rgba(32,34,42,.13);padding:4px}
+  .liste-metiers[hidden]{display:none}
+  .liste-metiers button{width:100%;display:grid;grid-template-columns:18px 1fr;gap:7px;
+    text-align:left;background:none;border:0;border-radius:3px;padding:7px 8px;
+    color:var(--appui);font-size:12.5px}
+  .liste-metiers button:hover,.liste-metiers button:focus-visible{background:#f2f0ea}
+  .liste-metiers .coche{color:transparent;font-weight:700}
+  .liste-metiers button[aria-selected="true"]{background:#eeece6;color:var(--encre)}
+  .liste-metiers button[aria-selected="true"] .coche{color:var(--signal)}
 
   .cadre{position:relative;background:#fbfaf6;border:1px solid var(--trait);
     border-radius:4px;overflow:hidden}
@@ -77,10 +103,15 @@
   .annotation b{color:var(--signal)}
 
   .legende{display:flex;gap:16px;flex-wrap:wrap;align-items:center;
-    padding-top:10px;font-size:12px;color:var(--gris)}
+    padding:0 0 10px;font-size:12px;color:var(--gris)}
   .legende span{display:inline-flex;align-items:center;gap:6px}
   .legende i{width:11px;height:11px;border-radius:50%;display:inline-block}
-  .source{width:100%;color:var(--pale);font-size:11.5px;padding-top:2px}
+  .source{color:var(--gris);font-size:11.5px;margin:10px 0 0}
+  .methode{font-size:12.5px;border-top:1px solid var(--trait);padding-top:11px;
+    margin-top:11px;color:var(--gris)}
+  .methode[hidden]{display:none}
+  .methode summary{cursor:pointer;color:var(--appui)}
+  .methode p{margin:8px 0 0;max-width:86ch}
 
   .colonne{display:flex;flex-direction:column;gap:14px}
   .carton{background:var(--plaque);border:1px solid var(--trait);border-radius:6px;
@@ -93,13 +124,31 @@
   .liste li{border-bottom:1px solid #eeece6}
   .liste li:last-child{border-bottom:0}
   .liste button{width:100%;text-align:left;background:none;border:0;padding:8px 6px;
-    border-radius:4px;display:flex;justify-content:space-between;gap:10px;
-    align-items:baseline}
+    border-radius:4px;display:grid;grid-template-columns:12px minmax(0,1fr) auto;
+    column-gap:8px;align-items:center}
   .liste button:hover{background:#f2f0ea}
+  .liste button:disabled{cursor:default;opacity:1}
   .liste .nom{font-size:13.5px}
   .liste .info{font-size:12px;color:var(--gris);white-space:nowrap;
     font-variant-numeric:tabular-nums}
+  .liste-lieux button{grid-template-columns:minmax(0,1fr) auto}
   .liste button[aria-current="true"]{background:#f0ece4;box-shadow:inset 3px 0 0 var(--signal)}
+  .etat-ensemble{width:10px;height:10px;border-radius:50%;border:1px dashed var(--gris)}
+  .etat-ensemble.ouvert{border-style:solid;background:var(--appui)}
+  .disponibilite{grid-column:2/-1;font-size:11px;color:var(--gris);margin-top:1px}
+  .sans-resultat .nom,.sans-resultat .info{color:#777}
+  .sans-resultat .disponibilite strong{color:var(--signal)}
+
+  .selection{border-bottom:1px solid var(--trait);padding-bottom:13px;margin-bottom:12px}
+  .selection .sur-titre{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;
+    color:var(--gris);font-weight:600}
+  .selection .choix{font-size:12.5px;color:var(--gris);margin:3px 0 5px}
+  .selection .total{font-size:28px;line-height:1.1;margin:0;font-weight:600}
+  .selection .total small{font-size:14px;font-weight:400}
+  .selection .partition{font-size:12.5px;margin:7px 0 0}
+  .indication-navigation{font-size:11.5px;color:var(--gris);margin:0 0 10px}
+  .note-autres{font-size:11.5px;color:var(--gris);border-top:1px solid #eeece6;
+    padding-top:9px;margin:9px 0 0}
 
   .chiffres{display:grid;grid-template-columns:1fr 1fr;gap:9px 14px;margin:10px 0 4px;
     font-size:12.5px}
@@ -107,6 +156,13 @@
   .chiffres b{display:block;font-size:16px;font-weight:600;
     font-variant-numeric:tabular-nums}
   .chiffres span{color:var(--gris)}
+  .informations-complementaires{margin-top:11px;border-top:1px solid var(--trait);
+    padding-top:9px;font-size:12px;color:var(--gris)}
+  .informations-complementaires summary{cursor:pointer;color:var(--appui)}
+  .informations-complementaires p{margin:7px 0 0}
+  .ensemble-details{margin-top:12px;border-top:1px solid var(--trait);padding-top:9px}
+  .ensemble-details summary{cursor:pointer;color:var(--appui);font-size:12.5px}
+  .ensemble-details .compteur{color:var(--gris);margin-left:5px}
 
   .preuves{list-style:none;margin:0;padding:0}
   .preuves li{margin-bottom:6px}
@@ -142,12 +198,26 @@
     overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
   circle.site,circle.groupe,line.relation,path.relation{cursor:pointer}
+  circle.non-ouvert{stroke-dasharray:4 3}
+  circle.site.identifie-focus{stroke:#9a3412;stroke-width:3;}
+  .identification-tooltip{pointer-events:none}
   circle.groupe:focus-visible,circle.site:focus-visible,path.relation:focus-visible{
     outline:2px solid var(--signal);outline-offset:2px}
 
   @media (max-width:1180px){
-    main,.accueil{grid-template-columns:1fr}
+    main{grid-template-columns:1fr}
     .liste{max-height:none}
+  }
+  @media (max-width:700px){
+    .bandeau,.fil{padding-left:20px;padding-right:20px}
+    .accueil{padding:22px 20px}
+    .exploration-entete{padding:19px 20px 0}
+    .exploration-entete h2{font-size:21px}
+    main{padding:16px 20px 32px;gap:20px}
+    .plaque{padding:13px 12px 11px}
+    .filtres{align-items:stretch}
+    .filtres .etiquette,.selecteur-metier{width:100%}
+    .selecteur-metier{min-width:0}
   }
 </style>
 </head>
@@ -183,28 +253,53 @@
   <span class="ici" id="filSite" hidden></span>
 </nav>
 
+<section class="exploration-entete" aria-labelledby="titreVue">
+  <header>
+    <h2 id="titreVue">Explorer les lieux du patrimoine industriel</h2>
+    <span class="compte" id="compte" hidden></span>
+  </header>
+  <p class="titre-travail" id="titreTravail" hidden><span>Titre de travail</span>
+    <strong id="libelleTitreTravail"></strong></p>
+  <p class="exploration-intro" id="introductionExploration">La carte situe les lieux
+    recensés dans l'Orne. Un ensemble réunit des lieux documentés proches : une vallée,
+    une ville, un bassin minier ou un groupe de communes.</p>
+  <div class="filtres">
+    <span class="etiquette" id="etiquetteMetier">Afficher les lieux par métier</span>
+    <div class="selecteur-metier">
+      <button class="commande-metier" id="commandeMetier" type="button"
+              aria-haspopup="listbox" aria-expanded="false" aria-controls="listeMetiers">
+        <span>Métier :</span> <strong id="libelleMetier">Tous les métiers</strong>
+        <span class="chevron" aria-hidden="true">▼</span>
+      </button>
+      <div class="liste-metiers" id="listeMetiers" role="listbox"
+           aria-labelledby="etiquetteMetier" hidden></div>
+    </div>
+  </div>
+</section>
+
 <main>
   <section aria-labelledby="titreVue">
     <div class="plaque">
-      <header>
-        <h2 id="titreVue">Où ces lieux se trouvaient</h2>
-        <span class="compte" id="compte"></span>
-      </header>
-
       <div class="mode-emploi" id="modeEmploi"></div>
 
-      <div class="filtres" role="group" aria-label="Filtrer par métier">
-        <span class="etiquette">Métier</span>
-        <span id="boutonsMetier"></span>
-      </div>
+      <div class="legende" id="legende"></div>
 
       <div class="cadre">
         <svg class="carte" id="carte" viewBox="0 0 1000 640"
-             role="img" aria-labelledby="titreCarte descCarte"></svg>
+             role="group" aria-labelledby="titreCarte descCarte"></svg>
         <div class="annotation" id="annotation" hidden></div>
       </div>
-
-      <div class="legende" id="legende"></div>
+      <p class="source" id="sourceCarte"></p>
+      <details class="methode" id="methodeDepartement">
+        <summary>Comprendre les regroupements et les limites de la carte</summary>
+        <p>Les douze ensembles étudiés réunissent des sites distants de moins de trois
+        kilomètres, de proche en proche, lus notice par notice. Leur proximité ne prouve
+        pas un lien historique.</p>
+        <p>Un point situe un lieu selon la précision de sa localisation ; il ne représente
+        pas son emprise. Les lieux hors de ces ensembles ne sont pas nécessairement isolés
+        historiquement. Les activités et les relations relèvent de notices documentaires,
+        pas d'un état des lieux actuel.</p>
+      </details>
     </div>
   </section>
 
@@ -216,9 +311,9 @@
   la carte, les chiffres, les dates et les phrases citées viennent du corpus
   validé. L'apparence n'est pas la forme définitive ; elle sera arrêtée
   séparément.</p>
-  <p><b>Ce que cette vue ne dit pas.</b> Les textes éditoriaux des ensembles ne
-  sont pas encore écrits : ce qui est affiché ici se calcule à partir des
-  données. Un ensemble réunit les sites distants de moins de trois
+  <p><b>Ce que cette vue ne dit pas.</b> Les présentations de la Risle et de Crulai
+  servent uniquement à éprouver cette structure ; les textes éditoriaux des
+  douze ensembles restent à arbitrer. Un ensemble réunit les sites distants de moins de trois
   kilomètres — ce n'est pas un territoire historique aux frontières établies. Un
   point situe un site selon un niveau de précision indiqué ; il ne représente
   pas son emprise.</p>
@@ -231,6 +326,7 @@ const D = __DONNEES__;
 
 /* ------------------------------------------------------------------ état */
 const etat = {niveau:"departement", systeme:null, site:null, metier:null, lien:null};
+const accordeons = {};
 const CARTE = document.getElementById("carte");
 const LARGEUR = 1000, MARGE = 30;
 let HAUTEUR = 520;
@@ -342,13 +438,17 @@ function dessinerDepartement(){
   const dessines = systemes.map(systeme => {
     const [x,y] = projeter(systeme.lon, systeme.lat);
     const nombre = etat.metier ? systeme.sitesParMetier[etat.metier] : systeme.nbSites;
+    const ouvert = Boolean(D.detail[systeme.code]);
     const rayon = 6 + Math.sqrt(nombre) * 2.6;
     const groupe = el("g",{});
     groupe.appendChild(el("circle",{cx:x.toFixed(1),cy:y.toFixed(1),r:rayon.toFixed(1),
-      fill:"rgba(154,52,18,.16)",stroke:"#9a3412","stroke-width":1.4}));
+      fill:ouvert ? "rgba(154,52,18,.2)" : "rgba(154,52,18,.1)",stroke:"#9a3412",
+      "stroke-width":ouvert ? 1.8 : 1.2,"stroke-dasharray":ouvert ? null : "4 3"}));
     const cible = el("circle",{cx:x.toFixed(1),cy:y.toFixed(1),r:Math.max(rayon,12).toFixed(1),
-      fill:"transparent",class:"groupe",tabindex:"0",role:"button",
-      "aria-label":`${systeme.nom}, ${nombre} site${nombre>1?"s":""}. Ouvrir cet ensemble.`});
+      fill:"transparent",class:`groupe ${ouvert ? "ouvert" : "non-ouvert"}`,
+      tabindex:"0",role:"button",
+      "aria-label":`${systeme.nom}, ${nombre} site${nombre>1?"s":""}. ${ouvert
+        ? "Ouvrir cet ensemble." : "Ensemble non ouvert dans cette vue de référence."}`});
     const ouvrir = () => allerAuSysteme(systeme.code);
     cible.addEventListener("click", ouvrir);
     cible.addEventListener("keydown", evenement => {
@@ -393,18 +493,22 @@ function dessinerSysteme(code){
   const retenus = detail.sites.filter(garde);
   const aCadrer = retenus.length ? retenus : detail.sites;
   poserHauteur(560);
-  cadrer(aCadrer.map(s => [s.lon, s.lat]));
+  // Risle : emprise stable autorisée, mêmes 43 lieux et quatre bourgs à chaque état.
+  const pointsCadre = code === "risle" ? detail.sites.concat(detail.reperes.bourgs) : aCadrer;
+  cadrer(pointsCadre.map(s => [s.lon, s.lat]));
 
   viderCarte();
   CARTE.appendChild(titreAccessible(
     `Carte de ${definition.nom}`,
-    `${retenus.length} site${retenus.length>1?"s":""} affiché${retenus.length>1?"s":""}
+    `${retenus.length} lieu${retenus.length>1?"x":""} affiché${retenus.length>1?"s":""}
      sur ${detail.sites.length}, et les cours d'eau qui les traversent`));
 
   for (const troncon of detail.eau){
-    const d = troncon.map((p,i) => (i ? "L" : "M") + projeter(p[0],p[1]).map(v=>v.toFixed(1)).join(" ")).join(" ");
-    CARTE.appendChild(el("path",{d,fill:"none",stroke:"#8fb4cc","stroke-width":1.3,
-      "stroke-opacity":.55,"stroke-linecap":"round"}));
+    const principale = troncon.categorie === "principale";
+    const d = troncon.points.map((p,i) => (i ? "L" : "M") + projeter(p[0],p[1]).map(v=>v.toFixed(1)).join(" ")).join(" ");
+    CARTE.appendChild(el("path",{d,fill:"none",stroke:principale ? "#4f8fac" : "#8fb4cc",
+      "stroke-width":principale ? 2.2 : 1.3,"stroke-opacity":principale ? .85 : .55,
+      "stroke-linecap":"round","data-troncon":troncon.id}));
   }
 
   const parReference = Object.fromEntries(detail.sites.map(s => [s.ref, s]));
@@ -432,7 +536,16 @@ function dessinerSysteme(code){
       "stroke-dasharray": actif ? null : "5 4", fill:"none", class:"relation",
       tabindex:"0", role:"button",
       "aria-label":`Lien documenté : ${depart.nomCourt} vers ${arrivee.nomCourt}. Afficher la phrase qui l'établit.`});
-    const montrer = () => { etat.lien = etat.lien === index ? null : index; rendre(); };
+    const montrer = () => {
+      etat.lien = etat.lien === index ? null : index;
+      if (etat.lien !== null){
+        accordeons[code] = accordeons[code] || {lieux:false, relations:false};
+        accordeons[code].relations = true;
+        const bloc = document.querySelector('details[data-accordeon="relations"]');
+        if (bloc) bloc.open = true;
+      }
+      rendre();
+    };
     trace.addEventListener("click", montrer);
     trace.addEventListener("keydown", evenement => {
       if (evenement.key === "Enter" || evenement.key === " "){ evenement.preventDefault(); montrer(); }
@@ -452,11 +565,161 @@ function dessinerSysteme(code){
       "aria-label":`${site.nomCourt}, ${site.commune}. Ouvrir cette fiche.`});
     const ouvrir = () => allerAuSite(site.ref);
     cercle.addEventListener("click", ouvrir);
+    if(code === "risle"){
+      cercle.addEventListener("mouseenter", () => changerIdentification(site.ref, "hover"));
+      cercle.addEventListener("mouseleave", () => changerIdentification(null, "hover"));
+      cercle.addEventListener("focus", () => {
+        if(cercle.classList)cercle.classList.add("identifie-focus");
+        changerIdentification(site.ref, "focus");
+      });
+      cercle.addEventListener("blur", () => {
+        if(cercle.classList)cercle.classList.remove("identifie-focus");
+        changerIdentification(null, "focus");
+      });
+    }
     cercle.addEventListener("keydown", evenement => {
       if (evenement.key === "Enter" || evenement.key === " "){ evenement.preventDefault(); ouvrir(); }
     });
     CARTE.appendChild(cercle);
   }
+}
+
+/* SVG-2 : seules les étiquettes sont décalées ; signes aux coordonnées sources. */
+let largeurReperes = 0;
+function dessinerReperesRisle(){
+  const detail = D.detail.risle;
+  const largeur = CARTE.getBoundingClientRect ? CARTE.getBoundingClientRect().width : LARGEUR;
+  largeurReperes = largeur;
+  const echelle = LARGEUR / (largeur || LARGEUR);
+  const taille = Math.max(14, 12 * echelle), marge = Math.max(6, 3 * echelle);
+  const groupe = el("g",{id:"reperesRisle","pointer-events":"none"});
+  CARTE.appendChild(groupe);
+  const obstacles = [], boites = [];
+  const obstacle = (x,y,r) => obstacles.push({x0:x-r,x1:x+r,y0:y-r,y1:y+r});
+  // Réserver tous les lieux et relations, même filtrés : éviter le déplacement
+  // inutile des noms lorsqu'un métier masque des points.
+  detail.sites.forEach(site => {const [x,y]=projeter(site.lon,site.lat);obstacle(x,y,10);});
+  const refs = Object.fromEntries(detail.sites.map(site=>[site.ref,site]));
+  detail.liens.forEach(lien=>{
+    const a=refs[lien.de],b=refs[lien.vers]; if(!a||!b)return;
+    const [x1,y1]=projeter(a.lon,a.lat),[x2,y2]=projeter(b.lon,b.lat);
+    const dx=x2-x1,dy=y2-y1,l=Math.hypot(dx,dy)||1;
+    const bombe=Math.min(26,Math.max(12,l*.28));
+    const cx=(x1+x2)/2-dy/l*bombe,cy=(y1+y2)/2+dx/l*bombe;
+    for(let i=0;i<=64;i++){
+      const t=i/64,u=1-t;obstacle(u*u*x1+2*u*t*cx+t*t*x2,u*u*y1+2*u*t*cy+t*t*y2,4);
+    }
+  });
+  detail.reperes.bourgs.forEach(bourg=>{
+    const [x,y]=projeter(bourg.lon,bourg.lat); obstacle(x,y,6);
+    groupe.appendChild(el("rect",{x:x-3,y:y-3,width:6,height:6,fill:"#3f4a5a",
+      stroke:"#fffefb","stroke-width":1,"data-bourg":bourg.idBAN}));
+  });
+  const annotation=document.getElementById("annotation");
+  if(!annotation.hidden && annotation.getBoundingClientRect && CARTE.getBoundingClientRect){
+    const a=annotation.getBoundingClientRect(),c=CARTE.getBoundingClientRect();
+    obstacles.push({x0:(a.left-c.left)*echelle,x1:(a.right-c.left)*echelle,
+      y0:(a.top-c.top)*echelle,y1:(a.bottom-c.top)*echelle});
+  }
+  const recouvre = (a,b) => a.x0<b.x1 && a.x1>b.x0 && a.y0<b.y1 && a.y1>b.y0;
+  // Le nom le plus long est placé d'abord ; les quatre autres restent proches
+  // de leur ancrage lorsque l'espace disponible le permet.
+  const reperes = detail.reperes.bourgs.concat(detail.reperes.riviere)
+    .slice().sort((a,b)=>b.nom.length-a.nom.length);
+  for(const repere of reperes){
+    const riviere=repere===detail.reperes.riviere;
+    const [x,y]=projeter(repere.lon,repere.lat);
+    const texte=el("text",{"font-size":taille,"font-family":"Arial, sans-serif",
+      "font-style":riviere?"italic":"normal",fill:riviere?"#4f8fac":"#20222a",
+      "paint-order":"stroke",stroke:"#fbfaf6","stroke-width":2,
+      "stroke-linejoin":"round","data-repere":repere.nom});
+    const lignes=largeur<480 && repere.nom==="Sainte-Gauburge-Sainte-Colombe"
+      ? ["Sainte-Gauburge-","Sainte-Colombe"] : [repere.nom];
+    const spans=[];
+    if(lignes.length===1)texte.textContent=repere.nom;
+    else lignes.forEach((ligne,i)=>{
+      const span=el("tspan",{x:0,dy:i?taille*1.15:0});span.textContent=ligne;
+      texte.appendChild(span);spans.push(span);
+    });
+    groupe.appendChild(texte);
+    // getBBox mesure la police du navigateur ; estimation conservatrice pour
+    // les contrôles DOM simulés, qui ne constituent pas un jugement visuel.
+    const mesure=texte.getBBox ? texte.getBBox() : {
+      width:Math.max(...lignes.map(ligne=>ligne.length))*taille*.62,
+      height:taille*(1.2+1.15*(lignes.length-1))};
+    const w=mesure.width+2*marge,h=mesure.height+2*marge;
+    const candidats=[];
+    const reserves=obstacles.concat(boites);
+    for(let yy=marge;yy+h<=HAUTEUR-marge;yy+=Math.max(6,taille/3)){
+      for(let xx=marge;xx+w<=LARGEUR-marge;xx+=Math.max(6,taille/3)){
+        const boite={x0:xx,x1:xx+w,y0:yy,y1:yy+h};
+        if(reserves.some(b=>recouvre(boite,b)))continue;
+        const px=Math.max(xx,Math.min(x,xx+w)),py=Math.max(yy,Math.min(y,yy+h));
+        candidats.push({boite,score:Math.hypot(x-px,y-py)+Math.hypot(x-xx-w/2,y-yy-h/2)*.12});
+      }
+    }
+    candidats.sort((a,b)=>a.score-b.score);
+    const choix=candidats[0];
+    if(!choix){
+      // Ne jamais masquer silencieusement un nom en cas de fenêtre trop petite.
+      texte.setAttribute("x",marge);texte.setAttribute("y",taille+marge);
+      spans.forEach(span=>span.setAttribute("x",marge));
+      groupe.setAttribute("data-placement","a-verifier");
+      console.warn(`Placement impossible sans chevauchement : ${repere.nom}`);
+      continue;
+    }
+    boites.push(choix.boite);
+    const texteX=choix.boite.x0+marge-(mesure.x||0);
+    texte.setAttribute("x",texteX);
+    spans.forEach(span=>span.setAttribute("x",texteX));
+    texte.setAttribute("y",choix.boite.y0+marge-(mesure.y===undefined?-taille:mesure.y));
+    texte.setAttribute("data-boite",JSON.stringify(choix.boite));
+  }
+}
+
+let pointIdentification = {hover:null, focus:null};
+let bulleIdentification = null;
+function retirerIdentification(){
+  if(!bulleIdentification)return;
+  if(bulleIdentification.parentNode)bulleIdentification.remove();
+  else if(CARTE.children && CARTE.children.includes && CARTE.children.includes(bulleIdentification))
+    CARTE.removeChild(bulleIdentification);
+  bulleIdentification = null;
+}
+function changerIdentification(reference, origine){
+  pointIdentification[origine] = reference;
+  retirerIdentification();
+  const actif = pointIdentification.focus || pointIdentification.hover;
+  if(!actif || !etat.systeme || etat.systeme !== "risle" || etat.niveau === "departement")return;
+  const site = D.detail.risle.sites.find(item => item.ref === actif);
+  if(!site || !projeter)return;
+  const [x,y] = projeter(site.lon,site.lat);
+  const activites = site.secteurs.map(code => libelle(code));
+  const lignes = [site.nomCourt, site.commune, activites.join(" · ")];
+  const taille = 13, marge = 7, hauteur = lignes.length * 17 + marge * 2;
+  const largeur = Math.min(900, Math.max(150, Math.max(...lignes.map(ligne => ligne.length * 7.1)) + marge * 2));
+  const gauche = Math.max(8, Math.min(LARGEUR - largeur - 8, x + 12));
+  const haut = Math.max(8, Math.min(HAUTEUR - hauteur - 8, y - hauteur - 12));
+  const groupe = el("g",{id:"identificationTooltip",class:"identification-tooltip",
+    "aria-label":`${site.nomCourt}, ${site.commune}. Activités : ${activites.join(", ")}`});
+  groupe.appendChild(el("rect",{x:gauche,y:haut,width:largeur,height:hauteur,rx:3,
+    fill:"#fffefb",stroke:"#9a3412","stroke-width":1,"fill-opacity":.97}));
+  lignes.forEach((ligne,index)=>{
+    const texte=el("text",{x:gauche+marge,y:haut+marge+taille+index*17,
+      "font-size":taille,fill:index===0?"#20222a":"#3f4a5a"});
+    texte.textContent=ligne;groupe.appendChild(texte);
+  });
+  bulleIdentification = groupe;
+  CARTE.appendChild(groupe);
+}
+
+if(typeof ResizeObserver !== "undefined"){
+  new ResizeObserver(()=>{
+    if(etat.systeme !== "risle" || etat.niveau === "departement")return;
+    const largeur=CARTE.getBoundingClientRect().width;
+    if(Math.abs(largeur-largeurReperes)<1)return;
+    dessinerSysteme("risle");annoter();dessinerReperesRisle();
+  }).observe(CARTE);
 }
 
 function titreAccessible(titre, description){
@@ -478,7 +741,7 @@ function annoter(){
   const retenus = detail.sites.filter(garde).length;
   if (!retenus) return;
   boite.innerHTML = `${echapper(libelle(etat.metier))} :
-    <b>${retenus}</b> des ${detail.sites.length} sites de cet ensemble.`;
+    <b>${retenus}</b> des ${detail.sites.length} lieux de cet ensemble.`;
   boite.style.left = "16px";
   boite.style.bottom = "14px";
   boite.style.top = "auto";
@@ -487,32 +750,44 @@ function annoter(){
 
 /* --------------------------------------------------------------- panneau */
 function panneauDepartement(){
-  const systemes = D.departement.systemes.filter(systemeGarde);
+  const systemes = D.departement.systemes;
   const autres = D.departement.autresSites.filter(autreGarde);
-  const lignes = systemes.map(systeme => {
-    const nombre = etat.metier ? systeme.sitesParMetier[etat.metier] : systeme.nbSites;
-    return `<li><button data-systeme="${systeme.code}" ${D.detail[systeme.code] ? "" : "disabled"}>
+  const dansEnsembles = systemes.reduce((total, systeme) => total +
+    (etat.metier ? (systeme.sitesParMetier[etat.metier] || 0) : systeme.nbSites), 0);
+  const concernes = systemes.filter(systeme =>
+    (etat.metier ? (systeme.sitesParMetier[etat.metier] || 0) : systeme.nbSites) > 0).length;
+  const total = dansEnsembles + autres.length;
+  const systemesAffiches = etat.metier
+    ? systemes.filter(systeme => (systeme.sitesParMetier[etat.metier] || 0) > 0)
+    : systemes;
+  const lignes = systemesAffiches.map(systeme => {
+    const nombre = etat.metier ? (systeme.sitesParMetier[etat.metier] || 0) : systeme.nbSites;
+    const ouvert = Boolean(D.detail[systeme.code]);
+    const statutOuverture = ouvert ? "Vue détaillée disponible" : "Vue détaillée à venir";
+    return `<li><button
+      data-systeme="${systeme.code}" ${ouvert ? "" : "disabled"}
+      aria-label="${echapper(systeme.nom)}, ${nombre} lieu${nombre>1?"x":""}. ${statutOuverture}.">
+      <span class="etat-ensemble ${ouvert ? "ouvert" : ""}" aria-hidden="true"></span>
       <span class="nom">${echapper(systeme.nom)}</span>
-      <span class="info">${nombre} site${nombre>1?"s":""}</span></button></li>`;
+      <span class="info">${nombre} lieu${nombre>1?"x":""}</span>
+      <span class="disponibilite">${statutOuverture}</span></button></li>`;
   }).join("");
 
   return `
   <div class="carton">
-    <h3>Les douze ensembles étudiés</h3>
-    <div class="sous">172 lieux lus notice par notice. Chaque ensemble fait
-      apparaître une histoire distincte.</div>
-    <ul class="liste">${lignes || "<li><p>Aucun ensemble ne comporte ce métier.</p></li>"}</ul>
-    <div class="avertissement">Dans cette vue de référence, seuls deux ensembles
-    sont ouverts : la vallée de la Risle, et Crulai qui sert de contrôle. Les
-    autres apparaissent sur la carte mais ne s'ouvrent pas encore.</div>
-  </div>
-  <div class="carton">
-    <h3>Les autres sites</h3>
-    <div class="sous">Hors des douze ensembles</div>
-    <p><b>${autres.length}</b> site${autres.length>1?"s":""} ${etat.metier ? "de ce métier " : ""}ne
-    ${autres.length>1?"font":"fait"} partie d'aucun des douze ensembles. Ils restent
-    consultables. Cette dispersion est calculée : elle ne prouve pas qu'ils étaient
-    historiquement isolés.</p>
+    <section class="selection" aria-labelledby="selectionAffichee" aria-live="polite"
+      aria-atomic="true">
+      <h3 class="sur-titre" id="selectionAffichee">Lieux recensés</h3>
+      <p class="choix">${etat.metier ? echapper(libelle(etat.metier)) : "Tous les métiers"}</p>
+      <p class="total">${total} <small>lieux</small></p>
+      <p class="partition"><b>${dansEnsembles}</b> lieu${dansEnsembles>1?"x":""} dans
+        ${concernes} ensemble${concernes>1?"s":""}<br>
+        <b>${autres.length}</b> autre${autres.length>1?"s":""} lieu${autres.length>1?"x":""}</p>
+    </section>
+    <h3>${etat.metier ? "Les ensembles de ce métier" : "Explorer les ensembles"}</h3>
+    <ul class="liste">${lignes}</ul>
+    <p class="note-autres">Les autres lieux sont les points gris de la carte. Leur
+      dispersion calculée ne prouve pas qu'ils étaient historiquement isolés.</p>
   </div>`;
 }
 
@@ -524,7 +799,8 @@ function panneauSysteme(){
   const retenus = detail.sites.filter(garde);
 
   const sites = retenus.map(site => `
-    <li><button data-site="${site.ref}" ${etat.site===site.ref?'aria-current="true"':""}>
+    <li><button data-site="${site.ref}" ${etat.site===site.ref?'aria-current="true"':""}
+      aria-label="${echapper(site.nomCourt)}, ${echapper(site.commune)}">
       <span class="nom">${echapper(site.nomCourt)}</span>
       <span class="info">${echapper(site.commune)}</span></button></li>`).join("");
 
@@ -550,47 +826,38 @@ function panneauSysteme(){
   }).join("");
 
   const metiers = resume.metiers.map(([code2, nombre]) =>
-    `${echapper(libelle(code2))} (${nombre})`).join(", ");
+    `<li>${echapper(libelle(code2))} <span class="compteur">${nombre} lieu${nombre>1?"x":""}</span></li>`).join("");
+  const etatAcc = accordeons[code] || (accordeons[code] = {lieux:false, relations:false});
+  const relationsVisibles = detail.liens.filter(lien => {
+    const depart = parReference[lien.de], arrivee = parReference[lien.vers];
+    return depart && arrivee && garde(depart) && garde(arrivee);
+  }).length;
 
   return `
   <div class="carton">
-    <h3>${echapper(definition.nom)}</h3>
-    <div class="sous">${resume.communes.length} communes · ${detail.sites.length} sites documentés</div>
+    <h3>L'ensemble en quelques repères</h3>
     <div class="chiffres">
-      <div><b>${detail.sites.length}</b><span>sites</span></div>
-      <div><b>${resume.nbEvenements}</b><span>événements datés</span></div>
+      <div><b>${detail.sites.length}</b><span>lieux documentés</span></div>
+      <div><b>${resume.communes.length}</b><span>commune${resume.communes.length>1?"s":""}</span></div>
       <div><b>${resume.premiereAnnee ?? "—"} – ${resume.derniereAnnee ?? "—"}</b>
         <span>années documentées</span></div>
-      <div><b>${resume.medianeEau !== null ? Math.round(resume.medianeEau) + " m" : "—"}</b>
-        <span>distance médiane à l'eau</span></div>
     </div>
-    <p style="font-size:12.5px;margin-top:10px"><b>Métiers présents :</b> ${metiers}.</p>
-    <div class="avertissement">Ces chiffres sont calculés depuis le corpus. Le texte
-    éditorial de cet ensemble reste à écrire ; le nom de travail proposé à la lecture,
-    « ${echapper(definition.nomDeTravail)} », n'est pas encore validé.</div>
+    <div class="activites" style="font-size:12.5px;margin-top:10px"><b>Activités documentées</b>
+      <ul style="margin:6px 0 0;padding-left:18px">${metiers}</ul>
+      <p style="margin-top:7px">Un lieu peut relever de plusieurs activités.</p>
+    </div>
   </div>
 
   <div class="carton">
-    <h3>Ce que les sources établissent</h3>
-    <div class="sous">${detail.liens.length
-      ? `${detail.liens.length} lien${detail.liens.length>1?"s":""} entre sites de ce
-         ensemble, chacun porté par une phrase`
-      : "Aucun lien entre sites de cet ensemble"}</div>
-    ${preuves ? `<ul class="preuves">${preuves}</ul>`
-      : detail.liens.length
-        ? `<p style="font-size:12.5px">Aucun lien ne relie deux sites de ce métier.</p>`
-        : `<p style="font-size:12.5px">Aucun lien entre ces sites n'est établi par une
-           source. Rien n'est déduit de leur proximité.</p>`}
-    ${masques ? `<p style="font-size:11.5px;color:#5c6070;margin-top:8px">${masques}
-      lien${masques>1?"s":""} de cet ensemble ${masques>1?"sont":"est"} masqué${masques>1?"s":""}
-      par le filtre en cours.</p>` : ""}
-  </div>
-
-  <div class="carton">
-    <h3>Les sites</h3>
-    <div class="sous">${retenus.length} affiché${retenus.length>1?"s":""}
-      sur ${detail.sites.length}${etat.metier ? " — filtre actif" : ""}</div>
-    <ul class="liste">${sites || "<li><p>Aucun site de ce métier ici.</p></li>"}</ul>
+    <details class="ensemble-details" data-accordeon="lieux" ${etatAcc.lieux ? "open" : ""}>
+      <summary>Explorer les lieux <span class="compteur">${etat.metier ? `${retenus.length} lieux sur ${detail.sites.length}` : `${detail.sites.length} lieux`}</span></summary>
+      <ul class="liste liste-lieux">${sites || "<li><p>Aucun lieu de ce métier ici.</p></li>"}</ul>
+    </details>
+    ${detail.liens.length ? `<details class="ensemble-details" data-accordeon="relations" ${etatAcc.relations ? "open" : ""}>
+      <summary>Relations entre les lieux <span class="compteur">${etat.metier ? `${relationsVisibles} sur ${detail.liens.length}` : `${detail.liens.length}`}</span></summary>
+      ${preuves ? `<ul class="preuves">${preuves}</ul>` : `<p style="font-size:12.5px">Aucune relation ne relie deux lieux de ce métier.</p>`}
+      ${masques ? `<p style="font-size:11.5px;color:#5c6070;margin-top:8px">${masques} relation${masques>1?"s":""} masquée${masques>1?"s":""} par le filtre en cours.</p>` : ""}
+    </details>` : ""}
   </div>`;
 }
 
@@ -659,6 +926,7 @@ function allerAuSysteme(code){
     return;
   }
   etat.niveau = "systeme"; etat.systeme = code; etat.site = null; etat.lien = null;
+  accordeons[code] = {lieux:false, relations:false};
   rendre();
   annoncer(`Ensemble ouvert : ${D.departement.systemes.find(s=>s.code===code).nom}.`);
 }
@@ -677,12 +945,36 @@ function annoncer(texte){ document.getElementById("annonce").textContent = texte
 
 /* ---------------------------------------------------------------- rendu */
 function rendreFiltres(){
-  const conteneur = document.getElementById("boutonsMetier");
-  const boutons = [["", "tous les métiers"]].concat(
+  const commande = document.getElementById("commandeMetier");
+  const conteneur = document.getElementById("listeMetiers");
+  const boutons = [["", "Tous les métiers"]].concat(
     metiersDuCorpus.map(([code]) => [code, libelle(code)]));
+  document.getElementById("libelleMetier").textContent = etat.metier
+    ? libelle(etat.metier) : "Tous les métiers";
   conteneur.innerHTML = boutons.map(([code, nom]) =>
-    `<button data-metier="${code}" aria-pressed="${(etat.metier||"")===code}">${echapper(nom)}</button>`
-  ).join(" ");
+    `<button type="button" role="option" data-metier="${code}" tabindex="-1"
+      aria-selected="${(etat.metier||"")===code}"><span class="coche"
+      aria-hidden="true">✓</span><span>${echapper(nom)}</span></button>`
+  ).join("");
+  conteneur.hidden = true;
+  commande.setAttribute("aria-expanded", "false");
+}
+
+function ouvrirFiltre(){
+  const commande = document.getElementById("commandeMetier");
+  const liste = document.getElementById("listeMetiers");
+  liste.hidden = false;
+  commande.setAttribute("aria-expanded", "true");
+  const selection = liste.querySelector('[aria-selected="true"]') || liste.querySelector("button");
+  if (selection) selection.focus();
+}
+
+function fermerFiltre(rendreFocus = false){
+  const commande = document.getElementById("commandeMetier");
+  const liste = document.getElementById("listeMetiers");
+  liste.hidden = true;
+  commande.setAttribute("aria-expanded", "false");
+  if (rendreFocus) commande.focus();
 }
 
 function rendreFil(){
@@ -703,23 +995,30 @@ function rendreFil(){
 function rendreEnTete(){
   const titre = document.getElementById("titreVue");
   const compte = document.getElementById("compte");
+  const titreTravail = document.getElementById("titreTravail");
+  const libelleTitreTravail = document.getElementById("libelleTitreTravail");
+  const introduction = document.getElementById("introductionExploration");
   if (etat.niveau === "departement"){
-    const systemes = D.departement.systemes.filter(systemeGarde);
-    const autres = D.departement.autresSites.filter(autreGarde);
-    const enSysteme = systemes.reduce((total, s) =>
-      total + (etat.metier ? s.sitesParMetier[etat.metier] : s.nbSites), 0);
-    titre.textContent = "Où ces lieux se trouvaient";
-    compte.textContent = etat.metier
-      ? `${enSysteme + autres.length} sites · ${libelle(etat.metier)} · ${systemes.length} ensembles concernés`
-      : `${D.departement.nbSites} sites documentés · 12 ensembles`;
+    titre.textContent = "Explorer les lieux du patrimoine industriel";
+    compte.hidden = true;
+    compte.textContent = "";
+    titreTravail.hidden = true;
+    introduction.hidden = false;
+    introduction.textContent = "La carte situe les lieux recensés dans l'Orne. Un ensemble réunit des lieux documentés proches : une vallée, une ville, un bassin minier ou un groupe de communes.";
   } else {
     const detail = D.detail[etat.systeme];
     const definition = D.departement.systemes.find(s => s.code === etat.systeme);
     const retenus = detail.sites.filter(garde).length;
     titre.textContent = definition.nom;
+    const montreIdentite = etat.niveau === "systeme";
+    titreTravail.hidden = !montreIdentite;
+    libelleTitreTravail.textContent = definition.nomDeTravail;
+    introduction.hidden = !montreIdentite;
+    introduction.textContent = definition.presentationCourte || "";
+    compte.hidden = montreIdentite;
     compte.textContent = etat.metier
-      ? `${retenus} site${retenus>1?"s":""} sur ${detail.sites.length} · ${libelle(etat.metier)}`
-      : `${detail.sites.length} sites documentés`;
+      ? `${retenus} lieu${retenus>1?"x":""} sur ${detail.sites.length} · ${libelle(etat.metier)}`
+      : `${detail.sites.length} lieux documentés`;
   }
 }
 
@@ -729,16 +1028,10 @@ function rendreEnTete(){
 function rendreModeEmploi(){
   const texte = document.getElementById("modeEmploi");
   if (etat.niveau === "departement"){
-    texte.innerHTML = `<p>Les cercles orange représentent les <b>douze principaux
-      ensembles étudiés</b>. Ils réunissent 172 lieux de production proches, lus
-      notice par notice. Chaque ensemble fait apparaître une histoire différente :
-      une vallée, une ville, un bassin minier ou un groupe de communes.</p>
-      <p>Un cercle est un repère : <b>sa taille indique le nombre de lieux, et non
-      l'étendue d'un territoire</b>. Cliquez pour voir les sites un par un, avec
-      leurs activités, leurs dates et les éventuels liens établis par les sources.
-      Les points gris représentent les 146 autres sites, tous consultables
-      individuellement.</p>`;
+    texte.hidden = true;
+    texte.innerHTML = "";
   } else {
+    texte.hidden = false;
     const detail = D.detail[etat.systeme];
     texte.innerHTML = `<p>Chaque point est un lieu de production documenté par une
       notice d'archive. Les traits relient deux lieux dont une source établit
@@ -750,27 +1043,56 @@ function rendreModeEmploi(){
 
 function rendreLegende(){
   const legende = document.getElementById("legende");
+  const source = document.getElementById("sourceCarte");
+  const methode = document.getElementById("methodeDepartement");
   if (etat.niveau === "departement"){
     legende.innerHTML = `
-      <span><i style="background:rgba(154,52,18,.35);border:1.4px solid #9a3412"></i>ensemble d'usines — la taille suit le nombre de sites</span>
-      <span><i style="background:#a9a49a"></i>site hors des douze ensembles</span>
-      <span class="source">Inventaire du patrimoine industriel de l'Orne ·
-      contours communaux API Géo · un ensemble est un regroupement calculé, sans
-      contour historique</span>`;
+      <span><i style="background:rgba(154,52,18,.25);border:1.6px solid #9a3412"></i>ensemble ouvert — taille selon le nombre de lieux</span>
+      <span><i style="background:rgba(154,52,18,.1);border:1.2px dashed #9a3412"></i>ensemble non ouvert dans la référence</span>
+      <span><i style="background:#a9a49a;width:7px;height:7px"></i>lieu hors des ensembles étudiés</span>`;
+    source.innerHTML = `Sources : Inventaire du patrimoine industriel de l'Orne ·
+      contours communaux API Géo.<br>Regroupements calculés, sans frontière historique.
+      L'état de conservation reste inconnu pour 315 des 318 sites du corpus.`;
+    methode.hidden = false;
   } else {
+    const categories = new Set(D.detail[etat.systeme].eau.map(troncon => troncon.categorie));
+    const eau = [
+      ["principale", "#4f8fac", 2.2, .85, "rivière principale"],
+      ["secondaire", "#8fb4cc", 1.3, .55,
+        categories.has("principale") ? "branches secondaires" : "cours d'eau"],
+    ].filter(([categorie]) => categories.has(categorie)).map(([, couleur, largeur, opacite, texte]) =>
+      `<span><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4"
+        stroke="${couleur}" stroke-width="${largeur}" stroke-opacity="${opacite}"/></svg>${texte}</span>`
+    ).join("");
     legende.innerHTML = `
-      <span><i style="background:#c2703f"></i>site industriel</span>
+      <span><i style="background:#c2703f"></i>lieu industriel</span>
       <span><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4"
         stroke="#8d8578" stroke-width="1.4" stroke-dasharray="5 4"/></svg>lien établi par une source</span>
-      <span><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4"
-        stroke="#7ba7c4" stroke-width="1.8"/></svg>cours d'eau</span>
-      <span class="source">Inventaire du patrimoine industriel de l'Orne ·
-      hydrographie IGN · les points situent les sites selon la précision indiquée
-      dans chaque fiche</span>`;
+      ${eau}
+`;
+    source.innerHTML = `Sources : Inventaire du patrimoine industriel de l'Orne ·
+      hydrographie IGN.<br>Les points situent les lieux selon la précision indiquée
+      dans chaque fiche.`;
+    if(etat.systeme === "risle"){
+      legende.innerHTML += `<span><svg width="12" height="12"><rect x="3" y="3"
+        width="6" height="6" fill="#3f4a5a"/></svg>localité — repère d'adresse ou de place</span>`;
+      source.innerHTML += `<br>Repères de localité : adresses des mairies, Annuaire
+        Service Public et géocodage IGN/BAN, vérifiés le 18 septembre 2026.`;
+    }
+    methode.hidden = true;
   }
 }
 
 function rendre(){
+  pointIdentification = {hover:null, focus:null};
+  retirerIdentification();
+  const panneauActuel = document.getElementById("panneau");
+  if (etat.systeme && panneauActuel){
+    const acc = accordeons[etat.systeme] || (accordeons[etat.systeme] = {lieux:false, relations:false});
+    panneauActuel.querySelectorAll("details[data-accordeon]").forEach(details => {
+      acc[details.dataset.accordeon] = details.open;
+    });
+  }
   rendreFiltres();
   rendreFil();
   rendreEnTete();
@@ -780,6 +1102,7 @@ function rendre(){
   if (etat.niveau === "departement") dessinerDepartement();
   else dessinerSysteme(etat.systeme);
   annoter();
+  if(etat.systeme === "risle" && etat.niveau !== "departement") dessinerReperesRisle();
   const panneau = document.getElementById("panneau");
   panneau.innerHTML = etat.niveau === "departement" ? panneauDepartement()
     : etat.niveau === "systeme" ? panneauSysteme()
@@ -793,6 +1116,7 @@ document.addEventListener("click", evenement => {
   if (bouton.dataset.metier !== undefined){
     etat.metier = bouton.dataset.metier || null;
     rendre();
+    fermerFiltre(true);
     annoncer(etat.metier ? `Filtre : ${libelle(etat.metier)}.` : "Filtre retiré.");
   } else if (bouton.dataset.systeme){
     allerAuSysteme(bouton.dataset.systeme);
@@ -804,6 +1128,46 @@ document.addEventListener("click", evenement => {
     rendre();
   }
 });
+document.addEventListener("toggle", evenement => {
+  const details = evenement.target.closest("details[data-accordeon]");
+  if (!details || !etat.systeme) return;
+  const acc = accordeons[etat.systeme] || (accordeons[etat.systeme] = {lieux:false, relations:false});
+  acc[details.dataset.accordeon] = details.open;
+}, true);
+
+const commandeMetier = document.getElementById("commandeMetier");
+const listeMetiers = document.getElementById("listeMetiers");
+commandeMetier.addEventListener("click", () => {
+  if (commandeMetier.getAttribute("aria-expanded") === "true") fermerFiltre(true);
+  else ouvrirFiltre();
+});
+commandeMetier.addEventListener("keydown", evenement => {
+  if (evenement.key === "ArrowDown" || evenement.key === "ArrowUp"){
+    evenement.preventDefault();
+    ouvrirFiltre();
+    const options = [...listeMetiers.querySelectorAll("button")];
+    const index = evenement.key === "ArrowUp" ? options.length - 1 : 0;
+    if (options[index]) options[index].focus();
+  }
+});
+listeMetiers.addEventListener("keydown", evenement => {
+  const options = [...listeMetiers.querySelectorAll("button")];
+  const courant = options.indexOf(document.activeElement);
+  if (!options.length || courant < 0) return;
+  let suivant = null;
+  if (evenement.key === "ArrowDown") suivant = (courant + 1) % options.length;
+  else if (evenement.key === "ArrowUp") suivant = (courant - 1 + options.length) % options.length;
+  else if (evenement.key === "Home") suivant = 0;
+  else if (evenement.key === "End") suivant = options.length - 1;
+  if (suivant !== null){
+    evenement.preventDefault();
+    options[suivant].focus();
+  }
+});
+document.addEventListener("click", evenement => {
+  if (!evenement.target.closest(".selecteur-metier") &&
+      commandeMetier.getAttribute("aria-expanded") === "true") fermerFiltre(false);
+});
 
 document.getElementById("filDepartement").addEventListener("click", allerAuDepartement);
 document.getElementById("filSysteme").addEventListener("click", () => {
@@ -811,7 +1175,10 @@ document.getElementById("filSysteme").addEventListener("click", () => {
 });
 document.addEventListener("keydown", evenement => {
   if (evenement.key === "Escape"){
-    if (etat.niveau === "site"){ etat.niveau = "systeme"; etat.site = null; rendre(); }
+    if (commandeMetier.getAttribute("aria-expanded") === "true"){
+      evenement.preventDefault();
+      fermerFiltre(true);
+    } else if (etat.niveau === "site"){ etat.niveau = "systeme"; etat.site = null; rendre(); }
     else if (etat.niveau === "systeme") allerAuDepartement();
   }
 });

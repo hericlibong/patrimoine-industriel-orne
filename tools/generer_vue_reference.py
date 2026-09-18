@@ -5,7 +5,7 @@ navigateur et il fonctionne. Toutes les données sont incluses dans la page et
 viennent du corpus validé.
 
 La vue porte trois niveaux et rien d'autre : le département, la vallée de la
-Risle, puis un site. Les données de Crulai sont embarquées elles aussi, non pour
+Risle, puis un lieu. Les données de Crulai sont embarquées elles aussi, non pour
 construire un second écran, mais pour vérifier que la même forme tient sur un
 système pauvre.
 
@@ -44,6 +44,37 @@ MARGE_DEGRES = 0.02
 # Systèmes détaillés dans la vue : celui qu'on lit, et celui qui sert de contrôle.
 SYSTEMES_DETAILLES = ("risle", "crulai")
 
+# SVG-2 : adresses/places des mairies, vérifiées le 18 septembre 2026.
+# Géocodage IGN/BAN contraint par code INSEE ; aucun centroïde communal.
+BOURGS_RISLE = [
+    {"nom": "L'Aigle", "lon": 0.628894, "lat": 48.764938,
+     "adresse": "Place Fulbert de Beina", "idBAN": "61214_0475", "typeBAN": "street",
+     "codeINSEE": "61214", "annuaire": "9c9c4887-670f-4aef-9b00-24d6e4bab37f"},
+    {"nom": "Rai", "lon": 0.579159, "lat": 48.750466,
+     "adresse": "12b Rue Trémont de Boisthorel", "idBAN": "61342_0067_00012_b",
+     "typeBAN": "housenumber", "codeINSEE": "61342",
+     "annuaire": "734b8da9-e754-4598-af21-0f1241b90cea"},
+    {"nom": "Aube", "lon": 0.545120, "lat": 48.740366,
+     "adresse": "89 Route de Paris", "idBAN": "61008_0060_00089", "typeBAN": "housenumber",
+     "codeINSEE": "61008", "annuaire": "3ca1f823-6000-4d0d-a080-7afa400749cd"},
+    {"nom": "Sainte-Gauburge-Sainte-Colombe", "lon": 0.431513, "lat": 48.716061,
+     "adresse": "Place de la Mairie", "idBAN": "61389_0128", "typeBAN": "locality",
+     "codeINSEE": "61389", "annuaire": "0fd678a5-aa06-440f-96da-93a1bb72ed27"},
+]
+
+
+def reperes_risle(eau: list[dict]) -> dict:
+    """Repères fixes ; le nom d'eau s'ancre sur une géométrie principale vérifiée."""
+    troncon = next(t for t in eau if t["id"] == "TRON_EAU0000000019049392")
+    if troncon["categorie"] != "principale":
+        raise ValueError("Le repère La Risle doit rester sur un tronçon principal vérifié")
+    return {
+        "bourgs": [dict(bourg, dateVerification="2026-09-18",
+                        sourceCoordonnees="https://data.geopf.fr/geocodage/search")
+                   for bourg in BOURGS_RISLE],
+        "riviere": {"nom": "La Risle", "troncon": troncon["id"], "sommet": 6,
+                    "lon": troncon["points"][6][0], "lat": troncon["points"][6][1]},
+    }
 
 # --------------------------------------------------------------------------
 # Regroupement des sites
@@ -283,8 +314,9 @@ def alleger(points: list, maximum: int) -> list:
 
 
 def hydrographie(
-    sites: list[dict], boite: tuple[float, float, float, float], maximum: int
-) -> list[list[list[float]]]:
+    sites: list[dict], boite: tuple[float, float, float, float], maximum: int,
+    principale: bool = False,
+) -> list[dict]:
     """Cours d'eau qui longent réellement les sites du système.
 
     Le fond hydrographique complet noie les usines sous un chevelu de ruisseaux
@@ -293,7 +325,8 @@ def hydrographie(
     chose de l'implantation.
     """
     proche_degres = 0.022  # ~2 km aux latitudes de l'Orne
-    troncons: dict[str, list[list[float]]] = {}
+    troncons: dict[str, dict] = {}
+    categories: dict[str, set[str]] = defaultdict(set)
     motif = str(RACINE / "data" / "raw" / "hydrographie" / "**" / "*.geojson")
     for fichier in glob.glob(motif, recursive=True):
         try:
@@ -320,9 +353,21 @@ def hydrographie(
             if not longe:
                 continue
             cle = element["properties"]["cleabs"]
-            troncons[cle] = [
-                [round(x, 5), round(y, 5)] for x, y in alleger(points, maximum)
-            ]
+            # Le nom source identifie la Risle, jamais la proximité des usines.
+            # Un nom absent ou contradictoire reste secondaire, sans filtrage.
+            nom = (element["properties"].get("cpx_toponyme_de_cours_d_eau") or "")
+            categories[cle].add(
+                "principale" if principale and nom.strip().casefold() == "la risle"
+                else "secondaire"
+            )
+            troncons[cle] = {
+                "id": cle,
+                "points": [[round(x, 5), round(y, 5)] for x, y in alleger(points, maximum)],
+            }
+    for cle, troncon in troncons.items():
+        troncon["categorie"] = (
+            "principale" if categories[cle] == {"principale"} else "secondaire"
+        )
     return list(troncons.values())
 
 
@@ -396,6 +441,7 @@ def construire() -> dict:
                 "code": code,
                 "nom": definition["nom"],
                 "nomDeTravail": definition["nom_de_travail"],
+                "presentationCourte": definition.get("presentation_courte", ""),
                 "nbSites": len(sites),
                 "lon": sum(site["lon"] for site in sites) / len(sites),
                 "lat": sum(site["lat"] for site in sites) / len(sites),
@@ -420,9 +466,11 @@ def construire() -> dict:
             "sites": sites,
             "liens": liens,
             "chronologie": chronologie,
-            "eau": hydrographie(sites, emprise(sites), 14),
+            "eau": hydrographie(sites, emprise(sites), 14, principale=code == "risle"),
             "resume": resume_systeme(sites, liens, chronologie),
         }
+        if code == "risle":
+            detail[code]["reperes"] = reperes_risle(detail[code]["eau"])
 
     autres = [
         {
