@@ -487,91 +487,6 @@ function viderCarte(){
   systemeDessine = null;
 }
 
-function dessinerDepartement(){
-  const systemes = D.departement.systemes.filter(systemeGarde);
-  const autres = D.departement.autresSites.filter(autreGarde);
-
-  const points = [];
-  for (const boucle of D.departement.contour) for (const p of boucle) points.push(p);
-  poserHauteur(520);
-  cadrer(points);
-
-  viderCarte();
-  CARTE.appendChild(titreAccessible(
-    "Carte de l'Orne",
-    `${systemes.length} ensembles industriels et ${autres.length} autres sites,
-     sur le contour du département`));
-
-  for (const boucle of D.departement.contour){
-    const d = boucle.map((p,i) => (i ? "L" : "M") + projeter(p[0],p[1]).map(v=>v.toFixed(1)).join(" ")).join(" ");
-    ajouterCarte(el("path",{d:d+" Z",fill:"#f1efe8",stroke:"#cdc9be","stroke-width":1}));
-  }
-
-  const groupeAutres = el("g",{});
-  for (const site of autres){
-    const [x,y] = projeter(site.lon, site.lat);
-    groupeAutres.appendChild(el("circle",{cx:x.toFixed(1),cy:y.toFixed(1),r:2.6,
-      fill:"#a9a49a"}));
-  }
-  ajouterCarte(groupeAutres);
-
-  /* Les étiquettes sont placées après les cercles, en évitant les recouvrements :
-     un nom illisible ne vaut pas mieux qu'un nom absent. */
-  const occupes = [];
-  const libre = boite => !occupes.some(autre =>
-    boite.x0 < autre.x1 && boite.x1 > autre.x0 && boite.y0 < autre.y1 && boite.y1 > autre.y0);
-
-  const dessines = systemes.map(systeme => {
-    const [x,y] = projeter(systeme.lon, systeme.lat);
-    const nombre = etat.metier ? systeme.sitesParMetier[etat.metier] : systeme.nbSites;
-    const ouvert = Boolean(D.detail[systeme.code]);
-    const rayon = 6 + Math.sqrt(nombre) * 2.6;
-    const groupe = el("g",{});
-    groupe.appendChild(el("circle",{cx:x.toFixed(1),cy:y.toFixed(1),r:rayon.toFixed(1),
-      fill:ouvert ? "rgba(154,52,18,.2)" : "rgba(154,52,18,.1)",stroke:"#9a3412",
-      "stroke-width":ouvert ? 1.8 : 1.2,"stroke-dasharray":ouvert ? null : "4 3"}));
-    const cible = el("circle",{cx:x.toFixed(1),cy:y.toFixed(1),r:Math.max(rayon,12).toFixed(1),
-      fill:"transparent",class:`groupe ${ouvert ? "ouvert" : "non-ouvert"}`,
-      tabindex:"0",role:"button",
-      "aria-label":`${systeme.nom}, ${nombre} site${nombre>1?"s":""}. ${ouvert
-        ? "Ouvrir cet ensemble." : "Ensemble non ouvert dans cette vue de référence."}`});
-    const ouvrir = () => allerAuSysteme(systeme.code);
-    cible.addEventListener("click", ouvrir);
-    cible.addEventListener("keydown", evenement => {
-      if (evenement.key === "Enter" || evenement.key === " "){ evenement.preventDefault(); ouvrir(); }
-    });
-    groupe.appendChild(cible);
-    ajouterCarte(groupe);
-    return {systeme, x, y, rayon, nombre};
-  });
-
-  for (const {systeme, x, y, rayon, nombre} of dessines){
-    const texte = `${systeme.nom} · ${nombre}`;
-    const largeur = texte.length * 5.6, hauteur = 13;
-    const essais = [
-      {ancre:"middle", dx:0, dy:-rayon-7},
-      {ancre:"middle", dx:0, dy:rayon+13},
-      {ancre:"start", dx:rayon+6, dy:4},
-      {ancre:"end", dx:-rayon-6, dy:4},
-    ];
-    let choix = essais[0], boite = null;
-    for (const essai of essais){
-      const gauche = essai.ancre === "middle" ? x + essai.dx - largeur/2
-        : essai.ancre === "start" ? x + essai.dx : x + essai.dx - largeur;
-      const candidate = {x0:gauche, x1:gauche+largeur,
-        y0:y + essai.dy - hauteur, y1:y + essai.dy + 3};
-      if (libre(candidate)){ choix = essai; boite = candidate; break; }
-      if (!boite) boite = candidate;
-    }
-    occupes.push(boite);
-    const etiquette = el("text",{x:(x+choix.dx).toFixed(1), y:(y+choix.dy).toFixed(1),
-      "text-anchor":choix.ancre, "font-size":11, fill:"#3f4a5a",
-      "pointer-events":"none", "paint-order":"stroke", stroke:"#f7f5f0",
-      "stroke-width":3, "stroke-linejoin":"round"});
-    etiquette.textContent = texte;
-    ajouterCarte(etiquette);
-  }
-}
 
 /* Courbe d'un lien : un trait droit entre deux usines voisines resterait
    invisible, on l'écarte en arc pour qu'il se voie et se vise. */
@@ -660,14 +575,18 @@ let systemeDessine = null;
    posée une fois par ensemble, puis chaque couche est mise à jour par D3 —
    ce qui entre, ce qui sort, ce qui reste. C'est la condition pour qu'un
    changement de métier puisse devenir un mouvement et non un clignotement. */
-function poserCouches(code){
+const COUCHES_ENSEMBLE = ["solCommunes","coucheEau","coucheRelations","coucheLieux"];
+const COUCHES_DEPARTEMENT = ["contourDepartement","coucheAutres","coucheEnsembles"];
+const COUCHES_VISEES = new Set(["coucheRelations","coucheLieux","coucheEnsembles"]);
+
+function poserCouches(code, couches){
   viderCarte();
   CARTE.appendChild(titreAccessible("", ""));
   contenuCarte = el("g",{id:"contenuCarte"});
   CARTE.appendChild(contenuCarte);
-  for (const id of ["solCommunes","coucheEau","coucheRelations","coucheLieux"])
+  for (const id of couches)
     contenuCarte.appendChild(el("g",{id,
-      "pointer-events": (id === "coucheRelations" || id === "coucheLieux") ? null : "none"}));
+      "pointer-events": COUCHES_VISEES.has(id) ? null : "none"}));
   coucheInterface = el("g",{id:"coucheInterface","pointer-events":"none"});
   CARTE.appendChild(coucheInterface);
   systemeDessine = code;
@@ -685,7 +604,7 @@ function dessinerSysteme(code){
   const pointsCadre = detail.reperes ? sites.concat(detail.reperes.bourgs) : aCadrer;
   cadrer(pointsCadre.map(s => [s.lon, s.lat]));
 
-  if (systemeDessine !== code) poserCouches(code);
+  if (systemeDessine !== code) poserCouches(code, COUCHES_ENSEMBLE);
   document.getElementById("titreCarte").textContent = `Carte de ${definition.nom}`;
   document.getElementById("descCarte").textContent =
     `${retenus.length} lieu${retenus.length>1?"x":""} affiché${retenus.length>1?"s":""}`
@@ -913,6 +832,161 @@ function montrerRelation(code, index){
   rendre();
 }
 
+/* ------------------------------------------------- carte du département */
+/* Même architecture que la carte d'un ensemble : couches posées une fois,
+   jointures de données, mise à jour au lieu de reconstruction. Placée après les
+   déclarations qu'elle emploie. */
+function dessinerDepartement(){
+  const systemes = D.departement.systemes.filter(systemeGarde);
+  const autres = D.departement.autresSites.filter(autreGarde);
+
+  const points = [];
+  for (const boucle of D.departement.contour) for (const p of boucle) points.push(p);
+  poserHauteur(520);
+  cadrer(points);
+
+  if (systemeDessine !== "departement") poserCouches("departement", COUCHES_DEPARTEMENT);
+  document.getElementById("titreCarte").textContent = "Carte de l'Orne";
+  document.getElementById("descCarte").textContent =
+    `${systemes.length} ensembles industriels et ${autres.length} autres lieux,`
+    + " sur le contour du département";
+
+  const chemin = d3.geoPath(projectionD3);
+
+  d3.select("#contourDepartement").selectAll("path")
+    .data(D.departement.contour.map((boucle, index) => ({boucle, index})), b => b.index)
+    .join("path")
+      .attr("d", b => chemin({type:"Polygon", coordinates:[b.boucle]}))
+      .attr("fill", "#f1efe8").attr("stroke", "#cdc9be").attr("stroke-width", 1)
+      .attr("vector-effect", "non-scaling-stroke");
+
+  /* Les lieux hors ensembles gardent une taille d'écran minimale, comme ceux
+     d'un ensemble : à 2,6 unités ils disparaissaient sur écran étroit. */
+  const rayonAutre = rayonAutreLieu();
+  d3.select("#coucheAutres").selectAll("circle")
+    .data(autres, site => site.ref)
+    .join(entree => entree.append("circle").attr("class", "autre-lieu")
+        .attr("fill", "#a9a49a").attr("r", 0).attr("opacity", 0),
+      mise => mise, fondreSortie)
+      .attr("cx", site => projeter(site.lon, site.lat)[0].toFixed(1))
+      .attr("cy", site => projeter(site.lon, site.lat)[1].toFixed(1))
+      .attr("data-taille-base", rayonAutre)
+      .call(selection => (DUREE ? selection.transition().duration(DUREE) : selection)
+        .attr("r", rayonAutre).attr("opacity", 1));
+
+  const dessines = systemes.map(systeme => {
+    const [x, y] = projeter(systeme.lon, systeme.lat);
+    const nombre = etat.metier ? systeme.sitesParMetier[etat.metier] : systeme.nbSites;
+    return {systeme, x, y, nombre, ouvert: Boolean(D.detail[systeme.code]),
+      rayon: 6 + Math.sqrt(nombre) * 2.6};
+  });
+
+  d3.select("#coucheEnsembles").selectAll("circle.halo")
+    .data(dessines, e => e.systeme.code)
+    .join(entree => entree.append("circle").attr("class", "halo")
+        .attr("pointer-events", "none").attr("r", 0).attr("opacity", 0),
+      mise => mise, fondreSortie)
+      .attr("stroke", "#9a3412").attr("vector-effect", "non-scaling-stroke")
+      .attr("fill", e => e.ouvert ? "rgba(154,52,18,.2)" : "rgba(154,52,18,.1)")
+      .attr("stroke-width", e => e.ouvert ? 1.8 : 1.2)
+      .attr("stroke-dasharray", e => e.ouvert ? null : "4 3")
+      .call(selection => (DUREE ? selection.transition().duration(DUREE) : selection)
+        .attr("cx", e => e.x.toFixed(1)).attr("cy", e => e.y.toFixed(1))
+        .attr("r", e => e.rayon.toFixed(1)).attr("opacity", 1));
+
+  d3.select("#coucheEnsembles").selectAll("circle.groupe")
+    .data(dessines, e => e.systeme.code)
+    .join(entree => entree.append("circle").attr("fill", "transparent")
+        .attr("tabindex", "0").attr("role", "button")
+        .on("click", (evenement, e) => allerAuSysteme(e.systeme.code))
+        .on("keydown", (evenement, e) => {
+          if (evenement.key === "Enter" || evenement.key === " "){
+            evenement.preventDefault(); allerAuSysteme(e.systeme.code);
+          }
+        }),
+      mise => mise, sortie => sortie.remove())
+      .attr("class", e => `groupe ${e.ouvert ? "ouvert" : "non-ouvert"}`)
+      .attr("cx", e => e.x.toFixed(1)).attr("cy", e => e.y.toFixed(1))
+      .attr("r", e => Math.max(e.rayon, 12).toFixed(1))
+      .attr("aria-label", e => `${e.systeme.nom}, ${e.nombre} lieu${e.nombre>1?"x":""}. `
+        + (e.ouvert ? "Ouvrir cet ensemble." : "Ensemble non ouvert dans cette vue de référence."));
+
+  etiquettesEnsembles(dessines, autres);
+}
+
+function rayonAutreLieu(){
+  const affichee = CARTE.getBoundingClientRect ? CARTE.getBoundingClientRect().width : LARGEUR;
+  return affichee ? Math.max(2.6, 2.6 * (LARGEUR / affichee)) : 2.6;
+}
+
+/* Les noms d'ensembles passent en surface, ancrés à leur bulle par un décalage
+   constant — la règle établie pour les repères de bourg, et ce qui permettra au
+   zoom de la passe suivante de fonctionner sans reprise. Le placement réutilise
+   la grille d'occupation éprouvée sur les ensembles : un nom cherche d'abord les
+   quatre positions contre sa bulle, et n'est jamais masqué. */
+function etiquettesEnsembles(dessines, autres){
+  const precedent = document.getElementById("nomsEnsembles");
+  if (precedent) precedent.remove();
+  if (!coucheInterface) return;
+  const groupe = el("g",{id:"nomsEnsembles","pointer-events":"none"});
+  coucheInterface.appendChild(groupe);
+
+  const obstacles = [];
+  for (const e of dessines)
+    obstacles.push({x0:e.x-e.rayon, x1:e.x+e.rayon, y0:e.y-e.rayon, y1:e.y+e.rayon});
+  for (const site of autres){
+    const [x,y] = projeter(site.lon, site.lat);
+    obstacles.push({x0:x-4, x1:x+4, y0:y-4, y1:y+4});
+  }
+  const occupation = libreSelonGrille(obstacles);
+  const posees = [];
+  const recouvre = (a,b) => a.x0<b.x1 && a.x1>b.x0 && a.y0<b.y1 && a.y1>b.y0;
+  const libre = boite => occupation(boite.x0, boite.y0, boite.x1-boite.x0, boite.y1-boite.y0)
+    && !posees.some(autre => recouvre(boite, autre));
+
+  /* Les noms les plus longs sont placés d'abord — règle éprouvée sur les
+     repères de bourg : servis en dernier, ils ne trouvent plus de place et
+     finissent par chevaucher leurs voisins. */
+  const ordre = dessines.slice().sort((a,b) =>
+    (b.systeme.nom.length - a.systeme.nom.length) || (b.nombre - a.nombre));
+  for (const e of ordre){
+    const texte = `${e.systeme.nom} · ${e.nombre}`;
+    const largeur = texte.length * 5.6, hauteur = 13;
+    /* Quatre positions ne suffisaient pas dans le nord-ouest, où les ensembles
+       se serrent : deux paires de noms se chevauchaient et deux noms tombaient
+       sur une bulle. Huit directions, à trois distances croissantes. */
+    const essais = [];
+    for (const ecart of [0, 8, 18]){
+      const r = e.rayon + ecart;
+      essais.push({ancre:"middle", dx:0, dy:-r-7});
+      essais.push({ancre:"middle", dx:0, dy:r+13});
+      essais.push({ancre:"start", dx:r+6, dy:4});
+      essais.push({ancre:"end", dx:-r-6, dy:4});
+      essais.push({ancre:"start", dx:r+4, dy:-r-4});
+      essais.push({ancre:"end", dx:-r-4, dy:-r-4});
+      essais.push({ancre:"start", dx:r+4, dy:r+10});
+      essais.push({ancre:"end", dx:-r-4, dy:r+10});
+    }
+    let choix = essais[0], boite = null;
+    for (const essai of essais){
+      const gauche = essai.ancre === "middle" ? e.x + essai.dx - largeur/2
+        : essai.ancre === "start" ? e.x + essai.dx : e.x + essai.dx - largeur;
+      const candidate = {x0:gauche, x1:gauche+largeur,
+        y0:e.y + essai.dy - hauteur, y1:e.y + essai.dy + 3};
+      if (!boite){ choix = essai; boite = candidate; }
+      if (libre(candidate)){ choix = essai; boite = candidate; break; }
+    }
+    posees.push(boite);
+    const noeud = el("text",{"text-anchor":choix.ancre, "font-size":11, fill:"#3f4a5a",
+      "paint-order":"stroke", stroke:"#f7f5f0", "stroke-width":3, "stroke-linejoin":"round",
+      "data-ensemble":e.systeme.code,
+      "data-ancre":`${e.x},${e.y}`, "data-decalage":`${choix.dx},${choix.dy}`});
+    noeud.textContent = texte;
+    groupe.appendChild(noeud);
+  }
+  positionnerNomsAncres("nomsEnsembles");
+}
+
 /* Occupation de la carte, rasterisée puis cumulée en tableau de sommes.
    Une case vaut une unité SVG : le test « cette boîte touche-t-elle quelque
    chose ? » coûte quatre lectures au lieu d'un parcours de tous les obstacles.
@@ -1079,9 +1153,14 @@ function dessinerReperes(){
    celle de leur signe vue par le zoom courant, plus un décalage constant à
    l'écran. Un nom dont le signe est sorti du cadre est masqué. */
 function positionnerNomsReperes(){
-  const groupe = document.getElementById("nomsReperes");
+  positionnerNomsAncres("nomsReperes");
+  positionnerNomsAncres("nomsEnsembles");
+}
+
+function positionnerNomsAncres(identifiant){
+  const groupe = document.getElementById(identifiant);
   if(!groupe || !zoomCarte) return;
-  groupe.querySelectorAll("text[data-repere]").forEach(texte => {
+  groupe.querySelectorAll("text[data-ancre]").forEach(texte => {
     const [ax, ay] = (texte.dataset.ancre || "0,0").split(",").map(Number);
     const [dx, dy] = (texte.dataset.decalage || "0,0").split(",").map(Number);
     const [x, y] = zoomCarte.apply([ax, ay]);

@@ -611,6 +611,69 @@ anciennes, et les repères de bourg.
 
 ---
 
+## D1 — Le dessin du département tenu par D3 (19 septembre 2026)
+
+Branche `codex/carte-departement-d3`. Premier temps du bloc D : supprimer le
+second moteur de dessin. Aucun effet visible attendu.
+
+**Fait.** La carte du département était effacée puis reconstruite à chaque
+geste, élément par élément. Elle a désormais ses couches — contour, lieux hors
+ensembles, ensembles — posées une fois et mises à jour par jointure, comme la
+carte d'un ensemble. Les couches sont devenues paramétrables : chaque niveau
+déclare les siennes, le mécanisme est commun.
+
+Les noms d'ensembles passent dans la couche de surface, ancrés à leur bulle par
+un décalage constant — la règle établie pour les repères de bourg. Le placement
+qui leur était propre est remplacé par la grille d'occupation éprouvée sur les
+ensembles. Le positionnement des noms ancrés devient une fonction commune aux
+deux niveaux.
+
+**Deux défauts corrigés au passage**, trouvés en mesurant les boîtes de texte :
+
+- deux noms tombaient sur une bulle d'ensemble et deux paires se chevauchaient.
+  Quatre positions candidates ne suffisaient pas dans le nord-ouest, où les
+  ensembles se serrent ; il y en a vingt-quatre — huit directions à trois
+  distances.
+- les noms étaient servis du plus gros ensemble au plus petit, si bien que le
+  nom le plus long arrivait en dernier et ne trouvait plus de place. Ils sont
+  servis du plus long au plus court, règle déjà éprouvée sur les repères de
+  bourg. « Bassin de Halouze · 13 » affichait « · 1 », son chiffre étant
+  recouvert : il est lisible.
+
+Les lieux hors ensembles gardent une taille d'écran minimale, comme ceux d'un
+ensemble : à 2,6 unités ils disparaissaient sur écran étroit.
+
+**Contrôles effectués.** Six contrôles du générateur vrais, `ruff` propre,
+syntaxe JavaScript vérifiée par Node. Dans le navigateur :
+
+- Sans filtre : 1 contour, 146 lieux hors ensembles, 12 bulles, 12 cibles
+  cliquables, 12 noms. Éléments de dessin : 192.
+- Sous Métallurgie, en lisant les données liées à chaque élément : 26 lieux hors
+  ensembles retenus sur 26 attendus, 10 ensembles sur 10, 10 cibles, 10 noms.
+  **Un élément présent avant le filtre est toujours le même après** : la carte
+  est mise à jour, non reconstruite.
+- Retour à tous les métiers : 12 ensembles, 12 noms, aucun empilement.
+- Boîtes de texte mesurées sans filtre et sous trois métiers : aucun nom sur une
+  bulle, aucun hors cadre.
+
+**Limite qui subsiste.** Sans filtre, « Vallée du Noireau · 23 » et
+« Flers · 21 » se touchent encore : deux ensembles voisins et importants dans le
+coin le plus dense. Les deux restent entièrement lisibles et aucun n'est masqué.
+Sous filtre, plus aucun chevauchement. Le remède — un trait de rappel entre un
+nom éloigné et sa bulle — relève de la passe de présentation, pas de celle-ci.
+
+**Incident de méthode.** Une première tentative a supprimé, en retirant
+l'ancienne fonction, les déclarations partagées qui la suivaient dans le
+fichier — bornes de découpe mal choisies. Le fichier a été restitué depuis la
+version enregistrée et le travail refait en plaçant la fonction après ses
+dépendances. Rien n'a été perdu ; c'est la deuxième fois dans la journée qu'un
+découpage par repères textuels se révèle dangereux.
+
+**Reste ouvert :** la validation du porteur. D2 apportera l'identification au
+survol, le pointage du plus proche, le zoom et le cartouche.
+
+---
+
 ## Ce qui est déjà identifié comme règle transposable
 
 À reprendre pour les onze autres ensembles.

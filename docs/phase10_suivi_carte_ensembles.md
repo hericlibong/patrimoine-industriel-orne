@@ -163,12 +163,20 @@ geste. Écart relevé dans le code :
 
 #### D1 — Le dessin du département tenu par D3, à résultat identique
 
-- [ ] Poser les couches une fois — contour, autres lieux, ensembles, étiquettes —
+- [x] Poser les couches une fois — contour, autres lieux, ensembles, étiquettes —
   et les mettre à jour au lieu d'effacer la carte à chaque changement de métier.
-- [ ] Remplacer le placement d'étiquettes maison par le mécanisme déjà éprouvé
-  sur les ensembles, en conservant la règle : un nom n'est jamais masqué.
-- [ ] Vérifier que rien n'a bougé : 12 ensembles, 146 autres lieux, mêmes
-  effectifs par métier, mêmes coordonnées, même cadrage.
+  Les couches sont paramétrables ; chaque niveau déclare les siennes.
+- [x] Remplacer le placement d'étiquettes maison par le mécanisme déjà éprouvé
+  sur les ensembles, en conservant la règle : un nom n'est jamais masqué. Les
+  noms passent en surface, ancrés à leur bulle par un décalage constant.
+- [x] Vérifier que rien n'a bougé : 12 ensembles, 146 autres lieux, 26 lieux et
+  10 ensembles retenus sous Métallurgie, mêmes coordonnées, même cadrage. Un
+  élément présent avant le filtre est toujours le même après.
+- [-] Deux défauts corrigés au passage : deux noms tombaient sur une bulle et
+  « Bassin de Halouze · 13 » affichait « · 1 », son chiffre recouvert. Il
+  subsiste un chevauchement sans filtre entre « Vallée du Noireau » et
+  « Flers », deux voisins dans le coin le plus dense ; les deux restent
+  lisibles. Le trait de rappel relève de la présentation.
 - [ ] Validation du porteur.
 
 **Livrable :** aucun changement visible, un seul moteur de dessin pour les trois
