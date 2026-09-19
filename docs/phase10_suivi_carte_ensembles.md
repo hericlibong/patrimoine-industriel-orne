@@ -1,164 +1,149 @@
 # Carte des ensembles — Plan et suivi des passes
 
-## Plan actif d'expérimentation D3 + GeoJSON
+## Le socle technique est acquis — 19 septembre 2026
 
-Ce plan devient le plan actif de l'essai D3 sur la Risle. Il ne remplace pas la
-référence SVG `codex/carte-svg-narrative` avant validation du porteur.
+Le plan d'expérimentation D3 qui occupait cette place avait un seul objet :
+faire fonctionner D3 dans la carte. C'est fait. Ses sept phases décrivaient le
+chemin pour y parvenir ; elles n'ont plus d'objet comme plan et sont versées à
+l'historique du document. **La carte telle qu'elle est aujourd'hui est la
+référence.**
 
-### PHASE 0 — Préparation
+Ce qui est acquis, et qui ne se rediscute pas sans passer par le journal :
 
-- [x] Travail SVG actuel sauvegardé localement sans perdre les modifications.
-- [x] Branche `codex/test-d3-risle` créée depuis cet état.
-- [x] Fonctions existantes repérées : filtres, identification, sélection du lieu, fiches, preuves et retours.
-- [x] Données nécessaires localisées : 43 lieux, 5 relations, réseau d'eau actuel, quatre localités et nom La Risle.
-- [x] Point d'intégration D3 identifié et méthode de conservation du cadrage décrite brièvement.
-- [x] Plan détaillé inscrit en tête du suivi.
+- D3 est embarqué localement, sans appel distant, et **tient le dessin** de la
+  carte. Un seul chemin de dessin sert les trois niveaux — département,
+  ensemble, lieu. La Risle n'est plus une exception : c'est le cas général.
+- Les couches sont posées une fois par ensemble puis mises à jour. Un
+  changement de métier est un mouvement, pas un clignotement.
+- Le cadre prend la proportion de ce qu'il montre. Le sol est formé de toutes
+  les communes touchant le cadre, et déborde.
+- L'eau est hiérarchisée et détachée du sol par une gaine ; les liens sont
+  lisibles et portent leur sens ; les lieux se détachent du fond.
+- Zoom et déplacement bornés, avec retour exact au cadrage initial. Les noms de
+  repères suivent leur signe. Passé un zoom de 2,2, les lieux prennent leur nom
+  sans se recouvrir. Toute animation cesse si le lecteur a demandé moins de
+  mouvement.
+- La végétation contemporaine est écartée par décision du 19 septembre.
 
-Point d'intégration prévu : la génération des données de `D.detail.risle` dans
-`tools/generer_vue_reference.py`, puis le rendu de `dessinerSysteme("risle")`
-dans `tools/vue_reference_gabarit.html`. La projection, l'emprise stable et
-les états d'interaction seront conservés lors de la phase 1 ; aucune conversion
-ni modification du prototype n'est engagée en phase 0.
+Le détail de ces travaux, leurs mesures et leurs limites sont dans
+`docs/audit_carte_d3/journal_phases_carte.md`. Les décisions correspondantes
+sont au journal, à la date du 19 septembre.
 
-**Livrable :** branche prête et intégration cadrée ; prototype inchangé.
+## Ce qui reste — plan actif
 
+Trois blocs seulement. Le premier est le plus important : c'est le seul qui
+porte sur ce que le lecteur voit en arrivant.
+
+### BLOC A — La première impression — PRIORITAIRE
+
+**Question à juger :** en arrivant sur un ensemble, le lecteur comprend-il ce
+qu'il regarde sans avoir à lire un paragraphe ?
+
+- [x] **Supprimer** le texte au-dessus de la carte. Une consigne courte avait
+  été proposée à la place ; le porteur a tranché pour la suppression complète,
+  ce texte ne servant plus à rien.
+- [x] Sortir la légende du dessus du cadre : elle est dans un cartouche posé
+  dans le coin le plus vide de la carte, choisi à chaque rendu.
+- [x] Ajouter une échelle calculée, adaptée à la largeur affichée et au zoom
+  courant.
+- [x] Sortir de la carte l'effet du filtre métier, qui couvrait le territoire ;
+  il se lit à côté du sélecteur.
+- [-] Vérifier la lisibilité sur écran étroit. Vérifiée à quatre largeurs de
+  carte par contrainte de la largeur du conteneur ; **pas dans une vraie fenêtre
+  étroite**, l'onglet de contrôle ne produisant plus d'images.
+- [x] Vérifier que les crédits et les sources restent lisibles sans occuper plus
+  de place que la carte.
 - [ ] Validation du porteur.
 
-**Bilan de la PHASE 0 :** la sauvegarde locale est le commit `15cb793`
-(`chore: sauvegarder la reference SVG avant l essai D3`) et la branche active
-`codex/test-d3-risle` en est issue. Les fichiers sans rapport restent non
-suivis et préservés ; aucun ajout global n'a été effectué. D3 n'est pas ajouté,
-les données ne sont pas converties et le prototype reste inchangé pour cet
-essai. La décision technique encore ouverte concerne seulement le choix des
-outils D3/GeoJSON à la phase 1.
+**Livrable :** un écran d'ensemble qui se comprend d'un coup d'œil, sur écran
+large et sur écran étroit.
 
-### PHASE 1 — Base D3
+**Acquis à conserver :** le fond est déjà teinté par le sol communal — ce point
+du plan précédent est fait. La légende ne montre déjà que des signes réellement
+présents.
 
-- [x] Ajouter D3 localement, sans dépendance à un CDN à l'affichage.
-- [x] Représenter les données géographiques nécessaires en GeoJSON, sans altérer les coordonnées, identifiants ou informations.
-- [x] Générer les tracés géographiques avec D3.
-- [x] Conserver les 43 lieux, les 5 relations et tous les tracés d'eau actuellement affichés.
-- [x] Conserver la distinction Risle principale / branches secondaires.
-- [x] Conserver les quatre localités et le nom La Risle.
-- [x] Retrouver une emprise et une occupation de la carte comparables au SVG actuel, avec cadrage stable sous filtre.
-- [x] Conserver les interactions existantes : étiquette au survol/focus, sélection, fiches, preuves et retours.
-- [x] Laisser la vue départementale et Crulai inchangés.
-- [x] Contrôler la génération, la syntaxe et les parcours ciblés.
-- [ ] Validation visuelle du porteur.
+**Bilan du bloc A — 19 septembre 2026.** Réalisation faite et mesurée dans un
+navigateur ; détail, chiffres et limites dans
+`docs/audit_carte_d3/journal_phases_carte.md`. Deux défauts d'écran étroit
+trouvés et corrigés : le cartouche occupait jusqu'à 83 % de la carte, ramené à
+9 % ; les crédits occupaient jusqu'à 173 % de sa hauteur, ramenés à 43 % par un
+repli. Deux autres défauts trouvés au passage et corrigés : les points tombaient
+à 2,5 pixels de rayon sur carte étroite, ils gardent désormais 5 pixels
+minimum ; l'observateur de largeur n'était pas retenu et portait sur l'élément
+SVG. La validation du porteur reste ouverte, ainsi que l'essai dans une vraie
+fenêtre étroite.
 
-**Bilan de la PHASE 1 :** le générateur embarque D3 v7.9.0 depuis
-`tools/vendor/d3.v7.9.0.min.js`, et la vue régénérée utilise les 43 lieux et
-les 650 tracés d'eau GeoJSON pour Risle. Les coordonnées et identifiants ont
-été comparés à la représentation historique ; les 5 relations, les quatre
-localités et `La Risle` sont présents. La génération passe ses contrôles
-existants ; les deux scripts inline passent la vérification de syntaxe
-JavaScript. Les contrôles ciblés confirment les handlers de survol/focus,
-sélection, filtre, fiche, preuve et retour, ainsi que l'absence de script
-externe ou de chargement distant de données. Crulai et la vue départementale
-restent sur leurs données et leur chemin de rendu antérieurs. Le contrôle
-visuel du porteur n'est pas réalisé dans cette passe et reste décoché ; aucune
-capture n'a été produite.
+### BLOC B — Lire les liens d'un lieu
 
-**Livrable :** carte Risle rendue avec D3, comparable à la référence, sans perte fonctionnelle.
+**Question à juger :** quand un lieu est ouvert, voit-on avec qui il
+travaillait ?
 
-### PHASE 2 — Zoom et déplacement maîtrisés — À FAIRE MAINTENANT
-
-- [x] Commandes « + », « − » et « Vue initiale ».
-- [x] Zoom centré et limité.
-- [x] Déplacement de la carte agrandie avec limites.
-- [x] Points, textes et liens lisibles au zoom.
-- [x] Survol, fiches, preuves et filtres préservés.
-- [x] Retour exact au cadrage initial.
-- [x] Contrôles ciblés et limites consignées.
-- [ ] Validation visuelle du porteur.
-
-**Livrable :** explorer les points serrés près de L'Aigle et revenir simplement à toute la vallée.
-
-**Bilan de la PHASE 2 :** l'essai est implémenté dans le gabarit et régénéré
-dans le prototype. D3 limite le zoom à 1–6, centre les commandes par facteur
-1,5, borne la translation, désactive molette et double-clic et distingue le
-glissement du clic par une distance de clic. Le groupe cartographique est le
-seul transformé ; les commandes restent fixes. Les tailles de points et de
-repères sont compensées par le facteur de zoom et les traits gardent leur
-épaisseur. Les contrôles statiques ciblés passent pour le filtre Métallurgie,
-la fiche, la preuve et les retours. La validation visuelle du porteur reste
-ouverte ; aucune capture n'a été produite.
-
-Le zoom ne déplace ni ne sépare artificiellement les coordonnées. Aucun doublon
-de coordonnées exactes n'a été trouvé parmi les 43 lieux ; les points très
-proches ou superposés visuellement restent donc à traiter par le futur cadrage
-de la phase 3, sans nouvelle règle engagée ici.
-
-**Correction de réception :** le porteur a signalé que la bulle d'identification
-grossissait avec le zoom. La cause était son insertion dans `contenuCarte`, le
-groupe géographique transformé par D3. Elle est désormais rendue dans
-`coucheInterface`, une couche sœur non transformée ; son ancrage est calculé
-par la transformation D3 courante, puis recalculé à chaque zoom ou déplacement.
-La bulle reste pointer-events:none, bascule de côté près des bords et est
-masquée lorsque le point sort du cadre. Les points, noms, contours de focus et
-épaisseurs de traits gardent également une taille d'écran constante par
-compensation ou `vector-effect`. Les contrôles mathématiques et structurels
-passent ; la vérification des dimensions réellement rendues à zoom 1, 1,5, 3
-et 6 reste à faire dans un navigateur, ainsi que la validation du porteur.
-
-### PHASE 3 — Informations selon le zoom — NON ENGAGÉE
-
-- [ ] Sélectionner les informations existantes utiles en vue rapprochée.
-- [ ] Définir les seuils d'apparition des noms.
-- [ ] Éviter les collisions et conserver une vue générale sobre.
+- [ ] Ouvrir une fiche met en évidence les lieux liés et les traits qui y
+  mènent ; quitter la fiche rétablit l'état normal.
+- [ ] Ne pas refaire l'accès aux preuves, qui fonctionne.
+- [ ] Traiter le groupe dense autour de L'Aigle : viser un point précis y reste
+  difficile, et plusieurs points y restent sans nom même en zoomant.
 - [ ] Validation du porteur.
 
-**Livrable :** davantage de repères en zoomant, sans surcharge au départ.
+**Livrable :** comprendre visuellement à qui un lieu est relié, et pouvoir
+atteindre un lieu même dans l'amas de L'Aigle.
 
-Aucune nouvelle donnée ou règle d'affichage n'est implémentée avant le cadrage
-de cette phase.
+**Acquis à conserver :** les liens sont déjà lisibles et portent déjà leur sens
+par une pointe orientée. Seule la mise en évidence à l'ouverture d'une fiche
+manque.
 
-### PHASE 4 — Mise en évidence des relations — NON ENGAGÉE
+### BLOC C — Juger et transposer
 
-- [ ] Examiner le comportement existant.
-- [ ] Proposer comment distinguer les partenaires et liens d'un lieu sélectionné.
-- [ ] Après accord, réaliser uniquement l'amélioration utile, sans refaire l'accès aux preuves.
-- [ ] Validation du porteur.
+**Question à juger :** cette carte est-elle la bonne, et que faut-il pour la
+onzième vallée ?
 
-**Livrable :** comprendre visuellement quels lieux sont liés au lieu sélectionné.
-
-### PHASE 5 — Présence du territoire — NON ENGAGÉE
-
-- [ ] Vérifier la disponibilité et la provenance de données forestières et d'altitude.
-- [ ] Présenter l'effort et les limites avant intégration.
-- [ ] Choisir avec le porteur un essai de masses forestières ou de relief discret.
-- [ ] Tester la couche choisie sans masquer eau, sites et liens.
-- [ ] Validation du porteur.
-
-**Livrable :** enrichissement géographique réel, discret et évalué visuellement.
-
-### PHASE 6 — Présentation — SUSPENDUE
-
-- [ ] Retirer le long paragraphe et conserver une consigne courte.
-- [ ] Intégrer une légende compacte sans masquer les données.
-- [ ] Teinter légèrement le fond.
-- [ ] Ajouter une échelle calculée, adaptée au zoom.
-- [ ] Vérifier sources et lisibilité sur écran étroit.
-- [ ] Validation du porteur.
-
-**Livrable :** composition clarifiée, après évaluation des apports techniques.
-
-### PHASE 7 — Comparaison et décision
-
-- [ ] Comparer l'essai D3 à la référence SVG.
-- [ ] Consigner gains, pertes et difficultés restantes.
-- [ ] Vérifier les parcours ciblés.
-- [ ] Décrire les adaptations aux autres ensembles sans les développer.
+- [ ] Examen visuel complet par le porteur, sur écran large et étroit :
+  parcours carte → lieu ou lien → retour, sous filtre et sans filtre, sur la
+  Risle et sur Crulai.
+- [ ] Reprendre la liste des règles transposables et des particularités de la
+  Risle, tenue au fil des phases, et la vérifier sur Crulai.
+- [ ] Décrire ce qu'il faut pour ouvrir un troisième ensemble, sans le
+  développer.
 - [ ] Décision du porteur.
 
-**Livrable :** choix explicite de la solution à poursuivre.
+**Livrable :** carte de référence jugée, et règles d'adaptation explicites pour
+les onze autres ensembles.
 
-## HORS DE CET ESSAI
+**Remplace la phase de comparaison D3 / SVG du plan précédent**, devenue sans
+objet : le choix a été tranché le 19 septembre, D3 tient le dessin. La
+référence SVG antérieure reste consultable sur sa branche.
 
-Végétation, relief, nouveaux noms d'affluents, pictogrammes et finition artistique
-ne sont pas engagés ; ils seront décidés après comparaison.
+## Instruit séparément, hors des trois blocs
+
+**Le relief.** Retenu le 19 septembre comme la façon honnête de donner de la
+présence au territoire : la forme du terrain n'a pas changé depuis la période
+industrielle, et elle explique l'implantation. Aucune donnée d'altitude n'est
+présente dans le projet. À instruire : disponibilité, provenance, droits,
+volume, et compatibilité avec une carte sans moteur cartographique.
+
+**Les forêts anciennes.** Seule couche de végétation envisageable, reconstruite
+à partir de cartes des environs de 1850. Déclarée au registre des sources mais
+absente du projet, diffusée comme service distant, licence à confirmer au
+moment de l'usage. À instruire avant toute proposition.
+
+**Les aménagements hydrauliques disparus.** Biefs, canaux d'amenée et retenues
+de moulin ne figurent pas dans les relevés modernes et ne sont donc pas sur la
+carte ; les crédits le disent. Une représentation demanderait une source propre.
+
+## Hors de ce plan
+
+Pictogrammes métiers, palette, typographie et finition artistique relèvent de
+la direction artistique, phase 10.E. Les blocs ci-dessus portent sur la
+lisibilité et la compréhension, pas sur l'identité visuelle.
 
 ## Situation
+
+**Référence de travail depuis le 19 septembre 2026 :
+`codex/carte-d3-modele-risle`.** La carte y est dessinée par D3 sur les trois
+niveaux ; c'est elle qui fait foi. Les deux états antérieurs restent consultables
+sur leurs branches : `codex/carte-svg-narrative` pour la référence SVG et
+`codex/test-d3-risle` pour l'essai D3 figé. Le paragraphe ci-dessous décrit la
+situation au 18 septembre et n'est pas réécrit.
 
 **Référence de travail : `codex/carte-svg-narrative` (18 septembre 2026).**
 La carte SVG immédiatement antérieure à la passe 1 est rétablie pour Risle et
@@ -199,7 +184,11 @@ hydrographiques désigne la provenance des données locales, sans fond distant.
 - Préserver les données, les filtres, les relations et leurs réserves,
   les sources, les fiches et les parcours de retour.
 
-## Développement SVG
+## Développement SVG — historique
+
+**Plan antérieur au passage à D3, conservé pour la traçabilité.** Ses étapes 4
+à 6 annoncées comme à faire sont reprises, sous une autre forme, par les blocs A
+à C du plan actif en tête du document. Il n'est plus une consigne d'exécution.
 
 ### Parcours à suivre — lecture rapide
 
@@ -1000,3 +989,171 @@ les conserver ou les enregistrer explicitement avant une future bascule.
 Aucune capture, recherche web, dépendance, sous-agent, fusion ou publication.
 Aucune couche du nouveau plan commencée ; examen visuel et validation du
 porteur restent distincts des contrôles techniques.
+
+## Plan d'expérimentation D3 — historique (17-18 septembre 2026)
+
+Conservé tel quel. Ses sept phases décrivaient le chemin pour faire
+fonctionner D3 dans la carte ; leur objet est atteint et le plan actif est
+désormais en tête du document. Les cases cochées attestent des opérations de
+l'époque ; certains bilans sont devenus faux depuis le 19 septembre — notamment
+les 650 tracés d'eau embarqués en GeoJSON, l'affirmation que le département et
+Crulai restent sur leur rendu antérieur, et celle que les repères sont
+compensés au zoom, qui ne valait pas pour les signes de localité.
+
+### PHASE 0 — Préparation
+
+- [x] Travail SVG actuel sauvegardé localement sans perdre les modifications.
+- [x] Branche `codex/test-d3-risle` créée depuis cet état.
+- [x] Fonctions existantes repérées : filtres, identification, sélection du lieu, fiches, preuves et retours.
+- [x] Données nécessaires localisées : 43 lieux, 5 relations, réseau d'eau actuel, quatre localités et nom La Risle.
+- [x] Point d'intégration D3 identifié et méthode de conservation du cadrage décrite brièvement.
+- [x] Plan détaillé inscrit en tête du suivi.
+
+Point d'intégration prévu : la génération des données de `D.detail.risle` dans
+`tools/generer_vue_reference.py`, puis le rendu de `dessinerSysteme("risle")`
+dans `tools/vue_reference_gabarit.html`. La projection, l'emprise stable et
+les états d'interaction seront conservés lors de la phase 1 ; aucune conversion
+ni modification du prototype n'est engagée en phase 0.
+
+**Livrable :** branche prête et intégration cadrée ; prototype inchangé.
+
+- [ ] Validation du porteur.
+
+**Bilan de la PHASE 0 :** la sauvegarde locale est le commit `15cb793`
+(`chore: sauvegarder la reference SVG avant l essai D3`) et la branche active
+`codex/test-d3-risle` en est issue. Les fichiers sans rapport restent non
+suivis et préservés ; aucun ajout global n'a été effectué. D3 n'est pas ajouté,
+les données ne sont pas converties et le prototype reste inchangé pour cet
+essai. La décision technique encore ouverte concerne seulement le choix des
+outils D3/GeoJSON à la phase 1.
+
+### PHASE 1 — Base D3
+
+- [x] Ajouter D3 localement, sans dépendance à un CDN à l'affichage.
+- [x] Représenter les données géographiques nécessaires en GeoJSON, sans altérer les coordonnées, identifiants ou informations.
+- [x] Générer les tracés géographiques avec D3.
+- [x] Conserver les 43 lieux, les 5 relations et tous les tracés d'eau actuellement affichés.
+- [x] Conserver la distinction Risle principale / branches secondaires.
+- [x] Conserver les quatre localités et le nom La Risle.
+- [x] Retrouver une emprise et une occupation de la carte comparables au SVG actuel, avec cadrage stable sous filtre.
+- [x] Conserver les interactions existantes : étiquette au survol/focus, sélection, fiches, preuves et retours.
+- [x] Laisser la vue départementale et Crulai inchangés.
+- [x] Contrôler la génération, la syntaxe et les parcours ciblés.
+- [ ] Validation visuelle du porteur.
+
+**Bilan de la PHASE 1 :** le générateur embarque D3 v7.9.0 depuis
+`tools/vendor/d3.v7.9.0.min.js`, et la vue régénérée utilise les 43 lieux et
+les 650 tracés d'eau GeoJSON pour Risle. Les coordonnées et identifiants ont
+été comparés à la représentation historique ; les 5 relations, les quatre
+localités et `La Risle` sont présents. La génération passe ses contrôles
+existants ; les deux scripts inline passent la vérification de syntaxe
+JavaScript. Les contrôles ciblés confirment les handlers de survol/focus,
+sélection, filtre, fiche, preuve et retour, ainsi que l'absence de script
+externe ou de chargement distant de données. Crulai et la vue départementale
+restent sur leurs données et leur chemin de rendu antérieurs. Le contrôle
+visuel du porteur n'est pas réalisé dans cette passe et reste décoché ; aucune
+capture n'a été produite.
+
+**Livrable :** carte Risle rendue avec D3, comparable à la référence, sans perte fonctionnelle.
+
+### PHASE 2 — Zoom et déplacement maîtrisés
+
+*Cette phase portait la mention « À FAIRE MAINTENANT » alors que toutes ses
+cases de réalisation étaient cochées. La contradiction est levée ici : la phase
+est faite, et son bilan est partiellement faux — les signes de localité
+n'étaient pas compensés au zoom, défaut trouvé et corrigé le 19 septembre.*
+
+- [x] Commandes « + », « − » et « Vue initiale ».
+- [x] Zoom centré et limité.
+- [x] Déplacement de la carte agrandie avec limites.
+- [x] Points, textes et liens lisibles au zoom.
+- [x] Survol, fiches, preuves et filtres préservés.
+- [x] Retour exact au cadrage initial.
+- [x] Contrôles ciblés et limites consignées.
+- [ ] Validation visuelle du porteur.
+
+**Livrable :** explorer les points serrés près de L'Aigle et revenir simplement à toute la vallée.
+
+**Bilan de la PHASE 2 :** l'essai est implémenté dans le gabarit et régénéré
+dans le prototype. D3 limite le zoom à 1–6, centre les commandes par facteur
+1,5, borne la translation, désactive molette et double-clic et distingue le
+glissement du clic par une distance de clic. Le groupe cartographique est le
+seul transformé ; les commandes restent fixes. Les tailles de points et de
+repères sont compensées par le facteur de zoom et les traits gardent leur
+épaisseur. Les contrôles statiques ciblés passent pour le filtre Métallurgie,
+la fiche, la preuve et les retours. La validation visuelle du porteur reste
+ouverte ; aucune capture n'a été produite.
+
+Le zoom ne déplace ni ne sépare artificiellement les coordonnées. Aucun doublon
+de coordonnées exactes n'a été trouvé parmi les 43 lieux ; les points très
+proches ou superposés visuellement restent donc à traiter par le futur cadrage
+de la phase 3, sans nouvelle règle engagée ici.
+
+**Correction de réception :** le porteur a signalé que la bulle d'identification
+grossissait avec le zoom. La cause était son insertion dans `contenuCarte`, le
+groupe géographique transformé par D3. Elle est désormais rendue dans
+`coucheInterface`, une couche sœur non transformée ; son ancrage est calculé
+par la transformation D3 courante, puis recalculé à chaque zoom ou déplacement.
+La bulle reste pointer-events:none, bascule de côté près des bords et est
+masquée lorsque le point sort du cadre. Les points, noms, contours de focus et
+épaisseurs de traits gardent également une taille d'écran constante par
+compensation ou `vector-effect`. Les contrôles mathématiques et structurels
+passent ; la vérification des dimensions réellement rendues à zoom 1, 1,5, 3
+et 6 reste à faire dans un navigateur, ainsi que la validation du porteur.
+
+### PHASE 3 — Informations selon le zoom — NON ENGAGÉE
+
+- [ ] Sélectionner les informations existantes utiles en vue rapprochée.
+- [ ] Définir les seuils d'apparition des noms.
+- [ ] Éviter les collisions et conserver une vue générale sobre.
+- [ ] Validation du porteur.
+
+**Livrable :** davantage de repères en zoomant, sans surcharge au départ.
+
+Aucune nouvelle donnée ou règle d'affichage n'est implémentée avant le cadrage
+de cette phase.
+
+### PHASE 4 — Mise en évidence des relations — NON ENGAGÉE
+
+- [ ] Examiner le comportement existant.
+- [ ] Proposer comment distinguer les partenaires et liens d'un lieu sélectionné.
+- [ ] Après accord, réaliser uniquement l'amélioration utile, sans refaire l'accès aux preuves.
+- [ ] Validation du porteur.
+
+**Livrable :** comprendre visuellement quels lieux sont liés au lieu sélectionné.
+
+### PHASE 5 — Présence du territoire — NON ENGAGÉE
+
+- [ ] Vérifier la disponibilité et la provenance de données forestières et d'altitude.
+- [ ] Présenter l'effort et les limites avant intégration.
+- [ ] Choisir avec le porteur un essai de masses forestières ou de relief discret.
+- [ ] Tester la couche choisie sans masquer eau, sites et liens.
+- [ ] Validation du porteur.
+
+**Livrable :** enrichissement géographique réel, discret et évalué visuellement.
+
+### PHASE 6 — Présentation — SUSPENDUE
+
+- [ ] Retirer le long paragraphe et conserver une consigne courte.
+- [ ] Intégrer une légende compacte sans masquer les données.
+- [ ] Teinter légèrement le fond.
+- [ ] Ajouter une échelle calculée, adaptée au zoom.
+- [ ] Vérifier sources et lisibilité sur écran étroit.
+- [ ] Validation du porteur.
+
+**Livrable :** composition clarifiée, après évaluation des apports techniques.
+
+### PHASE 7 — Comparaison et décision
+
+- [ ] Comparer l'essai D3 à la référence SVG.
+- [ ] Consigner gains, pertes et difficultés restantes.
+- [ ] Vérifier les parcours ciblés.
+- [ ] Décrire les adaptations aux autres ensembles sans les développer.
+- [ ] Décision du porteur.
+
+**Livrable :** choix explicite de la solution à poursuivre.
+
+## HORS DE CET ESSAI
+
+Végétation, relief, nouveaux noms d'affluents, pictogrammes et finition artistique
+ne sont pas engagés ; ils seront décidés après comparaison.

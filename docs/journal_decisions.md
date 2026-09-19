@@ -2216,3 +2216,187 @@ Décision : **les photographies de tiers et les rendus qui les incorporent sont
 retirés de l'historique versionné et exclus définitivement ; le dépôt reste
 public ; la question des droits de publication est rouverte avant toute mise en
 ligne de médias.**
+
+## 2026-09-19 — La Risle est écrite comme modèle, non comme exception
+
+**Écart de tenue du journal, signalé d'abord.** La dernière entrée datait du
+17 août. Les travaux des 17 et 18 septembre — enrichissement de la carte en deux
+essais refusés, test du fond IGN suspendu, retour à une référence SVG, couches
+Eau, Repères et Identification, puis essai D3 — n'y figurent pas. Ils sont
+documentés dans le suivi de la carte des ensembles, qui a servi de journal de
+fait. Ce n'est pas conforme : le suivi décrit des passes, le journal arrête des
+décisions. Les entrées manquantes ne sont pas reconstituées ici ; le présent
+bloc reprend la discipline à partir du 19 septembre.
+
+**Les faits.** Un examen de l'essai D3 a été demandé avant de poursuivre. Ouvert
+dans un navigateur — ce qui n'avait jamais été fait pour cet essai — le
+prototype figeait à l'affichage de la Risle. Mesure : dessiner toute la carte
+coûtait 15 ms, placer les cinq noms de bourgs en coûtait 480. L'examen a montré
+par ailleurs que D3 n'était appelé qu'à sept endroits sur environ 1 350 lignes,
+pour trois services — convertir un tracé, gérer le zoom, le remettre à zéro —
+et que la Risle était dessinée par un code distinct de celui du département et
+de Crulai, introduit par une condition explicite sur son nom.
+
+**Pourquoi c'est un problème de fond et non de performance.** La Risle a été
+choisie comme cas d'école pour établir les règles applicables aux onze autres
+ensembles. Un ensemble traité par une branche conditionnelle portant son nom ne
+produit pas des règles : il produit une exception. Au moment de traiter le
+deuxième ensemble, rien n'aurait été transposable. Par ailleurs, une carte
+effacée puis reconstruite à chaque geste interdit toute mise en évidence
+progressive, toute apparition conditionnelle et tout mouvement — soit la
+totalité de ce qui restait à faire.
+
+**Option écartée : poursuivre en ajoutant les fonctions demandées sur l'état
+existant.** C'était le chemin le plus court à chaque étape prise isolément, et
+le plus coûteux au total : chaque fonction aurait dû être écrite deux fois, une
+fois pour la Risle et une fois pour le reste, avec la certitude que les deux
+versions divergeraient.
+
+**Ce qui a été fait.** L'essai D3 a été figé sur sa branche, avec la
+bibliothèque locale et sa licence, et une branche dédiée ouverte depuis ce
+point. La carte a été réécrite en quatre phases, chacune vérifiée dans un
+navigateur réel à 1440 px. Il n'existe plus qu'un chemin de dessin, employé par
+les trois niveaux. Les couches sont posées une fois par ensemble puis mises à
+jour ; un point présent avant un changement de métier est encore le même
+élément après, ce qui a été vérifié à l'écran.
+
+**Vérifié.** Les contrôles du générateur passent sans écart : douze ensembles,
+172 lieux regroupés, 146 hors ensembles, 43 lieux et cinq relations pour la
+Risle, sept lieux et aucune relation pour Crulai. Placement des noms 480 → 35 ms.
+Éléments de dessin dans la carte 713 → 121. Aucune coordonnée, aucune donnée
+source modifiée.
+
+**Ce que cela ne règle pas.** Le groupe dense de lieux autour de L'Aigle reste
+difficile à viser. La lisibilité y a gagné, le pointage non. Ce point, déjà
+réservé le 18 septembre, reste ouvert et appelle une décision propre.
+
+Décision : **la carte de la Risle est écrite comme cas général et non comme
+exception ; un seul chemin de dessin sert les trois niveaux ; l'essai D3
+antérieur est conservé figé sur sa branche et n'est pas poursuivi en l'état. Les
+règles établies sur la Risle sont consignées au fur et à mesure et distinguées
+de ce qui lui est propre.**
+
+## 2026-09-19 — Le cadre et le sol de la carte des ensembles
+
+**Réouverture assumée.** L'arbitrage du 18 septembre fixait pour la Risle un
+cadrage stable calculé sur les 43 lieux et les quatre bourgs vérifiés, sans
+changement de dimensions. La présente entrée modifie les dimensions. Le cadrage
+lui-même — l'emprise, sa stabilité sous filtre et pendant une fiche, la
+projection — est conservé intégralement.
+
+**Les faits.** La vallée traverse la carte en diagonale. Mesure : les lieux et
+les bourgs occupent toute la largeur mais 72 % de la hauteur du cadre de
+1000 × 560, laissant des bandes vides au-dessus et au-dessous. Une observation
+formulée pendant l'examen — que la moitié du cadre était perdue et que resserrer
+ferait doubler la taille des points — s'est révélée fausse à la mesure et doit
+être tenue pour telle : la carte s'étirant à la largeur disponible, la
+proportion du cadre est sans effet sur la taille apparente des points.
+
+**Ce qui a été fait.** Le cadre prend la proportion de ce qu'il montre, entre
+360 et 620 unités de hauteur ; la Risle passe à 1000 × 462. Le rayon des points
+passe de 5,5 à 7, ce qui est le seul levier réel de leur visibilité. La carte
+reçoit un sol : les contours communaux, issus des mêmes données API Géo déjà
+lues pour la frontière départementale — aucune source nouvelle, aucun droit à
+demander.
+
+**Un arbitrage pris pendant le travail et qui engage la méthode.** Le premier
+essai ne dessinait que les dix communes portant un lieu. Outre une silhouette
+découpée au milieu du vide, il produisait une forme fermée autour de l'ensemble,
+que le lecteur pouvait prendre pour sa frontière. C'est précisément ce que la
+méthode interdit : aucun contour d'ensemble ne doit suggérer une frontière
+établie. Toutes les communes touchant le cadre sont donc dessinées — 52 pour la
+Risle — et le sol déborde volontairement, pour qu'aucune limite communale ne se
+lise comme une limite de carte. Les communes portant un lieu sont marquées dans
+les données mais ne reçoivent aucun traitement visuel distinct.
+
+**Vérifié.** Un sixième contrôle a été ajouté au générateur : il fait échouer la
+génération si une commune portant un lieu n'a pas de contour, un trou dans le
+sol ne devant pas passer inaperçu. Il est vrai. Les cinq contrôles antérieurs
+passent sans écart. Vérification à l'écran : 52 communes dessinées, aucune
+manquante, 43 lieux, cinq noms présents, cadrage stable sous filtre.
+
+Décision : **le cadre de la carte d'un ensemble prend la proportion de ce qu'il
+montre, entre deux bornes ; l'emprise stable et la projection arrêtées le
+18 septembre sont inchangées. Le sol de la carte est formé de toutes les
+communes touchant le cadre et déborde de celui-ci ; il n'est jamais restreint
+aux communes de l'ensemble.**
+
+## 2026-09-19 — La végétation contemporaine n'entre pas dans la carte
+
+**La question.** Le plan de la carte prévoyait d'évaluer une couche de masses
+boisées pour donner de la présence au territoire. Les données existent dans le
+projet depuis juillet : BD Forêt v2 de l'IGN, sous licence ouverte, découpées
+autour de chaque lieu. Rien n'empêchait techniquement de les afficher.
+
+**Le constat qui a déplacé la question.** Tout ce que montre déjà la carte est
+contemporain. Les cours d'eau viennent des relevés actuels. Les quatre repères
+de bourg sont des adresses de mairie vérifiées le 18 septembre. Le sol posé
+ci-dessus est celui des communes de 2026, dont certaines sont des fusions
+récentes. La carte est donc déjà une carte d'aujourd'hui sur laquelle sont
+situés des lieux d'hier. Cela n'est pas incohérent : le sujet arrêté est le
+patrimoine, c'est-à-dire ce qui subsiste aujourd'hui, l'histoire industrielle en
+étant le moyen et non l'objet.
+
+**Pourquoi la forêt n'a pas le même statut que la rivière.** La Risle a peu
+changé en trois siècles : montrer la rivière actuelle, c'est montrer à peu près
+celle qui a déterminé l'implantation, et le lien de cause est vrai. La forêt a
+beaucoup changé, et précisément à cause de l'industrie cartographiée, les forges
+consommant du charbon de bois. Un aplat de forêt des années 2006-2019 posé
+derrière une forge du XVIIIe siècle donnerait à lire « voilà le bois qui
+l'alimentait ». Ce serait faux, et une mention en petits caractères ne corrige
+pas ce qu'une surface colorée fait dire à l'œil. Le registre des sources du
+projet portait déjà cette distinction sans qu'elle ait été exploitée : la forêt
+actuelle y est classée en second rang, une couche de forêts anciennes
+reconstruite à partir de cartes des environs de 1850 en premier.
+
+**Option écartée : afficher la forêt actuelle en très forte atténuation, avec
+une mention.** Elle donnait la présence recherchée au moindre coût. Elle a été
+écartée parce que l'atténuation ne change pas la nature de ce qui est affirmé :
+une surface placée derrière des points se lit comme leur contexte causal, quelle
+que soit son opacité.
+
+**Ce qui reste possible.** La couche de forêts anciennes est dans la bonne
+période, mais elle n'est pas dans le projet : elle y est seulement déclarée,
+diffusée comme service cartographique distant — ce que la carte a refusé — et sa
+licence est à confirmer au moment de l'usage. Le relief est l'autre piste : la
+forme du terrain n'a pas changé, elle explique réellement l'implantation, et sa
+stabilité la rend honnête. Aucune donnée d'altitude n'est présente dans le
+projet à ce jour.
+
+Décision : **la forêt contemporaine n'entre pas dans la carte. Une couche de
+végétation ne sera envisagée qu'à partir des forêts anciennes reconstruites vers
+1850, sous réserve d'obtenir ces données en local et de confirmer leur licence.
+La présence du territoire est recherchée d'abord par le relief, dont la source
+reste à trouver et à évaluer. La phase de la carte prévue pour la végétation est
+close sans réalisation et son objet reporté à cette instruction.**
+
+## 2026-09-19 — Les crédits disent ce que le fond de carte est
+
+**Les faits.** Les crédits de la carte d'un ensemble mentionnaient l'Inventaire
+du patrimoine industriel et l'hydrographie IGN, et précisaient que les points
+situent les lieux selon la précision indiquée dans chaque fiche. Ils ne disaient
+pas que le fond décrit la situation actuelle. Un lecteur pouvait donc lire une
+carte du temps des forges.
+
+**Ce qui manquait aussi.** Les biefs, canaux d'amenée et retenues de moulin
+étaient l'équipement qui faisait tourner ces usines. Ils ont disparu des relevés
+hydrographiques modernes. La carte montre donc la rivière, pas l'aménagement
+hydraulique qui lui donnait sa fonction industrielle. C'est une absence réelle,
+et elle n'était pas signalée.
+
+**Ce qui a été fait.** Les crédits indiquent désormais que le fond de carte —
+cours d'eau, communes et repères de bourg — décrit la situation actuelle et non
+celle de la période industrielle, et nomment explicitement les aménagements
+hydrauliques disparus qui n'y figurent pas. Par ailleurs, la légende a été
+corrigée pour ne montrer que des signes réellement présents : celle de Crulai
+annonçait des liens alors qu'aucun n'y est documenté.
+
+**Ce que cela ne règle pas.** Cette mention rend la carte honnête sur ce qu'elle
+montre ; elle ne restitue pas l'aménagement hydraulique. Si une représentation
+des biefs devenait souhaitable, elle demanderait une source propre et une
+instruction séparée.
+
+Décision : **les crédits de la carte indiquent que le fond décrit la situation
+actuelle et non celle de la période industrielle, et signalent que les biefs,
+canaux d'amenée et retenues de moulin n'y figurent pas. La légende ne montre que
+des signes effectivement affichés dans l'ensemble consulté.**

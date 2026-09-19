@@ -48,14 +48,6 @@
   .titre-travail span{display:block;color:var(--gris);font-size:11px;
     font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
 
-  .mode-emploi{margin:0 0 12px;padding-bottom:12px;
-    border-bottom:1px dashed var(--trait)}
-  .mode-emploi[hidden]{display:none}
-  .mode-emploi p{margin:0 0 6px;font-size:13px;line-height:1.5;color:var(--gris);
-    max-width:84ch}
-  .mode-emploi p:last-child{margin-bottom:0}
-  .mode-emploi b{color:var(--appui);font-weight:600}
-
   .fil{padding:10px 30px;border-bottom:1px solid var(--trait);font-size:13px;
     display:flex;align-items:center;gap:8px}
   .fil button{background:none;border:0;padding:4px 6px;border-radius:4px;
@@ -108,6 +100,41 @@
     border-left:3px solid var(--signal);padding:8px 11px;font-size:12.5px;
     line-height:1.45;pointer-events:none;box-shadow:0 1px 6px rgba(0,0,0,.09)}
   .annotation b{color:var(--signal)}
+
+  /* Cartouche posé dans un coin libre de la carte : la légende cesse de flotter
+     au-dessus du cadre comme une ligne technique. Discret par défaut — la
+     direction artistique décidera de son apparence. */
+  .cartouche{position:absolute;z-index:2;background:rgba(251,250,246,.93);
+    border:1px solid var(--trait);border-radius:4px;padding:8px 10px;
+    font-size:12px;line-height:1.5;color:var(--gris);pointer-events:none;
+    max-width:230px}
+  .cartouche[hidden]{display:none}
+  .cartouche .entree{display:flex;align-items:center;gap:6px;margin-bottom:3px}
+  .cartouche .entree:last-child{margin-bottom:0}
+  .cartouche i{width:10px;height:10px;border-radius:50%;flex:0 0 auto}
+  .cartouche svg{flex:0 0 auto}
+  .cartouche .echelle{margin-top:7px;padding-top:6px;
+    border-top:1px dashed var(--trait);display:flex;align-items:center;gap:7px}
+  .cartouche .barre{height:7px;border:1px solid var(--gris);border-top:0;flex:0 0 auto}
+  .cartouche .distance{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .cartouche.reduit{padding:6px 8px;max-width:150px}
+  .cartouche.reduit .echelle{margin-top:0;padding-top:0;border-top:0}
+
+  /* Sur carte étroite, la légende descend sous la carte, repliée. */
+  .legende-repliee{margin:8px 0 0;font-size:12px;color:var(--gris)}
+  .legende-repliee[hidden]{display:none}
+  .legende-repliee summary{cursor:pointer;color:var(--appui);padding:2px 0}
+  .legende-repliee .entrees{padding:6px 0 0}
+  .legende-repliee .entree{display:flex;align-items:center;gap:6px;margin-bottom:3px}
+  .legende-repliee i{width:10px;height:10px;border-radius:50%;flex:0 0 auto}
+  .source .precisions{margin-top:4px}
+  .source .precisions summary{cursor:pointer;color:var(--appui)}
+  .source .precisions div{padding-top:4px}
+
+  /* L'effet du filtre se lit à côté du filtre, pas posé sur le territoire. */
+  .effet-filtre{font-size:13px;color:var(--gris);font-variant-numeric:tabular-nums}
+  .effet-filtre[hidden]{display:none}
+  .effet-filtre b{color:var(--signal)}
 
   .legende{display:flex;gap:16px;flex-wrap:wrap;align-items:center;
     padding:0 0 10px;font-size:12px;color:var(--gris)}
@@ -281,14 +308,13 @@
       <div class="liste-metiers" id="listeMetiers" role="listbox"
            aria-labelledby="etiquetteMetier" hidden></div>
     </div>
+    <p class="effet-filtre" id="effetFiltre" aria-live="polite" hidden></p>
   </div>
 </section>
 
 <main>
   <section aria-labelledby="titreVue">
     <div class="plaque">
-      <div class="mode-emploi" id="modeEmploi"></div>
-
       <div class="legende" id="legende"></div>
 
       <div class="cadre">
@@ -297,10 +323,12 @@
           <button type="button" id="zoomPlus" aria-label="Augmenter le zoom">+</button>
           <button type="button" class="zoom-initiale" id="zoomInitiale">Vue initiale</button>
         </div>
+        <div class="cartouche" id="cartouche" hidden></div>
         <svg class="carte" id="carte" viewBox="0 0 1000 640"
              role="group" aria-labelledby="titreCarte descCarte"></svg>
         <div class="annotation" id="annotation" hidden></div>
       </div>
+      <details class="legende-repliee" id="legendeRepliee" hidden></details>
       <p class="source" id="sourceCarte"></p>
       <details class="methode" id="methodeDepartement">
         <summary>Comprendre les regroupements et les limites de la carte</summary>
@@ -376,6 +404,7 @@ let contenuCarte = null;
 let coucheInterface = null;
 let zoomRisle = d3.zoomIdentity;
 let zoomComportement = null;
+let kmParUniteSVG = 0;
 
 /* La vallée de la Risle est une diagonale allongée : dans un cadre fixe et bas,
    elle laisse des bandes vides au-dessus et au-dessous. Le cadre prend donc la
@@ -409,6 +438,10 @@ function cadrer(points){
   const k = Math.min(largeurUtile/dx, hauteurUtile/dy);
   const decalageX = MARGE + (largeurUtile - dx*k)/2;
   const decalageY = MARGE + (hauteurUtile - dy*k)/2;
+  /* Le facteur de projection sert l'échelle : les abscisses sont en degrés de
+     longitude déjà multipliés par le cosinus de la latitude, donc une unité SVG
+     vaut 111,32 / k kilomètres, quelle que soit la latitude de l'ensemble. */
+  kmParUniteSVG = 111.32 / k;
   projeter = (lon, lat) => [
     decalageX + (lon*cos - x0)*k,
     decalageY + (-lat - y0)*k
@@ -609,6 +642,19 @@ function fondreSortie(sortie){
     : sortie.remove();
 }
 
+/* La carte s'étire à la largeur disponible : un rayon fixé en unités SVG
+   rétrécit avec elle et tombait à deux pixels et demi sur écran étroit. Le
+   rayon garantit donc une taille d'écran minimale, sans rien changer sur
+   écran large, où le rayon naturel est déjà supérieur. */
+const RAYON_LIEU = 7, RAYON_LIEU_OUVERT = 10, RAYON_ECRAN_MINIMAL = 5;
+function rayonLieu(ouvert){
+  const affichee = CARTE.getBoundingClientRect ? CARTE.getBoundingClientRect().width : LARGEUR;
+  const naturel = ouvert ? RAYON_LIEU_OUVERT : RAYON_LIEU;
+  if(!affichee) return naturel;
+  const plancher = RAYON_ECRAN_MINIMAL * (LARGEUR / affichee) * (ouvert ? 1.4 : 1);
+  return Math.max(naturel, plancher);
+}
+
 let systemeDessine = null;
 
 /* La carte n'est plus effacée puis refaite à chaque geste : sa structure est
@@ -766,12 +812,12 @@ function dessinerSysteme(code){
         ? sortie.transition().duration(DUREE * .6)
             .attr("r", 0).attr("opacity", 0).remove()
         : sortie.remove())
-      .attr("data-taille-base", site => etat.site === site.ref ? 10 : 7)
+      .attr("data-taille-base", site => rayonLieu(etat.site === site.ref))
       .attr("aria-label", site => `${site.nomCourt}, ${site.commune}. Ouvrir cette fiche.`)
       .call(selection => (DUREE ? selection.transition().duration(DUREE) : selection)
         .attr("cx", site => projeter(site.lon, site.lat)[0].toFixed(1))
         .attr("cy", site => projeter(site.lon, site.lat)[1].toFixed(1))
-        .attr("r", site => (etat.site === site.ref ? 10 : 7) / (zoomRisle ? zoomRisle.k : 1))
+        .attr("r", site => rayonLieu(etat.site === site.ref) / (zoomRisle ? zoomRisle.k : 1))
         .attr("opacity", 1)
         .attr("fill", site => etat.site === site.ref ? "#9a3412" : "#c2703f"));
 
@@ -1042,7 +1088,7 @@ function ajusterTailleZoom(transform, inclureLieux = true){
   const k = transform.k || 1;
   if (!contenuCarte) return;
   if (inclureLieux) contenuCarte.querySelectorAll("circle.site").forEach(cercle => {
-    const base = Number(cercle.dataset.tailleBase || 7);
+    const base = Number(cercle.dataset.tailleBase) || RAYON_LIEU;
     cercle.setAttribute("r", (base / k).toFixed(2));
   });
   /* Les noms de repères ne sont plus ici : ils vivent en surface et se
@@ -1071,6 +1117,7 @@ function appliquerZoomRisle(evenement){
   ajusterTailleZoom(zoomRisle);
   positionnerNomsReperes();
   etiquettesLieux();
+  majEchelle();
   positionnerBulleIdentification();
 }
 
@@ -1179,14 +1226,32 @@ function vueInitialeRisle(){
   commandeZoom().call(zoomComportement.transform, d3.zoomIdentity);
 }
 
-if(typeof ResizeObserver !== "undefined"){
-  new ResizeObserver(()=>{
-    if(etat.systeme !== "risle" || etat.niveau === "departement")return;
-    const largeur=CARTE.getBoundingClientRect().width;
-    if(Math.abs(largeur-largeurReperes)<1)return;
-    dessinerSysteme("risle");annoter();dessinerReperesRisle();afficherCommandesZoom();
-  }).observe(CARTE);
+/* Un changement de largeur replace les noms, recalcule l'échelle et décide de
+   la forme du cartouche. L'observateur doit être retenu : créé sans référence,
+   il pouvait être ramassé par le navigateur et ne jamais se déclencher — ce
+   qui était le cas, personne n'ayant vérifié l'écran étroit jusqu'ici. Le
+   redimensionnement de fenêtre sert de second déclencheur. */
+let observateurLargeur = null;
+function surChangementDeLargeur(){
+  if(etat.niveau === "departement" || !etat.systeme || !D.detail[etat.systeme])return;
+  const largeur = CARTE.getBoundingClientRect().width;
+  if(Math.abs(largeur - largeurReperes) < 1)return;
+  dessinerSysteme(etat.systeme);
+  annoter();
+  if(etat.systeme === "risle") dessinerReperesRisle();
+  else largeurReperes = largeur;
+  etiquettesLieux();
+  afficherCommandesZoom();
+  rendreLegende();
 }
+if(typeof ResizeObserver !== "undefined"){
+  observateurLargeur = new ResizeObserver(surChangementDeLargeur);
+  /* L'observation porte sur le cadre, pas sur le SVG : mesuré dans le
+     navigateur, un observateur posé sur l'élément SVG ne se déclenche jamais,
+     même quand sa largeur passe de 952 à 290 pixels. */
+  observateurLargeur.observe(CARTE.parentNode || CARTE);
+}
+addEventListener("resize", surChangementDeLargeur);
 
 function titreAccessible(titre, description){
   const groupe = el("g",{});
@@ -1199,18 +1264,22 @@ function titreAccessible(titre, description){
 /* ------------------------------------------------------------ annotation */
 /* Essai non bloquant : elle ne s'affiche que lorsqu'un chiffre exact peut être
    posé sur ce que la carte montre à cet instant. */
+/* L'effet du filtre se lisait posé sur la carte, en bas à gauche : il couvrait
+   le territoire, tombait sur des points et faisait sauter la carte en
+   apparaissant. Il se lit désormais à côté du filtre, là où le lecteur vient de
+   cliquer — la cause et son effet côte à côte. */
 function annoter(){
-  const boite = document.getElementById("annotation");
+  const ancienne = document.getElementById("annotation");
+  if (ancienne) ancienne.hidden = true;
+  const boite = document.getElementById("effetFiltre");
+  if (!boite) return;
   boite.hidden = true;
-  if (etat.niveau !== "systeme" || !etat.metier) return;
+  if (etat.niveau === "departement" || !etat.metier || !D.detail[etat.systeme]) return;
   const detail = D.detail[etat.systeme];
   const retenus = detail.sites.filter(garde).length;
-  if (!retenus) return;
-  boite.innerHTML = `${echapper(libelle(etat.metier))} :
-    <b>${retenus}</b> des ${detail.sites.length} lieux de cet ensemble.`;
-  boite.style.left = "16px";
-  boite.style.bottom = "14px";
-  boite.style.top = "auto";
+  boite.innerHTML = retenus
+    ? `<b>${retenus}</b> des ${detail.sites.length} lieux de cet ensemble`
+    : `aucun des ${detail.sites.length} lieux de cet ensemble`;
   boite.hidden = false;
 }
 
@@ -1493,19 +1562,107 @@ function rendreEnTete(){
 /* Ce qu'on regarde, dit avant la carte plutôt qu'après : le mot « système » ne
    s'explique pas par sa règle de calcul, et personne ne devine ce qu'on peut
    faire d'une carte muette. */
-function rendreModeEmploi(){
-  const texte = document.getElementById("modeEmploi");
-  if (etat.niveau === "departement"){
-    texte.hidden = true;
-    texte.innerHTML = "";
-  } else {
-    texte.hidden = false;
-    const detail = D.detail[etat.systeme];
-    texte.innerHTML = `<p>Chaque point est un lieu de production documenté par une
-      notice d'archive. Les traits relient deux lieux dont une source établit
-      qu'ils travaillaient ensemble — cliquez-les pour lire la phrase qui le
-      prouve. <b>Cliquez sur un point pour ouvrir l'histoire d'un lieu</b>, parmi
-      les ${detail.sites.length} de cet ensemble.</p>`;
+/* Le cartouche va dans le coin le plus vide de la carte. Une vallée n'a pas la
+   même diagonale qu'une autre : le coin se choisit d'après ce qui est dessiné,
+   pas d'après un réglage propre à la Risle. Le coin haut-gauche est réservé aux
+   commandes de zoom. */
+function coinLibre(){
+  const candidats = [
+    {nom:"bas-droite",  cx:LARGEUR, cy:HAUTEUR},
+    {nom:"haut-droite", cx:LARGEUR, cy:0},
+    {nom:"bas-gauche",  cx:0,       cy:HAUTEUR},
+  ];
+  const detail = D.detail[etat.systeme];
+  if(!detail || !projeter) return candidats[0];
+  const points = [];
+  for(const site of detail.sites) points.push(projeter(site.lon, site.lat));
+  for(const troncon of detail.eau)
+    for(const p of troncon.points.filter((_, i) => i % 3 === 0))
+      points.push(projeter(p[0], p[1]));
+  if(detail.reperes)
+    for(const bourg of detail.reperes.bourgs) points.push(projeter(bourg.lon, bourg.lat));
+  // Zone réservée : un quart de la largeur, un tiers de la hauteur.
+  const zoneL = LARGEUR * .28, zoneH = HAUTEUR * .34;
+  let meilleur = candidats[0], moindre = Infinity;
+  for(const candidat of candidats){
+    const x0 = candidat.cx ? LARGEUR - zoneL : 0;
+    const y0 = candidat.cy ? HAUTEUR - zoneH : 0;
+    const dedans = points.filter(([x,y]) =>
+      x >= x0 && x <= x0 + zoneL && y >= y0 && y <= y0 + zoneH).length;
+    if(dedans < moindre){ moindre = dedans; meilleur = candidat; }
+  }
+  meilleur.occupation = moindre;
+  return meilleur;
+}
+
+/* Échelle : on cherche la distance ronde dont la barre approche 110 pixels à
+   l'écran, au zoom courant. Elle est donc juste à tout moment, et non calculée
+   une fois pour la vue initiale. */
+const DISTANCES_RONDES = [0.2,0.5,1,2,5,10,20,50,100];
+function mesureEchelle(){
+  if(!kmParUniteSVG) return null;
+  const largeurAffichee = CARTE.getBoundingClientRect
+    ? CARTE.getBoundingClientRect().width : LARGEUR;
+  if(!largeurAffichee) return null;
+  const k = zoomRisle ? zoomRisle.k : 1;
+  // Pixels écran pour un kilomètre, au zoom courant.
+  const pixelsParKm = (largeurAffichee / LARGEUR) * k / kmParUniteSVG;
+  const vise = Math.min(110, largeurAffichee * 0.3);
+  let choix = DISTANCES_RONDES[0];
+  for(const distance of DISTANCES_RONDES)
+    if(Math.abs(distance * pixelsParKm - vise) < Math.abs(choix * pixelsParKm - vise))
+      choix = distance;
+  const pixels = choix * pixelsParKm;
+  if(!isFinite(pixels) || pixels < 18 || pixels > 260) return null;
+  return {distance:choix, pixels,
+    texte: choix < 1 ? `${choix * 1000} m` : `${choix} km`};
+}
+
+/* Seule l'échelle change pendant un zoom : le coin et la légende restent en
+   place, pour que le cartouche ne saute pas d'un bord à l'autre en cours de
+   déplacement. */
+function majEchelle(){
+  const cartouche = document.getElementById("cartouche");
+  if(!cartouche || cartouche.hidden) return;
+  const bloc = cartouche.querySelector(".echelle");
+  const echelle = mesureEchelle();
+  if(!bloc || !echelle) return;
+  bloc.querySelector(".barre").style.width = `${echelle.pixels.toFixed(0)}px`;
+  bloc.querySelector(".distance").textContent = echelle.texte;
+}
+
+function rendreCartouche(entrees){
+  const cartouche = document.getElementById("cartouche");
+  if(!cartouche) return;
+  if(etat.niveau === "departement" || !entrees){
+    cartouche.hidden = true;
+    return;
+  }
+  const coin = coinLibre();
+  cartouche.hidden = false;
+  for(const cote of ["top","bottom","left","right"]) cartouche.style[cote] = "auto";
+  cartouche.style[coin.cy ? "bottom" : "top"] = "10px";
+  cartouche.style[coin.cx ? "right" : "left"] = "10px";
+  cartouche.dataset.coin = coin.nom;
+  const echelle = mesureEchelle();
+  const barre = echelle ? `<div class="echelle"><span class="barre"
+      style="width:${echelle.pixels.toFixed(0)}px"></span>
+      <span class="distance">${echelle.texte}</span></div>` : "";
+
+  /* Sur une carte étroite, le cartouche complet occupait jusqu'à quatre
+     cinquièmes de la surface : il cessait d'aider pour couvrir. En dessous de
+     480 pixels de carte il ne garde que l'échelle, et la légende descend sous
+     la carte dans un bloc replié — accessible, mais pas posée dessus. */
+  const largeur = CARTE.getBoundingClientRect ? CARTE.getBoundingClientRect().width : LARGEUR;
+  const etroit = largeur < 480;
+  cartouche.classList.toggle("reduit", etroit);
+  cartouche.innerHTML = etroit ? barre : entrees + barre;
+
+  const repli = document.getElementById("legendeRepliee");
+  if (repli){
+    repli.hidden = !etroit;
+    repli.innerHTML = etroit
+      ? `<summary>Légende</summary><div class="entrees">${entrees}</div>` : "";
   }
 }
 
@@ -1514,6 +1671,7 @@ function rendreLegende(){
   const source = document.getElementById("sourceCarte");
   const methode = document.getElementById("methodeDepartement");
   if (etat.niveau === "departement"){
+    legende.hidden = false;
     legende.innerHTML = `
       <span><i style="background:rgba(154,52,18,.25);border:1.6px solid #9a3412"></i>ensemble ouvert — taille selon le nombre de lieux</span>
       <span><i style="background:rgba(154,52,18,.1);border:1.2px dashed #9a3412"></i>ensemble non ouvert dans la référence</span>
@@ -1528,37 +1686,51 @@ function rendreLegende(){
       ["principale", "rivière principale"],
       ["secondaire", categories.has("principale") ? "branches secondaires" : "cours d'eau"],
     ].filter(([categorie]) => categories.has(categorie)).map(([categorie, texte]) =>
-      `<span><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4"
+      `<div class="entree"><svg width="24" height="8"><line x1="0" y1="4" x2="24" y2="4"
         stroke="${STYLE_EAU[categorie].couleur}" stroke-width="${STYLE_EAU[categorie].largeur}"
-        stroke-opacity="${STYLE_EAU[categorie].opacite}"/></svg>${texte}</span>`
+        stroke-opacity="${STYLE_EAU[categorie].opacite}"/></svg>${texte}</div>`
     ).join("");
     // La légende ne montre que des signes réellement présents : Crulai n'a
     // aucune relation documentée, elle ne doit donc pas en annoncer.
     const lien = D.detail[etat.systeme].liens.length
-      ? `<span><svg width="30" height="8"><line x1="0" y1="4" x2="22" y2="4"
-        stroke="#6f6455" stroke-width="2" stroke-dasharray="6 4"/><path d="M28 4 L21 7.2 L21 0.8 Z"
-        fill="#6f6455"/></svg>lien établi par une source, du premier lieu vers le second</span>`
+      ? `<div class="entree"><svg width="28" height="8"><line x1="0" y1="4" x2="20" y2="4"
+        stroke="#6f6455" stroke-width="2" stroke-dasharray="6 4"/><path d="M26 4 L19 7.2 L19 0.8 Z"
+        fill="#6f6455"/></svg>lien documenté, dans ce sens</div>`
       : "";
-    legende.innerHTML = `
-      <span><i style="background:#c2703f"></i>lieu industriel</span>
-      ${lien}
-      ${eau}
-`;
-    source.innerHTML = `Sources : Inventaire du patrimoine industriel de l'Orne ·
-      hydrographie et contours communaux IGN et API Géo.<br>Les points situent les
-      lieux selon la précision indiquée dans chaque fiche.<br><b>Le fond de carte
-      décrit la situation actuelle</b> — cours d'eau, communes et repères de bourg
-      d'aujourd'hui — et non celle de la période industrielle. Les biefs, canaux
-      d'amenée et retenues de moulin qui faisaient tourner ces usines ont disparu
-      des relevés modernes : ils ne figurent pas sur cette carte.`;
+    // Les entrées vont au cartouche, dans la carte ; la bande au-dessus du
+    // cadre disparaît.
+    var entrees = `<div class="entree"><i style="background:#c2703f"></i>lieu industriel</div>`
+      + lien + eau;
+    legende.innerHTML = "";
+    legende.hidden = true;
+    const ligneSources = `Sources : Inventaire du patrimoine industriel de l'Orne ·
+      hydrographie et contours communaux IGN et API Géo.`;
+    let precisions = `Les points situent les lieux selon la précision indiquée dans
+      chaque fiche.<br><b>Le fond de carte décrit la situation actuelle</b> — cours
+      d'eau, communes et repères de bourg d'aujourd'hui — et non celle de la période
+      industrielle. Les biefs, canaux d'amenée et retenues de moulin qui faisaient
+      tourner ces usines ont disparu des relevés modernes : ils ne figurent pas sur
+      cette carte.`;
     if(etat.systeme === "risle"){
-      legende.innerHTML += `<span><svg width="12" height="12"><rect x="3" y="3"
-        width="6" height="6" fill="#3f4a5a"/></svg>localité — repère d'adresse ou de place</span>`;
-      source.innerHTML += `<br>Repères de localité : adresses des mairies, Annuaire
+      entrees += `<div class="entree"><svg width="12" height="12"><rect x="3" y="3"
+        width="6" height="6" fill="#3f4a5a"/></svg>localité</div>`;
+      precisions += `<br>Repères de localité : adresses des mairies, Annuaire
         Service Public et géocodage IGN/BAN, vérifiés le 18 septembre 2026.`;
     }
     methode.hidden = true;
+    /* Mesuré : sur une carte de 380 pixels les crédits occupaient plus de place
+       que la carte elle-même, et près du double à 290. Sous 480 pixels, seule la
+       ligne des sources reste visible ; les précisions passent dans un bloc
+       replié. Rien n'est retiré, tout reste atteignable. */
+    const largeurCarte = CARTE.getBoundingClientRect
+      ? CARTE.getBoundingClientRect().width : LARGEUR;
+    source.innerHTML = largeurCarte < 480
+      ? `${ligneSources}<details class="precisions"><summary>Précisions sur le fond
+         de carte</summary><div>${precisions}</div></details>`
+      : `${ligneSources}<br>${precisions}`;
+    rendreCartouche(entrees);
   }
+  if (etat.niveau === "departement") rendreCartouche(null);
 }
 
 function rendre(){
@@ -1574,7 +1746,6 @@ function rendre(){
   rendreFiltres();
   rendreFil();
   rendreEnTete();
-  rendreModeEmploi();
   rendreLegende();
   document.querySelector(".accueil").hidden = etat.niveau !== "departement";
   if (etat.niveau === "departement") dessinerDepartement();

@@ -336,6 +336,118 @@ un point précis reste difficile. La difficulté a reculé, elle n'est pas réso
 
 ---
 
+## Bloc A — La première impression (19 septembre 2026)
+
+Premier bloc du plan actif, ouvert après la refonte du suivi. Objet : ce que
+voit le lecteur qui arrive sur un ensemble.
+
+**Le texte au-dessus de la carte est supprimé.** Décision du porteur, réaffirmée
+après que la conservation d'une ligne courte a été proposée : ce texte ne sert
+plus à rien. Les quatre lignes qui expliquaient ce qu'est un point, ce que
+relient les traits et ce qu'un clic produit ont disparu, avec leur bloc et leur
+style. Cette suppression rouvre en partie la décision du 14 août, qui avait posé
+un mode d'emploi sur la page après qu'un lecteur n'avait pas compris ce qu'il
+regardait ; le porteur a tranché en connaissance de cause.
+
+**La légende quitte le dessus du cadre pour un cartouche dans la carte.** Elle
+occupait une bande pleine largeur au-dessus de la carte, lue comme une ligne
+technique. Elle est désormais dans un cartouche discret, posé dans le coin le
+plus vide de la carte — mesuré à chaque rendu, pas réglé pour la Risle : une
+autre vallée aura une autre diagonale et le cartouche ira ailleurs de lui-même.
+Le coin haut-gauche est réservé aux commandes de zoom. Pour la Risle, le
+cartouche choisit le bas-droite, qui est bien le coin libre.
+
+**Une échelle est ajoutée**, dans le cartouche. Elle cherche la distance ronde
+dont la barre approche une cible, recalculée à partir de la largeur réellement
+affichée et du zoom courant : elle est donc juste à tout moment. La cible
+s'adapte à la largeur de la carte, faute de quoi la barre occupait près de la
+moitié d'une carte étroite.
+
+**L'effet du filtre sort de la carte.** « Métallurgie et travail des métaux :
+24 des 43 lieux » était posé en bas à gauche **sur** la carte : il couvrait le
+territoire, tombait sur la partie basse de la vallée où il y a des points, et
+faisait sauter la carte en apparaissant. Il se lit maintenant à droite du
+sélecteur de métier — la cause et son effet côte à côte, au moment où le lecteur
+s'y attend.
+
+**Écran étroit, jamais vérifié jusqu'ici.** Deux défauts trouvés et corrigés :
+
+- Le cartouche complet occupait 48 % de la carte à 380 pixels de large et 83 % à
+  290. En dessous de 480 pixels il ne garde plus que l'échelle, et la légende
+  descend sous la carte dans un bloc replié. Mesuré après correction : 6 % à
+  380 pixels, 9 % à 290.
+- Les points tombaient à 2,5 pixels de rayon sur une carte étroite, la carte
+  s'étirant à la largeur disponible. Ils gardent désormais un rayon d'écran
+  minimal de 5 pixels, sans rien changer sur écran large où le rayon naturel est
+  déjà supérieur — 6,7 pixels à 952, inchangé.
+
+**Contrôles effectués.** Six contrôles du générateur vrais. `ruff` propre.
+Syntaxe JavaScript vérifiée par Node. Balise par balise, div ouvrants et
+fermants équilibrés. Dans le navigateur, à quatre largeurs de carte — 952, 580,
+380 et 290 pixels : cartouche jamais débordant, cinq noms de repères placés sans
+chevauchement et aucun masqué, 43 lieux présents partout, échelle cohérente
+(2 km à 952, 5 km en dessous, 20 km pour Crulai qui est plus resserré).
+Département : cartouche masqué, bande de légende rétablie. Crulai : deux entrées
+seulement, aucun lien annoncé.
+
+**Incident de méthode à consigner.** En supprimant le style du texte retiré, une
+coupe trop large a emporté environ soixante-dix lignes de CSS sans rapport —
+cadre, commandes de zoom, annotation, fil d'ariane, panneau, filtres. Le défaut
+a été vu immédiatement par comparaison avec la version enregistrée et réparé en
+ne retirant que les règles visées, avec vérification de la présence de neuf
+sélecteurs de contrôle. Rien n'a été perdu, mais la méthode — découper un
+fichier entre deux repères textuels — est dangereuse et ne doit pas être
+réemployée sans vérification immédiate.
+
+**Correction d'un diagnostic erroné.** Il a d'abord été conclu que
+l'observateur de redimensionnement ne se déclenchait pas faute d'être référencé.
+La cause réelle est autre : **l'onglet de contrôle est passé en arrière-plan et
+ne produisait plus aucune image** — zéro appel d'animation en une seconde,
+`visibilityState` à `hidden`. Or la livraison des redimensionnements observés et
+l'avancement des transitions dépendent toutes deux du cycle de rendu. Les deux
+corrections apportées restent justes en elles-mêmes — un observateur sans
+référence peut être ramassé par le navigateur, et l'observation porte désormais
+sur le cadre plutôt que sur l'élément SVG — mais elles ne répondaient pas au
+symptôme observé.
+
+**Les crédits dépassaient la carte.** Mesure : à 380 pixels de carte, le bloc
+des sources occupait 101 % de sa hauteur ; à 290 pixels, 173 % — près du double
+de la carte qu'il documente. Sous 480 pixels, seule la ligne des sources reste
+visible et les précisions passent dans un bloc replié. Rien n'est retiré, tout
+reste atteignable. Après correction : 33 % à 380 pixels, 43 % à 290.
+
+**Reprise des mesures, onglet toujours en arrière-plan.** Le porteur a remis la
+fenêtre au premier plan ; la page continue de se déclarer masquée et de ne
+produire aucune image. Les parcours dépendant d'une animation ont donc été
+éprouvés autrement, sans transition :
+
+- Zoom par commande, sans transition : 1,5 puis 2,25 puis 3,38, retour exact au
+  cadrage initial et au `viewBox` 1000 × 462. Noms de lieux : aucun à 1,5,
+  quatorze à 2,25, huit à 3,38. Échelle : 2 km à zoom 1, 1 km au-delà de 2,25.
+  Point et signe de localité constants à 7 et 6 pixels d'écran à tous les zooms.
+- Filtre Métallurgie : la mise à jour retient exactement **24 cercles sur 43**
+  et **4 liens sur 5**, vérifié sur les données liées à chaque élément. Les 19
+  cercles sortants restent dans la page faute d'images pour achever leur
+  disparition — leur sélection est juste, leur retrait attend le rendu.
+
+**Non vérifié, et il faut le savoir :**
+
+- Le déclenchement automatique au redimensionnement de la fenêtre. La logique
+  est juste — appelée directement, elle produit le bon résultat à toutes les
+  largeurs — mais son déclencheur n'a pas pu être éprouvé, l'onglet ne
+  produisant plus d'images. À reprendre avec une fenêtre au premier plan.
+- Les transitions et le zoom n'ont pas pu être re-mesurés dans cette passe pour
+  la même raison. Ils l'avaient été plus tôt dans la session, onglet visible :
+  43 lieux pendant la transition puis 24 après, zoom à 1,5 puis 2,25 puis 3,38
+  et retour exact.
+- Le lecteur qui **arrive** sur un écran étroit reçoit la bonne mise en page
+  sans dépendre de l'observateur : ce chemin-là est vérifié.
+
+**Reste du bloc A :** la vérification dans une vraie fenêtre étroite, et le
+jugement du porteur.
+
+---
+
 ## Ce qui est déjà identifié comme règle transposable
 
 À reprendre pour les onze autres ensembles.
