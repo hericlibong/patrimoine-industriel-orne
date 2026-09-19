@@ -78,19 +78,34 @@ fenêtre étroite.
 **Question à juger :** quand un lieu est ouvert, voit-on avec qui il
 travaillait ?
 
-- [ ] Ouvrir une fiche met en évidence les lieux liés et les traits qui y
-  mènent ; quitter la fiche rétablit l'état normal.
-- [ ] Ne pas refaire l'accès aux preuves, qui fonctionne.
-- [ ] Traiter le groupe dense autour de L'Aigle : viser un point précis y reste
-  difficile, et plusieurs points y restent sans nom même en zoomant.
+- [x] Ouvrir un lieu met en évidence les lieux liés et les traits qui y mènent ;
+  quitter le lieu rétablit l'état normal. Rien n'est atténué : ce qui est lié
+  est renforcé.
+- [x] Accès aux preuves inchangé : un clic sur un lien le sélectionne et ouvre
+  sa phrase justificative, sans ouvrir de lieu.
+- [x] Traiter le groupe dense autour de L'Aigle : la cible s'élargit, aucun
+  point n'est déplacé. Le survol et le clic désignent le lieu le plus proche du
+  curseur au lieu du cercle dessiné en dernier.
+- [-] La densité elle-même subsiste à faible zoom : 13 paires de lieux sont à
+  moins de huit pixels l'une de l'autre à l'ouverture, 4 au zoom 2, une seule au
+  zoom 4, aucune au zoom 6. Le zoom est la réponse ; la liste du panneau est
+  l'autre chemin.
 - [ ] Validation du porteur.
 
 **Livrable :** comprendre visuellement à qui un lieu est relié, et pouvoir
 atteindre un lieu même dans l'amas de L'Aigle.
 
 **Acquis à conserver :** les liens sont déjà lisibles et portent déjà leur sens
-par une pointe orientée. Seule la mise en évidence à l'ouverture d'une fiche
-manque.
+par une pointe orientée.
+
+**Bilan du bloc B — 19 septembre 2026.** Réalisation faite et mesurée dans un
+navigateur ; détail et chiffres dans
+`docs/audit_carte_d3/journal_phases_carte.md`. Deux lieux éprouvés : deux
+partenaires attendus, deux anneaux posés sur les bons lieux ; puis trois
+attendus, trois posés. Cadrage inchangé à l'ouverture comme au retour. Les
+quinze lieux du groupe de L'Aigle sont désignés chacun par le leur. Le clavier
+conserve son parcours complet. Reste ouvert : le toucher sur appareil réel, et
+la validation du porteur.
 
 ### BLOC C — Juger et transposer
 

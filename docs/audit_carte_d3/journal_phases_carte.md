@@ -448,6 +448,77 @@ jugement du porteur.
 
 ---
 
+## Bloc B — Lire les liens d'un lieu (19 septembre 2026)
+
+Engagé après un malentendu levé par le porteur : le bloc B reste au niveau de
+l'ensemble. Quand un lieu s'ouvre, la carte ne change pas de niveau ni de
+cadrage — elle reste la carte de la vallée, et c'est ce qu'elle fait à ce
+moment-là qui est en jeu.
+
+**Un lieu ouvert montre avec qui il travaillait.** Ses partenaires reçoivent un
+anneau, les liens qui y mènent passent en trait plein et en couleur d'appui,
+leurs pointes avec eux. Rien n'est atténué : la décision d'architecture interdit
+d'affaiblir le reste, on renforce donc ce qui est lié. Quitter le lieu rétablit
+l'état normal.
+
+L'anneau est posé directement, hors animation : une désignation ne doit pas
+dépendre d'un mouvement pour exister. Les libellés accessibles suivent — un
+partenaire annonce « Lieu lié au lieu ouvert », le lieu ouvert annonce « Fiche
+ouverte » au lieu de proposer de l'ouvrir.
+
+**Vérifié sur deux lieux** : deux partenaires attendus, deux anneaux posés sur
+les bons lieux, deux liens et deux pointes en avant ; puis trois attendus, trois
+anneaux, trois liens, trois pointes. Cadrage inchangé à l'ouverture comme au
+retour, conformément à l'arbitrage du 18 septembre. Retour à l'ensemble : plus
+aucun anneau ni lien en avant.
+
+### Le groupe dense de L'Aigle
+
+**Aucun point n'est déplacé.** L'invariant l'interdit, et une carte qui écarte
+ses lieux pour la commodité du pointage ment sur leur position. C'est la cible
+qui s'élargit : un survol ou un clic désigne le lieu dont le centre est le plus
+proche du curseur, dans une portée de 18 pixels, par un arbre de recherche
+reconstruit à chaque rendu.
+
+**Conséquence sur les gestes.** Le survol et le clic passent désormais par la
+carte et non par chaque point. Sans cela le navigateur désignait le cercle du
+dessus, c'est-à-dire le dernier dessiné, et non le plus proche du curseur —
+précisément le défaut à corriger. Les points gardent leur accès clavier complet :
+tabulation, contour de focus, étiquette d'identification et ouverture par Entrée.
+Un clic sur un lien garde son comportement propre et ouvre sa preuve. Un
+glissement de carte n'ouvre rien, la distance de clic étant contrôlée. Un clic
+dans le vide, loin de tout lieu, n'ouvre rien non plus.
+
+**La limite qui subsiste, chiffrée.** La difficulté n'est pas la désignation,
+elle est la densité elle-même. Nombre de paires de lieux séparées de moins de
+huit pixels à l'écran, donc impossibles à distinguer au doigt ou à la souris :
+
+| Zoom | Paires indistinguables |
+| --- | --- |
+| 1 | 13 |
+| 2 | 4 |
+| 4 | 1 |
+| 6 | 0 |
+
+La paire la plus serrée — une filature et une usine de quincaillerie — est à
+1,6 pixel à l'ouverture, et à 9,6 pixels au zoom maximal. Aucune coordonnée
+n'est dupliquée : ce sont bien des lieux distincts, très proches. **Le zoom est
+donc la réponse à cette densité, et il existe.** La liste du panneau reste
+l'autre chemin, complet et ordonné, pour atteindre un lieu sans viser.
+
+**Contrôles effectués.** Six contrôles du générateur vrais, `ruff` propre,
+syntaxe JavaScript vérifiée par Node. Dans le navigateur : viser douze pixels à
+côté d'un lieu isolé l'ouvre ; cliquer loin de tout n'ouvre rien ; les quinze
+lieux du groupe de L'Aigle sont désignés chacun par le leur ; le focus clavier
+affiche l'étiquette et Entrée ouvre la fiche ; un clic sur un lien sélectionne
+le lien et ouvre sa preuve sans ouvrir de lieu.
+
+**Non vérifié :** le toucher sur un appareil réel. Le clic passant désormais par
+la carte, un appui tactile emprunte le même chemin que la souris, mais cela n'a
+pas été éprouvé sur un appareil.
+
+---
+
 ## Ce qui est déjà identifié comme règle transposable
 
 À reprendre pour les onze autres ensembles.

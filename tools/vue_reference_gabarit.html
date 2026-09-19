@@ -725,7 +725,11 @@ function dessinerSysteme(code){
       depart:parReference[lien.de], arrivee:parReference[lien.vers]}))
     .filter(l => l.depart && l.arrivee && garde(l.depart) && garde(l.arrivee));
 
-  for (const l of liens) l.arc = arcRelation(l.depart, l.arrivee);
+  for (const l of liens){
+    l.arc = arcRelation(l.depart, l.arrivee);
+    l.enAvant = etat.lien === l.index
+      || (etat.site && (l.lien.de === etat.site || l.lien.vers === etat.site));
+  }
 
   /* Le lien est tracé trois fois : une gaine claire qui le détache de l'eau et
      du sol, le trait lui-même, puis sa pointe. Le pointillé reste : une
@@ -739,7 +743,7 @@ function dessinerSysteme(code){
       .attr("vector-effect", "non-scaling-stroke")
       .attr("stroke", "#fbfaf6").attr("stroke-opacity", .85)
       .attr("d", l => l.arc.d)
-      .attr("stroke-width", l => etat.lien === l.index ? 6.4 : 4.6)
+      .attr("stroke-width", l => l.enAvant ? 6.4 : 4.6)
       .call(fondreEntree);
 
   d3.select("#coucheRelations").selectAll("path.relation")
@@ -755,9 +759,9 @@ function dessinerSysteme(code){
           }
         }), mise => mise, fondreSortie)
       .attr("d", l => l.arc.d)
-      .attr("stroke", l => etat.lien === l.index ? "#9a3412" : "#6f6455")
-      .attr("stroke-width", l => etat.lien === l.index ? 2.8 : 2)
-      .attr("stroke-dasharray", l => etat.lien === l.index ? null : "6 4")
+      .attr("stroke", l => l.enAvant ? "#9a3412" : "#6f6455")
+      .attr("stroke-width", l => l.enAvant ? 2.8 : 2)
+      .attr("stroke-dasharray", l => l.enAvant ? null : "6 4")
       .attr("aria-label", l => `Lien documenté : ${l.depart.nomCourt} vers `
         + `${l.arrivee.nomCourt}. Afficher la phrase qui l'établit.`)
       .call(fondreEntree);
@@ -771,9 +775,19 @@ function dessinerSysteme(code){
       .attr("data-taille-base", 1)
       .attr("stroke", "#fbfaf6").attr("stroke-width", .8)
       .attr("vector-effect", "non-scaling-stroke")
-      .attr("fill", l => etat.lien === l.index ? "#9a3412" : "#6f6455")
+      .attr("fill", l => l.enAvant ? "#9a3412" : "#6f6455")
       .attr("data-ancre", l => `${l.arc.pointe.x},${l.arc.pointe.y},${l.arc.pointe.angle}`)
       .call(fondreEntree);
+
+  /* Un lieu ouvert doit montrer avec qui il travaillait. Rien n'est atténué —
+     la décision d'architecture l'interdit : on renforce ce qui est lié plutôt
+     que d'affaiblir le reste. */
+  const partenaires = new Set();
+  if (etat.site)
+    for (const l of liens){
+      if (l.lien.de === etat.site) partenaires.add(l.lien.vers);
+      if (l.lien.vers === etat.site) partenaires.add(l.lien.de);
+    }
 
   const lieux = etat.metier ? retenus : sites;
   d3.select("#coucheLieux").selectAll("circle")
@@ -783,15 +797,12 @@ function dessinerSysteme(code){
           .attr("class", "site").attr("stroke", "#fffefb").attr("stroke-width", 1.9)
           .attr("vector-effect", "non-scaling-stroke")
           .attr("tabindex", "0").attr("role", "button")
-          .on("click", (evenement, site) => allerAuSite(site.ref))
           .on("keydown", (evenement, site) => {
             if (evenement.key === "Enter" || evenement.key === " "){
               evenement.preventDefault(); allerAuSite(site.ref);
             }
           });
         if (code === "risle") cercles
-          .on("mouseenter", (evenement, site) => changerIdentification(site.ref, "hover"))
-          .on("mouseleave", () => changerIdentification(null, "hover"))
           .on("focus", function(evenement, site){
             this.classList.add("identifie-focus");
             changerIdentification(site.ref, "focus");
@@ -811,7 +822,13 @@ function dessinerSysteme(code){
             .attr("r", 0).attr("opacity", 0).remove()
         : sortie.remove())
       .attr("data-taille-base", site => rayonLieu(etat.site === site.ref))
-      .attr("aria-label", site => `${site.nomCourt}, ${site.commune}. Ouvrir cette fiche.`)
+      /* L'anneau du partenaire est posé directement, sans attendre d'animation :
+         une désignation ne doit pas dépendre d'un mouvement pour exister. */
+      .attr("stroke", site => partenaires.has(site.ref) ? "#9a3412" : "#fffefb")
+      .attr("stroke-width", site => partenaires.has(site.ref) ? 2.8 : 1.9)
+      .attr("aria-label", site => `${site.nomCourt}, ${site.commune}.`
+        + (partenaires.has(site.ref) ? " Lieu lié au lieu ouvert." : "")
+        + (etat.site === site.ref ? " Fiche ouverte." : " Ouvrir cette fiche."))
       .call(selection => (DUREE ? selection.transition().duration(DUREE) : selection)
         .attr("cx", site => projeter(site.lon, site.lat)[0].toFixed(1))
         .attr("cy", site => projeter(site.lon, site.lat)[1].toFixed(1))
@@ -819,8 +836,70 @@ function dessinerSysteme(code){
         .attr("opacity", 1)
         .attr("fill", site => etat.site === site.ref ? "#9a3412" : "#c2703f"));
 
+  construireArbreLieux(lieux);
   ajusterTailleZoom(zoomRisle, false);
 }
+
+/* Autour de L'Aigle, une dizaine de lieux se chevauchent : viser le bon point
+   y est impossible à la souris. Aucun point n'est déplacé — l'invariant
+   l'interdit et une carte qui écarte ses lieux ment sur leur position. C'est la
+   cible qui s'élargit : un clic ou un survol dans le vide désigne le lieu le
+   plus proche, s'il est à portée. Les clics sur un lieu ou sur un lien gardent
+   leur comportement propre ; un glissement de carte n'ouvre rien. */
+const PORTEE_POINTAGE_PX = 18;
+let arbreLieux = null;
+let departPointeur = null;
+
+function construireArbreLieux(sites){
+  arbreLieux = (sites && sites.length)
+    ? d3.quadtree().x(s => s.ecranX).y(s => s.ecranY)
+        .addAll(sites.map(site => {
+          const [x, y] = projeter(site.lon, site.lat);
+          return {ref:site.ref, ecranX:x, ecranY:y};
+        }))
+    : null;
+}
+
+function lieuLePlusProche(evenement){
+  if(!arbreLieux || !CARTE.getBoundingClientRect) return null;
+  const cadre = CARTE.getBoundingClientRect();
+  if(!cadre.width) return null;
+  const echelle = LARGEUR / cadre.width;
+  // Du pixel écran vers les unités de la carte, zoom compris.
+  const [x, y] = (zoomRisle || d3.zoomIdentity).invert([
+    (evenement.clientX - cadre.left) * echelle,
+    (evenement.clientY - cadre.top) * echelle,
+  ]);
+  const portee = PORTEE_POINTAGE_PX * echelle / ((zoomRisle && zoomRisle.k) || 1);
+  const trouve = arbreLieux.find(x, y, portee);
+  return trouve ? trouve.ref : null;
+}
+
+function surUnLien(evenement){
+  const cible = evenement.target;
+  return Boolean(cible && cible.closest && cible.closest("path.relation"));
+}
+
+CARTE.addEventListener("pointerdown", evenement => {
+  departPointeur = [evenement.clientX, evenement.clientY];
+});
+
+CARTE.addEventListener("click", evenement => {
+  if(etat.niveau === "departement" || surUnLien(evenement)) return;
+  if(departPointeur && Math.hypot(evenement.clientX - departPointeur[0],
+      evenement.clientY - departPointeur[1]) > 6) return;
+  const ref = lieuLePlusProche(evenement);
+  if(ref) allerAuSite(ref);
+});
+
+CARTE.addEventListener("pointermove", evenement => {
+  if(etat.systeme !== "risle" || etat.niveau === "departement") return;
+  if(!arbreLieux) return;
+  if(surUnLien(evenement)) return;
+  changerIdentification(lieuLePlusProche(evenement), "hover");
+});
+
+CARTE.addEventListener("pointerleave", () => changerIdentification(null, "hover"));
 
 function montrerRelation(code, index){
   etat.lien = etat.lien === index ? null : index;
