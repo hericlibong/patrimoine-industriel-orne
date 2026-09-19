@@ -829,6 +829,30 @@ transformation neutre, 43 lieux, 5 liens, 4 tracés d'eau, 5 noms de repères,
 point gris. Le retour au département revient en 1000 × 520, transformation
 neutre, 12 bulles et 146 lieux.
 
+**La descente d'échelle est retirée — 19 septembre 2026.** Le porteur a décrit
+le défaut plus précisément : au clic, un point sombre s'accroche au curseur une
+fraction de seconde, puis l'ensemble apparaît ; et sur Crulai, à la seconde
+entrée, l'ensemble arrive avec des points minuscules, obligeant à demander la
+vue initiale pour retrouver des dimensions normales. Le défaut se voit
+nettement et gêne plus qu'un simple saut.
+
+Deux corrections ont été tentées : le retrait du double gestionnaire de clic,
+puis la coupure de la transition de départ et le calcul de l'arrivée après le
+rendu. Aucune n'a suffi. L'environnement de contrôle ne produit aucune image :
+l'artefact n'a jamais pu être observé, seulement ses états avant et après. Une
+troisième correction à l'aveugle n'était pas défendable.
+
+**La descente est donc retirée et le passage redevient immédiat**, comme avant
+l'essai — option proposée par le porteur lui-même. L'idée n'est pas abandonnée ;
+elle demande un moyen de voir ce qui se passe à l'écran. Le zoom, ses commandes
+et les transitions de filtre ne sont pas concernés et restent en place.
+
+Vérifié après retrait, sur sept navigations enchaînées dont le cas signalé —
+Crulai une seconde fois : à chaque étape, facteur de zoom à 1, transformation
+neutre, cadre juste pour la vue affichée (520 au département, 462 sur la Risle,
+620 sur Crulai), lieux au rayon 7 et bulles au rayon 23. Aucun résidu, aucune
+dimension réduite.
+
 **Reste ouvert :** la validation du porteur, et D4 — la vérification d'ensemble
 aux trois niveaux, clavier et tactile compris.
 
