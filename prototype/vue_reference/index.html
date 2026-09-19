@@ -771,12 +771,42 @@ const PORTEE_POINTAGE_PX = 18;
 let arbreLieux = null;
 let departPointeur = null;
 
+/* Ce que le lecteur peut désigner du doigt ou de la souris, à chaque niveau.
+   Au département ce sont les douze ensembles et les cent quarante-six lieux
+   hors ensembles ; dans un ensemble, ses lieux. Seuls les ensembles ouverts et
+   les lieux d'un ensemble s'ouvrent ; les autres se lisent sans s'ouvrir. */
+let entitesCourantes = [];
+
+function entitesCarte(){
+  if (etat.niveau === "departement"){
+    const entites = [];
+    for (const systeme of D.departement.systemes.filter(systemeGarde)){
+      const nombre = etat.metier ? (systeme.sitesParMetier[etat.metier] || 0) : systeme.nbSites;
+      const ouvert = Boolean(D.detail[systeme.code]);
+      entites.push({ref:"ensemble:" + systeme.code, code:systeme.code,
+        lon:systeme.lon, lat:systeme.lat, ouvrable:ouvert,
+        lignes:[systeme.nom, `${nombre} lieu${nombre>1?"x":""} recensé${nombre>1?"s":""}`,
+          ouvert ? "Ouvrir cet ensemble" : "Vue détaillée à venir"]});
+    }
+    for (const site of D.departement.autresSites.filter(autreGarde))
+      entites.push({ref:site.ref, lon:site.lon, lat:site.lat, ouvrable:false,
+        lignes:[site.nom, site.commune, site.secteurs.map(libelle).join(" · ")]});
+    return entites;
+  }
+  const detail = D.detail[etat.systeme];
+  if (!detail) return [];
+  return detail.sites.map(site => ({ref:site.ref, lon:site.lon, lat:site.lat,
+    ouvrable:true,
+    lignes:[site.nomCourt, site.commune, site.secteurs.map(libelle).join(" · ")]}));
+}
+
 function construireArbreLieux(sites){
-  arbreLieux = (sites && sites.length)
+  entitesCourantes = entitesCarte();
+  arbreLieux = entitesCourantes.length
     ? d3.quadtree().x(s => s.ecranX).y(s => s.ecranY)
-        .addAll(sites.map(site => {
-          const [x, y] = projeter(site.lon, site.lat);
-          return {ref:site.ref, ecranX:x, ecranY:y};
+        .addAll(entitesCourantes.map(entite => {
+          const [x, y] = projeter(entite.lon, entite.lat);
+          return {ref:entite.ref, ecranX:x, ecranY:y};
         }))
     : null;
 }
@@ -806,15 +836,18 @@ CARTE.addEventListener("pointerdown", evenement => {
 });
 
 CARTE.addEventListener("click", evenement => {
-  if(etat.niveau === "departement" || surUnLien(evenement)) return;
+  if(surUnLien(evenement)) return;
   if(departPointeur && Math.hypot(evenement.clientX - departPointeur[0],
       evenement.clientY - departPointeur[1]) > 6) return;
   const ref = lieuLePlusProche(evenement);
-  if(ref) allerAuSite(ref);
+  const entite = entitesCourantes.find(item => item.ref === ref);
+  if(!entite || !entite.ouvrable) return;
+  if(etat.niveau === "departement") allerAuSysteme(entite.code);
+  else allerAuSite(entite.ref);
 });
 
 CARTE.addEventListener("pointermove", evenement => {
-  if(etat.niveau === "departement" || !arbreLieux) return;
+  if(!arbreLieux) return;
   if(surUnLien(evenement)) return;
   changerIdentification(lieuLePlusProche(evenement), "hover");
 });
@@ -872,7 +905,7 @@ function dessinerDepartement(){
       .attr("cy", site => projeter(site.lon, site.lat)[1].toFixed(1))
       .attr("data-taille-base", rayonAutre)
       .call(selection => (DUREE ? selection.transition().duration(DUREE) : selection)
-        .attr("r", rayonAutre).attr("opacity", 1));
+        .attr("r", rayonAutre / ((zoomCarte && zoomCarte.k) || 1)).attr("opacity", 1));
 
   const dessines = systemes.map(systeme => {
     const [x, y] = projeter(systeme.lon, systeme.lat);
@@ -890,9 +923,11 @@ function dessinerDepartement(){
       .attr("fill", e => e.ouvert ? "rgba(154,52,18,.2)" : "rgba(154,52,18,.1)")
       .attr("stroke-width", e => e.ouvert ? 1.8 : 1.2)
       .attr("stroke-dasharray", e => e.ouvert ? null : "4 3")
+      .attr("data-taille-base", e => e.rayon.toFixed(1))
       .call(selection => (DUREE ? selection.transition().duration(DUREE) : selection)
         .attr("cx", e => e.x.toFixed(1)).attr("cy", e => e.y.toFixed(1))
-        .attr("r", e => e.rayon.toFixed(1)).attr("opacity", 1));
+        .attr("r", e => (e.rayon / ((zoomCarte && zoomCarte.k) || 1)).toFixed(1))
+        .attr("opacity", 1));
 
   d3.select("#coucheEnsembles").selectAll("circle.groupe")
     .data(dessines, e => e.systeme.code)
@@ -907,11 +942,14 @@ function dessinerDepartement(){
       mise => mise, sortie => sortie.remove())
       .attr("class", e => `groupe ${e.ouvert ? "ouvert" : "non-ouvert"}`)
       .attr("cx", e => e.x.toFixed(1)).attr("cy", e => e.y.toFixed(1))
-      .attr("r", e => Math.max(e.rayon, 12).toFixed(1))
+      .attr("data-taille-base", e => Math.max(e.rayon, 12).toFixed(1))
+      .attr("r", e => (Math.max(e.rayon, 12) / ((zoomCarte && zoomCarte.k) || 1)).toFixed(1))
       .attr("aria-label", e => `${e.systeme.nom}, ${e.nombre} lieu${e.nombre>1?"x":""}. `
         + (e.ouvert ? "Ouvrir cet ensemble." : "Ensemble non ouvert dans cette vue de référence."));
 
   etiquettesEnsembles(dessines, autres);
+  construireArbreLieux();
+  ajusterTailleZoom(zoomCarte, false);
 }
 
 function rayonAutreLieu(){
@@ -1024,6 +1062,7 @@ function libreSelonGrille(obstacles){
 
 /* SVG-2 : seules les étiquettes sont décalées ; signes aux coordonnées sources. */
 let largeurReperes = 0;
+let entreesCartouche = null;
 
 /* Les repères de bourg ne sont pas génériques : ils demandent, pour chaque
    ensemble, des adresses vérifiées et géocodées une par une. Leur présence se
@@ -1189,10 +1228,9 @@ function retirerIdentification(){
 function positionnerBulleIdentification(){
   if(!bulleIdentification || !projeter || !zoomCarte)return;
   const reference = bulleIdentification.dataset.reference;
-  const site = (D.detail[etat.systeme] || {sites:[]}).sites
-    .find(item => item.ref === reference);
-  if(!site){ retirerIdentification(); return; }
-  const [baseX,baseY] = projeter(site.lon,site.lat);
+  const entite = entitesCourantes.find(item => item.ref === reference);
+  if(!entite){ retirerIdentification(); return; }
+  const [baseX,baseY] = projeter(entite.lon,entite.lat);
   const [x,y] = zoomCarte.apply([baseX,baseY]);
   const largeur = Number(bulleIdentification.dataset.largeur);
   const hauteur = Number(bulleIdentification.dataset.hauteur);
@@ -1218,16 +1256,14 @@ function positionnerBulleIdentification(){
 }
 function creerBulleIdentification(reference){
   if(!coucheInterface || !projeter)return;
-  const site = (D.detail[etat.systeme] || {sites:[]}).sites
-    .find(item => item.ref === reference);
-  if(!site)return;
-  const activites = site.secteurs.map(code => libelle(code));
-  const lignes = [site.nomCourt, site.commune, activites.join(" · ")];
+  const entite = entitesCourantes.find(item => item.ref === reference);
+  if(!entite)return;
+  const lignes = entite.lignes.filter(ligne => ligne);
   const taille = 13, marge = 7, hauteur = lignes.length * 17 + marge * 2;
   const largeur = Math.min(900, Math.max(150,
     Math.max(...lignes.map(ligne => ligne.length * 7.1)) + marge * 2));
   const groupe = el("g",{id:"identificationTooltip",class:"identification-tooltip",
-    "aria-label":`${site.nomCourt}, ${site.commune}. Activités : ${activites.join(", ")}`,
+    "aria-label":lignes.join(". "),
     "data-reference":reference,"data-largeur":largeur,"data-hauteur":hauteur,
     "pointer-events":"none"});
   groupe.appendChild(el("rect",{width:largeur,height:hauteur,rx:3,
@@ -1245,8 +1281,7 @@ function changerIdentification(reference, origine){
   pointIdentification[origine] = reference;
   retirerIdentification();
   const actif = pointIdentification.focus || pointIdentification.hover;
-  if(!actif || !etat.systeme || !D.detail[etat.systeme]
-    || etat.niveau === "departement")return;
+  if(!actif || !entitesCourantes.length)return;
   creerBulleIdentification(actif);
 }
 
@@ -1256,10 +1291,12 @@ function changerIdentification(reference, origine){
 function ajusterTailleZoom(transform, inclureLieux = true){
   const k = transform.k || 1;
   if (!contenuCarte) return;
-  if (inclureLieux) contenuCarte.querySelectorAll("circle.site").forEach(cercle => {
-    const base = Number(cercle.dataset.tailleBase) || RAYON_LIEU;
-    cercle.setAttribute("r", (base / k).toFixed(2));
-  });
+  if (inclureLieux) contenuCarte
+    .querySelectorAll("circle.site, circle.autre-lieu, circle.halo, circle.groupe")
+    .forEach(cercle => {
+      const base = Number(cercle.dataset.tailleBase) || RAYON_LIEU;
+      cercle.setAttribute("r", (base / k).toFixed(2));
+    });
   /* Les noms de repères ne sont plus ici : ils vivent en surface et se
      replacent par positionnerNomsReperes(), donc sans compensation de taille. */
   /* Les pointes de lien sont posées et orientées ici, et gardent leur taille
@@ -1304,23 +1341,25 @@ function etiquettesLieux(){
   }
   while (groupe.firstChild) groupe.removeChild(groupe.firstChild);
   const k = zoomCarte ? zoomCarte.k : 1;
-  if(etat.niveau === "departement" || !D.detail[etat.systeme]
-    || k < SEUIL_NOMS_LIEUX) return;
+  if(k < SEUIL_NOMS_LIEUX || !entitesCourantes.length) return;
 
   const occupes = [];
   const libre = boite => !occupes.some(autre =>
     boite.x0 < autre.x1 && boite.x1 > autre.x0 && boite.y0 < autre.y1 && boite.y1 > autre.y0);
   // Les points eux-mêmes sont réservés : un nom ne doit pas couvrir un lieu.
   const visibles = [];
-  for(const site of D.detail[etat.systeme].sites){
-    if(!garde(site)) continue;
-    const [x,y] = zoomCarte.apply(projeter(site.lon, site.lat));
+  /* Au département, les ensembles portent déjà un nom permanent : seuls les
+     lieux hors ensembles en reçoivent un en s'approchant. */
+  for(const entite of entitesCourantes){
+    if(etat.niveau === "departement" && entite.code) continue;
+    const [x,y] = zoomCarte.apply(projeter(entite.lon, entite.lat));
     if(x < 0 || x > LARGEUR || y < 0 || y > HAUTEUR) continue;
     occupes.push({x0:x-9, x1:x+9, y0:y-9, y1:y+9});
-    visibles.push({site, x, y});
+    visibles.push({site:{ref:entite.ref, nomCourt:entite.lignes[0]}, x, y});
   }
   // Le lieu ouvert d'abord, puis de gauche à droite : ordre stable au zoom.
   visibles.sort((a,b) => (etat.site === b.site.ref) - (etat.site === a.site.ref) || a.x - b.x);
+  if(visibles.length > 60) visibles.length = 60;
 
   for(const {site, x, y} of visibles){
     const texte = site.nomCourt;
@@ -1367,7 +1406,8 @@ function desinstallerZoom(){
 }
 
 function afficherCommandesZoom(){
-  const actif = etat.niveau !== "departement" && Boolean(D.detail[etat.systeme]);
+  // Le zoom vaut pour toute carte dessinée, département compris.
+  const actif = etat.niveau === "departement" || Boolean(D.detail[etat.systeme]);
   COMMANDES_ZOOM.hidden = !actif;
   if (actif) installerZoom();
   else desinstallerZoom();
@@ -1387,12 +1427,12 @@ function commandeZoom(){
 }
 
 function zoomerCarte(facteur){
-  if (!zoomComportement || !D.detail[etat.systeme]) return;
+  if (!zoomComportement) return;
   commandeZoom().call(zoomComportement.scaleBy, facteur, [LARGEUR / 2, HAUTEUR / 2]);
 }
 
 function vueInitialeCarte(){
-  if (!zoomComportement || !D.detail[etat.systeme]) return;
+  if (!zoomComportement) return;
   commandeZoom().call(zoomComportement.transform, d3.zoomIdentity);
 }
 
@@ -1742,15 +1782,24 @@ function coinLibre(){
     {nom:"haut-droite", cx:LARGEUR, cy:0},
     {nom:"bas-gauche",  cx:0,       cy:HAUTEUR},
   ];
-  const detail = D.detail[etat.systeme];
-  if(!detail || !projeter) return candidats[0];
+  if(!projeter) return candidats[0];
   const points = [];
-  for(const site of detail.sites) points.push(projeter(site.lon, site.lat));
-  for(const troncon of detail.eau)
-    for(const p of troncon.points.filter((_, i) => i % 3 === 0))
-      points.push(projeter(p[0], p[1]));
-  if(detail.reperes)
-    for(const bourg of detail.reperes.bourgs) points.push(projeter(bourg.lon, bourg.lat));
+  if(etat.niveau === "departement"){
+    // Le contour du département occupe la carte : c'est lui qui décide.
+    for(const boucle of D.departement.contour)
+      for(const point of boucle.filter((_, i) => i % 4 === 0))
+        points.push(projeter(point[0], point[1]));
+    for(const entite of entitesCourantes) points.push(projeter(entite.lon, entite.lat));
+  } else {
+    const detail = D.detail[etat.systeme];
+    if(!detail) return candidats[0];
+    for(const site of detail.sites) points.push(projeter(site.lon, site.lat));
+    for(const troncon of detail.eau)
+      for(const p of troncon.points.filter((_, i) => i % 3 === 0))
+        points.push(projeter(p[0], p[1]));
+    if(detail.reperes)
+      for(const bourg of detail.reperes.bourgs) points.push(projeter(bourg.lon, bourg.lat));
+  }
   // Zone réservée : un quart de la largeur, un tiers de la hauteur.
   const zoneL = LARGEUR * .28, zoneH = HAUTEUR * .34;
   let meilleur = candidats[0], moindre = Infinity;
@@ -1804,7 +1853,7 @@ function majEchelle(){
 function rendreCartouche(entrees){
   const cartouche = document.getElementById("cartouche");
   if(!cartouche) return;
-  if(etat.niveau === "departement" || !entrees){
+  if(!entrees){
     cartouche.hidden = true;
     return;
   }
@@ -1841,11 +1890,13 @@ function rendreLegende(){
   const source = document.getElementById("sourceCarte");
   const methode = document.getElementById("methodeDepartement");
   if (etat.niveau === "departement"){
-    legende.hidden = false;
-    legende.innerHTML = `
-      <span><i style="background:rgba(154,52,18,.25);border:1.6px solid #9a3412"></i>ensemble ouvert — taille selon le nombre de lieux</span>
-      <span><i style="background:rgba(154,52,18,.1);border:1.2px dashed #9a3412"></i>ensemble non ouvert dans la référence</span>
-      <span><i style="background:#a9a49a;width:7px;height:7px"></i>lieu hors des ensembles étudiés</span>`;
+    // Comme pour un ensemble, la légende cesse de flotter au-dessus du cadre.
+    legende.hidden = true;
+    legende.innerHTML = "";
+    entreesCartouche =
+      `<div class="entree"><i style="background:rgba(154,52,18,.25);border:1.6px solid #9a3412"></i>ensemble ouvert — taille selon le nombre de lieux</div>`
+      + `<div class="entree"><i style="background:rgba(154,52,18,.1);border:1.2px dashed #9a3412"></i>ensemble non ouvert</div>`
+      + `<div class="entree"><i style="background:#a9a49a;width:7px;height:7px"></i>lieu hors des ensembles étudiés</div>`;
     source.innerHTML = `Sources : Inventaire du patrimoine industriel de l'Orne ·
       contours communaux API Géo.<br>Regroupements calculés, sans frontière historique.
       L'état de conservation reste inconnu pour 315 des 318 sites du corpus.`;
@@ -1898,9 +1949,8 @@ function rendreLegende(){
       ? `${ligneSources}<details class="precisions"><summary>Précisions sur le fond
          de carte</summary><div>${precisions}</div></details>`
       : `${ligneSources}<br>${precisions}`;
-    rendreCartouche(entrees);
+    entreesCartouche = entrees;
   }
-  if (etat.niveau === "departement") rendreCartouche(null);
 }
 
 function rendre(){
@@ -1920,6 +1970,8 @@ function rendre(){
   document.querySelector(".accueil").hidden = etat.niveau !== "departement";
   if (etat.niveau === "departement") dessinerDepartement();
   else dessinerSysteme(etat.systeme);
+  // Après le dessin : l'échelle a besoin de la projection de la vue affichée.
+  rendreCartouche(entreesCartouche);
   annoter();
   if(etat.niveau !== "departement" && aDesReperes()) dessinerReperes();
   if(etat.niveau !== "departement") etiquettesLieux();

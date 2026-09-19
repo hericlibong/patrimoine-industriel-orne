@@ -674,6 +674,71 @@ survol, le pointage du plus proche, le zoom et le cartouche.
 
 ---
 
+## D2 — Donner au département ce que l'ensemble a déjà (19 septembre 2026)
+
+**Une source unique de ce qui se désigne.** Chaque niveau déclare ses entités :
+au département, les douze ensembles et les cent quarante-six lieux hors
+ensembles — 158 en tout ; dans un ensemble, ses lieux. Chaque entité porte ses
+lignes d'identification et dit si elle s'ouvre. L'étiquette de survol, l'arbre
+de recherche du plus proche et les noms au zoom lisent tous cette même source.
+
+**L'identification au survol existe au département.** Les douze bulles et les
+cent quarante-six points gris ne disaient rien ; ils disent maintenant quelque
+chose de vrai :
+
+- sur une bulle : « Vallée de la Risle · 43 lieux recensés · Ouvrir cet
+  ensemble », ou « Vue détaillée à venir » pour les dix ensembles non ouverts ;
+- sur un point gris : « distillerie, cidrerie · Anceins · Agroalimentaire ».
+
+**Le pointage du plus proche vaut aussi au département**, sans déplacer aucun
+point. Un clic près d'une bulle ouvre son ensemble ; un clic près d'un lieu hors
+ensemble n'ouvre rien, puisqu'il n'y a rien à ouvrir — et cela se lit dans
+l'étiquette avant le clic.
+
+**Le zoom et les commandes sont actifs.** Bulles, points gris et cibles
+cliquables gardent leur taille d'écran : une bulle mesure 23 pixels à zoom 1
+comme à zoom 2,5. Retour exact au cadrage initial.
+
+**Les noms apparaissent en s'approchant.** Au-delà du seuil, les lieux hors
+ensembles prennent leur nom — 42 à zoom 2,5 — tandis que les ensembles gardent
+le leur en permanence. Le nombre d'étiquettes est borné à soixante, la carte du
+département portant bien plus de lieux qu'un ensemble.
+
+**Le cartouche remplace la bande de légende.** Il choisit son coin d'après le
+contour départemental : **bas-gauche**, là où les ensembles choisissent
+bas-droite. Trois entrées au lieu de cinq, et l'échelle du département.
+
+**Un défaut ancien corrigé, qui touchait aussi les ensembles.** Le cartouche
+était posé pendant le rendu de la légende, c'est-à-dire **avant** que la carte
+soit dessinée — donc avant que l'échelle de projection de la vue affichée soit
+connue. Au premier affichage d'une vue, la barre d'échelle manquait, ou pire,
+reprenait celle de la vue précédente. Crulai annonçait ainsi 500 mètres au lieu
+d'un kilomètre. Le cartouche est désormais posé après le dessin.
+
+**Contrôles effectués.** Six contrôles du générateur vrais, `ruff` propre,
+syntaxe JavaScript vérifiée par Node. Dans le navigateur :
+
+| Vue | Coin du cartouche | Entrées | Échelle | Entités |
+| --- | --- | --- | --- | --- |
+| Département | bas-gauche | 3 | 20 km | 158 |
+| Risle | bas-droite | 5 | 2 km | 43 |
+| Crulai | bas-droite | 2 | 1 km | 7 |
+
+Zoom 2,5 au département : échelle passée à 10 km, 42 noms de lieux apparus,
+bulle constante à 23 pixels d'écran, retour exact. Quatre largeurs de carte —
+952, 580, 380 et 290 pixels : le cartouche occupe de 6 à 17 % de la carte, se
+réduit sous 480 pixels et la légende descend sous la carte ; les crédits restent
+sous la hauteur de la carte ; les douze noms d'ensembles sont présents partout.
+
+**Limite qui subsiste.** « Vallée du Noireau » et « Flers » se touchent à toutes
+les largeurs, sans filtre. Les deux restent lisibles. C'est la même limite que
+D1 ; elle appelle un trait de rappel, qui relève de la présentation.
+
+**Reste ouvert :** la validation du porteur, et D3 — le passage du département à
+un ensemble comme descente d'échelle.
+
+---
+
 ## Ce qui est déjà identifié comme règle transposable
 
 À reprendre pour les onze autres ensembles.

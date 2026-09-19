@@ -184,16 +184,27 @@ niveaux.
 
 #### D2 — Donner au département ce que l'ensemble a déjà
 
-- [ ] Identification au survol : le nom de l'ensemble et son effectif, le nom du
-  lieu pour les autres lieux, qui ne disent rien aujourd'hui.
-- [ ] Pointage du lieu le plus proche, sans déplacer aucun point : les zones
-  denses du département posent le même problème que L'Aigle.
-- [ ] Zoom et déplacement bornés, avec retour exact au cadrage initial.
-- [ ] Cartouche dans la carte, avec légende et échelle, à la place de la bande
-  au-dessus du cadre.
-- [ ] Taille d'écran minimale des points, comme pour les ensembles. Les
-  146 autres lieux sont aujourd'hui à 2,6 unités, invisibles sur écran étroit.
-- [ ] Vérifier la lisibilité sur écran large et étroit.
+- [x] Identification au survol : nom de l'ensemble, effectif et disponibilité ;
+  nom, commune et activités pour les lieux hors ensembles, qui ne disaient rien.
+  Une source unique des entités désignables sert les trois niveaux.
+- [x] Pointage du lieu le plus proche, sans déplacer aucun point. Un clic près
+  d'une bulle ouvre son ensemble ; près d'un lieu hors ensemble, rien ne s'ouvre
+  puisqu'il n'y a rien à ouvrir, et l'étiquette le dit avant le clic.
+- [x] Zoom et déplacement bornés, avec retour exact au cadrage initial. Bulles,
+  points gris et cibles gardent leur taille d'écran.
+- [x] Cartouche dans la carte, avec légende et échelle, à la place de la bande
+  au-dessus du cadre. Il choisit bas-gauche au département, là où les ensembles
+  choisissent bas-droite.
+- [x] Taille d'écran minimale des points. Les noms des lieux hors ensembles
+  apparaissent aussi au zoom, bornés à soixante étiquettes.
+- [x] Vérifier la lisibilité sur écran large et étroit : quatre largeurs de
+  carte, cartouche de 6 à 17 % de la carte, réduit sous 480 pixels, crédits sous
+  la hauteur de la carte.
+- [-] Un défaut ancien corrigé au passage, qui touchait aussi les ensembles : le
+  cartouche était posé avant le dessin, donc avant que l'échelle de projection
+  soit connue — Crulai annonçait 500 mètres au lieu d'un kilomètre. Il subsiste
+  un chevauchement entre « Vallée du Noireau » et « Flers » à toutes les
+  largeurs ; les deux restent lisibles.
 - [ ] Validation du porteur.
 
 **Livrable :** une carte d'arrivée qui se manipule comme celles qu'elle ouvre.
