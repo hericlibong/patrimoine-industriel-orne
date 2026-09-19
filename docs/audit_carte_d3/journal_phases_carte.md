@@ -519,6 +519,98 @@ pas été éprouvé sur un appareil.
 
 ---
 
+## Bloc C — Juger et transposer (19 septembre 2026)
+
+Objet : savoir si la Risle est devenue un modèle ou reste une exception, et à
+quel prix s'ouvre un ensemble de plus.
+
+### Plus aucune ligne de code ne nomme la Risle
+
+Le code réservait encore à cette vallée l'identification au survol, le zoom et
+les noms de lieux à l'approche. Ces comportements ne lisent que des données
+présentes pour les douze ensembles : rien ne justifiait la réserve. Les gardes
+nommant `"risle"` sont supprimées, les fonctions et variables du zoom renommées
+— elles décrivent la carte, pas une vallée — et la présence de repères de bourg
+se lit désormais dans les données, jamais dans un nom. Un ensemble qui recevra
+un jour des repères les affichera sans changement de code.
+
+### Les deux ensembles côte à côte
+
+| | Risle | Crulai |
+| --- | --- | --- |
+| Lieux, relations | 43 et 5 | 7 et 0 |
+| Identification au survol | 5 lieux sur 5 justes | 5 sur 5 |
+| Zoom et commandes | oui | oui |
+| Noms de lieux au zoom 2,5 | 11 | 2 |
+| Coin du cartouche | bas-droite | **haut-droite** |
+| Entrées de légende | 5 | 2 |
+| Échelle | 1 km | 500 m |
+| Proportion du cadre | 1000 × 462 | 1000 × 620 |
+| Repères de bourg | 4 | 0 |
+
+Les différences sont toutes des conséquences des données, pas du code. Le
+cartouche choisit un autre coin parce que Crulai n'a pas la même forme ; le
+cadre prend une autre proportion pour la même raison ; l'échelle est deux fois
+plus fine parce que l'emprise est plus petite ; la légende n'annonce ni rivière
+principale ni relations parce que Crulai n'en a pas. **La seule différence de
+fond est l'absence de repères de bourg**, qui est un manque de données et non un
+manque de code.
+
+### Le prix d'un ensemble de plus, mesuré
+
+Sonde sur trois ensembles supplémentaires — Noireau, Flers, Argentan — sans rien
+écrire ni publier :
+
+| Ensemble | Lieux | Liens | Tracés d'eau | Communes du sol | Poids |
+| --- | --- | --- | --- | --- | --- |
+| Risle | 43 | 5 | 650 | 52 | 373 ko |
+| Crulai | 7 | 0 | 150 | 20 | 98 ko |
+| Noireau | 23 | 1 | 710 | 28 | 297 ko |
+| Flers | 21 | 1 | 285 | 30 | 192 ko |
+| Argentan | 7 | 0 | 365 | 28 | 168 ko |
+
+**Ce qui est gratuit.** Les lieux, les relations, l'eau, le sol, la chronologie
+et les chiffres du panneau se calculent sans intervention. Ouvrir un ensemble de
+plus est, pour ces éléments, une ligne à ajouter au générateur.
+
+**Ce qui coûte.** Deux choses.
+
+*Le poids.* La page pèse 817 ko avec deux ensembles. Chaque ensemble
+supplémentaire ajoute de 170 à 300 ko. Les douze porteraient la page à environ
+**trois mégaoctets**. C'est tenable sur un poste de travail, lourd sur un
+téléphone. La page entièrement autonome, sans chargement distant, ne tient pas
+à douze ensembles : il faudra choisir entre l'autonomie et le poids. **Ce point
+n'est pas tranché et sort du présent plan.**
+
+*Les noms de communes.* Trois communes portées par des lieux n'ont pas de
+contour dans les données actuelles : Athis-de-l'Orne et Frênes pour le Noireau,
+Goulet pour Argentan. Les lieux portent le nom de commune de leur source
+historique, tandis que les contours décrivent les communes d'aujourd'hui, où ces
+trois-là ont fusionné. Le contrôle `sol_complet` ajouté au bloc A **fait échouer
+la génération** dans ce cas : il fonctionne, et il faudra une table de
+correspondance entre noms anciens et communes actuelles avant d'ouvrir ces deux
+ensembles. C'est le premier vrai travail de données que la suite demande.
+
+*Les repères de bourg.* Aucun des dix autres ensembles n'en a. Chacun demande de
+retrouver l'adresse de la mairie dans l'annuaire officiel, de la faire géocoder
+par le service de l'IGN en contraignant la commune, puis de trancher les cas où
+le géocodeur ne trouve pas le numéro exact — ce qui s'est produit pour
+Sainte-Gauburge. C'est un travail de vérification de sources, non automatisable,
+et le choix des bourgs utiles relève du jugement éditorial. **Non engagé.**
+
+### Contrôles effectués
+
+Six contrôles du générateur vrais. `ruff` propre. Syntaxe JavaScript vérifiée
+par Node. Dans le navigateur, sur les deux ensembles : survol juste cinq fois
+sur cinq, zoom appliqué et retour exact au cadrage initial, commandes présentes,
+noms de lieux apparaissant à l'approche, cartouche et échelle adaptés.
+
+**Reste ouvert :** le jugement visuel du porteur sur le parcours complet, la
+décision sur le poids de la page à douze ensembles, la table des communes
+anciennes, et les repères de bourg.
+
+---
+
 ## Ce qui est déjà identifié comme règle transposable
 
 À reprendre pour les onze autres ensembles.

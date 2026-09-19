@@ -112,13 +112,24 @@ la validation du porteur.
 **Question à juger :** cette carte est-elle la bonne, et que faut-il pour la
 onzième vallée ?
 
+- [x] Vérifier la liste des règles transposables sur Crulai. Plus aucune ligne
+  de code ne nomme la Risle : identification au survol, zoom et noms de lieux
+  valent pour tout ensemble, et la présence de repères de bourg se lit dans les
+  données. Les différences entre les deux cartes sont toutes des conséquences
+  des données.
+- [x] Chiffrer ce qu'il faut pour ouvrir un ensemble de plus, sans le
+  développer. Sonde sur Noireau, Flers et Argentan : lieux, relations, eau et
+  sol se calculent sans intervention ; chaque ensemble ajoute de 170 à 300 ko.
+- [ ] **Décision à prendre : le poids.** Les douze ensembles porteraient la page
+  à environ trois mégaoctets. La page entièrement autonome ne tient pas à douze ;
+  il faudra choisir entre l'autonomie et le poids. Hors du présent plan.
+- [ ] **Travail de données préalable :** trois communes portées par des lieux
+  n'ont pas de contour — Athis-de-l'Orne et Frênes pour le Noireau, Goulet pour
+  Argentan. Les lieux portent des noms de communes anciennes, fusionnées depuis.
+  Une table de correspondance est nécessaire avant d'ouvrir ces ensembles.
 - [ ] Examen visuel complet par le porteur, sur écran large et étroit :
   parcours carte → lieu ou lien → retour, sous filtre et sans filtre, sur la
   Risle et sur Crulai.
-- [ ] Reprendre la liste des règles transposables et des particularités de la
-  Risle, tenue au fil des phases, et la vérifier sur Crulai.
-- [ ] Décrire ce qu'il faut pour ouvrir un troisième ensemble, sans le
-  développer.
 - [ ] Décision du porteur.
 
 **Livrable :** carte de référence jugée, et règles d'adaptation explicites pour
