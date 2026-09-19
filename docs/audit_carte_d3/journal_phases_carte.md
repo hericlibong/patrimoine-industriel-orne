@@ -806,6 +806,91 @@ aux trois niveaux, clavier et tactile compris.
 
 ---
 
+## D4 — Vérification d'ensemble (19 septembre 2026)
+
+Bloc de vérification : mesurer, ne pas ajouter. Deux défauts ont pourtant été
+trouvés et corrigés, tous deux hérités de D2.
+
+**Défaut 1 — un lieu masqué par le filtre restait désignable.** Sous Métallurgie,
+la Risle dessinait 24 points mais déclarait 43 entités : survoler l'emplacement
+d'un lieu masqué le nommait — « abattoir · L'Aigle · Agroalimentaire » — alors
+que son point n'était pas à l'écran. Le filtre n'était pas appliqué à la source
+commune des entités désignables. Il l'est désormais : 24 entités pour 24 points,
+et survoler cet emplacement désigne le lieu visible le plus proche.
+
+Le département n'était pas touché : ses entités étaient déjà filtrées. C'est
+cette différence entre les deux niveaux qui a fait voir le défaut.
+
+**Défaut 2 — le clavier perdait l'étiquette au département.** Le focus sur une
+bulle posait son contour et annonçait son libellé, mais n'affichait pas
+l'étiquette d'identification que le survol donne à la souris. Les lieux d'un
+ensemble l'avaient, les ensembles non. Corrigé : le focus d'une bulle affiche la
+même étiquette, y compris pour les dix ensembles non ouverts, qui annoncent
+« Vue détaillée à venir ».
+
+### Parcours vérifiés
+
+| Vue | Entités | Dessiné | Cartouche | Échelle |
+| --- | --- | --- | --- | --- |
+| Département | 158 | 12 bulles, 146 lieux | bas-gauche, 3 entrées | 20 km |
+| Département sous Métallurgie | 36 | 10 bulles, 26 lieux | bas-gauche | 20 km |
+| Risle | 43 | 43 lieux, 5 liens, 4 tracés d'eau | bas-droite, 5 entrées | 2 km |
+| Risle sous Métallurgie | 24 | 24 lieux, 4 liens | bas-droite | 2 km |
+| Lieu ouvert | 43 | cadrage inchangé | bas-droite | 2 km |
+| Crulai | 7 | 7 lieux, 0 lien | bas-droite, 2 entrées | 1 km |
+
+**Clavier.** Au département, douze cibles atteignables ; dans un ensemble,
+quarante-huit. Le focus pose son contour et son étiquette, Entrée ouvre, Espace
+sur une relation la sélectionne et ouvre sa preuve, Entrée sur un lieu ouvre sa
+fiche. Les libellés annoncent ce qui va se passer, y compris l'indisponibilité.
+
+**Tactile.** Un appui — événements de pointeur de type `touch` — ouvre un
+ensemble comme un clic. Le chemin est le même depuis le bloc B, où le clic est
+passé au niveau de la carte. Essai simulé, non éprouvé sur un appareil réel.
+
+**Écran étroit, aux trois niveaux.** À 380 et 290 pixels de carte : le cartouche
+occupe de 6 à 10 % de la carte, ne déborde jamais, se réduit à l'échelle seule,
+et la légende descend sous la carte. Les crédits restent sous la hauteur de la
+carte. L'échelle s'adapte — 50 km au département, 5 km sur la Risle, 2 km sur
+Crulai. Aucun débordement horizontal de la page. Les cinq noms de repères de la
+Risle sont présents, Crulai n'en a toujours aucun.
+
+### Les règles devenues communes aux trois niveaux
+
+Elles ne sont plus propres à une vue : elles décrivent la carte.
+
+1. Un seul chemin de dessin. Les couches sont posées une fois par vue et mises à
+   jour ; rien n'est effacé tant qu'on ne change pas de vue.
+2. Le cadre prend la proportion de ce qu'il montre.
+3. Les signes gardent leur taille d'écran, au zoom comme au redimensionnement.
+4. Ce qui ne doit pas grossir vit dans la couche non transformée ; un nom y est
+   ancré à son signe par un décalage constant et se masque avec lui.
+5. Une source unique déclare ce qui se désigne, et le filtre s'y applique comme
+   au dessin. Le survol et le clic passent par elle, jamais par le signe dessiné
+   en dernier. Aucun point n'est déplacé pour faciliter le pointage.
+6. Le clavier obtient ce que la souris obtient : même étiquette, même contour,
+   même ouverture.
+7. La légende et l'échelle vivent dans un cartouche posé dans le coin le plus
+   vide, mesuré à chaque rendu ; la légende ne montre que des signes présents.
+8. Sous 480 pixels de carte, le cartouche se réduit à l'échelle, la légende et
+   les précisions de crédits descendent sous la carte, repliées.
+9. Toute animation cesse si le lecteur a demandé moins de mouvement ; et aucune
+   animation ne peut retenir un lecteur — navigation et retour au cadrage sont
+   garantis indépendamment des images produites.
+
+### Ce qui reste ouvert
+
+- **La validation du porteur**, sur les quatre sous-blocs.
+- **L'état partageable après le `#`** : il n'existe pas. Écart avec une décision
+  d'architecture, à traiter à part.
+- **Le tactile sur un appareil réel**, jamais éprouvé.
+- **« Vallée du Noireau » et « Flers »** se touchent encore au département, sans
+  filtre. Les deux restent lisibles.
+- **Le poids à douze ensembles** et **les communes d'archive sans contour**,
+  tous deux hors du bloc D.
+
+---
+
 ## Ce qui est déjà identifié comme règle transposable
 
 À reprendre pour les onze autres ensembles.

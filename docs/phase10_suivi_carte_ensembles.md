@@ -140,7 +140,7 @@ les onze autres ensembles.
 objet : le choix a été tranché le 19 septembre, D3 tient le dessin. La
 référence SVG antérieure reste consultable sur sa branche.
 
-### BLOC D — Harmoniser la carte du département — PRIORITAIRE
+### BLOC D — Harmoniser la carte du département — fait, en attente de jugement
 
 **Question à juger :** la carte d'arrivée, celle sur laquelle le lecteur clique
 pour entrer dans un ensemble, se comporte-t-elle comme celles qu'elle ouvre ?
@@ -241,10 +241,19 @@ lieu de changer d'écran.
 
 #### D4 — Vérification d'ensemble
 
-- [ ] Parcours complet aux trois niveaux, sous filtre et sans filtre, sur écran
-  large et étroit.
-- [ ] Contrôle clavier complet et essai tactile.
-- [ ] Consigner les règles devenues communes aux trois niveaux.
+- [x] Parcours complet aux trois niveaux, sous filtre et sans filtre, sur écran
+  large et étroit. Six vues mesurées ; à 380 et 290 pixels de carte le cartouche
+  occupe de 6 à 10 %, ne déborde jamais, et les crédits restent sous la hauteur
+  de la carte.
+- [x] Contrôle clavier complet : 12 cibles au département, 48 dans un ensemble ;
+  focus, contour, étiquette, Entrée et Espace vérifiés. Essai tactile simulé.
+- [x] Consigner les règles devenues communes aux trois niveaux : neuf règles,
+  dans `docs/audit_carte_d3/journal_phases_carte.md`.
+- [-] Deux défauts trouvés et corrigés, tous deux hérités de D2 : un lieu masqué
+  par le filtre restait désignable au survol dans un ensemble ; et le focus
+  clavier sur une bulle du département n'affichait pas l'étiquette que le survol
+  donne à la souris.
+- [ ] Le tactile n'est pas éprouvé sur un appareil réel.
 - [ ] Décision du porteur.
 
 **Livrable :** un seul moteur, trois niveaux, règles communes écrites.

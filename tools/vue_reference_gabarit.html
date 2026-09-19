@@ -793,7 +793,9 @@ function entitesCarte(){
   }
   const detail = D.detail[etat.systeme];
   if (!detail) return [];
-  return detail.sites.map(site => ({ref:site.ref, lon:site.lon, lat:site.lat,
+  /* Le filtre s'applique ici comme au dessin : sans cela, un lieu masqué par le
+     métier restait désignable et le survol du vide le nommait. */
+  return detail.sites.filter(garde).map(site => ({ref:site.ref, lon:site.lon, lat:site.lat,
     ouvrable:true,
     lignes:[site.nomCourt, site.commune, site.secteurs.map(libelle).join(" · ")]}));
 }
@@ -939,6 +941,16 @@ function dessinerDepartement(){
           if (evenement.key === "Enter" || evenement.key === " "){
             evenement.preventDefault(); allerAuSysteme(e.systeme.code);
           }
+        })
+        /* Au clavier, la bulle du département doit dire ce que le survol dit à
+           la souris : sans cela un lecteur au clavier y perdait l'étiquette. */
+        .on("focus", function(evenement, e){
+          this.classList.add("identifie-focus");
+          changerIdentification("ensemble:" + e.systeme.code, "focus");
+        })
+        .on("blur", function(){
+          this.classList.remove("identifie-focus");
+          changerIdentification(null, "focus");
         }),
       mise => mise, sortie => sortie.remove())
       .attr("class", e => `groupe ${e.ouvert ? "ouvert" : "non-ouvert"}`)
