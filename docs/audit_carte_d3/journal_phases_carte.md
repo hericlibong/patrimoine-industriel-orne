@@ -784,6 +784,23 @@ C'est un écart avec une décision d'architecture arrêtée. Rien n'a été cass
 D3 ; il n'y avait rien à préserver. Ce point appelle un travail à lui seul, hors
 du bloc D.
 
+**Correction de réception — la descente se jouait deux fois.** Le porteur a
+signalé que l'ouverture d'un ensemble rejouait son animation une demi-seconde
+plus tard, sur les deux ensembles ouverts. Cause : au département, la bulle
+gardait son propre gestionnaire de clic **et** le clic remontait ensuite à la
+carte, qui le traitait une seconde fois par la recherche du plus proche —
+conséquence non vue de D2, qui avait fait passer le clic par la carte. Deux
+appels, deux descentes.
+
+Le gestionnaire de la bulle est retiré : le clic est traité une seule fois, au
+niveau de la carte, comme pour les lieux d'un ensemble depuis le bloc B. Le
+clavier garde son chemin propre. Un verrou de navigation est ajouté en second
+filet : une descente déjà lancée ne se relance pas, quel que soit le geste.
+
+Vérifié après correction, en comptant les appels réels : clic sur une bulle, une
+seule ouverture ; touche Entrée, une seule ; bouton de la liste du panneau, une
+seule. Les commandes de retour sont hors de la carte et n'ont pas ce risque.
+
 **Reste ouvert :** la validation du porteur, et D4 — la vérification d'ensemble
 aux trois niveaux, clavier et tactile compris.
 

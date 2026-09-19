@@ -931,9 +931,12 @@ function dessinerDepartement(){
 
   d3.select("#coucheEnsembles").selectAll("circle.groupe")
     .data(dessines, e => e.systeme.code)
+    /* Pas de gestionnaire de clic sur la bulle : le clic est traité une seule
+       fois, au niveau de la carte, par la recherche du lieu le plus proche.
+       Deux gestionnaires ouvraient l'ensemble deux fois et la descente d'échelle
+       se jouait en double. Le clavier garde son chemin propre. */
     .join(entree => entree.append("circle").attr("fill", "transparent")
         .attr("tabindex", "0").attr("role", "button")
-        .on("click", (evenement, e) => allerAuSysteme(e.systeme.code))
         .on("keydown", (evenement, e) => {
           if (evenement.key === "Enter" || evenement.key === " "){
             evenement.preventDefault(); allerAuSysteme(e.systeme.code);
@@ -1717,13 +1720,20 @@ function uneSeuleFois(action){
   return () => { if (fait) return; fait = true; action(); };
 }
 
+/* Verrou de navigation : une descente déjà lancée ne se relance pas. Sans lui,
+   deux appels rapprochés — deux gestionnaires sur le même geste, un double clic —
+   jouaient la descente deux fois. */
+let descenteEnCours = false;
+
 function allerAuSysteme(code){
   if (!D.detail[code]) {
     annoncer("Cet ensemble n'est pas ouvert dans la vue de référence.");
     return;
   }
+  if (descenteEnCours) return;
   const nom = D.departement.systemes.find(s => s.code === code).nom;
   const entrer = uneSeuleFois(() => {
+    descenteEnCours = false;
     etat.niveau = "systeme"; etat.systeme = code; etat.site = null; etat.lien = null;
     accordeons[code] = {lieux:false, relations:false};
     // On arrive de plus près, puis la vue se pose sur son cadrage d'origine.
@@ -1735,6 +1745,7 @@ function allerAuSysteme(code){
   });
 
   if (!DUREE || etat.niveau !== "departement" || !zoomComportement){ entrer(); return; }
+  descenteEnCours = true;
   const systeme = D.departement.systemes.find(s => s.code === code);
   const [x, y] = projeter(systeme.lon, systeme.lat);
   d3.select(CARTE).transition().duration(DUREE)
@@ -1749,6 +1760,7 @@ function allerAuSite(reference){
   annoncer(`Fiche ouverte : ${site.nom}, ${site.commune}.`);
 }
 function allerAuDepartement(){
+  if (descenteEnCours) return;
   const quitte = etat.systeme;
   etat.niveau = "departement"; etat.systeme = null; etat.site = null; etat.lien = null;
   const systeme = quitte && D.departement.systemes.find(s => s.code === quitte);
