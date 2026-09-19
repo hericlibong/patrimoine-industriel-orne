@@ -217,12 +217,23 @@ peut-être suffisant.
 
 #### D3 — Le passage du département à un ensemble
 
-- [ ] Examiner le comportement actuel : aujourd'hui la carte est remplacée d'un
-  coup, sans lien visible entre ce qu'on quitte et ce qu'on ouvre.
-- [ ] Proposer une descente d'échelle qui montre d'où l'on vient, conformément à
-  la direction éditoriale — département, ensemble, lieu.
-- [ ] Vérifier que le retour à la carte du département est aussi net que l'aller.
-- [ ] Préserver l'état partageable après le `#` et les parcours clavier.
+- [x] Examiner le comportement actuel : la carte était remplacée d'un coup, sans
+  lien visible entre ce qu'on quitte et ce qu'on ouvre.
+- [x] Descente d'échelle : la carte du département s'approche de la bulle visée,
+  puis celle de l'ensemble arrive de plus près et se pose. Vaut par le clic, par
+  Entrée depuis la carte et par la liste du panneau.
+- [x] Le retour remonte symétriquement : le département repart de la bulle
+  quittée et s'élargit. Vérifié, 5 → 1 puis stable.
+- [x] Parcours clavier préservés ; le filtre est conservé à l'aller comme au
+  retour — 24 lieux dans la Risle, 10 ensembles au département.
+- [x] Trois garanties : la préférence « moins d'animations » rend le passage
+  instantané ; une minuterie achève toujours la navigation ; le retour au
+  cadrage initial est garanti, y compris au retour de la page à l'écran.
+- [ ] **L'état partageable après le `#` n'existe pas.** Le prototype ne lit ni
+  n'écrit aucune adresse : on ne peut pas partager un lien vers un ensemble, et
+  recharger ramène au département. Écart avec une décision d'architecture
+  arrêtée ; rien n'a été cassé par D3, il n'y avait rien à préserver. Appelle un
+  travail à lui seul, hors du bloc D.
 - [ ] Validation du porteur.
 
 **Livrable :** le lecteur comprend qu'il descend dans le même territoire, au

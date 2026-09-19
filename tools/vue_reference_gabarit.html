@@ -1316,6 +1316,8 @@ function ajusterTailleZoom(transform, inclureLieux = true){
 }
 
 function appliquerZoom(evenement){
+  // Un geste du lecteur prime sur un repos encore attendu.
+  if (evenement.sourceEvent) reposAttendu = false;
   zoomCarte = evenement.transform;
   if (contenuCarte) contenuCarte.setAttribute("transform", zoomCarte);
   ajusterTailleZoom(zoomCarte);
@@ -1429,10 +1431,31 @@ function zoomerCarte(facteur){
   commandeZoom().call(zoomComportement.scaleBy, facteur, [LARGEUR / 2, HAUTEUR / 2]);
 }
 
+/* Le retour au cadrage initial est garanti, pas seulement demandé : si le
+   navigateur ne produit pas d'images, la transition n'aboutirait jamais et la
+   carte resterait agrandie sans que le lecteur l'ait voulu. */
 function vueInitialeCarte(){
   if (!zoomComportement) return;
   commandeZoom().call(zoomComportement.transform, d3.zoomIdentity);
+  if (!DUREE) return;
+  reposAttendu = true;
+  setTimeout(poserLeRepos, DUREE + 300);
 }
+
+/* La minuterie suffit dans un onglet visible. Dans un onglet en arrière-plan
+   elle est étranglée par le navigateur et la transition ne progresse pas : la
+   carte resterait agrandie. Le retour à l'écran est justement le moment où cet
+   état commencerait à se voir — on y repose donc la vue. */
+let reposAttendu = false;
+function poserLeRepos(){
+  if (!reposAttendu) return;
+  if (zoomComportement && zoomCarte && zoomCarte.k !== 1)
+    d3.select(CARTE).call(zoomComportement.transform, d3.zoomIdentity);
+  reposAttendu = false;
+}
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") poserLeRepos();
+});
 
 /* Un changement de largeur replace les noms, recalcule l'échelle et décide de
    la forme du cartouche. L'observateur doit être retenu : créé sans référence,
@@ -1663,16 +1686,59 @@ function panneauSite(){
 }
 
 /* ------------------------------------------------------------ navigation */
+/* Descente d'échelle. Le lecteur passait d'une carte à l'autre par
+   substitution : rien ne reliait ce qu'il quittait à ce qu'il ouvrait. La carte
+   du département s'approche désormais de la bulle visée, puis celle de
+   l'ensemble arrive de plus près et se pose — on descend dans le même
+   territoire au lieu de changer d'écran. Le retour remonte symétriquement.
+
+   Deux garde-fous. La préférence « moins d'animations » rend le passage
+   instantané, sans rien perdre. Et une minuterie de sécurité achève toujours la
+   navigation : si le navigateur ne produit pas d'images — onglet en arrière-plan
+   — la transition ne s'achèverait jamais et le lecteur resterait bloqué. */
+const ZOOM_DESCENTE = 5;
+const ZOOM_ARRIVEE = 2.4;
+
+function transformeSur(x, y, k){
+  return d3.zoomIdentity.translate(LARGEUR / 2 - x * k, HAUTEUR / 2 - y * k).scale(k);
+}
+
+function cadrerDepartement(){
+  const points = [];
+  for (const boucle of D.departement.contour) for (const p of boucle) points.push(p);
+  poserHauteur(520);
+  cadrer(points);
+}
+
+function uneSeuleFois(action){
+  let fait = false;
+  return () => { if (fait) return; fait = true; action(); };
+}
+
 function allerAuSysteme(code){
   if (!D.detail[code]) {
     annoncer("Cet ensemble n'est pas ouvert dans la vue de référence.");
     return;
   }
-  etat.niveau = "systeme"; etat.systeme = code; etat.site = null; etat.lien = null;
-  zoomCarte = d3.zoomIdentity;
-  accordeons[code] = {lieux:false, relations:false};
-  rendre();
-  annoncer(`Ensemble ouvert : ${D.departement.systemes.find(s=>s.code===code).nom}.`);
+  const nom = D.departement.systemes.find(s => s.code === code).nom;
+  const entrer = uneSeuleFois(() => {
+    etat.niveau = "systeme"; etat.systeme = code; etat.site = null; etat.lien = null;
+    accordeons[code] = {lieux:false, relations:false};
+    // On arrive de plus près, puis la vue se pose sur son cadrage d'origine.
+    zoomCarte = DUREE ? transformeSur(LARGEUR / 2, HAUTEUR / 2, ZOOM_ARRIVEE)
+      : d3.zoomIdentity;
+    rendre();
+    if (DUREE) vueInitialeCarte();
+    annoncer(`Ensemble ouvert : ${nom}.`);
+  });
+
+  if (!DUREE || etat.niveau !== "departement" || !zoomComportement){ entrer(); return; }
+  const systeme = D.departement.systemes.find(s => s.code === code);
+  const [x, y] = projeter(systeme.lon, systeme.lat);
+  d3.select(CARTE).transition().duration(DUREE)
+    .call(zoomComportement.transform, transformeSur(x, y, ZOOM_DESCENTE))
+    .on("end", entrer).on("interrupt", entrer);
+  setTimeout(entrer, DUREE + 250);
 }
 function allerAuSite(reference){
   etat.niveau = "site"; etat.site = reference; etat.lien = null;
@@ -1681,9 +1747,21 @@ function allerAuSite(reference){
   annoncer(`Fiche ouverte : ${site.nom}, ${site.commune}.`);
 }
 function allerAuDepartement(){
+  const quitte = etat.systeme;
   etat.niveau = "departement"; etat.systeme = null; etat.site = null; etat.lien = null;
-  zoomCarte = d3.zoomIdentity;
-  rendre();
+  const systeme = quitte && D.departement.systemes.find(s => s.code === quitte);
+  if (DUREE && systeme){
+    /* Le département est cadré avant d'être rendu, pour savoir où se trouve la
+       bulle que l'on quitte : la vue repart de cette bulle et s'élargit. */
+    cadrerDepartement();
+    const [x, y] = projeter(systeme.lon, systeme.lat);
+    zoomCarte = transformeSur(x, y, ZOOM_DESCENTE);
+    rendre();
+    vueInitialeCarte();
+  } else {
+    zoomCarte = d3.zoomIdentity;
+    rendre();
+  }
   annoncer("Retour à la carte du département.");
 }
 function annoncer(texte){ document.getElementById("annonce").textContent = texte; }

@@ -739,6 +739,56 @@ un ensemble comme descente d'échelle.
 
 ---
 
+## D3 — Le passage du département à un ensemble (19 septembre 2026)
+
+**Le comportement examiné.** Ouvrir un ensemble remplaçait une carte par une
+autre, d'un coup. Rien ne reliait ce que le lecteur quittait à ce qu'il ouvrait :
+il changeait d'écran, il ne descendait pas dans un territoire.
+
+**La descente d'échelle.** La carte du département s'approche désormais de la
+bulle visée, puis celle de l'ensemble arrive de plus près et se pose sur son
+cadrage. Le retour remonte symétriquement : le département repart de la bulle
+que l'on quitte et s'élargit. Cela vaut quel que soit le chemin — clic sur la
+bulle, touche Entrée depuis la carte, ou bouton de la liste du panneau.
+
+**Trois garanties, parce qu'une animation ne doit jamais retenir un lecteur.**
+
+- La préférence système « moins d'animations » rend le passage instantané, sans
+  rien perdre.
+- Une minuterie de sécurité achève toujours la navigation : si le navigateur ne
+  produit pas d'images — onglet en arrière-plan — la transition n'aboutirait
+  jamais et le lecteur resterait bloqué sur la carte de départ.
+- Le retour au cadrage initial est **garanti, pas seulement demandé**. Sans
+  cela, une transition interrompue laissait la carte agrandie sans que le
+  lecteur l'ait voulu. Un geste de zoom volontaire annule ce repos en attente ;
+  et le repos est également posé au retour de la page à l'écran, seul moment où
+  un état resté agrandi commencerait à se voir.
+
+**Contrôles effectués.** Six contrôles du générateur vrais, `ruff` propre,
+syntaxe JavaScript vérifiée par Node. Dans le navigateur, en suivant le facteur
+de zoom dans le temps :
+
+- Descente vers la Risle : 1 → 2,40 → 1, puis stable. 43 lieux, cadre 1000 × 462.
+- Remontée vers le département : 5 → 1, puis stable. 12 ensembles, 12 noms.
+- Entrée au clavier depuis une bulle : arrive dans la Risle, 43 lieux.
+- Entrée par la liste du panneau : arrive dans Crulai, 7 lieux.
+- Ensemble non ouvert : la carte ne descend pas, et l'annonce le dit.
+- Sous filtre Métallurgie : la descente conserve le filtre — 24 lieux retenus
+  dans la Risle, 10 ensembles au retour.
+
+**Constat qui n'était pas prévu et qu'il faut signaler.** La case demandait de
+« préserver l'état partageable après le `#` ». **Cet état n'existe pas.** Le
+prototype ne lit ni n'écrit aucune adresse : on ne peut donc pas partager un lien
+vers un ensemble ou un lieu, et recharger la page ramène toujours au département.
+C'est un écart avec une décision d'architecture arrêtée. Rien n'a été cassé par
+D3 ; il n'y avait rien à préserver. Ce point appelle un travail à lui seul, hors
+du bloc D.
+
+**Reste ouvert :** la validation du porteur, et D4 — la vérification d'ensemble
+aux trois niveaux, clavier et tactile compris.
+
+---
+
 ## Ce qui est déjà identifié comme règle transposable
 
 À reprendre pour les onze autres ensembles.
