@@ -372,6 +372,54 @@ def hydrographie(
     return list(troncons.values())
 
 
+def contours_communes(sites: list[dict], boite: tuple[float, float, float, float]) -> dict:
+    """Contours communaux qui donnent un sol à la carte.
+
+    Sans surface, les tracés d'eau flottent sur du blanc. Toutes les communes
+    qui touchent le cadre sont dessinées, pas seulement celles qui portent un
+    lieu : n'habiller que ces dernières laisserait une bande découpée au milieu
+    du vide, et donnerait à lire une frontière d'ensemble là où il n'y en a
+    aucune. Les contours viennent des mêmes données API Géo que la frontière
+    départementale. Une commune de site dont le contour manque est signalée,
+    jamais remplacée par une approximation.
+    """
+    donnees = json.loads(COMMUNES.read_text(encoding="utf-8"))
+    lon_min, lon_max, lat_min, lat_max = boite
+
+    def anneaux(geometrie: dict) -> list[list]:
+        if geometrie["type"] == "Polygon":
+            return geometrie["coordinates"]
+        return [anneau for partie in geometrie["coordinates"] for anneau in partie]
+
+    avec_lieu = {site["commune"] for site in sites}
+    trouvees, noms_dessines = [], set()
+    for element in donnees["features"]:
+        rings = anneaux(element["geometry"])
+        touche = any(
+            lon_min <= x <= lon_max and lat_min <= y <= lat_max
+            for anneau in rings
+            for x, y in anneau
+        )
+        if not touche:
+            continue
+        noms_dessines.add(element["properties"]["nom"])
+        trouvees.append(
+            {
+                "nom": element["properties"]["nom"],
+                "code": element["properties"]["code"],
+                "porteUnLieu": element["properties"]["nom"] in avec_lieu,
+                "anneaux": [
+                    [[round(x, 5), round(y, 5)] for x, y in alleger(anneau, 160)]
+                    for anneau in rings
+                ],
+            }
+        )
+    return {
+        "communes": trouvees,
+        "sansContour": sorted(avec_lieu - noms_dessines),
+    }
+
+
 def emprise(sites: list[dict], marge: float = MARGE_DEGRES) -> tuple[float, float, float, float]:
     lons = [site["lon"] for site in sites]
     lats = [site["lat"] for site in sites]
@@ -407,36 +455,6 @@ def resume_systeme(sites: list[dict], liens: list[dict], chronologie: dict) -> d
         "nbEvenements": sum(len(chronologie.get(site["ref"], [])) for site in sites),
         "nbLiens": len(liens),
         "medianeEau": mediane,
-    }
-
-
-def geojson_systeme(sites: list[dict], eau: list[dict]) -> dict:
-    """Embarque les géométries de la Risle sans modifier les données sources."""
-    return {
-        "lieux": {
-            "type": "FeatureCollection",
-            "features": [
-                {
-                    "type": "Feature",
-                    "id": site["ref"],
-                    "properties": dict(site),
-                    "geometry": {"type": "Point", "coordinates": [site["lon"], site["lat"]]},
-                }
-                for site in sites
-            ],
-        },
-        "eau": {
-            "type": "FeatureCollection",
-            "features": [
-                {
-                    "type": "Feature",
-                    "id": troncon["id"],
-                    "properties": {"id": troncon["id"], "categorie": troncon["categorie"]},
-                    "geometry": {"type": "LineString", "coordinates": troncon["points"]},
-                }
-                for troncon in eau
-            ],
-        },
     }
 
 
@@ -499,10 +517,12 @@ def construire() -> dict:
             "chronologie": chronologie,
             "eau": hydrographie(sites, emprise(sites), 14, principale=code == "risle"),
             "resume": resume_systeme(sites, liens, chronologie),
+            # Marge plus large que l'emprise des lieux : le sol doit déborder du
+            # cadre, sinon un bord de commune apparaît comme une limite de carte.
+            "sol": contours_communes(sites, emprise(sites, MARGE_DEGRES * 3)),
         }
         if code == "risle":
             detail[code]["reperes"] = reperes_risle(detail[code]["eau"])
-            detail[code]["geojson"] = geojson_systeme(sites, detail[code]["eau"])
 
     autres = [
         {
@@ -587,6 +607,11 @@ def main() -> None:
         "autres_sites": len(donnees["departement"]["autresSites"]) == 146,
         "aucun_ecart_de_rattachement": not donnees["ecarts"],
         "contour_departemental_trouve": bool(donnees["departement"]["contour"]),
+        # Une commune sans contour laisserait un trou dans le sol de la carte
+        # sans que rien ne le signale à l'écran : le contrôle doit échouer.
+        "sol_complet": all(
+            not detail["sol"]["sansContour"] for detail in donnees["detail"].values()
+        ),
     }
 
     gabarit = GABARIT.read_text(encoding="utf-8")

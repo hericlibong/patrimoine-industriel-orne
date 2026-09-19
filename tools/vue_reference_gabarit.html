@@ -375,6 +375,23 @@ let coucheInterface = null;
 let zoomRisle = d3.zoomIdentity;
 let zoomComportement = null;
 
+/* La vallée de la Risle est une diagonale allongée : dans un cadre fixe et bas,
+   elle laisse des bandes vides au-dessus et au-dessous. Le cadre prend donc la
+   proportion de ce qu'il montre, entre deux bornes pour qu'il reste une carte
+   et non un bandeau. Les coordonnées et la projection sont inchangées. */
+function hauteurAjustee(code, sites, detail){
+  const points = code === "risle" && detail.reperes
+    ? sites.concat(detail.reperes.bourgs) : sites;
+  if (points.length < 2) return 560;
+  const lats = points.map(p => p.lat), lons = points.map(p => p.lon);
+  const cos = Math.cos((Math.min(...lats) + Math.max(...lats)) / 2 * Math.PI / 180);
+  const dx = (Math.max(...lons) - Math.min(...lons)) * cos;
+  const dy = Math.max(...lats) - Math.min(...lats);
+  if (!(dx > 0) || !(dy > 0)) return 560;
+  const utile = LARGEUR - 2*MARGE;
+  return Math.round(Math.max(360, Math.min(620, utile * dy/dx + 2*MARGE)));
+}
+
 function poserHauteur(hauteur){
   HAUTEUR = hauteur;
   CARTE.setAttribute("viewBox", `0 0 ${LARGEUR} ${HAUTEUR}`);
@@ -433,6 +450,7 @@ function viderCarte(){
   while (CARTE.firstChild) CARTE.removeChild(CARTE.firstChild);
   contenuCarte = null;
   coucheInterface = null;
+  systemeDessine = null;
 }
 
 function dessinerDepartement(){
@@ -521,129 +539,287 @@ function dessinerDepartement(){
   }
 }
 
+/* Courbe d'un lien : un trait droit entre deux usines voisines resterait
+   invisible, on l'écarte en arc pour qu'il se voie et se vise. */
+function arcRelation(depart, arrivee){
+  const [x1,y1] = projeter(depart.lon, depart.lat);
+  const [x2,y2] = projeter(arrivee.lon, arrivee.lat);
+  const ecartX = x2-x1, ecartY = y2-y1;
+  const longueur = Math.hypot(ecartX, ecartY) || 1;
+  const bombe = Math.min(26, Math.max(12, longueur * 0.28));
+  const controleX = (x1+x2)/2 - ecartY/longueur * bombe;
+  const controleY = (y1+y2)/2 + ecartX/longueur * bombe;
+  return {
+    d:`M${x1.toFixed(1)} ${y1.toFixed(1)} Q${controleX.toFixed(1)} `
+      + `${controleY.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`,
+    // Pointe posée un peu avant l'arrivée, pour ne pas chevaucher le point.
+    pointe: pointeArc(x1, y1, controleX, controleY, x2, y2),
+  };
+}
+
+/* Sens du lien : la source dit lequel des deux lieux travaillait pour l'autre,
+   et le panneau l'affiche déjà. La carte le taisait. */
+function pointeArc(x1, y1, cx, cy, x2, y2){
+  const t = 0.88;
+  const u = 1 - t;
+  const x = u*u*x1 + 2*u*t*cx + t*t*x2;
+  const y = u*u*y1 + 2*u*t*cy + t*t*y2;
+  const angle = Math.atan2(2*u*(cy-y1) + 2*t*(y2-cy), 2*u*(cx-x1) + 2*t*(x2-cx));
+  return {x, y, angle: angle * 180 / Math.PI};
+}
+
+/* L'eau est regroupée par catégorie : deux tracés au lieu de six cent cinquante.
+   Les identifiants des tronçons restent dans les données, où ils se vérifient ;
+   ils n'ont jamais servi à l'affichage, l'eau n'étant pas interactive. */
+const STYLE_EAU = {
+  principale: {couleur:"#3d7f9d", largeur:2.8, opacite:.9},
+  secondaire: {couleur:"#9dc0d4", largeur:1.2, opacite:.55},
+};
+
+function eauParCategorie(detail){
+  const paquets = {secondaire:[], principale:[]};
+  for (const troncon of detail.eau)
+    paquets[troncon.categorie === "principale" ? "principale" : "secondaire"]
+      .push(troncon.points);
+  const presentes = ["secondaire","principale"].filter(c => paquets[c].length);
+  const couche = categorie => ({categorie, nombre:paquets[categorie].length,
+    geometrie:{type:"MultiLineString", coordinates:paquets[categorie]}});
+  /* Chaque catégorie est tracée deux fois : une gaine claire qui la détache du
+     sol, puis le trait lui-même. Toutes les gaines passent avant tous les
+     traits, sinon la gaine de la Risle effacerait ses propres affluents. Les
+     branches d'abord, la rivière principale par-dessus. */
+  return presentes.map(c => ({...couche(c), role:"gaine"}))
+    .concat(presentes.map(c => ({...couche(c), role:"trait"})));
+}
+
+/* Un lien et sa gaine apparaissent et disparaissent avec les lieux qu'ils
+   relient, sans reconstruire la carte autour d'eux. */
+function fondreEntree(selection){
+  if (!DUREE) { selection.attr("opacity", 1); return; }
+  selection.filter(function(){ return this.getAttribute("opacity") === null; })
+    .attr("opacity", 0);
+  selection.transition().duration(DUREE).attr("opacity", 1);
+}
+
+function fondreSortie(sortie){
+  return DUREE
+    ? sortie.transition().duration(DUREE * .6).attr("opacity", 0).remove()
+    : sortie.remove();
+}
+
+let systemeDessine = null;
+
+/* La carte n'est plus effacée puis refaite à chaque geste : sa structure est
+   posée une fois par ensemble, puis chaque couche est mise à jour par D3 —
+   ce qui entre, ce qui sort, ce qui reste. C'est la condition pour qu'un
+   changement de métier puisse devenir un mouvement et non un clignotement. */
+function poserCouches(code){
+  viderCarte();
+  CARTE.appendChild(titreAccessible("", ""));
+  contenuCarte = el("g",{id:"contenuCarte"});
+  CARTE.appendChild(contenuCarte);
+  for (const id of ["solCommunes","coucheEau","coucheRelations","coucheLieux"])
+    contenuCarte.appendChild(el("g",{id,
+      "pointer-events": (id === "coucheRelations" || id === "coucheLieux") ? null : "none"}));
+  coucheInterface = el("g",{id:"coucheInterface","pointer-events":"none"});
+  CARTE.appendChild(coucheInterface);
+  systemeDessine = code;
+}
+
 function dessinerSysteme(code){
   const detail = D.detail[code];
   const definition = D.departement.systemes.find(s => s.code === code);
-  const sitesGeographiques = code === "risle" && detail.geojson
-    ? detail.geojson.lieux.features.map(feature => ({
-        ...feature.properties,
-        lon: feature.geometry.coordinates[0],
-        lat: feature.geometry.coordinates[1],
-      }))
-    : detail.sites;
-  const retenus = sitesGeographiques.filter(garde);
-  const aCadrer = retenus.length ? retenus : sitesGeographiques;
-  poserHauteur(560);
+  const sites = detail.sites;
+  const retenus = sites.filter(garde);
+  const aCadrer = retenus.length ? retenus : sites;
+  poserHauteur(hauteurAjustee(code, sites, detail));
   // Risle : emprise stable autorisée, mêmes 43 lieux et quatre bourgs à chaque état.
-  const pointsCadre = code === "risle" ? sitesGeographiques.concat(detail.reperes.bourgs) : aCadrer;
+  const pointsCadre = code === "risle" ? sites.concat(detail.reperes.bourgs) : aCadrer;
   cadrer(pointsCadre.map(s => [s.lon, s.lat]));
 
-  viderCarte();
-  CARTE.appendChild(titreAccessible(
-    `Carte de ${definition.nom}`,
-    `${retenus.length} lieu${retenus.length>1?"x":""} affiché${retenus.length>1?"s":""}
-     sur ${detail.sites.length}, et les cours d'eau qui les traversent`));
+  if (systemeDessine !== code) poserCouches(code);
+  document.getElementById("titreCarte").textContent = `Carte de ${definition.nom}`;
+  document.getElementById("descCarte").textContent =
+    `${retenus.length} lieu${retenus.length>1?"x":""} affiché${retenus.length>1?"s":""}`
+    + ` sur ${sites.length}, et les cours d'eau qui les traversent`;
 
-  contenuCarte = el("g",{id:"contenuCarte"});
-  CARTE.appendChild(contenuCarte);
-  coucheInterface = el("g",{id:"coucheInterface","pointer-events":"none"});
-  CARTE.appendChild(coucheInterface);
+  const chemin = d3.geoPath(projectionD3);
 
-  if(code === "risle" && detail.geojson && projectionD3){
-    const chemin = d3.geoPath(projectionD3);
-    for(const feature of detail.geojson.eau.features){
-      const principale = feature.properties.categorie === "principale";
-      ajouterCarte(el("path",{d:chemin(feature),fill:"none",
-        stroke:principale ? "#4f8fac" : "#8fb4cc",
-        "stroke-width":principale ? 2.2 : 1.3,
-        "stroke-opacity":principale ? .85 : .55,"stroke-linecap":"round",
-        "vector-effect":"non-scaling-stroke",
-        "data-troncon":feature.properties.id}));
-    }
-  } else {
-    for (const troncon of detail.eau){
-      const principale = troncon.categorie === "principale";
-      const d = troncon.points.map((p,i) => (i ? "L" : "M") + projeter(p[0],p[1]).map(v=>v.toFixed(1)).join(" ")).join(" ");
-      ajouterCarte(el("path",{d,fill:"none",stroke:principale ? "#4f8fac" : "#8fb4cc",
-        "stroke-width":principale ? 2.2 : 1.3,"stroke-opacity":principale ? .85 : .55,
-        "stroke-linecap":"round","vector-effect":"non-scaling-stroke","data-troncon":troncon.id}));
-    }
+  /* Le sol : les communes qui touchent le cadre, sous tout le reste. Une limite
+     administrative d'aujourd'hui, pas une emprise historique. */
+  d3.select("#solCommunes").selectAll("path")
+    .data(detail.sol ? detail.sol.communes : [], commune => commune.code)
+    .join("path")
+      .attr("d", commune => chemin({type:"Polygon", coordinates:commune.anneaux}))
+      .attr("fill", "#f3f1ea").attr("stroke", "#e2ded2").attr("stroke-width", 1)
+      .attr("vector-effect", "non-scaling-stroke")
+      .attr("data-commune", commune => commune.code);
+
+  d3.select("#coucheEau").selectAll("path")
+    .data(eauParCategorie(detail), couche => couche.role + "-" + couche.categorie)
+    .join("path")
+      .attr("d", couche => chemin(couche.geometrie))
+      .attr("fill", "none").attr("stroke-linecap", "round").attr("stroke-linejoin", "round")
+      .attr("vector-effect", "non-scaling-stroke")
+      .attr("data-eau", couche => couche.categorie)
+      .attr("data-role", couche => couche.role)
+      .attr("data-troncons", couche => couche.nombre)
+      .attr("stroke", couche => couche.role === "gaine"
+        ? "#fbfaf6" : STYLE_EAU[couche.categorie].couleur)
+      .attr("stroke-width", couche => STYLE_EAU[couche.categorie].largeur
+        + (couche.role === "gaine" ? 2.4 : 0))
+      .attr("stroke-opacity", couche => couche.role === "gaine"
+        ? .85 : STYLE_EAU[couche.categorie].opacite);
+
+  /* Un lien dont une extrémité est masquée par le filtre n'est plus lisible :
+     il flotterait sans ses usines. */
+  const parReference = Object.fromEntries(sites.map(s => [s.ref, s]));
+  const liens = detail.liens
+    .map((lien, index) => ({lien, index,
+      depart:parReference[lien.de], arrivee:parReference[lien.vers]}))
+    .filter(l => l.depart && l.arrivee && garde(l.depart) && garde(l.arrivee));
+
+  for (const l of liens) l.arc = arcRelation(l.depart, l.arrivee);
+
+  /* Le lien est tracé trois fois : une gaine claire qui le détache de l'eau et
+     du sol, le trait lui-même, puis sa pointe. Le pointillé reste : une
+     relation est établie par une phrase, elle ne se mesure pas. */
+  d3.select("#coucheRelations").selectAll("path.relation-gaine")
+    .data(liens, l => l.index)
+    .join(entree => entree.append("path").attr("class", "relation-gaine"),
+      mise => mise, fondreSortie)
+      .attr("fill", "none")
+      .attr("pointer-events", "none")
+      .attr("vector-effect", "non-scaling-stroke")
+      .attr("stroke", "#fbfaf6").attr("stroke-opacity", .85)
+      .attr("d", l => l.arc.d)
+      .attr("stroke-width", l => etat.lien === l.index ? 6.4 : 4.6)
+      .call(fondreEntree);
+
+  d3.select("#coucheRelations").selectAll("path.relation")
+    .data(liens, l => l.index)
+    .join(entree => entree.append("path")
+        .attr("class", "relation").attr("fill", "none")
+        .attr("vector-effect", "non-scaling-stroke")
+        .attr("tabindex", "0").attr("role", "button")
+        .on("click", (evenement, l) => montrerRelation(code, l.index))
+        .on("keydown", (evenement, l) => {
+          if (evenement.key === "Enter" || evenement.key === " "){
+            evenement.preventDefault(); montrerRelation(code, l.index);
+          }
+        }), mise => mise, fondreSortie)
+      .attr("d", l => l.arc.d)
+      .attr("stroke", l => etat.lien === l.index ? "#9a3412" : "#6f6455")
+      .attr("stroke-width", l => etat.lien === l.index ? 2.8 : 2)
+      .attr("stroke-dasharray", l => etat.lien === l.index ? null : "6 4")
+      .attr("aria-label", l => `Lien documenté : ${l.depart.nomCourt} vers `
+        + `${l.arrivee.nomCourt}. Afficher la phrase qui l'établit.`)
+      .call(fondreEntree);
+
+  d3.select("#coucheRelations").selectAll("path.relation-pointe")
+    .data(liens, l => l.index)
+    .join(entree => entree.append("path").attr("class", "relation-pointe"),
+      mise => mise, fondreSortie)
+      .attr("pointer-events", "none")
+      .attr("d", "M0 0 L-7 3.2 L-7 -3.2 Z")
+      .attr("data-taille-base", 1)
+      .attr("stroke", "#fbfaf6").attr("stroke-width", .8)
+      .attr("vector-effect", "non-scaling-stroke")
+      .attr("fill", l => etat.lien === l.index ? "#9a3412" : "#6f6455")
+      .attr("data-ancre", l => `${l.arc.pointe.x},${l.arc.pointe.y},${l.arc.pointe.angle}`)
+      .call(fondreEntree);
+
+  const lieux = etat.metier ? retenus : sites;
+  d3.select("#coucheLieux").selectAll("circle")
+    .data(lieux, site => site.ref)
+    .join(entree => {
+        const cercles = entree.append("circle")
+          .attr("class", "site").attr("stroke", "#fffefb").attr("stroke-width", 1.9)
+          .attr("vector-effect", "non-scaling-stroke")
+          .attr("tabindex", "0").attr("role", "button")
+          .on("click", (evenement, site) => allerAuSite(site.ref))
+          .on("keydown", (evenement, site) => {
+            if (evenement.key === "Enter" || evenement.key === " "){
+              evenement.preventDefault(); allerAuSite(site.ref);
+            }
+          });
+        if (code === "risle") cercles
+          .on("mouseenter", (evenement, site) => changerIdentification(site.ref, "hover"))
+          .on("mouseleave", () => changerIdentification(null, "hover"))
+          .on("focus", function(evenement, site){
+            this.classList.add("identifie-focus");
+            changerIdentification(site.ref, "focus");
+          })
+          .on("blur", function(){
+            this.classList.remove("identifie-focus");
+            changerIdentification(null, "focus");
+          });
+        /* Un lieu qui apparaît sort de son point, un lieu qui part y rentre :
+           le changement de métier se lit comme un mouvement, pas comme un
+           clignotement. Le rayon visé est posé juste après par la mise à jour. */
+        return cercles.attr("r", 0).attr("opacity", 0);
+      },
+      mise => mise,
+      sortie => DUREE
+        ? sortie.transition().duration(DUREE * .6)
+            .attr("r", 0).attr("opacity", 0).remove()
+        : sortie.remove())
+      .attr("data-taille-base", site => etat.site === site.ref ? 10 : 7)
+      .attr("aria-label", site => `${site.nomCourt}, ${site.commune}. Ouvrir cette fiche.`)
+      .call(selection => (DUREE ? selection.transition().duration(DUREE) : selection)
+        .attr("cx", site => projeter(site.lon, site.lat)[0].toFixed(1))
+        .attr("cy", site => projeter(site.lon, site.lat)[1].toFixed(1))
+        .attr("r", site => (etat.site === site.ref ? 10 : 7) / (zoomRisle ? zoomRisle.k : 1))
+        .attr("opacity", 1)
+        .attr("fill", site => etat.site === site.ref ? "#9a3412" : "#c2703f"));
+
+  ajusterTailleZoom(zoomRisle, false);
+}
+
+function montrerRelation(code, index){
+  etat.lien = etat.lien === index ? null : index;
+  if (etat.lien !== null){
+    accordeons[code] = accordeons[code] || {lieux:false, relations:false};
+    accordeons[code].relations = true;
+    const bloc = document.querySelector('details[data-accordeon="relations"]');
+    if (bloc) bloc.open = true;
   }
+  rendre();
+}
 
-  const parReference = Object.fromEntries(sitesGeographiques.map(s => [s.ref, s]));
-  for (const [index, lien] of detail.liens.entries()){
-    const depart = parReference[lien.de], arrivee = parReference[lien.vers];
-    if (!depart || !arrivee) continue;
-    /* Un lien dont une extrémité est masquée par le filtre n'est plus lisible :
-       il flotterait sans ses usines. */
-    if (!garde(depart) || !garde(arrivee)) continue;
-    const [x1,y1] = projeter(depart.lon, depart.lat);
-    const [x2,y2] = projeter(arrivee.lon, arrivee.lat);
-    const actif = etat.lien === index;
-    /* Un lien court entre deux usines voisines resterait invisible en ligne droite :
-       on l'écarte en arc pour qu'il se voie et se vise. */
-    const milieuX = (x1+x2)/2, milieuY = (y1+y2)/2;
-    const ecartX = x2-x1, ecartY = y2-y1;
-    const longueur = Math.hypot(ecartX, ecartY) || 1;
-    const bombe = Math.min(26, Math.max(12, longueur * 0.28));
-    const controleX = milieuX - ecartY/longueur * bombe;
-    const controleY = milieuY + ecartX/longueur * bombe;
-    const trace = el("path",{
-      d:`M${x1.toFixed(1)} ${y1.toFixed(1)} Q${controleX.toFixed(1)} ${controleY.toFixed(1)}`
-        + ` ${x2.toFixed(1)} ${y2.toFixed(1)}`,
-      stroke: actif ? "#9a3412" : "#7a736a", "stroke-width": actif ? 2.8 : 1.6,
-      "stroke-dasharray": actif ? null : "5 4", "vector-effect":"non-scaling-stroke",
-      fill:"none", class:"relation",
-      tabindex:"0", role:"button",
-      "aria-label":`Lien documenté : ${depart.nomCourt} vers ${arrivee.nomCourt}. Afficher la phrase qui l'établit.`});
-    const montrer = () => {
-      etat.lien = etat.lien === index ? null : index;
-      if (etat.lien !== null){
-        accordeons[code] = accordeons[code] || {lieux:false, relations:false};
-        accordeons[code].relations = true;
-        const bloc = document.querySelector('details[data-accordeon="relations"]');
-        if (bloc) bloc.open = true;
-      }
-      rendre();
-    };
-    trace.addEventListener("click", montrer);
-    trace.addEventListener("keydown", evenement => {
-      if (evenement.key === "Enter" || evenement.key === " "){ evenement.preventDefault(); montrer(); }
-    });
-    ajouterCarte(trace);
+/* Occupation de la carte, rasterisée puis cumulée en tableau de sommes.
+   Une case vaut une unité SVG : le test « cette boîte touche-t-elle quelque
+   chose ? » coûte quatre lectures au lieu d'un parcours de tous les obstacles.
+   La grille est conservatrice d'au plus une unité : elle ne libère jamais une
+   place occupée, elle peut refuser une place libre au pixel près. */
+const GRILLE_PAS = 2;
+function libreSelonGrille(obstacles){
+  const colonnes = Math.ceil(LARGEUR / GRILLE_PAS) + 1;
+  const lignes = Math.ceil(HAUTEUR / GRILLE_PAS) + 1;
+  const cumul = new Int32Array((colonnes + 1) * (lignes + 1));
+  const borne = (valeur, maximum) => Math.max(0, Math.min(maximum, valeur));
+  for(const obstacle of obstacles){
+    const c0 = borne(Math.floor(obstacle.x0 / GRILLE_PAS), colonnes - 1);
+    const c1 = borne(Math.ceil(obstacle.x1 / GRILLE_PAS), colonnes - 1);
+    const l0 = borne(Math.floor(obstacle.y0 / GRILLE_PAS), lignes - 1);
+    const l1 = borne(Math.ceil(obstacle.y1 / GRILLE_PAS), lignes - 1);
+    for(let l = l0; l <= l1; l++)
+      for(let c = c0; c <= c1; c++) cumul[(l + 1) * (colonnes + 1) + c + 1] = 1;
   }
-
-  for (const site of sitesGeographiques){
-    const retenu = garde(site);
-    if (!retenu && etat.metier) continue;
-    const [x,y] = projeter(site.lon, site.lat);
-    const choisi = etat.site === site.ref;
-    const cercle = el("circle",{cx:x.toFixed(1),cy:y.toFixed(1),
-      r: choisi ? 8 : 5.5, class:"site",
-      "data-taille-base": choisi ? 8 : 5.5,
-      fill: choisi ? "#9a3412" : "#c2703f", stroke:"#fffefb","stroke-width":1.4,
-      "vector-effect":"non-scaling-stroke",
-      tabindex:"0", role:"button",
-      "aria-label":`${site.nomCourt}, ${site.commune}. Ouvrir cette fiche.`});
-    const ouvrir = () => allerAuSite(site.ref);
-    cercle.addEventListener("click", ouvrir);
-    if(code === "risle"){
-      cercle.addEventListener("mouseenter", () => changerIdentification(site.ref, "hover"));
-      cercle.addEventListener("mouseleave", () => changerIdentification(null, "hover"));
-      cercle.addEventListener("focus", () => {
-        if(cercle.classList)cercle.classList.add("identifie-focus");
-        changerIdentification(site.ref, "focus");
-      });
-      cercle.addEventListener("blur", () => {
-        if(cercle.classList)cercle.classList.remove("identifie-focus");
-        changerIdentification(null, "focus");
-      });
-    }
-    cercle.addEventListener("keydown", evenement => {
-      if (evenement.key === "Enter" || evenement.key === " "){ evenement.preventDefault(); ouvrir(); }
-    });
-    ajouterCarte(cercle);
-  }
+  for(let l = 1; l <= lignes; l++)
+    for(let c = 1; c <= colonnes; c++)
+      cumul[l * (colonnes + 1) + c] += cumul[(l - 1) * (colonnes + 1) + c]
+        + cumul[l * (colonnes + 1) + c - 1] - cumul[(l - 1) * (colonnes + 1) + c - 1];
+  const somme = (c0, l0, c1, l1) =>
+    cumul[(l1 + 1) * (colonnes + 1) + c1 + 1] - cumul[l0 * (colonnes + 1) + c1 + 1]
+    - cumul[(l1 + 1) * (colonnes + 1) + c0] + cumul[l0 * (colonnes + 1) + c0];
+  return (x, y, largeur, hauteur) => {
+    const c0 = borne(Math.floor(x / GRILLE_PAS), colonnes - 1);
+    const c1 = borne(Math.ceil((x + largeur) / GRILLE_PAS), colonnes - 1);
+    const l0 = borne(Math.floor(y / GRILLE_PAS), lignes - 1);
+    const l1 = borne(Math.ceil((y + hauteur) / GRILLE_PAS), lignes - 1);
+    return somme(c0, l0, c1, l1) === 0;
+  };
 }
 
 /* SVG-2 : seules les étiquettes sont décalées ; signes aux coordonnées sources. */
@@ -654,8 +830,17 @@ function dessinerReperesRisle(){
   largeurReperes = largeur;
   const echelle = LARGEUR / (largeur || LARGEUR);
   const taille = Math.max(14, 12 * echelle), marge = Math.max(6, 3 * echelle);
+  // La carte n'étant plus effacée, les groupes précédents doivent l'être ici.
+  for (const id of ["reperesRisle","nomsReperesRisle"]){
+    const ancien = document.getElementById(id);
+    if (ancien) ancien.remove();
+  }
+  // Les signes restent sur le terrain ; les noms passent en surface, où ils
+  // gardent leur taille et leur distance à leur signe quel que soit le zoom.
   const groupe = el("g",{id:"reperesRisle","pointer-events":"none"});
   ajouterCarte(groupe);
+  const groupeNoms = el("g",{id:"nomsReperesRisle","pointer-events":"none"});
+  if (coucheInterface) coucheInterface.appendChild(groupeNoms);
   const obstacles = [], boites = [];
   const obstacle = (x,y,r) => obstacles.push({x0:x-r,x1:x+r,y0:y-r,y1:y+r});
   // Réserver tous les lieux et relations, même filtrés : éviter le déplacement
@@ -675,7 +860,9 @@ function dessinerReperesRisle(){
   detail.reperes.bourgs.forEach(bourg=>{
     const [x,y]=projeter(bourg.lon,bourg.lat); obstacle(x,y,6);
     groupe.appendChild(el("rect",{x:x-3,y:y-3,width:6,height:6,fill:"#3f4a5a",
-      stroke:"#fffefb","stroke-width":1,"data-bourg":bourg.idBAN}));
+      stroke:"#fffefb","stroke-width":1,"vector-effect":"non-scaling-stroke",
+      "data-bourg":bourg.idBAN,"data-centre-x":x,"data-centre-y":y,
+      "data-taille-base":6}));
   });
   const annotation=document.getElementById("annotation");
   if(!annotation.hidden && annotation.getBoundingClientRect && CARTE.getBoundingClientRect){
@@ -686,6 +873,7 @@ function dessinerReperesRisle(){
   const recouvre = (a,b) => a.x0<b.x1 && a.x1>b.x0 && a.y0<b.y1 && a.y1>b.y0;
   // Le nom le plus long est placé d'abord ; les quatre autres restent proches
   // de leur ancrage lorsque l'espace disponible le permet.
+  const occupation = libreSelonGrille(obstacles);
   const reperes = detail.reperes.bourgs.concat(detail.reperes.riviere)
     .slice().sort((a,b)=>b.nom.length-a.nom.length);
   for(const repere of reperes){
@@ -694,7 +882,8 @@ function dessinerReperesRisle(){
     const texte=el("text",{"font-size":taille,"font-family":"Arial, sans-serif",
       "font-style":riviere?"italic":"normal",fill:riviere?"#4f8fac":"#20222a",
       "paint-order":"stroke",stroke:"#fbfaf6","stroke-width":2,
-      "stroke-linejoin":"round","data-repere":repere.nom,"data-taille-base":taille});
+      "stroke-linejoin":"round","data-repere":repere.nom,"data-taille-base":taille,
+      "data-ancre":`${x},${y}`});
     const lignes=largeur<480 && repere.nom==="Sainte-Gauburge-Sainte-Colombe"
       ? ["Sainte-Gauburge-","Sainte-Colombe"] : [repere.nom];
     const spans=[];
@@ -703,25 +892,32 @@ function dessinerReperesRisle(){
       const span=el("tspan",{x:0,dy:i?taille*1.15:0});span.textContent=ligne;
       texte.appendChild(span);spans.push(span);
     });
-    groupe.appendChild(texte);
+    groupeNoms.appendChild(texte);
     // getBBox mesure la police du navigateur ; estimation conservatrice pour
     // les contrôles DOM simulés, qui ne constituent pas un jugement visuel.
     const mesure=texte.getBBox ? texte.getBBox() : {
       width:Math.max(...lignes.map(ligne=>ligne.length))*taille*.62,
       height:taille*(1.2+1.15*(lignes.length-1))};
     const w=mesure.width+2*marge,h=mesure.height+2*marge;
-    const candidats=[];
-    const reserves=obstacles.concat(boites);
-    for(let yy=marge;yy+h<=HAUTEUR-marge;yy+=Math.max(6,taille/3)){
-      for(let xx=marge;xx+w<=LARGEUR-marge;xx+=Math.max(6,taille/3)){
-        const boite={x0:xx,x1:xx+w,y0:yy,y1:yy+h};
-        if(reserves.some(b=>recouvre(boite,b)))continue;
+    /* Le balayage teste chaque position contre chaque obstacle : à quelques
+       centaines d'obstacles et quelques dizaines de milliers de positions, il
+       gelait l'affichage. L'occupation est donc rasterisée une fois par nom,
+       puis cumulée : savoir si une boîte est libre devient une soustraction.
+       Les positions examinées et le choix final restent les mêmes. */
+    const pas=Math.max(6,taille/3);
+    let choix=null;
+    for(let yy=marge;yy+h<=HAUTEUR-marge;yy+=pas){
+      for(let xx=marge;xx+w<=LARGEUR-marge;xx+=pas){
+        if(!occupation(xx,yy,w,h))continue;
+        // Les noms déjà posés sont peu nombreux : test direct, sans rasterisation.
+        const boite0={x0:xx,x1:xx+w,y0:yy,y1:yy+h};
+        if(boites.some(b=>recouvre(boite0,b)))continue;
         const px=Math.max(xx,Math.min(x,xx+w)),py=Math.max(yy,Math.min(y,yy+h));
-        candidats.push({boite,score:Math.hypot(x-px,y-py)+Math.hypot(x-xx-w/2,y-yy-h/2)*.12});
+        const score=Math.hypot(x-px,y-py)+Math.hypot(x-xx-w/2,y-yy-h/2)*.12;
+        if(!choix||score<choix.score)
+          choix={boite:{x0:xx,x1:xx+w,y0:yy,y1:yy+h},score};
       }
     }
-    candidats.sort((a,b)=>a.score-b.score);
-    const choix=candidats[0];
     if(!choix){
       // Ne jamais masquer silencieusement un nom en cas de fenêtre trop petite.
       texte.setAttribute("x",marge);texte.setAttribute("y",taille+marge);
@@ -732,11 +928,39 @@ function dessinerReperesRisle(){
     }
     boites.push(choix.boite);
     const texteX=choix.boite.x0+marge-(mesure.x||0);
+    const texteY=choix.boite.y0+marge-(mesure.y===undefined?-taille:mesure.y);
     texte.setAttribute("x",texteX);
     spans.forEach(span=>span.setAttribute("x",texteX));
-    texte.setAttribute("y",choix.boite.y0+marge-(mesure.y===undefined?-taille:mesure.y));
+    texte.setAttribute("y",texteY);
     texte.setAttribute("data-boite",JSON.stringify(choix.boite));
+    /* Le nom garde sa distance à son signe : en zoomant, il le suivait
+       auparavant à la distance multipliée, et finissait hors du cadre. */
+    texte.setAttribute("data-decalage",`${(texteX-x).toFixed(1)},${(texteY-y).toFixed(1)}`);
   }
+  positionnerNomsReperes();
+}
+
+/* Les noms de repères vivent dans la couche non transformée : leur position est
+   celle de leur signe vue par le zoom courant, plus un décalage constant à
+   l'écran. Un nom dont le signe est sorti du cadre est masqué. */
+function positionnerNomsReperes(){
+  const groupe = document.getElementById("nomsReperesRisle");
+  if(!groupe || !zoomRisle) return;
+  groupe.querySelectorAll("text[data-repere]").forEach(texte => {
+    const [ax, ay] = (texte.dataset.ancre || "0,0").split(",").map(Number);
+    const [dx, dy] = (texte.dataset.decalage || "0,0").split(",").map(Number);
+    const [x, y] = zoomRisle.apply([ax, ay]);
+    if(x < -40 || x > LARGEUR + 40 || y < -40 || y > HAUTEUR + 40){
+      texte.setAttribute("visibility", "hidden");
+      return;
+    }
+    texte.removeAttribute("visibility");
+    const posX = Math.max(4, Math.min(LARGEUR - 8, x + dx));
+    const posY = Math.max(12, Math.min(HAUTEUR - 4, y + dy));
+    texte.setAttribute("x", posX.toFixed(1));
+    texte.setAttribute("y", posY.toFixed(1));
+    texte.querySelectorAll("tspan").forEach(span => span.setAttribute("x", posX.toFixed(1)));
+  });
 }
 
 let pointIdentification = {hover:null, focus:null};
@@ -810,17 +1034,32 @@ function changerIdentification(reference, origine){
 }
 
 /* -------------------------------------------------------------- zoom Risle */
-function ajusterTailleZoom(transform){
+/* `inclureLieux` est faux juste après un rendu : les points y sont déjà animés
+   vers leur taille compensée, et les écraser ici tuerait leur apparition. */
+function ajusterTailleZoom(transform, inclureLieux = true){
   const k = transform.k || 1;
   if (!contenuCarte) return;
-  contenuCarte.querySelectorAll("circle.site").forEach(cercle => {
-    const base = Number(cercle.dataset.tailleBase || 5.5);
+  if (inclureLieux) contenuCarte.querySelectorAll("circle.site").forEach(cercle => {
+    const base = Number(cercle.dataset.tailleBase || 7);
     cercle.setAttribute("r", (base / k).toFixed(2));
   });
-  contenuCarte.querySelectorAll("text[data-repere]").forEach(texte => {
-    const base = Number(texte.dataset.tailleBase || 12);
-    texte.setAttribute("font-size", (base / k).toFixed(2));
-    texte.setAttribute("stroke-width", (2 / k).toFixed(2));
+  /* Les noms de repères ne sont plus ici : ils vivent en surface et se
+     replacent par positionnerNomsReperes(), donc sans compensation de taille. */
+  /* Les pointes de lien sont posées et orientées ici, et gardent leur taille
+     d'écran comme les points et les noms. */
+  contenuCarte.querySelectorAll("path.relation-pointe").forEach(pointe => {
+    const [x, y, angle] = (pointe.dataset.ancre || "0,0,0").split(",").map(Number);
+    pointe.setAttribute("transform",
+      `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${angle.toFixed(1)}) scale(${(1/k).toFixed(3)})`);
+  });
+  /* Les signes de localité sont dans le groupe transformé : sans compensation,
+     un carré de 6 unités en occupe 36 à zoom maximal. */
+  contenuCarte.querySelectorAll("rect[data-bourg]").forEach(carre => {
+    const base = Number(carre.dataset.tailleBase || 6) / k;
+    carre.setAttribute("width", base.toFixed(2));
+    carre.setAttribute("height", base.toFixed(2));
+    carre.setAttribute("x", (Number(carre.dataset.centreX) - base / 2).toFixed(2));
+    carre.setAttribute("y", (Number(carre.dataset.centreY) - base / 2).toFixed(2));
   });
 }
 
@@ -828,7 +1067,61 @@ function appliquerZoomRisle(evenement){
   zoomRisle = evenement.transform;
   if (contenuCarte) contenuCarte.setAttribute("transform", zoomRisle);
   ajusterTailleZoom(zoomRisle);
+  positionnerNomsReperes();
+  etiquettesLieux();
   positionnerBulleIdentification();
+}
+
+/* L'approche : en vue générale la carte reste sobre, sans un nom d'usine ;
+   passé un seuil de zoom, les lieux visibles prennent leur nom. Les étiquettes
+   sont posées en surface, à taille d'écran constante, et celles qui se
+   recouvriraient sont omises plutôt que superposées. */
+const SEUIL_NOMS_LIEUX = 2.2;
+function etiquettesLieux(){
+  if(!coucheInterface) return;
+  let groupe = document.getElementById("nomsLieux");
+  if(!groupe){
+    groupe = el("g",{id:"nomsLieux","pointer-events":"none"});
+    coucheInterface.appendChild(groupe);
+  }
+  while (groupe.firstChild) groupe.removeChild(groupe.firstChild);
+  const k = zoomRisle ? zoomRisle.k : 1;
+  if(etat.systeme !== "risle" || etat.niveau === "departement" || k < SEUIL_NOMS_LIEUX) return;
+
+  const occupes = [];
+  const libre = boite => !occupes.some(autre =>
+    boite.x0 < autre.x1 && boite.x1 > autre.x0 && boite.y0 < autre.y1 && boite.y1 > autre.y0);
+  // Les points eux-mêmes sont réservés : un nom ne doit pas couvrir un lieu.
+  const visibles = [];
+  for(const site of D.detail.risle.sites){
+    if(!garde(site)) continue;
+    const [x,y] = zoomRisle.apply(projeter(site.lon, site.lat));
+    if(x < 0 || x > LARGEUR || y < 0 || y > HAUTEUR) continue;
+    occupes.push({x0:x-9, x1:x+9, y0:y-9, y1:y+9});
+    visibles.push({site, x, y});
+  }
+  // Le lieu ouvert d'abord, puis de gauche à droite : ordre stable au zoom.
+  visibles.sort((a,b) => (etat.site === b.site.ref) - (etat.site === a.site.ref) || a.x - b.x);
+
+  for(const {site, x, y} of visibles){
+    const texte = site.nomCourt;
+    const largeur = texte.length * 6.1 + 6, hauteur = 15;
+    const essais = [[12,4],[-12-largeur,4],[0,-12],[0,20]];
+    for(const [dx,dy] of essais){
+      const gauche = dx === 0 ? x - largeur/2 : x + dx;
+      const boite = {x0:gauche, x1:gauche+largeur, y0:y+dy-11, y1:y+dy+4};
+      if(boite.x0 < 2 || boite.x1 > LARGEUR-2 || boite.y0 < 2 || boite.y1 > HAUTEUR-2) continue;
+      if(!libre(boite)) continue;
+      occupes.push(boite);
+      const noeud = el("text",{x:(gauche+3).toFixed(1), y:(y+dy).toFixed(1),
+        "font-size":12, "font-family":"Arial, sans-serif", fill:"#20222a",
+        "paint-order":"stroke", stroke:"#fbfaf6", "stroke-width":2.6,
+        "stroke-linejoin":"round", "data-lieu":site.ref});
+      noeud.textContent = texte;
+      groupe.appendChild(noeud);
+      break;
+    }
+  }
 }
 
 function installerZoomRisle(){
@@ -861,15 +1154,27 @@ function afficherCommandesZoom(){
   else desinstallerZoom();
 }
 
+/* Un lecteur qui perd de vue d'où il vient ne sait plus où il est : les
+   commandes déplacent la carte au lieu de la faire sauter. La préférence
+   système « moins d'animations » est respectée — le mouvement redevient
+   instantané pour qui l'a demandé. */
+const MOINS_DE_MOUVEMENT = typeof matchMedia === "function"
+  && matchMedia("(prefers-reduced-motion: reduce)").matches;
+const DUREE = MOINS_DE_MOUVEMENT ? 0 : 420;
+
+function commandeZoom(){
+  const selection = d3.select(CARTE);
+  return DUREE ? selection.transition().duration(DUREE) : selection;
+}
+
 function zoomerRisle(facteur){
   if (!zoomComportement || etat.systeme !== "risle") return;
-  d3.select(CARTE).call(zoomComportement.scaleBy, facteur,
-    [LARGEUR / 2, HAUTEUR / 2]);
+  commandeZoom().call(zoomComportement.scaleBy, facteur, [LARGEUR / 2, HAUTEUR / 2]);
 }
 
 function vueInitialeRisle(){
   if (!zoomComportement || etat.systeme !== "risle") return;
-  d3.select(CARTE).call(zoomComportement.transform, d3.zoomIdentity);
+  commandeZoom().call(zoomComportement.transform, d3.zoomIdentity);
 }
 
 if(typeof ResizeObserver !== "undefined"){
@@ -1218,22 +1523,32 @@ function rendreLegende(){
   } else {
     const categories = new Set(D.detail[etat.systeme].eau.map(troncon => troncon.categorie));
     const eau = [
-      ["principale", "#4f8fac", 2.2, .85, "rivière principale"],
-      ["secondaire", "#8fb4cc", 1.3, .55,
-        categories.has("principale") ? "branches secondaires" : "cours d'eau"],
-    ].filter(([categorie]) => categories.has(categorie)).map(([, couleur, largeur, opacite, texte]) =>
+      ["principale", "rivière principale"],
+      ["secondaire", categories.has("principale") ? "branches secondaires" : "cours d'eau"],
+    ].filter(([categorie]) => categories.has(categorie)).map(([categorie, texte]) =>
       `<span><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4"
-        stroke="${couleur}" stroke-width="${largeur}" stroke-opacity="${opacite}"/></svg>${texte}</span>`
+        stroke="${STYLE_EAU[categorie].couleur}" stroke-width="${STYLE_EAU[categorie].largeur}"
+        stroke-opacity="${STYLE_EAU[categorie].opacite}"/></svg>${texte}</span>`
     ).join("");
+    // La légende ne montre que des signes réellement présents : Crulai n'a
+    // aucune relation documentée, elle ne doit donc pas en annoncer.
+    const lien = D.detail[etat.systeme].liens.length
+      ? `<span><svg width="30" height="8"><line x1="0" y1="4" x2="22" y2="4"
+        stroke="#6f6455" stroke-width="2" stroke-dasharray="6 4"/><path d="M28 4 L21 7.2 L21 0.8 Z"
+        fill="#6f6455"/></svg>lien établi par une source, du premier lieu vers le second</span>`
+      : "";
     legende.innerHTML = `
       <span><i style="background:#c2703f"></i>lieu industriel</span>
-      <span><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4"
-        stroke="#8d8578" stroke-width="1.4" stroke-dasharray="5 4"/></svg>lien établi par une source</span>
+      ${lien}
       ${eau}
 `;
     source.innerHTML = `Sources : Inventaire du patrimoine industriel de l'Orne ·
-      hydrographie IGN.<br>Les points situent les lieux selon la précision indiquée
-      dans chaque fiche.`;
+      hydrographie et contours communaux IGN et API Géo.<br>Les points situent les
+      lieux selon la précision indiquée dans chaque fiche.<br><b>Le fond de carte
+      décrit la situation actuelle</b> — cours d'eau, communes et repères de bourg
+      d'aujourd'hui — et non celle de la période industrielle. Les biefs, canaux
+      d'amenée et retenues de moulin qui faisaient tourner ces usines ont disparu
+      des relevés modernes : ils ne figurent pas sur cette carte.`;
     if(etat.systeme === "risle"){
       legende.innerHTML += `<span><svg width="12" height="12"><rect x="3" y="3"
         width="6" height="6" fill="#3f4a5a"/></svg>localité — repère d'adresse ou de place</span>`;
@@ -1264,6 +1579,7 @@ function rendre(){
   else dessinerSysteme(etat.systeme);
   annoter();
   if(etat.systeme === "risle" && etat.niveau !== "departement") dessinerReperesRisle();
+  if(etat.niveau !== "departement") etiquettesLieux();
   afficherCommandesZoom();
   const panneau = document.getElementById("panneau");
   panneau.innerHTML = etat.niveau === "departement" ? panneauDepartement()
