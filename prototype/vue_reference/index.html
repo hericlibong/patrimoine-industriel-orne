@@ -1745,14 +1745,24 @@ function allerAuSysteme(code){
   if (descenteEnCours) return;
   const nom = D.departement.systemes.find(s => s.code === code).nom;
   const entrer = uneSeuleFois(() => {
+    /* Couper la transition de départ avant tout. Sans cela elle continuait de
+       tourner et appliquait le zoom du département — calculé sur son cadre et
+       ses coordonnées — à la carte de l'ensemble qui venait d'apparaître : la
+       vue sautait, et arrivait démesurément réduite. */
+    d3.select(CARTE).interrupt();
     descenteEnCours = false;
     etat.niveau = "systeme"; etat.systeme = code; etat.site = null; etat.lien = null;
     accordeons[code] = {lieux:false, relations:false};
-    // On arrive de plus près, puis la vue se pose sur son cadrage d'origine.
-    zoomCarte = DUREE ? transformeSur(LARGEUR / 2, HAUTEUR / 2, ZOOM_ARRIVEE)
-      : d3.zoomIdentity;
+    zoomCarte = d3.zoomIdentity;
     rendre();
-    if (DUREE) vueInitialeCarte();
+    /* L'arrivée ne se calcule qu'ici : avant le rendu, la hauteur du cadre est
+       encore celle de la vue quittée — 520 au département, 462 sur la Risle,
+       620 sur Crulai — et le point visé tombait à côté. */
+    if (DUREE && zoomComportement){
+      zoomCarte = transformeSur(LARGEUR / 2, HAUTEUR / 2, ZOOM_ARRIVEE);
+      d3.select(CARTE).call(zoomComportement.transform, zoomCarte);
+      vueInitialeCarte();
+    }
     annoncer(`Ensemble ouvert : ${nom}.`);
   });
 
@@ -1776,9 +1786,11 @@ function allerAuDepartement(){
   const quitte = etat.systeme;
   etat.niveau = "departement"; etat.systeme = null; etat.site = null; etat.lien = null;
   const systeme = quitte && D.departement.systemes.find(s => s.code === quitte);
+  d3.select(CARTE).interrupt();
   if (DUREE && systeme){
-    /* Le département est cadré avant d'être rendu, pour savoir où se trouve la
-       bulle que l'on quitte : la vue repart de cette bulle et s'élargit. */
+    /* Le département est cadré avant d'être rendu, pour connaître la position
+       de la bulle quittée : la vue repart d'elle et s'élargit. Le cadrage doit
+       précéder le calcul, la hauteur du cadre changeant d'une vue à l'autre. */
     cadrerDepartement();
     const [x, y] = projeter(systeme.lon, systeme.lat);
     zoomCarte = transformeSur(x, y, ZOOM_DESCENTE);

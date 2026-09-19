@@ -801,6 +801,34 @@ Vérifié après correction, en comptant les appels réels : clic sur une bulle,
 seule ouverture ; touche Entrée, une seule ; bouton de la liste du panneau, une
 seule. Les commandes de retour sont hors de la carte et n'ont pas ce risque.
 
+**Seconde correction de réception — la descente restait fautive.** Après le
+retrait du double clic, le porteur a constaté que le défaut subsistait et
+s'aggravait : une trace parasite sur la Risle, et surtout un ensemble arrivant
+démesurément réduit sur Crulai, points minuscules, carte inutilisable. Deux
+causes, toutes deux dans la descente.
+
+*La transition de départ n'était jamais coupée.* Quand la navigation s'achevait
+par la minuterie de sécurité, l'animation du département continuait de tourner
+et appliquait son zoom — calculé sur son cadre et ses coordonnées — à la carte
+de l'ensemble qui venait d'apparaître. La vue sautait puis dérivait.
+
+*La hauteur du cadre était celle de la vue quittée.* L'arrivée était calculée
+avant le rendu de la nouvelle carte, alors que la hauteur du cadre change d'une
+vue à l'autre : 520 au département, 462 sur la Risle, 620 sur Crulai. Le point
+visé tombait à côté, et l'écart était le plus grand pour Crulai — ce qui
+explique que ce soit là que le défaut était le pire.
+
+Corrigé : la transition de départ est coupée avant toute chose, et l'arrivée
+n'est calculée qu'après le rendu de la nouvelle vue. Le retour coupe également
+toute transition en cours.
+
+Vérifié après correction, dans le navigateur : Crulai arrive en 1000 × 620 avec
+une transformation neutre, 7 lieux au rayon normal ; la Risle en 1000 × 462,
+transformation neutre, 43 lieux, 5 liens, 4 tracés d'eau, 5 noms de repères,
+échelle 2 km, et **aucun résidu de la couche départementale** — ni bulle, ni
+point gris. Le retour au département revient en 1000 × 520, transformation
+neutre, 12 bulles et 146 lieux.
+
 **Reste ouvert :** la validation du porteur, et D4 — la vérification d'ensemble
 aux trois niveaux, clavier et tactile compris.
 
