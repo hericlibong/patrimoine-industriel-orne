@@ -31,10 +31,11 @@ sont au journal, à la date du 19 septembre.
 
 ## Ce qui reste — plan actif
 
-Trois blocs seulement. Le premier est le plus important : c'est le seul qui
-porte sur ce que le lecteur voit en arrivant.
+Quatre blocs. Les trois premiers portent sur la carte d'un ensemble ; le
+quatrième, ouvert le 19 septembre, aligne la carte du département sur ce qui a
+été établi là.
 
-### BLOC A — La première impression — PRIORITAIRE
+### BLOC A — La première impression — faite, en attente de jugement
 
 **Question à juger :** en arrivant sur un ensemble, le lecteur comprend-il ce
 qu'il regarde sans avoir à lire un paragraphe ?
@@ -73,7 +74,7 @@ minimum ; l'observateur de largeur n'était pas retenu et portait sur l'élémen
 SVG. La validation du porteur reste ouverte, ainsi que l'essai dans une vraie
 fenêtre étroite.
 
-### BLOC B — Lire les liens d'un lieu
+### BLOC B — Lire les liens d'un lieu — fait, en attente de jugement
 
 **Question à juger :** quand un lieu est ouvert, voit-on avec qui il
 travaillait ?
@@ -107,7 +108,7 @@ quinze lieux du groupe de L'Aigle sont désignés chacun par le leur. Le clavier
 conserve son parcours complet. Reste ouvert : le toucher sur appareil réel, et
 la validation du porteur.
 
-### BLOC C — Juger et transposer
+### BLOC C — Juger et transposer — fait, en attente de jugement
 
 **Question à juger :** cette carte est-elle la bonne, et que faut-il pour la
 onzième vallée ?
@@ -139,7 +140,89 @@ les onze autres ensembles.
 objet : le choix a été tranché le 19 septembre, D3 tient le dessin. La
 référence SVG antérieure reste consultable sur sa branche.
 
-## Instruit séparément, hors des trois blocs
+### BLOC D — Harmoniser la carte du département — PRIORITAIRE
+
+**Question à juger :** la carte d'arrivée, celle sur laquelle le lecteur clique
+pour entrer dans un ensemble, se comporte-t-elle comme celles qu'elle ouvre ?
+
+**Constat qui ouvre ce bloc, 19 septembre 2026.** Deux moteurs coexistent. La
+carte des ensembles tourne sur l'architecture D3 : couches posées une fois,
+jointures de données, transitions, zoom, comportements génériques. La carte du
+département est restée en SVG écrit à la main, effacée et reconstruite à chaque
+geste. Écart relevé dans le code :
+
+| | Ensemble | Département |
+| --- | --- | --- |
+| Couches persistantes et jointures | oui | non |
+| Transitions au changement de métier | oui | non |
+| Zoom et déplacement | oui | non |
+| Cartouche, légende et échelle dans la carte | oui | non, bande au-dessus |
+| Identification au survol | oui | non |
+| Pointage du lieu le plus proche | oui | non |
+| Taille d'écran minimale des points | oui | non |
+
+#### D1 — Le dessin du département tenu par D3, à résultat identique
+
+- [ ] Poser les couches une fois — contour, autres lieux, ensembles, étiquettes —
+  et les mettre à jour au lieu d'effacer la carte à chaque changement de métier.
+- [ ] Remplacer le placement d'étiquettes maison par le mécanisme déjà éprouvé
+  sur les ensembles, en conservant la règle : un nom n'est jamais masqué.
+- [ ] Vérifier que rien n'a bougé : 12 ensembles, 146 autres lieux, mêmes
+  effectifs par métier, mêmes coordonnées, même cadrage.
+- [ ] Validation du porteur.
+
+**Livrable :** aucun changement visible, un seul moteur de dessin pour les trois
+niveaux.
+
+#### D2 — Donner au département ce que l'ensemble a déjà
+
+- [ ] Identification au survol : le nom de l'ensemble et son effectif, le nom du
+  lieu pour les autres lieux, qui ne disent rien aujourd'hui.
+- [ ] Pointage du lieu le plus proche, sans déplacer aucun point : les zones
+  denses du département posent le même problème que L'Aigle.
+- [ ] Zoom et déplacement bornés, avec retour exact au cadrage initial.
+- [ ] Cartouche dans la carte, avec légende et échelle, à la place de la bande
+  au-dessus du cadre.
+- [ ] Taille d'écran minimale des points, comme pour les ensembles. Les
+  146 autres lieux sont aujourd'hui à 2,6 unités, invisibles sur écran étroit.
+- [ ] Vérifier la lisibilité sur écran large et étroit.
+- [ ] Validation du porteur.
+
+**Livrable :** une carte d'arrivée qui se manipule comme celles qu'elle ouvre.
+
+**À décider en cours de bloc, et à consigner :** le sol communal. Les ensembles
+reposent sur les contours des communes qui touchent leur cadre ; à l'échelle du
+département cela ferait 381 communes, donc un poids et une densité de traits à
+évaluer avant d'engager quoi que ce soit. Le contour départemental seul est
+peut-être suffisant.
+
+#### D3 — Le passage du département à un ensemble
+
+- [ ] Examiner le comportement actuel : aujourd'hui la carte est remplacée d'un
+  coup, sans lien visible entre ce qu'on quitte et ce qu'on ouvre.
+- [ ] Proposer une descente d'échelle qui montre d'où l'on vient, conformément à
+  la direction éditoriale — département, ensemble, lieu.
+- [ ] Vérifier que le retour à la carte du département est aussi net que l'aller.
+- [ ] Préserver l'état partageable après le `#` et les parcours clavier.
+- [ ] Validation du porteur.
+
+**Livrable :** le lecteur comprend qu'il descend dans le même territoire, au
+lieu de changer d'écran.
+
+#### D4 — Vérification d'ensemble
+
+- [ ] Parcours complet aux trois niveaux, sous filtre et sans filtre, sur écran
+  large et étroit.
+- [ ] Contrôle clavier complet et essai tactile.
+- [ ] Consigner les règles devenues communes aux trois niveaux.
+- [ ] Décision du porteur.
+
+**Livrable :** un seul moteur, trois niveaux, règles communes écrites.
+
+**Hors de ce bloc :** le niveau du lieu lui-même — ce que voit le lecteur une
+fois entré dans une fiche — qui relève d'un plan distinct.
+
+## Instruit séparément, hors des blocs
 
 **Le relief.** Retenu le 19 septembre comme la façon honnête de donner de la
 présence au territoire : la forme du terrain n'a pas changé depuis la période
