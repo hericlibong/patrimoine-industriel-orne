@@ -277,6 +277,13 @@ existante à confronter ; le présent dossier pour le modèle produit.
 **Livrable.** Un modèle écrit et trois exemples, jugés côte à côte avec les
 textes d'origine.
 
+**Contre-proposition préparée le 20 septembre 2026**, en réponse à
+`proposition_L5.md`, dans `L5_modele_transformation_historiques.md` : diagnostic
+de la proposition initiale, prompt de réécriture ramené à sept règles absolues,
+protocole de contrôle en deux passes, cas d'essai réécrit avec sa rubrique
+« À vérifier », plan de calibration en dix catégories, et six arbitrages
+attendus du porteur. **En attente de validation ; L5 n'est pas close.**
+
 **Critères de réception.** Le modèle tient sur une page, il est applicable sans
 interprétation, et aucun exemple n'ajoute un fait absent de la source.
 
