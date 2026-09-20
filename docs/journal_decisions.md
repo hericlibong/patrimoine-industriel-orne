@@ -2626,3 +2626,50 @@ le premier point de L7.
 
 Décision : **L6 est éprouvé et consigné ; les cinq critères de réception sont
 tenus ; l'examen visuel du porteur reste à faire avant d'ouvrir L7.**
+
+## 2026-09-20 — L7, ce que la généralisation du mode lieu coûte vraiment
+
+Document complet dans `docs/F10_site/L7_generalisation.md`. Trois constats
+méritent d'être inscrits ici parce qu'ils changent la décision à prendre.
+
+**Le poids ne vient pas des lieux, il vient de la carte.** De 70 à 92 % du
+poids de chaque ensemble est son fond de carte — contours de communes et tracé
+des rivières. Argentan, avec sept lieux, pèse 155 ko quand Alençon, avec treize,
+en pèse 87 : c'est l'étendue du territoire qui décide, pas le nombre de lieux.
+Conséquence pratique : si la page doit un jour être allégée, cela se fera sur la
+géographie et non sur le contenu. Les douze ensembles ouverts donneraient une
+page de 2 356 ko, environ 565 ko compressée, contre 247 aujourd'hui.
+
+**Sept ensembles sur douze sont bloqués, et non trois.** Onze communes n'ont pas
+de contour dans le fond de carte actuel, parce qu'elles ont fusionné ou changé
+de nom depuis la rédaction des notices : Athis-de-l'Orne, Frênes, Larchamp,
+La Ferté-Macé, Tinchebray, Normandel, Randonnai, Longny-au-Perche, Malétable,
+Saint-Victor-de-Réno, Tourouvre, Goulet. Le générateur refuse de produire la vue
+tant qu'un contour manque, et ce refus est bien calibré : une carte à laquelle
+il manque une commune au milieu ne se voit pas. Trois de ces noms étaient
+repérés le 19 septembre ; l'inventaire complet, fait aujourd'hui, en compte
+onze dans sept ensembles. Seuls Flers, Alençon et La Ferrière sont ouvrables
+sans rien résoudre. Le rapprochement des noms anciens et actuels est une
+décision documentée à prendre commune par commune, jamais une substitution
+automatique.
+
+**Ouvrir les douze ensembles ne donne pas le mode lieu aux 318 lieux, mais à
+172.** Les 146 autres n'appartiennent à aucun ensemble. Ils existent comme
+points sur la carte du département, mais la vue ne transmet d'eux que six
+informations : nom, commune, activités et coordonnées. Ni historique, ni
+chronologie, ni image, ni lien vers la fiche. Leur sort n'a jamais été tranché,
+et il le devient : ou bien on leur donne un mode lieu sans ensemble
+d'appartenance, ou bien on accepte qu'ils restent des points.
+
+**Douze règles communes** sont consignées, issues de L1 à L6 et des corrections
+du jour. Les trois qui ont le plus coûté à apprendre : un titre nomme et ne
+qualifie pas ; rien de ce qui parle du travail fait sur la donnée ne s'affiche ;
+une information qu'on ne sait pas expliquer ne s'affiche pas.
+
+**L'examen visuel n'est pas fait.** Il est le premier point de L7 et revient au
+porteur : l'assistant ne peut pas photographier la page, l'onglet piloté ne
+produisant aucune image.
+
+Décision : **L7 est instruit et chiffré ; la décision de cap — ouvrir les dix
+autres ensembles ou approfondir les deux ouverts — appartient au porteur, de
+même que les trois arbitrages en attente.**

@@ -392,16 +392,39 @@ court.
 
 **Objectif.** Décider si le mode lieu vaut pour les 318 lieux, et à quel prix.
 
-- [ ] Examen visuel complet du porteur sur les cinq lieux d'essai.
-- [ ] Consigner les règles devenues communes, comme pour la carte.
-- [ ] Mesurer ce que la généralisation coûte : poids de la page, données
+- [ ] Examen visuel complet du porteur sur les cinq lieux d'essai. **Non fait :
+      il revient au porteur.** L'assistant ne peut pas photographier la page,
+      l'onglet piloté ne produisant aucune image.
+- [x] Consigner les règles devenues communes, comme pour la carte. **Douze
+      règles**, dans `L7_generalisation.md`.
+- [x] Mesurer ce que la généralisation coûte : poids de la page, données
       supplémentaires à transmettre, travail éditorial restant.
-- [ ] Décrire ce qu'il faut pour ouvrir le mode lieu sur un ensemble de plus,
+- [x] Décrire ce qu'il faut pour ouvrir le mode lieu sur un ensemble de plus,
       sans le développer.
 
 **Livrable.** Mode lieu jugé, règles écrites, coût de généralisation chiffré.
+**Fait le 20 septembre 2026 : `L7_generalisation.md`**, sauf le jugement visuel.
 
-- [ ] **Décision du porteur.**
+**Les trois constats qui changent la décision.**
+
+1. **Le poids ne vient pas des lieux, il vient de la carte.** De 70 à 92 % du
+   poids de chaque ensemble est son fond de carte. Les douze ensembles feraient
+   une page de 2 356 ko, soit environ 565 ko compressée, contre 247 aujourd'hui.
+2. **Sept ensembles sur douze sont bloqués** par onze communes dont le contour
+   manque au fond de carte, faute de rapprochement entre noms d'inventaire et
+   noms actuels. Trois seulement sont ouvrables sans rien résoudre : Flers,
+   Alençon, La Ferrière. Trois de ces noms étaient repérés le 19 septembre ;
+   l'inventaire complet en compte onze.
+3. **Ouvrir les douze ensembles ne donne pas le mode lieu aux 318 lieux mais à
+   172.** Les 146 autres n'appartiennent à aucun ensemble et ne reçoivent que
+   six informations. Leur sort n'a jamais été tranché.
+
+**Travail éditorial restant dans les ensembles :** 122 notices sur 172,
+66 700 caractères, longueur médiane 508 caractères.
+
+- [ ] **Décision du porteur** : ouvrir les dix autres ensembles, ou approfondir
+      les deux qui le sont. Plus les trois arbitrages en attente — hauteur de
+      l'image, présent sans date, sort des 146 lieux sans ensemble.
 
 ---
 
