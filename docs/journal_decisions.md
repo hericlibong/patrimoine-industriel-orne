@@ -2565,7 +2565,10 @@ jamais recadrée, et ne traîne aucune bande latérale : un portrait est
 simplement moins large, et centré.
 
 Mesuré dans le navigateur sur les cinquante panneaux, image chargée et décodée :
-le plus haut atteint 772 pixels, contre 618 quand l'image était repliée. Le
+le plus haut atteint 772 pixels, contre 618 quand l'image était repliée
+[corrigé le 20 septembre 2026 : ces deux mesures portaient sur la colonne de la
+carte et non sur le panneau ; les vraies valeurs sont 885 au maximum et 789 en
+médiane, voir l'entrée L6 plus bas]. Le
 critère du panneau court — tenir sans débordement sur un écran de 900 pixels de
 haut — reste satisfait. Trois exemples : une image en portrait de 471 × 600 est
 affichée en 236 × 300, une de 476 × 600 en 238 × 300, un paysage de 756 × 600
@@ -2673,3 +2676,33 @@ produisant aucune image.
 Décision : **L7 est instruit et chiffré ; la décision de cap — ouvrir les dix
 autres ensembles ou approfondir les deux ouverts — appartient au porteur, de
 même que les trois arbitrages en attente.**
+
+## 2026-09-20 — Validation de L3, L4 et L6, et règle du média tranchée
+
+Le porteur valide L3, L4 et L6 sur leur principe et leur résultat actuel. Les
+trois blocs étaient restés formellement ouverts parce qu'une validation est
+l'acte du porteur et que je ne l'avais pas réclamée : « lance L4 », « lance L6 »
+sont des ordres d'avancer, pas des acceptations du bloc précédent. Le manquement
+était de ne pas le signaler au moment de lancer le bloc suivant.
+
+**Règle du média, désormais tranchée et non plus recommandée :** quand un lieu
+compte plusieurs images — six ou sept en moyenne sur les 1 900 médias inventoriés
+pour 316 lieux — on affiche celle que la source désigne comme image principale
+et, à défaut, la première disponible. C'est la règle déjà appliquée ; elle cesse
+d'être une décision d'assistant pour devenir une décision du porteur.
+
+**Chiffre périmé corrigé.** La feuille de route annonçait encore 772 pixels pour
+le panneau le plus haut, mesure faussée par la colonne observée. La valeur est
+885. La feuille de route, document vivant, est corrigée franchement ; les deux
+entrées de journal qui portaient le chiffre ne sont pas réécrites — la
+correction y est posée à côté, datée, conformément à la règle qui interdit de
+réécrire un document antérieur pour masquer un changement.
+
+**Limite consignée pour plus tard.** Crulai a le cadre le plus haut des douze
+ensembles et, sur une fenêtre de 833 pixels, le haut de sa carte dépasse de
+quelques dizaines de pixels. L3 est validé avec cette limite connue ; la reprise
+est inscrite hors plan.
+
+Décision : **L3, L4 et L6 sont clos ; la règle du média est celle de la source,
+image principale puis première disponible ; le débordement de Crulai attend une
+reprise ultérieure.**

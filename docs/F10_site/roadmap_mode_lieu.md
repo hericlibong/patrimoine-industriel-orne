@@ -19,6 +19,8 @@ Le diagnostic complet est dans `2026-09-20_analyse_mode_lieu.md`.
 | **Le mode lieu est un panneau court**, pas une page longue | 20 septembre | L'historique complet et la chronologie ne peuvent pas être ouverts par défaut |
 | **Tout média inventorié est traité comme publiable** | 20 septembre | Le bloc média devient une phase de développement ordinaire ; la question des droits est tranchée par le porteur seul, au moment qu'il choisit |
 | Le mot « lieu » dans l'interface, « site » réservé au technique | antérieure | Un écart subsiste à corriger, voir L2 |
+| **Quand un lieu a plusieurs images**, afficher celle que la source désigne comme principale et, à défaut, la première disponible | 20 septembre | Règle appliquée et désormais tranchée, et non plus une recommandation |
+| **L3, L4 et L6 validés sur leur principe et leur résultat actuel** | 20 septembre | Les trois blocs sont clos ; l'examen visuel des lieux d'essai reste au porteur |
 
 **Conséquence directe du panneau court, à retenir pour tout le plan.** Sur le
 lieu des captures, le texte de la notice fait douze lignes et la chronologie
@@ -33,7 +35,8 @@ Aucune n'est tranchée par le code.
 1. La liste « Choisir un autre lieu » suit-elle le filtre métier ? — phase L1.
 2. La conservation est-elle toujours repliée, ou seulement quand elle est
    inconnue ? — phase L2.
-3. Quel média s'affiche quand un lieu en compte plusieurs ? — phase L4.
+3. ~~Quel média s'affiche quand un lieu en compte plusieurs ?~~ — **tranchée le
+   20 septembre**, voir le tableau ci-dessus.
 4. L'adresse partageable entre-t-elle dans ce chantier ? — hors plan, voir fin.
 
 ---
@@ -190,7 +193,8 @@ disparaître ; plus aucune zone vide à gauche.
 **Contrôles.** Quatre largeurs de carte, comme pour le bloc D : 952, 580, 380 et
 290 pixels. Vérification que rien de la carte n'a régressé.
 
-- [ ] **Validation du porteur avant L4.**
+- [x] **Validation du porteur, 20 septembre 2026** — validé sur le principe et
+      sur le résultat actuel.
 
 ---
 
@@ -230,7 +234,7 @@ problème de hauteur était réel mais la réponse était mauvaise ; il est trai
 dans la mise en page, par une borne de 300 pixels portant sur la boîte de
 l'image et non sur son contenu — forme conservée, aucun recadrage, aucune bande
 latérale. Mesuré sur les cinquante panneaux, image chargée : le plus haut
-atteint 772 pixels, sous le critère des 900 de L2. **Reste au jugement du
+atteint 885 pixels, sous le critère des 900 de L2. **Reste au jugement du
 porteur :** les images de la source font 600 pixels de haut au maximum, la
 borne à 300 leur en laisse la moitié ; la monter est un seul nombre à changer.
 
@@ -262,7 +266,9 @@ images fonctionne donc en local et en démonstration sans que rien ne parte en
 ligne — c'est déjà en place, il n'y a rien à faire, mais il faut le savoir avant
 de s'étonner qu'une capture ne se versionne pas.
 
-- [ ] **Validation du porteur avant L5.**
+- [x] **Validation du porteur, 20 septembre 2026** — validé sur le principe et
+      sur le résultat actuel. **Règle du média tranchée :** afficher l'image
+      principale indiquée par la source et, à défaut, la première disponible.
 
 ---
 
@@ -384,7 +390,8 @@ s'affiche même vide, sans conséquence aujourd'hui ; et la marge sous les
 900 pixels est étroite, ce qui lie la hauteur de l'image au critère du panneau
 court.
 
-- [ ] **Validation du porteur avant L7.**
+- [x] **Validation du porteur, 20 septembre 2026** — validé sur le principe et
+      sur le résultat actuel, l'examen visuel restant au porteur.
 
 ---
 
@@ -454,6 +461,12 @@ a échoué. Une reprise devra dire ce que l'on sait, dans les mots de quelqu'un
 qui raconte — « on connaît l'adresse, pas les murs » plutôt que « le point ne
 représente pas son emprise ». Tant qu'une telle formulation n'existe pas, le
 bloc reste supprimé.
+
+**Le haut de la carte de Crulai déborde sur les fenêtres basses.** Crulai a le
+cadre le plus haut des douze ensembles, et sur une fenêtre de 833 pixels son
+sommet dépasse de quelques dizaines de pixels. Relevé en L3 le 20 septembre,
+consigné pour une reprise ultérieure sur décision du porteur ; L3 est validé
+avec cette limite connue.
 
 **L'avertissement de fin de chronologie doit devenir une note.** « Une date
 imprécise reste un intervalle. Une période documentée n'est pas une preuve
