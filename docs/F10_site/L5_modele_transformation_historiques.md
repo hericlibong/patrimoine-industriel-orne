@@ -353,23 +353,22 @@ mission d'application, pas de celle-ci.
 
 ---
 
-## 7. Arbitrages qui restent au porteur
+## 7. Arbitrages — tranchés le 20 septembre 2026
 
-1. **Le contrôle en deux passes est-il retenu ?** Il double le coût de
-   traitement. Recommandation : oui — les défauts constatés sont invisibles sans
-   comparaison à la source.
-2. **Le seuil de validation du modèle.** Huit notices conformes sur dix est un
-   seuil proposé, pas un standard.
-3. **Le degré de liaison acceptable.** « puis » entre deux faits déjà ordonnés
-   par la source : toléré ou signalé ? Ma réécriture l'emploie deux fois.
-4. **La formule d'attribution.** « On relève », « La notice compte », ou aucune
-   formule — le style change selon la réponse.
-5. **Qui réécrit.** Le prompt est conçu pour un modèle de langue. Rien n'oblige
-   à l'automatiser : il peut servir de consigne à une réécriture humaine. C'est
-   une décision de méthode, pas de technique.
-6. **La mention de provenance** qui remplacera « texte non réécrit ».
+Le porteur a lu les dix réécritures de calibration et validé le ton.
 
----
+| Point | Décision |
+| --- | --- |
+| Contrôle en deux passes | **Retenu** |
+| Contrôle à deux niveaux | **Retenu** — ajouté, perdu, renforcé bloquent ; relié, déplacé se signalent |
+| « puis » entre deux faits déjà ordonnés | **Accepté**, et toujours signalé par le contrôle |
+| Formules d'attribution | **Conservées** — « on relève », « les effectifs relevés sont de » |
+| Seuil de validation | **Aucun écart bloquant**, atteint sur dix notices |
+| Présent non daté | **Reporté** à l'application : question d'affichage, pas de réécriture |
+| Qui réécrit | Non tranché ; le prompt vaut pour un modèle comme pour une relecture humaine |
+| Mention de provenance à venir | Non tranchée ; relève de la mission d'application |
+
+**Le modèle est validé.** Son application au corpus reste une mission distincte.
 
 ## 8. Limites de ce document
 

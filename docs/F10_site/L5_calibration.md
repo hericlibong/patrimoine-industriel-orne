@@ -463,20 +463,53 @@ présent sans date.
 
 ---
 
-## Ce qui reste à décider
+## Décisions du porteur — 20 septembre 2026
 
-1. ~~Séparer les écarts graves des écarts de forme.~~ **Décidé le 20 septembre :
-   le contrôle à deux niveaux est retenu.** Appliqué ci-dessus ; le seuil de
-   validation devient « aucun écart bloquant », atteint sur les dix notices.
-2. **« puis » est-il accepté** entre deux faits que la source ordonne déjà ?
-   Recommandation : oui, et le contrôle continue de le signaler.
-3. **« On relève » et « Les effectifs relevés sont de »** : ces formules
-   d'attribution conviennent-elles ? Elles reviennent dans huit réécritures sur
-   dix et donnent au texte sa régularité.
-4. **Que faire du présent non daté** des cas 7 et 10 ? Ce n'est pas une question
-   de réécriture mais d'affichage : faut-il une mention du type « constat non
-   daté par la source » ?
-5. **Le seuil de validation**, à redéfinir selon la décision 1.
+Le porteur a lu les réécritures et validé le ton. Les points ouverts sont
+tranchés.
 
-**Rien n'est appliqué.** Aucune notice du corpus n'a été modifiée, aucun texte
-réécrit n'est enregistré ailleurs que dans ce document.
+1. **Contrôle à deux niveaux : retenu.** Un fait ajouté, perdu ou renforcé
+   bloque ; une liaison ou un déplacement se signale et se tranche à la
+   relecture. Appliqué ci-dessus.
+2. **« puis » est accepté** entre deux faits que la source ordonne déjà, par
+   leurs dates ou par l'ordre de l'énumération. Le contrôle continue de le
+   signaler en « à relire » : il relève, il ne juge pas.
+3. **Les formules d'attribution sont conservées** — « on relève », « les
+   effectifs relevés sont de », « un fonds d'archives est signalé ». Elles
+   reviennent dans huit réécritures sur dix et donnent au texte sa régularité.
+   Elles introduisent un observateur implicite, ce qui est préférable à une
+   affirmation directe pour un constat que la source ne date pas toujours.
+4. **Le seuil de validation** devient « aucun écart bloquant sur l'échantillon ».
+   Atteint : dix notices sur dix. Le seuil de huit sur dix est abandonné, il
+   comptait les verdicts et non les défauts.
+5. **Le présent non daté des cas 7 et 10 est reporté.** « Subsiste le four »,
+   « elle utilise aujourd'hui » : aucune réécriture ne peut réparer une source
+   qui ne se date pas. C'est une question d'affichage, à traiter au moment de
+   l'application, pas ici.
+
+**Le modèle est donc validé.** Il peut être appliqué à d'autres notices selon le
+même protocole : réécriture, contrôle, relecture des écarts de forme.
+
+---
+
+## Ce que cette validation ne fait pas
+
+**Aucun texte n'est publié.** Vérifié le 20 septembre : zéro occurrence des
+textes réécrits dans le prototype, zéro dans la base, dont la date de
+modification est antérieure de six semaines. Le lecteur voit toujours le texte
+d'origine de l'Inventaire, avec sa mention « texte non réécrit ».
+
+**Les dix textes restent dans ce document**, et dans celui du modèle pour le cas
+d'essai. Les enregistrer dans la base est une décision distincte, qui n'a pas
+été prise.
+
+**Les 308 autres notices ne sont pas réécrites**, conformément à la consigne
+d'origine : la transformation du corpus est une mission séparée, qui ne doit pas
+être automatique.
+
+**Un constat utile pour cette mission future.** La table des récits porte déjà
+les colonnes nécessaires, vides à ce jour : `resume_documentaire`,
+`note_journalistique`, avec pour chacune un statut, des sources, un auteur et
+une date de validation, plus `selection_texte_code`. La place du texte éditorial
+est donc prévue dans le modèle de données, avec de quoi enregistrer qui valide
+et quand. Il n'y aura vraisemblablement aucune colonne à créer.

@@ -258,15 +258,15 @@ transformer quoi que ce soit.
 **Cette phase ne produit pas de code.** Elle produit un modèle écrit et des
 exemples, à valider avant toute application.
 
-- [ ] Relever ce que contient réellement un texte de notice : sur le lieu des
+- [x] Relever ce que contient réellement un texte de notice : sur le lieu des
       captures, quinze faits enchaînés sans liaison — construction, exploitation
       par une personne nommée, consommations, productions chiffrées,
       reconstruction, inactivité, mention d'une autre activité, réaménagement,
       cessation, effectifs, existence d'un fonds d'archives.
-- [ ] Choisir ce qui reste dans l'amorce visible et ce qui va dans la suite.
-- [ ] Définir la règle de provenance : ce qui est cité, ce qui est reformulé, et
+- [x] Choisir ce qui reste dans l'amorce visible et ce qui va dans la suite.
+- [x] Définir la règle de provenance : ce qui est cité, ce qui est reformulé, et
       comment le lecteur fait la différence.
-- [ ] Poser les règles de prudence déjà établies par le projet : une date
+- [x] Poser les règles de prudence déjà établies par le projet : une date
       imprécise reste un intervalle, une période documentée n'est pas une preuve
       d'activité continue, une contradiction entre sources ne s'efface pas.
 - [x] Écrire des exemples complets. **Dix notices réelles réécrites et
@@ -306,7 +306,9 @@ attendus du porteur. **En attente de validation ; L5 n'est pas close.**
 **Critères de réception.** Le modèle tient sur une page, il est applicable sans
 interprétation, et aucun exemple n'ajoute un fait absent de la source.
 
-- [ ] **Validation du porteur avant L6.**
+- [x] **Validation du porteur, 20 septembre 2026** — ton validé après lecture
+      des réécritures ; le modèle est arrêté, son application reste une mission
+      distincte.
 
 ---
 
