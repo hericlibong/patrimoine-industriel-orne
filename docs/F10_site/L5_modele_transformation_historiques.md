@@ -195,8 +195,17 @@ vague. Il doit être un inventaire.
 > RENFORCÉS    [faits dont la certitude, la date ou la portée a augmenté]
 > RELIÉS       [faits que le texte associe alors que la source les sépare]
 > DÉPLACÉS     [faits dont l'ordre change entre blocs thématiques différents]
-> VERDICT      [CONFORME si les cinq rubriques sont vides, sinon À REPRENDRE]
+> VERDICT      [À REPRENDRE si « ajoutés », « perdus » ou « renforcés » n'est
+>               pas vide ; À RELIRE si seuls « reliés » ou « déplacés » sont
+>               remplis ; CONFORME si tout est vide]
 > ```
+>
+> **Deux niveaux, décidés par le porteur le 20 septembre 2026.** Un fait ajouté,
+> perdu ou renforcé est une atteinte à l'exactitude : il **bloque**. Une liaison
+> ou un déplacement ne change aucun fait : il **se signale** et se tranche à la
+> relecture. La calibration a montré qu'un verdict unique faisait tomber cinq
+> notices sur dix pour un connecteur inoffensif, au même titre qu'un fait
+> inventé.
 >
 > **Sont des écarts à signaler**, même minimes : un qualificatif absent de la
 > source ; un connecteur qui installe une cause, une suite ou une progression ;

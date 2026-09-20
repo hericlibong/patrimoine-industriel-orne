@@ -388,8 +388,33 @@ intentions de la réécriture. Il a été mené en reconstruisant les listes de 
 | 9 · moulin à farine | aucun | aucun | aucun | aucun | aucun | **CONFORME** |
 | 10 · usine de Rai Tillières | aucun | aucun | aucun | 1 | aucun | **À REPRENDRE** |
 
-**Cinq conformes, cinq à reprendre. Le seuil proposé — huit sur dix — n'est pas
-atteint.**
+**Avec un verdict unique : cinq conformes, cinq à reprendre.** Le seuil proposé
+— huit sur dix — n'était pas atteint.
+
+### Verdicts recalculés au contrôle à deux niveaux
+
+**Décision du porteur, 20 septembre 2026 : le contrôle à deux niveaux est
+retenu.** Un fait ajouté, perdu ou renforcé bloque ; une liaison ou un
+déplacement se signale sans bloquer.
+
+| Notice | Écarts bloquants | Écarts de forme | Verdict |
+| --- | --- | --- | --- |
+| 1 · usine de chaussures | aucun | aucun | **CONFORME** |
+| 2 · tréfilerie Boisthorel | aucun | 1 liaison | **À RELIRE** |
+| 3 · moulin à papier, Rai | aucun | aucun | **CONFORME** |
+| 4 · tannerie, L'Aigle | aucun | aucun | **CONFORME** |
+| 5 · tréfilerie, Écublei | aucun | 2 liaisons | **À RELIRE** |
+| 6 · moulin, Saint-Hilaire | aucun | 1 liaison | **À RELIRE** |
+| 7 · briqueterie | aucun | aucun | **CONFORME** |
+| 8 · moulin puis tannerie | aucun | 1 liaison | **À RELIRE** |
+| 9 · moulin à farine | aucun | aucun | **CONFORME** |
+| 10 · usine de Rai Tillières | aucun | 1 liaison | **À RELIRE** |
+
+**Dix notices sur dix sans aucun écart bloquant.** Cinq demandent une relecture
+de forme, portant toutes sur le même mot.
+
+**Le seuil de validation devient donc :** aucun écart bloquant sur l'échantillon
+— atteint — et les écarts de forme tranchés à la relecture, un par un.
 
 ### Le détail des écarts, et ils sont tous du même type
 
@@ -440,11 +465,9 @@ présent sans date.
 
 ## Ce qui reste à décider
 
-1. **Séparer les écarts graves des écarts de forme.** Proposition : un écart
-   « ajouté », « perdu » ou « renforcé » est **bloquant** ; un écart « relié » ou
-   « déplacé » est **à signaler mais non bloquant**, et tranché à la relecture.
-   Avec cette règle, la calibration donne **dix conformes sur dix** au niveau
-   bloquant, et cinq points de forme à arbitrer.
+1. ~~Séparer les écarts graves des écarts de forme.~~ **Décidé le 20 septembre :
+   le contrôle à deux niveaux est retenu.** Appliqué ci-dessus ; le seuil de
+   validation devient « aucun écart bloquant », atteint sur les dix notices.
 2. **« puis » est-il accepté** entre deux faits que la source ordonne déjà ?
    Recommandation : oui, et le contrôle continue de le signaler.
 3. **« On relève » et « Les effectifs relevés sont de »** : ces formules

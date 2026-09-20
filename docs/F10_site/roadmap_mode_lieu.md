@@ -285,8 +285,11 @@ n'a laissé passer aucun ajout, aucune perte, aucun renforcement de certitude,
 aucune tendance inventée : les six défauts qui avaient motivé la démarche sont
 absents des dix notices. Cinq verdicts « à reprendre » portent tous sur le même
 mot, « puis », entre deux faits que la source ordonne déjà — deux fois repris de
-la source elle-même. **Le seuil de huit sur dix n'est donc pas le bon
-indicateur** : il compte les verdicts, pas les défauts.
+la source elle-même. **Le seuil de huit sur dix n'était donc pas le bon
+indicateur** : il comptait les verdicts, pas les défauts. **Le porteur a retenu
+le 20 septembre un contrôle à deux niveaux** — ajouté, perdu et renforcé
+bloquent ; relié et déplacé se signalent. Verdicts recalculés : **dix notices
+sur dix sans écart bloquant**, cinq à relire pour un connecteur.
 
 Deux difficultés remontent vers le corpus et non vers la réécriture : deux
 notices emploient le présent sans le dater — « subsiste le four », « elle
