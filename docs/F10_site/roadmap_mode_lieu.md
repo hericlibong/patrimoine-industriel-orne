@@ -301,7 +301,26 @@ quelle. **Cinq décisions attendent le porteur avant de clore L5.**
 de la proposition initiale, prompt de réécriture ramené à sept règles absolues,
 protocole de contrôle en deux passes, cas d'essai réécrit avec sa rubrique
 « À vérifier », plan de calibration en dix catégories, et six arbitrages
-attendus du porteur. **En attente de validation ; L5 n'est pas close.**
+attendus du porteur. **Validé par le porteur le 20 septembre 2026.**
+
+**Appliqué le 20 septembre 2026 aux cinquante lieux des deux ensembles
+ouverts** — quarante-trois pour la Risle, sept pour Crulai. Les textes vivent
+dans les corrections humaines documentées, jamais écrasées par un traitement
+automatique ; le texte de la source reste accessible replié sous chaque texte
+réécrit ; la mention de provenance devient « Réécrit à partir de la fiche
+d'inventaire, sans aucun fait ajouté ». Les 268 autres lieux ne sont pas
+touchés. Cinquante-deux points relevés comme à vérifier. Les cinquante panneaux
+ont été produits et comparés un à un dans le navigateur : aucun écart.
+
+- [x] Modèle arrêté et calibré sur dix lieux.
+- [x] Appliqué aux cinquante lieux des ensembles ouverts, affiché, contrôlé.
+- [ ] **Arbitrage restant : le présent sans date** — « subsiste »,
+      « aujourd'hui disparue », « actuellement désaffecté » dans une douzaine
+      de textes, sans date de rédaction connue. L5 avait renvoyé la question au
+      moment de l'affichage ; ce moment est arrivé.
+- [ ] **Arbitrage restant : le mot « site »** employé par quelques notices dans
+      leur propre phrase, alors que l'interface dit « lieu ». Relevé sur
+      IA00061013.
 
 **Critères de réception.** Le modèle tient sur une page, il est applicable sans
 interprétation, et aucun exemple n'ajoute un fait absent de la source.

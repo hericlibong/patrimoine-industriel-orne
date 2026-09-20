@@ -1,0 +1,716 @@
+# Textes éditoriaux des lieux — réécritures des historiques de notice
+#
+# Correction humaine documentée. Ce fichier n'est jamais écrasé par un
+# traitement automatique et ne se régénère pas : il est écrit à la main, selon
+# le modèle arrêté le 20 septembre 2026.
+#
+# Modèle et protocole : docs/F10_site/L5_modele_transformation_historiques.md
+# Calibration :         docs/F10_site/L5_calibration.md
+#
+# Règle absolue : le texte source n'est jamais remplacé. Il reste dans
+# `recits_sites.historique_source` et demeure accessible au lecteur.
+#
+# Périmètre : les 50 lieux des deux ensembles ouverts, Risle et Crulai.
+#
+# Chaque entrée porte le texte réécrit et, le cas échéant, les points relevés
+# par le contrôle ou par la réécriture elle-même.
+
+meta:
+  modele: L5, arrêté le 2026-09-20
+  perimetre: ensembles risle et crulai
+  source_jamais_remplacee: true
+
+textes:
+
+  IA00060941:
+    texte: >-
+      Les abattoirs publics sont construits en 1902 par Jules Dore, lauréat du
+      concours public d'architecture. Ils ferment définitivement le 31 mai 1984.
+
+  IA00061058:
+    texte: >-
+      Le moulin est construit en 1860 — il en porte la date — par Charles Maze,
+      en aval de l'ancien moulin de Chandai, détruit vers 1859. Quatre paires de
+      meules sont attestées en 1888.
+
+  IA00061057:
+    texte: >-
+      Le moulin est attesté en 1809 ; il produit quotidiennement 16 quintaux de
+      farine. Vers 1868, Jean Antoine Caillard le transforme en laminoir. Une
+      roue hydraulique verticale par en dessous est en place.
+    verifier:
+      - "« en place » est au présent, sans date : la source ne dit pas quand ce
+        constat a été fait."
+
+  IA00061108:
+    texte: >-
+      La tréfilerie est attestée en 1830, possédée par Claudius Boucher. En
+      1840, elle consomme 200 000 kg de cuivre et 100 000 kg de zinc, et produit
+      200 000 kg de fils de laiton. L'activité cesse vers 1880.
+
+  IA00061083:
+    texte: >-
+      La tannerie est en activité en 1835, propriété de Frédéric Camus. Elle est
+      en partie détruite vers 1853 et réaménagée pour l'installation d'une usine
+      de blanchiment. Une démolition partielle intervient en 1944, suivie d'une
+      transformation en logements locatifs.
+    verifier:
+      - "La source écrit « Frédéric camus » sans majuscule ; le nom est
+        rétabli. Un Nicolas Camus apparaît dans la notice IA00061052, autre
+        tannerie de L'Aigle : aucun lien n'est établi entre les deux."
+
+  IA00061156:
+    texte: >-
+      Le moulin est construit entre 1809 et 1820 par Nicolas Marais. Un arrêté
+      préfectoral du 8 octobre 1857 le réglemente. Deux paires de meules sont
+      relevées en 1888. L'activité cesse après 1917. Le moulin devient station
+      de pompage pour la ville de L'Aigle.
+    verifier:
+      - "La conversion en station de pompage n'est pas datée par la source ;
+        elle est écrite en phrase séparée pour ne pas lui attribuer 1917."
+
+  IA00061074:
+    texte: >-
+      La tuilerie-briqueterie est attestée en 1835 et reconstruite vers 1844.
+      L'activité cesse vers 1930. Le four à flamme directe est à l'état de
+      vestiges, sans alandiers. La briqueterie est spécialisée dans la
+      production de briques silicatées à bouts noirs.
+    verifier:
+      - "L'état de vestiges est décrit au présent, sans date."
+
+  IA00061150:
+    texte: >-
+      Le moulin à farine est attesté en 1809 ; il produit quotidiennement
+      4,5 quintaux de farine. Il est reconstruit vers 1842. Deux paires de
+      meules sont attestées en 1882, pouvant fournir en moyenne 10 quintaux de
+      farine. L'activité cesse avant 1910.
+
+  IA00061050:
+    texte: >-
+      L'usine est établie vers 1854 par Alfred et Alexandre Tailfer. Benjamin
+      Bohin l'acquiert vers 1868. L'activité cesse vers 1880. Une démolition
+      partielle intervient en 1944 ; les vestiges sont occupés par un atelier de
+      menuiserie. Un fonds d'archives est signalé.
+    verifier:
+      - "L'occupation des vestiges par un atelier de menuiserie est au présent,
+        sans date."
+
+  IA00061078:
+    texte: >-
+      La filature est établie par Richard et Lenoir Dufresne vers 1805.
+      Incendiée vers 1835, elle est remplacée par une fabrique d'aiguilles par
+      Eugène Cadou, puis agrandie vers 1863. L'activité cesse vers 1876. La
+      filature est partiellement démolie vers 1940 ; les vestiges sont restaurés
+      et à usage de bureaux.
+    verifier:
+      - "« Richard et Lenoir Dufresne » peut désigner deux personnes ou une
+        seule ; la source ne tranche pas et la formulation est conservée."
+      - "L'état restauré et l'usage de bureaux sont au présent, sans date."
+
+  IA00061154:
+    texte: >-
+      L'usine est attestée en 1825, exploitée par Stillière. Une augmentation de
+      construction est réalisée vers 1837 par Rossignol. La famille Bohin
+      l'acquiert vers 1880. En 1927, elle est affectée à la production de
+      serrures et de cadenas. Après 1972, la S.A.R.L. Orne Plastique en fait
+      l'acquisition. On relève 24 employés en 1972.
+
+  IA00061013:
+    texte: >-
+      Le moulin à farine et à retordre les fils est construit en 1813 par
+      Charles-François Hue. Il est remplacé par une tréfilerie en 1877. Un
+      projet de conversion de la tréfilerie en mégisserie est déposé par Garnier
+      en juillet 1891, mais n'est pas réalisé. Le site est abandonné en 1891. Un
+      fonds d'archives est signalé.
+    verifier:
+      - "Le mot « site » est repris de la source, où il désigne le lieu
+        physique. L'interface emploie « lieu » ; à arbitrer si le vocabulaire
+        doit valoir aussi à l'intérieur des textes d'origine."
+
+  IA00061125:
+    texte: >-
+      Le moulin à foulon est attesté au 18e siècle, propriété du baron de
+      l'Aigle. Il est converti en clouterie vers 1847 ; une ordonnance royale du
+      8 mai 1847 réglemente l'établissement. L'activité cesse vers 1850. Un
+      corps de bâtiment subsiste, autrefois à usage de pièce de séchage du
+      moulin à foulon.
+    verifier:
+      - "« subsiste » est au présent, sans date."
+
+  IA00061049:
+    texte: >-
+      La fonderie est établie par Alexandre Landou en 1854, pour remplacer son
+      atelier du hameau de la Hurlière devenu trop petit. Un arrêté préfectoral
+      du 13 mai 1855 en autorise l'installation. Des augmentations de
+      construction ont lieu vers 1862 et 1871. L'activité cesse vers 1888. La
+      notice mentionne une fonderie Wilkinson. On relève 22 ouvriers en 1867 et
+      1868.
+    verifier:
+      - "« Fonderie Wilkinson. » est une phrase isolée dans la source : on ne
+        sait pas si c'est le nom de l'établissement, celui d'un propriétaire ou
+        la désignation d'un type de four. La mention est attribuée à la notice
+        plutôt qu'affirmée."
+
+  IA00061080:
+    texte: >-
+      Une beurrerie est installée en 1942 par la S.A.R.L. Deschamps sur le site
+      d'un moulin à blé. Une laiterie est créée vers 1947. Des hangars sont
+      construits vers 1963 et 1966. L'activité cesse vers 1970 ; le bureau et la
+      cantine sont transformés en logements. En 1985, un atelier mécanique est
+      installé dans les bâtiments de réception du lait.
+
+  IA00061054:
+    texte: >-
+      L'usine est fondée en 1876 par Pierre Chabaud, maire de L'Aigle. Elle est
+      agrandie vers 1903 et 1909. Un moteur à gaz pauvre de 12 HP est attesté en
+      1919. Avant la Première Guerre, elle produit 1 200 corsets par jour,
+      vendus en France. L'activité cesse vers 1975. Vers 1912, on relève
+      300 ouvriers travaillant à l'atelier ou à domicile ; 80 ouvriers en 1919
+      et 88 en 1972.
+
+  IA00061027:
+    texte: >-
+      L'usine est établie en 1828 par François Pierre Evette. Une ordonnance
+      royale du 29 septembre 1834 la réglemente. Elle est agrandie en 1865 et
+      1867, et transformée en usine de chaussures. Une augmentation de
+      construction intervient en 1884, avec mention d'un orphelinat, d'un hangar
+      et d'un magasin. L'atelier de fabrication et le logement patronal, à toit
+      à croupes, subsistent. On relève 200 fuseaux en 1860. Un fonds d'archives
+      est signalé.
+    verifier:
+      - "« subsistent » est au présent, sans date."
+
+  IA00061033:
+    texte: >-
+      La tréfilerie est établie par le marquis de l'Aigle en 1780. Une seconde
+      roue est installée vers 1830 ; des agrandissements sont signalés vers
+      1860. Benjamin Bohin l'acquiert en 1887 et l'affecte au tréfilage du
+      laiton ; de nouveaux agrandissements ont lieu vers 1891. Après 1945, la
+      production est transférée à l'usine de Saint-Sulpice-sur-Risle et les
+      bâtiments sont convertis en maison. On relève 135 ouvriers en 1867, dont
+      10 enfants. Un fonds d'archives est signalé.
+    verifier:
+      - "Ce lieu est lui-même situé à Saint-Sulpice-sur-Risle, et la source dit
+        que la production est transférée « à l'usine de Saint-Sulpice-sur-Risle ».
+        Il s'agit vraisemblablement d'un autre établissement de la même commune,
+        que la source ne nomme pas autrement."
+
+  IA00061081:
+    texte: >-
+      Le moulin est attesté en 1809 ; il produit quotidiennement 1,25 quintal de
+      farine de blé, seigle, orge, avoine, pois et vesce. Pierre Bigot
+      l'acquiert vers 1869 et le convertit en tréfilerie. L'activité cesse vers
+      1910. Le moulin puis la tréfilerie sont équipés d'une roue hydraulique
+      verticale par en dessous, aujourd'hui disparue. La mouture est à la grosse
+      en 1809. La tréfilerie est équipée de 7 bobines en 1900. Un fonds
+      d'archives est signalé.
+    verifier:
+      - "« aujourd'hui disparue » n'est pas daté : ce constat renvoie à la
+        rédaction de la notice, dont la date n'est pas connue ici."
+
+  IA00061138:
+    texte: >-
+      Le moulin à farine est attesté en 1809 ; il produit quotidiennement
+      5 quintaux de farine. Une ordonnance royale du 2 février 1843 le
+      réglemente. Il est converti en tréfilerie vers 1910 ; l'établissement est
+      équipé de 9 bobines et de 14 métiers à clous en 1920. L'activité cesse
+      vers 1943. Une roue hydraulique verticale par en dessus, de 3,72 mètres de
+      diamètre, est attestée vers 1850 ; elle a aujourd'hui disparu. On relève
+      2 ouvriers en 1920. Un fonds d'archives est signalé.
+    verifier:
+      - "« aujourd'hui disparue » n'est pas daté."
+
+  IA00061085:
+    texte: >-
+      L'usine est construite en 1867 pour la fabrication de boîtes d'horloges
+      comtoises. Un outillage mécanique est installé en 1905 pour la fabrication
+      de cartels. Un moteur à gaz pauvre de 14 CV est attesté en 1919, pour
+      animer scies, dégauchisseuses, raboteuses et toupies. Les produits sont
+      vendus en France et en Allemagne. L'usine est détruite au cours de la
+      Seconde Guerre mondiale. On relève 12 à 15 ouvriers vers 1913, et 20 à 25
+      en 1919. Un fonds d'archives est signalé.
+
+  IA00061051:
+    texte: >-
+      Le moulin à papier est construit en 1761. Il est exploité en 1824 par
+      Jacques Marais. En 1826, il consomme 11 500 kg de drilles et produit
+      460 rames ; en 1830, la production est évaluée à 600 rames pour
+      30 000 kg de drilles. Il est reconstruit vers 1849 par Pierre Mousse. Il
+      est inactif en 1859. Une tréfilerie est mentionnée en 1867, produisant
+      275 000 kg de fil de fer. Les bâtiments sont réaménagés en 1869 par
+      Boussonnier. L'activité cesse vers 1900. On relève 2 ouvriers entre 1811
+      et 1830, et 4 ouvriers en 1867. Un fonds d'archives est signalé.
+
+  IA00060923:
+    texte: >-
+      La tréfilerie est construite en 1825 par Pierre Charles Gibory, en amont
+      de son moulin à blé de Launay. Une ordonnance royale du 2 octobre 1831 la
+      réglemente. En 1841, elle consomme 150 000 kg de fer cylindré et
+      100 000 kg de fil de fer, et produit 145 000 kg de fil de fer tréfilé et
+      100 000 kg de pointes et clous. L'activité cesse vers 1870. Les bâtiments
+      sont occupés par une scierie en 1943. L'activité cesse définitivement vers
+      1963. Une roue hydraulique est attestée en 1825, 8 bobines en 1841. On
+      relève 120 ouvriers en 1841.
+
+  IA00061056:
+    texte: >-
+      Le moulin est attesté en 1809 ; il produit quotidiennement 4,5 quintaux de
+      farine. Il est exploité au 19e siècle par la famille Dufay. Un arrêté
+      préfectoral du 30 mai 1856 le réglemente. Une augmentation de construction
+      est signalée vers 1875 ; le moulin est reconstruit vers 1894. Le logement
+      patronal porte la date 1897. L'utilisation de l'énergie vapeur est
+      attestée en 1903. L'activité cesse vers 1965. L'atelier de fabrication est
+      actuellement désaffecté ; les étables à chevaux ont été réaménagées en
+      maison et en remise. Trois paires de meules sont attestées en 1888.
+    verifier:
+      - "« actuellement désaffecté » est le mot de la source, mais il n'est pas
+        daté."
+
+  IA00061026:
+    texte: >-
+      Le moulin à farine est attesté en 1809 ; il produit quotidiennement
+      1,25 quintal de farine. Un arrêté préfectoral du 18 avril 1854 le
+      réglemente. Il est démoli vers 1854 et remplacé par une usine de
+      chaudronnerie par Pierre Jean Félix Mouchel. En 1869, celle-ci consomme
+      780 000 kg de cuivre importé d'Angleterre et 15 000 kg de fer provenant de
+      Franche-Comté. L'activité cesse vers 1900 ; les bâtiments sont transformés
+      en immeuble locatif. Une roue hydraulique verticale par en dessous est
+      attestée vers 1850. On relève 15 ouvriers en 1861 et 13 en 1873. Un fonds
+      d'archives est signalé.
+
+  IA00061155:
+    texte: >-
+      L'usine de boucles de sellerie est installée en 1819 par les frères
+      Bouilland, à l'emplacement d'un moulin à farine. Une ordonnance royale du
+      30 janvier 1822, révisée le 16 novembre 1834, la réglemente. Une
+      production de plumes métalliques, aiguilles et broches à tricoter est
+      attestée en 1850. L'usine est agrandie en 1856, incendiée en 1877,
+      reconstruite en 1880 par Benjamin Bohin, puis agrandie en 1901. Une
+      deuxième roue hydraulique est ajoutée en 1834 ; on relève 20 bobines et
+      20 machines à épingles en 1869. Les effectifs relevés sont de 23 ouvriers
+      en 1867 et 34 en 1873. Un fonds d'archives est signalé.
+
+  IA00061028:
+    texte: >-
+      Le moulin à blé est réputé parmi les plus anciens de la vallée de la
+      Risle. En 1809, il produit quotidiennement 12 quintaux de farine. Il est
+      reconstruit à neuf en 1846. De nouveaux bâtiments sont construits après
+      1950. Le bâtiment de l'ancien moulin est désaffecté depuis la destruction
+      de son système intérieur par un incendie en 1979 ; l'activité a été
+      transférée la même année dans un bâtiment annexe construit alors. Il
+      produit exclusivement des aliments pour le bétail. Une roue hydraulique de
+      3,956 mètres de diamètre est attestée vers 1850 ; elle a aujourd'hui
+      disparu. Un fonds d'archives est signalé.
+    verifier:
+      - "« réputé parmi les plus anciens » est une appréciation de la source,
+        conservée telle quelle et non reprise à notre compte."
+      - "« produit exclusivement des aliments pour le bétail » est au présent,
+        sans date, comme « aujourd'hui disparue »."
+
+  IA00061146:
+    texte: >-
+      Le moulin à foulon est en activité au début du 19e siècle. Une seconde
+      roue est ajoutée en 1824 et l'établissement est converti en fabrique
+      d'aiguilles par les frères Rossignol ; une ordonnance royale du
+      15 décembre 1824 réglemente l'usine. Elle comprend tréfilerie, empointerie
+      et polissoirs, et produit des aiguilles à coudre et à tricoter. En 1856,
+      elle devient moulin à blé, réglementé par arrêté préfectoral du 30 janvier
+      1858. Le moulin est équipé de deux paires de meules en 1888, pouvant
+      produire 20 quintaux de farine. Une mouture à cylindres est attestée en
+      1895. L'activité cesse après 1917.
+
+  IA00061077:
+    texte: >-
+      L'usine est établie en 1819 par Pierre Adam, à l'emplacement d'un moulin à
+      farine. Une ordonnance royale du 6 février 1822 la réglemente. Elle est
+      agrandie vers 1836, puis de nouveau vers 1861. En 1919, elle produit
+      80 tonnes d'aiguilles et d'épingles. L'activité cesse en 1958 ; les
+      bâtiments sont aujourd'hui à usage de logement. On relève 2 roues
+      verticales en 1830, l'une pour le polissoir, l'autre commune à la
+      tréfilerie et à l'empointerie, et une machine à vapeur de 25 HP attestée
+      en 1919. Les effectifs relevés sont de 70 ouvriers en 1841, 57 en 1869 et
+      42 en 1919. Un fonds d'archives est signalé.
+    verifier:
+      - "« aujourd'hui à usage de logement » n'est pas daté."
+
+  IA00061123:
+    texte: >-
+      La construction de l'usine est entamée en 1914 par la société de
+      distribution de l'Ouest et achevée en 1918. En 1919, elle est équipée de
+      deux turbo-alternateurs de 4 000 HP donnant un courant triphasé à
+      5 500 volts, transformé à 16 000 volts. Elle alimente alors les usines de
+      Boisthorel à Rai, Bohin à Saint-Sulpice-sur-Risle et quelques usines à
+      L'Aigle. La puissance de la centrale est portée à 21 000 kW en 1927. Une
+      destruction partielle intervient en 1944. La chaufferie est réaménagée
+      entre 1948 et 1952, produisant 76 000 kg de vapeur à l'heure. La puissance
+      de transformation est portée à 115 000 kW en 1982. La notice indique qu'il
+      s'agit « actuellement » de l'usine Relai.
+    verifier:
+      - "« Actuellement usine Relai » n'est pas daté ; la mention est attribuée
+        à la notice plutôt qu'affirmée."
+
+  IA00061084:
+    texte: >-
+      L'usine est établie en 1863 par Gauthier Mammeaux et Cie, réglementée par
+      arrêté préfectoral du 7 novembre 1863. Elle est agrandie vers 1865, puis
+      démolie et reconstruite vers 1880. Elle comprend alors un bâtiment des
+      fours, des bâtiments des épurateurs, un bâtiment des compteurs, une maison
+      et un magasin. Un second gazomètre d'une contenance de 300 m³ est installé
+      en 1889 par Fortin, directeur. L'usine est acquise en 1902 par la Société
+      du Gaz Franco-Belge Lesage et Cie. L'activité cesse vers 1939. Des
+      ateliers subsistent à usage d'entrepôts ; le logement est converti en
+      bureau. En 1868, elle consomme 5 565 stères de bois. On relève 30 ouvriers
+      en 1868.
+    verifier:
+      - "La subsistance des ateliers et la conversion du logement sont décrites
+        au présent, sans date."
+
+  IA00061017:
+    texte: >-
+      Le haut fourneau est attesté en 1491 dans un aveu du baron d'Échauffour au
+      duc d'Alençon. Il est reconstruit à la fin du 18e siècle. Il alimente en
+      fonte la forge d'Aube. En 1841, il consomme 1 440 m³ de minerai et produit
+      920 000 kg de fonte. Il est inactif en 1860, puis transformé vers 1866 en
+      fonderie de seconde fusion. L'activité cesse vers 1945. C'est un haut
+      fourneau au charbon de bois. La soufflerie est animée par une roue
+      hydraulique de 7,75 m sur 1 m, aujourd'hui disparue ; un bocard est équipé
+      d'une roue de 4,30 m sur 0,725 m, également disparue. Les effectifs
+      relevés sont de 2 ouvriers en 1867, 5 de 1868 à 1875 et 11 en 1920. Un
+      fonds d'archives est signalé.
+    verifier:
+      - "« aujourd'hui disparue » n'est pas daté."
+
+  IA00061059:
+    texte: >-
+      La tréfilerie est construite en 1841 par Desmousseaux de Givré, député
+      d'Eure-et-Loir, à l'emplacement de son moulin à blé. Une ordonnance royale
+      du 29 mars 1847 la réglemente. Une forge est installée en 1882 et démolie
+      en 1901. Vers 1898, Louis-Adolphe Joigneaux la transforme en fabrique
+      d'anneaux. Des augmentations de construction ont lieu vers 1922 et 1924.
+      Les produits sont destinés à la mercerie, la quincaillerie et aux
+      fabriques de jouets. Après la Seconde Guerre mondiale, les bâtiments sont
+      réutilisés par une usine de produits alimentaires. Deux roues hydrauliques
+      verticales sont attestées vers 1850. On relève 11 ouvriers en 1867 et 12
+      en 1919. Un fonds d'archives est signalé.
+    verifier:
+      - "La source place l'installation d'une forge en 1882 et sa démolition en
+        1901 avant la transformation en fabrique d'anneaux vers 1898 : l'ordre
+        des faits de la source est conservé, même s'il n'est pas chronologique."
+
+  IA00061029:
+    texte: >-
+      L'affinerie est construite dans la première moitié du 16e siècle, autour
+      des années 1540, sans doute par Charles de Courdemanche, seigneur d'Aube.
+      Elle est reconstruite au 18e siècle dans son emplacement actuel. Jusqu'en
+      1850, elle est affectée à l'affinage de la fonte produite au haut fourneau
+      du Logeard, à Saint-Pierre-des-Loges, et alimente en fer la fenderie
+      d'Aube. Pierre Jean Félix Mouchel l'acquiert en 1850 et l'affecte au
+      forgeage du cuivre. Une turbine Calon est installée entre 1864 et 1868, un
+      pilon à vapeur entre 1868 et 1895, une soufflerie à piston vers 1902. Un
+      four à désulfurer le cuivre est construit après 1850. L'activité cesse en
+      1939. C'est une forge wallonne à 4 roues hydrauliques. La roue du marteau
+      subsiste. On relève 10 ouvriers en 1811. Un fonds d'archives est signalé.
+    verifier:
+      - "« sans doute » est la réserve de la source sur l'identité du
+        constructeur ; elle est conservée."
+      - "« son emplacement actuel » et « subsiste » sont au présent, sans date."
+
+  IA00060943:
+    texte: >-
+      La tréfilerie est installée en 1824 par Jacques François Fleury, à
+      l'emplacement d'un moulin à farine, pour la production de cardes. Une
+      ordonnance royale du 6 janvier 1826 la réglemente. La roue verticale est
+      remplacée par une turbine Neptune de 12 chevaux en 1907. Vers 1904, les
+      bâtiments sont acquis par la S.A. le Domaine du Tremblay pour les besoins
+      d'une laiterie-fromagerie. Un bureau est construit vers 1913 par Antoine
+      Alba ; un bâtiment de salaison, un séchoir à fromage et une étable à
+      chevaux sont créés vers 1915. L'activité cesse après 1970. En 1841, la
+      tréfilerie consomme 80 à 100 000 kg de fil de fer tréfilé et produit
+      90 000 kg de fil à carder. On relève 274 bobines en 1870, 138 en 1880, et
+      deux machines à vapeur attestées en 1919. Les effectifs relevés sont de
+      27 ouvriers en 1841 et environ 20 en 1919.
+    verifier:
+      - "La source place le remplacement de la roue en 1907 avant l'acquisition
+        des bâtiments vers 1904. L'ordre de la source est conservé ; la
+        contradiction de dates n'est pas résolue."
+
+  IA00061076:
+    texte: >-
+      L'usine est construite en 1830 par Julien Turquet, à l'emplacement d'un
+      moulin à farine. Une ordonnance royale du 20 août 1834 la réglemente. En
+      1841, elle produit 240 000 kg de fil de fer tréfilé et 200 000 kg de
+      pointes et clous. En 1907, elle produit des chevilles en laiton et acier,
+      des pointes en zinc, des fils et des planches de laiton. Durant la
+      Première Guerre mondiale, elle est exploitée par la société Consorts
+      Turquais, implantée dans les Ardennes, pour la production de boucles et
+      ferrures. Une démolition partielle intervient pendant la Seconde Guerre
+      mondiale. Un logement d'ouvriers subsiste, à usage de bureau pour une
+      entreprise d'embouteillage. On relève 2 roues verticales en 1830 et 3 en
+      1850, 12 bobines en 1841 et 24 meules à clous en 1869. Les effectifs
+      relevés sont de 180 ouvriers en 1841 et 20 en 1867. Un fonds d'archives
+      est signalé.
+    verifier:
+      - "« subsiste » et l'usage de bureau sont au présent, sans date."
+
+  IA00061114:
+    texte: >-
+      L'usine est établie en 1840 par César Hurel, à l'emplacement d'un moulin à
+      grains. Un décret présidentiel du 11 juillet 1849 la réglemente. Une
+      augmentation de construction est signalée vers 1867. Benjamin Bohin
+      l'acquiert vers 1893 ; de nouveaux agrandissements ont lieu vers 1907, et
+      une machine à vapeur est installée en 1909. En 1841, elle produit
+      8 000 douzaines d'épingles, 300 000 kg de clous, 500 000 kg de fil de fer
+      et 75 000 kg de quincaillerie. Après 1945, la fabrication est transférée à
+      l'usine de Saint-Sulpice-sur-Risle ; les bâtiments sont aujourd'hui à
+      usage d'entrepôt. Deux roues hydrauliques verticales par en dessous sont
+      attestées vers 1850, l'une pour la tréfilerie, l'autre pour le martinet.
+      On relève 24 bobines en 1841, puis 10 bobines et 20 machines à clous en
+      1869, et 16 ouvriers de 1867 à 1869. Un fonds d'archives est signalé.
+    verifier:
+      - "Ce lieu est situé à Saint-Sulpice-sur-Risle et la source dit que la
+        fabrication est transférée « à l'usine de Saint-Sulpice-sur-Risle » : il
+        s'agit vraisemblablement d'un autre établissement de la même commune.
+        Même formulation que pour IA00061033 et IA00061113."
+      - "« aujourd'hui à usage d'entrepôt » n'est pas daté."
+
+  IA00061113:
+    texte: >-
+      Le laminoir à cuivre est établi en 1820 par le baron de Saillard, à
+      l'emplacement de son moulin à tan. Bouvry le transforme en fabrique de
+      pointes et d'épingles en 1867 ; il consomme alors 50 000 kg de fer pour la
+      fabrication des pointes, et 20 000 kg de fer et 1 000 kg de laiton pour
+      celle des épingles. En 1872, il comprend un atelier de fabrication, un
+      four à recuire, un atelier à tremper et des logements d'ouvriers et de
+      contremaître. En 1899, il produit épingles à cheveux, dés, agrafes et
+      anneaux. Après son acquisition par Bohin vers 1909, l'usine se spécialise
+      dans la fabrication des crochets. Après 1945, la production est transférée
+      à l'usine de Saint-Sulpice-sur-Risle ; les bâtiments sont convertis en
+      logements d'ouvriers et remises. On relève 4 ouvriers à l'intérieur de
+      l'usine et 9 à l'extérieur en 1867. Un fonds d'archives est signalé.
+    verifier:
+      - "La source écrit « agrafés » ; lu comme « agrafes », correction
+        typographique."
+      - "Même formulation de transfert « à l'usine de Saint-Sulpice-sur-Risle »
+        que pour IA00061033 et IA00061114, alors que ce lieu est dans cette
+        commune."
+
+  IA00061129:
+    texte: >-
+      La fenderie est attestée en 1635, dépendant de la forge d'Aube. En 1798,
+      elle comprend la maison du commis, une halle à charbon, une cave, un
+      fournil et un jardin. Elle est détruite en 1850 et remplacée par une
+      tréfilerie par Louis Turquet ; un arrêté préfectoral du 16 juin 1854
+      réglemente l'usine. Une augmentation de construction intervient en 1865.
+      L'activité cesse vers 1909 et l'établissement est converti en usine
+      hydroélectrique, alimentant les communes d'Aube, de Saint-Hilaire-sur-Risle
+      et de Beaufai. Vers 1927, il est acquis par la compagnie générale
+      d'électricité, exploitant l'usine de Boisthorel à Rai, et transformé en
+      logement d'ouvriers. La tréfilerie est équipée de 4 bobines en 1869.
+      L'usine hydroélectrique dispose d'une ligne de 3 000 volts en 1910 ; sa
+      puissance utile est de 16 kW en 1920. On relève 3 ouvriers en 1867 et 4 en
+      1869. Un fonds d'archives est signalé.
+
+  IA00061079:
+    texte: >-
+      L'usine est établie en 1834 par Belhomme de Caudecoste. Une ordonnance
+      royale du 29 avril 1841 la réglemente. Après un incendie, elle est
+      reconstruite et agrandie vers 1858. Des fours à recuire sont installés
+      vers 1861. En 1897, elle produit pointes, rivets et crampons en fer,
+      laiton et cuivre rouge, boucles, étriers, mors et garnitures de harnais.
+      En 1912, elle est exploitée par la S.A.R.L. des Tréfileries Françaises,
+      avec une production annuelle de 1 200 tonnes de pointes, chevilles et
+      rivets. En 1925, elle est exploitée par la S.A. des Établissements
+      Dassonville et Fatus, et un nouvel atelier est installé pour la
+      fabrication des pointes. De nouveaux agrandissements ont lieu vers 1934.
+      L'activité cesse vers 1960. Les vestiges des bâtiments sont restaurés, à
+      usage de bureaux. Une machine à vapeur de 200 HP et une turbine
+      hydraulique de 40 HP sont attestées en 1919. On relève 70 ouvriers en 1919
+      et 60 en 1921. Un fonds d'archives est signalé.
+    verifier:
+      - "La source ne date pas l'incendie : « vers 1858 » porte sur la
+        reconstruction."
+      - "L'état restauré et l'usage de bureaux sont au présent, sans date."
+
+  IA00061144:
+    texte: >-
+      L'usine est construite en 1922, affectée au matriçage des métaux non
+      ferreux produits à l'usine voisine de Boisthorel et livrés par voie ferrée
+      particulière. Elle est agrandie vers 1959. En 1988, elle traite environ
+      3 000 tonnes de barres de laiton. Les produits sont destinés à
+      l'équipement ménager, à la robinetterie, à l'industrie électrique et à
+      l'industrie automobile. Elle exporte 18 % de son chiffre d'affaires en
+      Allemagne, en Grande-Bretagne et aux Pays-Bas. En 1985, elle occupe une
+      superficie totale de 30 000 m² ; la surface bâtie est de 8 500 m² en 1982.
+      L'atelier de matriçage abrite 13 presses à matricer à chaud, dont 5 à
+      frappe automatisée, 7 presses hydrauliques à détourer et 2 postes de
+      décapage. L'atelier d'usinage est équipé de 11 machines transfert, de
+      tours à commande numérique, de fraiseuses et de perceuses. Un atelier
+      d'outillage sert à la réalisation des matrices, poinçons pour matriçage à
+      chaud et outillages spéciaux d'usine. Les effectifs relevés sont de
+      319 employés en 1974 dont 275 ouvriers, 142 employés en 1985, et 100 en
+      1988 dont 82 ouvriers.
+    verifier:
+      - "La part exportée et la description des trois ateliers sont au présent,
+        sans date, alors que les autres chiffres de la notice sont datés."
+
+  # Les neuf entrées ci-dessous viennent de la calibration du 20 septembre 2026,
+  # validée par le porteur. Textes repris sans modification.
+
+  IA00061075:
+    texte: >-
+      L'usine est établie vers 1855 par François-Adolphe Noche. Elle est
+      agrandie en 1876. L'activité cesse vers 1891. On relève 22 ouvriers en
+      1867.
+
+  IA00061053:
+    texte: >-
+      La tréfilerie est établie en 1646 par René d'Erard, baron de Rai, à
+      l'emplacement d'un moulin à blé. Jean-Baptiste Mouchel l'acquiert en
+      1770 ; un décret impérial du 1er septembre 1807 la réglemente. Le
+      tréfilage du fer est abandonné au profit de celui du laiton vers 1820.
+      L'usine est agrandie en 1873, 1879 et 1884, et acquise par la Compagnie
+      générale d'électricité en 1898. De nouveaux ateliers sont construits en
+      1904 ; des ateliers vétustes sont reconstruits vers 1929. En 1948, la
+      Compagnie générale du duralium et du cuivre l'acquiert et installe une
+      nouvelle chaufferie. En 1966, elle occupe une superficie totale de
+      13 000 m², dont 4 000 m² couverts. Elle est intégrée au groupe Tréfimétaux
+      en 1967. En 1988, elle produit 49 000 tonnes de barres pleines, fils en
+      laiton et profilés à usage des industries automobile, électrique et du
+      bâtiment. Sont attestés en 1841 : 9 fourneaux à air, 1 four à réverbère,
+      1 forge, 3 forges de maréchal, 4 fours à recuire, 44 métiers à tréfiler,
+      2 martinets, 2 fonderies, 1 cisaille et 2 laminoirs. Cinq roues
+      hydrauliques sont attestées vers 1850. En 1920 sont mentionnés
+      21 laminoirs, 1 fonderie de cuivre avec laminoir et 1 tréfilerie de fer ou
+      de laiton. Les effectifs relevés sont de 30 ouvriers en 1811, 100 en 1829
+      dont 40 hors de l'usine, et 500 employés en 1985. Un fonds d'archives est
+      signalé.
+    verifier:
+      - "La source dit « ouvriers » pour 1811 et 1829, « employés » pour 1985 ;
+        les deux mots sont conservés tels quels."
+      - "La notice s'arrête en 1988 et ne dit pas si l'activité se poursuit."
+      - "« Cie » est développé en « Compagnie »."
+
+  IA00061030:
+    texte: >-
+      Le moulin est construit en 1711 pour le marquis de l'Aigle. Un arrêté
+      préfectoral du 24 août 1806 le réglemente. En 1827, il produit 210 rames
+      de papier, utilisé pour l'emballage des épingles et des articles de
+      mercerie. Avant 1867, il est remplacé par une tréfilerie équipée de
+      9 bobines. Une reconstruction intervient vers 1895, avec l'installation
+      d'une scierie équipée d'une seule lame. Cessation d'activité et
+      destruction vers 1928. Une roue hydraulique est attestée vers 1850. Les
+      effectifs relevés sont de 7 ouvriers en 1811, 4 entre 1826 et 1830, et 7
+      en 1869. Un fonds d'archives est signalé.
+    verifier:
+      - "« et destruction » n'a pas d'objet dans la source : on ne sait pas ce
+        qui est détruit."
+
+  IA00061052:
+    texte: >-
+      La tannerie est attestée en 1835, propriété de Nicolas Camus. L'activité
+      de tannage est abandonnée vers 1888. En 1953, les bâtiments sont acquis
+      par la société de fabrication de matériel textile, pour la production
+      d'aiguilles pour métiers de bonneterie, vendues en France ou exportées en
+      Allemagne et en Italie. Des agrandissements ont lieu en 1956, de nouvelles
+      constructions en 1958, et deux ateliers sont créés en 1960 et 1962. La
+      capacité de production est estimée à 22 000 000 de pièces en 1972.
+      L'activité cesse vers 1977. Les bâtiments sont réoccupés par la société
+      Études techniques et représentations industrielles, spécialisée dans la
+      fabrication de composants et de matériels mécaniques, électriques et
+      électroniques. Les effectifs relevés sont de 25 ouvriers en 1954, 40 en
+      1955, 150 en 1960, 250 en 1962, 150 en 1972, 450 vers 1980 et environ 80
+      en 1989. Un fonds d'archives est signalé.
+    verifier:
+      - "La réoccupation des bâtiments par la seconde société n'est pas datée."
+      - "Les sept effectifs varient fortement ; la source ne formule aucune
+        évolution, et aucune n'est écrite."
+
+  IA00061055:
+    texte: >-
+      La tréfilerie est établie en 1807 par Louis Fleury, à l'emplacement d'un
+      moulin à blé ; un arrêté préfectoral du 18 décembre 1807 la réglemente.
+      Elle consomme 800 000 kg de fer en 1840. Une machine à vapeur y est
+      installée vers 1865. Une filature de chanvre est mentionnée en 1920,
+      exploitée par Louis Duthoit ; l'activité est abandonnée en 1926. Une usine
+      pour la production de l'électricité est installée, puis abandonnée vers
+      1940. Vers 1850, trois roues hydrauliques verticales sont attestées :
+      l'une pour le martinet, les deux autres pour la tréfilerie. On relève
+      174 bobines en 1860, puis 224 en 1869, dont 80 seulement en activité. Les
+      effectifs relevés sont de 10 ouvriers en 1811, 162 en 1840 et 40 entre
+      1867 et 1869. Un fonds d'archives est signalé.
+    verifier:
+      - "« activité abandonnée en 1926 » : la source ne dit pas laquelle."
+      - "L'usine électrique n'a pas de date d'installation, seulement d'abandon."
+      - "« réglementé » est au masculin dans la source alors que « tréfilerie »
+        est féminin : l'arrêté pourrait viser autre chose que la tréfilerie."
+      - "Le martinet n'apparaît que par l'affectation d'une roue."
+
+  IA00061019:
+    texte: >-
+      Le moulin est attesté en 1809, dépendant du château de Saint-Hilaire. Une
+      ordonnance royale du 12 novembre 1841, révisée le 20 février 1843, le
+      réglemente. Il est démoli vers 1844 et reconstruit vers 1846 par Alexandre
+      Chagrin, puis agrandi vers 1856. Après 1862, il est transformé en
+      tréfilerie. L'activité cesse après le dépôt de bilan d'Adolphe Avenel en
+      1904. On relève une roue hydraulique vers 1850, et 45 bobines en 1904,
+      dont 5 de dressage et 2 de bout. Deux ouvriers sont comptés en 1862. Un
+      fonds d'archives est signalé.
+    verifier:
+      - "Six marqueurs d'approximation dans une notice de 472 caractères, tous
+        conservés."
+      - "La source écrit « Une roue hydraulique vers 1850 » sans verbe ; « on
+        relève » n'ajoute pas de certitude mais introduit un observateur."
+
+  IA00061018:
+    texte: >-
+      Le moulin à papier est établi en 1656 ; il produit du papier pour
+      l'emballage des épingles et articles de mercerie. Il est reconstruit en
+      1837 par Alexandre Chagrin. L'activité cesse en 1868 ; une conversion en
+      tannerie est opérée par Philibert Mesnel vers 1873. Des séchoirs sont
+      mentionnés en 1882, des agrandissements vers 1921. En 1953, la tannerie
+      est exploitée par la S.A.R.L. Tanneries de la Risle. L'activité cesse en
+      1982. On relève une roue hydraulique en 1850 et 4 pilons en 1870 ; un
+      moteur à gaz pauvre de 20 HP et une turbine de 15 HP sont attestés en
+      1919. Les effectifs relevés sont de 4 ouvriers en 1811 et 1830, 18 en
+      1867, 25 en 1912 et 12 en 1919. Un fonds d'archives est signalé.
+    verifier:
+      - "La source écrit « Alexandre chagrin » sans majuscule ; le nom est
+        rétabli."
+      - "Le même nom apparaît dans la notice IA00061019 ; aucun lien n'est
+        établi entre les deux mentions."
+      - "La source ne dit pas si l'établissement est resté inoccupé entre 1868
+        et 1873."
+
+  IA00061082:
+    texte: >-
+      Le moulin à farine est attesté en 1809 ; il produit quotidiennement
+      2,5 quintaux de farine de blé, méteil, seigle et orge. En 1823, François
+      Richer l'agrandit et installe une seconde roue pour la production d'huile
+      de lin et de colza. Une ordonnance royale du 13 décembre 1824 le
+      réglemente. L'activité cesse vers 1906. La mouture est à la grosse en
+      1809. Vers 1850, les roues hydrauliques mesurent 4,06 et 3,87 m de
+      diamètre. Un fonds d'archives est signalé.
+    verifier:
+      - "La source écrit « 2, 5 quintaux » et « 4, 06 et 3, 87 m » avec une
+        espace après la virgule décimale ; elle est supprimée."
+
+  IA00061145:
+    texte: >-
+      L'usine est construite en 1906 pour la production de toiles métalliques
+      pour papeteries, rouleaux égoutteurs, vergeurs et filigraneurs. Les
+      matières premières consistent en fils de laiton, de bronze ou de
+      maillechort, fournis par l'usine voisine de Boisthorel. Une augmentation
+      de construction intervient en 1925. L'usine est possédée en 1943 par la
+      Compagnie Générale du Duralium et du Cuivre, en 1957 par la Compagnie
+      d'Électrométallurgie, puis par la Compagnie Tréfimétaux. Elle est dirigée
+      depuis 1980 par la S.A.R.L. Rai Tillières. La notice indique qu'elle
+      utilise « aujourd'hui » 90 % de matières plastiques. On relève 8 métiers à
+      tisser en 1906, et en 1966 un tissage de toiles d'un diamètre de « 20 0e
+      de mm. ou inférieur à 10\100e de mm. ». Les effectifs relevés sont de
+      400 ouvriers en 1966, 180 employés en 1980, 90 en 1985 et 102 en 1989. Un
+      fonds d'archives est signalé.
+    verifier:
+      - "« aujourd'hui » n'est pas daté ; la mention est attribuée à la notice."
+      - "La mesure de 1966 est corrompue dans la source ; elle est citée telle
+        quelle, non corrigée."
+      - "La source dit « ouvriers » en 1966 et « employés » ensuite."

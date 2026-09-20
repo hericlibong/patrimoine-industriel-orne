@@ -2400,3 +2400,56 @@ Décision : **les crédits de la carte indiquent que le fond décrit la situatio
 actuelle et non celle de la période industrielle, et signalent que les biefs,
 canaux d'amenée et retenues de moulin n'y figurent pas. La légende ne montre que
 des signes effectivement affichés dans l'ensemble consulté.**
+
+## 2026-09-20 — Les cinquante historiques réécrits entrent dans la vue
+
+Le modèle L5, arrêté et calibré le jour même sur dix lieux, est appliqué aux
+cinquante lieux des deux ensembles ouverts : quarante-trois pour la Risle, sept
+pour Crulai. Aucun autre lieu n'est touché — les 268 restants gardent le texte
+brut de leur notice, conformément à la consigne de ne pas transformer
+automatiquement les 318 notices.
+
+**Où vivent les textes.** Dans `data/manual/`, que le projet réserve aux
+corrections humaines documentées, jamais écrasées par un traitement automatique.
+Les écrire dans la base aurait été une faute : `data/processed/` est déclaré
+reproductible par script, donc une régénération les aurait effacés. Le fichier
+n'est lu qu'en lecture par le générateur ; son absence ne bloque pas la
+production de la vue.
+
+**Le texte de la source ne disparaît pas.** Il est transmis à côté du texte
+réécrit et reste accessible au lecteur, replié sous l'intitulé « Lire le texte
+d'origine, tel qu'il est dans la source », mot pour mot. La règle du projet est
+que le libellé source est conservé à côté de la valeur normalisée, jamais
+remplacé : elle vaut aussi pour un paragraphe entier.
+
+**La mention de provenance devient exacte.** « D'après la fiche d'inventaire,
+texte non réécrit » était devenu faux pour ces cinquante lieux. Elle devient
+« Réécrit à partir de la fiche d'inventaire, sans aucun fait ajouté ». Les 268
+autres lieux gardent l'ancienne mention, qui reste vraie pour eux.
+
+**Contrôles.** Le générateur compte les textes réécrits transmis (50) et vérifie
+qu'aucun d'eux n'arrive sans son texte source — un texte réécrit orphelin ne
+serait plus vérifiable. Dans le navigateur, les cinquante panneaux ont été
+produits et comparés un à un : mention de provenance conforme, texte lu
+identique au texte réécrit, texte d'origine présent et complet. Aucun écart.
+
+**Cinquante-deux points relevés comme à vérifier**, inscrits à côté de chaque
+texte. Ils ne sont pas des erreurs de réécriture mais des ambiguïtés de la
+source, conservées au lieu d'être tranchées.
+
+Deux questions restent pour le porteur du projet, l'une et l'autre nées de la
+réécriture :
+
+- **Le mot « site » dans les textes venus de la source.** L'interface dit
+  « lieu », mais quelques notices emploient « site » dans leur propre phrase.
+  Faut-il y toucher ? Relevé sur IA00061013.
+- **Le présent sans date.** « subsiste », « aujourd'hui disparue »,
+  « actuellement désaffecté » reviennent dans une douzaine de textes. Ces
+  constats n'ont pas de date : ils renvoient à la rédaction de la notice, dont
+  nous ne connaissons pas la date ici. La règle du projet veut que les
+  observations contemporaines soient datées. L5 avait renvoyé la question au
+  moment de l'affichage ; ce moment est arrivé.
+
+Décision : **les cinquante historiques réécrits des ensembles ouverts sont
+affichés, le texte d'origine reste accessible replié, et la mention de
+provenance est corrigée ; le présent sans date reste en attente d'arbitrage.**

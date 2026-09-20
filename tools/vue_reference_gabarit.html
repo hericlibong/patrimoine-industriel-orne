@@ -1700,7 +1700,11 @@ function panneauSite(){
   }).join("");
 
   const activites = site.secteurs.map(libelle);
-  const histoire = decouperHistorique(site.histoire);
+  /* Quand un texte réécrit existe, c'est lui que le lecteur lit. Le texte de la
+     source ne disparaît jamais pour autant : il reste replié juste en dessous,
+     mot pour mot, pour que la réécriture soit vérifiable sans quitter la page. */
+  const reecrit = Boolean(site.histoireEditoriale);
+  const histoire = decouperHistorique(site.histoireEditoriale || site.histoire);
   /* Une information établie mérite mieux qu'un pli : le bloc s'ouvre quand la
      conservation est documentée. Elle ne l'est que pour trois lieux sur 318. */
   const conservationConnue = Boolean(site.conservation)
@@ -1721,12 +1725,19 @@ function panneauSite(){
 
   <div class="carton">
     <h3>Historique documenté</h3>
-    <div class="sous">D'après la fiche d'inventaire, texte non réécrit</div>
+    <div class="sous">${reecrit
+      ? "Réécrit à partir de la fiche d'inventaire, sans aucun fait ajouté"
+      : "D'après la fiche d'inventaire, texte non réécrit"}</div>
     ${histoire.amorce ? paragraphes(histoire.amorce) : `<p class="histoire vide">
       Aucun texte historique dans la source.</p>`}
     ${histoire.suite ? `<details class="ensemble-details" data-accordeon="historique">
       <summary>Lire la suite de l'historique</summary>
       ${paragraphes(histoire.suite)}
+    </details>` : ""}
+    ${reecrit && site.histoire ? `<details class="ensemble-details"
+      data-accordeon="historique-source">
+      <summary>Lire le texte d'origine, tel qu'il est dans la source</summary>
+      ${paragraphes(site.histoire)}
     </details>` : ""}
   </div>
 

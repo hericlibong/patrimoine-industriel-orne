@@ -40,6 +40,7 @@ GABARIT = Path(__file__).resolve().parent / "vue_reference_gabarit.html"
 SORTIE = RACINE / "prototype" / "vue_reference" / "index.html"
 D3_LOCAL = RACINE / "tools" / "vendor" / "d3.v7.9.0.min.js"
 MEDIAS = RACINE / "data" / "exports" / "medias_sites_v1.csv"
+TEXTES_EDITORIAUX = RACINE / "data" / "manual" / "textes_editoriaux_lieux.yml"
 
 # Les adresses de fichier de l'inventaire sont relatives pour 1 783 médias et
 # complètes pour 117. Les 117 complètes donnent la base : elle n'est donc pas
@@ -381,6 +382,23 @@ def hydrographie(
     return list(troncons.values())
 
 
+def textes_editoriaux() -> dict[str, str]:
+    """Textes réécrits, lus dans les corrections humaines documentées.
+
+    Le texte source n'est jamais remplacé : il reste transmis à côté et demeure
+    accessible au lecteur. Ce fichier est écrit à la main et ne se régénère
+    pas ; son absence ne bloque pas la production de la vue.
+    """
+    if not TEXTES_EDITORIAUX.exists():
+        return {}
+    donnees = yaml.safe_load(TEXTES_EDITORIAUX.read_text(encoding="utf-8")) or {}
+    return {
+        reference: entree["texte"].strip()
+        for reference, entree in (donnees.get("textes") or {}).items()
+        if isinstance(entree, dict) and (entree.get("texte") or "").strip()
+    }
+
+
 def medias_par_lieu() -> dict[str, dict]:
     """Un média par lieu, lu dans l'inventaire de la phase 9.
 
@@ -554,6 +572,7 @@ def construire() -> dict:
         )
 
     medias = medias_par_lieu()
+    editoriaux = textes_editoriaux()
     detail = {}
     for code in SYSTEMES_DETAILLES:
         references = set(references_par_systeme.get(code, []))
@@ -574,6 +593,9 @@ def construire() -> dict:
             media = medias.get(site["ref"])
             if media:
                 site["media"] = media
+            editorial = editoriaux.get(site["ref"])
+            if editorial:
+                site["histoireEditoriale"] = editorial
         if code == "risle":
             detail[code]["reperes"] = reperes_risle(detail[code]["eau"])
 
@@ -665,6 +687,14 @@ def main() -> None:
         "sol_complet": all(
             not detail["sol"]["sansContour"] for detail in donnees["detail"].values()
         ),
+        # Un texte réécrit qui ne remplacerait pas son texte source, ou
+        # l'inverse, passerait inaperçu : les deux doivent coexister.
+        "textes_editoriaux_apparies": all(
+            site.get("histoire")
+            for detail in donnees["detail"].values()
+            for site in detail["sites"]
+            if site.get("histoireEditoriale")
+        ),
     }
 
     gabarit = GABARIT.read_text(encoding="utf-8")
@@ -682,6 +712,10 @@ def main() -> None:
         "systemes": len(donnees["departement"]["systemes"]),
         "sites_en_systeme": total_systemes,
         "autres_sites": len(donnees["departement"]["autresSites"]),
+        "textes_editoriaux": sum(
+            1 for detail in donnees["detail"].values()
+            for site in detail["sites"] if site.get("histoireEditoriale")
+        ),
         "risle_sites": len(donnees["detail"]["risle"]["sites"]),
         "risle_liens": len(donnees["detail"]["risle"]["liens"]),
         "crulai_sites": len(donnees["detail"]["crulai"]["sites"]),
