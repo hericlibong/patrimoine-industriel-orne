@@ -167,6 +167,12 @@
     font-variant-numeric:tabular-nums}
   .liste-lieux button{grid-template-columns:minmax(0,1fr) auto}
   .liste button[aria-current="true"]{background:#f0ece4;box-shadow:inset 3px 0 0 var(--signal)}
+  .retour-ensemble{margin:0 0 10px}
+  .retour-ensemble button{background:none;border:0;padding:4px 0;font-size:13px;
+    color:var(--appui);text-decoration:underline;text-underline-offset:3px}
+  .retour-ensemble button:hover{color:var(--signal)}
+  .note-masques{font-size:11.5px;color:#5c6070;margin:8px 0 0}
+  .filtres[hidden]{display:none}
   .etat-ensemble{width:10px;height:10px;border-radius:50%;border:1px dashed var(--gris)}
   .etat-ensemble.ouvert{border-style:solid;background:var(--appui)}
   .disponibilite{grid-column:2/-1;font-size:11px;color:var(--gris);margin-top:1px}
@@ -1697,6 +1703,41 @@ function panneauSite(){
     <h3>Ce que dit la notice</h3>
     <div class="sous">Texte de l'Inventaire, non réécrit</div>
     ${histoire}
+  </div>
+
+  ${sortiesDuLieu()}`;
+}
+
+/* Sortir du lieu. Sans ces deux accès, supprimer le panneau de l'ensemble
+   enfermerait le lecteur dans la fiche qu'il vient d'ouvrir. La liste suit le
+   filtre en cours — comme la carte et comme le panneau de l'ensemble — et dit
+   combien de lieux il masque, plutôt que de les faire disparaître en silence. */
+function sortiesDuLieu(){
+  const detail = D.detail[etat.systeme];
+  const definition = D.departement.systemes.find(s => s.code === etat.systeme);
+  const retenus = detail.sites.filter(garde);
+  const masques = detail.sites.length - retenus.length;
+
+  const lieux = retenus.map(site => `
+    <li><button data-site="${site.ref}" ${etat.site===site.ref?'aria-current="true"':""}
+      aria-label="${echapper(site.nomCourt)}, ${echapper(site.commune)}${
+        etat.site===site.ref ? ". Lieu actuellement ouvert" : ""}">
+      <span class="nom">${echapper(site.nomCourt)}</span>
+      <span class="info">${echapper(site.commune)}</span></button></li>`).join("");
+
+  return `
+  <div class="carton">
+    <p class="retour-ensemble"><button type="button" data-retour-ensemble="1">
+      ← Retour aux lieux — ${echapper(definition.nom)}</button></p>
+    <details class="ensemble-details" data-accordeon="autres-lieux">
+      <summary>Choisir un autre lieu <span class="compteur">${
+        etat.metier ? `${retenus.length} sur ${detail.sites.length}` : `${detail.sites.length}`
+      }</span></summary>
+      <ul class="liste liste-lieux">${lieux ||
+        "<li><p>Aucun lieu de ce métier ici.</p></li>"}</ul>
+      ${masques ? `<p class="note-masques">${masques} lieu${masques>1?"x":""}
+        masqué${masques>1?"s":""} par le filtre en cours.</p>` : ""}
+    </details>
   </div>`;
 }
 
@@ -1749,6 +1790,10 @@ function annoncer(texte){ document.getElementById("annonce").textContent = texte
 
 /* ---------------------------------------------------------------- rendu */
 function rendreFiltres(){
+  /* En mode lieu, la commande disparaît mais le filtre reste : le retour à
+     l'ensemble doit retrouver exactement la sélection quittée. */
+  const barre = document.querySelector(".filtres");
+  if (barre) barre.hidden = etat.niveau === "site";
   const commande = document.getElementById("commandeMetier");
   const conteneur = document.getElementById("listeMetiers");
   const boutons = [["", "Tous les métiers"]].concat(
@@ -1813,16 +1858,22 @@ function rendreEnTete(){
     const detail = D.detail[etat.systeme];
     const definition = D.departement.systemes.find(s => s.code === etat.systeme);
     const retenus = detail.sites.filter(garde).length;
-    titre.textContent = definition.nom;
+    const lieu = etat.niveau === "site"
+      ? detail.sites.find(s => s.ref === etat.site) : null;
+    // En mode lieu, le titre nomme le lieu : le nom de l'ensemble reste
+    // accessible par le fil de navigation et par le retour du panneau.
+    titre.textContent = lieu ? lieu.nom : definition.nom;
     const montreIdentite = etat.niveau === "systeme";
     titreTravail.hidden = !montreIdentite;
     libelleTitreTravail.textContent = definition.nomDeTravail;
     introduction.hidden = !montreIdentite;
     introduction.textContent = definition.presentationCourte || "";
     compte.hidden = montreIdentite;
-    compte.textContent = etat.metier
-      ? `${retenus} lieu${retenus>1?"x":""} sur ${detail.sites.length} · ${libelle(etat.metier)}`
-      : `${detail.sites.length} lieux documentés`;
+    compte.textContent = lieu
+      ? `${lieu.commune}${lieu.lieuDit ? " · " + lieu.lieuDit : ""}`
+      : etat.metier
+        ? `${retenus} lieu${retenus>1?"x":""} sur ${detail.sites.length} · ${libelle(etat.metier)}`
+        : `${detail.sites.length} lieux documentés`;
   }
 }
 
@@ -2034,12 +2085,24 @@ function rendre(){
   if(etat.niveau !== "departement") etiquettesLieux();
   afficherCommandesZoom();
   const panneau = document.getElementById("panneau");
+  /* Le panneau du lieu ne parle que du lieu. Il était suivi du panneau de
+     l'ensemble, si bien que le lecteur recevait la vallée entière par-dessus la
+     fiche qu'il venait d'ouvrir. Le retour et le choix d'un autre lieu, que ce
+     panneau fournissait, sont redonnés dans le panneau du lieu lui-même. */
   panneau.innerHTML = etat.niveau === "departement" ? panneauDepartement()
     : etat.niveau === "systeme" ? panneauSysteme()
-    : panneauSite() + panneauSysteme();
+    : panneauSite();
 }
 
 /* --------------------------------------------------------------- écoutes */
+document.addEventListener("toggle", evenement => {
+  const bloc = evenement.target;
+  if (!bloc.open || bloc.dataset.accordeon !== "autres-lieux") return;
+  const courant = bloc.querySelector('[aria-current="true"]');
+  if (courant && courant.scrollIntoView)
+    courant.scrollIntoView({block:"center", behavior:"auto"});
+}, true);
+
 document.addEventListener("click", evenement => {
   const bouton = evenement.target.closest("button");
   if (!bouton) return;
@@ -2050,6 +2113,8 @@ document.addEventListener("click", evenement => {
     annoncer(etat.metier ? `Filtre : ${libelle(etat.metier)}.` : "Filtre retiré.");
   } else if (bouton.dataset.systeme){
     allerAuSysteme(bouton.dataset.systeme);
+  } else if (bouton.dataset.retourEnsemble !== undefined){
+    allerAuSysteme(etat.systeme);
   } else if (bouton.dataset.site){
     allerAuSite(bouton.dataset.site);
   } else if (bouton.dataset.lien !== undefined){
