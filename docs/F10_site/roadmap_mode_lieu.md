@@ -213,10 +213,10 @@ Crulai. La base des adresses d'images n'était pas documentée : elle a été lu
 dans les 117 adresses complètes de l'inventaire, puis vérifiée dans un
 navigateur sur trois fichiers.
 
-**Tension à arbitrer.** Avec une image, le panneau passe de 618 à 921-992 pixels
-et ne tient plus dans un écran, contrairement au critère de L2. La hauteur de
-l'image est bornée à 230 pixels sans rien couper. Trois issues : accepter le
-dépassement, réduire encore l'image, ou rendre la photo repliable.
+**Tension tranchée par le porteur, 20 septembre 2026 : l'image est repliable.**
+Avec une image affichée, le panneau passait de 618 à près de 1 000 pixels et ne
+tenait plus dans un écran. Repliée, il retombe à 629-733 pixels, sous le critère
+de L2 ; dépliée, l'image s'affiche entière, sans borne de hauteur.
 
 **Décision attendue du porteur :** quel média s'affiche quand un lieu en compte
 plusieurs ? L'inventaire compte 1 900 médias pour 316 lieux, soit six ou sept

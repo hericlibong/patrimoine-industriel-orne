@@ -291,7 +291,18 @@ bandes latérales sur les formats les plus allongés.
 
 Trois issues possibles : accepter qu'un panneau avec photo dépasse légèrement ;
 réduire encore la hauteur de l'image ; ou rendre la photo repliable comme les
-autres blocs. **Décision du porteur.**
+autres blocs.
+
+**Décision du porteur, 20 septembre 2026 : l'image est repliable.** Appliqué.
+Le panneau retombe à 629 et 733 pixels selon la longueur de l'amorce, donc sous
+le critère de L2. Déplié, il atteint 988 et 1 058 pixels — mais le lecteur l'a
+demandé. La hauteur de l'image n'est plus bornée une fois dépliée : elle
+s'affiche entière, sans bandes latérales.
+
+Le repli s'intitule **« Voir l'image »** et non « la photographie ». La source
+ne qualifie aucun des 1 900 médias — le champ de type vaut `image_non_qualifiee`
+pour la totalité — et celui du moulin de Launay est un plan cadastral de 1831,
+pas une photographie. Un lieu sans média n'a aucun repli.
 
 ### Reste ouvert
 

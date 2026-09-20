@@ -236,13 +236,14 @@
     color:#33363f}
   .lien-source{font-size:12px;margin-top:9px}
   .activites-lieu{font-size:13px;color:var(--appui);margin:9px 0 0}
-  .media-lieu{margin:11px 0 0}
+  .media-lieu{margin:9px 0 0}
   /* Hauteur bornée : une photo en portrait faisait passer le panneau de 618 à
      1 069 pixels et rompait le « panneau court ». L'image entière reste visible
      — aucun recadrage, rien de coupé — au prix de bandes latérales. */
-  .media-lieu img{display:block;width:100%;height:auto;max-height:230px;
-    object-fit:contain;border-radius:4px;
+  /* Dépliée, l'image n'a plus à être bornée : le lecteur l'a demandée. */
+  .media-lieu img{display:block;width:100%;height:auto;border-radius:4px;
     border:1px solid var(--trait);background:#f4f2ec}
+  .media-repli{margin-top:11px}
   .media-lieu figcaption{font-size:11.5px;color:var(--gris);line-height:1.45;
     margin-top:6px}
   .media-lieu .credit{display:block;color:var(--pale);margin-top:2px}
@@ -1788,14 +1789,22 @@ function mediaDuLieu(site){
   if (!media || !media.url) return "";
   const legende = media.legende || "";
   const credit = media.credit || "";
-  return `<figure class="media-lieu">
-    <img src="${echapper(media.url)}" alt="${echapper(legende)}"
-      onerror="this.closest('figure').remove()">
-    ${legende || credit ? `<figcaption>
-      ${legende ? echapper(legende) : ""}
-      ${credit ? `<span class="credit">${echapper(credit)}</span>` : ""}
-    </figcaption>` : ""}
-  </figure>`;
+  /* Repliée sur décision du porteur : une image en portrait faisait passer le
+     panneau de 618 à près de 1 000 pixels, au-delà du « panneau court ».
+
+     « Voir l'image » et non « la photographie » : la source ne qualifie aucun
+     des 1 900 médias, et celui du moulin de Launay est un plan cadastral. */
+  return `<details class="ensemble-details media-repli" data-accordeon="media">
+    <summary>Voir l'image</summary>
+    <figure class="media-lieu">
+      <img src="${echapper(media.url)}" alt="${echapper(legende)}"
+        onerror="this.closest('figure').remove()">
+      ${legende || credit ? `<figcaption>
+        ${legende ? echapper(legende) : ""}
+        ${credit ? `<span class="credit">${echapper(credit)}</span>` : ""}
+      </figcaption>` : ""}
+    </figure>
+  </details>`;
 }
 
 function decouperHistorique(texte){
