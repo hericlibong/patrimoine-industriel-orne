@@ -397,3 +397,62 @@ tréfilerie de Rai.
 
 Décision : **le texte d'origine ne figure plus dans le panneau du lieu, et la
 suite d'un historique long se déplie dans le fil du texte, sans second bloc.**
+
+## 2026-09-20 — Le panneau du lieu est nettoyé de ce qui ne s'adresse pas au lecteur
+
+Jugement du porteur du projet à l'écran, sur la forme du panneau. Le reproche
+est unique et il porte : plusieurs éléments du panneau parlent du travail fait
+sur la donnée, pas du lieu. Ils s'adressent à celui qui a construit la fiche,
+pas à celui qui la lit.
+
+**« Historique documenté » devient « Historique ».** Un titre nomme une chose.
+« Documenté » ne nomme rien de plus : il rassure sur la méthode, dans un
+emplacement réservé à l'orientation du lecteur.
+
+**La mention de provenance est supprimée.** Elle disait « Réécrit à partir de
+la fiche d'inventaire, sans aucun fait ajouté » — posée le matin même, jugée
+sans utilité pour le lecteur. Le lien vers la fiche d'inventaire, quelques
+lignes plus haut dans le même panneau, dit d'où vient le texte. Le texte
+commence maintenant directement.
+
+**« Voir plus » et « Voir moins », au lieu de « Lire la suite ».** Le chemin
+manquait dans un sens : un historique long déplié occupe la page, et rien ne
+permettait de le replier sans quitter le lieu. Le même lien fait l'aller et le
+retour ; le libellé change avec l'état, et l'état est annoncé aux lecteurs
+d'écran. Quarante-cinq historiques sur cinquante sont concernés. Aller-retour
+vérifié sur le plus long, la tréfilerie de Rai : 201 caractères visibles
+repliés, 1 348 dépliés, retour à l'identique au second clic.
+
+**Le bloc « Localisation et état des connaissances » est supprimé.** Motif du
+porteur, qui en prend explicitement la responsabilité : dans son état, il ne
+sert à rien et on n'y comprend rien. « Le point situe le lieu à ce niveau de
+précision et ne représente pas son emprise » et « une distance mesurée qui
+n'établit pas un usage de l'eau » sont des précautions écrites pour se
+prémunir, pas des phrases qui apprennent quelque chose. Elles énoncent ce que
+la donnée n'est pas, jamais ce qu'elle est.
+
+Ce qui disparaît de l'écran ne disparaît pas du corpus : la précision de
+localisation, la distance au cours d'eau et l'état de conservation restent des
+champs du corpus, produits et contrôlés comme avant. Seul leur affichage est
+retiré. Les invariants du domaine ne sont pas touchés : la précision reste un
+champ distinct des coordonnées, aucun point n'est déplacé, aucune précision
+n'est relevée.
+
+**À reprendre plus tard, noté ici pour ne pas être perdu.**
+
+1. **Refaire le bloc des limites, ou renoncer.** Ces trois informations ont une
+   valeur réelle pour qui veut savoir ce qu'on sait d'un lieu. Ce qui a échoué,
+   c'est leur formulation, pas leur existence. Une reprise devra dire ce que
+   l'on sait, dans les mots de quelqu'un qui raconte — « on connaît l'adresse,
+   pas les murs » plutôt que « le point ne représente pas son emprise ». Tant
+   qu'une telle formulation n'existe pas, le bloc reste supprimé.
+2. **L'avertissement de fin de chronologie devient une note.** « Une date
+   imprécise reste un intervalle. Une période documentée n'est pas une preuve
+   d'activité continue » reste exact et utile, mais posé en fin de liste il a
+   le poids d'une conclusion alors qu'il n'en est pas une. Demande du porteur :
+   une petite étoile à côté de ce qui est concerné, renvoyant à une note. Son
+   emplacement reste à décider. Laissé en l'état pour l'instant.
+
+Décision : **le panneau du lieu ne porte plus que ce qui parle au lecteur : le
+titre « Historique » sans qualificatif, le texte sans mention de provenance, un
+« Voir plus / Voir moins » réversible, et plus de bloc de localisation.**

@@ -103,14 +103,19 @@ quoi, puis quand, puis avec quelles limites.
       nombre et n'a pas sa place dans une case conçue pour un nombre.
 - [x] Retirer les compteurs redondants : le nombre d'événements datés, répété
       par la chronologie, et le nombre d'activités, répété par leur liste.
-- [x] **Historique documenté** — remplace « Ce que dit la notice ». Amorce
-      visible, suite dépliable. Provenance discrète et honnête, du type
-      « D'après la fiche d'inventaire », tant que le texte n'est pas réécrit.
+- [x] **Historique** — remplace « Ce que dit la notice ». Amorce visible,
+      suite dépliable par « Voir plus / Voir moins ». **Corrigé le 20 septembre
+      2026 :** le titre perd « documenté », et la mention de provenance est
+      supprimée — le lien vers la fiche d'inventaire, dans le même panneau, dit
+      d'où vient le texte.
 - [x] **Chronologie** — après l'historique, repliée, sans zone de défilement
       propre. Remplace « Ce qui est daté » et « Événements extraits du texte de
       la notice ».
-- [x] **Localisation et état des connaissances** — replié : précision
-      géographique en formulation courte, distance au cours d'eau, conservation.
+- [x] ~~**Localisation et état des connaissances**~~ — **bloc supprimé le
+      20 septembre 2026**, sur décision du porteur : dans son état, il énonçait
+      ce que la donnée n'est pas et jamais ce qu'elle est. Les trois champs
+      restent dans le corpus ; seul leur affichage est retiré. À reprendre si
+      une formulation compréhensible est trouvée.
 - [x] Ne jamais présenter la distance au cours d'eau comme une preuve d'usage de
       l'eau ; vérifier que le déplacement ne l'introduit pas.
 - [x] Corriger le mot « site » dans le texte de précision de localisation, seul
@@ -388,6 +393,22 @@ Enrichissement ultérieur, à ne pas mêler à la restructuration de l'interface
 **La direction artistique.** Palette, typographie, habillage : phase 10.E.
 
 **La carte des ensembles.** Ce qui fonctionne n'est pas rouvert.
+
+**Refaire le bloc des limites, ou renoncer.** Supprimé le 20 septembre 2026
+faute d'une formulation compréhensible. Les trois informations — ce qu'on sait
+de l'emplacement, la proximité de l'eau, l'état de conservation — gardent une
+valeur pour qui veut savoir ce qu'on sait d'un lieu ; c'est leur rédaction qui
+a échoué. Une reprise devra dire ce que l'on sait, dans les mots de quelqu'un
+qui raconte — « on connaît l'adresse, pas les murs » plutôt que « le point ne
+représente pas son emprise ». Tant qu'une telle formulation n'existe pas, le
+bloc reste supprimé.
+
+**L'avertissement de fin de chronologie doit devenir une note.** « Une date
+imprécise reste un intervalle. Une période documentée n'est pas une preuve
+d'activité continue » reste exact, mais posé en fin de liste il a le poids
+d'une conclusion. Demande du porteur, 20 septembre 2026 : une petite étoile à
+côté de ce qui est concerné, renvoyant à une note dont l'emplacement reste à
+décider. Laissé en l'état pour l'instant.
 
 ---
 

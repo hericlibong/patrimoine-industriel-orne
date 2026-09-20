@@ -258,11 +258,6 @@
     border-radius:2px}
   /* Un bloc repliable seul dans son carton n'a pas de trait à porter. */
   .ensemble-details.seul{margin-top:0;border-top:0;padding-top:0}
-  .fiche-limites{list-style:none;margin:9px 0 0;padding:0;font-size:12.5px}
-  .fiche-limites li{border-top:1px solid var(--trait);padding:7px 0}
-  .fiche-limites li:first-child{border-top:0;padding-top:0}
-  .fiche-limites b{display:block;color:var(--encre);font-weight:600}
-  .fiche-limites span{color:var(--gris)}
   .lien-source a{color:var(--signal)}
 
   footer{max-width:1440px;margin:0 auto;padding:0 30px 40px;font-size:12px;
@@ -1708,15 +1703,10 @@ function panneauSite(){
   }).join("");
 
   const activites = site.secteurs.map(libelle);
-  /* Quand un texte réécrit existe, c'est lui que le lecteur lit. Le texte de la
-     source ne disparaît jamais pour autant : il reste replié juste en dessous,
-     mot pour mot, pour que la réécriture soit vérifiable sans quitter la page. */
-  const reecrit = Boolean(site.histoireEditoriale);
+  /* Quand un texte réécrit existe, c'est lui que le lecteur lit, sans mention
+     de provenance : le lien vers la fiche d'inventaire est juste au-dessus et
+     dit d'où vient le texte mieux qu'une phrase d'excuse. */
   const histoire = decouperHistorique(site.histoireEditoriale || site.histoire);
-  /* Une information établie mérite mieux qu'un pli : le bloc s'ouvre quand la
-     conservation est documentée. Elle ne l'est que pour trois lieux sur 318. */
-  const conservationConnue = Boolean(site.conservation)
-    && site.conservation !== "inconnu";
 
   return `
   <div class="carton">
@@ -1732,10 +1722,7 @@ function panneauSite(){
   </div>
 
   <div class="carton">
-    <h3>Historique documenté</h3>
-    <div class="sous">${reecrit
-      ? "Réécrit à partir de la fiche d'inventaire, sans aucun fait ajouté"
-      : "D'après la fiche d'inventaire, texte non réécrit"}</div>
+    <h3>Historique</h3>
     ${histoire.amorce ? historiqueDeroulant(histoire) : `<p class="histoire vide">
       Aucun texte historique dans la source.</p>`}
   </div>
@@ -1749,25 +1736,6 @@ function panneauSite(){
       documentée n'est pas une preuve d'activité continue.</div>
     </details>
   </div>` : ""}
-
-  <div class="carton">
-    <details class="ensemble-details seul" data-accordeon="localisation"
-      ${conservationConnue ? "open" : ""}>
-      <summary>Localisation et état des connaissances</summary>
-      <ul class="fiche-limites">
-        <li><b>Précision de localisation</b>
-          <span>${echapper(libellePrecision(site.precision))} — le point situe le lieu
-          à ce niveau de précision et ne représente pas son emprise.</span></li>
-        ${site.eau !== null && site.eau !== undefined ? `<li><b>Cours d'eau le plus
-          proche</b><span>${Math.round(site.eau)} m. Une distance mesurée, qui
-          n'établit pas un usage de l'eau.</span></li>` : ""}
-        <li><b>État de conservation</b>
-          <span>${conservationConnue
-            ? echapper(libelleConservation(site.conservation))
-            : "non documenté par la source."}</span></li>
-      </ul>
-    </details>
-  </div>
 
   ${sortiesDuLieu()}`;
 }
@@ -1826,14 +1794,16 @@ function decouperHistorique(texte){
 }
 
 /* Un texte long ne se coupe pas en deux blocs : il reste un seul texte, dont
-   la fin est masquée derrière des points de suspension et « Lire la suite ».
-   Le lecteur clique et la phrase continue là où elle s'était arrêtée. */
+   la fin est masquée derrière des points de suspension et « Voir plus ». Le
+   lecteur clique et la phrase continue là où elle s'était arrêtée. Le chemin
+   inverse existe : un historique déplié occupe la page, et « Voir moins » le
+   ramène à son amorce sans avoir à quitter le lieu. */
 function historiqueDeroulant(histoire){
   if (!histoire.suite) return paragraphes(histoire.amorce);
   return `<p class="histoire" data-historique>${echapper(histoire.amorce)}<span
     class="points"> …</span> <span class="suite" hidden>${
-    echapper(histoire.suite).replace(/\n+/g, " ")}</span><button type="button"
-    class="lire-suite" data-lire-suite="1">Lire la suite</button></p>`;
+    echapper(histoire.suite).replace(/\n+/g, " ")}</span> <button type="button"
+    class="lire-suite" data-lire-suite="1" aria-expanded="false">Voir plus</button></p>`;
 }
 
 function paragraphes(texte){
@@ -2248,10 +2218,12 @@ document.addEventListener("click", evenement => {
     allerAuSite(bouton.dataset.site);
   } else if (bouton.dataset.lireSuite !== undefined){
     const bloc = bouton.closest("[data-historique]");
-    bloc.querySelector(".points").remove();
-    bloc.querySelector(".suite").hidden = false;
-    bouton.remove();
-    annoncer("Suite de l'historique affichée.");
+    const deplie = bouton.getAttribute("aria-expanded") !== "true";
+    bloc.querySelector(".points").hidden = deplie;
+    bloc.querySelector(".suite").hidden = !deplie;
+    bouton.setAttribute("aria-expanded", String(deplie));
+    bouton.textContent = deplie ? "Voir moins" : "Voir plus";
+    annoncer(deplie ? "Historique complet affiché." : "Historique replié.");
   } else if (bouton.dataset.lien !== undefined){
     const index = Number(bouton.dataset.lien);
     etat.lien = etat.lien === index ? null : index;
