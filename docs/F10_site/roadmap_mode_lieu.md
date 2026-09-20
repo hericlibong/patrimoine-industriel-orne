@@ -97,24 +97,31 @@ autre lieu → retour, sans filtre et sous filtre.
 **Objectif.** Que le panneau se lise dans l'ordre où l'on comprend : qui, puis
 quoi, puis quand, puis avec quelles limites.
 
-- [ ] **Identité** — nom, commune et lieu-dit, activités écrites en clair, lien
+- [x] **Identité** — nom, commune et lieu-dit, activités écrites en clair, lien
       vers la fiche d'inventaire. Ouvert.
-- [ ] Sortir les activités de la grille de chiffres : un métier n'est pas un
+- [x] Sortir les activités de la grille de chiffres : un métier n'est pas un
       nombre et n'a pas sa place dans une case conçue pour un nombre.
-- [ ] Retirer les compteurs redondants : le nombre d'événements datés, répété
+- [x] Retirer les compteurs redondants : le nombre d'événements datés, répété
       par la chronologie, et le nombre d'activités, répété par leur liste.
-- [ ] **Historique documenté** — remplace « Ce que dit la notice ». Amorce
+- [x] **Historique documenté** — remplace « Ce que dit la notice ». Amorce
       visible, suite dépliable. Provenance discrète et honnête, du type
       « D'après la fiche d'inventaire », tant que le texte n'est pas réécrit.
-- [ ] **Chronologie** — après l'historique, repliée, sans zone de défilement
+- [x] **Chronologie** — après l'historique, repliée, sans zone de défilement
       propre. Remplace « Ce qui est daté » et « Événements extraits du texte de
       la notice ».
-- [ ] **Localisation et état des connaissances** — replié : précision
+- [x] **Localisation et état des connaissances** — replié : précision
       géographique en formulation courte, distance au cours d'eau, conservation.
-- [ ] Ne jamais présenter la distance au cours d'eau comme une preuve d'usage de
+- [x] Ne jamais présenter la distance au cours d'eau comme une preuve d'usage de
       l'eau ; vérifier que le déplacement ne l'introduit pas.
-- [ ] Corriger le mot « site » dans le texte de précision de localisation, seul
+- [x] Corriger le mot « site » dans le texte de précision de localisation, seul
       endroit de l'interface publique où il subsiste.
+
+**Bilan L2 — 20 septembre 2026.** Fait et mesuré ; détail dans
+`journal_mode_lieu.md`. Le panneau passe de 1 223 à 618 pixels. Deux défauts
+corrigés au passage : un code brut `partiellement_conserve` affiché au lecteur,
+et le mot « site » subsistant à quatre endroits de l'interface publique et non à
+un seul. Le bloc de localisation s'ouvre quand la conservation est documentée —
+décision appliquée sur recommandation, le porteur ne l'ayant pas tranchée.
 
 **Décision attendue du porteur :** la conservation est-elle toujours repliée, ou
 visible quand elle est documentée ? **Recommandation : repliée quand elle est

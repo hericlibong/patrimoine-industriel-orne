@@ -217,7 +217,7 @@
   .preuves .meta{display:block;margin-top:5px;font-style:normal;font-size:11.5px;
     color:var(--gris)}
 
-  .frise{list-style:none;margin:6px 0 0;padding:0;max-height:220px;overflow-y:auto}
+  .frise{list-style:none;margin:6px 0 0;padding:0}
   .frise li{display:grid;grid-template-columns:74px 1fr;gap:9px;padding:5px 0;
     border-top:1px solid #eeece6;font-size:12.5px}
   .frise .an{font-variant-numeric:tabular-nums;color:var(--signal);font-weight:600}
@@ -225,9 +225,18 @@
 
   .avertissement{font-size:11.5px;color:var(--gris);background:#f4f2ec;
     border-radius:4px;padding:8px 10px;margin-top:10px}
-  .histoire{font-size:13px;max-height:250px;overflow-y:auto;padding-right:4px;
+  .histoire{font-size:13px;
     color:#33363f}
-  .lien-source{font-size:12px}
+  .lien-source{font-size:12px;margin-top:9px}
+  .activites-lieu{font-size:13px;color:var(--appui);margin:9px 0 0}
+  .histoire.vide{color:var(--gris);font-size:12.5px}
+  /* Un bloc repliable seul dans son carton n'a pas de trait à porter. */
+  .ensemble-details.seul{margin-top:0;border-top:0;padding-top:0}
+  .fiche-limites{list-style:none;margin:9px 0 0;padding:0;font-size:12.5px}
+  .fiche-limites li{border-top:1px solid var(--trait);padding:7px 0}
+  .fiche-limites li:first-child{border-top:0;padding-top:0}
+  .fiche-limites b{display:block;color:var(--encre);font-weight:600}
+  .fiche-limites span{color:var(--gris)}
   .lien-source a{color:var(--signal)}
 
   footer{max-width:1440px;margin:0 auto;padding:0 30px 40px;font-size:12px;
@@ -338,7 +347,7 @@
       <p class="source" id="sourceCarte"></p>
       <details class="methode" id="methodeDepartement">
         <summary>Comprendre les regroupements et les limites de la carte</summary>
-        <p>Les douze ensembles étudiés réunissent des sites distants de moins de trois
+        <p>Les douze ensembles étudiés réunissent des lieux distants de moins de trois
         kilomètres, de proche en proche, lus notice par notice. Leur proximité ne prouve
         pas un lien historique.</p>
         <p>Un point situe un lieu selon la précision de sa localisation ; il ne représente
@@ -359,9 +368,9 @@
   séparément.</p>
   <p><b>Ce que cette vue ne dit pas.</b> Les présentations de la Risle et de Crulai
   servent uniquement à éprouver cette structure ; les textes éditoriaux des
-  douze ensembles restent à arbitrer. Un ensemble réunit les sites distants de moins de trois
+  douze ensembles restent à arbitrer. Un ensemble réunit les lieux distants de moins de trois
   kilomètres — ce n'est pas un territoire historique aux frontières établies. Un
-  point situe un site selon un niveau de précision indiqué ; il ne représente
+  point situe un lieu selon un niveau de précision indiqué ; il ne représente
   pas son emprise.</p>
 </footer>
 
@@ -386,6 +395,9 @@ const NS = "http://www.w3.org/2000/svg";
 /* Libellés du vocabulaire contrôlé : un code n'a qu'un seul nom dans tout le projet. */
 const libelle = code => D.libelles.metiers[code] || code;
 const libellePrecision = code => D.libelles.precision[code] || code || "inconnue";
+// Le vocabulaire contrôlé porte déjà ces libellés : un code brut comme
+// « partiellement_conserve » ne doit jamais arriver sous les yeux du lecteur.
+const libelleConservation = code => D.libelles.conservation[code] || code || "inconnu";
 const libelleFiabilite = code => D.libelles.fiabilite[code] || code;
 
 /* les métiers présents dans tout le corpus embarqué */
@@ -1666,43 +1678,63 @@ function panneauSite(){
         ? ` <span style="color:#7d7a72">— « ${echapper(source.slice(0,80))} »</span>` : ""}</span></li>`;
   }).join("");
 
-  const histoire = site.histoire
-    ? `<p class="histoire">${echapper(site.histoire).replace(/\n+/g,"</p><p class='histoire'>")}</p>`
-    : `<p style="font-size:12.5px;color:#5c6070">Aucun texte historique dans la source.</p>`;
+  const activites = site.secteurs.map(libelle);
+  const histoire = decouperHistorique(site.histoire);
+  /* Une information établie mérite mieux qu'un pli : le bloc s'ouvre quand la
+     conservation est documentée. Elle ne l'est que pour trois lieux sur 318. */
+  const conservationConnue = Boolean(site.conservation)
+    && site.conservation !== "inconnu";
 
   return `
   <div class="carton">
     <h3>${echapper(site.nom)}</h3>
     <div class="sous">${echapper(site.commune)}${site.lieuDit ? " · " + echapper(site.lieuDit) : ""}</div>
-    <div class="chiffres">
-      <div><b>${site.nbActivites}</b><span>activité${site.nbActivites>1?"s":""}</span></div>
-      <div><b>${evenements.length}</b><span>événements datés</span></div>
-      <div><b>${site.eau !== null && site.eau !== undefined ? Math.round(site.eau)+" m" : "—"}</b>
-        <span>du cours d'eau le plus proche</span></div>
-      <div><b>${site.secteurs.map(libelle).join(", ") || "—"}</b><span>métier</span></div>
-    </div>
-    <div class="avertissement">Précision de localisation :
-      <b>${echapper(libellePrecision(site.precision))}</b>. Le point situe le site à ce
-      niveau de précision et ne représente pas son emprise.
-      ${site.conservation === "inconnu" || !site.conservation
-        ? " L'état de conservation actuel n'est pas documenté." : ""}</div>
-    ${site.url ? `<p class="lien-source" style="margin-top:10px">
-      <a href="${echapper(site.url)}" target="_blank" rel="noopener">Notice d'origine
-      (${echapper(site.ref)})</a></p>` : ""}
+    <p class="activites-lieu">${activites.length
+      ? activites.map(echapper).join(" · ")
+      : "Activité non précisée par la source"}</p>
+    ${site.url ? `<p class="lien-source">
+      <a href="${echapper(site.url)}" target="_blank" rel="noopener">Voir la fiche
+      d'inventaire (${echapper(site.ref)})</a></p>` : ""}
+  </div>
+
+  <div class="carton">
+    <h3>Historique documenté</h3>
+    <div class="sous">D'après la fiche d'inventaire, texte non réécrit</div>
+    ${histoire.amorce ? paragraphes(histoire.amorce) : `<p class="histoire vide">
+      Aucun texte historique dans la source.</p>`}
+    ${histoire.suite ? `<details class="ensemble-details" data-accordeon="historique">
+      <summary>Lire la suite de l'historique</summary>
+      ${paragraphes(histoire.suite)}
+    </details>` : ""}
   </div>
 
   ${evenements.length ? `<div class="carton">
-    <h3>Ce qui est daté</h3>
-    <div class="sous">Événements extraits du texte de la notice</div>
-    <ul class="frise">${frise}</ul>
-    <div class="avertissement">Une date imprécise reste un intervalle. Une période
-    documentée n'est pas une preuve d'activité continue.</div>
+    <details class="ensemble-details seul" data-accordeon="chronologie">
+      <summary>Chronologie <span class="compteur">${evenements.length}
+        événement${evenements.length>1?"s":""} daté${evenements.length>1?"s":""}</span></summary>
+      <ul class="frise">${frise}</ul>
+      <div class="avertissement">Une date imprécise reste un intervalle. Une période
+      documentée n'est pas une preuve d'activité continue.</div>
+    </details>
   </div>` : ""}
 
   <div class="carton">
-    <h3>Ce que dit la notice</h3>
-    <div class="sous">Texte de l'Inventaire, non réécrit</div>
-    ${histoire}
+    <details class="ensemble-details seul" data-accordeon="localisation"
+      ${conservationConnue ? "open" : ""}>
+      <summary>Localisation et état des connaissances</summary>
+      <ul class="fiche-limites">
+        <li><b>Précision de localisation</b>
+          <span>${echapper(libellePrecision(site.precision))} — le point situe le lieu
+          à ce niveau de précision et ne représente pas son emprise.</span></li>
+        ${site.eau !== null && site.eau !== undefined ? `<li><b>Cours d'eau le plus
+          proche</b><span>${Math.round(site.eau)} m. Une distance mesurée, qui
+          n'établit pas un usage de l'eau.</span></li>` : ""}
+        <li><b>État de conservation</b>
+          <span>${conservationConnue
+            ? echapper(libelleConservation(site.conservation))
+            : "non documenté par la source."}</span></li>
+      </ul>
+    </details>
   </div>
 
   ${sortiesDuLieu()}`;
@@ -1712,6 +1744,24 @@ function panneauSite(){
    enfermerait le lecteur dans la fiche qu'il vient d'ouvrir. La liste suit le
    filtre en cours — comme la carte et comme le panneau de l'ensemble — et dit
    combien de lieux il masque, plutôt que de les faire disparaître en silence. */
+/* Le panneau doit tenir dans un écran : le texte de la notice fait douze lignes
+   sur certains lieux. Une amorce reste visible, la suite se déplie. La coupe se
+   fait à une fin de phrase, jamais au milieu d'un mot. */
+function decouperHistorique(texte){
+  const propre = (texte || "").trim();
+  if (!propre) return {amorce:"", suite:""};
+  if (propre.length <= 220) return {amorce:propre, suite:""};
+  let coupe = propre.indexOf(". ", 130);
+  if (coupe === -1 || coupe > 360) coupe = propre.indexOf(" ", 220);
+  if (coupe === -1) return {amorce:propre, suite:""};
+  return {amorce:propre.slice(0, coupe + 1).trim(), suite:propre.slice(coupe + 1).trim()};
+}
+
+function paragraphes(texte){
+  return echapper(texte).split(/\n+/).filter(Boolean)
+    .map(bloc => `<p class="histoire">${bloc}</p>`).join("");
+}
+
 function sortiesDuLieu(){
   const detail = D.detail[etat.systeme];
   const definition = D.departement.systemes.find(s => s.code === etat.systeme);
@@ -2007,7 +2057,7 @@ function rendreLegende(){
       + `<div class="entree"><i style="background:#a9a49a;width:7px;height:7px"></i>lieu hors des ensembles étudiés</div>`;
     source.innerHTML = `Sources : Inventaire du patrimoine industriel de l'Orne ·
       contours communaux API Géo.<br>Regroupements calculés, sans frontière historique.
-      L'état de conservation reste inconnu pour 315 des 318 sites du corpus.`;
+      L'état de conservation reste inconnu pour 315 des 318 lieux du corpus.`;
     methode.hidden = false;
   } else {
     const categories = new Set(D.detail[etat.systeme].eau.map(troncon => troncon.categorie));
