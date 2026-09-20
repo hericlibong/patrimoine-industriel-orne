@@ -223,6 +223,17 @@ Avec une image affichée, le panneau passait de 618 à près de 1 000 pixels et 
 tenait plus dans un écran. Repliée, il retombe à 629-733 pixels, sous le critère
 de L2 ; dépliée, l'image s'affiche entière, sans borne de hauteur.
 
+**Décision annulée le même jour, après jugement à l'écran : l'image est posée,
+jamais repliée.** Motif du porteur : c'est l'image qui fait exister le lieu à
+l'arrivée, et un repli lui retire son effet avant qu'elle ait servi. Le
+problème de hauteur était réel mais la réponse était mauvaise ; il est traité
+dans la mise en page, par une borne de 300 pixels portant sur la boîte de
+l'image et non sur son contenu — forme conservée, aucun recadrage, aucune bande
+latérale. Mesuré sur les cinquante panneaux, image chargée : le plus haut
+atteint 772 pixels, sous le critère des 900 de L2. **Reste au jugement du
+porteur :** les images de la source font 600 pixels de haut au maximum, la
+borne à 300 leur en laisse la moitié ; la monter est un seul nombre à changer.
+
 **Décision attendue du porteur :** quel média s'affiche quand un lieu en compte
 plusieurs ? L'inventaire compte 1 900 médias pour 316 lieux, soit six ou sept
 par lieu en moyenne. **Recommandation : celui que la source signale comme image

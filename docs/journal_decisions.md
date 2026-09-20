@@ -2546,3 +2546,40 @@ n'est relevée.
 Décision : **le panneau du lieu ne porte plus que ce qui parle au lecteur : le
 titre « Historique » sans qualificatif, le texte sans mention de provenance, un
 « Voir plus / Voir moins » réversible, et plus de bloc de localisation.**
+
+## 2026-09-20 — L'image du lieu est posée, plus jamais repliée
+
+Le repli « Voir l'image » avait été posé le 20 septembre à la demande du
+porteur — « rends la photo repliable » — pour un motif de hauteur : une image
+en portrait faisait passer le panneau de 618 à 1 069 pixels et rompait le
+« panneau court ». Le porteur revient sur cette demande le même jour, après
+l'avoir vue à l'écran, et le motif qu'il donne l'emporte : c'est l'image qui
+fait exister le lieu à l'arrivée. Un repli lui retire son effet avant même
+qu'elle ait servi. Le lecteur ouvre un lieu, il voit son image.
+
+Le problème de hauteur, lui, n'a pas disparu — il était réel, c'est la réponse
+qui était mauvaise. Il est traité là où il se pose, dans la mise en page : la
+hauteur de l'image est bornée à 300 pixels. La borne porte sur la boîte de
+l'image et non sur son contenu, de sorte que l'image garde sa forme, n'est
+jamais recadrée, et ne traîne aucune bande latérale : un portrait est
+simplement moins large, et centré.
+
+Mesuré dans le navigateur sur les cinquante panneaux, image chargée et décodée :
+le plus haut atteint 772 pixels, contre 618 quand l'image était repliée. Le
+critère du panneau court — tenir sans débordement sur un écran de 900 pixels de
+haut — reste satisfait. Trois exemples : une image en portrait de 471 × 600 est
+affichée en 236 × 300, une de 476 × 600 en 238 × 300, un paysage de 756 × 600
+en 377 × 300. Aucune image n'est agrandie au-delà de sa taille d'origine, ce
+qui l'aurait rendue floue. Quarante-neuf des cinquante lieux ont une image.
+
+Aucune image n'est téléchargée ni copiée : le panneau pointe l'adresse du
+média, comme avant. Une image dont l'adresse ne répond pas retire sa propre
+figure du panneau plutôt que d'afficher un cadre vide.
+
+**Point laissé au jugement du porteur.** Les images de la source mesurent
+600 pixels de haut au maximum. La borne à 300 leur en laisse la moitié. Monter
+la borne donnerait une image plus présente, au prix d'un panneau plus long ;
+c'est un seul nombre à changer, et cela se juge à l'œil, pas au calcul.
+
+Décision : **l'image du lieu est posée, visible dès l'ouverture, bornée à 300
+pixels de haut et jamais recadrée.**
