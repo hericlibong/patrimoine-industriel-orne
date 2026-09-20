@@ -363,3 +363,37 @@ réécriture :
 Décision : **les cinquante historiques réécrits des ensembles ouverts sont
 affichés, le texte d'origine reste accessible replié, et la mention de
 provenance est corrigée ; le présent sans date reste en attente d'arbitrage.**
+
+## 2026-09-20 — Le texte d'origine est retiré, « Lire la suite » rentre dans le fil
+
+Deux décisions prises le matin même sont annulées le jour de leur mise en
+œuvre, sur jugement du porteur du projet à l'écran.
+
+**Le repli « Lire le texte d'origine » est supprimé.** Motif du porteur :
+« Qu'est-ce qu'on en a à faire du texte d'origine ? […] c'est ce texte éditorial
+qui va faire foi. On s'est cassé la tête pour transformer un texte qui n'était
+pas lisible d'un point de vue lecteur, ce n'est pas pour le remettre après. »
+Le raisonnement qui l'avait posé — la règle du projet qui veut que le libellé
+source soit conservé à côté de la valeur normalisée — ne s'applique pas ici.
+Cette règle protège la donnée, pas la prose : elle vaut pour un code de
+vocabulaire contrôlé en regard de son libellé d'origine, et le texte source
+reste conservé dans le corpus et accessible par la fiche d'inventaire, dont le
+lien figure dans le même panneau. Rien n'est perdu. Ce qui était en cause,
+c'est l'encombrement du panneau du lecteur par un doublon qu'il ne demande pas.
+
+**« Lire la suite » cesse d'être un second bloc.** Motif du porteur : un texte
+long ne se coupe pas en deux cartons. La fin du texte est maintenant masquée
+dans le même paragraphe, derrière des points de suspension suivis du lien
+« Lire la suite » ; au clic, les points et le lien disparaissent et la phrase
+continue là où elle s'était arrêtée. Un seul bloc, un seul texte. C'est la
+forme courante et attendue, et l'ancienne ne l'était pas.
+
+Quarante-cinq des cinquante historiques sont assez longs pour être coupés,
+cinq tiennent entiers. Les cinquante panneaux ont été produits et comparés un à
+un : un seul paragraphe par historique, aucun bloc replié restant, aucune
+mention du texte d'origine, et le texte déplié strictement identique au texte
+réécrit. Le clic a été déclenché pour de vrai sur le cas le plus long, la
+tréfilerie de Rai.
+
+Décision : **le texte d'origine ne figure plus dans le panneau du lieu, et la
+suite d'un historique long se déplie dans le fil du texte, sans second bloc.**

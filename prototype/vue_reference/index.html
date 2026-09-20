@@ -248,6 +248,14 @@
     margin-top:6px}
   .media-lieu .credit{display:block;color:var(--pale);margin-top:2px}
   .histoire.vide{color:var(--gris);font-size:12.5px}
+  /* « Lire la suite » se pose dans le fil du texte, à la suite des points de
+     suspension : c'est un mot de plus dans la phrase, pas un second bloc. */
+  .lire-suite{display:inline;font:inherit;color:var(--appui);background:none;
+    border:0;padding:0;margin-left:2px;cursor:pointer;
+    text-decoration:underline;text-underline-offset:2px}
+  .lire-suite:hover{color:#1d1f26}
+  .lire-suite:focus-visible{outline:2px solid var(--appui);outline-offset:2px;
+    border-radius:2px}
   /* Un bloc repliable seul dans son carton n'a pas de trait à porter. */
   .ensemble-details.seul{margin-top:0;border-top:0;padding-top:0}
   .fiche-limites{list-style:none;margin:9px 0 0;padding:0;font-size:12.5px}
@@ -1730,17 +1738,8 @@ function panneauSite(){
     <div class="sous">${reecrit
       ? "Réécrit à partir de la fiche d'inventaire, sans aucun fait ajouté"
       : "D'après la fiche d'inventaire, texte non réécrit"}</div>
-    ${histoire.amorce ? paragraphes(histoire.amorce) : `<p class="histoire vide">
+    ${histoire.amorce ? historiqueDeroulant(histoire) : `<p class="histoire vide">
       Aucun texte historique dans la source.</p>`}
-    ${histoire.suite ? `<details class="ensemble-details" data-accordeon="historique">
-      <summary>Lire la suite de l'historique</summary>
-      ${paragraphes(histoire.suite)}
-    </details>` : ""}
-    ${reecrit && site.histoire ? `<details class="ensemble-details"
-      data-accordeon="historique-source">
-      <summary>Lire le texte d'origine, tel qu'il est dans la source</summary>
-      ${paragraphes(site.histoire)}
-    </details>` : ""}
   </div>
 
   ${evenements.length ? `<div class="carton">
@@ -1826,6 +1825,17 @@ function decouperHistorique(texte){
   if (coupe === -1 || coupe > 360) coupe = propre.indexOf(" ", 220);
   if (coupe === -1) return {amorce:propre, suite:""};
   return {amorce:propre.slice(0, coupe + 1).trim(), suite:propre.slice(coupe + 1).trim()};
+}
+
+/* Un texte long ne se coupe pas en deux blocs : il reste un seul texte, dont
+   la fin est masquée derrière des points de suspension et « Lire la suite ».
+   Le lecteur clique et la phrase continue là où elle s'était arrêtée. */
+function historiqueDeroulant(histoire){
+  if (!histoire.suite) return paragraphes(histoire.amorce);
+  return `<p class="histoire" data-historique>${echapper(histoire.amorce)}<span
+    class="points"> …</span> <span class="suite" hidden>${
+    echapper(histoire.suite).replace(/\n+/g, " ")}</span><button type="button"
+    class="lire-suite" data-lire-suite="1">Lire la suite</button></p>`;
 }
 
 function paragraphes(texte){
@@ -2238,6 +2248,12 @@ document.addEventListener("click", evenement => {
     allerAuSysteme(etat.systeme);
   } else if (bouton.dataset.site){
     allerAuSite(bouton.dataset.site);
+  } else if (bouton.dataset.lireSuite !== undefined){
+    const bloc = bouton.closest("[data-historique]");
+    bloc.querySelector(".points").remove();
+    bloc.querySelector(".suite").hidden = false;
+    bouton.remove();
+    annoncer("Suite de l'historique affichée.");
   } else if (bouton.dataset.lien !== undefined){
     const index = Number(bouton.dataset.lien);
     etat.lien = etat.lien === index ? null : index;

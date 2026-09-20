@@ -306,14 +306,17 @@ attendus du porteur. **Validé par le porteur le 20 septembre 2026.**
 **Appliqué le 20 septembre 2026 aux cinquante lieux des deux ensembles
 ouverts** — quarante-trois pour la Risle, sept pour Crulai. Les textes vivent
 dans les corrections humaines documentées, jamais écrasées par un traitement
-automatique ; le texte de la source reste accessible replié sous chaque texte
-réécrit ; la mention de provenance devient « Réécrit à partir de la fiche
+automatique ; la mention de provenance devient « Réécrit à partir de la fiche
 d'inventaire, sans aucun fait ajouté ». Les 268 autres lieux ne sont pas
 touchés. Cinquante-deux points relevés comme à vérifier. Les cinquante panneaux
 ont été produits et comparés un à un dans le navigateur : aucun écart.
 
 - [x] Modèle arrêté et calibré sur dix lieux.
 - [x] Appliqué aux cinquante lieux des ensembles ouverts, affiché, contrôlé.
+- [x] **Forme de lecture corrigée le 20 septembre 2026**, sur jugement du
+      porteur : le repli « Lire le texte d'origine » est supprimé, et la suite
+      d'un historique long se déplie dans le fil du texte derrière des points
+      de suspension, sans second bloc.
 - [ ] **Arbitrage restant : le présent sans date** — « subsiste »,
       « aujourd'hui disparue », « actuellement désaffecté » dans une douzaine
       de textes, sans date de rédaction connue. L5 avait renvoyé la question au
