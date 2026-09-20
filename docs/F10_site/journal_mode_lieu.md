@@ -154,3 +154,67 @@ ouverts et n'ont donc pas pu être éprouvés sur données réelles.
 
 - **La zone vide à gauche** — objet de L3.
 - **La validation du porteur.**
+
+---
+
+## L3 — Comportement ordinateur et mobile (20 septembre 2026)
+
+**Objet.** Que la carte cesse de laisser une demi-page blanche.
+
+### Fait
+
+**La colonne gauche est ancrée.** Sur ordinateur, la carte reste à l'écran
+pendant que le panneau défile. C'était le défaut le plus visible du mode lieu :
+la page étant une grille de deux colonnes alignées en haut, la colonne gauche
+s'arrêtait dès que le panneau la dépassait, et le reste était blanc.
+
+**Une sécurité de hauteur.** Si la fenêtre est plus courte que la colonne, celle-
+ci reste atteignable au lieu d'être coupée. Elle ne se déclenche pas dans les
+conditions courantes.
+
+**L'ancrage ne s'applique pas sous 1180 pixels.** En une colonne, il n'y a rien
+à retenir, et il enfermerait la carte en haut de l'écran devant le panneau.
+
+### Contrôles effectués
+
+Six contrôles du générateur vrais, `ruff` propre, syntaxe JavaScript vérifiée
+par Node.
+
+**Ancrage, sur les trois niveaux, tous blocs dépliés :**
+
+| Vue | Hauteur du panneau | Défilement | Carte visible |
+| --- | --- | --- | --- |
+| Département | 603 px | 403 px | oui |
+| Ensemble Risle | 1 204 px | 900 px | oui |
+| Ensemble Crulai | 655 px | 455 px | oui |
+| Lieu, tout déplié | 1 711 px | 1 249 px | oui |
+
+Aucune des colonnes ne déborde de sa hauteur maximale.
+
+**Écran étroit, en une colonne :**
+
+| Largeur simulée | Carte | Cartouche | Crédits | Page |
+| --- | --- | --- | --- | --- |
+| 420 px | 356 × 164 | 7 %, réduit | repliés, 35 % | aucun débordement |
+| 330 px | 266 × 123 | 11 %, réduit | repliés, 61 % | aucun débordement |
+
+La carte ne mange pas l'écran avant le panneau : 164 et 123 pixels de haut sur
+une fenêtre de 833. L'ancrage est bien désactivé. Le cartouche, l'échelle et les
+crédits se comportent en mode lieu comme en mode ensemble.
+
+### Limite relevée
+
+Sur Crulai, dont le cadre est le plus haut des trois — 620 unités contre 462
+pour la Risle et 520 pour le département —, le haut de la carte dépasse de
+quelques dizaines de pixels lorsque la colonne est ancrée sur une fenêtre de
+833 pixels. La carte reste visible et utilisable ; sur une fenêtre plus haute la
+question ne se pose pas. À revoir si le porteur le juge gênant.
+
+**Simulation, pas fenêtre réelle.** L'écran étroit a été éprouvé en contraignant
+la largeur du conteneur, l'onglet de contrôle ne pouvant pas être redimensionné.
+Le comportement d'une vraie fenêtre étroite reste à confirmer par le porteur.
+
+### Reste ouvert
+
+- **La validation du porteur.**
+- L4, les médias, qui demandera de les transmettre au prototype.

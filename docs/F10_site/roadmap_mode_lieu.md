@@ -88,7 +88,7 @@ avec un retour nommé vers l'ensemble et un accès replié aux autres lieux.
 JavaScript vérifiée par Node ; dans le navigateur, parcours ensemble → lieu →
 autre lieu → retour, sans filtre et sous filtre.
 
-- [ ] **Validation du porteur avant L2.**
+- [x] **Validation du porteur, 20 septembre 2026.**
 
 ---
 
@@ -144,7 +144,7 @@ et se déplie à la demande.
 **Contrôles.** Mesure de la hauteur du panneau replié, sur trois lieux de
 longueurs de notice différentes ; parcours clavier de tous les blocs.
 
-- [ ] **Validation du porteur avant L3.**
+- [x] **Validation du porteur, 20 septembre 2026.**
 
 ---
 
@@ -153,14 +153,22 @@ longueurs de notice différentes ; parcours clavier de tous les blocs.
 **Objectif.** Que la carte cesse de laisser une demi-page blanche, et que le
 mode lieu reste lisible sur écran étroit.
 
-- [ ] Rendre la colonne gauche collante sur ordinateur : la carte reste visible
+- [x] Rendre la colonne gauche collante sur ordinateur : la carte reste visible
       pendant que le panneau défile.
-- [ ] Vérifier que l'ancrage collant ne s'applique pas sous 1180 pixels, où la
+- [x] Vérifier que l'ancrage collant ne s'applique pas sous 1180 pixels, où la
       page passe déjà à une colonne.
-- [ ] Vérifier sur écran étroit que la carte ne mange pas l'écran avant le
+- [x] Vérifier sur écran étroit que la carte ne mange pas l'écran avant le
       panneau, et que l'ordre d'empilement sert la lecture.
-- [ ] Vérifier que le cartouche, l'échelle et les crédits de la carte se
+- [x] Vérifier que le cartouche, l'échelle et les crédits de la carte se
       comportent en mode lieu comme en mode ensemble.
+
+**Bilan L3 — 20 septembre 2026.** Fait et mesuré ; détail dans
+`journal_mode_lieu.md`. La carte reste visible aux trois niveaux, panneau
+entièrement déplié : 1 711 pixels de panneau, 1 249 de défilement, carte
+toujours à l'écran. L'écran étroit a été éprouvé par contrainte de largeur, pas
+dans une vraie fenêtre. Limite relevée : sur Crulai, dont le cadre est le plus
+haut, le haut de la carte dépasse de quelques dizaines de pixels sur une fenêtre
+de 833.
 
 **Fichiers concernés :** `tools/vue_reference_gabarit.html` — mise en page de
 `main` et de la colonne gauche.

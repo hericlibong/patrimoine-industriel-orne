@@ -58,6 +58,13 @@
 
   main{max-width:1440px;margin:0 auto;padding:18px 30px 40px;
     display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:28px;align-items:start}
+  /* La carte accompagne la lecture au lieu de disparaître. Sans cet ancrage,
+     la colonne gauche s'arrêtait dès que le panneau la dépassait et laissait
+     une demi-page blanche — le défaut le plus visible du mode lieu.
+     La hauteur maximale est une sécurité : si la fenêtre est plus courte que
+     la carte, la colonne reste atteignable au lieu d'être coupée. */
+  main > section{position:sticky;top:14px;
+    max-height:calc(100vh - 28px);overflow-y:auto}
 
   .plaque{background:var(--plaque);border:1px solid var(--trait);border-radius:6px;
     padding:16px 18px 12px}
@@ -256,6 +263,9 @@
   @media (max-width:1180px){
     main{grid-template-columns:1fr}
     .liste{max-height:none}
+    /* Une colonne : rien à retenir, et un ancrage collant y enfermerait la
+       carte en haut de l'écran devant le panneau. */
+    main > section{position:static;max-height:none;overflow:visible}
   }
   @media (max-width:700px){
     .bandeau,.fil{padding-left:20px;padding-right:20px}
