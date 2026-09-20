@@ -355,16 +355,34 @@ interprétation, et aucun exemple n'ajoute un fait absent de la source.
 **Objectif.** Éprouver le mode lieu sur des cas qui ne se ressemblent pas, avant
 toute généralisation.
 
-- [ ] Choisir cinq lieux couvrant les cas difficiles : notice longue, notice
+- [x] Choisir cinq lieux couvrant les cas difficiles : notice longue, notice
       courte ou absente, plusieurs activités, aucun événement daté, lieu sans
-      média.
-- [ ] Parcourir chacun entièrement, sur écran large et étroit.
-- [ ] Consigner ce qui tient et ce qui casse, lieu par lieu.
+      média. **Constat du 20 septembre : ces cas n'existent presque pas dans
+      les deux ensembles ouverts** — aucun lieu sans historique, aucun sans
+      événement daté, un seul sans image, un seul à trois activités. Décision
+      du porteur : six lieux réels formant les extrêmes, plus un contrôle de
+      robustesse sur les cas absents, simulés sans toucher aux données.
+- [x] Parcourir chacun entièrement, sur écran large et étroit — 1440 et
+      390 pixels.
+- [x] Consigner ce qui tient et ce qui casse, lieu par lieu.
 
 **Livrable.** Un relevé par lieu, avec captures, et la liste des défauts.
+**Fait le 20 septembre 2026 : `L6_releve_essai.md`**, sans captures — l'onglet
+piloté par l'assistant ne produit aucune image, et une capture du panneau d'un
+lieu incorporerait la photographie de l'inventaire, exclue du dépôt depuis le
+17 août 2026. L'examen visuel revient au porteur, premier point de L7.
 
 **Critères de réception.** Aucun lieu ne produit un panneau vide, un bloc
-incohérent ou un cul-de-sac de navigation.
+incohérent ou un cul-de-sac de navigation. **Tous tenus**, y compris dans le
+cas où toute information manque. Les cinquante panneaux mesurés à 1440 : le
+plus haut atteint 885 pixels au repos, la médiane 789, aucun ne dépasse 900.
+
+**Trois défauts relevés**, détaillés dans le relevé : une erreur de mesure de
+l'assistant corrigée — les hauteurs annoncées plus tôt dans la journée
+portaient sur la colonne de la carte, pas sur le panneau ; le bloc historique
+s'affiche même vide, sans conséquence aujourd'hui ; et la marge sous les
+900 pixels est étroite, ce qui lie la hauteur de l'image au critère du panneau
+court.
 
 - [ ] **Validation du porteur avant L7.**
 

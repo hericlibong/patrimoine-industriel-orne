@@ -2583,3 +2583,46 @@ c'est un seul nombre à changer, et cela se juge à l'œil, pas au calcul.
 
 Décision : **l'image du lieu est posée, visible dès l'ouverture, bornée à 300
 pixels de haut et jamais recadrée.**
+
+## 2026-09-20 — L6, le mode lieu éprouvé sur les cinquante lieux publiables
+
+Relevé complet dans `docs/F10_site/L6_releve_essai.md`. Trois points méritent
+d'être inscrits ici.
+
+**La feuille de route visait des cas difficiles qui n'existent pas.** Elle
+prévoyait cinq lieux couvrant la notice absente, l'absence d'événement daté, le
+lieu sans média, les activités multiples. Vérification faite sur les cinquante
+lieux des deux ensembles ouverts : aucun lieu sans historique, aucun sans
+événement daté, un seul sans image, un seul à trois activités. La Risle est une
+vallée bien documentée, et c'est précisément pour cela qu'elle sert de modèle.
+L'essai a donc porté sur les six lieux réels qui en forment les extrêmes, puis
+sur un contrôle de robustesse où les informations manquantes ont été simulées
+en mémoire dans le navigateur, sans qu'aucune donnée soit touchée.
+
+**Une erreur de mesure de ma part, corrigée.** Les hauteurs de panneau
+annoncées plus tôt dans la journée — 618 pixels image repliée, 772 image
+posée — étaient mesurées sur la colonne de la carte et non sur le panneau du
+lieu. Les vraies valeurs, mesurées sur les cinquante panneaux à 1440 pixels :
+médiane 789, maximum 885, minimum 490. La conclusion ne change pas — le critère
+du panneau court de L2, tenir sous 900 pixels, est tenu par les cinquante — mais
+la marge est plus faible qu'annoncée, et cela a une conséquence : monter la
+borne de hauteur de l'image, que le porteur envisage, ferait passer une partie
+des lieux au-dessus du critère. Les deux décisions sont liées.
+
+**Le panneau tient même quand tout manque.** En retirant une à une l'historique,
+les dates, les activités, le lien vers la fiche et l'image, puis toutes
+ensemble, le panneau continue de se tenir : il donne le nom et la commune, dit
+honnêtement ce qu'il ignore, et laisse repartir vers l'ensemble et vers les
+autres lieux. Une image dont l'adresse ne répond pas retire sa propre figure
+plutôt que d'afficher un cadre cassé. Aucun code technique n'apparaît à
+l'écran dans aucun des essais.
+
+**Les captures n'ont pas pu être faites.** L'onglet piloté par l'assistant ne
+produit aucune image : les mesures et la lecture du contenu affiché tiennent
+lieu de preuve. Le manque vaut aussi règle : une capture du panneau d'un lieu
+incorpore la photographie de l'inventaire, et le dépôt exclut depuis le 17 août
+2026 les rendus qui en incorporent. L'examen visuel revient au porteur, et c'est
+le premier point de L7.
+
+Décision : **L6 est éprouvé et consigné ; les cinq critères de réception sont
+tenus ; l'examen visuel du porteur reste à faire avant d'ouvrir L7.**
