@@ -223,6 +223,10 @@ reste nécessaire — mais elle porte alors sur le style, pas sur l'exactitude.
 
 ### Source
 
+**Notice `IA00061055` — tréfilerie, Saint-Martin-d'Écublei**, vallée de la
+Risle. Le cas d'essai fourni par le porteur est cette notice, reprise mot pour
+mot.
+
 > « Tréfilerie établie en 1807 par Louis Fleury à l'emplacement d'un moulin à
 > blé ; réglementé par arrêté préfectoral le 18 décembre 1807 ; consommait
 > 800000 kg de fer en 1840 ; installation d'une machine à vapeur vers 1865 ;
@@ -360,10 +364,17 @@ mission d'application, pas de celle-ci.
 
 ## 8. Limites de ce document
 
-Une seule notice a été réécrite, celle du cas d'essai, et elle est fictive — le
-corpus ne contient pas de tréfilerie établie en 1807 par Louis Fleury. Le prompt
-et le protocole n'ont donc été éprouvés sur **aucune notice réelle**. C'est
-précisément l'objet de la calibration, qui n'est pas engagée.
+*Corrigé le 20 septembre 2026, au moment de la calibration.* Ce paragraphe
+affirmait que le cas d'essai était fictif et que le corpus ne contenait pas de
+tréfilerie établie en 1807 par Louis Fleury. **C'était faux.** La sélection de
+l'échantillon l'a fait remonter : c'est la notice `IA00061055`, tréfilerie de
+Saint-Martin-d'Écublei, dans la vallée de la Risle, mot pour mot. Le cas d'essai
+du porteur était donc une notice réelle, et la réécriture ci-dessus porte sur
+une notice du corpus.
+
+Au moment où ce document a été écrit, le prompt et le protocole n'avaient été
+éprouvés que sur cette seule notice. La calibration sur dix notices est
+consignée dans `L5_calibration.md`.
 
 Aucun prototype, aucun générateur, aucune donnée n'ont été modifiés. Aucune
 notice du corpus n'a été transformée.

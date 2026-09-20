@@ -269,13 +269,29 @@ exemples, à valider avant toute application.
 - [ ] Poser les règles de prudence déjà établies par le projet : une date
       imprécise reste un intervalle, une période documentée n'est pas une preuve
       d'activité continue, une contradiction entre sources ne s'efface pas.
-- [ ] Écrire trois exemples complets sur trois lieux de longueurs différentes.
+- [x] Écrire des exemples complets. **Dix notices réelles réécrites et
+      contrôlées** le 20 septembre, une par catégorie de difficulté, neuf issues
+      des ensembles ouverts. Résultats dans `L5_calibration.md`.
+- [x] Contrôle en deux passes retenu par le porteur le 20 septembre.
 
 **Fichiers concernés :** `docs/phase10_fiches_sites_methode.md` — méthode
 existante à confronter ; le présent dossier pour le modèle produit.
 
-**Livrable.** Un modèle écrit et trois exemples, jugés côte à côte avec les
+**Livrable.** Un modèle écrit et des exemples, jugés côte à côte avec les
 textes d'origine.
+
+**Calibration faite le 20 septembre 2026** — `L5_calibration.md`. Le contrôle
+n'a laissé passer aucun ajout, aucune perte, aucun renforcement de certitude,
+aucune tendance inventée : les six défauts qui avaient motivé la démarche sont
+absents des dix notices. Cinq verdicts « à reprendre » portent tous sur le même
+mot, « puis », entre deux faits que la source ordonne déjà — deux fois repris de
+la source elle-même. **Le seuil de huit sur dix n'est donc pas le bon
+indicateur** : il compte les verdicts, pas les défauts.
+
+Deux difficultés remontent vers le corpus et non vers la réécriture : deux
+notices emploient le présent sans le dater — « subsiste le four », « elle
+utilise aujourd'hui » — et une source porte une mesure corrompue, citée telle
+quelle. **Cinq décisions attendent le porteur avant de clore L5.**
 
 **Contre-proposition préparée le 20 septembre 2026**, en réponse à
 `proposition_L5.md`, dans `L5_modele_transformation_historiques.md` : diagnostic
