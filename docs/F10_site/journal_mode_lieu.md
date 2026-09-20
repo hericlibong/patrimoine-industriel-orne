@@ -218,3 +218,84 @@ Le comportement d'une vraie fenêtre étroite reste à confirmer par le porteur.
 
 - **La validation du porteur.**
 - L4, les médias, qui demandera de les transmettre au prototype.
+
+---
+
+## L4 — Médias (20 septembre 2026)
+
+**Cadre posé par le porteur le 20 septembre.** Tout média inventorié est traité
+comme publiable. Aucune condition de droits n'est appliquée par le code. Le
+porteur décide seul, au moment qu'il choisit, de ce qui part en ligne.
+
+### Ce qu'il a fallu établir avant d'afficher quoi que ce soit
+
+**L'inventaire ne donne pas d'adresse d'image directe.** Le champ d'adresse
+principal pointe vers une notice de la plateforme POP, pas vers un fichier. Le
+chemin de fichier, lui, est **relatif pour 1 783 médias et complet pour 117**.
+
+**La base n'est donc pas supposée, elle est lue dans les données.** Les 117
+adresses complètes portent toutes le même hôte et la même forme de chemin que
+les 1 783 relatives. La base en découle.
+
+**Et elle a été vérifiée, pas déduite.** Trois fichiers chargés dans un
+navigateur, dont deux reconstruits à partir d'une adresse relative : images
+obtenues, 756 × 600 et 477 × 600. L'environnement local n'ayant pas d'accès
+réseau, la vérification est passée par le navigateur.
+
+### Fait
+
+**Les médias sont transmis au prototype.** Ils n'y étaient pas du tout. Un média
+par lieu : celui que la source signale comme image principale, à défaut le
+premier. C'est la recommandation de la roadmap, **appliquée faute d'arbitrage du
+porteur ; elle se change en une ligne.**
+
+**Couverture réelle des deux ensembles ouverts :** 42 lieux sur 43 pour la
+Risle, 7 sur 7 pour Crulai. Un seul lieu sans média, l'usine d'ébénisterie.
+
+**L'image est affichée avec sa légende et son crédit**, sous les activités. Ce
+sont des informations de provenance, pas des autorisations.
+
+**Aucun cadre de remplacement** pour le lieu sans média : ni pictogramme, ni
+mention « image indisponible ». Une absence n'est pas un manque à signaler.
+
+**Une image qui échoue retire sa figure entière** et laisse le panneau intact.
+Vérifié avec une adresse fautive.
+
+**Le chargement n'est pas différé.** Il l'était d'abord ; le report dépend du
+cycle de rendu et n'a jamais pu être éprouvé ici. Pour une seule image en tête
+de panneau, il n'apporte rien et ajoute un mode d'échec.
+
+### Contrôles effectués
+
+Six contrôles du générateur vrais, `ruff` propre, syntaxe JavaScript vérifiée
+par Node. Dans le navigateur :
+
+| Cas | Résultat | Hauteur du panneau |
+| --- | --- | --- |
+| Lieu avec média | image chargée, 754 × 600, légende et crédit présents | 921 px |
+| Autre lieu avec média | image chargée, 756 × 600 | 992 px |
+| Lieu sans média | aucune figure, aucune mention d'absence | 679 px |
+| Adresse fautive | figure retirée, panneau intact | — |
+
+**Poids de la page :** 868 → 890 ko. Les médias de cinquante lieux coûtent 22 ko.
+
+### Tension à arbitrer par le porteur
+
+**Avec une image, le panneau ne tient plus dans un écran.** Il passait à 1 069
+pixels ; la hauteur de l'image a été bornée à 230 pixels, ce qui le ramène entre
+920 et 990. C'est encore au-dessus du critère de réception de L2, qui demandait
+qu'il tienne sur un écran de 900 pixels.
+
+L'image entière reste visible — aucun recadrage, rien de coupé — au prix de
+bandes latérales sur les formats les plus allongés.
+
+Trois issues possibles : accepter qu'un panneau avec photo dépasse légèrement ;
+réduire encore la hauteur de l'image ; ou rendre la photo repliable comme les
+autres blocs. **Décision du porteur.**
+
+### Reste ouvert
+
+- **La validation du porteur**, et l'arbitrage ci-dessus.
+- Le choix du média quand un lieu en compte plusieurs, appliqué sur
+  recommandation.
+- L5, le modèle de transformation des historiques.

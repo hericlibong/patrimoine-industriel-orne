@@ -18,6 +18,7 @@ systèmes : une vue de référence bâtie sur des chiffres faux ne vaut rien.
 from __future__ import annotations
 
 import glob
+import csv
 import json
 import math
 import sys
@@ -38,6 +39,14 @@ CLASSIFICATIONS = RACINE / "config" / "classifications.yml"
 GABARIT = Path(__file__).resolve().parent / "vue_reference_gabarit.html"
 SORTIE = RACINE / "prototype" / "vue_reference" / "index.html"
 D3_LOCAL = RACINE / "tools" / "vendor" / "d3.v7.9.0.min.js"
+MEDIAS = RACINE / "data" / "exports" / "medias_sites_v1.csv"
+
+# Les adresses de fichier de l'inventaire sont relatives pour 1 783 médias et
+# complètes pour 117. Les 117 complètes donnent la base : elle n'est donc pas
+# supposée, elle est lue dans les données du projet. Vérifiée dans un navigateur
+# le 20 septembre 2026 sur trois fichiers, dont deux reconstruits à partir d'une
+# adresse relative.
+BASE_MEDIAS = "https://popcorn-prd-perf-assets.s3.gra.io.cloud.ovh.net/"
 
 SEUIL_REGROUPEMENT_M = 3000
 MARGE_DEGRES = 0.02
@@ -372,6 +381,45 @@ def hydrographie(
     return list(troncons.values())
 
 
+def medias_par_lieu() -> dict[str, dict]:
+    """Un média par lieu, lu dans l'inventaire de la phase 9.
+
+    Le porteur a décidé le 20 septembre 2026 que tout média inventorié est
+    traité comme publiable : aucune condition de droits n'est appliquée ici.
+
+    Lorsqu'un lieu compte plusieurs médias — six ou sept en moyenne — celui que
+    la source signale comme image principale est retenu, à défaut le premier.
+
+    L'inventaire vit dans `data/exports/`, qui n'est pas versionné : son absence
+    ne doit pas empêcher de produire la vue. Elle est signalée, pas subie.
+    """
+    if not MEDIAS.exists():
+        return {}
+    retenus: dict[str, dict] = {}
+    with MEDIAS.open(encoding="utf-8-sig", newline="") as fichier:
+        for ligne in csv.DictReader(fichier):
+            reference = (ligne.get("reference_ia") or "").strip()
+            fichier_source = (ligne.get("url_fichier_source") or "").strip()
+            if not reference or not fichier_source:
+                continue
+            principale = (ligne.get("image_principale_source") or "").strip() == "True"
+            if reference in retenus and not principale:
+                continue
+            if reference in retenus and retenus[reference]["principale"]:
+                continue
+            retenus[reference] = {
+                "url": fichier_source if fichier_source.startswith("http")
+                else BASE_MEDIAS + fichier_source.lstrip("/"),
+                "legende": (ligne.get("legende_source") or "").strip(),
+                "credit": (ligne.get("credit_source") or "").strip(),
+                "notice": (ligne.get("url_media") or "").strip(),
+                "principale": principale,
+            }
+    for media in retenus.values():
+        media.pop("principale", None)
+    return retenus
+
+
 def contours_communes(sites: list[dict], boite: tuple[float, float, float, float]) -> dict:
     """Contours communaux qui donnent un sol à la carte.
 
@@ -505,6 +553,7 @@ def construire() -> dict:
             }
         )
 
+    medias = medias_par_lieu()
     detail = {}
     for code in SYSTEMES_DETAILLES:
         references = set(references_par_systeme.get(code, []))
@@ -521,6 +570,10 @@ def construire() -> dict:
             # cadre, sinon un bord de commune apparaît comme une limite de carte.
             "sol": contours_communes(sites, emprise(sites, MARGE_DEGRES * 3)),
         }
+        for site in sites:
+            media = medias.get(site["ref"])
+            if media:
+                site["media"] = media
         if code == "risle":
             detail[code]["reperes"] = reperes_risle(detail[code]["eau"])
 

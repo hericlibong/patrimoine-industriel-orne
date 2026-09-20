@@ -236,6 +236,16 @@
     color:#33363f}
   .lien-source{font-size:12px;margin-top:9px}
   .activites-lieu{font-size:13px;color:var(--appui);margin:9px 0 0}
+  .media-lieu{margin:11px 0 0}
+  /* Hauteur bornée : une photo en portrait faisait passer le panneau de 618 à
+     1 069 pixels et rompait le « panneau court ». L'image entière reste visible
+     — aucun recadrage, rien de coupé — au prix de bandes latérales. */
+  .media-lieu img{display:block;width:100%;height:auto;max-height:230px;
+    object-fit:contain;border-radius:4px;
+    border:1px solid var(--trait);background:#f4f2ec}
+  .media-lieu figcaption{font-size:11.5px;color:var(--gris);line-height:1.45;
+    margin-top:6px}
+  .media-lieu .credit{display:block;color:var(--pale);margin-top:2px}
   .histoire.vide{color:var(--gris);font-size:12.5px}
   /* Un bloc repliable seul dans son carton n'a pas de trait à porter. */
   .ensemble-details.seul{margin-top:0;border-top:0;padding-top:0}
@@ -1702,6 +1712,7 @@ function panneauSite(){
     <p class="activites-lieu">${activites.length
       ? activites.map(echapper).join(" · ")
       : "Activité non précisée par la source"}</p>
+    ${mediaDuLieu(site)}
     ${site.url ? `<p class="lien-source">
       <a href="${echapper(site.url)}" target="_blank" rel="noopener">Voir la fiche
       d'inventaire (${echapper(site.ref)})</a></p>` : ""}
@@ -1757,6 +1768,34 @@ function panneauSite(){
 /* Le panneau doit tenir dans un écran : le texte de la notice fait douze lignes
    sur certains lieux. Une amorce reste visible, la suite se déplie. La coupe se
    fait à une fin de phrase, jamais au milieu d'un mot. */
+/* Un média quand le lieu en a un, rien quand il n'en a pas : aucun cadre de
+   remplacement, aucun pictogramme, aucun « image indisponible ». Une absence
+   n'est pas un manque à signaler.
+
+   Légende et crédit accompagnent toujours l'image — c'est de l'information sur
+   la provenance, pas une autorisation.
+
+   Si l'image ne se charge pas, la figure entière disparaît : un cadre vide
+   vaudrait moins que rien.
+
+   Le chargement n'est pas différé : il n'y a qu'une image par lieu, en tête de
+   panneau, donc rien à gagner — et le report dépend du cycle de rendu, ce qui
+   ajoute un mode d'échec pour rien. */
+function mediaDuLieu(site){
+  const media = site.media;
+  if (!media || !media.url) return "";
+  const legende = media.legende || "";
+  const credit = media.credit || "";
+  return `<figure class="media-lieu">
+    <img src="${echapper(media.url)}" alt="${echapper(legende)}"
+      onerror="this.closest('figure').remove()">
+    ${legende || credit ? `<figcaption>
+      ${legende ? echapper(legende) : ""}
+      ${credit ? `<span class="credit">${echapper(credit)}</span>` : ""}
+    </figcaption>` : ""}
+  </figure>`;
+}
+
 function decouperHistorique(texte){
   const propre = (texte || "").trim();
   if (!propre) return {amorce:"", suite:""};

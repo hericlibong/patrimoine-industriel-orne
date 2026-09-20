@@ -197,15 +197,26 @@ disparaître ; plus aucune zone vide à gauche.
 Aucune condition de droits n'est appliquée par le code. Le porteur décide seul,
 au moment qu'il choisit, de ce qui part en ligne.
 
-- [ ] Transmettre les médias au prototype : ils ne sont pas dans les données
+- [x] Transmettre les médias au prototype : ils ne sont pas dans les données
       générées aujourd'hui. C'est le vrai travail technique de cette phase.
-- [ ] Afficher un média dans le panneau lorsqu'il en existe un pour le lieu.
-- [ ] Afficher la légende et le crédit avec l'image — information, non
+- [x] Afficher un média dans le panneau lorsqu'il en existe un pour le lieu.
+- [x] Afficher la légende et le crédit avec l'image — information, non
       autorisation.
-- [ ] N'afficher aucun cadre de remplacement, aucun pictogramme et aucun texte
+- [x] N'afficher aucun cadre de remplacement, aucun pictogramme et aucun texte
       « image indisponible » pour les lieux sans média. Deux lieux sur 318 sont
       dans ce cas.
-- [ ] Vérifier qu'une image absente ou en erreur ne casse pas le panneau.
+- [x] Vérifier qu'une image absente ou en erreur ne casse pas le panneau.
+
+**Bilan L4 — 20 septembre 2026.** Fait et mesuré ; détail dans
+`journal_mode_lieu.md`. Couverture : 42 lieux sur 43 pour la Risle, 7 sur 7 pour
+Crulai. La base des adresses d'images n'était pas documentée : elle a été lue
+dans les 117 adresses complètes de l'inventaire, puis vérifiée dans un
+navigateur sur trois fichiers.
+
+**Tension à arbitrer.** Avec une image, le panneau passe de 618 à 921-992 pixels
+et ne tient plus dans un écran, contrairement au critère de L2. La hauteur de
+l'image est bornée à 230 pixels sans rien couper. Trois issues : accepter le
+dépassement, réduire encore l'image, ou rendre la photo repliable.
 
 **Décision attendue du porteur :** quel média s'affiche quand un lieu en compte
 plusieurs ? L'inventaire compte 1 900 médias pour 316 lieux, soit six ou sept
