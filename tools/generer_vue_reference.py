@@ -382,6 +382,19 @@ def hydrographie(
     return list(troncons.values())
 
 
+def epoques_des_lieux() -> tuple[dict[str, list[str]], list[dict]]:
+    """Les époques de chaque lieu, calculées par le module du filtre temporel.
+
+    La règle n'est pas réécrite ici : elle vit dans `tools/epoques_lieux.py`,
+    qui est aussi ce que le relevé de T1 exécute. Deux implémentations du même
+    calcul donneraient tôt ou tard deux vérités.
+    """
+    import epoques_lieux  # noqa: PLC0415  — import tardif : évite un cycle
+
+    calcul = epoques_lieux.calculer()
+    return calcul["par_lieu"], calcul["epoques"]
+
+
 def textes_editoriaux() -> dict[str, str]:
     """Textes réécrits, lus dans les corrections humaines documentées.
 
@@ -573,6 +586,7 @@ def construire() -> dict:
 
     medias = medias_par_lieu()
     editoriaux = textes_editoriaux()
+    epoques, registre_epoques = epoques_des_lieux()
     detail = {}
     for code in SYSTEMES_DETAILLES:
         references = set(references_par_systeme.get(code, []))
@@ -596,8 +610,17 @@ def construire() -> dict:
             editorial = editoriaux.get(site["ref"])
             if editorial:
                 site["histoireEditoriale"] = editorial
+            site["epoques"] = epoques.get(site["ref"], [])
         if code == "risle":
             detail[code]["reperes"] = reperes_risle(detail[code]["eau"])
+
+    # Un ensemble doit savoir quelles époques il couvre : sans cela, la liste
+    # des ensembles ne peut pas réagir au filtre au niveau départemental, où le
+    # détail des lieux n'est pas transmis.
+    for systeme in systemes:
+        references = set(references_par_systeme.get(systeme["code"], []))
+        couvertes = {code for ref in references for code in epoques.get(ref, [])}
+        systeme["epoques"] = [e["code"] for e in registre_epoques if e["code"] in couvertes]
 
     autres = [
         {
@@ -607,6 +630,7 @@ def construire() -> dict:
             "lat": site["lat"],
             "commune": site["commune"],
             "secteurs": site["secteurs"],
+            "epoques": epoques.get(reference, []),
         }
         for reference, site in tous_les_sites.items()
         if reference not in dans_un_systeme
@@ -623,6 +647,7 @@ def construire() -> dict:
         },
         "detail": detail,
         "ecarts": ecarts,
+        "epoques": registre_epoques,
         "libelles": libelles_du_vocabulaire(),
     }
 
@@ -672,6 +697,37 @@ LIBELLES_EVENEMENTS = {
 }
 
 
+def _tous_les_lieux(donnees: dict) -> list[dict]:
+    """Les 318 lieux transmis, d'où qu'ils viennent."""
+    return [
+        *(site for detail in donnees["detail"].values() for site in detail["sites"]),
+        *donnees["departement"]["autresSites"],
+    ]
+
+
+def _lieux_total(donnees: dict) -> int:
+    return len(_tous_les_lieux(donnees))
+
+
+def _lieux_dates(donnees: dict) -> int:
+    return sum(1 for site in _tous_les_lieux(donnees) if site.get("epoques"))
+
+
+def _corpus_date() -> int:
+    """Les lieux datés dans tout le corpus, transmis ou non."""
+    epoques, _ = epoques_des_lieux()
+    return len(epoques)
+
+
+def _transmission_fidele(donnees: dict) -> bool:
+    """Aucun lieu transmis ne perd ni ne gagne d'époque en chemin."""
+    epoques, _ = epoques_des_lieux()
+    return all(
+        site.get("epoques", []) == epoques.get(site["ref"], [])
+        for site in _tous_les_lieux(donnees)
+    )
+
+
 def main() -> None:
     donnees = construire()
 
@@ -695,6 +751,36 @@ def main() -> None:
             for site in detail["sites"]
             if site.get("histoireEditoriale")
         ),
+        # Les époques doivent atteindre les 318 lieux, ceux des ensembles comme
+        # les 146 autres : un lieu sans le champ disparaîtrait silencieusement
+        # du filtre au lieu d'être compté parmi les lieux sans date.
+        "epoques_transmises_a_tous_les_lieux": all(
+            "epoques" in site
+            for site in [
+                *(s for d in donnees["detail"].values() for s in d["sites"]),
+                *donnees["departement"]["autresSites"],
+            ]
+        ),
+        # La transmission ne doit rien perdre : chaque lieu transmis porte
+        # exactement les époques que le calcul du filtre lui donne. C'est
+        # l'invariant qui compte, et non un effectif figé : la vue ne transmet
+        # aujourd'hui que 196 lieux en points — les 50 des deux ensembles
+        # ouverts et les 146 sans ensemble — les 122 autres étant représentés
+        # par la pastille de leur ensemble.
+        "aucune_epoque_perdue_a_la_transmission": _transmission_fidele(donnees),
+        # Un ensemble ne doit porter que des époques réellement présentes chez
+        # ses lieux : la liste des ensembles réagit sur cette seule donnée, et
+        # une époque de trop y ferait apparaître un ensemble vide.
+        "epoques_des_ensembles_coherentes": all(
+            set(systeme["epoques"])
+            == {
+                code
+                for site in donnees["detail"][systeme["code"]]["sites"]
+                for code in site["epoques"]
+            }
+            for systeme in donnees["departement"]["systemes"]
+            if systeme["code"] in donnees["detail"]
+        ),
     }
 
     gabarit = GABARIT.read_text(encoding="utf-8")
@@ -712,6 +798,11 @@ def main() -> None:
         "systemes": len(donnees["departement"]["systemes"]),
         "sites_en_systeme": total_systemes,
         "autres_sites": len(donnees["departement"]["autresSites"]),
+        "lieux_transmis_en_points": _lieux_total(donnees),
+        "lieux_transmis_dates": _lieux_dates(donnees),
+        "lieux_transmis_sans_date": _lieux_total(donnees) - _lieux_dates(donnees),
+        "lieux_dates_dans_le_corpus": _corpus_date(),
+        "epoques": [e["code"] for e in donnees["epoques"]],
         "textes_editoriaux": sum(
             1 for detail in donnees["detail"].values()
             for site in detail["sites"] if site.get("histoireEditoriale")

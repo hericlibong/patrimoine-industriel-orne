@@ -2828,3 +2828,47 @@ l'application ne rend ces écarts visibles.
 
 Décision : **10.D est rouverte pour le filtre temporel ; T1 est fait et
 contrôlé ; T2 attend la validation du porteur.**
+
+## 2026-09-21 — T2, les époques atteignent le prototype sans rien afficher
+
+Les époques sont transmises à la vue : à chaque lieu, à chaque ensemble, et au
+niveau départemental comme au niveau ensemble. Rien n'est affiché — c'est le
+livrable de T2, et il a été vérifié dans le navigateur : aucun des mots du
+filtre n'apparaît dans le rendu, ni au département ni dans un panneau de lieu.
+
+**La règle n'est pas réécrite dans le générateur.** Il appelle le module de T1,
+qui est aussi ce que le relevé exécute. Deux implémentations du même calcul
+donneraient tôt ou tard deux vérités.
+
+**Les ensembles portent les époques qu'ils couvrent.** Sans cette donnée, la
+liste des ensembles ne pourrait pas réagir au filtre au niveau départemental,
+où le détail des lieux n'est pas transmis. Crulai porte trois époques, Flers en
+porte cinq — conformes au relevé de T1.
+
+**Un contrôle a attrapé un écart que je n'avais pas vu, et il mérite d'être
+inscrit.** J'attendais 314 lieux datés dans la vue ; le générateur en a trouvé
+194 et a refusé de produire. Le motif n'est pas une erreur de calcul : **la vue
+ne transmet pas 318 lieux en points, mais 196** — les cinquante des deux
+ensembles ouverts et les cent quarante-six sans ensemble. Les cent vingt-deux
+lieux des dix ensembles fermés ne sont pas des points ; ils sont représentés par
+la pastille de leur ensemble, qui porte désormais ses époques.
+
+Le contrôle a donc été remplacé par l'invariant qui compte, et qui ne dépendra
+pas de l'ouverture d'un ensemble de plus : **aucun lieu transmis ne perd ni ne
+gagne d'époque en chemin**. Éprouvé dans les deux sens — altérer un seul lieu ou
+ajouter une époque de trop à un ensemble fait échouer le contrôle.
+
+**Conséquence à retenir pour T3.** Le compteur « 4 lieux sans date » du
+document de décision compte sur tout le corpus. Dans la vue telle qu'elle est,
+seuls deux de ces quatre lieux sont des points visibles ; les deux autres sont
+à Alençon, ensemble fermé. Le libellé devra dire ce qu'il compte, ou compter ce
+qu'il montre. Point à trancher en T3.
+
+**Poids.** La page passe de 898,9 à 921,4 kilo-octets, soit 22,5 de plus et
+2,5 %. Une fois compressée comme elle le serait en ligne : 247,3 devient 248,5,
+soit 1,2 kilo-octet. Les époques des lieux pèsent 17,8 ko, celles des ensembles
+1,8, le registre 0,7. Le coût est négligeable.
+
+Décision : **T2 est fait ; les époques sont transmises aux trois niveaux sans
+rien afficher ; T3 attend la validation du porteur, avec un point à trancher sur
+ce que compte le libellé des lieux sans date.**

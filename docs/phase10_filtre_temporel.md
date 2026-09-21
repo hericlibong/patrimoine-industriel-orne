@@ -444,7 +444,16 @@ vérifie qu'aucune année n'est inventée pour un événement à borne ouverte, 
 que ces 117 événements restent affichables.
 **Validation du porteur avant T2.**
 
-### T2 — Transmettre les époques au prototype
+### T2 — Transmettre les époques au prototype — **fait le 21 septembre 2026**
+
+Fait dans `tools/generer_vue_reference.py`, qui appelle le module de T1 plutôt
+que de réécrire la règle. Trois contrôles ajoutés au générateur. Poids : la page
+passe de 898,9 à 921,4 ko, soit +2,5 %, et +1,2 ko une fois compressée.
+
+**Écart relevé, à trancher en T3 :** la vue ne transmet que 196 lieux en points.
+Sur les quatre lieux sans date du corpus, deux seulement sont visibles ; les
+deux autres sont à Alençon, ensemble fermé. Le compteur devra dire ce qu'il
+compte, ou compter ce qu'il montre.
 
 - Ajouter à chaque lieu la liste de ses époques, pour les lieux d'ensemble et
   pour les 146 lieux hors ensemble.
