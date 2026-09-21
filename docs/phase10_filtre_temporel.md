@@ -466,7 +466,14 @@ compte, ou compter ce qu'il montre.
 décompte ne correspond pas ; poids mesuré avant et après.
 **Validation du porteur avant T3.**
 
-### T3 — Le sélecteur et les compteurs
+### T3 — Le sélecteur et les compteurs — **fait le 21 septembre 2026**
+
+Un seul jeu de fonctions sert les deux sélecteurs. **Le compteur annonce
+« 2 lieux sans date » et non quatre** : les deux autres sont à Alençon, ensemble
+fermé, et ne sont pas des points affichés — le compteur dit ce qu'il montre, la
+note de méthode dira ce que porte le corpus. Clavier, conservation de l'état et
+écran étroit vérifiés. À 390 pixels la barre des filtres atteint 207 pixels
+avant la carte : question d'habillage, renvoyée à 10.E.
 
 - Poser le sélecteur à côté de celui du métier, avec ses six époques.
 - Écrire les compteurs, y compris le décompte des lieux sans date.

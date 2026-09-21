@@ -73,25 +73,25 @@
 
   .filtres{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0}
   .filtres .etiquette{font-size:13px;font-weight:600;color:var(--encre)}
-  .selecteur-metier{position:relative;min-width:290px}
-  .commande-metier{width:100%;display:flex;align-items:center;gap:5px;text-align:left;
+  .selecteur-filtre{position:relative;min-width:290px}
+  .commande-filtre{width:100%;display:flex;align-items:center;gap:5px;text-align:left;
     background:#fff;border:1px solid var(--trait);border-radius:4px;padding:7px 11px;
     font-size:13px;color:var(--appui)}
-  .commande-metier:hover,.commande-metier[aria-expanded="true"]{border-color:var(--gris)}
-  .commande-metier strong{font-weight:600;flex:1}
-  .commande-metier .chevron{font-size:12px;transition:transform .15s}
-  .commande-metier[aria-expanded="true"] .chevron{transform:rotate(180deg)}
-  .liste-metiers{position:absolute;z-index:10;left:0;right:0;top:calc(100% + 5px);
+  .commande-filtre:hover,.commande-filtre[aria-expanded="true"]{border-color:var(--gris)}
+  .commande-filtre strong{font-weight:600;flex:1}
+  .commande-filtre .chevron{font-size:12px;transition:transform .15s}
+  .commande-filtre[aria-expanded="true"] .chevron{transform:rotate(180deg)}
+  .liste-choix{position:absolute;z-index:10;left:0;right:0;top:calc(100% + 5px);
     max-height:320px;overflow-y:auto;background:var(--plaque);border:1px solid var(--trait);
     border-radius:4px;box-shadow:0 8px 24px rgba(32,34,42,.13);padding:4px}
-  .liste-metiers[hidden]{display:none}
-  .liste-metiers button{width:100%;display:grid;grid-template-columns:18px 1fr;gap:7px;
+  .liste-choix[hidden]{display:none}
+  .liste-choix button{width:100%;display:grid;grid-template-columns:18px 1fr;gap:7px;
     text-align:left;background:none;border:0;border-radius:3px;padding:7px 8px;
     color:var(--appui);font-size:12.5px}
-  .liste-metiers button:hover,.liste-metiers button:focus-visible{background:#f2f0ea}
-  .liste-metiers .coche{color:transparent;font-weight:700}
-  .liste-metiers button[aria-selected="true"]{background:#eeece6;color:var(--encre)}
-  .liste-metiers button[aria-selected="true"] .coche{color:var(--signal)}
+  .liste-choix button:hover,.liste-choix button:focus-visible{background:#f2f0ea}
+  .liste-choix .coche{color:transparent;font-weight:700}
+  .liste-choix button[aria-selected="true"]{background:#eeece6;color:var(--encre)}
+  .liste-choix button[aria-selected="true"] .coche{color:var(--signal)}
 
   .cadre{position:relative;background:#fbfaf6;border:1px solid var(--trait);
     border-radius:4px;overflow:hidden}
@@ -142,6 +142,10 @@
   .effet-filtre{font-size:13px;color:var(--gris);font-variant-numeric:tabular-nums}
   .effet-filtre[hidden]{display:none}
   .effet-filtre b{color:var(--signal)}
+  /* Les lieux sans date ne disparaissent jamais en silence : le compteur est
+     discret mais permanent tant qu'une époque est choisie. */
+  .sans-date{font-size:13px;color:var(--gris);font-variant-numeric:tabular-nums}
+  .sans-date[hidden]{display:none}
 
   .legende{display:flex;gap:16px;flex-wrap:wrap;align-items:center;
     padding:0 0 10px;font-size:12px;color:var(--gris)}
@@ -290,8 +294,8 @@
     main{padding:16px 20px 32px;gap:20px}
     .plaque{padding:13px 12px 11px}
     .filtres{align-items:stretch}
-    .filtres .etiquette,.selecteur-metier{width:100%}
-    .selecteur-metier{min-width:0}
+    .filtres .etiquette,.selecteur-filtre{width:100%}
+    .selecteur-filtre{min-width:0}
   }
 </style>
 </head>
@@ -339,16 +343,29 @@
     une ville, un bassin minier ou un groupe de communes.</p>
   <div class="filtres">
     <span class="etiquette" id="etiquetteMetier">Afficher les lieux par métier</span>
-    <div class="selecteur-metier">
-      <button class="commande-metier" id="commandeMetier" type="button"
+    <div class="selecteur-filtre">
+      <button class="commande-filtre" id="commandeMetier" type="button"
+              data-filtre="metier"
               aria-haspopup="listbox" aria-expanded="false" aria-controls="listeMetiers">
         <span>Métier :</span> <strong id="libelleMetier">Tous les métiers</strong>
         <span class="chevron" aria-hidden="true">▼</span>
       </button>
-      <div class="liste-metiers" id="listeMetiers" role="listbox"
+      <div class="liste-choix" id="listeMetiers" role="listbox"
            aria-labelledby="etiquetteMetier" hidden></div>
     </div>
+    <span class="etiquette" id="etiquetteEpoque">Afficher les lieux par époque</span>
+    <div class="selecteur-filtre">
+      <button class="commande-filtre" id="commandeEpoque" type="button"
+              data-filtre="epoque"
+              aria-haspopup="listbox" aria-expanded="false" aria-controls="listeEpoques">
+        <span>Époque :</span> <strong id="libelleEpoque">Toutes les époques</strong>
+        <span class="chevron" aria-hidden="true">▼</span>
+      </button>
+      <div class="liste-choix" id="listeEpoques" role="listbox"
+           aria-labelledby="etiquetteEpoque" hidden></div>
+    </div>
     <p class="effet-filtre" id="effetFiltre" aria-live="polite" hidden></p>
+    <p class="sans-date" id="sansDate" aria-live="polite" hidden></p>
   </div>
 </section>
 
@@ -406,7 +423,7 @@
 const D = __DONNEES__;
 
 /* ------------------------------------------------------------------ état */
-const etat = {niveau:"departement", systeme:null, site:null, metier:null, lien:null};
+const etat = {niveau:"departement", systeme:null, site:null, metier:null, epoque:null, lien:null};
 const accordeons = {};
 const CARTE = document.getElementById("carte");
 const COMMANDES_ZOOM = document.getElementById("commandesZoom");
@@ -510,14 +527,40 @@ function ajouterCarte(noeud){ (contenuCarte || CARTE).appendChild(noeud); }
 function sitesDuSysteme(code){
   return D.detail[code] ? D.detail[code].sites : [];
 }
+/* Les deux leviers portent sur des objets différents, et c'est assumé : le
+   métier qualifie une activité du lieu, l'époque dit qu'un fait y est documenté
+   à ce moment. Les croiser au niveau du lieu est la seule chose que les données
+   permettent — seules 42 des 403 activités portent une date propre. */
+function gardeEpoque(site){
+  return !etat.epoque || (site.epoques || []).includes(etat.epoque);
+}
+/* « Métallurgie · 1850-1913 » : les deux sélecteurs donnent le contexte du
+   nombre, aucune phrase longue n'est nécessaire à côté. */
+function libelleEpoque(code){
+  const epoque = D.epoques.find(e => e.code === code);
+  return epoque ? epoque.libelle.split(" — ")[0] : code;
+}
+function nomDesFiltres(){
+  return [etat.metier ? libelle(etat.metier) : null,
+          etat.epoque ? libelleEpoque(etat.epoque) : null].filter(Boolean).join(" · ");
+}
 function garde(site){
-  return !etat.metier || site.secteurs.includes(etat.metier);
+  return (!etat.metier || site.secteurs.includes(etat.metier)) && gardeEpoque(site);
 }
 function systemeGarde(systeme){
-  return !etat.metier || (systeme.sitesParMetier[etat.metier] || 0) > 0;
+  return lieuxDuSysteme(systeme) > 0;
 }
 function autreGarde(site){
-  return !etat.metier || site.secteurs.includes(etat.metier);
+  return garde(site);
+}
+/* Le niveau départemental ne connaît pas les lieux des dix ensembles fermés :
+   il compte sur des décomptes préparés à la génération, jamais sur une liste. */
+function lieuxDuSysteme(systeme){
+  if (etat.metier && etat.epoque)
+    return systeme.sitesParMetierEpoque[`${etat.metier}|${etat.epoque}`] || 0;
+  if (etat.metier) return systeme.sitesParMetier[etat.metier] || 0;
+  if (etat.epoque) return systeme.sitesParEpoque[etat.epoque] || 0;
+  return systeme.nbSites;
 }
 
 /* ----------------------------------------------------------- dessin carte */
@@ -822,7 +865,7 @@ function entitesCarte(){
   if (etat.niveau === "departement"){
     const entites = [];
     for (const systeme of D.departement.systemes.filter(systemeGarde)){
-      const nombre = etat.metier ? (systeme.sitesParMetier[etat.metier] || 0) : systeme.nbSites;
+      const nombre = lieuxDuSysteme(systeme);
       const ouvert = Boolean(D.detail[systeme.code]);
       entites.push({ref:"ensemble:" + systeme.code, code:systeme.code,
         lon:systeme.lon, lat:systeme.lat, ouvrable:ouvert,
@@ -952,7 +995,7 @@ function dessinerDepartement(){
 
   const dessines = systemes.map(systeme => {
     const [x, y] = projeter(systeme.lon, systeme.lat);
-    const nombre = etat.metier ? systeme.sitesParMetier[etat.metier] : systeme.nbSites;
+    const nombre = lieuxDuSysteme(systeme);
     return {systeme, x, y, nombre, ouvert: Boolean(D.detail[systeme.code]),
       rayon: 6 + Math.sqrt(nombre) * 2.6};
   });
@@ -1577,15 +1620,16 @@ function panneauDepartement(){
   const systemes = D.departement.systemes;
   const autres = D.departement.autresSites.filter(autreGarde);
   const dansEnsembles = systemes.reduce((total, systeme) => total +
-    (etat.metier ? (systeme.sitesParMetier[etat.metier] || 0) : systeme.nbSites), 0);
+    lieuxDuSysteme(systeme), 0);
   const concernes = systemes.filter(systeme =>
-    (etat.metier ? (systeme.sitesParMetier[etat.metier] || 0) : systeme.nbSites) > 0).length;
+    lieuxDuSysteme(systeme) > 0).length;
   const total = dansEnsembles + autres.length;
-  const systemesAffiches = etat.metier
-    ? systemes.filter(systeme => (systeme.sitesParMetier[etat.metier] || 0) > 0)
+  const filtre = Boolean(etat.metier || etat.epoque);
+  const systemesAffiches = filtre
+    ? systemes.filter(systeme => lieuxDuSysteme(systeme) > 0)
     : systemes;
   const lignes = systemesAffiches.map(systeme => {
-    const nombre = etat.metier ? (systeme.sitesParMetier[etat.metier] || 0) : systeme.nbSites;
+    const nombre = lieuxDuSysteme(systeme);
     const ouvert = Boolean(D.detail[systeme.code]);
     const statutOuverture = ouvert ? "Vue détaillée disponible" : "Vue détaillée à venir";
     return `<li><button
@@ -1889,36 +1933,93 @@ function rendreFiltres(){
      l'ensemble doit retrouver exactement la sélection quittée. */
   const barre = document.querySelector(".filtres");
   if (barre) barre.hidden = etat.niveau === "site";
-  const commande = document.getElementById("commandeMetier");
-  const conteneur = document.getElementById("listeMetiers");
-  const boutons = [["", "Tous les métiers"]].concat(
-    metiersDuCorpus.map(([code]) => [code, libelle(code)]));
-  document.getElementById("libelleMetier").textContent = etat.metier
-    ? libelle(etat.metier) : "Tous les métiers";
-  conteneur.innerHTML = boutons.map(([code, nom]) =>
-    `<button type="button" role="option" data-metier="${code}" tabindex="-1"
-      aria-selected="${(etat.metier||"")===code}"><span class="coche"
-      aria-hidden="true">✓</span><span>${echapper(nom)}</span></button>`
+  remplirSelecteur("metier", "Tous les métiers",
+    metiersDuCorpus.map(([code]) => [code, libelle(code)]), etat.metier, libelle);
+  remplirSelecteur("epoque", "Toutes les époques",
+    D.epoques.map(e => [e.code, libelleEpoque(e.code)]), etat.epoque, libelleEpoque);
+  rendreCompteurs();
+}
+
+function remplirSelecteur(nom, parDefaut, choix, valeur, nommer){
+  const {commande, liste} = elementsDuFiltre(nom);
+  document.getElementById(FILTRES[nom].libelle).textContent =
+    valeur ? nommer(valeur) : parDefaut;
+  liste.innerHTML = [["", parDefaut]].concat(choix).map(([code, texte]) =>
+    `<button type="button" role="option" data-filtre="${nom}" data-valeur="${code}"
+      tabindex="-1" aria-selected="${(valeur||"")===code}"><span class="coche"
+      aria-hidden="true">✓</span><span>${echapper(texte)}</span></button>`
   ).join("");
-  conteneur.hidden = true;
+  liste.hidden = true;
   commande.setAttribute("aria-expanded", "false");
 }
 
-function ouvrirFiltre(){
-  const commande = document.getElementById("commandeMetier");
-  const liste = document.getElementById("listeMetiers");
+/* Les lieux non datés disparaissent dès qu'une époque est choisie. Les compter
+   à l'écran est ce qui empêche le lecteur de conclure qu'il ne s'est rien passé
+   ailleurs : une absence de datation n'est pas une absence historique.
+
+   Le nombre annoncé est celui des lieux que le filtre retire de la carte, et
+   non celui du corpus entier : quatre lieux n'ont aucune date, mais deux
+   d'entre eux sont à Alençon, ensemble non encore ouvert, et ne sont donc pas
+   des points affichés. Le compteur dit ce qu'il montre ; la note de méthode
+   dira ce que porte le corpus. */
+function lieuxSansDateAffiches(){
+  if (etat.niveau === "departement"){
+    const autres = D.departement.autresSites.filter(s => !(s.epoques || []).length);
+    const ouverts = Object.values(D.detail)
+      .flatMap(d => d.sites).filter(s => !(s.epoques || []).length);
+    return autres.length + ouverts.length;
+  }
+  const detail = D.detail[etat.systeme];
+  return detail ? detail.sites.filter(s => !(s.epoques || []).length).length : 0;
+}
+
+function rendreCompteurs(){
+  const boite = document.getElementById("sansDate");
+  if (!boite) return;
+  const nombre = etat.epoque ? lieuxSansDateAffiches() : 0;
+  boite.hidden = !nombre;
+  boite.textContent = nombre
+    ? `${nombre} lieu${nombre > 1 ? "x" : ""} sans date` : "";
+}
+
+/* Un seul jeu de fonctions sert les deux sélecteurs : les dupliquer aurait
+   fait diverger leur comportement au clavier à la première correction. */
+const FILTRES = {
+  metier: {commande:"commandeMetier", liste:"listeMetiers", libelle:"libelleMetier"},
+  epoque: {commande:"commandeEpoque", liste:"listeEpoques", libelle:"libelleEpoque"},
+};
+
+function elementsDuFiltre(nom){
+  const ids = FILTRES[nom];
+  return {commande: document.getElementById(ids.commande),
+          liste: document.getElementById(ids.liste)};
+}
+
+function ouvrirFiltre(nom = "metier"){
+  fermerTousLesFiltres();
+  const {commande, liste} = elementsDuFiltre(nom);
   liste.hidden = false;
   commande.setAttribute("aria-expanded", "true");
   const selection = liste.querySelector('[aria-selected="true"]') || liste.querySelector("button");
   if (selection) selection.focus();
 }
 
-function fermerFiltre(rendreFocus = false){
-  const commande = document.getElementById("commandeMetier");
-  const liste = document.getElementById("listeMetiers");
-  liste.hidden = true;
-  commande.setAttribute("aria-expanded", "false");
-  if (rendreFocus) commande.focus();
+function fermerFiltre(rendreFocus = false, nom = null){
+  for (const cle of nom ? [nom] : Object.keys(FILTRES)){
+    const {commande, liste} = elementsDuFiltre(cle);
+    if (!commande) continue;
+    const etaitOuvert = commande.getAttribute("aria-expanded") === "true";
+    liste.hidden = true;
+    commande.setAttribute("aria-expanded", "false");
+    if (rendreFocus && etaitOuvert) commande.focus();
+  }
+}
+
+function fermerTousLesFiltres(){ fermerFiltre(false); }
+
+function filtreOuvert(){
+  return Object.keys(FILTRES).find(cle =>
+    elementsDuFiltre(cle).commande?.getAttribute("aria-expanded") === "true") || null;
 }
 
 function rendreFil(){
@@ -1966,8 +2067,8 @@ function rendreEnTete(){
     compte.hidden = montreIdentite;
     compte.textContent = lieu
       ? `${lieu.commune}${lieu.lieuDit ? " · " + lieu.lieuDit : ""}`
-      : etat.metier
-        ? `${retenus} lieu${retenus>1?"x":""} sur ${detail.sites.length} · ${libelle(etat.metier)}`
+      : (etat.metier || etat.epoque)
+        ? `${retenus} lieu${retenus>1?"x":""} sur ${detail.sites.length} · ${nomDesFiltres()}`
         : `${detail.sites.length} lieux documentés`;
   }
 }
@@ -2201,11 +2302,13 @@ document.addEventListener("toggle", evenement => {
 document.addEventListener("click", evenement => {
   const bouton = evenement.target.closest("button");
   if (!bouton) return;
-  if (bouton.dataset.metier !== undefined){
-    etat.metier = bouton.dataset.metier || null;
+  if (bouton.dataset.valeur !== undefined){
+    const nom = bouton.dataset.filtre;
+    etat[nom] = bouton.dataset.valeur || null;
     rendre();
-    fermerFiltre(true);
-    annoncer(etat.metier ? `Filtre : ${libelle(etat.metier)}.` : "Filtre retiré.");
+    fermerFiltre(true, nom);
+    const actifs = nomDesFiltres();
+    annoncer(actifs ? `Filtre : ${actifs}.` : "Filtre retiré.");
   } else if (bouton.dataset.systeme){
     allerAuSysteme(bouton.dataset.systeme);
   } else if (bouton.dataset.retourEnsemble !== undefined){
@@ -2233,41 +2336,41 @@ document.addEventListener("toggle", evenement => {
   acc[details.dataset.accordeon] = details.open;
 }, true);
 
-const commandeMetier = document.getElementById("commandeMetier");
-const listeMetiers = document.getElementById("listeMetiers");
 ZOOM_PLUS.addEventListener("click", () => zoomerCarte(1.5));
 ZOOM_MOINS.addEventListener("click", () => zoomerCarte(1 / 1.5));
 ZOOM_INITIALE.addEventListener("click", vueInitialeCarte);
-commandeMetier.addEventListener("click", () => {
-  if (commandeMetier.getAttribute("aria-expanded") === "true") fermerFiltre(true);
-  else ouvrirFiltre();
-});
-commandeMetier.addEventListener("keydown", evenement => {
-  if (evenement.key === "ArrowDown" || evenement.key === "ArrowUp"){
-    evenement.preventDefault();
-    ouvrirFiltre();
-    const options = [...listeMetiers.querySelectorAll("button")];
-    const index = evenement.key === "ArrowUp" ? options.length - 1 : 0;
-    if (options[index]) options[index].focus();
-  }
-});
-listeMetiers.addEventListener("keydown", evenement => {
-  const options = [...listeMetiers.querySelectorAll("button")];
-  const courant = options.indexOf(document.activeElement);
-  if (!options.length || courant < 0) return;
-  let suivant = null;
-  if (evenement.key === "ArrowDown") suivant = (courant + 1) % options.length;
-  else if (evenement.key === "ArrowUp") suivant = (courant - 1 + options.length) % options.length;
-  else if (evenement.key === "Home") suivant = 0;
-  else if (evenement.key === "End") suivant = options.length - 1;
-  if (suivant !== null){
-    evenement.preventDefault();
-    options[suivant].focus();
-  }
-});
+for (const nom of Object.keys(FILTRES)){
+  const {commande, liste} = elementsDuFiltre(nom);
+  commande.addEventListener("click", () => {
+    if (commande.getAttribute("aria-expanded") === "true") fermerFiltre(true, nom);
+    else ouvrirFiltre(nom);
+  });
+  commande.addEventListener("keydown", evenement => {
+    if (evenement.key === "ArrowDown" || evenement.key === "ArrowUp"){
+      evenement.preventDefault();
+      ouvrirFiltre(nom);
+      const options = [...liste.querySelectorAll("button")];
+      const index = evenement.key === "ArrowUp" ? options.length - 1 : 0;
+      if (options[index]) options[index].focus();
+    }
+  });
+  liste.addEventListener("keydown", evenement => {
+    const options = [...liste.querySelectorAll("button")];
+    const courant = options.indexOf(document.activeElement);
+    if (!options.length || courant < 0) return;
+    let suivant = null;
+    if (evenement.key === "ArrowDown") suivant = (courant + 1) % options.length;
+    else if (evenement.key === "ArrowUp") suivant = (courant - 1 + options.length) % options.length;
+    else if (evenement.key === "Home") suivant = 0;
+    else if (evenement.key === "End") suivant = options.length - 1;
+    if (suivant !== null){
+      evenement.preventDefault();
+      options[suivant].focus();
+    }
+  });
+}
 document.addEventListener("click", evenement => {
-  if (!evenement.target.closest(".selecteur-metier") &&
-      commandeMetier.getAttribute("aria-expanded") === "true") fermerFiltre(false);
+  if (!evenement.target.closest(".selecteur-filtre")) fermerTousLesFiltres();
 });
 
 document.getElementById("filDepartement").addEventListener("click", allerAuDepartement);
@@ -2276,9 +2379,10 @@ document.getElementById("filSysteme").addEventListener("click", () => {
 });
 document.addEventListener("keydown", evenement => {
   if (evenement.key === "Escape"){
-    if (commandeMetier.getAttribute("aria-expanded") === "true"){
+    const ouvert = filtreOuvert();
+    if (ouvert){
       evenement.preventDefault();
-      fermerFiltre(true);
+      fermerFiltre(true, ouvert);
     } else if (etat.niveau === "site"){ etat.niveau = "systeme"; etat.site = null; rendre(); }
     else if (etat.niveau === "systeme") allerAuDepartement();
   }

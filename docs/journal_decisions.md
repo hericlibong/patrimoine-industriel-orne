@@ -2872,3 +2872,59 @@ soit 1,2 kilo-octet. Les époques des lieux pèsent 17,8 ko, celles des ensemble
 Décision : **T2 est fait ; les époques sont transmises aux trois niveaux sans
 rien afficher ; T3 attend la validation du porteur, avec un point à trancher sur
 ce que compte le libellé des lieux sans date.**
+
+## 2026-09-21 — T3, le sélecteur d'époque et ses compteurs
+
+Le filtre est visible et fonctionnel au niveau départemental. Le sélecteur
+« Époque » est posé à côté de celui du métier, avec ses six époques et
+« Toutes les époques » par défaut.
+
+**Un seul jeu de fonctions sert les deux sélecteurs.** Les dupliquer aurait fait
+diverger leur comportement au clavier à la première correction. Les classes ont
+été renommées en conséquence — `selecteur-filtre`, `commande-filtre`,
+`liste-choix` — le nom ne devant plus dire « métier ». Renommage vérifié sans
+perte.
+
+**Ce que le compteur compte, et pourquoi.** Le document de décision prévoyait
+« 4 lieux sans date ». Le compteur en annonce deux. Ces quatre lieux existent
+bien dans le corpus, mais deux d'entre eux sont à Alençon, ensemble non encore
+ouvert : ils ne sont pas des points affichés, et le filtre ne les retire donc de
+rien. **Le compteur dit ce qu'il montre** ; la note de méthode dira ce que porte
+le corpus. Décision appliquée sur recommandation, le porteur ayant identifié la
+question sans la trancher ; elle se change en une ligne.
+
+**Le niveau départemental ne connaît pas les lieux des dix ensembles fermés.**
+Il compte sur des décomptes préparés à la génération, comme il le faisait déjà
+par métier : décompte par époque, et croisement métier × époque stocké à plat,
+cases peuplées seulement. Le croisement métier × époque donne 23 lieux dans la
+Risle pour la métallurgie entre 1850 et 1913 ; le décompte précalculé et le
+filtre appliqué aux lieux tombent sur le même nombre, ce qui vérifie les deux
+chemins l'un par l'autre.
+
+**Tout se recoupe avec T1.** Hors ensembles et dans les ensembles :
+41 + 26 = 67 avant 1789, 88 + 88 = 176, 120 + 138 = 258, 78 + 90 = 168. La liste
+des ensembles passe de douze à six sur « Avant 1789 », à onze sur
+« 1914‑1945 », à dix sur « 1976‑2000 » — exactement les neuf couples vides du
+relevé.
+
+**Un piège de vérification à ne pas oublier.** Compter les cercles du DOM donne
+146 points quelle que soit l'époque : l'onglet piloté ne produit aucune image,
+les transitions de sortie ne s'achèvent jamais et les nœuds sortants restent en
+place. La mesure juste passe par les données liées et par la règle, jamais par
+le nombre de nœuds. C'est le même artefact que celui relevé en août.
+
+**Clavier.** Ouverture par flèche, déplacement, Début et Fin, Échap qui referme
+et rend le focus, un seul sélecteur ouvert à la fois. Tout est vérifié sur le
+nouveau sélecteur.
+
+**État conservé.** Métier et époque survivent au passage au lieu et au retour ;
+la barre est masquée pendant la lecture d'un lieu et les deux libellés sont
+restaurés à l'identique.
+
+**Écrans.** À 1440, les deux sélecteurs tiennent sur une ligne, barre de 46
+pixels. À 390, ils s'empilent, occupent toute la largeur, aucun débordement
+horizontal — mais la barre des filtres atteint alors 207 pixels avant la carte.
+C'est beaucoup sur un téléphone ; la question est d'habillage et revient à 10.E.
+
+Décision : **T3 est fait ; le compteur annonce les lieux qu'il retire et non
+ceux du corpus ; T4 attend la validation du porteur.**

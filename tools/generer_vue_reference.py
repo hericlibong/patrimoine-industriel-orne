@@ -621,6 +621,26 @@ def construire() -> dict:
         references = set(references_par_systeme.get(systeme["code"], []))
         couvertes = {code for ref in references for code in epoques.get(ref, [])}
         systeme["epoques"] = [e["code"] for e in registre_epoques if e["code"] in couvertes]
+        # Le niveau départemental compte sans connaître les lieux des dix
+        # ensembles fermés : les décomptes doivent donc être calculés ici, comme
+        # ils le sont déjà par métier. Le croisement des deux leviers est stocké
+        # à plat, sous la clé « métier|époque », et ne garde que les cases
+        # peuplées : le tableau complet serait creux aux trois quarts.
+        systeme["sitesParEpoque"] = {
+            e["code"]: sum(1 for ref in references if e["code"] in epoques.get(ref, []))
+            for e in registre_epoques
+            if e["code"] in couvertes
+        }
+        croisement: dict[str, int] = {}
+        for ref in references:
+            site = tous_les_sites.get(ref)
+            if site is None:
+                continue
+            for secteur in site["secteurs"]:
+                for code in epoques.get(ref, []):
+                    cle = f"{secteur}|{code}"
+                    croisement[cle] = croisement.get(cle, 0) + 1
+        systeme["sitesParMetierEpoque"] = croisement
 
     autres = [
         {
