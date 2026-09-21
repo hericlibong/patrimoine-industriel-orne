@@ -1,5 +1,15 @@
 # Carte des ensembles — Plan et suivi des passes
 
+> **Clôture de la phase 10.D, 21 septembre 2026.** Le porteur du projet reçoit
+> les blocs A, B, C et D, faits et restés en attente de jugement. La carte des
+> trois niveaux fait désormais référence. Ce qui restait ouvert dans le bloc C
+> — le poids à douze ensembles et les communes sans contour — n'est pas clos
+> mais reporté : c'est de la généralisation, chiffrée dans
+> `F10_site/L7_generalisation.md`, et cela ne bloquait pas la clôture.
+> La fin du présent document conserve l'ancien plan en sept phases, sans objet
+> depuis le 19 septembre ; il est laissé à titre d'historique et ne doit pas se
+> lire comme un plan actif.
+
 ## Le socle technique est acquis — 19 septembre 2026
 
 Le plan d'expérimentation D3 qui occupait cette place avait un seul objet :
@@ -35,7 +45,7 @@ Quatre blocs. Les trois premiers portent sur la carte d'un ensemble ; le
 quatrième, ouvert le 19 septembre, aligne la carte du département sur ce qui a
 été établi là.
 
-### BLOC A — La première impression — faite, en attente de jugement
+### BLOC A — La première impression — **reçue le 21 septembre 2026**
 
 **Question à juger :** en arrivant sur un ensemble, le lecteur comprend-il ce
 qu'il regarde sans avoir à lire un paragraphe ?
@@ -54,7 +64,7 @@ qu'il regarde sans avoir à lire un paragraphe ?
   étroite**, l'onglet de contrôle ne produisant plus d'images.
 - [x] Vérifier que les crédits et les sources restent lisibles sans occuper plus
   de place que la carte.
-- [ ] Validation du porteur.
+- [x] Validation du porteur — reçu le 21 septembre 2026.
 
 **Livrable :** un écran d'ensemble qui se comprend d'un coup d'œil, sur écran
 large et sur écran étroit.
@@ -74,7 +84,7 @@ minimum ; l'observateur de largeur n'était pas retenu et portait sur l'élémen
 SVG. La validation du porteur reste ouverte, ainsi que l'essai dans une vraie
 fenêtre étroite.
 
-### BLOC B — Lire les liens d'un lieu — fait, en attente de jugement
+### BLOC B — Lire les liens d'un lieu — **reçu le 21 septembre 2026**
 
 **Question à juger :** quand un lieu est ouvert, voit-on avec qui il
 travaillait ?
@@ -91,7 +101,7 @@ travaillait ?
   moins de huit pixels l'une de l'autre à l'ouverture, 4 au zoom 2, une seule au
   zoom 4, aucune au zoom 6. Le zoom est la réponse ; la liste du panneau est
   l'autre chemin.
-- [ ] Validation du porteur.
+- [x] Validation du porteur — reçu le 21 septembre 2026.
 
 **Livrable :** comprendre visuellement à qui un lieu est relié, et pouvoir
 atteindre un lieu même dans l'amas de L'Aigle.
@@ -108,7 +118,7 @@ quinze lieux du groupe de L'Aigle sont désignés chacun par le leur. Le clavier
 conserve son parcours complet. Reste ouvert : le toucher sur appareil réel, et
 la validation du porteur.
 
-### BLOC C — Juger et transposer — fait, en attente de jugement
+### BLOC C — Juger et transposer — **reçu le 21 septembre 2026**, ses deux points ouverts reportés à la généralisation
 
 **Question à juger :** cette carte est-elle la bonne, et que faut-il pour la
 onzième vallée ?
@@ -120,14 +130,23 @@ onzième vallée ?
   des données.
 - [x] Chiffrer ce qu'il faut pour ouvrir un ensemble de plus, sans le
   développer. Sonde sur Noireau, Flers et Argentan : lieux, relations, eau et
-  sol se calculent sans intervention ; chaque ensemble ajoute de 170 à 300 ko.
+  sol se calculent sans intervention. **Mesure complète des douze faite le
+  20 septembre :** un ensemble ajoute de 86 à 380 ko, et non de 170 à 300 ; de
+  70 à 92 % de ce poids est son fond de carte et non ses lieux.
 - [ ] **Décision à prendre : le poids.** Les douze ensembles porteraient la page
-  à environ trois mégaoctets. La page entièrement autonome ne tient pas à douze ;
-  il faudra choisir entre l'autonomie et le poids. Hors du présent plan.
-- [ ] **Travail de données préalable :** trois communes portées par des lieux
-  n'ont pas de contour — Athis-de-l'Orne et Frênes pour le Noireau, Goulet pour
-  Argentan. Les lieux portent des noms de communes anciennes, fusionnées depuis.
-  Une table de correspondance est nécessaire avant d'ouvrir ces ensembles.
+  de 899 à 2 356 ko, soit environ 565 ko une fois compressée — mesure du
+  20 septembre, plus basse que l'estimation de trois mégaoctets. Le choix entre
+  l'autonomie et le poids reste à faire. Hors du présent plan ; reporté à la
+  généralisation.
+- [ ] **Travail de données préalable :** **onze** communes portées par des
+  lieux n'ont pas de contour, et non trois — relevé complet du 20 septembre,
+  dans `F10_site/L7_generalisation.md`. Elles touchent sept ensembles sur
+  douze : Athis-de-l'Orne et Frênes (Noireau), Larchamp (Halouze),
+  La Ferté-Macé, Tinchebray, Normandel et Randonnai, Longny-au-Perche,
+  Malétable, Saint-Victor-de-Réno et Tourouvre (Malétable), Goulet (Argentan).
+  Les lieux portent des noms de communes anciennes, fusionnées ou renommées
+  depuis. Une table de correspondance documentée est nécessaire avant d'ouvrir
+  ces ensembles ; seuls Flers, Alençon et La Ferrière s'ouvrent sans elle.
 - [ ] Examen visuel complet par le porteur, sur écran large et étroit :
   parcours carte → lieu ou lien → retour, sous filtre et sans filtre, sur la
   Risle et sur Crulai.
@@ -140,7 +159,7 @@ les onze autres ensembles.
 objet : le choix a été tranché le 19 septembre, D3 tient le dessin. La
 référence SVG antérieure reste consultable sur sa branche.
 
-### BLOC D — Harmoniser la carte du département — fait, en attente de jugement
+### BLOC D — Harmoniser la carte du département — **reçu le 21 septembre 2026**
 
 **Question à juger :** la carte d'arrivée, celle sur laquelle le lecteur clique
 pour entrer dans un ensemble, se comporte-t-elle comme celles qu'elle ouvre ?
@@ -177,7 +196,7 @@ geste. Écart relevé dans le code :
   subsiste un chevauchement sans filtre entre « Vallée du Noireau » et
   « Flers », deux voisins dans le coin le plus dense ; les deux restent
   lisibles. Le trait de rappel relève de la présentation.
-- [ ] Validation du porteur.
+- [x] Validation du porteur — reçu le 21 septembre 2026.
 
 **Livrable :** aucun changement visible, un seul moteur de dessin pour les trois
 niveaux.
@@ -205,7 +224,7 @@ niveaux.
   soit connue — Crulai annonçait 500 mètres au lieu d'un kilomètre. Il subsiste
   un chevauchement entre « Vallée du Noireau » et « Flers » à toutes les
   largeurs ; les deux restent lisibles.
-- [ ] Validation du porteur.
+- [x] Validation du porteur — reçu le 21 septembre 2026.
 
 **Livrable :** une carte d'arrivée qui se manipule comme celles qu'elle ouvre.
 
@@ -234,7 +253,7 @@ peut-être suffisant.
   recharger ramène au département. Écart avec une décision d'architecture
   arrêtée ; rien n'a été cassé par D3, il n'y avait rien à préserver. Appelle un
   travail à lui seul, hors du bloc D.
-- [ ] Validation du porteur.
+- [x] Validation du porteur — reçu le 21 septembre 2026.
 
 **Livrable :** le lecteur comprend qu'il descend dans le même territoire, au
 lieu de changer d'écran.

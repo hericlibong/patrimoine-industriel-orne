@@ -2706,3 +2706,53 @@ est inscrite hors plan.
 Décision : **L3, L4 et L6 sont clos ; la règle du média est celle de la source,
 image principale puis première disponible ; le débordement de Crulai attend une
 reprise ultérieure.**
+
+## 2026-09-21 — Clôture de la phase 10.D, le modèle de référence est arrêté
+
+Le porteur du projet prononce la clôture de 10.D. Les trois niveaux —
+département, ensemble, lieu — ont une structure informationnelle et
+fonctionnelle suffisamment définie pour engager la direction artistique.
+
+**Ce que la clôture porte, et ce qu'elle ne porte pas.** Elle porte sur le
+modèle de référence : la structure des trois niveaux, les informations qu'ils
+affichent, la navigation entre eux, leurs comportements sur écran large et
+étroit. Elle ne dit rien de l'étendue : les douze ensembles et les 318 lieux ne
+sont pas généralisés, et 10.D ne le demandait pas. Le point de validation de
+10.D était qu'une vue se comprenne à 1440 pixels sans explication, pas qu'une
+application existe.
+
+**Ce qui est reçu.** Les quatre blocs de la carte — première impression, liens
+d'un lieu, transposition, carte du département — étaient faits et restés « en
+attente de jugement » depuis le 19 septembre. Ils sont reçus. Le niveau lieu,
+refait entièrement les 20 et 21 septembre, est reçu avec eux. Le parcours
+complet a été éprouvé à 1440 et 390 pixels, au clavier, sans cul-de-sac.
+
+**Ce qui est reporté à la généralisation, sans bloquer.** Les dix autres
+ensembles, dont sept attendent une table de correspondance pour onze communes
+anciennes ; les 122 historiques restants ; les 146 lieux qui n'appartiennent à
+aucun ensemble ; l'adresse partageable après le `#` ; et le choix entre
+l'autonomie de la page et son poids. Tout est chiffré dans
+`F10_site/L7_generalisation.md`.
+
+**Trois écarts de documentation corrigés à cette occasion**, tous nés du fait
+que la roadmap principale s'était arrêtée au 17 septembre :
+
+- Le renvoi à la « passe 1 Se situer » désignait un plan remplacé le
+  19 septembre ; il est retiré.
+- Le suivi de la carte annonçait trois communes sans contour et de 170 à 300 ko
+  par ensemble. Les mesures complètes du 20 septembre donnent onze communes
+  dans sept ensembles, et de 86 à 380 ko par ensemble. Les deux documents sont
+  alignés sur la mesure.
+- La roadmap renvoyait tout texte éditorial à 10.F, alors que cinquante
+  historiques ont été réécrits et affichés le 20 septembre. L'écart est assumé
+  et inscrit : c'était nécessaire pour juger le niveau lieu sur du vrai ; les
+  122 notices restantes relèvent bien de 10.F.
+
+Un point reste sans domicile fixe : **l'adresse partageable après le `#`** est
+attribuée à 10.G par la roadmap principale et recommandée plus tôt par la
+feuille du mode lieu. Sa place devra être fixée ; elle n'est implémentée nulle
+part.
+
+Décision : **la phase 10.D est close ; la phase 10.E, direction artistique,
+s'ouvre ; ce qui relève de l'étendue est reporté à la généralisation et
+n'entrait pas dans la clôture.**
