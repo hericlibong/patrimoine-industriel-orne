@@ -109,3 +109,24 @@ peuvent concerner un même site, un dossier peut contenir plusieurs emprises, et
 certains cas peuvent être exclus ou laissés à vérifier. Le nombre publiable sera
 établi après ces rapprochements, sans compter automatiquement les 2 052 entrées
 CASIAS comme des sites patrimoniaux.
+
+## Lieux hors corpus à examiner
+
+### Domaine d'Avoise, à Radon (Écouves)
+
+Le domaine d'Avoise n'apparaît pas dans les 318 lieux du corpus actuel, ni sous
+une variante de nom repérée dans les fichiers du projet. Son absence ne suffit
+pas à conclure qu'il est hors sujet : les Archives départementales de l'Orne le
+présentent comme une ferme-modèle comprenant notamment une cidrerie installée à
+la manière des cidreries industrielles, une laiterie et un moulin. D'autres
+travaux le qualifient de ferme agro-industrielle ou de ferme-usine.
+
+Piste : examiner Avoise comme candidat complémentaire, à la frontière entre
+patrimoine agricole et patrimoine industriel. Vérifier son histoire, ses
+activités de transformation, ses sources patrimoniales, sa localisation et son
+état actuel avant toute décision d'intégration.
+
+Statut : **note de recherche ; lieu hors corpus, non validé pour intégration**.
+
+Source de départ : Archives départementales de l'Orne, catalogue d'exposition,
+<https://archives.orne.fr/sites/default/files/2020-09/CAT77.pdf>.

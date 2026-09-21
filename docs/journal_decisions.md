@@ -2756,3 +2756,20 @@ part.
 Décision : **la phase 10.D est close ; la phase 10.E, direction artistique,
 s'ouvre ; ce qui relève de l'étendue est reporté à la généralisation et
 n'entrait pas dans la clôture.**
+
+## 2026-09-21 — Domaine d'Avoise signalé comme piste hors corpus
+
+Le porteur signale le domaine d'Avoise, à Radon dans la commune actuelle
+d'Écouves. Aucun nom correspondant n'a été trouvé dans les 318 lieux du corpus
+ni dans le prototype. Cette absence ne tranche pas son intérêt : une source des
+Archives départementales de l'Orne décrit une ferme-modèle dotée notamment
+d'une cidrerie, d'une laiterie et d'un moulin, à la frontière entre patrimoine
+agricole et patrimoine industriel.
+
+Le lieu est ajouté aux pistes éditoriales afin de ne pas le perdre. Il n'est pas
+ajouté au corpus et ne modifie aucun des effectifs validés. Une intégration
+éventuelle demanderait une instruction distincte : sources, activités de
+transformation, localisation, état actuel et compatibilité avec le périmètre.
+
+Décision : **conserver le domaine d'Avoise comme piste hors corpus à examiner,
+sans préjuger de son intégration aux 318 lieux validés.**
