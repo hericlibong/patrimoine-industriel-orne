@@ -536,11 +536,14 @@ function sitesDuSysteme(code){
 function gardeEpoque(site){
   return !etat.epoque || (site.epoques || []).includes(etat.epoque);
 }
-/* « Métallurgie · 1850-1913 » : les deux sélecteurs donnent le contexte du
-   nombre, aucune phrase longue n'est nécessaire à côté. */
+/* Chaque époque porte ses dates et son nom : « 1850-1913 — L'âge des machines ».
+   Le nom dit ce que les fiches montrent dans la période, jamais une étape d'une
+   trajectoire que tous les lieux auraient suivie. Les deux sélecteurs donnent le
+   contexte du nombre ; aucune phrase longue n'est nécessaire à côté. */
 function libelleEpoque(code){
   const epoque = D.epoques.find(e => e.code === code);
-  return epoque ? epoque.libelle.split(" — ")[0] : code;
+  if (!epoque) return code;
+  return epoque.nom ? `${epoque.dates} — ${epoque.nom}` : epoque.dates;
 }
 function unFiltreEstActif(){ return Boolean(etat.metier || etat.epoque); }
 function nomDesFiltres(){

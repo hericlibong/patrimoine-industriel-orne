@@ -397,28 +397,44 @@ regles_affectation_secteurs:
     batiment: composant_physique_non_classe_comme_activite
     energie: force_ou_combustible_utilise
 
+# Chaque période porte deux noms, et ils ne se remplacent pas.
+# `libelle` est le nom du vocabulaire contrôlé arrêté en phase 4 ; il est lu par
+# le pipeline et par les exports, et ne change pas.
+# `nom_editorial` est le nom que lit le public dans le filtre d'époque, arrêté
+# le 21 septembre 2026 après trois échanges consignés dans
+# `docs/phase10_filtre_temporel.md`. Chaque nom décrit ce que les fiches
+# montrent dans la période ; aucun ne doit se lire comme l'étape d'une
+# trajectoire que tous les lieux auraient suivie.
+# `periode_contemporaine` n'en reçoit pas : elle est hors du filtre public, un
+# seul événement du corpus tombant après 2001.
 periodes_historiques:
   avant_1789:
+    nom_editorial: Forges et moulins
     libelle: Avant 1789
     debut_annee: null
     fin_annee: 1788
   revolution_premiere_industrialisation:
+    nom_editorial: Moulins et nouvelles industries
     libelle: 1789-1849 — Révolution et première industrialisation
     debut_annee: 1789
     fin_annee: 1849
   industrialisation_rail_vapeur:
+    nom_editorial: L'âge des machines
     libelle: 1850-1913 — Industrialisation, rail et vapeur
     debut_annee: 1850
     fin_annee: 1913
   guerres_entre_deux_guerres:
+    nom_editorial: Guerres et entre-deux-guerres
     libelle: 1914-1945 — Guerres et entre-deux-guerres
     debut_annee: 1914
     fin_annee: 1945
   modernisation_apres_guerre:
+    nom_editorial: Industries de l'après-guerre
     libelle: 1946-1975 — Modernisation d'après-guerre
     debut_annee: 1946
     fin_annee: 1975
   mutations_reconversions:
+    nom_editorial: Crises et fermetures
     libelle: 1976-2000 — Mutations et reconversions
     debut_annee: 1976
     fin_annee: 2000

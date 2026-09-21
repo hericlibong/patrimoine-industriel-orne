@@ -3007,3 +3007,95 @@ demeure reporté et ne bloquait pas davantage cette clôture que la première.
 
 Décision : **le filtre temporel est achevé ; la phase 10.D est reclose ; la
 phase 10.E, direction artistique, s'ouvre.**
+
+## 2026-09-21 — Validation des noms éditoriaux des six époques
+
+Les bornes et le fonctionnement du filtre temporel ne changent pas. Le porteur
+valide les noms éditoriaux suivants : **Forges et moulins** ; **Moulins et
+nouvelles industries** ; **L'âge des machines** ; **Guerres et
+entre-deux-guerres** ; **Industries de l'après-guerre** ; **Crises et
+fermetures**.
+
+Le mot « nouvelles » remplace « premières » pour ne pas laisser croire que
+l'histoire industrielle de l'Orne commencerait après 1789 alors que des
+forges, affineries et hauts fourneaux sont déjà attestés auparavant. La
+définition de 1789–1849 devient : « Au début du XIXe siècle, les établissements
+utilisant l'eau restent nombreux tandis que se développent de nouvelles
+productions et les premières filatures mécanisées. »
+
+Les définitions longues distinguent le contexte historique de ce que montrent
+les fiches. Les noms seront ajoutés au sélecteur et à la ligne des filtres
+actifs. Le traitement du cartouche et des libellés longs à 390 pixels relève de
+10.E.
+
+Décision : **la nuance éditoriale est validée ; l'intégration peut commencer
+sans nouvelle contre-proposition.**
+
+## 2026-09-21 — Les six époques reçoivent un nom
+
+Le filtre d'époque n'affichait que des dates. Il affiche désormais un nom à
+côté : « 1850-1913 — L'âge des machines ». Série arrêtée par le porteur après
+trois échanges consignés dans `docs/phase10_filtre_temporel.md`.
+
+| Dates | Nom |
+| --- | --- |
+| Avant 1789 | Forges et moulins |
+| 1789–1849 | Moulins et nouvelles industries |
+| 1850–1913 | L'âge des machines |
+| 1914–1945 | Guerres et entre-deux-guerres |
+| 1946–1975 | Industries de l'après-guerre |
+| 1976–2000 | Crises et fermetures |
+
+**Ce que la discussion a écarté, et pourquoi c'est la partie qui compte.** La
+première série proposée — « Premières industrialisations », « Modernisation
+d'après-guerre », « Mutations et reconversions » — a été mesurée contre le
+corpus et trois noms sur six se sont révélés contredits par les données. Le mot
+*modernisation* apparaît quatre fois dans 2 360 événements, et la période qu'il
+nommait compte plus d'arrêts que de créations. Le mot *reconversion* n'apparaît
+jamais : la période 1976-2000 compte trois changements d'activité contre
+quarante-quatre arrêts. Et le mot *manufacture* apparaît une seule fois dans
+toute la chronologie.
+
+**Le risque de fond était plus large que le vocabulaire.** Les six effectifs du
+filtre ne mesurent pas l'activité industrielle : ils mesurent quand
+l'administration a compté. Les quatre années les mieux documentées du corpus —
+1972, 1919, 1809, 1989 — sont des enquêtes. Nommer une période « L'essor
+industriel » parce qu'elle contient 258 lieux aurait transformé un calendrier
+d'enquêtes en jugement historique. **La règle retenue : chaque nom dit ce que
+les fiches montrent dans la période, jamais ce que le pays aurait vécu.**
+
+**Et les six noms ne doivent pas se lire à la suite comme un récit.** Lus
+ainsi, ils raconteraient une trajectoire que 318 lieux n'ont pas vécue
+ensemble : neuf lieux de la Risle ont un fait documenté avant 1789 et aucun à
+Flers ni à Crulai, vingt-six lieux du corpus n'apparaissent que dans une seule
+période. Les définitions séparent pour cette raison deux colonnes — le contexte
+historique général d'un côté, ce que montrent les fiches de l'autre — et cette
+séparation est la référence méthodologique.
+
+**Deux corrections mutuelles en cours de route.** Ma contre-proposition
+proposait « Ouvriers et tonnages » et « Les deux guerres » : le porteur les a
+écartés, le premier décrivant la façon dont les sources mesurent plutôt qu'une
+période, le second laissant l'entre-deux-guerres hors du titre. En sens
+inverse, le mot *premières* de « Moulins et premières industries » a été
+remplacé par *nouvelles* : le corpus documente quarante-deux lieux
+métallurgiques avant 1789, et dire que les premières industries arrivent après
+la Révolution aurait effacé l'époque précédente. Le mot *mécanisées* a été
+retiré de la définition de 1789-1849 pour la même exigence : *métier* y apparaît
+huit fois, contre cent cinquante-sept dans la période suivante.
+
+**Le libellé du vocabulaire contrôlé n'est pas remplacé.** `config/classifications.yml`
+porte désormais deux noms par période : `libelle`, celui de la phase 4, lu par
+le pipeline et les exports, inchangé ; et `nom_editorial`, celui que lit le
+public. Les 169 tests passent, les effectifs et les rapports de validation sont
+intacts.
+
+**Affichage.** Le nom est dans le sélecteur, fermé et ouvert, et dans la ligne
+des filtres actifs : « Métallurgie et travail des métaux · 1850-1913 — L'âge des
+machines ». Aucun bandeau n'est ajouté au-dessus de la carte : l'épreuve de T5
+a mesuré la barre des filtres à 207 pixels sur un écran de 390, et il n'y a pas
+de hauteur à dépenser là. Un repère visuel plus fort dans le cartouche de la
+carte est renvoyé à 10.E, avec l'éprouve du cas le plus long à 390 pixels.
+
+Décision : **les six époques portent un nom éditorial, inscrit à côté du
+libellé du vocabulaire et jamais à sa place ; il s'affiche dans le sélecteur et
+dans la ligne des filtres actifs, et nulle part ailleurs avant 10.E.**

@@ -540,6 +540,439 @@ finale du porteur a fixé, et qui ne se rediscute plus :
 | Le filtre strict par phase d'activité | Option future, séparée |
 | La réouverture de 10.D | Acceptée, motif à inscrire au journal |
 
-**Il ne reste qu'une chose à faire avant T1 :** confirmer que les effectifs de
-ce document, recalculés après l'exclusion des bornes ouvertes, sont ceux sur
-lesquels le travail s'engage. Ce sont ceux des sections 4.4 et 4.5.
+Les effectifs des sections 4.4 et 4.5 ont été confirmés avant T1. Les cinq
+tâches d'implémentation sont désormais closes.
+
+---
+
+## 7. Proposition du pilote — donner un nom aux six époques
+
+**Statut : proposition éditoriale à examiner avec Claude avant toute
+modification du prototype.** Les bornes, les règles du filtre et les effectifs
+restent inchangés. Le travail porte uniquement sur le nom et la courte
+définition de chaque époque.
+
+L'objectif est double : aider le lecteur à mémoriser les périodes et préparer
+un repère visuel fort pour la direction artistique. Ces noms décrivent un
+contexte historique général. Ils ne signifient pas que chaque lieu a connu
+toutes les évolutions mentionnées.
+
+### Première proposition
+
+| Dates | Nom éditorial proposé | Définition courte proposée |
+| --- | --- | --- |
+| Avant 1789 | **Moulins, forges et manufactures** | Les productions d'Ancien Régime reposent notamment sur les moulins, les forges, les ateliers et les premières manufactures, souvent liés à l'énergie de l'eau. |
+| 1789–1849 | **Premières industrialisations** | De la Révolution au milieu du XIXe siècle, les établissements se transforment et les premières formes d'industrialisation se développent. |
+| 1850–1913 | **L'essor industriel** | La mécanisation, la vapeur et le chemin de fer accompagnent la croissance et la diversification des activités industrielles. |
+| 1914–1945 | **Guerres et recompositions** | Les deux guerres et l'entre-deux-guerres entraînent adaptations, interruptions, reprises et transformations des productions. |
+| 1946–1975 | **Modernisation d'après-guerre** | Les décennies d'après-guerre sont marquées par la modernisation des équipements, des procédés et des établissements. |
+| 1976–2000 | **Mutations et reconversions** | Les restructurations, fermetures, changements d'activité et nouveaux usages transforment progressivement le paysage industriel. |
+
+### Emplacement proposé dans l'interface
+
+Le sélecteur peut conserver une forme compacte : **« 1850–1913 — L'essor
+industriel »**. Lorsqu'une époque est choisie, son nom pourrait aussi devenir
+un repère de lecture placé **entre la barre des filtres et la carte**, sous une
+forme très courte :
+
+> **1850–1913**
+> L'essor industriel
+
+Ce repère serait présent au niveau du département et de l'ensemble. Il ne
+remplacerait ni le compteur ni les filtres actifs. Sa mise en forme, sa couleur
+et une éventuelle définition déployable relèvent de 10.E. Aucun bandeau ne
+serait affiché avec « Toutes les époques ».
+
+La définition complète ne doit pas encombrer la vue principale. Elle pourrait
+être accessible depuis ce repère ou depuis la méthode, selon la solution
+retenue en direction artistique.
+
+### Contre-proposition demandée à Claude
+
+Claude doit examiner cette proposition avant toute implémentation et répondre
+dans cette section, en distinguant clairement son analyse et sa
+contre-proposition. Il doit notamment :
+
+1. vérifier la justesse historique des six noms et définitions au regard du
+   corpus de l'Orne ;
+2. signaler les formulations trop générales, trop techniques ou susceptibles
+   de faire croire que tous les lieux suivent la même trajectoire ;
+3. proposer, si nécessaire, une série alternative cohérente de six noms courts
+   et mémorisables ;
+4. évaluer l'emplacement proposé et suggérer une solution plus claire si elle
+   existe ;
+5. ne modifier ni le code, ni les dates, ni les règles du filtre à ce stade.
+
+---
+
+### Réponse de Claude — analyse
+
+**21 septembre 2026.** Rien n'est modifié : ni le prototype, ni les dates, ni
+les règles du filtre. Tous les chiffres cités sont comptés sur les 2 243
+événements datés à bornes connues qui font tourner le filtre.
+
+#### Le risque principal n'est pas dans les mots, il est dans ce qu'ils promettent
+
+Un nom d'époque est lu comme une affirmation sur ce qui s'est passé. Or les six
+effectifs du filtre ne mesurent pas l'activité industrielle : **ils mesurent
+quand l'administration a compté.** Les quatre années les mieux documentées du
+corpus sont 1972 (119 événements), 1919 (107), 1809 (73) et 1989 (37). Ce sont
+des enquêtes — statistique impériale de 1809, enquêtes industrielles de 1919,
+1972, 1989 — pas des moments d'industrie.
+
+Nommer une époque « L'essor industriel » parce qu'elle contient 258 lieux, c'est
+transformer un calendrier d'enquêtes en jugement historique. Le projet interdit
+précisément cela : une absence de datation n'est pas une absence historique, et
+la réciproque vaut aussi.
+
+**Conséquence sur la règle de nommage :** un nom sûr décrit **ce que les fiches
+montrent** dans cette tranche ; un nom risqué décrit **ce que le pays aurait
+vécu**.
+
+#### Ce que le corpus dit, époque par époque
+
+| Époque | Événements | Créations | Arrêts | Créations / arrêts | Conversions |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Avant 1789 | 160 | 46 | 15 | 3,07 | 5 |
+| 1789–1849 | 424 | 62 | 29 | 2,14 | 12 |
+| 1850–1913 | 877 | 156 | 120 | 1,30 | 30 |
+| 1914–1945 | 418 | 80 | 56 | 1,43 | 11 |
+| 1946–1975 | 385 | 52 | 64 | 0,81 | 10 |
+| 1976–2000 | 170 | 7 | 44 | 0,16 | 3 |
+
+Et les mots qu'emploient les sources, dans chaque tranche :
+
+| Époque | Métier dominant | Vocabulaire le plus fréquent |
+| --- | --- | --- |
+| Avant 1789 | Métallurgie, 42 lieux | fourneau, moulin, haut, affinerie, fenderie |
+| 1789–1849 | Agroalimentaire, 81 lieux | moulin, farine, quintaux, quotidiennement, ouvriers |
+| 1850–1913 | Agroalimentaire, 92 lieux | ouvriers, métiers, broches, vapeur, usine |
+| 1914–1945 | Agroalimentaire, 61 lieux | ouvriers, usine, vapeur, machine, société |
+| 1946–1975 | Agroalimentaire, 57 lieux | employés, ouvriers, production, tonnes, superficie |
+| 1976–2000 | Agroalimentaire, 38 lieux | employés, ouvriers, cessation, tonnes |
+
+#### Trois noms sur six sont contredits par les données
+
+**« Premières industrialisations » (1789–1849) — le plus problématique.** La
+tranche est dominée par l'agroalimentaire, 81 lieux, et son vocabulaire est
+celui d'un recensement de moulins à farine : *moulin*, *farine*, *quintaux*,
+*quotidiennement*. Le type d'événement le plus fréquent y est l'attestation,
+21 %, c'est-à-dire l'enquête de 1809. Ce que la source montre, c'est un pays de
+moulins inventorié par un préfet, pas une industrialisation naissante.
+
+**« Modernisation d'après-guerre » (1946–1975).** Le mot *modernisation*
+apparaît **quatre fois** dans 2 360 événements. Et la tranche compte **plus
+d'arrêts que de créations** — 64 contre 52, le rapport passe sous 1 pour la
+première fois. Le nom annonce une dynamique que le corpus contredit.
+
+**« Mutations et reconversions » (1976–2000).** Le mot *reconversion* n'apparaît
+**jamais**, *reconverti* une fois. La tranche ne compte que **trois
+conversions** d'activité, contre 44 arrêts, et sept créations. Ce n'est pas une
+reconversion, c'est une extinction. Nommer « reconversions » ce que les fiches
+décrivent comme des fermetures adoucit le sujet même du projet — le patrimoine
+*oublié*.
+
+#### Deux noms sont à corriger, sans être faux
+
+**« Moulins, forges et manufactures » (avant 1789).** Les moulins et les forges
+sont là — *moulin* 218 occurrences, *forge* 54, *haut fourneau* 43. Mais
+**« manufacture » apparaît une seule fois** dans toute la chronologie. Et
+l'ordre est inversé : avant 1789, la métallurgie domine, 42 lieux contre 23 pour
+l'agroalimentaire, et c'est le seul moment du corpus où c'est le cas.
+
+**« Guerres et recompositions » (1914–1945).** Le mot suggère une rupture. Or le
+rapport créations / arrêts y est de **1,43, supérieur à celui de 1850–1913**.
+Dans ce corpus, l'entre-deux-guerres n'est pas une période de recul.
+
+#### Un nom tient
+
+**« L'essor industriel » (1850–1913)** est le moins contestable : 156 créations,
+le vocabulaire de la mécanisation — *métiers* 157 occurrences, *broches* 67,
+*vapeur* 53 — et 877 événements, un tiers du corpus. La réserve tient aux 120
+arrêts de la même tranche : l'essor n'y est pas général.
+
+#### Le risque de trajectoire unique
+
+Les six noms lus à la suite racontent une histoire : naissance, industrialisation,
+essor, épreuve, modernisation, mutation. **C'est un récit national appliqué à
+318 lieux qui ne l'ont pas vécu ensemble.** Le filtre montre justement le
+contraire : neuf lieux de la Risle ont un fait documenté avant 1789 et aucun à
+Flers ni à Crulai ; onze lieux de Flers après 1976 et aucun à La Ferrière ;
+vingt-six lieux du corpus ne sont documentés que dans une seule époque.
+
+Un nom au singulier — « L'essor », « La modernisation » — laisse entendre que
+tout le monde y est passé. Aucun ne devrait pouvoir se lire ainsi.
+
+---
+
+### Réponse de Claude — contre-proposition
+
+#### La règle de nommage
+
+**Chaque nom décrit ce que les fiches montrent dans cette tranche, avec les mots
+que les sources emploient.** Aucun ne décrit une évolution, aucun ne se lit comme
+une étape d'un parcours commun.
+
+#### Les six noms
+
+| Dates | Nom proposé | Ce qui le justifie dans le corpus |
+| --- | --- | --- |
+| Avant 1789 | **Forges et moulins** | Seule tranche où la métallurgie domine, 42 lieux contre 23. *Haut fourneau*, *affinerie*, *fenderie*. « Manufactures » retiré : une occurrence. |
+| 1789–1849 | **Moulins et filatures** | Agroalimentaire 81 lieux, textile 36 — le textile apparaît ici. *Moulin*, *farine*, *quintaux*. |
+| 1850–1913 | **L'âge des machines** | *Métiers* 157, *broches* 67, *vapeur* 53 ; équipement et création sont les deux premiers types d'événements. |
+| 1914–1945 | **Les deux guerres** | Nomme le repère sans lui prêter d'effet : le corpus n'y montre aucun recul, avec 1,43 création par arrêt. |
+| 1946–1975 | **Ouvriers et tonnages** | *Employés* 89, *ouvriers* 81, *tonnes* 36, *superficie* 34. Emploi et production font 46 % des événements. |
+| 1976–2000 | **Le temps des fermetures** | Cessation 24 % des événements, 2 % de créations, trois conversions. C'est ce que les fiches racontent. |
+
+#### Les définitions courtes
+
+Elles disent **ce qui est documenté**, jamais ce qui s'est produit partout.
+
+| Époque | Définition proposée |
+| --- | --- |
+| Forges et moulins | Les fiches d'avant la Révolution décrivent surtout des hauts fourneaux, des affineries et des moulins, presque tous installés sur une chute d'eau. |
+| Moulins et filatures | Les moulins à farine dominent les relevés de cette période, où apparaissent les premières filatures. Beaucoup de ces fiches viennent d'une enquête de 1809. |
+| L'âge des machines | Les fiches comptent des métiers, des broches, des machines à vapeur et des ouvriers. C'est la période la mieux documentée du corpus. |
+| Les deux guerres | Les fiches de cette période relèvent surtout des effectifs et des équipements. Beaucoup viennent d'une enquête de 1919. |
+| Ouvriers et tonnages | Les fiches donnent des effectifs, des tonnages et des surfaces. Les arrêts y deviennent plus nombreux que les créations. |
+| Le temps des fermetures | Les fiches de cette période documentent surtout des arrêts d'activité et les derniers effectifs connus. |
+
+#### Une phrase qui doit accompagner les six
+
+À placer dans la méthode, une fois, et pas sous chaque nom :
+
+> Ces noms disent ce que les fiches documentent le plus dans chaque période. Ils
+> ne décrivent pas une évolution que tous les lieux auraient suivie : beaucoup
+> n'apparaissent que dans une seule période, et cinq dans toutes.
+
+#### Sur l'emplacement
+
+**Le sélecteur : oui, avec le nom.** « 1850–1913 — L'âge des machines » dans le
+bouton fermé et dans la liste. C'est gratuit en hauteur, et c'est là que le
+lecteur choisit.
+
+**Le bandeau entre les filtres et la carte : non, pas dans cette version.**
+L'épreuve de T5 a mesuré la barre des filtres à **207 pixels sur un écran de
+390** dès qu'une époque est choisie, avant que la carte commence. Un bandeau
+supplémentaire y ajouterait encore, au seul endroit où la place manque déjà.
+
+**Contre-proposition : le nom rejoint la ligne des filtres actifs**, qui existe
+déjà et qui affiche « Métallurgie · 1850–1913 ». Elle devient
+« Métallurgie · 1850–1913 — L'âge des machines ». Aucun bloc nouveau, aucune
+hauteur ajoutée, et l'information se trouve là où le lecteur regarde déjà le
+résultat de son choix.
+
+**Si un repère visuel plus fort est voulu**, sa place naturelle est le cartouche
+déjà posé sur la carte, qui porte la légende et l'échelle : il est dans le cadre
+et ne pousse rien vers le bas. Mais c'est une décision de mise en page, donc
+10.E.
+
+#### Ce que je ne recommande pas
+
+Déployer la définition longue depuis le sélecteur. Elle a sa place dans la
+méthode ; un texte qui s'ouvre au-dessus de la carte la déplacerait au moment
+précis où le lecteur vient de la filtrer.
+
+#### Ce qui reste à trancher
+
+1. **Les six noms**, ou une partie d'entre eux. « Ouvriers et tonnages » est
+   celui dont je suis le moins sûr : exact, mais sec. « Les grandes usines »
+   serait plus évocateur et reste défendable — surfaces et tonnages sont bien ce
+   que les fiches donnent — mais il affirme une taille que le corpus ne mesure
+   pas partout.
+2. **Le nom dans le sélecteur seul**, ou aussi dans la ligne des filtres actifs.
+3. **Le cartouche de la carte comme repère visuel** : à renvoyer à 10.E, ou à
+   décider maintenant.
+
+---
+
+### Évaluation du pilote — synthèse après la réponse de Claude
+
+**Statut : position du pilote à soumettre au porteur avant implémentation.**
+
+La mise en garde de Claude sur le biais des enquêtes est retenue. Les pics de
+dates dans le corpus ne suffisent pas à démontrer une croissance, une
+modernisation ou une reconversion générale. Les noms ne doivent donc pas être
+déduits mécaniquement du nombre d'événements.
+
+La contre-proposition n'est toutefois pas retenue telle quelle. Des
+appellations comme **« Ouvriers et tonnages »** décrivent surtout la manière
+dont les sources mesurent l'industrie. Elles ne donnent pas au lecteur un nom
+de période industrielle. **« Les deux guerres »** laisse également hors du
+titre toute la période de l'entre-deux-guerres.
+
+La série recommandée combine donc le contexte historique et ce que montre le
+corpus, sans présenter les six périodes comme les étapes obligatoires d'une
+même trajectoire :
+
+| Dates | Nom recommandé |
+| --- | --- |
+| Avant 1789 | **Forges et moulins** |
+| 1789–1849 | **Moulins et premières industries** |
+| 1850–1913 | **L'âge des machines** |
+| 1914–1945 | **Guerres et entre-deux-guerres** |
+| 1946–1975 | **Industries de l'après-guerre** |
+| 1976–2000 | **Crises et fermetures** |
+
+Cette série doit encore recevoir une définition courte pour chaque période.
+Les définitions devront distinguer clairement le contexte historique général
+de ce que les fiches du corpus montrent effectivement.
+
+### Position du pilote sur l'affichage
+
+- afficher la date et le nom dans le sélecteur ;
+- reprendre la date et le nom dans la ligne des filtres actifs ;
+- ne pas ajouter de bandeau au-dessus de la carte dans la version actuelle ;
+- étudier pendant 10.E un repère visuel plus fort dans le cartouche de la
+  carte ;
+- conserver les définitions développées dans la méthode, sans les déployer
+  automatiquement au-dessus de la carte.
+
+Claude doit maintenant examiner cette synthèse, proposer les six définitions
+courtes correspondantes et signaler uniquement les objections historiques
+encore substantielles. Aucune modification du prototype ne doit être engagée
+avant la décision du porteur.
+
+---
+
+### Réponse de Claude à la synthèse du pilote
+
+**21 septembre 2026.** La série recommandée par le pilote est retenue. Les
+objections du pilote à ma contre-proposition sont justes : « Ouvriers et
+tonnages » décrivait la façon dont les sources mesurent, pas une période ; et
+« Les deux guerres » laissait l'entre-deux-guerres hors du titre alors que c'est
+là que le corpus est le plus fourni. Aucun code n'est modifié.
+
+#### Les six définitions courtes
+
+Chacune sépare le contexte historique général de ce que les fiches montrent.
+C'est cette séparation qui empêche le nom de se lire comme une trajectoire
+commune.
+
+| Époque | Contexte historique | Ce que montrent les fiches |
+| --- | --- | --- |
+| **Forges et moulins**<br>Avant 1789 | Sous l'Ancien Régime, la force de l'eau fait tourner aussi bien les moulins à grain que les forges et les hauts fourneaux. | Seule période où la métallurgie devance l'agroalimentaire : 42 lieux contre 23. Les mots qui reviennent sont haut fourneau, affinerie, fenderie. |
+| **Moulins et premières industries**<br>1789–1849 | La Révolution puis la monarchie de Juillet réglementent les usines à eau ; les premières filatures s'installent. | Les fiches sont d'abord des relevés de moulins à farine, beaucoup issus d'une enquête de 1809. Le textile y apparaît, avec 36 lieux. |
+| **L'âge des machines**<br>1850–1913 | La mécanisation, la vapeur et le chemin de fer changent les conditions de production. | Période la mieux documentée : un tiers des faits datés du corpus. Les fiches comptent des métiers, des broches, des machines à vapeur et des ouvriers — et enregistrent aussi 120 arrêts. |
+| **Guerres et entre-deux-guerres**<br>1914–1945 | Deux guerres encadrent une période de réorganisation industrielle. | Les fiches relèvent surtout des effectifs et des équipements, beaucoup venus d'une enquête de 1919. Les créations y restent plus nombreuses que les arrêts. |
+| **Industries de l'après-guerre**<br>1946–1975 | Les décennies de reconstruction et de croissance. | Les fiches donnent des effectifs, des tonnages et des surfaces, souvent relevés en 1972. Première période où les arrêts dépassent les créations : 64 contre 52. |
+| **Crises et fermetures**<br>1976–2000 | Chocs pétroliers et restructurations industrielles. | Les fiches documentent surtout des arrêts et les derniers effectifs connus : 44 arrêts pour 7 créations, et trois changements d'activité seulement. |
+
+**Version très courte**, si la place manque — une ligne par époque, colonne
+« corpus » seule :
+
+| Époque | Une ligne |
+| --- | --- |
+| Forges et moulins | La métallurgie y devance l'agroalimentaire, seule période du corpus où c'est le cas. |
+| Moulins et premières industries | Des relevés de moulins à farine, et les premières filatures. |
+| L'âge des machines | Un tiers des faits datés du corpus : métiers, broches, machines à vapeur. |
+| Guerres et entre-deux-guerres | Des effectifs et des équipements, beaucoup relevés en 1919. |
+| Industries de l'après-guerre | Des tonnages et des effectifs — et plus d'arrêts que de créations. |
+| Crises et fermetures | Surtout des arrêts d'activité et les derniers effectifs connus. |
+
+#### Une seule objection historique substantielle
+
+**« Moulins et premières industries » (1789–1849) : le mot *premières*.**
+
+Le corpus documente 42 lieux métallurgiques **avant 1789** — hauts fourneaux,
+affineries, fenderies. Ce ne sont pas des ateliers isolés : c'est le seul moment
+où la métallurgie domine le corpus. Dire que les « premières industries »
+arrivent après 1789 revient à effacer l'époque qui précède, et le lecteur qui
+passe de la première à la deuxième tranche lira précisément ce démenti.
+
+Trois issues, par ordre de préférence :
+
+1. **Changer un mot : « Moulins et nouvelles industries ».** *Nouvelles* dit
+   qu'il s'en ajoute, sans prétendre qu'il n'y en avait pas. Le reste du nom est
+   conservé, ainsi que son équilibre avec « Forges et moulins ».
+2. **Garder le nom et corriger par la définition**, en y écrivant que la
+   métallurgie est antérieure. Le nom reste alors en tension avec le corpus, et
+   un lecteur ne lit pas toujours la définition.
+3. **Garder le nom tel quel**, en assumant qu'il désigne les industries
+   nouvelles de la période plutôt que les premières du territoire.
+
+Les deux autres noms n'appellent pas d'objection de fond. **« Crises »** est du
+contexte national, non du corpus : les fiches documentent des arrêts, pas des
+crises. La colonne « contexte » l'assume explicitement, ce qui suffit, à
+condition que les deux colonnes restent visuellement distinctes. **« Industries
+de l'après-guerre »** n'affirme aucune dynamique et convient, la définition
+portant le fait que les arrêts y dépassent les créations.
+
+#### Un point pratique, non historique
+
+Le libellé complet du sélecteur atteint **43 caractères** pour « 1789–1849 —
+Moulins et premières industries », dans un bouton large de 290 pixels au
+minimum. Et la ligne des filtres actifs atteint **79 caractères** avec un métier
+long : « Métallurgie et travail des métaux · 1789–1849 — Moulins et premières
+industries ».
+
+Ce n'est pas une objection à la série, et rien n'est à décider maintenant : la
+mise en forme relève de 10.E. Mais le cas le plus long est à éprouver à 390
+pixels avant de clore le sujet, faute de quoi le texte se repliera sur trois
+lignes au-dessus de la carte, là où la place manque déjà.
+
+#### Ce qui reste au porteur
+
+1. **Le mot *premières*** dans le nom de la deuxième époque : le remplacer par
+   *nouvelles*, ou l'assumer.
+2. **Les six définitions**, en version longue à deux colonnes ou en version
+   d'une ligne.
+
+---
+
+### Décision finale après la seconde réponse de Claude — **INTÉGRÉE le 21 septembre 2026**
+
+**Statut : validé par le porteur le 21 septembre 2026 ; intégré le même jour.**
+
+Les six noms sont en place et le mot *mécanisées* est retiré de la définition
+de 1789–1849. Les noms vivent dans `config/classifications.yml` sous
+`nom_editorial`, **à côté du `libelle` du vocabulaire contrôlé, qui reste
+inchangé** et continue d'être lu par le pipeline et les exports — les 169 tests
+passent. Ils s'affichent dans le sélecteur, fermé et ouvert, et dans la ligne
+des filtres actifs ; nulle part ailleurs avant 10.E.
+
+L'objection de Claude sur le mot **« premières »** est retenue. Les forges,
+affineries et hauts fourneaux attestés avant 1789 relèvent déjà de l'histoire
+industrielle du territoire. Le titre de la période suivante ne doit pas donner
+l'impression que l'industrie apparaît seulement après la Révolution.
+
+Le nom recommandé devient donc :
+
+> **1789–1849 — Moulins et nouvelles industries**
+
+La définition historique proposée par Claude est également simplifiée. La
+mention de « la Révolution puis la monarchie de Juillet » laissait de côté
+l'Empire et la Restauration et donnait trop de poids à une succession de
+régimes politiques qui n'est pas nécessaire ici.
+
+**Définition corrigée :**
+
+> Au début du XIXe siècle, les établissements utilisant l'eau restent nombreux
+> tandis que se développent de nouvelles productions et les premières
+> filatures.
+
+La série recommandée à la validation du porteur est désormais :
+
+| Dates | Nom recommandé |
+| --- | --- |
+| Avant 1789 | **Forges et moulins** |
+| 1789–1849 | **Moulins et nouvelles industries** |
+| 1850–1913 | **L'âge des machines** |
+| 1914–1945 | **Guerres et entre-deux-guerres** |
+| 1946–1975 | **Industries de l'après-guerre** |
+| 1976–2000 | **Crises et fermetures** |
+
+Pour les définitions, le tableau long distinguant **contexte historique** et
+**ce que montrent les fiches** est retenu comme référence méthodologique, avec
+la définition corrigée ci-dessus pour 1789–1849. La version d'une ligne reste
+une variante condensée et ne doit pas remplacer cette référence.
+
+Le risque de retour à la ligne dans le sélecteur sur écran étroit est réel,
+mais sa résolution relève de 10.E. Il devra être éprouvé à 390 pixels pendant
+le travail de direction artistique. Cette réserve ne bloque pas la validation
+des noms.
+
+**Arbitrage final :** la dernière nuance est validée. Claude peut intégrer les
+six noms et la définition corrigée sans rouvrir la discussion éditoriale. La
+mise en forme du cartouche et le comportement responsive restent à traiter en
+10.E.

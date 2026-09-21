@@ -75,6 +75,11 @@ def lire_epoques(chemin: Path = DEFAULT_CLASSIFICATIONS) -> list[dict]:
             {
                 "code": code,
                 "libelle": entree["libelle"],
+                # Le nom que lit le public, à côté du libellé du vocabulaire et
+                # jamais à sa place. Voir `config/classifications.yml`.
+                "nom": entree.get("nom_editorial", entree["libelle"]),
+                # Les dates seules, telles qu'elles se lisent dans le sélecteur.
+                "dates": entree["libelle"].split(" — ")[0],
                 # Une borne nulle dans le registre signifie « pas de limite de ce
                 # côté » : « Avant 1789 » n'a pas de début.
                 "debut": entree["debut_annee"],
