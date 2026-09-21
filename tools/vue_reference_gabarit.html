@@ -2018,13 +2018,16 @@ function ouvrirFiltre(nom = "metier"){
 }
 
 function fermerFiltre(rendreFocus = false, nom = null){
+  /* Le focus est rendu sans condition quand un sélecteur est nommé : après un
+     choix, `rendre()` a déjà remis tous les `aria-expanded` à faux, et se fier
+     à cet attribut laissait le clavier sans point de retour. */
   for (const cle of nom ? [nom] : Object.keys(FILTRES)){
     const {commande, liste} = elementsDuFiltre(cle);
     if (!commande) continue;
-    const etaitOuvert = commande.getAttribute("aria-expanded") === "true";
+    const fermeMaintenant = nom !== null || commande.getAttribute("aria-expanded") === "true";
     liste.hidden = true;
     commande.setAttribute("aria-expanded", "false");
-    if (rendreFocus && etaitOuvert) commande.focus();
+    if (rendreFocus && fermeMaintenant) commande.focus();
   }
 }
 

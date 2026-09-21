@@ -2963,3 +2963,47 @@ pareil dans les trois cas éprouvés.
 
 Décision : **T4 est fait ; le filtre agit aux trois niveaux et se combine au
 métier ; T5, épreuve et clôture, attend la validation du porteur.**
+
+## 2026-09-21 — T5, épreuve du filtre, et reclôture de la phase 10.D
+
+Relevé complet dans `docs/filtre_epoques/T5_releve_epreuve.md`.
+
+**Le raccourci des ensembles fermés ne ment pas.** Un ensemble sans vue
+détaillée n'existe, pour le filtre, que par un décompte préparé à la
+génération. Les dix-huit nombres de Noireau, Flers et Argentan ont été comparés
+au relevé de T1, et par deux chemins séparés — le décompte lui-même et ce que la
+liste affiche. Tous concordent.
+
+**125 cas parcourus**, quatre états du métier croisés avec sept états de
+l'époque, chacun décliné au département, dans les deux ensembles ouverts et dans
+un lieu. Aucune erreur, aucun ensemble listé sans contenu, aucun panneau vide,
+aucun cul-de-sac, aucune perte de l'état du filtre, aucun code technique à
+l'écran.
+
+**Le filtre ne touche pas au panneau du lieu**, et c'était voulu : 829 pixels
+avec son image, filtre actif ou non, au pixel près. Ailleurs, le panneau le plus
+haut atteint 603 pixels, sous le critère des 900.
+
+**Un défaut d'accessibilité trouvé et corrigé, que j'avais moi-même introduit.**
+Après un choix dans un sélecteur, le focus n'était pas rendu : une personne
+naviguant au clavier se retrouvait rejetée au début du document. La cause est
+une condition ajoutée en généralisant la fermeture aux deux sélecteurs — elle ne
+rendait le focus que si le sélecteur était encore marqué ouvert, or l'affichage
+est reconstruit avant la fermeture et avait déjà effacé cette marque. La
+condition n'était jamais vraie. Corrigé, puis vérifié sur les deux sélecteurs,
+au clavier et à la souris. **La leçon tient en une phrase : un état lu après
+un rendu n'est plus l'état d'avant le rendu.**
+
+**Une réserve sur mobile.** La barre des filtres passe de 149 à 207 pixels dès
+qu'une époque est choisie, avant que la carte commence. C'est de l'habillage,
+pas de la structure ; renvoyé à 10.E.
+
+**La phase 10.D est reclose.** Elle avait été close le matin, rouverte le même
+jour pour ce complément fonctionnel, motif inscrit alors. Le filtre est posé, il
+agit aux trois niveaux, il se combine au métier, et les cinq tâches sont closes.
+Ce qui relève de l'étendue — les dix autres ensembles, les communes anciennes,
+les historiques restants, les lieux hors ensemble, l'adresse partageable —
+demeure reporté et ne bloquait pas davantage cette clôture que la première.
+
+Décision : **le filtre temporel est achevé ; la phase 10.D est reclose ; la
+phase 10.E, direction artistique, s'ouvre.**

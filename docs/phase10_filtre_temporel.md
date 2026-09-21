@@ -504,7 +504,14 @@ que les neuf couples ensemble × époque vides produisent « Aucun lieu pour cet
 époque » et non une page morte.
 **Validation du porteur avant T5.**
 
-### T5 — Épreuve et clôture
+### T5 — Épreuve et clôture — **fait le 21 septembre 2026**
+
+Relevé : `docs/filtre_epoques/T5_releve_epreuve.md`. 125 cas parcourus, aucun
+problème. Un défaut d'accessibilité trouvé et corrigé : le focus n'était pas
+rendu après un choix au clavier. Réserve connue : la barre des filtres atteint
+207 pixels sur mobile, question d'habillage renvoyée à 10.E.
+
+**Les cinq tâches sont closes ; la phase 10.D est reclose.**
 
 - Éprouver sur les deux ensembles ouverts et sur un ensemble fermé.
 - Vérifier ordinateur, mobile et clavier.
