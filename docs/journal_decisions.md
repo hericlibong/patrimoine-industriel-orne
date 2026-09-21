@@ -2773,3 +2773,58 @@ transformation, localisation, état actuel et compatibilité avec le périmètre
 
 Décision : **conserver le domaine d'Avoise comme piste hors corpus à examiner,
 sans préjuger de son intégration aux 318 lieux validés.**
+
+## 2026-09-21 — Réouverture de 10.D pour le filtre temporel, et T1
+
+**La phase 10.D est rouverte**, close la veille. Motif : le prototype possède un
+filtre par métier mais aucun filtre temporel, alors que le corpus couvre neuf
+siècles et que la question « quand ? » n'est posée par aucun autre levier. Un
+filtre est une structure, pas un habillage : le poser après la direction
+artistique obligerait à re-habiller. La réouverture est décidée par le porteur
+sur la base de `docs/phase10_filtre_temporel.md`.
+
+**Deux règles ont été proposées puis refusées avant d'arriver à la bonne**, et
+c'est la partie qui mérite d'être conservée.
+
+La première était l'intervalle entre la première et la dernière date attestées
+d'un lieu. Refusée par le porteur pour fidélité documentaire : un lieu mentionné
+en 1700 puis en 1900 n'est pas attesté en 1820, et remplacer « actif » par
+« attesté » ne répare rien. L'erreur n'aurait pas été marginale — vingt-huit
+lieux couvraient plus de trois siècles.
+
+La seconde était d'ancrer les événements à borne ouverte sur leur seule borne
+connue : « après 1920 » compté en 1921. Refusée également, et le motif est le
+même en plus net : cela fabrique une année absente de la source.
+
+**La règle retenue** est celle du porteur : un lieu appartient à une époque
+lorsqu'au moins un événement daté de sa chronologie a son propre intervalle qui
+chevauche cette époque. Rien ne relie deux événements. Les 117 événements à
+borne ouverte sont écartés du calcul, sans être modifiés ni masqués : ils
+restent lisibles dans la chronologie du lieu.
+
+**La règle la plus fidèle s'est trouvée être la plus large.** L'intervalle
+couvrait 225 lieux ; les événements datés en couvrent 314 sur 318.
+
+**T1 est fait.** Un outil reproductible produit les époques de chaque lieu et
+les époques couvertes par chaque ensemble, dans les données intermédiaires non
+versionnées. Il sort en erreur si un contrôle échoue. Relevé complet dans
+`docs/filtre_epoques/T1_releve_epoques.md`.
+
+**Un contrôle mérite d'être décrit ici**, parce qu'il fixe une méthode. Vérifier
+qu'un calcul ne comble pas les silences en le comparant à lui-même ne prouve
+rien. Le contrôle compare donc le résultat à celui qu'aurait donné la règle
+refusée : celle-ci produit toujours des époques contiguës, la nôtre laisse des
+trous là où la source se tait. Soixante et un lieux présentent un tel trou. Si
+plus aucun n'en présentait, le contrôle échouerait. Éprouvé dans les deux sens :
+la règle refusée le fait échouer, et elle aurait inventé 72 appartenances
+lieu × époque qu'aucun fait ne documente.
+
+**Ce que le filtre montre déjà**, avant même d'être affiché : la métallurgie
+compte 42 lieux documentés avant 1789 et 18 après 1976, elle décline ; la
+construction mécanique et électrique n'a aucun lieu avant 1789 et dix sur dix
+entre 1946 et 1975, elle apparaît. Flers passe de trois lieux entre 1789 et 1849
+à dix-sept entre 1946 et 1975 ; Randonnai fait l'inverse. Aucun autre levier de
+l'application ne rend ces écarts visibles.
+
+Décision : **10.D est rouverte pour le filtre temporel ; T1 est fait et
+contrôlé ; T2 attend la validation du porteur.**
