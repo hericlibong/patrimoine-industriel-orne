@@ -484,7 +484,13 @@ avant la carte : question d'habillage, renvoyée à 10.E.
 écran étroit.
 **Validation du porteur avant T4.**
 
-### T4 — La réaction des trois niveaux
+### T4 — La réaction des trois niveaux — **fait le 21 septembre 2026**
+
+Neuf tests qui n'interrogeaient que le métier sont devenus un test unique. Un
+ensemble vidé affiche « Aucun lieu pour cette époque » et laisse repartir. 125
+cas parcourus — quatre états du métier croisés avec sept états de l'époque,
+puis entrée dans les deux ensembles ouverts, ouverture d'un lieu et retour :
+aucune erreur, aucun cul-de-sac, aucune perte d'état.
 
 - Réduire la liste des ensembles au département.
 - Réduire lieux et liens dans l'ensemble, recadrer.

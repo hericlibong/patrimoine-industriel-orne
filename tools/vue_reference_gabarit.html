@@ -146,6 +146,8 @@
      discret mais permanent tant qu'une époque est choisie. */
   .sans-date{font-size:13px;color:var(--gris);font-variant-numeric:tabular-nums}
   .sans-date[hidden]{display:none}
+  /* Un ensemble vidé par le filtre le dit, au lieu de montrer une liste vide. */
+  .aucun-resultat{padding:9px 2px;font-size:13px;color:var(--gris);list-style:none}
 
   .legende{display:flex;gap:16px;flex-wrap:wrap;align-items:center;
     padding:0 0 10px;font-size:12px;color:var(--gris)}
@@ -540,6 +542,7 @@ function libelleEpoque(code){
   const epoque = D.epoques.find(e => e.code === code);
   return epoque ? epoque.libelle.split(" — ")[0] : code;
 }
+function unFiltreEstActif(){ return Boolean(etat.metier || etat.epoque); }
 function nomDesFiltres(){
   return [etat.metier ? libelle(etat.metier) : null,
           etat.epoque ? libelleEpoque(etat.epoque) : null].filter(Boolean).join(" · ");
@@ -794,7 +797,7 @@ function dessinerSysteme(code){
       if (l.lien.vers === etat.site) partenaires.add(l.lien.de);
     }
 
-  const lieux = etat.metier ? retenus : sites;
+  const lieux = unFiltreEstActif() ? retenus : sites;
   d3.select("#coucheLieux").selectAll("circle")
     .data(lieux, site => site.ref)
     .join(entree => {
@@ -1606,12 +1609,14 @@ function annoter(){
   const boite = document.getElementById("effetFiltre");
   if (!boite) return;
   boite.hidden = true;
-  if (etat.niveau === "departement" || !etat.metier || !D.detail[etat.systeme]) return;
+  if (etat.niveau === "departement" || !unFiltreEstActif() || !D.detail[etat.systeme]) return;
   const detail = D.detail[etat.systeme];
   const retenus = detail.sites.filter(garde).length;
   boite.innerHTML = retenus
     ? `<b>${retenus}</b> des ${detail.sites.length} lieux de cet ensemble`
-    : `aucun des ${detail.sites.length} lieux de cet ensemble`;
+    : (etat.epoque && !etat.metier
+        ? "Aucun lieu pour cette époque"
+        : `aucun des ${detail.sites.length} lieux de cet ensemble`);
   boite.hidden = false;
 }
 
@@ -1624,7 +1629,7 @@ function panneauDepartement(){
   const concernes = systemes.filter(systeme =>
     lieuxDuSysteme(systeme) > 0).length;
   const total = dansEnsembles + autres.length;
-  const filtre = Boolean(etat.metier || etat.epoque);
+  const filtre = unFiltreEstActif();
   const systemesAffiches = filtre
     ? systemes.filter(systeme => lieuxDuSysteme(systeme) > 0)
     : systemes;
@@ -1646,13 +1651,14 @@ function panneauDepartement(){
     <section class="selection" aria-labelledby="selectionAffichee" aria-live="polite"
       aria-atomic="true">
       <h3 class="sur-titre" id="selectionAffichee">Lieux recensés</h3>
-      <p class="choix">${etat.metier ? echapper(libelle(etat.metier)) : "Tous les métiers"}</p>
+      <p class="choix">${unFiltreEstActif()
+        ? echapper(nomDesFiltres()) : "Tous les métiers, toutes les époques"}</p>
       <p class="total">${total} <small>lieux</small></p>
       <p class="partition"><b>${dansEnsembles}</b> lieu${dansEnsembles>1?"x":""} dans
         ${concernes} ensemble${concernes>1?"s":""}<br>
         <b>${autres.length}</b> autre${autres.length>1?"s":""} lieu${autres.length>1?"x":""}</p>
     </section>
-    <h3>${etat.metier ? "Les ensembles de ce métier" : "Explorer les ensembles"}</h3>
+    <h3>${unFiltreEstActif() ? "Les ensembles retenus" : "Explorer les ensembles"}</h3>
     <ul class="liste">${lignes}</ul>
     <p class="note-autres">Les autres lieux sont les points gris de la carte. Leur
       dispersion calculée ne prouve pas qu'ils étaient historiquement isolés.</p>
@@ -1666,11 +1672,18 @@ function panneauSysteme(){
   const resume = detail.resume;
   const retenus = detail.sites.filter(garde);
 
-  const sites = retenus.map(site => `
+  /* Un ensemble que le filtre vide n'est pas une impasse : il dit ce qui se
+     passe et laisse repartir. Les neuf couples ensemble × époque sans résultat
+     du relevé de T1 passent tous par là. */
+  const sites = retenus.length
+    ? retenus.map(site => `
     <li><button data-site="${site.ref}" ${etat.site===site.ref?'aria-current="true"':""}
       aria-label="${echapper(site.nomCourt)}, ${echapper(site.commune)}">
       <span class="nom">${echapper(site.nomCourt)}</span>
-      <span class="info">${echapper(site.commune)}</span></button></li>`).join("");
+      <span class="info">${echapper(site.commune)}</span></button></li>`).join("")
+    : `<li class="aucun-resultat">${etat.epoque && !etat.metier
+        ? "Aucun lieu pour cette époque"
+        : "Aucun lieu pour cette sélection"}</li>`;
 
   const parReference = Object.fromEntries(detail.sites.map(s => [s.ref, s]));
   let masques = 0;
@@ -1718,11 +1731,11 @@ function panneauSysteme(){
 
   <div class="carton">
     <details class="ensemble-details" data-accordeon="lieux" ${etatAcc.lieux ? "open" : ""}>
-      <summary>Explorer les lieux <span class="compteur">${etat.metier ? `${retenus.length} lieux sur ${detail.sites.length}` : `${detail.sites.length} lieux`}</span></summary>
+      <summary>Explorer les lieux <span class="compteur">${unFiltreEstActif() ? `${retenus.length} lieux sur ${detail.sites.length}` : `${detail.sites.length} lieux`}</span></summary>
       <ul class="liste liste-lieux">${sites || "<li><p>Aucun lieu de ce métier ici.</p></li>"}</ul>
     </details>
     ${detail.liens.length ? `<details class="ensemble-details" data-accordeon="relations" ${etatAcc.relations ? "open" : ""}>
-      <summary>Relations entre les lieux <span class="compteur">${etat.metier ? `${relationsVisibles} sur ${detail.liens.length}` : `${detail.liens.length}`}</span></summary>
+      <summary>Relations entre les lieux <span class="compteur">${unFiltreEstActif() ? `${relationsVisibles} sur ${detail.liens.length}` : `${detail.liens.length}`}</span></summary>
       ${preuves ? `<ul class="preuves">${preuves}</ul>` : `<p style="font-size:12.5px">Aucune relation ne relie deux lieux de ce métier.</p>`}
       ${masques ? `<p style="font-size:11.5px;color:#5c6070;margin-top:8px">${masques} relation${masques>1?"s":""} masquée${masques>1?"s":""} par le filtre en cours.</p>` : ""}
     </details>` : ""}
@@ -1870,7 +1883,7 @@ function sortiesDuLieu(){
       ← Retour aux lieux — ${echapper(definition.nom)}</button></p>
     <details class="ensemble-details" data-accordeon="autres-lieux">
       <summary>Choisir un autre lieu <span class="compteur">${
-        etat.metier ? `${retenus.length} sur ${detail.sites.length}` : `${detail.sites.length}`
+        unFiltreEstActif() ? `${retenus.length} sur ${detail.sites.length}` : `${detail.sites.length}`
       }</span></summary>
       <ul class="liste liste-lieux">${lieux ||
         "<li><p>Aucun lieu de ce métier ici.</p></li>"}</ul>
@@ -2067,7 +2080,7 @@ function rendreEnTete(){
     compte.hidden = montreIdentite;
     compte.textContent = lieu
       ? `${lieu.commune}${lieu.lieuDit ? " · " + lieu.lieuDit : ""}`
-      : (etat.metier || etat.epoque)
+      : unFiltreEstActif()
         ? `${retenus} lieu${retenus>1?"x":""} sur ${detail.sites.length} · ${nomDesFiltres()}`
         : `${detail.sites.length} lieux documentés`;
   }

@@ -2928,3 +2928,38 @@ C'est beaucoup sur un téléphone ; la question est d'habillage et revient à 10
 
 Décision : **T3 est fait ; le compteur annonce les lieux qu'il retire et non
 ceux du corpus ; T4 attend la validation du porteur.**
+
+## 2026-09-21 — T4, le filtre agit aux trois niveaux
+
+Le filtre d'époque agit maintenant partout où le filtre métier agissait, et les
+deux se combinent. L'essentiel du travail a consisté à **remplacer neuf tests
+qui n'interrogeaient que le métier** par un test unique — un filtre est-il
+actif ? — dans le recadrage de la carte, l'annotation posée à côté du
+sélecteur, les compteurs du panneau départemental et ceux du panneau
+d'ensemble. Un filtre oublié dans un seul de ces endroits aurait donné une
+carte et une liste qui ne disent pas la même chose.
+
+**Un ensemble vidé par le filtre n'est pas une impasse.** Il affiche « Aucun
+lieu pour cette époque », à la place de la liste et à côté du sélecteur, et le
+retour reste possible. Les neuf couples ensemble × époque sans résultat du
+relevé de T1 ont été parcourus un par un : les sept qui concernent des
+ensembles non encore ouverts disparaissent simplement de la liste ; les trois de
+Crulai, atteignables, affichent le message.
+
+**Le cadre se comporte comme décidé, et ce n'est pas la même chose partout.** La
+Risle garde une emprise stable quel que soit le filtre, par la décision prise
+pour ses repères de bourgs ; Crulai se recadre sur ce qui reste. Rien n'a été
+changé là : c'était déjà le comportement du filtre métier.
+
+**Parcours éprouvé : 125 cas.** Quatre états du métier — aucun, métallurgie,
+agroalimentaire, textile — croisés avec les sept états de l'époque, puis, pour
+chacun, l'entrée dans les deux ensembles ouverts, l'ouverture d'un lieu et le
+retour. Aucune erreur, aucun ensemble listé sans contenu, aucun panneau vide,
+aucun cul-de-sac, aucune perte de l'état du filtre.
+
+**Les liens suivent.** Dans la Risle, les cinq relations documentées tombent à
+zéro avant 1789 et à quatre entre 1850 et 1913 ; la carte et la liste comptent
+pareil dans les trois cas éprouvés.
+
+Décision : **T4 est fait ; le filtre agit aux trois niveaux et se combine au
+métier ; T5, épreuve et clôture, attend la validation du porteur.**
