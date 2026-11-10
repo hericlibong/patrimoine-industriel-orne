@@ -3099,3 +3099,27 @@ carte est renvoyé à 10.E, avec l'éprouve du cas le plus long à 390 pixels.
 Décision : **les six époques portent un nom éditorial, inscrit à côté du
 libellé du vocabulaire et jamais à sa place ; il s'affiche dans le sélecteur et
 dans la ligne des filtres actifs, et nulle part ailleurs avant 10.E.**
+
+## 2026-11-10 — Reprise du projet et instruction documentaire d'Avoise
+
+Après un mois d'interruption, l'état du projet est vérifié. La phase 10.D est
+close et la phase 10.E, direction artistique, est la prochaine phase de
+production. Le README, resté à tort sur « 10.D en cours », est corrigé.
+
+Le domaine d'Avoise, à Radon dans la commune actuelle d'Écouves, est confirmé
+comme **candidat complémentaire sérieux**. Son absence s'explique par le
+périmètre fermé du corpus : 319 dossiers de l'Inventaire industriel de l'Orne,
+devenus 318 lieux. Aucune notice Avoise n'a été retrouvée dans ce périmètre, sur
+POP ou dans l'index public du portail régional.
+
+Les sources consultées établissent une ferme-usine construite à partir de 1858,
+avec une distillerie industrielle de betteraves active jusqu'en 1879. Une
+description de 1919 mentionne ensuite cidrerie, laiterie, moulin et logements
+ouvriers. **La mention d'une fonderie était une confusion : la source dit
+distillerie.** L'étude publiée par OpenEdition renvoie au fonds d'Avoise des
+Archives départementales de l'Orne, sous-série `56 J`, et au plan `57 Fi 178`.
+
+Décision : **Avoise reste hors des 318 lieux validés, mais passe du statut de
+simple piste à celui de candidat complémentaire sérieux. Son intégration
+éventuelle exige une fiche manuelle sourcée, une localisation contrôlée et une
+décision explicite sur l'extension du corpus.**

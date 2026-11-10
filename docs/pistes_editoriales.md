@@ -116,17 +116,48 @@ CASIAS comme des sites patrimoniaux.
 
 Le domaine d'Avoise n'apparaît pas dans les 318 lieux du corpus actuel, ni sous
 une variante de nom repérée dans les fichiers du projet. Son absence ne suffit
-pas à conclure qu'il est hors sujet : les Archives départementales de l'Orne le
-présentent comme une ferme-modèle comprenant notamment une cidrerie installée à
-la manière des cidreries industrielles, une laiterie et un moulin. D'autres
-travaux le qualifient de ferme agro-industrielle ou de ferme-usine.
+pas à conclure qu'il est hors sujet. Le corpus principal est une liste fermée de
+319 dossiers de l'Inventaire industriel de l'Orne, transformés en 318 lieux ;
+Avoise n'a pas de dossier dans cette liste. La vérification du 10 novembre 2026
+n'a pas retrouvé de notice correspondante sur POP ni dans l'index public du
+portail régional.
+
+Les Archives départementales de l'Orne établissent pourtant clairement la
+dimension industrielle du lieu. Les bâtiments sont construits à partir de
+1858. Une **distillerie industrielle** transforme la betterave en alcool ; la
+pulpe nourrit les bovins. Cette activité cesse en 1879. Une description de
+1919 mentionne ensuite une cidrerie équipée comme les cidreries industrielles,
+une laiterie pourvue de glacières, un moulin et des logements ouvriers. Il ne
+s'agit pas d'une fonderie : la confusion doit être évitée.
+
+L'étude de Patrick Birée publiée par OpenEdition qualifie Avoise de centre de
+production agro-industrielle et distingue deux systèmes : ferme-usine avec
+production d'alcool de 1858 à 1879, puis exploitation agricole de 1879 à 1960.
+Elle renvoie au fonds d'Avoise déposé aux Archives départementales en
+sous-série **56 J** et au plan coté **57 Fi 178**. Un programme scientifique de
+2024 le décrit également comme une « ferme agro-industrielle » et une
+« ferme-usine ».
 
 Piste : examiner Avoise comme candidat complémentaire, à la frontière entre
 patrimoine agricole et patrimoine industriel. Vérifier son histoire, ses
 activités de transformation, ses sources patrimoniales, sa localisation et son
 état actuel avant toute décision d'intégration.
 
-Statut : **note de recherche ; lieu hors corpus, non validé pour intégration**.
+Statut : **candidat complémentaire sérieux ; lieu hors corpus, non validé pour
+intégration**. Il ne peut pas être récupéré comme une ligne supplémentaire de
+la base actuelle : il faut créer une fiche complémentaire manuelle, avec ses
+propres sources et sans modifier rétroactivement le périmètre des 318 lieux.
 
-Source de départ : Archives départementales de l'Orne, catalogue d'exposition,
-<https://archives.orne.fr/sites/default/files/2020-09/CAT77.pdf>.
+Sources de départ :
+
+- Archives départementales de l'Orne, catalogue d'exposition,
+  <https://archives.orne.fr/sites/default/files/2020-09/CAT77.pdf> ;
+- Patrick Birée, « Le cheval, entre animal de travail et animal de loisir :
+  l'exemple de l'exploitation agro-industrielle d'Avoise à Radon (Orne) de 1860
+  à 1960 », OpenEdition Books, 2021,
+  <https://books.openedition.org/cths/15605> ;
+- Archives départementales de l'Orne, fonds d'Avoise, sous-série `56 J`, et
+  plan `57 Fi 178` ;
+- Congrès des sociétés historiques et archéologiques de Normandie, 2024,
+  communication « Le site d'Avoise à Radon (Orne), de logis médiéval à ferme
+  agro-industrielle ».

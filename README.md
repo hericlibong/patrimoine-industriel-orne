@@ -14,8 +14,9 @@ lieux physique.
 
 ## État du projet
 
-**Phases 0 à 9 terminées. Phase 10.D en cours : la vue de référence est
-construite et corrigée, son jugement n'est pas rendu.**
+**Phases 0 à 9 terminées. La phase 10.D est close : la vue fonctionnelle de
+référence et ses filtres sont validés. La prochaine étape est la phase 10.E,
+direction artistique.**
 
 Les 319 références officielles récupérées correspondent à **318 sites
 canoniques** et **403 activités structurées**. Les sites sont cartographiables
