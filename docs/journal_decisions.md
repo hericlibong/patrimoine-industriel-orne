@@ -3152,3 +3152,28 @@ le bouton du panneau. Chronologie, sources, retour, combinaison métier-époque
 et masquage hors période vérifiés. Les parcours des fiches de la Risle et de
 Crulai restent fonctionnels. Génération, contrôle Ruff et 11 tests ciblés du
 socle et de la chronologie réussis.
+
+## 2026-11-10 — Contrôle ciblé des Archives de l'Orne
+
+Le porteur autorise une recherche complémentaire et demande sa traçabilité.
+La mission, les cases de suivi, les sources, le tableau et les suites sont
+consignés dans `docs/audit_archives_orne.md`.
+
+La première passe couvre deux fermes agro-industrielles, les vingt
+établissements de la liste publique des fonds d'entreprises et huit lieux
+d'un échantillon de l'inventaire S. Le choix de l'échantillon, fait par le
+pilote, porte sur Alençon, Colombiers et Radon. Le PDF de 135 pages est archivé
+localement et son empreinte figure dans la mission.
+
+Bilan de trente entrées, avec onze déjà présentes, quatre rapprochements à
+vérifier, onze candidats complémentaires et quatre cas dont le périmètre
+est à arbitrer. Les candidats demandent encore une instruction de leur
+identité, de leurs activités et de leur localisation.
+
+Briante, la Normanderie et la manufacture de Sées sont proposés en priorité.
+La Fonderie du Perche pose une question de localisation entre Randonnai et
+Irai. Le moulin de Gibout possède un lien possible avec Avoise, puisque le
+propriétaire Houel apparaît dans son dossier. Ce lien reste à établir.
+
+La première passe est terminée. Le dépouillement intégral des autres communes
+de la série S et le choix des intégrations restent ouverts dans la mission.

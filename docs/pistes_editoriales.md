@@ -112,6 +112,12 @@ CASIAS comme des sites patrimoniaux.
 
 ## Lieux hors corpus à examiner
 
+Le contrôle ciblé des Archives de l'Orne, lancé le 10 novembre 2026, est suivi
+dans [la mission et son tableau de rapprochement](audit_archives_orne.md).
+La première passe porte sur trente entrées et distingue les lieux présents,
+les rapprochements, les candidats complémentaires et les activités dont le
+périmètre reste à arbitrer.
+
 ### Domaine d'Avoise, à Radon (Écouves)
 
 Le domaine d'Avoise n'apparaît pas dans les 318 lieux du corpus actuel, ni sous
