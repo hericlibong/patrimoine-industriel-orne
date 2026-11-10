@@ -313,7 +313,7 @@
   <div class="propos">
     <p id="chapo" class="chapo">Derrière l'image rurale aujourd'hui associée à
     l'Orne, son patrimoine industriel reste peu visible.</p>
-    <p>Les inventaires et les archives recensent pourtant <b>318 lieux de
+    <p>Les inventaires et les archives recensent pourtant <b><span id="nombreLieux">318</span> lieux de
     production</b>, du Moyen Âge au XX<sup>e</sup> siècle : moulins et laiteries,
     forges et hauts fourneaux, filatures et tissages, papeteries, tuileries,
     mines.</p>
@@ -879,7 +879,7 @@ function entitesCarte(){
           ouvert ? "Ouvrir cet ensemble" : "Vue détaillée à venir"]});
     }
     for (const site of D.departement.autresSites.filter(autreGarde))
-      entites.push({ref:site.ref, lon:site.lon, lat:site.lat, ouvrable:false,
+      entites.push({ref:site.ref, lon:site.lon, lat:site.lat, ouvrable:Boolean(D.complements[site.ref]),
         lignes:[site.nom, site.commune, site.secteurs.map(libelle).join(" · ")]});
     return entites;
   }
@@ -934,7 +934,7 @@ CARTE.addEventListener("click", evenement => {
   const ref = lieuLePlusProche(evenement);
   const entite = entitesCourantes.find(item => item.ref === ref);
   if(!entite || !entite.ouvrable) return;
-  if(etat.niveau === "departement") allerAuSysteme(entite.code);
+  if(etat.niveau === "departement" && entite.code) allerAuSysteme(entite.code);
   else allerAuSite(entite.ref);
 });
 
@@ -995,6 +995,15 @@ function dessinerDepartement(){
       mise => mise, fondreSortie)
       .attr("cx", site => projeter(site.lon, site.lat)[0].toFixed(1))
       .attr("cy", site => projeter(site.lon, site.lat)[1].toFixed(1))
+      .attr("fill", site => etat.site === site.ref ? "#9a3412" : "#a9a49a")
+      .attr("tabindex", site => D.complements[site.ref] ? "0" : null)
+      .attr("role", site => D.complements[site.ref] ? "button" : null)
+      .attr("aria-label", site => D.complements[site.ref] ? `Ouvrir ${site.nom}` : null)
+      .on("keydown", (evenement, site) => {
+        if (D.complements[site.ref] && (evenement.key === "Enter" || evenement.key === " ")){
+          evenement.preventDefault(); allerAuSite(site.ref);
+        }
+      })
       .attr("data-taille-base", rayonAutre)
       .call(selection => (DUREE ? selection.transition().duration(DUREE) : selection)
         .attr("r", rayonAutre / ((zoomCarte && zoomCarte.k) || 1)).attr("opacity", 1));
@@ -1665,6 +1674,10 @@ function panneauDepartement(){
     <ul class="liste">${lignes}</ul>
     <p class="note-autres">Les autres lieux sont les points gris de la carte. Leur
       dispersion calculée ne prouve pas qu'ils étaient historiquement isolés.</p>
+    ${autres.some(site => D.complements[site.ref]) ? `<h3>À découvrir aussi</h3>
+      <ul class="liste">${autres.filter(site => D.complements[site.ref]).map(site =>
+        `<li><button data-site="${site.ref}"><span class="nom">${echapper(site.nomCourt)}</span>
+        <span class="info">${echapper(site.commune)}</span></button></li>`).join("")}</ul>` : ""}
   </div>`;
 }
 
@@ -1747,8 +1760,8 @@ function panneauSysteme(){
 
 function panneauSite(){
   const detail = D.detail[etat.systeme];
-  const site = detail.sites.find(s => s.ref === etat.site);
-  const evenements = (detail.chronologie[site.ref] || []).filter(e => e.min || e.max);
+  const site = D.complements[etat.site] || detail.sites.find(s => s.ref === etat.site);
+  const evenements = (site.chronologie || detail.chronologie[site.ref] || []).filter(e => e.min || e.max);
 
   const frise = evenements.slice(0, 40).map(evenement => {
     const an = evenement.min && evenement.max && evenement.min !== evenement.max
@@ -1778,8 +1791,13 @@ function panneauSite(){
       : "Activité non précisée par la source"}</p>
     ${mediaDuLieu(site)}
     ${site.url ? `<p class="lien-source">
-      <a href="${echapper(site.url)}" target="_blank" rel="noopener">Voir la fiche
-      d'inventaire (${echapper(site.ref)})</a></p>` : ""}
+      <a href="${echapper(site.url)}" target="_blank" rel="noopener">${site.libelleSource
+        ? echapper(site.libelleSource) : `Voir la fiche d'inventaire (${echapper(site.ref)})`}</a></p>` : ""}
+    ${site.noteLocalisation ? `<p class="avertissement">${echapper(site.noteLocalisation)}</p>` : ""}
+    ${site.activites ? `<p>${site.activites.map(echapper).join(" · ")}</p>` : ""}
+    ${site.sources ? `<details><summary>Sources historiques</summary><ul>${site.sources.map(source =>
+      `<li><a href="${echapper(source.url)}" target="_blank" rel="noopener">${echapper(source.titre)}</a>
+      <p>${echapper(source.repere)}</p></li>`).join("")}</ul></details>` : ""}
   </div>
 
   <div class="carton">
@@ -1868,6 +1886,8 @@ function paragraphes(texte){
 }
 
 function sortiesDuLieu(){
+  if (D.complements[etat.site]) return `<div class="carton"><button type="button"
+    data-retour-departement="1">← Retour à la carte de l'Orne</button></div>`;
   const detail = D.detail[etat.systeme];
   const definition = D.departement.systemes.find(s => s.code === etat.systeme);
   const retenus = detail.sites.filter(garde);
@@ -1929,6 +1949,12 @@ function allerAuSysteme(code){
 }
 
 function allerAuSite(reference){
+  if (D.complements[reference]){
+    etat.niveau = "departement"; etat.systeme = null; etat.site = reference; etat.lien = null;
+    rendre();
+    annoncer(`Fiche ouverte : ${D.complements[reference].nom}.`);
+    return;
+  }
   etat.niveau = "site"; etat.site = reference; etat.lien = null;
   rendre();
   const site = D.detail[etat.systeme].sites.find(s => s.ref === reference);
@@ -2048,8 +2074,8 @@ function rendreFil(){
   const boutonSysteme = document.getElementById("filSysteme");
   boutonSysteme.hidden = !systeme;
   if (systeme) boutonSysteme.textContent = systeme.nom;
-  const site = etat.site && systeme
-    ? D.detail[systeme.code].sites.find(s => s.ref === etat.site) : null;
+  const site = D.complements[etat.site] || (etat.site && systeme
+    ? D.detail[systeme.code].sites.find(s => s.ref === etat.site) : null);
   document.getElementById("filSep2").hidden = !site;
   const ici = document.getElementById("filSite");
   ici.hidden = !site;
@@ -2062,6 +2088,14 @@ function rendreEnTete(){
   const titreTravail = document.getElementById("titreTravail");
   const libelleTitreTravail = document.getElementById("libelleTitreTravail");
   const introduction = document.getElementById("introductionExploration");
+  document.getElementById("nombreLieux").textContent = D.departement.nbSites;
+  const complement = D.complements[etat.site];
+  if (complement){
+    titre.textContent = complement.nom;
+    compte.hidden = false; compte.textContent = complement.commune;
+    titreTravail.hidden = true; introduction.hidden = true;
+    return;
+  }
   if (etat.niveau === "departement"){
     titre.textContent = "Explorer les lieux du patrimoine industriel";
     compte.hidden = true;
@@ -2220,9 +2254,11 @@ function rendreLegende(){
       `<div class="entree"><i style="background:rgba(154,52,18,.25);border:1.6px solid #9a3412"></i>ensemble ouvert — taille selon le nombre de lieux</div>`
       + `<div class="entree"><i style="background:rgba(154,52,18,.1);border:1.2px dashed #9a3412"></i>ensemble non ouvert</div>`
       + `<div class="entree"><i style="background:#a9a49a;width:7px;height:7px"></i>lieu hors des ensembles étudiés</div>`;
-    source.innerHTML = `Sources : Inventaire du patrimoine industriel de l'Orne ·
+    source.innerHTML = `Sources : Inventaire du patrimoine industriel de l'Orne · Archives de l'Orne · étude de Patrick Birée ·
       contours communaux API Géo.<br>Regroupements calculés, sans frontière historique.
-      L'état de conservation reste inconnu pour 315 des 318 lieux du corpus.`;
+      ${D.departement.nbSitesInventaire} lieux de l'Inventaire et ${Object.keys(D.complements).length} complément historique.
+      Le repère d'Avoise provient des points d'intérêt IGN.
+      L'état de conservation reste inconnu pour ${315 + Object.keys(D.complements).length} des ${D.departement.nbSites} lieux.`;
     methode.hidden = false;
   } else {
     const categories = new Set(D.detail[etat.systeme].eau.map(troncon => troncon.categorie));
@@ -2277,6 +2313,8 @@ function rendreLegende(){
 }
 
 function rendre(){
+  const complement = D.complements[etat.site];
+  if (complement && !autreGarde(complement)) etat.site = null;
   pointIdentification = {hover:null, focus:null};
   retirerIdentification();
   const panneauActuel = document.getElementById("panneau");
@@ -2290,7 +2328,7 @@ function rendre(){
   rendreFil();
   rendreEnTete();
   rendreLegende();
-  document.querySelector(".accueil").hidden = etat.niveau !== "departement";
+  document.querySelector(".accueil").hidden = etat.niveau !== "departement" || Boolean(etat.site);
   if (etat.niveau === "departement") dessinerDepartement();
   else dessinerSysteme(etat.systeme);
   // Après le dessin : l'échelle a besoin de la projection de la vue affichée.
@@ -2304,7 +2342,8 @@ function rendre(){
      l'ensemble, si bien que le lecteur recevait la vallée entière par-dessus la
      fiche qu'il venait d'ouvrir. Le retour et le choix d'un autre lieu, que ce
      panneau fournissait, sont redonnés dans le panneau du lieu lui-même. */
-  panneau.innerHTML = etat.niveau === "departement" ? panneauDepartement()
+  panneau.innerHTML = D.complements[etat.site] ? panneauSite()
+    : etat.niveau === "departement" ? panneauDepartement()
     : etat.niveau === "systeme" ? panneauSysteme()
     : panneauSite();
 }
@@ -2330,6 +2369,8 @@ document.addEventListener("click", evenement => {
     annoncer(actifs ? `Filtre : ${actifs}.` : "Filtre retiré.");
   } else if (bouton.dataset.systeme){
     allerAuSysteme(bouton.dataset.systeme);
+  } else if (bouton.dataset.retourDepartement !== undefined){
+    allerAuDepartement();
   } else if (bouton.dataset.retourEnsemble !== undefined){
     allerAuSysteme(etat.systeme);
   } else if (bouton.dataset.site){
@@ -2402,7 +2443,8 @@ document.addEventListener("keydown", evenement => {
     if (ouvert){
       evenement.preventDefault();
       fermerFiltre(true, ouvert);
-    } else if (etat.niveau === "site"){ etat.niveau = "systeme"; etat.site = null; rendre(); }
+    } else if (D.complements[etat.site]) allerAuDepartement();
+    else if (etat.niveau === "site"){ etat.niveau = "systeme"; etat.site = null; rendre(); }
     else if (etat.niveau === "systeme") allerAuDepartement();
   }
 });

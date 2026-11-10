@@ -1,14 +1,15 @@
 # Patrimoine industriel de l'Orne
 
-Projet datajournalistique consacré à **318 sites industriels documentés dans
-l'Orne**. Le corpus validé alimente une application web de visualisation
+Projet datajournalistique consacré à **319 lieux du patrimoine industriel de
+l'Orne**, dont 318 issus de l'Inventaire et le domaine d'Avoise ajouté sur
+sources historiques. Le corpus alimente une application web de visualisation
 interactive : une carte, des filtres, une recherche et des vues d'ensembles et
 de sites que le lecteur explore librement.
 
 La publication s'intitule **« Le patrimoine oublié de l'Orne »**, sous-titrée
 *Voyage dans l'Orne industrielle*. Le sujet est le **patrimoine** : l'histoire
 industrielle en est le moyen, pas l'objet. Le mot engage une limite qui reste
-affichée partout — l'état de conservation est inconnu pour 315 des 318 sites, si
+affichée partout — l'état de conservation est inconnu pour 316 des 319 lieux, si
 bien que la publication établit un patrimoine **documenté**, non un état des
 lieux physique.
 
@@ -22,6 +23,12 @@ Les 319 références officielles récupérées correspondent à **318 sites
 canoniques** et **403 activités structurées**. Les sites sont cartographiables
 avec un niveau de précision explicite et disposent d'identifiants stables. Le
 corpus complet est disponible en JSON, DuckDB, CSV, Parquet et GeoJSON.
+
+Le complément Avoise est versionné dans `data/manual/lieux_complementaires.yml`.
+Le générateur le joint au socle de l'Inventaire et calcule ses époques depuis
+ses cinq événements sourcés. Le prototype affiche 319 lieux, 172 dans les douze
+ensembles et 147 autres lieux. La fiche Avoise s'ouvre depuis son point ou
+depuis « À découvrir aussi ». Sa position est un repère de lieu-dit IGN.
 
 La matière éditoriale comprend notamment 314 textes historiques, 2 360
 événements datés sur 314 sites, les relations sourcées entre sites et

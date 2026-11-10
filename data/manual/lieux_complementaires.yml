@@ -1,0 +1,50 @@
+version: 1
+lieux:
+  - ref: COMPLEMENT-AVOISE
+    nom: Domaine d'Avoise — ferme agro-industrielle
+    nomCourt: Domaine d'Avoise
+    commune: Radon (Écouves)
+    lieuDit: Avoise
+    lon: 0.099668
+    lat: 48.493081
+    secteurs: [agroalimentaire]
+    activites: [Distillation de betteraves, Cidrerie, Laiterie, Moulin]
+    nbActivites: 4
+    precision: zone_documentaire
+    noteLocalisation: >-
+      Le point repère le lieu-dit Avoise identifié par l'IGN. Il ne délimite pas
+      les bâtiments du domaine ni leur emprise.
+    localisation:
+      source: IGN — Géoplateforme, points d'intérêt
+      url: https://data.geopf.fr/geocodage/search?q=avoise&index=poi&citycode=61341&limit=5
+      identifiant: PAIHABIT0000000019097728
+      date_verification: '2026-11-10'
+      reponse_archivee: data/raw/ign_avoise/2026-11-10/reponse.json
+    conservation: inconnu
+    eau: null
+    url: https://books.openedition.org/cths/15605
+    libelleSource: Lire l'étude historique
+    histoire: >-
+      À partir de 1858, le domaine d'Avoise est aménagé en ferme-usine.
+      La betterave y est transformée en alcool dans une distillerie industrielle,
+      et sa pulpe sert à nourrir les bovins. Une machine à vapeur participe aux
+      installations. En 1879, la production d'alcool est abandonnée et la
+      distillerie devient un espace de stockage. L'exploitation se tourne vers
+      la polyculture et l'élevage. Une description publiée en 1919 mentionne
+      une cidrerie, une laiterie équipée de glacières, un moulin desservant
+      l'établissement et les cultivateurs des environs, ainsi que des logements
+      ouvriers. Un cliché de 1950 montre un tracteur sur le site. À partir de
+      1960, le domaine est de nouveau orienté vers la production céréalière.
+    sources:
+      - titre: Archives de l'Orne — La révolution aux champs, catalogue, 1998
+        url: https://archives.orne.fr/sites/default/files/2020-09/CAT77.pdf
+        repere: La ferme-modèle d'Avoise à Radon, documents 46 et 47
+      - titre: Patrick Birée — L'exploitation agro-industrielle d'Avoise, 2021
+        url: https://books.openedition.org/cths/15605
+        repere: Paragraphes 1 à 6, tableau 1 et notes, fonds AD Orne 56 J et plan 57 Fi 178
+    chronologie:
+      - {type: creation, min: 1858, max: 1858, precision: annee, texte: Début de construction de la ferme-usine, source: 1}
+      - {type: conversion, min: 1879, max: 1879, precision: annee, texte: Abandon de la distillation et passage à la polyculture à élevage dominant, source: 1}
+      - {type: attestation, min: 1919, max: 1919, precision: annee, texte: Description de la cidrerie, source: 0}
+      - {type: equipement, min: 1950, max: 1950, precision: annee, texte: Tracteur visible sur un cliché du site, source: 1}
+      - {type: conversion, min: 1960, max: 1960, precision: annee, texte: Retour à une exploitation céréalière, source: 0}

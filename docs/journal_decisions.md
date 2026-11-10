@@ -3123,3 +3123,32 @@ Décision : **Avoise reste hors des 318 lieux validés, mais passe du statut de
 simple piste à celui de candidat complémentaire sérieux. Son intégration
 éventuelle exige une fiche manuelle sourcée, une localisation contrôlée et une
 décision explicite sur l'extension du corpus.**
+
+## 2026-11-10 — Intégration du domaine d'Avoise à la carte
+
+Le porteur demande la préparation de la fiche, le contrôle de la localisation
+et l'ajout à la carte. Avoise est intégré sous `COMPLEMENT-AVOISE`, avec un
+registre manuel versionné dans `data/manual/lieux_complementaires.yml`.
+Le générateur joint ce complément au socle des 318 lieux de l'Inventaire.
+Le total affiché devient 319 lieux, dont 172 dans les douze ensembles et
+147 hors ensembles. Le classement d'Avoise parmi ces derniers est un choix
+d'intégration du pilote. Le rattachement éventuel à un ensemble reste à examiner.
+
+La localisation retenue est le point de lieu-dit IGN Avoise, identifiant
+`PAIHABIT0000000019097728`, longitude `0.099668`, latitude `48.493081`.
+La fiche expose cette précision et indique que le point représente le lieu-dit.
+L'emprise des bâtiments reste à contrôler. La réponse IGN est archivée localement
+et sa provenance est consignée dans le registre manuel.
+
+La fiche présente l'historique, les activités agroalimentaires, cinq événements
+datés et les liens vers les Archives de l'Orne et l'étude de Patrick Birée.
+Les époques sont calculées avec la règle commune à partir de ces événements.
+L'ouverture est accessible au clic sur le point, au clavier et par un bouton
+dans le panneau départemental. Le retour conserve les filtres.
+
+Contrôles du 10 novembre 2026 réalisés dans Edge sans capture, à 1440 et
+390 pixels. Ouverture par clic sur la carte, par Entrée sur le point et par
+le bouton du panneau. Chronologie, sources, retour, combinaison métier-époque
+et masquage hors période vérifiés. Les parcours des fiches de la Risle et de
+Crulai restent fonctionnels. Génération, contrôle Ruff et 11 tests ciblés du
+socle et de la chronologie réussis.

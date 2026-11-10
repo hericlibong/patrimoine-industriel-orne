@@ -41,6 +41,7 @@ SORTIE = RACINE / "prototype" / "vue_reference" / "index.html"
 D3_LOCAL = RACINE / "tools" / "vendor" / "d3.v7.9.0.min.js"
 MEDIAS = RACINE / "data" / "exports" / "medias_sites_v1.csv"
 TEXTES_EDITORIAUX = RACINE / "data" / "manual" / "textes_editoriaux_lieux.yml"
+LIEUX_COMPLEMENTAIRES = RACINE / "data" / "manual" / "lieux_complementaires.yml"
 
 # Les adresses de fichier de l'inventaire sont relatives pour 1 783 médias et
 # complètes pour 117. Les 117 complètes donnent la base : elle n'est donc pas
@@ -392,7 +393,37 @@ def epoques_des_lieux() -> tuple[dict[str, list[str]], list[dict]]:
     import epoques_lieux  # noqa: PLC0415  — import tardif : évite un cycle
 
     calcul = epoques_lieux.calculer()
+    for site in lire_complements():
+        couvertes = {
+            code
+            for evenement in site["chronologie"]
+            if evenement["min"] is not None and evenement["max"] is not None
+            for code in epoques_lieux.epoques_chevauchees(
+                (evenement["min"], evenement["max"]), calcul["epoques"]
+            )
+        }
+        calcul["par_lieu"][site["ref"]] = [
+            e["code"] for e in calcul["epoques"] if e["code"] in couvertes
+        ]
     return calcul["par_lieu"], calcul["epoques"]
+
+
+def lire_complements() -> list[dict]:
+    """Ajouts éditoriaux sourcés au socle de l'Inventaire, avec identifiants propres."""
+    donnees = yaml.safe_load(LIEUX_COMPLEMENTAIRES.read_text(encoding="utf-8"))
+    sites = donnees["lieux"]
+    references = [site["ref"] for site in sites]
+    if len(references) != len(set(references)):
+        raise ValueError("Identifiant de lieu complémentaire dupliqué")
+    for site in sites:
+        if not site["ref"].startswith("COMPLEMENT-") or not site.get("sources"):
+            raise ValueError("Un complément doit avoir un identifiant propre et des sources")
+        if not (-1 <= site["lon"] <= 1.1 and 48 <= site["lat"] <= 49.1):
+            raise ValueError("Coordonnées du complément hors de l'Orne")
+        for evenement in site["chronologie"]:
+            if not 0 <= evenement["source"] < len(site["sources"]):
+                raise ValueError("Source d'événement complémentaire introuvable")
+    return sites
 
 
 def textes_editoriaux() -> dict[str, str]:
@@ -656,6 +687,13 @@ def construire() -> dict:
         if reference not in dans_un_systeme
     ]
 
+    complements = lire_complements()
+    for site in complements:
+        if site["ref"] in tous_les_sites:
+            raise ValueError("Un complément ne peut pas remplacer un lieu de l'Inventaire")
+        site["epoques"] = epoques[site["ref"]]
+        autres.append(site)
+
     connection.close()
 
     return {
@@ -663,8 +701,10 @@ def construire() -> dict:
             "contour": contour_departement(),
             "systemes": systemes,
             "autresSites": autres,
-            "nbSites": len(tous_les_sites),
+            "nbSites": len(tous_les_sites) + len(complements),
+            "nbSitesInventaire": len(tous_les_sites),
         },
+        "complements": {site["ref"]: site for site in complements},
         "detail": detail,
         "ecarts": ecarts,
         "epoques": registre_epoques,
@@ -755,7 +795,9 @@ def main() -> None:
     controles = {
         "douze_systemes_identifies": len(donnees["departement"]["systemes"]) == 12,
         "effectif_des_systemes": total_systemes == 172,
-        "autres_sites": len(donnees["departement"]["autresSites"]) == 146,
+        "autres_sites": len(donnees["departement"]["autresSites"])
+        == 146 + len(donnees["complements"]),
+        "socle_inventaire_preserve": donnees["departement"]["nbSitesInventaire"] == 318,
         "aucun_ecart_de_rattachement": not donnees["ecarts"],
         "contour_departemental_trouve": bool(donnees["departement"]["contour"]),
         # Une commune sans contour laisserait un trou dans le sol de la carte

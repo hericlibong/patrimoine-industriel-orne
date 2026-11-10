@@ -143,10 +143,22 @@ patrimoine agricole et patrimoine industriel. Vérifier son histoire, ses
 activités de transformation, ses sources patrimoniales, sa localisation et son
 état actuel avant toute décision d'intégration.
 
-Statut : **candidat complémentaire sérieux ; lieu hors corpus, non validé pour
-intégration**. Il ne peut pas être récupéré comme une ligne supplémentaire de
-la base actuelle : il faut créer une fiche complémentaire manuelle, avec ses
-propres sources et sans modifier rétroactivement le périmètre des 318 lieux.
+**Mise à jour du 10 novembre 2026.** Le porteur a demandé son intégration.
+Avoise est ajouté au prototype comme lieu complémentaire, avec l'identifiant
+`COMPLEMENT-AVOISE`, dans `data/manual/lieux_complementaires.yml`. La carte
+affiche désormais 319 lieux. Avoise figure parmi les 147 lieux hors des douze
+ensembles, avec une fiche, un historique, cinq événements datés et deux sources.
+
+Le point `(0.099668, 48.493081)` provient du repère de lieu-dit IGN
+`PAIHABIT0000000019097728`, commune d'Écouves, code INSEE `61341`, vérifié le
+10 novembre 2026. Sa précision est `zone_documentaire`. Le repère concerne le
+lieu-dit et l'emprise des bâtiments reste à contrôler. La réponse est archivée
+localement dans `data/raw/ign_avoise/2026-11-10/reponse.json` et sa provenance
+figure dans le fichier manuel versionné.
+
+Le filtre retient Avoise pour 1850–1913, 1914–1945 et 1946–1975. Ces
+appartenances sont calculées depuis les événements de sa fiche. L'activité
+retenue pour le filtre métier est l'agroalimentaire.
 
 Sources de départ :
 
