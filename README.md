@@ -1,7 +1,7 @@
 # Patrimoine industriel de l'Orne
 
-Projet datajournalistique consacré à **319 lieux du patrimoine industriel de
-l'Orne**, dont 318 issus de l'Inventaire et le domaine d'Avoise ajouté sur
+Projet datajournalistique consacré à **321 lieux du patrimoine industriel de
+l'Orne**, dont 318 issus de l'Inventaire et trois fermes industrielles ajoutées sur
 sources historiques. Le corpus alimente une application web de visualisation
 interactive : une carte, des filtres, une recherche et des vues d'ensembles et
 de sites que le lecteur explore librement.
@@ -9,7 +9,7 @@ de sites que le lecteur explore librement.
 La publication s'intitule **« Le patrimoine oublié de l'Orne »**, sous-titrée
 *Voyage dans l'Orne industrielle*. Le sujet est le **patrimoine** : l'histoire
 industrielle en est le moyen, pas l'objet. Le mot engage une limite qui reste
-affichée partout — l'état de conservation est inconnu pour 316 des 319 lieux, si
+affichée partout — l'état de conservation est inconnu pour 318 des 321 lieux, si
 bien que la publication établit un patrimoine **documenté**, non un état des
 lieux physique.
 
@@ -24,11 +24,14 @@ canoniques** et **403 activités structurées**. Les sites sont cartographiables
 avec un niveau de précision explicite et disposent d'identifiants stables. Le
 corpus complet est disponible en JSON, DuckDB, CSV, Parquet et GeoJSON.
 
-Le complément Avoise est versionné dans `data/manual/lieux_complementaires.yml`.
-Le générateur le joint au socle de l'Inventaire et calcule ses époques depuis
-ses cinq événements sourcés. Le prototype affiche 319 lieux, 172 dans les douze
-ensembles et 147 autres lieux. La fiche Avoise s'ouvre depuis son point ou
-depuis « À découvrir aussi ». Sa position est un repère de lieu-dit IGN.
+Les compléments Avoise, Briante et la Normanderie sont versionnés dans
+`data/manual/lieux_complementaires.yml`. Le générateur les joint au socle de
+l'Inventaire et calcule leurs époques depuis leurs événements sourcés. Le
+prototype affiche 321 lieux, 172 dans les douze ensembles et 149 autres lieux.
+Les fiches s'ouvrent depuis leurs points ou depuis « À découvrir aussi ».
+Onze fiches du socle reçoivent des sources complémentaires dans
+`data/manual/enrichissements_archives.yml`. Le suivi de ce travail figure dans
+`docs/audit_archives_orne.md`.
 
 La matière éditoriale comprend notamment 314 textes historiques, 2 360
 événements datés sur 314 sites, les relations sourcées entre sites et

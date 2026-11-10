@@ -1,0 +1,48 @@
+version: 1
+date: '2026-11-10'
+source_fonds: https://archives.orne.fr/entreprises
+lieux:
+  IA00061133:
+    - titre: Archives de l'Orne — Fonds de la laiterie Lavalou
+      url: https://archives.orne.fr/entreprises
+      repere: Fonds d'entreprise signalé pour Le Bourg-Saint-Léonard
+  IA00061029:
+    - titre: Archives de l'Orne — Fonds des forges d'Aube
+      url: https://archives.orne.fr/entreprises
+      repere: Fonds d'entreprise de la forge
+  IA00061181:
+    - titre: Archives de l'Orne — Société du Caoutchouc Manufacturé
+      url: https://archives.orne.fr/entreprises
+      repere: Fonds d'entreprise de Flers
+  IA00060985:
+    - titre: Archives de l'Orne — Tissages Salles
+      url: https://archives.orne.fr/entreprises
+      repere: Fonds des tissages Salles, périmètre des établissements à préciser
+  IA00061010:
+    - titre: Archives de l'Orne — Minoterie Goude et Croissant
+      url: https://archives.orne.fr/entreprises
+      repere: Fonds de Couterne, présence de Croissant établie dans la notice du lieu
+  IA00060912:
+    - titre: Archives de l'Orne — Mine de La Ferrière-aux-Étangs
+      url: https://archives.orne.fr/entreprises
+      repere: Fonds relatif au complexe minier
+  IA00061202:
+    - titre: Archives de l'Orne — Mine de La Ferrière-aux-Étangs
+      url: https://archives.orne.fr/entreprises
+      repere: Fonds relatif au complexe minier
+  IA00061128:
+    - titre: Archives de l'Orne — Comité d'entreprise de la MIC
+      url: https://archives.orne.fr/entreprises
+      repere: Fonds d'Argentan
+  IA00060961:
+    - titre: Archives de l'Orne — Mine de Saint-Clair-de-Halouze
+      url: https://archives.orne.fr/entreprises
+      repere: Fonds d'entreprise de la mine
+  IA00061073:
+    - titre: Archives de l'Orne — Maisons France Confort
+      url: https://archives.orne.fr/entreprises
+      repere: Fonds d'entreprise, succession Prout et Maisons France Confort dans la notice du lieu
+  IA00061149:
+    - titre: Archives de l'Orne — Imprimerie de Montligeon
+      url: https://archives.orne.fr/entreprises
+      repere: Fonds de l'imprimerie, établissement historique de La Chapelle-Montligeon

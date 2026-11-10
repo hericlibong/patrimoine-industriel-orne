@@ -1,7 +1,75 @@
 # Contrôle complémentaire des Archives de l'Orne
 
 Mission ouverte le 10 novembre 2026 à la demande du porteur.
-Première passe réalisée le même jour. Choix des intégrations en attente du porteur.
+Première passe réalisée le même jour, puis remplacée par l'exécution ci-dessous
+à la demande du porteur. L'état courant est donné dans cette première section.
+
+## Exécution et décisions du 10 novembre 2026
+
+Le porteur demande de compléter, enrichir et corriger directement le corpus.
+
+- [x] Ajouter Briante à Colombiers, ferme-distillerie attestée vers 1860.
+- [x] Ajouter la Normanderie à Ménil-Erreux depuis la notice PA61000039,
+  construction en 1863, coordonnées de la notice, historique et protection.
+- [x] Rattacher les fonds d'entreprises à onze fiches de lieux existants dans
+  `data/manual/enrichissements_archives.yml` et transmettre ces sources à la vue.
+- [x] Indexer l'intégralité du répertoire S, soit 1 169 dossiers numérotés et
+  cinq rubriques du supplément, dans `docs/archives_orne_serie_s.csv`.
+- [x] Appliquer les critères de périmètre déjà validés aux cas discutés.
+- [x] Régénérer le prototype avec 321 lieux, 172 dans les douze ensembles et
+  149 hors ensembles.
+
+Les deux nouvelles fiches sont enregistrées dans
+`data/manual/lieux_complementaires.yml`. Briante est située par un repère IGN
+de lieu-dit, identifiant `PAIHABIT0000000019097745`, coordonnées
+`0.055398, 48.482094`. La Normanderie reprend le point Mérimée
+`0.197048502306956, 48.4956556867074`, corroboré par le lieu-dit IGN voisin.
+La précision de chaque point est exposée dans la fiche.
+
+### Cas tranchés selon le périmètre existant
+
+| Cas | Traitement |
+| --- | --- |
+| Briante et la Normanderie | Ajoutées. Transformation agro-industrielle attestée avant 1950. |
+| Key-Plastics | Maintenue dans les compléments de recherche. Les sources consultées attestent le site après 1950. Une activité antérieure reste nécessaire pour l'admission au corpus principal. |
+| Maignan, ASTER et Piron | Écartés de cette intégration, leurs fonctions documentées relèvent du commerce ou des services. |
+| Exploitation Collet | Maintenue en recherche agricole. L'activité industrielle de transformation reste à établir. |
+| Moulin de Gibout | Source complémentaire possible pour Avoise, propriétaire Houel en 1859. Le rattachement exige le plan de S1039 dossier 5. |
+| Moulin de Sarthe et Guéramé | Rapprochement automatique refusé. Une date de règlement commune ne suffit pas. Le point IGN de Guéramé et l'adresse du lieu IA00060972 ne coïncident pas. |
+| Manufacture de Sées | Activité textile ancienne établie à l'Hôtel-Dieu dans HDEPOT10 G19–25, p. 56 et suivantes de S5. L'identité avec le fonds 393 J et le lieu précis de production restent à résoudre avant cartographie. |
+| Fonderie du Perche | Conserver la distinction avec la SFAR. Le fonds 33 J 211 et la fiche CASIAS BNO6102061 doivent résoudre la localisation Randonnai–Irai. |
+| Fromagerie d'Athis, forges de Saint-Evroult, moulin à tan de Radon | Sources et communes connues. Obtenir adresse ou plan des établissements pour les placer et écarter les réemplois d'une emprise déjà recensée. |
+
+Le critère chronologique vient de `config/perimetre.yml`, activité industrielle
+attestée au plus tard en 1950. Les cas relevant des services sont traités selon
+les exclusions déjà définies dans ce même fichier.
+
+### Répertoire S complet
+
+Le script `tools/repertorier_archives_orne.py` reprend tout le texte extrait des
+135 pages, conserve cotes, numéros, pages, intitulés et descriptions. Les cinq
+rubriques du supplément figurent aussi dans le CSV. Les références du corpus
+dans la même commune et les correspondances de lieux-dits sont proposées pour
+retrouver les dossiers.
+
+Ce répertoire contient des demandes de barrages, des lavoirs et plusieurs
+dossiers pour un même moulin. Ses 1 174 entrées sont des unités archivistiques.
+Le rapprochement des emprises et l'identification de la production déterminent
+les lieux supplémentaires admissibles. Les cas identifiés ci-dessus ont reçu
+un traitement individuel.
+
+La couverture du document est complète pour l'indexation. La résolution
+historique des 1 174 entrées reste partielle. La précédente lecture de huit
+lieux est conservée ci-dessous comme historique du travail.
+
+Sources supplémentaires utilisées pour exécuter les ajouts.
+
+- [Mérimée PA61000039, ferme de la Normanderie](https://pop.culture.gouv.fr/notice/merimee/PA61000039).
+- [Repère IGN de Briante](https://data.geopf.fr/geocodage/search?q=Briante&index=poi&citycode=61111&limit=5).
+- [Repère IGN de la Normanderie](https://data.geopf.fr/geocodage/search?q=Normanderie&index=poi&citycode=61263&limit=5).
+- [Repère IGN de Guéramé](https://data.geopf.fr/geocodage/search?q=Guerame&index=poi&citycode=61001&limit=5).
+
+## Historique de la première passe
 
 ## Objectif et livrable
 

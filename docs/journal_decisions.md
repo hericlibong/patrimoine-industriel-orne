@@ -3177,3 +3177,30 @@ propriétaire Houel apparaît dans son dossier. Ce lien reste à établir.
 
 La première passe est terminée. Le dépouillement intégral des autres communes
 de la série S et le choix des intégrations restent ouverts dans la mission.
+
+## 2026-11-10 — Compléter et enrichir directement le corpus
+
+Le porteur rejette la poursuite par échantillons et demande une exécution
+directe. L'état courant est consigné en tête de `docs/audit_archives_orne.md`.
+
+Briante et la Normanderie sont ajoutées aux compléments manuels. La notice
+officielle PA61000039 de la Normanderie était déjà dans les données brutes des
+Monuments historiques, hors de la liste initiale de l'Inventaire industriel.
+Le prototype affiche désormais 321 lieux. Le positionnement hors des douze
+ensembles prolonge le choix effectué pour Avoise.
+
+Onze fiches existantes reçoivent des sources d'archives dans un registre manuel
+utilisé par le générateur. Les sources complètent les notices et identifient
+les fonds à consulter.
+
+L'intégralité de la série S est indexée, avec 1 169 dossiers numérotés et cinq
+rubriques de supplément. Le CSV conserve aussi le contexte communal, les cotes
+et pages. Il reste un répertoire de dossiers, les rapprochements de lieux
+doivent être fondés sur l'activité et l'emprise. L'indexation est complète,
+la résolution historique reste partielle.
+
+Les critères de périmètre existants sont appliqués. Maignan, Piron et ASTER
+sont écartés de l'intégration. Key-Plastics reste en recherche faute d'activité
+établie avant 1950. L'exploitation Collet attend une transformation industrielle
+attestée. Les cas de Fonderie du Perche, Sées, Athis, Saint-Evroult et Radon
+conservent les pièces précises à obtenir dans le suivi.

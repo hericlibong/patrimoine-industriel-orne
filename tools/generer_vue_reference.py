@@ -42,6 +42,7 @@ D3_LOCAL = RACINE / "tools" / "vendor" / "d3.v7.9.0.min.js"
 MEDIAS = RACINE / "data" / "exports" / "medias_sites_v1.csv"
 TEXTES_EDITORIAUX = RACINE / "data" / "manual" / "textes_editoriaux_lieux.yml"
 LIEUX_COMPLEMENTAIRES = RACINE / "data" / "manual" / "lieux_complementaires.yml"
+ENRICHISSEMENTS_ARCHIVES = RACINE / "data/manual/enrichissements_archives.yml"
 
 # Les adresses de fichier de l'inventaire sont relatives pour 1 783 médias et
 # complètes pour 117. Les 117 complètes donnent la base : elle n'est donc pas
@@ -580,6 +581,11 @@ def construire() -> dict:
     par_code, ecarts = rattacher_systemes(groupes, lignes, registre)
 
     tous_les_sites = {site["ref"]: site for site in lire_sites(connection)}
+    enrichissements = yaml.safe_load(ENRICHISSEMENTS_ARCHIVES.read_text(encoding="utf-8"))["lieux"]
+    for reference, sources in enrichissements.items():
+        if reference not in tous_les_sites:
+            raise ValueError(f"Enrichissement sans lieu correspondant : {reference}")
+        tous_les_sites[reference]["sourcesComplementaires"] = sources
     references_par_systeme = {
         code: [lignes[i][0] for i in indices] for code, indices in par_code.items()
     }
@@ -682,6 +688,8 @@ def construire() -> dict:
             "commune": site["commune"],
             "secteurs": site["secteurs"],
             "epoques": epoques.get(reference, []),
+            **({"sourcesComplementaires": site["sourcesComplementaires"]}
+               if site.get("sourcesComplementaires") else {}),
         }
         for reference, site in tous_les_sites.items()
         if reference not in dans_un_systeme

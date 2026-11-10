@@ -1762,6 +1762,7 @@ function panneauSite(){
   const detail = D.detail[etat.systeme];
   const site = D.complements[etat.site] || detail.sites.find(s => s.ref === etat.site);
   const evenements = (site.chronologie || detail.chronologie[site.ref] || []).filter(e => e.min || e.max);
+  const sources = [...(site.sources || []), ...(site.sourcesComplementaires || [])];
 
   const frise = evenements.slice(0, 40).map(evenement => {
     const an = evenement.min && evenement.max && evenement.min !== evenement.max
@@ -1795,7 +1796,7 @@ function panneauSite(){
         ? echapper(site.libelleSource) : `Voir la fiche d'inventaire (${echapper(site.ref)})`}</a></p>` : ""}
     ${site.noteLocalisation ? `<p class="avertissement">${echapper(site.noteLocalisation)}</p>` : ""}
     ${site.activites ? `<p>${site.activites.map(echapper).join(" · ")}</p>` : ""}
-    ${site.sources ? `<details><summary>Sources historiques</summary><ul>${site.sources.map(source =>
+    ${sources.length ? `<details><summary>Sources historiques</summary><ul>${sources.map(source =>
       `<li><a href="${echapper(source.url)}" target="_blank" rel="noopener">${echapper(source.titre)}</a>
       <p>${echapper(source.repere)}</p></li>`).join("")}</ul></details>` : ""}
   </div>
@@ -2256,8 +2257,8 @@ function rendreLegende(){
       + `<div class="entree"><i style="background:#a9a49a;width:7px;height:7px"></i>lieu hors des ensembles étudiés</div>`;
     source.innerHTML = `Sources : Inventaire du patrimoine industriel de l'Orne · Archives de l'Orne · étude de Patrick Birée ·
       contours communaux API Géo.<br>Regroupements calculés, sans frontière historique.
-      ${D.departement.nbSitesInventaire} lieux de l'Inventaire et ${Object.keys(D.complements).length} complément historique.
-      Le repère d'Avoise provient des points d'intérêt IGN.
+      ${D.departement.nbSitesInventaire} lieux de l'Inventaire et ${Object.keys(D.complements).length} compléments historiques.
+      Les repères complémentaires proviennent de l'IGN et de Mérimée.
       L'état de conservation reste inconnu pour ${315 + Object.keys(D.complements).length} des ${D.departement.nbSites} lieux.`;
     methode.hidden = false;
   } else {

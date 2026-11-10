@@ -1,5 +1,81 @@
 version: 1
 lieux:
+  - ref: COMPLEMENT-BRIANTE
+    nom: Ferme industrielle de Briante
+    nomCourt: Ferme de Briante
+    commune: Colombiers
+    lieuDit: Briante
+    lon: 0.055398
+    lat: 48.482094
+    secteurs: [agroalimentaire]
+    activites: [Distillation de betteraves]
+    nbActivites: 1
+    precision: zone_documentaire
+    noteLocalisation: Le point IGN repère le lieu-dit Briante. L'emprise de la ferme industrielle reste à préciser.
+    localisation:
+      source: IGN — Géoplateforme, points d'intérêt
+      url: https://data.geopf.fr/geocodage/search?q=Briante&index=poi&citycode=61111&limit=5
+      identifiant: PAIHABIT0000000019097745
+      date_verification: '2026-11-10'
+    conservation: inconnu
+    eau: null
+    url: https://archives.orne.fr/sites/default/files/2020-09/CAT77.pdf
+    libelleSource: Lire le catalogue des Archives de l'Orne
+    histoire: >-
+      Vers 1860, Briante est l'une des trois grandes exploitations créées dans
+      la plaine d'Alençon pour cultiver et distiller la betterave à sucre,
+      avec Avoise et la Normanderie. Le domaine se trouve à Colombiers.
+      Les Archives de l'Orne conservent aussi un dossier mentionnant sa prise
+      d'eau sur la Briante et une demande de suppression de cette prise en 1901.
+    sources:
+      - titre: Archives de l'Orne — La révolution aux champs, 1998
+        url: https://archives.orne.fr/sites/default/files/2020-09/CAT77.pdf
+        repere: Présentation des trois fermes industrielles dans la section Avoise
+      - titre: Archives de l'Orne — Série S, moulins et usines
+        url: https://archives.orne.fr/sites/default/files/2020-09/FRAD061_INV_S_S_MOULINS_USINES.pdf#page=26
+        repere: S1005, dossier 6, domaine de Briante, 1901
+    chronologie:
+      - {type: creation, min: 1855, max: 1865, precision: vers_annee, texte: Vers 1860, source: 0}
+      - {type: reglementation, min: 1901, max: 1901, precision: annee, texte: Demande de suppression de la prise d'eau, source: 1}
+  - ref: COMPLEMENT-NORMANDERIE
+    nom: Ferme industrielle de la Normanderie
+    nomCourt: Ferme de la Normanderie
+    commune: Ménil-Erreux
+    lieuDit: La Normanderie
+    lon: 0.197048502306956
+    lat: 48.4956556867074
+    secteurs: [agroalimentaire]
+    activites: [Distillation de betteraves]
+    nbActivites: 1
+    precision: point_approximatif
+    noteLocalisation: Le point est celui de la notice officielle Mérimée PA61000039. La notice situe les bâtiments sur la parcelle C 67.
+    localisation:
+      source: Ministère de la Culture — Mérimée PA61000039
+      url: https://pop.culture.gouv.fr/notice/merimee/PA61000039
+      identifiant: PA61000039
+      date_verification: '2026-11-10'
+    conservation: inconnu
+    eau: null
+    url: https://pop.culture.gouv.fr/notice/merimee/PA61000039
+    libelleSource: Voir la notice Mérimée PA61000039
+    histoire: >-
+      Ferdinand-Louis Caillet fait construire la ferme de la Normanderie en
+      1863. L'exploitation associe betteraves, distillerie et engraissement de
+      bovins. Des voies ferrées intérieures relient les installations.
+      La distillerie communique avec le silo à pulpe, la grange et l'étable.
+      La maison d'habitation est détruite en 1967. Les façades et toitures des
+      bâtiments subsistants sont inscrites aux Monuments historiques le 30 juin 2005.
+    sources:
+      - titre: Ministère de la Culture — Ferme de la Normanderie
+        url: https://pop.culture.gouv.fr/notice/merimee/PA61000039
+        repere: Historique, coordonnées et protection partielle, arrêté du 30 juin 2005
+      - titre: Archives de l'Orne — La révolution aux champs, 1998
+        url: https://archives.orne.fr/sites/default/files/2020-09/CAT77.pdf
+        repere: Document 45, plan de 1862, cote M1405
+    chronologie:
+      - {type: creation, min: 1863, max: 1863, precision: annee, texte: Construction par Ferdinand-Louis Caillet, source: 0}
+      - {type: destruction, min: 1967, max: 1967, precision: annee, texte: Destruction de la maison d'habitation, source: 0}
+      - {type: reglementation, min: 2005, max: 2005, precision: jour, texte: Inscription partielle aux Monuments historiques le 30 juin 2005, source: 0}
   - ref: COMPLEMENT-AVOISE
     nom: Domaine d'Avoise — ferme agro-industrielle
     nomCourt: Domaine d'Avoise
