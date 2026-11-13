@@ -3204,3 +3204,39 @@ sont écartés de l'intégration. Key-Plastics reste en recherche faute d'activi
 établie avant 1950. L'exploitation Collet attend une transformation industrielle
 attestée. Les cas de Fonderie du Perche, Sées, Athis, Saint-Evroult et Radon
 conservent les pièces précises à obtenir dans le suivi.
+
+## 2026-11-14 — Ouverture de la phase 10.E par trois esquisses
+
+Le porteur ouvre la direction artistique. Il juge la vue de référence juste
+sur le fond mais trop académique dans sa forme : menus déroulants, fiche dans un
+panneau à droite, carte immobile. Il demande de la beauté, du mouvement et une
+exploration plus originale. Il demande aussi des propositions à comparer avant
+de choisir, sur les deux ensembles d'épreuve, la Risle et Crulai.
+
+Trois esquisses sont produites sur une branche dédiée, dans
+`prototype/esquisses/`. Elles sont servies localement sur le port 8770 et ne
+modifient pas la vue de référence. Leur contenu est décrit dans
+`docs/phase10_direction_artistique.md`, version 2.0. Leurs données sont reprises
+telles quelles de la vue de référence par `tools/esquisses_extraire.py`. Le
+script y ajoute une grille d'altitude IGN dont la réponse brute est archivée.
+
+**Constats vérifiés dans le navigateur, à 1440 pixels**, sur la Risle et sur
+Crulai : les trois esquisses s'affichent sans erreur ; le lieu s'ouvre sur la
+carte ; la frise de l'esquisse C donne 31 lieux en activité connue et 8 arrêts
+documentés pour la Risle en 1905. Le mobile n'est pas éprouvé.
+
+**Les époques et les cartes anciennes.** Le porteur exige que chaque époque ait
+une carte qui ne mente pas, et rappelle que routes et végétation ont changé.
+Le constat posé : il existe environ quatre grands relevés, Cassini,
+l'état-major, les photographies aériennes des années 1950 et la carte actuelle,
+et non six. Leur licence n'est pas encore vérifiée. Trois options restent
+ouvertes : la carte ancienne datée de son relevé, le fond intemporel dont seule
+l'ambiance change, ou un mélange des deux. **L'orientation vers le mélange est
+une hypothèse, pas une décision.**
+
+**Options écartées pour ces esquisses** : utiliser une carte ancienne avant
+d'en vérifier la licence ; dessiner routes ou forêts par époque sans source.
+
+Décision : **la phase 10.E est ouverte ; trois esquisses sont soumises au
+jugement du porteur ; aucune direction n'est retenue.**
+

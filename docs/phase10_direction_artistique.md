@@ -1,8 +1,58 @@
 # Phase 10 — Direction artistique et modèle visuel
 
-**Version :** 1.0 — direction de référence validée
-**Statut :** validée comme point de départ du prototypage
-**Date :** 27 juillet 2026
+**Version :** 2.0 — ouverture de la phase 10.E, esquisses en cours
+**Statut :** exploration, aucune direction retenue
+**Date :** 14 novembre 2026
+
+## Version 2.0 — trois esquisses sur la Risle et Crulai (14 novembre 2026)
+
+La version 1.0 ci-dessous, du 27 juillet, est conservée comme historique. Elle
+a été abandonnée avec le prototype 0.1 (voir la roadmap, phase 10.E) et ne sert
+plus de référence.
+
+Le porteur demande une carte plus belle, plus vivante et plus surprenante que
+la vue de référence, jugée trop académique : menus déroulants, panneau à droite,
+carte immobile. Les données ne sont pas en cause ; c'est la forme qui est
+travaillée. Trois esquisses comparables sont produites dans
+`prototype/esquisses/`, sur les deux ensembles d'épreuve — la Risle, 43 lieux,
+et Crulai et Chandai, 7 lieux. Elles ne touchent ni la vue de référence ni le
+travail en cours ailleurs.
+
+| Esquisse | Parti pris | Ce qu'elle éprouve |
+| --- | --- | --- |
+| A — L'atlas | papier, encre, courbes de niveau ; la rivière se trace, les lieux se posent dans l'ordre de leur première mention | un registre ancien sans copier aucune carte ancienne ; la légende comme filtre |
+| B — Le fil de l'eau | l'eau coule à l'écran dans le sens du courant ; on descend la vallée de l'amont vers l'aval | une exploration par le geste plutôt que par menus ; la bulle posée sur le point |
+| C — Le temps qui défile | une frise pilote la carte ; l'ambiance du papier change avec l'époque | les époques sans fond de carte d'époque inventé |
+
+Constantes des trois : le lieu s'ouvre **sur la carte**, plus dans un panneau
+latéral ; chaque lieu est atteignable au clavier et listé en texte ; le relief
+est ajouté.
+
+**Le relief.** Il provient du service d'altimétrie de l'IGN (RGE ALTI, licence
+ouverte), échantillonné tous les 0,004 degré, soit environ 300 m. La réponse
+brute est archivée localement dans `data/raw/ign_altimetrie_esquisses/` avec son
+empreinte. Comme l'eau, le relief est commun à toutes les époques : c'est ce qui
+autorise à l'afficher derrière un lieu de 1491 comme derrière un lieu de 1975.
+
+**Le sens du courant** (esquisse B) est calculé, non supposé : chaque tronçon
+s'écoule vers son extrémité la plus basse selon la même grille d'altitude.
+
+**Les époques** (esquisse C). Il n'existe pas six cartes anciennes, une par
+période. Les grands relevés disponibles sont Cassini (XVIIIᵉ siècle), la carte
+d'état-major (vers 1820-1866) et les photographies aériennes des années 1950.
+Leurs conditions de réutilisation restent **à vérifier** avant tout usage.
+L'esquisse C n'en utilise aucune : elle teste l'option d'un fond intemporel
+dont seule l'ambiance change. Elle affiche aussi qu'un lieu apparaît à sa
+**première mention** dans les sources, qui n'est pas toujours sa création.
+
+Ce qui reste ouvert : le choix d'une direction ou d'un mélange ; le traitement
+des cartes anciennes ; la tenue sur mobile, non éprouvée ; la typographie et la
+palette, provisoires dans les trois esquisses.
+
+---
+
+**Version 1.0** — direction de référence validée, 27 juillet 2026, abandonnée
+depuis.
 
 ## Direction retenue
 

@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Esquisse C — Le temps qui défile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--fond:#ece7dc;--encre:#22201c;--doux:#6a645a;--eau:#3d6e86;--vif:#c8432b;--ferme:#8f887c;--bande:#e2dccd}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--fond);color:var(--encre);font-family:'Libre Caslon Text',Georgia,serif;transition:background 1.2s}
+body{overflow:hidden}
+#carte{position:fixed;left:0;top:0;width:100%;height:calc(100% - 210px);cursor:grab}
+.entete{position:fixed;left:40px;top:30px;z-index:3;max-width:400px}
+.entete .sur{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--doux)}
+.entete h1{font-weight:400;font-size:38px;line-height:1.02;margin:8px 0 0}
+.entete h1 i{display:block;font-size:20px;color:var(--vif);margin-top:6px}
+.annee{position:fixed;right:44px;top:22px;z-index:3;text-align:right}
+.annee .n{font-size:118px;line-height:.9;font-weight:400;letter-spacing:-.03em;font-variant-numeric:lining-nums tabular-nums}
+.annee .ep{font-style:italic;font-size:20px;color:var(--vif);margin-top:4px}
+.annee .cpt{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--doux);margin-top:8px;line-height:1.6}
+.annee .cpt b{color:var(--encre);font-weight:500}
+.bascule{position:fixed;left:40px;top:150px;z-index:3;font-family:'IBM Plex Mono',monospace;font-size:12.5px}
+.bascule a{color:var(--doux);margin-right:14px;text-decoration:none}
+.bascule a[aria-current]{color:var(--encre);border-bottom:2px solid var(--vif)}
+.journal{position:fixed;left:40px;bottom:232px;z-index:3;width:390px;font-size:14.5px;line-height:1.35}
+.journal .t{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--doux);margin-bottom:6px}
+.journal div.e{padding:4px 0;border-top:1px solid rgba(34,32,28,.12);animation:entre .5s both}
+.journal .e b{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12.5px;color:var(--vif);margin-right:8px}
+.journal .e span{color:var(--doux);font-style:italic}
+@keyframes entre{from{opacity:0;transform:translateY(6px)}}
+.frise{position:fixed;left:0;right:0;bottom:0;height:210px;background:var(--bande);border-top:1px solid rgba(34,32,28,.15);transition:background 1.2s}
+.frise svg{width:100%;height:100%;display:block}
+.frise .jouer{position:absolute;left:40px;top:22px;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--encre);background:transparent;font-size:15px;cursor:pointer;color:var(--encre)}
+.frise .aide{position:absolute;left:100px;top:34px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--doux)}
+.frise .glisser:focus-visible{outline:none}
+.frise .glisser:focus-visible .poignee rect{stroke:var(--vif);stroke-width:2}
+.avert{position:fixed;right:44px;bottom:232px;z-index:3;max-width:340px;text-align:right;font-style:italic;font-size:12.5px;color:var(--doux);line-height:1.35}
+.retour{position:fixed;left:40px;top:182px;z-index:3;font-family:'IBM Plex Mono',monospace;font-size:11.5px}
+.retour a{color:var(--doux)}
+.carton{position:fixed;z-index:5;width:340px;background:#faf7f0;border:1px solid rgba(34,32,28,.25);box-shadow:0 14px 34px rgba(34,32,28,.18);padding:14px 16px;opacity:0;transform:scale(.96);transition:opacity .3s,transform .3s;pointer-events:none}
+.carton.ouvert{opacity:1;transform:none;pointer-events:auto}
+.carton h3{font-weight:400;font-size:21px;margin:2px 0 0;line-height:1.1}
+.carton .m{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--vif)}
+.carton .c{font-style:italic;color:var(--doux);font-size:14px}
+.carton img{width:100%;height:150px;object-fit:cover;display:block;margin:10px 0 2px}
+.carton .cr{font-size:10.5px;color:var(--doux)}
+.carton p{font-size:14.5px;line-height:1.4;margin:8px 0}
+.carton .fermer{position:absolute;right:8px;top:4px;border:0;background:none;font-size:20px;cursor:pointer;color:var(--doux)}
+.carton a{color:var(--eau);font-size:13.5px}
+.nom{font-size:12.5px;fill:var(--encre);paint-order:stroke;stroke:var(--fond);stroke-width:3px;pointer-events:none}
+.lieu{cursor:pointer;outline:none}
+.lieu:focus-visible .coeur{stroke:var(--encre);stroke-width:2}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<svg id="carte" role="img" aria-labelledby="titre"></svg>
+<header class="entete"><div class="sur">Le patrimoine oublié de l'Orne</div><h1 id="titre"></h1></header>
+<nav class="bascule" aria-label="Choisir l'ensemble"><a href="#risle">La Risle</a><a href="#crulai">Crulai et Chandai</a></nav>
+<div class="retour"><a href="index.html">← Les trois esquisses</a></div>
+<div class="annee" aria-live="polite"><div class="n" id="an">—</div><div class="ep" id="ep"></div><div class="cpt" id="cpt"></div></div>
+<div class="journal" id="journal" aria-live="off"></div>
+<div class="avert">Un lieu apparaît à sa <b>première mention</b> dans les sources, qui n'est pas toujours sa création. Il s'éteint à sa dernière cessation connue. Le fond ne montre que le relief et l'eau, communs à toutes les époques ; seule l'ambiance change.</div>
+<div class="frise"><button class="jouer" id="jouer" type="button" aria-label="Faire défiler le temps">▶</button><span class="aide">Glisser la frise, ou flèches ← → (Maj. pour dix ans)</span><svg id="frise"></svg></div>
+<article class="carton" id="carton"></article>
+<ul class="sr" id="liste"></ul>
+<script src="d3.min.js"></script>
+<script src="donnees.js"></script>
+<script src="commun.js"></script>
+<script>
+// Ambiance par époque : couleur du papier et du relief seulement, aucune
+// géographie ajoutée. Les tons vieillissent vers le passé.
+const AMBIANCE = {
+  avant_1789: ['#e8dcc2', '#d9caa9', '#6b5333'],
+  revolution_premiere_industrialisation: ['#ebe1cb', '#ddd0b4', '#6a5a43'],
+  industrialisation_rail_vapeur: ['#ece5d6', '#e0d8c5', '#5d5850'],
+  guerres_entre_deux_guerres: ['#e6e3dc', '#d9d5cc', '#55524d'],
+  modernisation_apres_guerre: ['#e9eae6', '#dcdeda', '#4f5557'],
+  mutations_reconversions: ['#eceeee', '#dfe3e4', '#4a5459'],
+};
+const svg = d3.select('#carte'), carton = document.getElementById('carton');
+let ens, proj, T = d3.zoomIdentity, zoom, monde, ombreImg, sites, an, x, jeu = null, choisi = null, derniers = '';
+
+function epoqueDe(a) { return DONNEES.epoques.find((e) => (e.debut ?? -1e4) <= a && a <= (e.fin ?? 1e4)) || DONNEES.epoques[DONNEES.epoques.length - 1]; }
+
+function dessiner() {
+  const code = E.codeDepuisAdresse();
+  ens = E.ensemble(code);
+  document.querySelectorAll('.bascule a').forEach((a) => a.toggleAttribute('aria-current', a.hash === '#' + code));
+  document.getElementById('titre').innerHTML = `${E.echapper(ens.nom)}<i>${E.echapper(ens.nomDeTravail || '')}</i>`;
+  fermer();
+  const r = svg.node().getBoundingClientRect();
+  svg.attr('viewBox', `0 0 ${r.width} ${r.height}`).selectAll('*').remove();
+  const p = E.projection(ens, r.width * 0.62, r.height * 0.86, 10);
+  proj = (lon, lat) => { const [a, b] = p(lon, lat); return [a + r.width * 0.19, b + r.height * 0.07]; };
+  monde = svg.append('g');
+  const o = E.ombrage(ens, proj, (lum) => { const v = Math.max(0, Math.min(1, 0.72 - lum)); return [40, 30, 20, v * 150]; });
+  const defs = svg.append('defs');
+  defs.append('filter').attr('id', 'flou').html('<feGaussianBlur stdDeviation="60"/>');
+  defs.append('mask').attr('id', 'bords').append('rect').attr('x', o.x + 110).attr('y', o.y + 110).attr('width', o.l - 220).attr('height', o.h - 220).attr('fill', '#fff').attr('filter', 'url(#flou)');
+  ombreImg = monde.append('image').attr('mask', 'url(#bords)').attr('href', o.canevas.toDataURL()).attr('x', o.x).attr('y', o.y).attr('width', o.l).attr('height', o.h).attr('preserveAspectRatio', 'none').attr('opacity', 0.5);
+  monde.append('g').attr('mask', 'url(#bords)').attr('fill', 'none').attr('class', 'courbes').selectAll('path').data(E.contours(ens, proj, 10)).join('path').attr('d', (c) => c.d)
+    .attr('stroke', 'currentColor').attr('stroke-width', 0.4).attr('opacity', 0.28).style('vector-effect', 'non-scaling-stroke');
+  monde.append('g').attr('fill', 'none').attr('stroke-linecap', 'round').selectAll('path').data(ens.eau).join('path')
+    .attr('d', (e) => E.cheminLigne(proj, e.points)).attr('stroke', 'var(--eau)').attr('stroke-width', (e) => (e.categorie === 'principale' ? 2.6 : 0.9))
+    .style('vector-effect', 'non-scaling-stroke');
+
+  sites = ens.sites.filter((s) => s.lon != null).map((s) => Object.assign(s, { _b: E.bornes(ens, s.ref), _ev: E.chrono(ens, s.ref) }));
+  const g = monde.append('g').selectAll('g').data(sites).join('g').attr('class', 'lieu');
+  g.append('circle').attr('class', 'onde').attr('r', 6).attr('fill', 'none').attr('stroke', 'var(--vif)').attr('opacity', 0);
+  g.append('circle').attr('class', 'coeur').attr('r', 5);
+  g.append('text').attr('class', 'nom').attr('x', 9).attr('y', -8).attr('opacity', 0).text((s) => s.nomCourt);
+  E.rendreActivable(g, ouvrir);
+  g.on('mouseenter', function () { d3.select(this).select('.nom').attr('opacity', 1); }).on('mouseleave', function (ev, s) { if (s !== choisi) d3.select(this).select('.nom').attr('opacity', 0); });
+
+  d3.select('#liste').selectAll('li').data(sites).join('li').text((s) => `${s.nomCourt}, ${s.commune}${s._b ? `, de ${s._b.debut} à ${s._b.dernier}` : ''}`);
+  zoom = d3.zoom().scaleExtent([0.8, 8]).on('zoom', (ev) => { T = ev.transform; monde.attr('transform', T); g.attr('transform', (s) => `translate(${proj(s.lon, s.lat)}) scale(${1 / T.k})`); placer(); });
+  svg.call(zoom).call(zoom.transform, d3.zoomIdentity);
+  dessinerFrise();
+  aller(ens.resume.premiereAnnee - 1);
+}
+
+function dessinerFrise() {
+  const s = d3.select('#frise'); s.selectAll('*').remove();
+  const W = s.node().getBoundingClientRect().width;
+  const a0 = Math.floor((ens.resume.premiereAnnee - 10) / 10) * 10, a1 = 2000;
+  // l'avant-1789 est comprimé : peu de faits, beaucoup d'années
+  x = a0 < 1789
+    ? d3.scaleLinear().domain([a0, 1789, a1]).range([40, 40 + (W - 80) * 0.16, W - 40]).clamp(true)
+    : d3.scaleLinear().domain([a0, a1]).range([40, W - 40]).clamp(true);
+  const evs = sites.flatMap((s) => s._ev.map((e) => Math.round((e.min + e.max) / 2)));
+  const bacs = d3.bin().domain([a0, a1]).thresholds(d3.range(a0, 1789, 25).concat(d3.range(Math.max(a0, 1789), a1, 5)))(evs);
+  const y = d3.scaleLinear().domain([0, d3.max(bacs, (b) => b.length)]).range([0, 46]);
+  // bandes d'époques
+  s.append('g').selectAll('g').data(DONNEES.epoques).join('g').each(function (e, i) {
+    const g = d3.select(this), d = Math.max(a0, e.debut ?? a0), f = Math.min(a1, (e.fin ?? a1) + 1);
+    if (f <= a0) return;
+    g.append('rect').attr('x', x(d)).attr('y', 86).attr('width', x(f) - x(d)).attr('height', 84).attr('fill', i % 2 ? 'rgba(34,32,28,.035)' : 'transparent');
+    g.append('line').attr('x1', x(d)).attr('x2', x(d)).attr('y1', 86).attr('y2', 196).attr('stroke', 'rgba(34,32,28,.2)');
+    g.append('text').attr('x', x(d) + 6).attr('y', 118).attr('font-size', 12.5).attr('font-style', 'italic').attr('fill', '#22201c').text(x(f) - x(d) > e.nom.length * 6.6 + 12 ? e.nom : '');
+    g.append('text').attr('x', x(d) + 6).attr('y', 102).attr('font-size', 10.5).attr('font-family', 'IBM Plex Mono').attr('fill', '#6a645a').text(x(f) - x(d) > 60 ? e.dates : '');
+  });
+  s.append('g').selectAll('rect').data(bacs).join('rect').attr('x', (b) => x(b.x0) + 0.5).attr('width', (b) => Math.max(1, x(b.x1) - x(b.x0) - 1))
+    .attr('y', (b) => 170 - y(b.length)).attr('height', (b) => y(b.length)).attr('fill', 'var(--vif)').attr('opacity', 0.55);
+  s.append('text').attr('x', W - 40).attr('y', 76).attr('text-anchor', 'end').attr('font-size', 11).attr('font-family', 'IBM Plex Mono').attr('fill', '#6a645a').text('faits datés — par 25 ans avant 1789, par 5 ans ensuite');
+  s.append('g').call(d3.axisBottom(x).tickValues([1500, 1600, 1700, 1789, 1825, 1850, 1875, 1900, 1925, 1950, 1975, 2000].filter((v) => v > a0)).tickFormat(d3.format('d')).tickSize(4)).attr('transform', 'translate(0,170)').attr('font-family', 'IBM Plex Mono').call((a) => a.select('.domain').remove()).selectAll('text').attr('fill', '#6a645a');
+  const gl = s.append('g').attr('class', 'glisser').attr('tabindex', 0).attr('role', 'slider').attr('aria-label', 'Année');
+  gl.append('rect').attr('x', 40).attr('y', 80).attr('width', W - 80).attr('height', 120).attr('fill', 'transparent').style('cursor', 'ew-resize');
+  gl.append('g').attr('class', 'poignee').html('<line y1="78" y2="176" stroke="#22201c" stroke-width="1.5"/><rect x="-5" y="70" width="10" height="16" rx="2" fill="#22201c"/>');
+  const prendre = (ev) => { arreter(); aller(Math.round(x.invert(d3.pointer(ev, s.node())[0]))); };
+  gl.on('pointerdown', (ev) => { prendre(ev); gl.on('pointermove', prendre); }).on('pointerup pointerleave', () => gl.on('pointermove', null));
+  gl.on('keydown', (ev) => { const p = ev.shiftKey ? 10 : 1;
+    if (ev.key === 'ArrowRight') { ev.preventDefault(); arreter(); aller(an + p); }
+    if (ev.key === 'ArrowLeft') { ev.preventDefault(); arreter(); aller(an - p); } });
+}
+
+function etat(s, a) {
+  if (!s._b || a < s._b.debut) return 'absent';
+  if (s._b.fin != null && a > s._b.fin) return 'eteint';
+  return 'actif';
+}
+
+function aller(a) {
+  const [a0, a1] = d3.extent(x.domain());
+  an = Math.max(a0, Math.min(a1, a));
+  d3.select('.poignee').attr('transform', `translate(${x(an)},0)`);
+  d3.select('.glisser').attr('aria-valuenow', an).attr('aria-valuetext', `${an}`);
+  const ep = epoqueDe(an);
+  document.getElementById('an').textContent = an < ens.resume.premiereAnnee ? '…' : an;
+  document.getElementById('ep').textContent = `${ep.dates} — ${ep.nom}`;
+  const amb = AMBIANCE[ep.code];
+  document.body.style.background = amb[0];
+  document.querySelector('.frise').style.background = amb[1];
+  svg.select('.courbes').style('color', amb[2]);
+  // lieux
+  const n = { actif: 0, eteint: 0 };
+  monde.selectAll('.lieu').each(function (s) {
+    const e = etat(s, an); if (e !== 'absent') n[e]++;
+    const g = d3.select(this);
+    g.select('.coeur').transition().duration(jeu ? 120 : 300)
+      .attr('r', e === 'absent' ? 0 : e === 'actif' ? 5 : 3.5)
+      .attr('fill', e === 'actif' ? 'var(--vif)' : 'transparent')
+      .attr('stroke', e === 'eteint' ? 'var(--ferme)' : '#fff').attr('stroke-width', e === 'eteint' ? 1.2 : 1.2);
+    g.attr('pointer-events', e === 'absent' ? 'none' : null);
+    const recent = s._ev.some((v) => v.min <= an && an <= v.max + 2 && v.max >= an - 2);
+    if (recent && !E.moinsDeMouvement && e !== 'absent' && !this._onde) {
+      this._onde = true;
+      g.select('.onde').attr('r', 5).attr('opacity', 0.9).transition().duration(1400).ease(d3.easeCubicOut).attr('r', 26).attr('opacity', 0).on('end', () => (this._onde = false));
+    }
+  });
+  document.getElementById('cpt').innerHTML = `<b>${n.actif}</b> lieux en activité connue<br><b>${n.eteint}</b> dont l'arrêt est documenté`;
+  // journal : les faits de l'année (ou des deux années)
+  const faits = sites.flatMap((s) => s._ev.filter((v) => v.min <= an && an <= v.max && v.max - v.min <= 5).map((v) => ({ s, v }))).slice(0, 5);
+  const cle = faits.map((f) => f.s.ref + f.v.type).join();
+  if (cle !== derniers) {
+    derniers = cle;
+    document.getElementById('journal').innerHTML = faits.length ? `<div class="t">Ce que disent les sources pour ${an}</div>` + faits.map(({ s, v }) => `<div class="e"><b>${E.echapper(E.TYPES[v.type] || v.type)}</b>${E.echapper(s.nomCourt)} <span>— ${E.echapper(s.commune)}</span></div>`).join('') : '';
+  }
+  if (choisi) majCarton();
+}
+
+function jouer() {
+  if (jeu) return arreter();
+  document.getElementById('jouer').textContent = '❚❚';
+  if (an >= 2000) aller(ens.resume.premiereAnnee - 1);
+  const base = an;
+  jeu = d3.timer((ecoule) => { const a = Math.floor(base + ecoule / 90); if (a !== an) aller(a); if (an >= 2000) arreter(); });
+}
+function arreter() { if (jeu) jeu.stop(); jeu = null; document.getElementById('jouer').textContent = '▶'; }
+
+function ouvrir(s) {
+  choisi = s;
+  monde.selectAll('.lieu .nom').attr('opacity', (x) => (x === s ? 1 : 0));
+  majCarton();
+  carton.classList.add('ouvert');
+  carton.querySelector('.fermer').focus({ preventScroll: true });
+}
+
+function majCarton() {
+  const s = choisi;
+  const ev = s._ev;
+  const d0 = d3.min(ev, (e) => e.min) ?? an, d1 = Math.max(d3.max(ev, (e) => e.max) ?? an, d0 + 1);
+  const W = 308, mx = d3.scaleLinear().domain([d0, d1]).range([8, W - 8]);
+  const texte = E.texteLieu(s);
+  carton.innerHTML = `<button class="fermer" type="button" aria-label="Fermer">×</button><div class="m">${E.echapper(E.metier(s))}</div><h3>${E.echapper(s.nomCourt)}</h3><div class="c">${E.echapper(s.commune)}</div>
+    <svg width="${W}" height="44" aria-hidden="true"><line x1="8" x2="${W - 8}" y1="20" y2="20" stroke="#22201c" stroke-opacity=".3"/>
+    ${ev.map((e) => `<circle cx="${mx((e.min + e.max) / 2)}" cy="20" r="${e.min <= an && an <= e.max ? 5 : 3}" fill="${e.max <= an ? '#c8432b' : '#fff'}" stroke="#c8432b"/>`).join('')}
+    ${an >= d0 && an <= d1 ? `<line x1="${mx(an)}" x2="${mx(an)}" y1="8" y2="32" stroke="#22201c"/>` : ''}
+    <text x="8" y="40" font-size="10.5" font-family="IBM Plex Mono" fill="#6a645a">${d0}</text><text x="${W - 8}" y="40" text-anchor="end" font-size="10.5" font-family="IBM Plex Mono" fill="#6a645a">${d1}</text></svg>
+    ${s.media ? `<img src="${E.echapper(s.media.url)}" alt=""><div class="cr">${E.echapper(s.media.credit || '')}</div>` : ''}
+    <p>${E.echapper(texte.length > 380 ? texte.slice(0, texte.lastIndexOf(' ', 360)) + '…' : texte)}</p><a href="${E.echapper(s.url)}" target="_blank" rel="noopener">Dossier d'inventaire</a>`;
+  carton.querySelector('.fermer').onclick = fermer;
+  placer();
+}
+
+function placer() {
+  if (!choisi) return;
+  const r = svg.node().getBoundingClientRect();
+  const [px, py] = T.apply(proj(choisi.lon, choisi.lat));
+  const w = 340, h = carton.offsetHeight;
+  let l = px + 24; if (l + w > r.width - 20) l = px - w - 24;
+  carton.style.left = l + 'px';
+  carton.style.top = Math.max(20, Math.min(r.height - h - 10, py - h / 2)) + 'px';
+}
+
+function fermer() { choisi = null; carton.classList.remove('ouvert'); if (monde) monde.selectAll('.lieu .nom').attr('opacity', 0); }
+
+document.getElementById('jouer').onclick = jouer;
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') fermer(); });
+window.addEventListener('hashchange', dessiner);
+let att; window.addEventListener('resize', () => { clearTimeout(att); att = setTimeout(dessiner, 250); });
+document.fonts.ready.then(dessiner);
+</script>
+</body>
+</html>

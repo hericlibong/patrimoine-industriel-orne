@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Esquisse A — L'atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --papier:#efe6d2; --papier2:#e6dabf; --encre:#3b2a1a; --encre2:#6d5640; --trait:#a48a68;
+  --eau:#4f6f7a; --carmin:#a3301f; --carmin2:#c75a3a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--papier);color:var(--encre);font-family:'EB Garamond',Georgia,serif}
+body{overflow:hidden}
+.grain{position:fixed;inset:0;pointer-events:none;opacity:.55;mix-blend-mode:multiply;z-index:5}
+.scene{position:fixed;inset:22px;border:1.5px solid var(--encre);outline:1px solid var(--encre);outline-offset:5px}
+svg.carte path{vector-effect:non-scaling-stroke}
+svg.carte{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab}
+svg.carte:active{cursor:grabbing}
+.cartouche{position:absolute;left:34px;top:30px;z-index:3;max-width:360px;padding:18px 22px 16px;background:rgba(239,230,210,.92);border:1px solid var(--encre);box-shadow:3px 3px 0 var(--papier2)}
+.cartouche .sur{font-family:'IM Fell English SC',serif;letter-spacing:.14em;font-size:12px;color:var(--encre2)}
+.cartouche h1{font-family:'IM Fell English',serif;font-weight:400;font-size:40px;line-height:1;margin:6px 0 4px}
+.cartouche h1 i{display:block;font-size:22px;color:var(--carmin);margin-top:6px}
+.cartouche p{font-size:15.5px;line-height:1.35;margin:10px 0 0}
+.bascule{margin-top:12px;font-family:'IM Fell English SC',serif;font-size:14px;letter-spacing:.08em}
+.bascule a{color:var(--encre2);text-decoration:none;border-bottom:1px solid transparent;margin-right:14px}
+.bascule a[aria-current]{color:var(--encre);border-bottom-color:var(--carmin)}
+.legende{position:absolute;right:34px;bottom:70px;z-index:3;width:250px;padding:14px 18px;background:rgba(239,230,210,.92);border:1px solid var(--encre)}
+.legende h2{font-family:'IM Fell English SC',serif;font-weight:400;font-size:15px;letter-spacing:.1em;margin:0 0 4px}
+.legende small{display:block;font-style:italic;color:var(--encre2);font-size:13px;margin-bottom:8px}
+.legende button{display:flex;align-items:center;gap:10px;width:100%;background:none;border:0;padding:4px 0;font:inherit;font-size:15px;color:var(--encre);cursor:pointer;text-align:left}
+.legende button svg{flex:none}
+.legende button[aria-pressed=false]{opacity:.35}
+.legende button .n{margin-left:auto;font-variant-numeric:oldstyle-nums;color:var(--encre2)}
+.legende .tous{font-style:italic;color:var(--encre2);font-size:14px;margin-top:6px}
+.echelle{position:absolute;left:34px;bottom:28px;z-index:3;font-family:'IM Fell English',serif;font-size:13px;color:var(--encre2)}
+.source{position:absolute;right:34px;bottom:26px;z-index:3;max-width:520px;text-align:right;font-style:italic;font-size:12.5px;color:var(--encre2)}
+.fiche{position:absolute;z-index:4;width:360px;max-height:calc(100vh - 120px);overflow:auto;background:#f6efdf;border:1px solid var(--encre);box-shadow:5px 6px 0 rgba(59,42,26,.18);padding:16px 18px 14px;opacity:0;transform:translateY(6px) rotate(-.4deg);transition:opacity .35s,transform .35s;pointer-events:none}
+.fiche.ouverte{opacity:1;transform:none;pointer-events:auto}
+.scene.lecture .legende{opacity:0;pointer-events:none}
+.legende{transition:opacity .4s}
+.fiche .metier{font-family:'IM Fell English SC',serif;letter-spacing:.1em;font-size:12.5px;color:var(--carmin)}
+.fiche h3{font-family:'IM Fell English',serif;font-weight:400;font-size:26px;line-height:1.05;margin:4px 0 2px}
+.fiche .lieu{font-style:italic;color:var(--encre2);margin-bottom:10px}
+.fiche figure{margin:0 0 10px;padding:6px;background:#fff9ec;border:1px solid var(--trait)}
+.fiche img{width:100%;display:block;max-height:210px;object-fit:cover}
+.fiche figcaption{font-size:11.5px;color:var(--encre2);margin-top:4px;line-height:1.25}
+.fiche p{font-size:15.5px;line-height:1.4;margin:0 0 8px}
+.fiche ol{list-style:none;padding:0;margin:8px 0;border-top:1px solid var(--trait)}
+.fiche li{display:flex;gap:10px;font-size:14px;padding:3px 0;border-bottom:1px dotted var(--trait)}
+.fiche li b{font-family:'IM Fell English',serif;font-weight:400;min-width:74px;color:var(--carmin)}
+.fiche .fermer{position:absolute;right:8px;top:6px;background:none;border:0;font-size:22px;color:var(--encre2);cursor:pointer}
+.fiche a{color:var(--carmin)}
+.fil{position:absolute;inset:0;pointer-events:none;z-index:3}
+.lieu-g{cursor:pointer;outline:none}
+.lieu-g:focus-visible .marque{stroke:var(--carmin);stroke-width:2.5}
+.etiq{font-family:'IM Fell English',serif;font-style:italic;font-size:13px;fill:var(--encre);paint-order:stroke;stroke:var(--papier);stroke-width:3px;pointer-events:none;opacity:0;transition:opacity .2s}
+.lieu-g:hover .etiq,.lieu-g:focus .etiq,.lieu-g.choisi .etiq{opacity:1}
+.bourg{font-family:'IM Fell English SC',serif;font-size:15px;letter-spacing:.12em;fill:var(--encre);paint-order:stroke;stroke:var(--papier);stroke-width:4px}
+.commune{font-family:'IM Fell English',serif;font-style:italic;font-size:12px;fill:var(--encre2);opacity:.75}
+.riviere-nom{font-family:'IM Fell English',serif;font-style:italic;font-size:17px;fill:var(--eau);letter-spacing:.2em}
+.lien-nom{font-style:italic;font-size:12px;fill:var(--carmin)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.retour{position:absolute;left:50%;transform:translateX(-50%);bottom:24px;z-index:3;font-family:'IM Fell English SC',serif;font-size:13px;letter-spacing:.1em}
+.retour a{color:var(--encre2)}
+</style>
+</head>
+<body>
+<svg class="grain" aria-hidden="true"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="4"/><feColorMatrix values="0 0 0 0 .35  0 0 0 0 .27  0 0 0 0 .17  0 0 0 .16 0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+<div class="scene" id="scene">
+  <svg class="carte" id="carte" role="img" aria-labelledby="titre"></svg>
+  <svg class="fil" id="fil" aria-hidden="true"></svg>
+  <div class="cartouche">
+    <div class="sur">Le patrimoine oublié de l'Orne</div>
+    <h1 id="titre">—<i></i></h1>
+    <p id="presentation"></p>
+    <nav class="bascule" aria-label="Choisir l'ensemble"><a href="#risle">La Risle</a><a href="#crulai">Crulai et Chandai</a></nav>
+  </div>
+  <aside class="legende" aria-label="Métiers">
+    <h2>Métiers</h2>
+    <small>Toucher un métier pour l'isoler.</small>
+    <div id="metiers"></div>
+    <button class="tous" id="tous" type="button">Montrer tous les métiers</button>
+  </aside>
+  <div class="echelle" id="echelle"></div>
+  <div class="source">Relief : IGN, RGE ALTI. Cours d'eau et communes : IGN. Lieux : Inventaire général, Région Normandie. Seuls le relief et l'eau sont dessinés : ce sont les deux choses qui n'ont pas changé depuis l'Ancien Régime.</div>
+  <div class="retour"><a href="index.html">← Les trois esquisses</a></div>
+  <article class="fiche" id="fiche" aria-live="polite"></article>
+</div>
+<ul class="sr" id="liste" aria-label="Liste des lieux"></ul>
+<script src="d3.min.js"></script>
+<script src="donnees.js"></script>
+<script src="commun.js"></script>
+<script>
+const SYMB = { metallurgie_travail_metaux: d3.symbolSquare, textile_habillement_cuir: d3.symbolCircle,
+  agroalimentaire: d3.symbolTriangle, bois_papier_imprimerie: d3.symbolDiamond, energie: d3.symbolStar,
+  mecanique_electrique: d3.symbolCross, verre_ceramique_materiaux_construction: d3.symbolWye };
+const symb = (s, t = 70) => d3.symbol(SYMB[s.secteurs[0]] || d3.symbolCircle, t)();
+
+const svg = d3.select('#carte');
+const fil = d3.select('#fil');
+const fiche = document.getElementById('fiche');
+let ens, proj, zoom, monde, choisi = null, filtre = null, T = d3.zoomIdentity;
+
+function dessiner() {
+  const code = E.codeDepuisAdresse();
+  ens = E.ensemble(code);
+  document.querySelectorAll('.bascule a').forEach((a) => a.toggleAttribute('aria-current', a.hash === '#' + code));
+  document.getElementById('titre').innerHTML = `${E.echapper(ens.nom)}<i>${E.echapper(ens.nomDeTravail || '')}</i>`;
+  document.getElementById('presentation').textContent = ens.presentation || '';
+  fermer(true);
+  filtre = null;
+  svg.selectAll('*').remove();
+  const { width: L, height: H } = document.getElementById('scene').getBoundingClientRect();
+  svg.attr('viewBox', `0 0 ${L} ${H}`);
+  proj = E.projection(ens, L * 0.94, H * 0.84, 30);
+  const decal = [L * 0.03, H * 0.08];
+  const p = proj;
+  proj = (lon, lat) => { const [x, y] = p(lon, lat); return [x + decal[0], y + decal[1]]; };
+  proj.kmEnPx = p.kmEnPx;
+
+  const defs = svg.append('defs');
+  defs.append('filter').attr('id', 'trembler').html('<feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="2.2"/>');
+
+  monde = svg.append('g');
+  // ombrage très doux, teinte sépia
+  const o = E.ombrage(ens, proj, (lum) => { const a = Math.max(0, Math.min(1, 0.75 - lum)) * 120; return [92, 66, 40, a]; });
+  monde.append('image').attr('href', o.canevas.toDataURL()).attr('x', o.x).attr('y', o.y).attr('width', o.l).attr('height', o.h)
+    .attr('preserveAspectRatio', 'none').style('opacity', 0).transition().duration(1600).style('opacity', 0.55);
+
+  // courbes de niveau : un trait fin tous les 10 m, plus appuyé tous les 50 m
+  const courbes = E.contours(ens, proj, 10);
+  defs.append('filter').attr('id', 'flou').html('<feGaussianBlur stdDeviation="45"/>');
+  defs.append('mask').attr('id', 'bords').append('rect').attr('x', o.x + 80).attr('y', o.y + 80).attr('width', o.l - 160).attr('height', o.h - 160).attr('fill', '#fff').attr('filter', 'url(#flou)');
+  monde.append('g').attr('mask', 'url(#bords)').attr('fill', 'none').attr('filter', 'url(#trembler)')
+    .selectAll('path').data(courbes).join('path').attr('d', (c) => c.d)
+    .attr('stroke', 'var(--trait)').attr('stroke-width', (c) => (c.valeur % 50 === 0 ? 0.9 : 0.45))
+    .style('opacity', 0).transition().delay((c, i) => 200 + i * 60).duration(900).style('opacity', (c) => (c.valeur % 50 === 0 ? 0.8 : 0.55));
+
+  // communes, en italique discret
+  monde.append('g').selectAll('text').data(ens.communes.filter((c) => c.porteUnLieu)).join('text').attr('class', 'commune')
+    .attr('text-anchor', 'middle').attr('transform', (c) => { const pts = c.anneaux[0]; const [x, y] = proj(d3.mean(pts, (q) => q[0]), d3.mean(pts, (q) => q[1])); return `translate(${x},${y + 26})`; })
+    .text((c) => c.nom);
+
+  // eau : tracée à l'encre, comme si la plume passait
+  const eau = monde.append('g').attr('fill', 'none').attr('stroke-linecap', 'round').attr('filter', 'url(#trembler)');
+  eau.selectAll('path').data(ens.eau).join('path').attr('d', (e) => E.cheminLigne(proj, e.points))
+    .attr('stroke', 'var(--eau)').attr('stroke-width', (e) => (e.categorie === 'principale' ? 2.4 : 0.9))
+    .each(function () { const l = this.getTotalLength(); d3.select(this).attr('stroke-dasharray', `${l} ${l}`).attr('stroke-dashoffset', l); })
+    .transition().delay((e) => (e.categorie === 'principale' ? 600 : 1300)).duration(E.moinsDeMouvement ? 0 : 2600).ease(d3.easeCubicInOut).attr('stroke-dashoffset', 0);
+  const princ = ens.eau.filter((e) => e.categorie === 'principale').sort((a, b) => b.points.length - a.points.length)[0];
+  if (princ) {
+    const m = princ.points[Math.floor(princ.points.length / 2)];
+    const [x, y] = proj(m[0], m[1]);
+    monde.append('text').attr('class', 'riviere-nom').attr('x', x).attr('y', y + 24).attr('text-anchor', 'middle').text('la Risle');
+  }
+
+  ens.bourgs.forEach((b) => { const [x, y] = proj(b.lon, b.lat);
+    monde.append('circle').attr('cx', x).attr('cy', y).attr('r', 3).attr('fill', 'var(--encre)');
+    monde.append('text').attr('class', 'bourg').attr('x', x + 8).attr('y', y - 8).text(b.nom); });
+
+  // liens documentés : une courbe et la phrase de la source
+  const parRef = new Map(ens.sites.map((s) => [s.ref, s]));
+  const gl = monde.append('g');
+  ens.liens.forEach((l, i) => {
+    const a = parRef.get(l.de), b = parRef.get(l.vers);
+    if (!a || !b) return;
+    const [x1, y1] = proj(a.lon, a.lat), [x2, y2] = proj(b.lon, b.lat);
+    const mx = (x1 + x2) / 2 - (y2 - y1) * 0.25, my = (y1 + y2) / 2 + (x2 - x1) * 0.25;
+    gl.append('path').attr('d', `M${x1},${y1}Q${mx},${my} ${x2},${y2}`).attr('fill', 'none').attr('stroke', 'var(--carmin)')
+      .attr('stroke-width', 1).attr('stroke-dasharray', '4 3').style('opacity', 0).transition().delay(3600 + i * 200).style('opacity', 0.75);
+  });
+
+  // lieux : tamponnés dans l'ordre de leur première date connue
+  const sites = ens.sites.filter((s) => s.lon != null).map((s) => Object.assign(s, { _b: E.bornes(ens, s.ref) }));
+  const ordre = sites.slice().sort((a, b) => (a._b?.debut ?? 3000) - (b._b?.debut ?? 3000));
+  const rang = new Map(ordre.map((s, i) => [s.ref, i]));
+  const g = monde.append('g').selectAll('g').data(sites).join('g').attr('class', 'lieu-g')
+    .attr('transform', (s) => `translate(${proj(s.lon, s.lat)})`);
+  g.append('circle').attr('r', 12).attr('fill', 'transparent');
+  g.append('path').attr('class', 'marque').attr('d', (s) => symb(s)).attr('fill', 'var(--carmin)').attr('stroke', 'var(--papier)').attr('stroke-width', 1.2)
+    .attr('transform', 'scale(0)').transition().delay((s) => (E.moinsDeMouvement ? 0 : 2200 + rang.get(s.ref) * 45)).duration(380).ease(d3.easeBackOut.overshoot(2.4)).attr('transform', 'scale(1)');
+  g.append('text').attr('class', 'etiq').attr('x', 9).attr('y', -9).text((s) => s.nomCourt);
+  E.rendreActivable(g, ouvrir);
+
+  // légende-filtre
+  const compte = d3.rollup(sites, (v) => v.length, (s) => s.secteurs[0]);
+  const lm = d3.select('#metiers').selectAll('button').data([...compte].sort((a, b) => b[1] - a[1]), (d) => d[0]).join('button')
+    .attr('type', 'button').attr('aria-pressed', 'true')
+    .html(([k, n]) => `<svg width="16" height="16" viewBox="-8 -8 16 16"><path d="${d3.symbol(SYMB[k] || d3.symbolCircle, 60)()}" fill="#a3301f"/></svg>${E.echapper(DONNEES.libelles.metiers[k])}<span class="n">${n}</span>`)
+    .on('click', (ev, [k]) => { filtre = filtre === k ? null : k; appliquerFiltre(g); });
+  document.getElementById('tous').onclick = () => { filtre = null; appliquerFiltre(g); };
+
+  // échelle
+  const km = ens === E.ensemble('risle') ? 2 : 1;
+  document.getElementById('echelle').innerHTML = `<svg width="${km * proj.kmEnPx + 4}" height="10"><path d="M1,8V2H${km * proj.kmEnPx + 1}V8" fill="none" stroke="#3b2a1a"/></svg> ${km} km`;
+
+  // liste textuelle
+  d3.select('#liste').selectAll('li').data(sites).join('li').text((s) => `${s.nomCourt}, ${s.commune}, ${E.metier(s)}`);
+
+  zoom = d3.zoom().scaleExtent([0.8, 8]).on('zoom', (ev) => { T = ev.transform; monde.attr('transform', T);
+    monde.selectAll('.lieu-g').attr('transform', (s) => `translate(${proj(s.lon, s.lat)}) scale(${1 / T.k})`);
+    monde.selectAll('text:not(.etiq)').style('font-size', function () { if (!this.dataset.fs) this.dataset.fs = parseFloat(getComputedStyle(this).fontSize); return this.dataset.fs / Math.sqrt(T.k) + 'px'; });
+    placerFiche(); });
+  svg.call(zoom).call(zoom.transform, d3.zoomIdentity);
+}
+
+function appliquerFiltre(g) {
+  g.transition().duration(500).style('opacity', (s) => (!filtre || s.secteurs[0] === filtre ? 1 : 0.12))
+    .attr('pointer-events', (s) => (!filtre || s.secteurs[0] === filtre ? null : 'none'));
+  d3.selectAll('#metiers button').attr('aria-pressed', ([k]) => String(!filtre || k === filtre));
+}
+
+function ouvrir(s) {
+  choisi = s;
+  document.getElementById('scene').classList.add('lecture');
+  d3.selectAll('.lieu-g').classed('choisi', (x) => x === s);
+  const ev = E.chrono(ens, s.ref);
+  const texte = E.texteLieu(s);
+  const court = texte.length > 420 ? texte.slice(0, texte.lastIndexOf(' ', 400)) + '…' : texte;
+  fiche.innerHTML = `<button class="fermer" type="button" aria-label="Fermer">×</button>
+    <div class="metier">${E.echapper(E.metier(s))}</div>
+    <h3>${E.echapper(s.nomCourt)}</h3>
+    <div class="lieu">${E.echapper(s.commune)}${s.lieuDit ? ' — ' + E.echapper(s.lieuDit) : ''}</div>
+    ${s.media ? `<figure><img src="${E.echapper(s.media.url)}" alt="" loading="lazy"><figcaption>${E.echapper(s.media.legende || '')} ${E.echapper(s.media.credit || '')}</figcaption></figure>` : ''}
+    <p>${E.echapper(court)}</p>
+    ${ev.length ? `<ol>${ev.slice(0, 8).map((e) => `<li><b>${E.dateEv(e)}</b>${E.echapper(E.TYPES[e.type] || e.type)}</li>`).join('')}</ol>` : ''}
+    <a href="${E.echapper(s.url)}" target="_blank" rel="noopener">Voir le dossier d'inventaire</a>`;
+  fiche.querySelector('.fermer').onclick = () => fermer();
+  const { width: L, height: H } = svg.node().getBoundingClientRect();
+  const [x, y] = proj(s.lon, s.lat);
+  const k = Math.max(T.k, 3);
+  svg.transition().duration(E.moinsDeMouvement ? 0 : 1100).ease(d3.easeCubicInOut)
+    .call(zoom.transform, d3.zoomIdentity.translate(L * 0.36 - x * k, H * 0.55 - y * k).scale(k))
+    .on('end', () => { fiche.classList.add('ouverte'); placerFiche(); fiche.querySelector('.fermer').focus({ preventScroll: true }); });
+}
+
+function placerFiche() {
+  fil.selectAll('*').remove();
+  if (!choisi || !fiche.classList.contains('ouverte')) return;
+  const [x, y] = T.apply(proj(choisi.lon, choisi.lat));
+  const L = svg.node().getBoundingClientRect().width;
+  const fx = Math.min(L - 380, x + 90), fy = Math.max(150, y - 160);
+  fiche.style.left = fx + 'px';
+  fiche.style.top = fy + 'px';
+  fil.append('path').attr('d', `M${x + 8},${y}C${x + 50},${y} ${fx - 40},${fy + 30} ${fx},${fy + 30}`)
+    .attr('fill', 'none').attr('stroke', '#3b2a1a').attr('stroke-width', 0.8);
+  fil.append('circle').attr('cx', x).attr('cy', y).attr('r', 15).attr('fill', 'none').attr('stroke', '#a3301f');
+}
+
+function fermer(silencieux) {
+  const etait = choisi;
+  choisi = null;
+  document.getElementById('scene').classList.remove('lecture');
+  fiche.classList.remove('ouverte');
+  fil.selectAll('*').remove();
+  d3.selectAll('.lieu-g').classed('choisi', false);
+  if (!silencieux && etait) {
+    svg.transition().duration(E.moinsDeMouvement ? 0 : 900).call(zoom.transform, d3.zoomIdentity);
+    const n = d3.selectAll('.lieu-g').filter((x) => x === etait).node();
+    if (n) n.focus({ preventScroll: true });
+  }
+}
+
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') fermer(); });
+window.addEventListener('hashchange', dessiner);
+let att; window.addEventListener('resize', () => { clearTimeout(att); att = setTimeout(dessiner, 250); });
+document.fonts.ready.then(dessiner);
+</script>
+</body>
+</html>

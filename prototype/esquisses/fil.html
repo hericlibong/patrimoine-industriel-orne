@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Esquisse B — Le fil de l'eau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{--sol:#e7e5dc;--encre:#1f2a2c;--doux:#5c6a6b;--eau:#2b6f86;--lumiere:#bfe8f2;--braise:#c4512b;--carte:#fbfaf6}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--sol);color:var(--encre);font-family:'Source Serif 4',Georgia,serif}
+body{overflow:hidden}
+.couche{position:fixed;inset:0;width:100%;height:100%}
+#bas{cursor:grab}
+#flux,#haut{pointer-events:none}
+#haut .lieu{pointer-events:auto;cursor:pointer;outline:none}
+.entete{position:fixed;left:40px;top:34px;max-width:430px;z-index:3}
+.entete .sur{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--doux)}
+.entete h1{font-family:Fraunces,serif;font-weight:300;font-size:56px;line-height:.95;margin:8px 0 6px;letter-spacing:-.01em}
+.entete h1 em{display:block;font-style:italic;font-size:26px;color:var(--eau);margin-top:8px}
+.entete p{font-size:17px;line-height:1.4;margin:10px 0 0;color:#2f3b3d}
+.bascule{position:fixed;right:40px;top:38px;z-index:3;display:flex;gap:4px;background:rgba(251,250,246,.8);border-radius:99px;padding:4px}
+.bascule a{padding:7px 14px;border-radius:99px;text-decoration:none;color:var(--doux);font-size:14px}
+.bascule a[aria-current]{background:var(--encre);color:var(--carte)}
+.parcours{position:fixed;left:40px;right:40px;bottom:28px;z-index:3;display:flex;align-items:center;gap:18px}
+.parcours button.jouer{flex:none;width:52px;height:52px;border-radius:50%;border:0;background:var(--encre);color:var(--carte);font-size:17px;cursor:pointer}
+.parcours .rail{position:relative;flex:1;height:52px}
+.parcours svg{width:100%;height:100%;overflow:visible}
+.parcours .consigne{position:absolute;left:0;top:-22px;font-size:13.5px;font-style:italic;color:var(--doux)}
+.parcours .rail:focus-visible{outline:2px solid var(--eau);outline-offset:4px;border-radius:6px}
+.bulle{position:fixed;z-index:4;width:300px;background:var(--carte);border-radius:14px;box-shadow:0 18px 40px rgba(31,42,44,.22),0 2px 6px rgba(31,42,44,.12);overflow:hidden;opacity:0;transform:translateY(10px) scale(.97);transform-origin:bottom left;transition:opacity .35s,transform .35s,width .35s;pointer-events:none}
+.bulle.visible{opacity:1;transform:none;pointer-events:auto}
+.bulle.grande{width:420px}
+.bulle img{display:block;width:100%;height:150px;object-fit:cover;transition:height .35s}
+.bulle.grande img{height:240px}
+.bulle .corps{padding:12px 16px 14px}
+.bulle .metier{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--braise)}
+.bulle h3{font-family:Fraunces,serif;font-weight:500;font-size:22px;line-height:1.1;margin:4px 0 2px}
+.bulle .ou{font-style:italic;color:var(--doux);font-size:14.5px}
+.bulle p{font-size:15.5px;line-height:1.42;margin:8px 0 0}
+.bulle .plus{display:none}
+.bulle.grande .plus{display:block}
+.bulle.grande .resume{display:none}
+.bulle .actions{display:flex;justify-content:space-between;margin-top:10px;font-size:14px}
+.bulle button.lire{background:none;border:0;padding:0;font:inherit;color:var(--eau);cursor:pointer;text-decoration:underline}
+.bulle a{color:var(--doux)}
+.bulle .credit{font-size:11px;color:var(--doux);padding:4px 16px 0}
+.bulle .dates{font-family:Fraunces,serif;font-size:15px;color:var(--eau);margin-top:2px}
+.pied{position:fixed;right:40px;bottom:96px;z-index:3;max-width:360px;text-align:right;font-size:12px;font-style:italic;color:var(--doux)}
+.retour{position:fixed;left:40px;bottom:96px;z-index:3;font-size:13px}
+.retour a{color:var(--doux)}
+.nom-lieu{font-family:'Source Serif 4',serif;font-size:13px;fill:var(--encre);paint-order:stroke;stroke:var(--sol);stroke-width:3.5px}
+.bourg{font-family:Fraunces,serif;font-size:16px;fill:var(--encre);paint-order:stroke;stroke:var(--sol);stroke-width:4px;letter-spacing:.02em}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<svg class="couche" id="bas" role="img" aria-labelledby="titre"></svg>
+<canvas class="couche" id="flux" aria-hidden="true"></canvas>
+<svg class="couche" id="haut"></svg>
+<header class="entete">
+  <div class="sur">Le patrimoine oublié de l'Orne</div>
+  <h1 id="titre"></h1>
+  <p id="presentation"></p>
+</header>
+<nav class="bascule" aria-label="Choisir l'ensemble"><a href="#risle">La Risle</a><a href="#crulai">Crulai et Chandai</a></nav>
+<div class="retour"><a href="index.html">← Les trois esquisses</a></div>
+<div class="pied" id="pied"></div>
+<div class="parcours">
+  <button class="jouer" id="jouer" type="button" aria-label="Descendre la vallée">▶</button>
+  <div class="rail" id="rail" tabindex="0" role="slider" aria-label="Position dans la vallée" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <span class="consigne" id="consigne"></span>
+    <svg id="railsvg"></svg>
+  </div>
+</div>
+<article class="bulle" id="bulle" aria-live="polite"></article>
+<ul class="sr" id="liste"></ul>
+<script src="d3.min.js"></script>
+<script src="donnees.js"></script>
+<script src="commun.js"></script>
+<script>
+const bas = d3.select('#bas'), haut = d3.select('#haut'), canvas = document.getElementById('flux');
+const ctx = canvas.getContext('2d');
+const bulle = document.getElementById('bulle');
+let ens, proj, T = d3.zoomIdentity, zoom, gBas, gHaut, sites, axe, rail, curseur = 0, actif = null, jeu = null, grand = false;
+let particules = [], troncons = [];
+const DPR = Math.min(2, window.devicePixelRatio || 1);
+
+function altitude(lon, lat) {
+  const r = ens.relief;
+  const i = Math.round((lon - r.x0) / r.pas), j = Math.round((r.y1 - lat) / r.pas);
+  return r.z[Math.max(0, Math.min(r.ny - 1, j)) * r.nx + Math.max(0, Math.min(r.nx - 1, i))];
+}
+
+function dessiner() {
+  const code = E.codeDepuisAdresse();
+  ens = E.ensemble(code);
+  document.querySelectorAll('.bascule a').forEach((a) => a.toggleAttribute('aria-current', a.hash === '#' + code));
+  document.getElementById('titre').innerHTML = `${E.echapper(ens.nom)}<em>${E.echapper(ens.nomDeTravail || '')}</em>`;
+  document.getElementById('presentation').textContent = ens.presentation || '';
+  document.getElementById('pied').textContent = "Le courant est calculé : chaque cours d'eau s'écoule vers son extrémité la plus basse selon le relief IGN. Relief : IGN, RGE ALTI. Eau : IGN. Lieux : Inventaire général, Région Normandie.";
+  arreter();
+  cacherBulle();
+  const L = innerWidth, H = innerHeight;
+  [bas, haut].forEach((s) => s.attr('viewBox', `0 0 ${L} ${H}`).selectAll('*').remove());
+  canvas.width = L * DPR; canvas.height = H * DPR;
+  const p = E.projection(ens, L * 0.9, H * 0.68, 20);
+  proj = (lon, lat) => { const [x, y] = p(lon, lat); return [x + L * 0.05, y + H * 0.17]; };
+
+  gBas = bas.append('g');
+  // relief : ombrage et teinte d'altitude neutre, du fond de vallée au plateau
+  const [zmin, zmax] = d3.extent(ens.relief.z);
+  const teinte = d3.scaleLinear().domain([zmin, zmax]).range([0, 1]);
+  const o = E.ombrage(ens, proj, (lum, z) => {
+    const t = teinte(z), c = d3.rgb(d3.interpolateRgb('#dfe3da', '#ece6d6')(t));
+    const ombre = Math.max(-0.25, Math.min(0.2, lum - 0.62));
+    const f = 1 + ombre * 0.32;
+    return [c.r * f, c.g * f, c.b * f, 255];
+  });
+  const fondu = bas.append('defs');
+  fondu.append('filter').attr('id', 'flou').html('<feGaussianBlur stdDeviation="40"/>');
+  fondu.append('mask').attr('id', 'bords').append('rect').attr('x', o.x + 60).attr('y', o.y + 60).attr('width', o.l - 120).attr('height', o.h - 120).attr('fill', '#fff').attr('filter', 'url(#flou)');
+  gBas.append('image').attr('mask', 'url(#bords)').attr('href', o.canevas.toDataURL()).attr('x', o.x).attr('y', o.y).attr('width', o.l).attr('height', o.h).attr('preserveAspectRatio', 'none');
+  gBas.append('g').attr('mask', 'url(#bords)').attr('fill', 'none').selectAll('path').data(E.contours(ens, proj, 20)).join('path').attr('d', (c) => c.d)
+    .attr('stroke', '#9aa39b').attr('stroke-width', 0.5).attr('opacity', 0.45).style('vector-effect', 'non-scaling-stroke');
+
+  // eau : orientée vers l'aval d'après le relief
+  troncons = ens.eau.map((e) => {
+    const pts = e.points.slice();
+    if (altitude(...pts[0]) < altitude(...pts[pts.length - 1])) pts.reverse();
+    const xy = pts.map((q) => proj(q[0], q[1]));
+    const cum = [0];
+    for (let i = 1; i < xy.length; i++) cum.push(cum[i - 1] + Math.hypot(xy[i][0] - xy[i - 1][0], xy[i][1] - xy[i - 1][1]));
+    return { xy, cum, long: cum[cum.length - 1], principale: e.categorie === 'principale' };
+  });
+  gBas.append('g').attr('fill', 'none').attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round')
+    .selectAll('path').data(troncons).join('path').attr('d', (t) => 'M' + t.xy.join('L'))
+    .attr('stroke', 'var(--eau)').attr('stroke-width', (t) => (t.principale ? 3.2 : 1.1)).attr('opacity', (t) => (t.principale ? 0.9 : 0.6))
+    .style('vector-effect', 'non-scaling-stroke');
+  particules = [];
+  troncons.forEach((t) => { const n = Math.max(1, Math.round(t.long / (t.principale ? 9 : 26))); for (let i = 0; i < n; i++) particules.push({ t, d: Math.random() * t.long, v: (t.principale ? 0.55 : 0.3) * (0.7 + Math.random() * 0.6) }); });
+
+  gHaut = haut.append('g');
+  ens.bourgs.forEach((b) => { const [x, y] = proj(b.lon, b.lat);
+    gHaut.append('g').attr('class', 'fixe').datum({ lon: b.lon, lat: b.lat }).html(`<circle r="3" fill="#1f2a2c"/><text class="bourg" x="7" y="-7">${E.echapper(b.nom)}</text>`).attr('transform', `translate(${x},${y})`); });
+
+  // lieux, ordonnés le long de l'axe de la vallée, de l'amont vers l'aval
+  sites = ens.sites.filter((s) => s.lon != null);
+  const xy = sites.map((s) => proj(s.lon, s.lat));
+  const mx = d3.mean(xy, (q) => q[0]), my = d3.mean(xy, (q) => q[1]);
+  let sxx = 0, syy = 0, sxy = 0;
+  xy.forEach(([x, y]) => { sxx += (x - mx) ** 2; syy += (y - my) ** 2; sxy += (x - mx) * (y - my); });
+  const ang = 0.5 * Math.atan2(2 * sxy, sxx - syy);
+  let ux = Math.cos(ang), uy = Math.sin(ang);
+  sites.forEach((s, i) => { s._a = (xy[i][0] - mx) * ux + (xy[i][1] - my) * uy; s._xy = xy[i]; });
+  const ext = d3.extent(sites, (s) => s._a);
+  const bout = (a) => d3.mean(sites.filter((s) => Math.abs(s._a - a) < (ext[1] - ext[0]) * 0.15), (s) => altitude(s.lon, s.lat));
+  if (bout(ext[0]) < bout(ext[1])) sites.forEach((s) => (s._a = -s._a));
+  const e2 = d3.extent(sites, (s) => s._a);
+  sites.forEach((s) => (s._t = (s._a - e2[0]) / (e2[1] - e2[0])));
+  sites.sort((a, b) => a._t - b._t);
+  // chemin de caméra : moyenne glissante des lieux
+  const pas = d3.range(0, 1.0001, 0.02).map((t) => {
+    const w = sites.map((s) => Math.exp(-(((s._t - t) / 0.07) ** 2)));
+    const sw = d3.sum(w) || 1;
+    return [d3.sum(sites, (s, i) => s._xy[0] * w[i]) / sw, d3.sum(sites, (s, i) => s._xy[1] * w[i]) / sw];
+  });
+  axe = (t) => { const f = t * (pas.length - 1), i = Math.min(pas.length - 2, Math.floor(f)), r = f - i; return [pas[i][0] + (pas[i + 1][0] - pas[i][0]) * r, pas[i][1] + (pas[i + 1][1] - pas[i][1]) * r]; };
+
+  const g = gHaut.append('g').selectAll('g').data(sites).join('g').attr('class', 'lieu fixe');
+  g.append('circle').attr('class', 'halo').attr('r', 16).attr('fill', 'var(--lumiere)').attr('opacity', 0);
+  g.append('circle').attr('class', 'point').attr('r', 5).attr('fill', 'var(--braise)').attr('stroke', '#fff').attr('stroke-width', 1.5);
+  g.append('text').attr('class', 'nom-lieu').attr('x', 10).attr('y', 4).attr('opacity', 0).text((s) => s.nomCourt);
+  E.rendreActivable(g, (s) => { aller(s._t, true); montrer(s, true); });
+
+  d3.select('#liste').selectAll('li').data(sites).join('li').text((s) => `${s.nomCourt}, ${s.commune}`);
+  dessinerRail();
+  zoom = d3.zoom().scaleExtent([0.7, 10]).on('zoom', (ev) => { T = ev.transform; appliquer(); });
+  bas.call(zoom).call(zoom.transform, d3.zoomIdentity);
+  document.getElementById('consigne').textContent = code === 'risle'
+    ? "Descendre la Risle, de l'amont vers l'aval — flèches du clavier ou glisser"
+    : "Parcourir les lieux, de l'amont vers l'aval — flèches du clavier ou glisser";
+  curseur = 0;
+  majCurseur();
+}
+
+function appliquer() {
+  gBas.attr('transform', T);
+  gHaut.attr('transform', T);
+  gHaut.selectAll('.fixe').attr('transform', function (d) { const [x, y] = d._xy || proj(d.lon, d.lat); return `translate(${x},${y}) scale(${1 / T.k})`; });
+  placerBulle();
+}
+
+function dessinerRail() {
+  const s = d3.select('#railsvg'); s.selectAll('*').remove();
+  const W = document.getElementById('rail').getBoundingClientRect().width;
+  rail = d3.scaleLinear().domain([0, 1]).range([8, W - 8]);
+  s.append('path').attr('d', `M${rail(0)},30 ${d3.range(0, 1.01, 0.01).map((t) => `L${rail(t)},${30 + Math.sin(t * 22) * 3}`).join('')}`)
+    .attr('fill', 'none').attr('stroke', 'var(--eau)').attr('stroke-width', 2);
+  s.append('g').selectAll('line').data(sites).join('line').attr('x1', (d) => rail(d._t)).attr('x2', (d) => rail(d._t)).attr('y1', 18).attr('y2', 42)
+    .attr('stroke', 'var(--braise)').attr('stroke-width', 1.4).attr('opacity', 0.75);
+  s.append('text').attr('x', rail(0)).attr('y', 58).attr('font-size', 12).attr('fill', '#5c6a6b').text('amont');
+  s.append('text').attr('x', rail(1)).attr('y', 58).attr('font-size', 12).attr('fill', '#5c6a6b').attr('text-anchor', 'end').text('aval');
+  s.append('g').attr('id', 'poignee').html('<circle r="11" fill="#fbfaf6" stroke="#1f2a2c" stroke-width="2"/><circle r="4" fill="#2b6f86"/>');
+  const glisser = (ev) => { arreter(); aller(rail.invert(d3.pointer(ev, s.node())[0])); };
+  s.on('pointerdown', (ev) => { glisser(ev); s.on('pointermove', glisser); }).on('pointerup pointerleave', () => s.on('pointermove', null));
+}
+
+function aller(t, immediat) {
+  curseur = Math.max(0, Math.min(1, t));
+  majCurseur(immediat);
+}
+
+function majCurseur(immediat) {
+  d3.select('#poignee').attr('transform', `translate(${rail(curseur)},30)`);
+  const rl = document.getElementById('rail');
+  rl.setAttribute('aria-valuenow', Math.round(curseur * 100));
+  // caméra
+  const [x, y] = axe(curseur);
+  const k = curseur === 0 && !actif ? 1 : 2.6;
+  const cible = k === 1 ? d3.zoomIdentity : d3.zoomIdentity.translate(innerWidth * 0.5 - x * k, innerHeight * 0.5 - y * k).scale(k);
+  (immediat || jeu ? bas : bas.transition().duration(E.moinsDeMouvement ? 0 : 500)).call(zoom.transform, cible);
+  // les lieux proches s'éclairent ; le plus proche parle
+  const proches = sites.map((s) => Math.abs(s._t - curseur));
+  gHaut.selectAll('.lieu').each(function (s, i) {
+    const pr = Math.max(0, 1 - proches[i] / 0.06);
+    d3.select(this).select('.halo').attr('opacity', pr * 0.8).attr('r', 10 + pr * 14);
+    d3.select(this).select('text').attr('opacity', pr > 0.35 ? 1 : 0);
+  });
+  if (curseur > 0) { const s = sites[d3.minIndex(proches)]; if (s !== actif) montrer(s); }
+}
+
+function montrer(s, ouvrirGrand) {
+  actif = s;
+  grand = !!ouvrirGrand;
+  const b = E.bornes(ens, s.ref);
+  const texte = E.texteLieu(s);
+  const phrase = texte.split(/(?<=\.)\s/)[0];
+  bulle.innerHTML = `${s.media ? `<img src="${E.echapper(s.media.url)}" alt=""><div class="credit">${E.echapper(s.media.credit || '')}</div>` : ''}
+    <div class="corps"><div class="metier">${E.echapper(E.metier(s))}</div><h3>${E.echapper(s.nomCourt)}</h3>
+    <div class="ou">${E.echapper(s.commune)}</div>${b ? `<div class="dates">${b.debut}${b.dernier !== b.debut ? ' — ' + b.dernier : ''}</div>` : ''}
+    <p class="resume">${E.echapper(phrase)}</p><p class="plus">${E.echapper(texte)}</p>
+    <div class="actions"><button class="lire" type="button">${grand ? 'Réduire' : 'Lire son histoire'}</button><a href="${E.echapper(s.url)}" target="_blank" rel="noopener">Dossier d'inventaire</a></div></div>`;
+  bulle.classList.toggle('grande', grand);
+  bulle.querySelector('.lire').onclick = () => { arreter(); montrer(s, !grand); };
+  bulle.classList.add('visible');
+  placerBulle();
+}
+
+function cacherBulle() { actif = null; bulle.classList.remove('visible'); }
+
+function placerBulle() {
+  if (!actif) return;
+  const [x, y] = T.apply(actif._xy);
+  const w = bulle.offsetWidth, h = bulle.offsetHeight;
+  let left = x + 22, top = y - h - 22;
+  if (left + w > innerWidth - 20) left = x - w - 22;
+  if (top < 20) top = Math.min(innerHeight - h - 110, y + 22);
+  bulle.style.left = left + 'px'; bulle.style.top = top + 'px';
+}
+
+function jouer() {
+  if (jeu) return arreter();
+  document.getElementById('jouer').textContent = '❚❚';
+  if (curseur >= 1) curseur = 0;
+  let avant = performance.now();
+  jeu = d3.timer((now) => { const dt = now - avant; avant = now; aller(curseur + dt / 60000); if (curseur >= 1) arreter(); });
+}
+function arreter() { if (jeu) jeu.stop(); jeu = null; document.getElementById('jouer').textContent = '▶'; }
+
+// le courant
+function couler() {
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.setTransform(DPR * T.k, 0, 0, DPR * T.k, DPR * T.x, DPR * T.y);
+  ctx.lineCap = 'round';
+  for (const p of particules) {
+    if (!E.moinsDeMouvement) p.d = (p.d + p.v) % p.t.long;
+    const { xy, cum } = p.t;
+    let i = d3.bisectRight(cum, p.d) - 1; i = Math.max(0, Math.min(xy.length - 2, i));
+    const r = (p.d - cum[i]) / (cum[i + 1] - cum[i] || 1);
+    const x = xy[i][0] + (xy[i + 1][0] - xy[i][0]) * r, y = xy[i][1] + (xy[i + 1][1] - xy[i][1]) * r;
+    const dx = (xy[i + 1][0] - xy[i][0]), dy = (xy[i + 1][1] - xy[i][1]), n = Math.hypot(dx, dy) || 1;
+    const l = (p.t.principale ? 5 : 3) / Math.sqrt(T.k);
+    ctx.strokeStyle = p.t.principale ? 'rgba(220,245,250,.95)' : 'rgba(210,238,245,.8)';
+    ctx.lineWidth = (p.t.principale ? 1.6 : 0.9) / T.k;
+    ctx.beginPath(); ctx.moveTo(x - (dx / n) * l, y - (dy / n) * l); ctx.lineTo(x, y); ctx.stroke();
+  }
+  requestAnimationFrame(couler);
+}
+
+document.getElementById('jouer').onclick = jouer;
+document.getElementById('rail').addEventListener('keydown', (e) => {
+  const pas = e.shiftKey ? 0.1 : 0.02;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); arreter(); aller(curseur + pas); }
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); arreter(); aller(curseur - pas); }
+  if (e.key === 'Home') { arreter(); aller(0); cacherBulle(); }
+  if (e.key === 'End') { arreter(); aller(1); }
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { arreter(); cacherBulle(); aller(0); } });
+window.addEventListener('hashchange', dessiner);
+let att; window.addEventListener('resize', () => { clearTimeout(att); att = setTimeout(dessiner, 250); });
+document.fonts.ready.then(() => { dessiner(); requestAnimationFrame(couler); });
+</script>
+</body>
+</html>
