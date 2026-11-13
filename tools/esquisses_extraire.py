@@ -61,7 +61,7 @@ def altitudes(code: str, bbox: tuple[float, float, float, float]) -> dict:
         brut.append(corps.decode("utf-8"))
         valeurs += json.loads(corps)["elevations"]
     BRUT.mkdir(parents=True, exist_ok=True)
-    jour = dt.date.today().isoformat()
+    jour = dt.datetime.now(dt.UTC).date().isoformat()
     chemin = BRUT / f"{jour}_{code}.json"
     chemin.write_text(json.dumps({"bbox": bbox, "pas": PAS, "lots": brut}), encoding="utf-8")
     meta = {
