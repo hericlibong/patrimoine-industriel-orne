@@ -82,4 +82,61 @@ quelques emprunts aux autres esquisses. Ce ne sera pas une somme des trois.
 
 ## Esquisse C — Le temps qui défile
 
-*En attente du retour du porteur.*
+**Qualités relevées par le porteur.**
+
+- C'est celle qui lui parle le plus personnellement : il aime les animations et
+  les données.
+- L'idée de faire défiler le temps est originale et « pas mauvaise ».
+
+**Défauts relevés par le porteur.**
+
+- C'est la moins pratique, la moins fonctionnelle, et celle qui crée le plus de
+  confusion.
+- Avant 1789, la lecture tient. À partir de 1789, tout s'accélère et le
+  défilement va trop vite.
+- On ne sait pas à quoi correspondent les **barres** de la frise.
+- Le curseur est difficile à manipuler à la souris.
+- On ne sait pas à quoi correspondent les **chiffres affichés sur le côté**.
+- Il manque le filtre par **métier**. Le temps devrait pouvoir se décliner par
+  métier, par exemple « la métallurgie seule ».
+- La formule convient à la Risle, riche en industries. Elle conviendra mal aux
+  petits ensembles. Et on ne voit pas comment l'appliquer à un lieu individuel.
+
+**Le doute de fond.** Le porteur aime l'idée mais ne sait pas si elle sert ce
+récit. Le fil de l'eau fait remonter une rivière, la frise fait remonter le
+temps : ce sont deux récits différents, et il faudra choisir.
+
+**Reformulation.** L'exécution brouille l'idée. Trois éléments n'étaient pas
+expliqués à l'écran : les barres comptent les faits datés par tranche d'années ;
+la vitesse change parce que la frise est comprimée avant 1789 ; et les deux
+compteurs sous l'année distinguent les lieux en activité connue des lieux dont
+l'arrêt est documenté. Un défaut de lecture aussi massif est un défaut de
+conception, pas seulement d'explication.
+
+## Limite commune du jugement
+
+Le porteur ne peut juger que l'effet des esquisses sur un ensemble. Il ne peut
+pas juger leur effet sur le récit entier : il manque l'arrivée, la carte de
+l'Orne, le choix initial par période ou par métier, le choix entre un ensemble
+et un lieu, et les autres ensembles.
+
+## Synthèse — qualités et défauts des trois esquisses
+
+| | A — L'atlas | B — Le fil de l'eau | C — Le temps qui défile |
+| --- | --- | --- | --- |
+| Point fort | clarté du récit, navigation facile | beauté de l'animation, envie d'en savoir plus | originalité, goût du porteur pour le temps et les données |
+| Point faible | style « trop IA normé », peu spectaculaire | cale dans un navigateur ordinaire, complexe | confusion : barres, curseur, vitesse, chiffres |
+| Filtre par époque | absent | absent | présent, mais confus |
+| Filtre par métier | présent, dans la légende | absent | absent |
+| Transposable aux petits ensembles | probablement | incertain, faute de grande rivière | mal, peu de faits datés |
+| Lieu individuel | fiche sur la carte | bulle sur la carte | carton sur la carte, avec la frise propre au lieu |
+| Mobile | non éprouvé | douteux | non éprouvé |
+| À garder possiblement | la lisibilité, la légende qui filtre | l'eau qui coule, la balade en fil rouge | le temps comme levier, la frise propre à chaque lieu |
+
+Les trois partagent le même manque : elles commencent au deuxième niveau du
+parcours.
+
+## Suite — en discussion, aucune décision
+
+Question posée par le porteur : reprendre les trois esquisses avec tout le
+parcours, ou en faire une nouvelle ?
