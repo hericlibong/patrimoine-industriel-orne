@@ -3240,3 +3240,36 @@ d'en vérifier la licence ; dessiner routes ou forêts par époque sans source.
 Décision : **la phase 10.E est ouverte ; trois esquisses sont soumises au
 jugement du porteur ; aucune direction n'est retenue.**
 
+
+## 2026-11-14 — Retours sur les trois esquisses et quatrième esquisse complète
+
+Le porteur a jugé les trois esquisses une à une. Ses retours sont consignés
+dans `docs/phase10_esquisses_retours.md`, chacun avec sa reformulation, puis
+réunis dans un tableau des qualités et des défauts.
+
+- L'atlas est le plus clair, mais son style est jugé « trop IA normé » et il ne
+  permet pas de choisir une période.
+- Le fil de l'eau est le plus beau. Il est taillé pour la Risle et cale dans un
+  navigateur ordinaire.
+- Le temps qui défile est l'idée qui lui parle le plus, mais l'exécution la plus
+  confuse.
+
+Le reproche commun est le plus important : les trois esquisses commencent
+directement sur un ensemble. Le parcours arrêté commence pourtant sur l'Orne,
+avec les époques et les métiers, avant d'aller vers un ensemble ou vers un
+lieu.
+
+Recommandation retenue par le porteur : une seule nouvelle esquisse, sur tout
+le parcours. Elle part de la clarté de l'atlas, emprunte l'eau animée du fil de
+l'eau en version légère et reprend le temps de la frise sous forme de filtre.
+Les trois premières esquisses sont conservées comme source d'inspiration.
+L'option écartée consistait à refaire les trois esquisses sur le parcours
+entier : cela triplait le coût pour comparer des partis déjà jugés.
+
+L'esquisse D est construite dans `prototype/esquisses/orne.html`. Le relief de
+l'Orne entière est ajouté depuis le même service IGN, au pas de 0,015 degré, et
+sa réponse brute est archivée. Les contrôles faits dans le navigateur intégré, à
+1440 et 375 pixels, et ses limites sont listés dans le document des retours.
+
+Décision : **la quatrième esquisse, sur le parcours complet, est soumise au
+jugement du porteur ; aucune direction n'est encore arrêtée.**

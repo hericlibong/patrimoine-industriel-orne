@@ -136,7 +136,50 @@ et un lieu, et les autres ensembles.
 Les trois partagent le même manque : elles commencent au deuxième niveau du
 parcours.
 
-## Suite — en discussion, aucune décision
+## Suite — décision du 14 novembre 2026
 
 Question posée par le porteur : reprendre les trois esquisses avec tout le
-parcours, ou en faire une nouvelle ?
+parcours, ou en faire une nouvelle ? Il retient la recommandation : **une
+quatrième esquisse, sur tout le parcours**. Il demande de conserver les trois
+premières comme source d'inspiration.
+
+## Esquisse D — L'Orne, parcours complet
+
+Fichier `prototype/esquisses/orne.html`. Ce qu'elle reprend :
+
+- **De A** : la clarté, la légende qui filtre, la fiche posée sur la carte. Le
+  style change pour un registre d'imprimerie à deux encres, bleu de Prusse et
+  vermillon. Le relief y est une trame de points, plus un ombrage gris.
+- **De B** : l'eau qui coule dans le sens du courant, réduite à deux tracés
+  animés par ensemble au lieu de milliers de particules. C'est la réponse au
+  calage.
+- **De C** : le temps, sous forme de six « strates » cliquables. Chacune donne
+  son nom, ses dates et son nombre de lieux, recalculé selon le métier choisi.
+
+Le parcours :
+
+1. On arrive sur le titre, le texte d'introduction et la carte de l'Orne : le
+   relief, les douze ensembles en ronds proportionnels et les lieux hors
+   ensemble.
+2. Les époques et les métiers filtrent dès cette carte, et se combinent.
+3. Un clic sur la Risle ou Crulai fait descendre la carte vers l'ensemble, sans
+   changer de page. Les dix autres ensembles affichent une fiche qui le dit :
+   vue détaillée pas encore construite.
+4. Un lieu s'ouvre sur la carte, depuis un ensemble, depuis l'Orne ou depuis la
+   recherche.
+5. L'état est écrit dans l'adresse après le `#` : vue, époque, métier, lieu.
+
+Éprouvée le 14 novembre 2026 dans le navigateur intégré, à 1440 pixels et à
+375 pixels. Contrôles faits : l'arrivée, la descente vers la Risle et vers
+Crulai, le filtre combiné « métallurgie, 1850-1913 », qui donne 23 lieux sur la
+Risle, la fiche de lieu, la recherche « avoise » et la fiche en volet bas sur
+mobile.
+
+**Limites connues :**
+
+- Le total affiché est de 321 lieux. Les trois compléments ajoutés depuis dans
+  le projet principal ne sont pas encore sur cette branche.
+- Sur mobile, les noms des ensembles de l'est sont coupés au bord de la carte.
+- Les lieux hors ensemble n'ont qu'une fiche réduite, sauf les compléments
+  sourcés : seules les données de la vue de référence sont reprises.
+- La fluidité dans un navigateur ordinaire reste à vérifier par le porteur.

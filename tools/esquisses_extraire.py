@@ -14,6 +14,7 @@ from __future__ import annotations
 import datetime as dt
 import hashlib
 import json
+import time
 import urllib.request
 from pathlib import Path
 
@@ -42,11 +43,11 @@ def emprise(ensemble: dict) -> tuple[float, float, float, float]:
     return min(xs) - MARGE, min(ys) - MARGE, max(xs) + MARGE, max(ys) + MARGE
 
 
-def altitudes(code: str, bbox: tuple[float, float, float, float]) -> dict:
+def altitudes(code: str, bbox: tuple[float, float, float, float], pas: float = PAS) -> dict:
     x0, y0, x1, y1 = bbox
-    nx = int((x1 - x0) / PAS) + 1
-    ny = int((y1 - y0) / PAS) + 1
-    pts = [(x0 + i * PAS, y1 - j * PAS) for j in range(ny) for i in range(nx)]
+    nx = int((x1 - x0) / pas) + 1
+    ny = int((y1 - y0) / pas) + 1
+    pts = [(x0 + i * pas, y1 - j * pas) for j in range(ny) for i in range(nx)]
     valeurs: list[float] = []
     brut = []
     for k in range(0, len(pts), LOT):
@@ -56,14 +57,21 @@ def altitudes(code: str, bbox: tuple[float, float, float, float]) -> dict:
             f"&lat={'|'.join(f'{p[1]:.5f}' for p in lot)}"
             "&resource=ign_rge_alti_wld&zonly=true"
         )
-        with urllib.request.urlopen(url, timeout=60) as rep:
-            corps = rep.read()
+        for essai in range(4):
+            try:
+                with urllib.request.urlopen(url, timeout=90) as rep:
+                    corps = rep.read()
+                break
+            except OSError:
+                if essai == 3:
+                    raise
+                time.sleep(5 * (essai + 1))
         brut.append(corps.decode("utf-8"))
         valeurs += json.loads(corps)["elevations"]
     BRUT.mkdir(parents=True, exist_ok=True)
     jour = dt.datetime.now(dt.UTC).date().isoformat()
     chemin = BRUT / f"{jour}_{code}.json"
-    chemin.write_text(json.dumps({"bbox": bbox, "pas": PAS, "lots": brut}), encoding="utf-8")
+    chemin.write_text(json.dumps({"bbox": bbox, "pas": pas, "lots": brut}), encoding="utf-8")
     meta = {
         "source": "IGN Géoplateforme — altimétrie, ressource ign_rge_alti_wld",
         "url": URL,
@@ -72,7 +80,7 @@ def altitudes(code: str, bbox: tuple[float, float, float, float]) -> dict:
         "licence": "Licence ouverte Etalab 2.0",
     }
     chemin.with_suffix(".metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
-    return {"x0": x0, "y1": y1, "pas": PAS, "nx": nx, "ny": ny,
+    return {"x0": x0, "y1": y1, "pas": pas, "nx": nx, "ny": ny,
             "z": [round(v, 1) for v in valeurs]}
 
 
@@ -95,6 +103,21 @@ def main() -> None:
             "bourgs": ens.get("reperes", {}).get("bourgs", []),
             "relief": altitudes(code, emprise(ens)),
         }
+    dep = d["departement"]
+    contour = dep["contour"][0]
+    bbox = (
+        min(p[0] for p in contour) - 0.02, min(p[1] for p in contour) - 0.02,
+        max(p[0] for p in contour) + 0.02, max(p[1] for p in contour) + 0.02,
+    )
+    sortie["departement"] = {
+        "contour": dep["contour"],
+        "ensembles": dep["systemes"],
+        "autresLieux": dep["autresSites"],
+        "complements": d.get("complements", {}),
+        "nbLieux": dep["nbSites"],
+        "nbLieuxInventaire": dep["nbSitesInventaire"],
+        "relief": altitudes("orne", bbox, pas=0.015),
+    }
     SORTIE.parent.mkdir(parents=True, exist_ok=True)
     SORTIE.write_text(
         "window.DONNEES = " + json.dumps(sortie, ensure_ascii=False) + ";\n", encoding="utf-8"
