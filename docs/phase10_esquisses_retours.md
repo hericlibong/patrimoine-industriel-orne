@@ -46,7 +46,39 @@ s'assurer que toutes les informations y sont.
 
 ## Esquisse B — Le fil de l'eau
 
-*En attente du retour du porteur.*
+**Qualités relevées par le porteur.**
+
+- L'animation est « vraiment très jolie ». Elle donne tout de suite envie d'en
+  savoir plus.
+- La descente de l'amont vers l'aval fonctionne comme une **balade** : c'est
+  original, et l'originalité est appréciée.
+
+**Défauts et réserves relevés par le porteur.**
+
+- La formule est taillée pour la vallée de la Risle. Rien ne dit que les autres
+  ensembles se prêteront au jeu.
+- La balade ne peut pas être la seule manière d'explorer. Il faut aussi pouvoir
+  choisir les lieux par **période** et par **métier**.
+- Dans un navigateur ordinaire, l'esquisse **cale beaucoup**, alors qu'elle
+  tournait correctement dans le navigateur intégré. Elle est jugée complexe.
+- Sa lisibilité sur **mobile** est mise en doute.
+
+**Reformulation.** La balade est une bonne idée de **fil rouge**, une façon
+parmi d'autres de visiter les lieux. Elle ne remplace pas les filtres d'époque
+et de métier. Deux questions restent ouvertes : sa transposition à des ensembles
+sans grande rivière, comme Crulai, et son coût sur une machine ordinaire. Le
+calage a une cause technique probable : des milliers de particules redessinées
+à chaque image. Elle reste à vérifier.
+
+## Remarque générale — récupérer des éléments sans tout garder
+
+**Ce que dit le porteur.** Chacune des trois esquisses contient des éléments
+qu'on pourra récupérer et aménager dans la composition finale. On ne jette pas
+tout. Mais il faudra à un moment une direction très claire, avec **un élément
+fort qui dirige**. On ne peut pas composer avec tout.
+
+**Reformulation.** Le choix final sera une direction principale, enrichie de
+quelques emprunts aux autres esquisses. Ce ne sera pas une somme des trois.
 
 ## Esquisse C — Le temps qui défile
 
