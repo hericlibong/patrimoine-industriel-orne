@@ -183,3 +183,41 @@ mobile.
 - Les lieux hors ensemble n'ont qu'une fiche réduite, sauf les compléments
   sourcés : seules les données de la vue de référence sont reprises.
 - La fluidité dans un navigateur ordinaire reste à vérifier par le porteur.
+
+## Retours du porteur sur l'esquisse D (16 novembre 2026)
+
+**Statut :** notés et mis de côté. On y reviendra.
+
+**Ce qui ne plaît pas.**
+
+- **La colonne.** La réticence existait déjà pour la colonne de droite. Une
+  colonne à gauche, où les informations défilent, en pleine page, ne convient
+  pas. Le porteur ne s'attendait pas à ce récit-là.
+- **La carte.** Elle n'est « pas jolie du tout », trop artificielle, trop fondue
+  dans le décor et dans un aspect générique : « c'est pas une carte, c'est un
+  jouet ».
+- **La typographie.** La police de titre étroite et haute est jugée grossière,
+  mal choisie et inadaptée.
+- **Le fond.** La couleur vieillie est stéréotypée.
+- **Le bilan de style.** Au lieu de sortir du « IA normé », l'esquisse s'y est
+  enfoncée davantage.
+- **Les métiers et les époques.** On aurait pu trouver mieux pour choisir un
+  métier, et mieux pour choisir une époque.
+
+**Ce qui plaît.**
+
+- **L'interactivité** fonctionne très bien, transitions comprises.
+- **La recherche** : elle donne un accent d'intelligence artificielle, puisqu'on
+  interroge directement la carte. Le porteur veut la développer plus tard, vers
+  une exploration assistée plus intuitive. C'est une piste, pas une demande
+  immédiate.
+
+**Ce qui gêne le jugement.** Tous les ensembles ne sont pas construits. La vue
+sera plus complète quand ils le seront. On pourra alors intégrer des éléments
+des autres esquisses, voire donner des particularités à certains ensembles :
+tous ne sont pas obligés d'avoir le même traitement.
+
+**Reformulation.** On garde la mécanique de l'esquisse D, c'est-à-dire le
+parcours, les filtres combinés, les transitions et la recherche. On remet en
+cause sa forme : la mise en page en colonne, la carte, la typographie, le fond,
+et le dessin des sélecteurs de métier et d'époque.
