@@ -69,7 +69,8 @@ h2 button{background:none;border:0;padding:0;cursor:pointer;font:inherit;letter-
 .pied a{color:var(--encre2)}
 /* carte */
 .scene{position:relative;padding:22px;min-width:0}
-.cadre{position:relative;height:100%;border:1.5px solid var(--cadre);background:#f7f3ea;overflow:hidden}
+.cadre{position:relative;height:100%;border:1.5px solid var(--cadre);background:#f7f3ea;overflow:hidden;transition:background .8s}
+.cadre.dans-ens{background:#e9e3d4}
 .cadre::after{content:'';position:absolute;inset:6px;border:.5px solid rgba(28,41,68,.35);pointer-events:none}
 svg#carte image{pointer-events:none}
 svg#carte{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
@@ -373,9 +374,12 @@ function couchesEnsemble(code) {
   const flou = gDetail.append('defs');
   flou.append('filter').attr('id', 'fl').html('<feGaussianBlur stdDeviation="12"/>');
   flou.append('mask').attr('id', 'bordsD').append('rect').attr('x', t.x + 25).attr('y', t.y + 25).attr('width', t.w - 50).attr('height', t.h - 50).attr('fill', '#fff').attr('filter', 'url(#fl)');
-  gDetail.append('rect').attr('x', t.x).attr('y', t.y).attr('width', t.w).attr('height', t.h).attr('fill', '#f7f3ea').attr('mask', 'url(#bordsD)');
   gDetail.append('image').attr('href', t.href).attr('x', t.x).attr('y', t.y).attr('width', t.w).attr('height', t.h).attr('opacity', 0.28).attr('mask', 'url(#bordsD)');
-  // communes portant un lieu
+  // le territoire de l'ensemble : ses communes, posées en clair sur le fond
+  gDetail.append('g').selectAll('path').data(ens.communes).join('path')
+    .attr('d', (c) => c.anneaux.map((a) => 'M' + a.map((p) => proj(p[0], p[1]).join(',')).join('L') + 'Z').join(''))
+    .attr('fill', '#fdfbf6').attr('fill-opacity', (c) => (c.porteUnLieu ? 0.92 : 0)).attr('stroke', 'none');
+  // limites des communes
   gDetail.append('g').selectAll('path').data(ens.communes).join('path')
     .attr('d', (c) => c.anneaux.map((a) => 'M' + a.map((p) => proj(p[0], p[1]).join(',')).join('L') + 'Z').join(''))
     .attr('fill', 'none').attr('stroke', '#1c2944').attr('stroke-opacity', 0.16).attr('stroke-dasharray', '2 3').style('vector-effect', 'non-scaling-stroke');
@@ -405,9 +409,9 @@ function cadrage(code) {
   if (code === 'orne') return d3.zoomIdentity;
   const ens = DETAIL[code];
   const pts = ens.sites.filter((s) => s.lon != null).map((s) => proj(s.lon, s.lat))
-    .concat(ens.eau.filter((e) => e.categorie === 'principale').flatMap((e) => e.points.map((p) => proj(p[0], p[1]))));
+    .concat(ens.communes.filter((c) => c.porteUnLieu).flatMap((c) => c.anneaux.flat().map((p) => proj(p[0], p[1]))));
   const [x0, x1] = d3.extent(pts, (p) => p[0]), [y0, y1] = d3.extent(pts, (p) => p[1]);
-  const etroit = L < 600, mg = etroit ? 30 : 90, mh = etroit ? 80 : 110;
+  const etroit = L < 600, mg = etroit ? 16 : 50, mh = etroit ? 60 : 80;
   const k = Math.min((L - 2 * mg) / (x1 - x0 || 1), (H - 2 * mh) / (y1 - y0 || 1), 30);
   return d3.zoomIdentity.translate(L / 2 - ((x0 + x1) / 2) * k, H / 2 + (etroit ? 0 : 10) - ((y0 + y1) / 2) * k).scale(k);
 }
@@ -418,12 +422,21 @@ function appliquerVue(anime = true) {
   couchesEnsemble(code);
   const d = anime && !E.moinsDeMouvement ? 1300 : 0;
   const dansEns = code !== 'orne';
-  gOrne.select('.trame-orne').transition().duration(d).attr('opacity', dansEns ? 0 : 0.42);
+  cadre.classList.toggle('dans-ens', dansEns);
+  // Dans un ensemble, la carte se résume à lui : l'Orne, les autres ensembles et
+  // les lieux hors ensemble disparaissent, et la navigation reste bornée à son emprise.
+  [gOrne, gEnsembles, gAutres].forEach((g) => {
+    if (!dansEns) g.attr('display', null);
+    g.interrupt().transition().duration(d * 0.5).attr('opacity', dansEns ? 0 : 1).on('end', () => g.attr('display', dansEns ? 'none' : null));
+  });
   gDetail.transition().delay(dansEns ? d * 0.45 : 0).duration(d * 0.6).attr('opacity', dansEns ? 1 : 0);
-  gEnsembles.transition().duration(d * 0.5).attr('opacity', dansEns ? 0 : 1).on('end', () => gEnsembles.attr('display', dansEns ? 'none' : null));
-  if (!dansEns) gEnsembles.attr('display', null);
-  gAutres.transition().duration(d * 0.5).attr('opacity', dansEns ? 0.35 : 1);
-  svg.transition().duration(d).ease(d3.easeCubicInOut).call(zoom.transform, cadrage(code));
+  const cible = cadrage(code);
+  zoom.scaleExtent([0.9, 40]).translateExtent([[-Infinity, -Infinity], [Infinity, Infinity]]);
+  svg.transition().duration(d).ease(d3.easeCubicInOut).call(zoom.transform, cible).on('end', () => {
+    if (!dansEns) return;
+    const t = cacheDetail[code];
+    zoom.scaleExtent([cible.k, cible.k * 6]).translateExtent([[t.x + 30, t.y + 30], [t.x + t.w - 30, t.y + t.h - 30]]);
+  });
   gLieux.selectAll('.lieu .marque').attr('transform', 'scale(0)').transition().delay((s, i) => d * 0.6 + i * 18).duration(350).ease(d3.easeBackOut.overshoot(2)).attr('transform', 'scale(1)');
   majColonne();
   appliquerFiltres(anime);

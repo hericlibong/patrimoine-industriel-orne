@@ -221,3 +221,21 @@ tous ne sont pas obligés d'avoir le même traitement.
 parcours, les filtres combinés, les transitions et la recherche. On remet en
 cause sa forme : la mise en page en colonne, la carte, la typographie, le fond,
 et le dessin des sélecteurs de métier et d'époque.
+
+## Correction 1 de l'esquisse D — l'ensemble ouvert occupe seul la carte (17 novembre 2026)
+
+**Ce que dit le porteur.** Quand on ouvre un ensemble, la carte doit se
+résumer à lui, comme dans la vue de référence. L'esquisse D zoomait sur la
+Risle mais laissait visible et accessible le reste de l'Orne.
+
+**Ce qui est corrigé.** À l'ouverture de la Risle ou de Crulai, le contour de
+l'Orne, sa trame de relief, les autres ensembles et les lieux hors ensemble
+s'effacent. Seules les communes qui portent un lieu de l'ensemble sont posées
+en clair ; le reste du cadre passe en teinte de fond. Le cadrage se fait sur ces
+communes, et non plus sur les seuls lieux, ce qui corrige aussi le zoom trop
+serré de Crulai. Une fois l'ensemble ouvert, on ne peut ni dézoomer ni glisser
+au-delà de son emprise. Le retour à l'Orne rétablit tout.
+
+**Vérifié** dans le navigateur intégré à 1440 pixels sur la Risle et sur
+Crulai. Le zoom arrière est bloqué, de même que le déplacement hors de
+l'emprise, et le retour à l'Orne rétablit les couches.
