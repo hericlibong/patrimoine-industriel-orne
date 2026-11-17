@@ -3291,3 +3291,20 @@ de conception, autre habillage) ; reprendre D correction par correction.
 Décision : **ouvrir la branche `claude/recherche-artistique`, depuis la branche
 des esquisses, qui restent intactes ; le chantier est en brainstorming, aucune
 direction n'est arrêtée, et son premier essai reste à choisir par le porteur.**
+
+## 2026-11-17 — Premier essai de recherche artistique : la carte seule
+
+Le porteur choisit de commencer par la carte de l'Orne seule, sans colonne ni
+filtre. Le défaut constaté sur l'esquisse D était une carte pauvre en
+géographie : il faut d'abord de nouvelles données. Rivières (BD TOPO, tronçons
+d'ordre 3 et plus), forêts publiques actuelles, villes de plus de 2 000
+habitants et relief plus fin sont extraits de l'IGN sous Licence ouverte, avec
+leurs réponses brutes archivées. Trois traitements de la même carte sont
+proposés : topographique, encre, nuit. Détails dans
+`docs/phase10_recherche_artistique.md`, section 5.
+
+Les forêts sont celles d'aujourd'hui et sont présentées comme telles : aucune
+couche ne prétend montrer un paysage ancien.
+
+Décision : **trois traitements de la carte seule sont soumis au jugement du
+porteur ; aucun n'est retenu.**

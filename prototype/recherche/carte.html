@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carte seule — trois traitements</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--fond:#eef0ec;--encre:#1f2a33;--doux:#5d6a72}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--fond);color:var(--encre);font-family:'Source Sans 3',system-ui,sans-serif}
+canvas{display:block;width:100vw;height:100vh;cursor:grab}
+canvas:active{cursor:grabbing}
+.choix{position:fixed;left:24px;bottom:22px;display:flex;gap:4px;padding:4px;border-radius:999px;background:rgba(255,255,255,.72);backdrop-filter:blur(6px);box-shadow:0 1px 8px rgba(0,0,0,.08)}
+.choix button{font:600 13px 'Source Sans 3',sans-serif;border:0;background:none;color:#33414b;padding:7px 14px;border-radius:999px;cursor:pointer}
+.choix button[aria-pressed=true]{background:#1f2a33;color:#fff}
+body.nuit .choix{background:rgba(20,28,36,.7)}
+body.nuit .choix button{color:#c9d3da}
+body.nuit .choix button[aria-pressed=true]{background:#e9eef1;color:#16202a}
+.note{position:fixed;right:24px;bottom:24px;max-width:360px;font-size:12px;line-height:1.45;color:#5d6a72;text-align:right}
+body.nuit .note{color:#8796a1}
+.bulle{position:fixed;pointer-events:none;padding:5px 9px;font-size:13px;background:#fff;color:#1f2a33;border-radius:4px;box-shadow:0 2px 10px rgba(0,0,0,.15);display:none;max-width:280px}
+</style>
+</head>
+<body>
+<canvas id="c" aria-label="Carte de l'Orne : relief, rivières, forêts publiques, villes, lieux du patrimoine industriel"></canvas>
+<div class="choix" role="group" aria-label="Traitement de la carte">
+  <button data-t="topo" aria-pressed="true">1 · Topographique</button>
+  <button data-t="encre" aria-pressed="false">2 · Encre</button>
+  <button data-t="nuit" aria-pressed="false">3 · Nuit</button>
+</div>
+<div class="note">Essai interne de recherche artistique — carte seule, sans interface. Fond : IGN, BD TOPO et RGE ALTI, Licence ouverte. Les forêts sont les forêts publiques <em>actuelles</em>. Molette pour zoomer, glisser pour déplacer.</div>
+<div class="bulle" id="bulle"></div>
+<script src="../esquisses/d3.min.js"></script>
+<script src="carte_donnees.js?v=3"></script>
+<script>
+const C = window.CARTE;
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const bulle = document.getElementById('bulle');
+let W, H, dpr, base, transform = d3.zoomIdentity, theme = 'topo';
+
+// --- Thèmes -------------------------------------------------------------
+const THEMES = {
+  topo: {
+    fond: '#e9ece6', hors: 'rgba(233,236,230,.72)',
+    hypso: [[60,'#dfe6d8'],[150,'#e9e8d6'],[250,'#e4dcc6'],[420,'#d6c9ae']],
+    ombre: 0.62, courbes: null,
+    eau: '#3e7896', eauHalo: 'rgba(233,236,230,.9)',
+    foret: 'rgba(122,150,112,.42)', foretTrait: 'rgba(84,112,76,.55)', hachure: null,
+    contour: '#2a3640', contourL: 1.3,
+    ville: '#22303a', villeTxt: '#22303a', halo: 'rgba(240,242,237,.9)',
+    lieu: '#a2322a', lieuBord: '#fff', lieuR: 2.1,
+    ens: '#1f2a33', foretTxt: '#4f6a46', riviereTxt: '#2f6582'
+  },
+  encre: {
+    fond: '#f6f6f2', hors: 'rgba(246,246,242,.8)',
+    hypso: null, ombre: 0.0, courbes: {pas: 20, trait: 'rgba(60,72,80,.22)', maitre: 'rgba(60,72,80,.42)'},
+    eau: '#1c5a8c', eauHalo: null,
+    foret: null, foretTrait: 'rgba(48,88,64,.5)', hachure: 'rgba(48,88,64,.5)',
+    contour: '#141c22', contourL: 1.6,
+    ville: '#141c22', villeTxt: '#141c22', halo: 'rgba(246,246,242,.92)',
+    lieu: '#141c22', lieuBord: '#f6f6f2', lieuR: 1.9,
+    ens: '#141c22', foretTxt: '#30584a', riviereTxt: '#1c5a8c'
+  },
+  nuit: {
+    fond: '#141c25', hors: 'rgba(20,28,37,.72)',
+    hypso: [[60,'#1b2632'],[200,'#212e3b'],[420,'#2a3846']], ombre: 0.75, courbes: null, clair: true,
+    eau: '#6fa6c8', eauHalo: null,
+    foret: 'rgba(70,110,92,.32)', foretTrait: 'rgba(110,150,128,.35)', hachure: null,
+    contour: 'rgba(214,226,234,.55)', contourL: 1,
+    ville: '#b9c6cf', villeTxt: '#aebbc4', halo: 'rgba(20,28,37,.85)',
+    lieu: '#ffcf7a', lieuBord: null, lieuR: 1.7, lueur: true,
+    ens: '#e7edf1', foretTxt: '#7fa292', riviereTxt: '#7fb0cf'
+  }
+};
+
+// --- Projection ---------------------------------------------------------
+const anneau = C.contour[0];
+const lon0 = d3.mean(anneau, (p) => p[0]), lat0 = d3.mean(anneau, (p) => p[1]);
+const kx = Math.cos(lat0 * Math.PI / 180);
+const px = (lon) => (lon - lon0) * kx, py = (lat) => -(lat - lat0);
+function cadrer() {
+  const xs = anneau.map((p) => px(p[0])), ys = anneau.map((p) => py(p[1]));
+  const [x0, x1] = d3.extent(xs), [y0, y1] = d3.extent(ys);
+  const s = Math.min((W - 120) / (x1 - x0), (H - 120) / (y1 - y0));
+  base = {s, tx: W / 2 - s * (x0 + x1) / 2, ty: H / 2 - s * (y0 + y1) / 2};
+}
+const X = (lon) => transform.applyX(base.tx + base.s * px(lon));
+const Y = (lat) => transform.applyY(base.ty + base.s * py(lat));
+
+// --- Relief : ombrage et teintes calculés une fois par thème --------------
+const R = C.relief;
+const latR = (j) => R.y1 - j * R.pas, lonR = (i) => R.x0 + i * R.pas;
+function zAt(i, j) { i = Math.max(0, Math.min(R.nx - 1, i)); j = Math.max(0, Math.min(R.ny - 1, j)); return R.z[j * R.nx + i]; }
+const cacheRelief = {};
+function imageRelief(t) {
+  if (cacheRelief[theme]) return cacheRelief[theme];
+  const o = document.createElement('canvas'); o.width = R.nx; o.height = R.ny;
+  const g = o.getContext('2d'), im = g.createImageData(R.nx, R.ny);
+  const dxm = R.pas * 111320 * Math.cos(lat0 * Math.PI / 180), dym = R.pas * 110570, ex = 4;
+  const sources = [[315, 0.6], [270, 0.2], [0, 0.2]];
+  const teinte = t.hypso ? d3.scaleLinear().domain(t.hypso.map((h) => h[0])).range(t.hypso.map((h) => h[1])).clamp(true) : null;
+  for (let j = 0; j < R.ny; j++) for (let i = 0; i < R.nx; i++) {
+    const dzdx = ex * (zAt(i + 1, j) - zAt(i - 1, j)) / (2 * dxm);
+    const dzdy = ex * (zAt(i, j - 1) - zAt(i, j + 1)) / (2 * dym);
+    const pente = Math.atan(Math.hypot(dzdx, dzdy)), asp = Math.atan2(dzdy, -dzdx);
+    let l = 0;
+    for (const [az, w] of sources) {
+      const a = (360 - az + 90) * Math.PI / 180, h = 45 * Math.PI / 180;
+      l += w * Math.max(0, Math.sin(h) * Math.cos(pente) + Math.cos(h) * Math.sin(pente) * Math.cos(a - asp));
+    }
+    const k = (j * R.nx + i) * 4;
+    const c = teinte ? d3.rgb(teinte(zAt(i, j))) : d3.rgb(t.fond);
+    const ombre = 1 - t.ombre * (1 - l / Math.sin(Math.PI / 4));
+    const f = t.clair ? 0.75 + 0.6 * (l - 0.55) : ombre;
+    im.data[k] = c.r * f; im.data[k + 1] = c.g * f; im.data[k + 2] = c.b * f; im.data[k + 3] = 255;
+  }
+  g.putImageData(im, 0, 0);
+  return (cacheRelief[theme] = o);
+}
+let courbes = null;
+function lignesNiveau(pas) {
+  if (courbes) return courbes;
+  const seuils = d3.range(40, 440, pas);
+  courbes = d3.contours().size([R.nx, R.ny]).smooth(true).thresholds(seuils)(R.z.map((v) => (v < 0 ? 0 : v)))
+    .map((c) => ({v: c.value, anneaux: c.coordinates.flatMap((poly) => poly).map((a) => a.map(([i, j]) => [lonR(i - 0.5), latR(j - 0.5)]))}));
+  return courbes;
+}
+
+// --- Dessin -------------------------------------------------------------
+function chemin(pts, ferme) {
+  ctx.moveTo(X(pts[0][0]), Y(pts[0][1]));
+  for (let k = 1; k < pts.length; k++) ctx.lineTo(X(pts[k][0]), Y(pts[k][1]));
+  if (ferme) ctx.closePath();
+}
+function cheminContour() { ctx.beginPath(); for (const a of C.contour) chemin(a, true); }
+function texte(t, x, y, police, coul, halo, aligne = 'left') {
+  ctx.font = police; ctx.textAlign = aligne; ctx.textBaseline = 'middle';
+  if (halo) { ctx.lineWidth = 3.5; ctx.strokeStyle = halo; ctx.lineJoin = 'round'; ctx.strokeText(t, x, y); }
+  ctx.fillStyle = coul; ctx.fillText(t, x, y);
+}
+function boite(x, y, w, h, prises) {
+  for (const b of prises) if (x < b[2] && x + w > b[0] && y < b[3] && y + h > b[1]) return false;
+  prises.push([x, y, x + w, y + h]); return true;
+}
+
+const parOrdre = d3.sort(d3.groups(C.rivieres, (r) => r.ordre), (g) => g[0]);
+const lieux = [...C.lieuxEnsembles.map((l) => ({...l, dans: true})), ...C.autresLieux];
+let pointsEcran = [];
+
+function dessiner() {
+  const t = THEMES[theme], k = transform.k;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.fillStyle = t.fond; ctx.fillRect(0, 0, W, H);
+
+  // relief
+  if (t.hypso || t.ombre) {
+    const img = imageRelief(t);
+    ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+    const x0 = X(R.x0 - R.pas / 2), y0 = Y(R.y1 + R.pas / 2);
+    const x1 = X(R.x0 + (R.nx - 0.5) * R.pas), y1 = Y(R.y1 - (R.ny - 0.5) * R.pas);
+    ctx.drawImage(img, x0, y0, x1 - x0, y1 - y0);
+  }
+  if (t.courbes) {
+    for (const c of lignesNiveau(t.courbes.pas)) {
+      const maitre = c.v % 100 === 0;
+      ctx.beginPath(); for (const a of c.anneaux) chemin(a, true);
+      ctx.strokeStyle = maitre ? t.courbes.maitre : t.courbes.trait; ctx.lineWidth = maitre ? 0.8 : 0.45; ctx.stroke();
+    }
+  }
+
+  // forêts
+  for (const f of C.forets) {
+    ctx.beginPath(); for (const a of f.anneaux) chemin(a, true);
+    if (t.foret) { ctx.fillStyle = t.foret; ctx.fill('evenodd'); }
+    if (t.hachure) {
+      ctx.save(); ctx.clip('evenodd');
+      ctx.beginPath(); const pasH = 4;
+      for (let d = -H; d < W + H; d += pasH) { ctx.moveTo(d, 0); ctx.lineTo(d + H, H); }
+      ctx.strokeStyle = t.hachure; ctx.lineWidth = 0.5; ctx.stroke(); ctx.restore();
+      ctx.beginPath(); for (const a of f.anneaux) chemin(a, true);
+    }
+    ctx.strokeStyle = t.foretTrait; ctx.lineWidth = 0.6; ctx.stroke();
+  }
+
+  // rivières : tronçons groupés par ordre de Strahler, un tracé par ordre
+  const largeur = (o) => Math.max(0.35, 0.42 * (o - 2.2)) * Math.pow(k, 0.45);
+  const ordreMin = k > 2.2 ? 3 : 4;
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  for (const [o, rs] of parOrdre) {
+    if (o < ordreMin) continue;
+    ctx.beginPath(); for (const r of rs) chemin(r.pts);
+    if (t.eauHalo && o >= 5) { ctx.strokeStyle = t.eauHalo; ctx.lineWidth = largeur(o) + 2.2; ctx.stroke(); }
+    ctx.strokeStyle = t.eau; ctx.globalAlpha = o <= 3 ? 0.55 : o === 4 ? 0.8 : 1;
+    ctx.lineWidth = largeur(o); ctx.stroke(); ctx.globalAlpha = 1;
+  }
+
+  // hors département, voilé
+  ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, H); for (const a of C.contour) chemin(a, true);
+  ctx.fillStyle = t.hors; ctx.fill('evenodd'); ctx.restore();
+  cheminContour(); ctx.strokeStyle = t.contour; ctx.lineWidth = t.contourL; ctx.stroke();
+
+  // lieux
+  pointsEcran = [];
+  const r0 = t.lieuR * Math.min(2, Math.pow(k, 0.35));
+  if (t.lueur) {
+    ctx.globalCompositeOperation = 'lighter';
+    for (const l of lieux) {
+      const x = X(l.lon), y = Y(l.lat), g = ctx.createRadialGradient(x, y, 0, x, y, r0 * 7);
+      g.addColorStop(0, 'rgba(255,190,90,.22)'); g.addColorStop(1, 'rgba(255,190,90,0)');
+      ctx.fillStyle = g; ctx.fillRect(x - r0 * 7, y - r0 * 7, r0 * 14, r0 * 14);
+    }
+    ctx.globalCompositeOperation = 'source-over';
+  }
+  for (const l of lieux) {
+    const x = X(l.lon), y = Y(l.lat);
+    pointsEcran.push([x, y, l]);
+    ctx.beginPath(); ctx.arc(x, y, r0, 0, 2 * Math.PI);
+    if (t.lieuBord) { ctx.lineWidth = 1; ctx.strokeStyle = t.lieuBord; ctx.stroke(); }
+    ctx.fillStyle = t.lieu; ctx.fill();
+  }
+
+  // étiquettes, par ordre de priorité
+  const prises = [];
+  const serif = "'Source Serif 4', Georgia, serif", sans = "'Source Sans 3', sans-serif";
+  // villes
+  for (const v of C.villes) {
+    const grande = v.prefecture || v.sousPrefecture;
+    if (!grande && v.pop < (k > 2 ? 2000 : k > 1.3 ? 3000 : 4500)) continue;
+    const x = X(v.lon), y = Y(v.lat), taille = grande ? 15 : 12.5;
+    ctx.font = `${grande ? 600 : 400} ${taille}px ${sans}`;
+    const w = ctx.measureText(v.nom).width;
+    if (!boite(x + 6, y - taille / 2, w + 4, taille, prises)) continue;
+    ctx.beginPath(); ctx.rect(x - 2.5, y - 2.5, 5, 5); ctx.fillStyle = t.ville; ctx.fill();
+    texte(v.nom, x + 7, y, `${grande ? 600 : 400} ${taille}px ${sans}`, t.villeTxt, t.halo);
+  }
+  // rivières : une étiquette par nom, sur le plus long tracé
+  const parNom = d3.group(C.rivieres.filter((r) => r.ordre >= 5 && r.nom), (r) => r.nom);
+  for (const [nom, rs] of parNom) {
+    const r = d3.greatest(rs, (r) => r.pts.length);
+    if (r.pts.length < 6) continue;
+    const m = Math.floor(r.pts.length / 2), a = r.pts[Math.max(0, m - 2)], b = r.pts[Math.min(r.pts.length - 1, m + 2)];
+    const x = X(r.pts[m][0]), y = Y(r.pts[m][1]);
+    if (!d3.polygonContains(anneau, r.pts[m])) continue;
+    let ang = Math.atan2(Y(b[1]) - Y(a[1]), X(b[0]) - X(a[0]));
+    if (ang > Math.PI / 2) ang -= Math.PI; if (ang < -Math.PI / 2) ang += Math.PI;
+    const libelle = nom.replace(/^(La|Le|L')\s?/, (s) => s);
+    if (!boite(x - 40, y - 8, 80, 16, prises)) continue;
+    ctx.save(); ctx.translate(x, y); ctx.rotate(ang);
+    texte(libelle, 0, -7, `italic 400 12.5px ${serif}`, t.riviereTxt, t.halo, 'center');
+    ctx.restore();
+  }
+  // forêts
+  for (const f of C.forets) {
+    const a = d3.greatest(f.anneaux, (a) => a.length);
+    const aire = Math.abs(d3.polygonArea(a.map((p) => [X(p[0]), Y(p[1])])));
+    if (aire < 1800) continue;
+    const c = d3.polygonCentroid(a.map((p) => [X(p[0]), Y(p[1])]));
+    const nom = (f.nom || '').replace(/^Forêt (Domaniale|Communale|départementale)? ?(de |d'|des |du )?/i, '');
+    const lib = 'forêt ' + (/^[AEIOUÉÈ]/.test(nom) ? "d'" : 'de ') + nom;
+    ctx.font = `italic 400 12px ${serif}`;
+    const w = ctx.measureText(lib).width;
+    if (!boite(c[0] - w / 2, c[1] - 7, w, 14, prises)) continue;
+    texte(lib, c[0], c[1], `italic 400 12px ${serif}`, t.foretTxt, t.halo, 'center');
+  }
+  // ensembles
+  for (const e of C.ensembles) {
+    const x = X(e.lon), y = Y(e.lat);
+    const lib = e.nom.toUpperCase();
+    ctx.font = `600 10.5px ${sans}`;
+    const w = ctx.measureText(lib).width + lib.length * 1.2;
+    if (!boite(x - w / 2, y + 8, w, 13, prises)) continue;
+    ctx.letterSpacing = '1.2px';
+    texte(lib, x, y + 15, `600 10.5px ${sans}`, t.ens, t.halo, 'center');
+    ctx.letterSpacing = '0px';
+  }
+
+  // titre discret, posé sur la carte
+  texte("L'Orne", 36, 44, `400 30px ${serif}`, t.ens, null);
+  texte(`${C.nbLieux} lieux du patrimoine industriel`, 37, 72, `400 13px ${sans}`, t.ville, null);
+}
+
+// --- Mise en place ------------------------------------------------------
+function taille() {
+  dpr = window.devicePixelRatio || 1; W = innerWidth; H = innerHeight;
+  cv.width = W * dpr; cv.height = H * dpr; cadrer(); dessiner();
+}
+const zoom = d3.zoom().scaleExtent([0.8, 12]).on('zoom', (ev) => { transform = ev.transform; dessiner(); });
+d3.select(cv).call(zoom);
+cv.addEventListener('mousemove', (ev) => {
+  let best = null, dmin = 64;
+  for (const [x, y, l] of pointsEcran) { const d = (x - ev.clientX) ** 2 + (y - ev.clientY) ** 2; if (d < dmin) { dmin = d; best = l; } }
+  if (!best) { bulle.style.display = 'none'; return; }
+  bulle.textContent = best.nom; bulle.style.display = 'block';
+  bulle.style.left = ev.clientX + 12 + 'px'; bulle.style.top = ev.clientY + 12 + 'px';
+});
+function choisir(t) {
+  theme = t; document.body.classList.toggle('nuit', t === 'nuit');
+  document.documentElement.style.setProperty('--fond', THEMES[t].fond);
+  document.querySelectorAll('.choix button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.t === t));
+  history.replaceState(null, '', '#' + t); dessiner();
+}
+document.querySelectorAll('.choix button').forEach((b) => b.addEventListener('click', () => choisir(b.dataset.t)));
+addEventListener('keydown', (e) => { const t = {1: 'topo', 2: 'encre', 3: 'nuit'}[e.key]; if (t) choisir(t); });
+addEventListener('resize', taille);
+taille();
+document.fonts.ready.then(() => choisir(THEMES[location.hash.slice(1)] ? location.hash.slice(1) : 'topo'));
+</script>
+</body>
+</html>

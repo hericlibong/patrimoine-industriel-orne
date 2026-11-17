@@ -95,3 +95,44 @@ pas sans interface, tout le reste est de l'habillage.
 Par quoi commence le chantier ? Recommandation : **la carte de l'Orne seule**,
 sans colonne ni filtre, jugée à 1440 pixels, avec deux ou trois traitements
 comparés côte à côte. À trancher par le porteur.
+
+## 5. Premier essai — la carte seule (17 novembre 2026)
+
+Décision du porteur : on commence par la carte de l'Orne seule.
+
+**Fichier :** `prototype/recherche/carte.html`, servi par un serveur local
+(`python -m http.server 8771 --bind 127.0.0.1 --directory prototype`, puis
+`/recherche/carte.html`). Les touches 1, 2 et 3 changent de traitement.
+
+**Ce qui est nouveau dans les données.** Pour la première fois, la carte montre
+la géographie du département, toute de source IGN, Licence ouverte :
+
+- les rivières : 17 292 tronçons de la BD TOPO, d'ordre 3 et plus, dont
+  l'épaisseur suit l'ordre de la rivière (un ruisseau est fin, l'Orne est
+  épaisse) ;
+- les forêts publiques actuelles : 58 forêts domaniales et communales. Ce sont
+  les forêts d'aujourd'hui, et la carte le dit ;
+- les 25 communes de plus de 2 000 habitants ;
+- un relief quatre fois plus fin que dans l'esquisse D (pas de 0,0075°, environ
+  800 m).
+
+Script : `tools/carte_seule_extraire.py`. Réponses brutes archivées dans
+`data/raw/ign_carte_seule/` avec leur empreinte. Lieux et ensembles : ceux des
+esquisses, 321 lieux.
+
+**Les trois traitements.**
+
+1. **Topographique** — relief ombré et teintes douces selon l'altitude, eau
+   bleue, forêts en vert sauge, lieux en rouge sombre.
+2. **Encre** — fond clair, relief en courbes de niveau tous les 20 m, forêts
+   hachurées, eau bleu d'encre, lieux en noir.
+3. **Nuit** — fond ardoise, relief en lumière rasante, eau claire, lieux en
+   points de lumière chaude : le patrimoine apparaît comme des lumières dans le
+   paysage.
+
+Aucune colonne, aucun filtre : seulement le titre posé sur la carte, le zoom, et
+le nom d'un lieu au survol. Hors du département, la géographie continue sous un
+voile, pour que l'Orne ne flotte pas dans le vide.
+
+**Vérifié** à 1440 pixels dans le navigateur intégré, sur les trois traitements.
+Non vérifié : mobile, et la fluidité dans un navigateur ordinaire.
