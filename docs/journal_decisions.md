@@ -3273,3 +3273,21 @@ sa réponse brute est archivée. Les contrôles faits dans le navigateur intégr
 
 Décision : **la quatrième esquisse, sur le parcours complet, est soumise au
 jugement du porteur ; aucune direction n'est encore arrêtée.**
+
+## 2026-11-17 — Ouverture d'un chantier de recherche artistique
+
+Le porteur précise sa gêne devant l'esquisse D : tout est « d'un bloc »,
+colonne d'un côté, carte de l'autre, sans finesse, sans nuance ni variété de
+couleur. Il a fait relire l'esquisse par un autre assistant, dont les deux
+retours sont résumés et évalués dans `docs/phase10_recherche_artistique.md`.
+
+Constats partagés : la mécanique de D (parcours, filtres, transitions,
+recherche) est acquise ; sa forme ne l'est pas ; toutes les informations y ont
+le même poids visuel ; la carte manque de géographie perceptible.
+
+Options écartées pour l'instant : une esquisse E qui rhabillerait D (même défaut
+de conception, autre habillage) ; reprendre D correction par correction.
+
+Décision : **ouvrir la branche `claude/recherche-artistique`, depuis la branche
+des esquisses, qui restent intactes ; le chantier est en brainstorming, aucune
+direction n'est arrêtée, et son premier essai reste à choisir par le porteur.**
