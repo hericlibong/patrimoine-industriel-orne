@@ -294,45 +294,36 @@ erreur dans la console. Non vérifié : mobile. La finesse des graduations n'a p
 être jugée qu'à la résolution réduite des captures du navigateur intégré ; elle
 reste à juger par le porteur sur un écran réel.
 
-## 10. Empreinte écartée, affinement de A et B (18 novembre 2026)
+## 10. Empreinte écartée ; affinement de Gravure et de Carmin (18 novembre 2026)
 
-**Le retour sur D, Empreinte.** Le porteur n'est pas convaincu, et le regard
-extérieur non plus. Les graduations, les contours multiples et les ombres
-ajoutent de la complexité sans ajouter de force : la carte paraît plus décorée,
-pas mieux dessinée. Répétés cent cinquante fois, les petits symboles à trois
-éléments donnent une texture agitée. Les graduations évoquent un instrument de
-mesure, sans rapport avec le fond. D passe derrière A et B. Elle reste dans la
-page pour mémoire.
+**Le jugement du porteur sur D, Empreinte.** Pas convaincu. Le regard
+extérieur qu'il transmet précise : graduations, contours multiples et ombres
+ajoutent de la complexité sans ajouter de force ; répétés 149 fois, les
+symboles composés créent une texture agitée ; les graduations ne portent en
+pratique aucune information lisible. « Plus sophistiqué » a été compris comme
+« plus détaillé ». Ce qu'on cherche : une carte mieux dessinée, pas plus
+décorée. D est classée derrière A et B et n'est pas retenue comme base.
 
-**Ce que j'en retiens.** J'ai lu « plus sophistiqué » comme « plus détaillé ».
-La demande était l'inverse : sélectionner, proportionner, retirer.
+**Ce qui est demandé.** Deux affinements distincts, sans nouvelle famille
+graphique : A′, qui garde l'élégance de Gravure et donne plus d'autorité aux
+données ; B′, qui garde le contraste de Carmin et gagne en finesse. Ni contour
+superflu, ni texture, ni ombre, ni effet de gravure.
 
-**La consigne.** Pas de nouvelle famille graphique. On fait deux évolutions
-abouties : A′, à partir de Gravure, pour donner plus d'autorité aux données ; B′,
-à partir de Carmin, pour gagner en finesse. Aucun contour superflu, aucune
-texture, ombre ni effet de gravure. Le fond, les cercles, les lieux masqués des
-ensembles et la distinction des pilotes sont conservés, et les variantes
-existantes aussi.
+**Ce qui est fait.** Les deux variantes partagent la même règle de dessin. Seule
+la couleur change, bleu d'encre pour A′, carmin pour B′, avec des noms en
+italique pour B′.
 
-**Le parti pris commun.** Un seul élément par symbole. Ce qui détache un symbole
-du fond n'est pas un contour de plus, mais une **réserve** couleur papier, comme
-sur une carte imprimée où l'on interrompt le fond autour d'un signe.
+- **Lieux hors ensemble :** un disque plein, un peu plus grand que dans A (rayon
+  3,3 pixels à l'échelle du département), détaché du fond par un simple liseré
+  couleur papier. Une seule forme : plus de rond creux ni de losange.
+- **Ensembles :** cercles un peu plus grands que dans A, toujours
+  proportionnels à la racine du nombre de lieux. Les deux pilotes sont pleins,
+  avec le chiffre en blanc ; les dix autres sont couleur papier, cerclés d'un
+  trait de 1,6 pixel, avec le chiffre de la couleur du trait. Le chiffre est en
+  romain gras, à chasse fixe. Aucune ombre, aucun second cercle.
+- **Noms d'ensembles :** plus grands qu'avant (15,5 pixels pour les pilotes,
+  13,5 pour les autres), centrés sur la hauteur du cercle, à sa droite, sinon à
+  gauche, dessous ou dessus.
 
-- **Lieux hors ensemble.** Un disque plein, un peu plus grand que dans A et B (un
-  peu plus de 3 pixels de rayon), entouré d'une réserve fine. Il n'y a plus ni
-  point central ni anneau dans A, ni losange dans B.
-- **Ensembles.** Un disque proportionnel un peu plus grand, une réserve, et le
-  nombre de lieux en chiffres romains de texte, proportionnés au disque. Les
-  pilotes sont pleins ; les dix autres sont couleur papier, cerclés d'un trait
-  unique. Il n'y a ni ombre, ni double filet, ni graduation.
-- **Noms.** Centrés sur la hauteur du disque, à sa droite, à défaut à gauche,
-  dessous ou dessus. Les noms des pilotes sont en demi-gras.
-
-**Ce qui distingue les deux.**
-
-- **A′, Gravure affinée** : tout en encre bleu-noir, noms en romain.
-- **B′, Carmin affiné** : tout en carmin un peu plus profond que dans B, trait
-  des ensembles légèrement plus épais, noms en italique couleur encre chaude.
-
-**Vérifié** à 1440 pixels, en vue d'ensemble, sans erreur dans la console. Non
-vérifié : mobile ; finesse des réserves à juger sur un écran réel.
+**Vérifié** à 1440 pixels, version topographique, sans erreur dans la console.
+Non vérifié : mobile.

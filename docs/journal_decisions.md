@@ -3383,3 +3383,19 @@ B.
 
 Décision : **D n'est pas retenue comme référence ; A′ et B′ sont soumises au
 jugement du porteur, les variantes précédentes restent comparables.**
+
+## 2026-11-18 — Carte seule : Empreinte écartée, Gravure et Carmin affinées
+
+Le porteur n'est pas convaincu par la variante Empreinte. Le diagnostic retenu :
+l'ornementation (graduations, contours multiples, ombres) a remplacé le travail
+de dessin. Elle n'est pas retenue comme base et reste dans la page pour
+comparaison. Deux affinements sont demandés et faits, A′ (Gravure) et B′
+(Carmin), sur une même règle simple : un disque plein liseré de papier pour les
+lieux, des cercles pleins ou cerclés sans ornement pour les ensembles, des noms
+plus présents. Détails dans `docs/phase10_recherche_artistique.md`, section 10.
+
+Leçon de méthode : quand on demande plus de sophistication, retirer avant
+d'ajouter.
+
+Décision : **Empreinte n'est pas retenue ; A′ et B′ sont soumises au jugement
+du porteur.**

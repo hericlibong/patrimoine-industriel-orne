@@ -32,12 +32,12 @@ body.nuit .note{color:#8796a1}
 </div>
 <div class="choix donnees" role="group" aria-label="Représentation des données" style="left:auto;right:24px;top:22px;bottom:auto">
   <button data-d="ref" aria-pressed="false">0 · Référence</button>
-  <button data-d="A" aria-pressed="false">A · Gravure</button>
+  <button data-d="A" aria-pressed="true">A · Gravure</button>
   <button data-d="B" aria-pressed="false">B · Carmin</button>
   <button data-d="C" aria-pressed="false">C · Métiers</button>
   <button data-d="D" aria-pressed="false">D · Empreinte</button>
-  <button data-d="Ap" aria-pressed="true">A′ · Gravure affinée</button>
-  <button data-d="Bp" aria-pressed="false">B′ · Carmin affiné</button>
+  <button data-d="A2" aria-pressed="false">A′ · Gravure affinée</button>
+  <button data-d="B2" aria-pressed="false">B′ · Carmin affiné</button>
 </div>
 <div class="choix forme" role="group" aria-label="Forme des ensembles pilotes" style="left:auto;right:24px;top:68px;bottom:auto;display:none">
   <button data-f="enveloppe" aria-pressed="true">Pilotes : enveloppe</button>
@@ -165,7 +165,7 @@ const lieux = C.autresLieux;
 // Enveloppe des deux ensembles pilotes : chaque lieu est entouré d'un petit cercle,
 // puis on prend l'enveloppe convexe de l'ensemble. Simple repère de proximité.
 const PILOTES = new Set(['risle', 'crulai']);
-let forme = 'enveloppe', donnees = 'Ap';
+let forme = 'enveloppe', donnees = 'A';
 const enveloppes = {};
 for (const code of PILOTES) {
   const pts = [];
@@ -453,62 +453,55 @@ function donneesEmpreinte(t, k, prises, serif, sans) {
   }
 }
 
-// A′ « Gravure affinée » et B′ « Carmin affiné » : un seul élément par symbole.
-// Ce qui détache un symbole du fond n'est pas un contour de plus mais une réserve
-// couleur papier, comme sur une carte imprimée où l'on interrompt le fond autour
-// d'un signe. La force vient de la masse pleine et de la proportion.
+// A′ et B′ : affinements de Gravure et de Carmin. Une forme par symbole, pleine,
+// détachée du fond par un simple liseré couleur papier. Pas d'ombre, pas d'ornement :
+// la présence vient de la taille, du plein et du contraste.
 const AFFINE = {
-  Ap: {encre: '#1d2f3d', plein: '#1d2f3d', trait: '#1d2f3d', nom: '#1a2833', nomStyle: ''},
-  Bp: {encre: '#93233a', plein: '#93233a', trait: '#93233a', nom: '#3b2328', nomStyle: 'italic '}
+  A2: {lieu: '#1e3040', ens: '#1e3040', nomPilote: '#16242f', nom: '#22323f', italique: false},
+  B2: {lieu: '#9a2236', ens: '#9a2236', nomPilote: '#7a1a2c', nom: '#3a2a2d', italique: true}
 };
-function donneesAffinee(v, t, k, prises, serif, sans) {
-  const c = AFFINE[v], PAP = 'rgba(250,249,244,.96)';
+function donneesAffinees(v, t, k, prises, serif, sans) {
+  const P = AFFINE[v], PAP = '#fbfaf6';
   pointsEcran = [];
-  const ech = Math.min(1.6, Math.pow(k, 0.33));
-  const rEns = (n) => (6.5 + 2.85 * Math.sqrt(n)) * Math.pow(k, 0.3);
+  const ech = Math.min(1.7, Math.pow(k, 0.4));
+  const rEns = (n) => (7 + 3 * Math.sqrt(n)) * Math.pow(k, 0.35);
 
-  // lieux hors ensemble : disque plein, réserve papier
-  const rl = (v === 'Ap' ? 3.3 : 3.4) * ech;
-  ctx.beginPath();
-  for (const l of lieux) { const x = X(l.lon), y = Y(l.lat); ctx.moveTo(x + rl + 1.4, y); ctx.arc(x, y, rl + 1.4, 0, 2 * Math.PI); }
-  ctx.fillStyle = PAP; ctx.fill();
+  // lieux hors ensemble : un disque plein, liseré papier
+  const rl = 3.3 * ech;
   ctx.beginPath();
   for (const l of lieux) { const x = X(l.lon), y = Y(l.lat); pointsEcran.push([x, y, l]); ctx.moveTo(x + rl, y); ctx.arc(x, y, rl, 0, 2 * Math.PI); }
-  ctx.fillStyle = c.encre; ctx.fill();
+  ctx.lineWidth = 2.2; ctx.strokeStyle = PAP; ctx.stroke();
+  ctx.fillStyle = P.lieu; ctx.fill();
 
-  // ensembles : les dix d'abord, les pilotes par-dessus
+  // ensembles : pilotes pleins, les dix autres en papier cerclé
   const ordre = [...C.ensembles].sort((a, b) => PILOTES.has(a.code) - PILOTES.has(b.code));
   const noms = [];
   for (const e of ordre) {
     const pilote = PILOTES.has(e.code), x = X(e.lon), y = Y(e.lat), r = rEns(e.nbSites);
-    ctx.beginPath(); ctx.arc(x, y, r + 2, 0, 2 * Math.PI); ctx.fillStyle = PAP; ctx.fill();
-    ctx.beginPath(); ctx.arc(x, y, pilote ? r : r - 0.9, 0, 2 * Math.PI);
-    if (pilote) { ctx.fillStyle = c.plein; ctx.fill(); }
-    else {
-      ctx.fillStyle = 'rgba(250,249,244,.9)'; ctx.fill();
-      ctx.lineWidth = v === 'Bp' ? 2.2 : 1.8; ctx.strokeStyle = c.trait; ctx.stroke();
-    }
-    const fs = Math.max(10.5, r * 0.78);
-    ctx.font = `${pilote ? 600 : 500} ${fs}px ${serif}`; ctx.fontVariantNumeric = 'lining-nums';
-    texte(String(e.nbSites), x, y + fs * 0.04, `${pilote ? 600 : 500} ${fs}px ${serif}`, pilote ? '#faf9f4' : c.encre, null, 'center');
+    ctx.beginPath(); ctx.arc(x, y, r, 0, 2 * Math.PI);
+    ctx.lineWidth = pilote ? 3 : 4.5; ctx.strokeStyle = PAP; ctx.stroke();
+    ctx.fillStyle = pilote ? P.ens : PAP; ctx.fill();
+    if (!pilote) { ctx.lineWidth = 1.6; ctx.strokeStyle = P.ens; ctx.stroke(); }
+    ctx.fontVariantNumeric = 'lining-nums tabular-nums';
+    texte(String(e.nbSites), x, y + 0.5, `600 ${Math.max(11, r * 0.78)}px ${serif}`, pilote ? PAP : P.ens, null, 'center');
     prises.push([x - r - 3, y - r - 3, x + r + 3, y + r + 3]);
     noms.push({e, x, y, r, pilote});
   }
 
-  // noms : à côté du disque, centrés sur lui ; les pilotes d'abord
+  // noms : à droite du cercle, centrés sur lui ; sinon à gauche, dessous, dessus
   noms.sort((a, b) => b.pilote - a.pilote);
   for (const {e, x, y, r, pilote} of noms) {
-    const police = `${c.nomStyle}${pilote ? 600 : 400} ${pilote ? 14.5 : 13}px ${serif}`;
-    ctx.font = police; const w = ctx.measureText(e.nom).width, h = 17;
-    const essais = [[x + r + 6, y - h / 2], [x - r - 6 - w, y - h / 2], [x - w / 2, y + r + 4], [x - w / 2, y - r - 4 - h]];
-    const p = essais.find(([bx, by]) => boite(bx, by, w, h, prises)) || essais[0];
-    texte(e.nom, p[0], p[1] + h / 2, police, c.nom, t.halo);
+    const police = `${P.italique ? 'italic ' : ''}${pilote ? 600 : 400} ${pilote ? 15.5 : 13.5}px ${serif}`;
+    ctx.font = police; const w = ctx.measureText(e.nom).width, h = 18;
+    const essais = [[x + r + 7, y - h / 2], [x - r - 7 - w, y - h / 2], [x - w / 2, y + r + 4], [x - w / 2, y - r - 4 - h]];
+    const [bx, by] = essais.find(([bx, by]) => boite(bx, by, w, h, prises)) || essais[0];
+    texte(e.nom, bx, by + h / 2, police, pilote ? P.nomPilote : P.nom, t.halo);
   }
 }
 
 function donneesVariante(v, t, k, prises, serif, sans) {
   if (v === 'D') return donneesEmpreinte(t, k, prises, serif, sans);
-  if (v === 'Ap' || v === 'Bp') return donneesAffinee(v, t, k, prises, serif, sans);
+  if (v === 'A2' || v === 'B2') return donneesAffinees(v, t, k, prises, serif, sans);
   pointsEcran = [];
   const ech = Math.min(1.8, Math.pow(k, 0.4));
 
@@ -642,7 +635,7 @@ function choisirDonnees(d) {
   dessiner();
 }
 document.querySelectorAll('[data-d]').forEach((b) => b.addEventListener('click', () => choisirDonnees(b.dataset.d)));
-addEventListener('keydown', (e) => { const d = {'0': 'ref', a: 'A', b: 'B', c: 'C', d: 'D', g: 'Ap', h: 'Bp'}[e.key.toLowerCase()]; if (d) choisirDonnees(d); });
+addEventListener('keydown', (e) => { const d = {'0': 'ref', a: 'A', b: 'B', c: 'C', d: 'D', e: 'A2', f: 'B2'}[e.key.toLowerCase()]; if (d) choisirDonnees(d); });
 addEventListener('resize', taille);
 taille();
 document.fonts.ready.then(() => choisir(THEMES[location.hash.slice(1)] ? location.hash.slice(1) : 'topo'));
