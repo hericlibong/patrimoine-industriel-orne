@@ -215,3 +215,42 @@ ronds de l'esquisse D.
 **Vérifié** à 1440 pixels, version topographique, dans les deux modes. La Risle
 dessine une longue bande le long de la vallée ; Crulai, une bande plus courte au
 sud-est de L'Aigle.
+
+## 8. Redonner de l'autorité aux données — trois variantes (18 novembre 2026)
+
+**Ce que demande le porteur.** Le fond topographique est une bonne base, mais
+les données s'y noient : les lieux sont de minuscules points et les ensembles
+ressemblent à des points un peu plus gros. L'esquisse D, malgré ses défauts,
+donnait plus d'autorité aux données. Il retient **le cercle** pour les
+ensembles et écarte l'enveloppe. Il demande plusieurs traitements réellement
+différents des lieux hors ensemble et des ensembles, sans toucher au fond, à la
+navigation ni au reste. La version précédente reste comme référence.
+
+**Ce qui est fait.** Un sélecteur en haut à droite (ou les touches 0, A, B, C)
+fait passer d'une variante à l'autre. La référence garde son bouton enveloppe ou
+rond.
+
+- **A — Gravure.** Lieux : petit rond blanc cerclé d'encre avec un point
+  central, comme un symbole de carte imprimée. Ensembles : disque proportionnel
+  avec le nombre de lieux inscrit dedans. Les deux pilotes sont pleins, bleu
+  d'encre, avec une ombre légère : on comprend qu'ils s'ouvrent. Les dix autres
+  sont blancs, cerclés. Noms en romain, à côté du disque.
+- **B — Carmin.** Lieux : petits losanges carmin bordés de blanc. Ensembles :
+  anneaux carmin qui éclaircissent le paysage sous eux, nombre au centre. Les
+  pilotes ont un anneau épais doublé d'un filet ; les dix autres, un anneau fin.
+  Noms en italique.
+- **C — Métiers.** Lieux : couleur du métier principal, six familles. Ensembles :
+  couronne qui montre la part de chaque métier, nombre au centre. Les pilotes
+  sont entourés d'un filet et en pleine couleur ; les dix autres sont atténués.
+  Une courte légende apparaît en bas à gauche. Population de référence : les
+  métiers par ensemble sont ceux de la vue de référence ; un lieu à plusieurs
+  métiers compte dans chacun, la couronne montre donc des parts d'activités, pas
+  de lieux.
+
+Dans les trois, les rayons suivent la racine du nombre de lieux, comme dans
+l'esquisse D. Les noms d'ensembles passent avant ceux des villes, des rivières et
+des forêts. Les lieux grossissent un peu avec le zoom.
+
+**Vérifié** à 1440 pixels, version topographique, sur les quatre états, sans
+erreur dans la console. Non vérifié : mobile, et les variantes sur les fonds
+encre et nuit, qui ne sont pas réglées pour elles.

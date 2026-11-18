@@ -30,14 +30,21 @@ body.nuit .note{color:#8796a1}
   <button data-t="encre" aria-pressed="false">2 · Encre</button>
   <button data-t="nuit" aria-pressed="false">3 · Nuit</button>
 </div>
-<div class="choix forme" role="group" aria-label="Forme des ensembles pilotes" style="left:auto;right:24px;top:22px;bottom:auto">
-  <button data-f="enveloppe" aria-pressed="true">Ensembles : enveloppe</button>
+<div class="choix donnees" role="group" aria-label="Représentation des données" style="left:auto;right:24px;top:22px;bottom:auto">
+  <button data-d="ref" aria-pressed="false">0 · Référence</button>
+  <button data-d="A" aria-pressed="true">A · Gravure</button>
+  <button data-d="B" aria-pressed="false">B · Carmin</button>
+  <button data-d="C" aria-pressed="false">C · Métiers</button>
+</div>
+<div class="choix forme" role="group" aria-label="Forme des ensembles pilotes" style="left:auto;right:24px;top:68px;bottom:auto;display:none">
+  <button data-f="enveloppe" aria-pressed="true">Pilotes : enveloppe</button>
   <button data-f="rond" aria-pressed="false">rond</button>
 </div>
 <div class="note">Essai interne de recherche artistique — carte seule, sans interface. Fond : IGN, BD TOPO et RGE ALTI, Licence ouverte. Les forêts sont les forêts publiques <em>actuelles</em>. Un ensemble regroupe des lieux proches : sa forme n'est pas une frontière. Seuls les lieux hors ensemble sont des points. Molette pour zoomer, glisser pour déplacer.</div>
 <div class="bulle" id="bulle"></div>
 <script src="../esquisses/d3.min.js"></script>
 <script src="carte_donnees.js?v=3"></script>
+<script src="../esquisses/donnees.js"></script>
 <script>
 const C = window.CARTE;
 const cv = document.getElementById('c'), ctx = cv.getContext('2d');
@@ -155,7 +162,7 @@ const lieux = C.autresLieux;
 // Enveloppe des deux ensembles pilotes : chaque lieu est entouré d'un petit cercle,
 // puis on prend l'enveloppe convexe de l'ensemble. Simple repère de proximité.
 const PILOTES = new Set(['risle', 'crulai']);
-let forme = 'enveloppe';
+let forme = 'enveloppe', donnees = 'A';
 const enveloppes = {};
 for (const code of PILOTES) {
   const pts = [];
@@ -220,69 +227,11 @@ function dessiner() {
   ctx.fillStyle = t.hors; ctx.fill('evenodd'); ctx.restore();
   cheminContour(); ctx.strokeStyle = t.contour; ctx.lineWidth = t.contourL; ctx.stroke();
 
-  // ensembles : enveloppe (pilotes, si choisie) ou rond proportionnel
-  const formesEcran = [];
-  for (const e of C.ensembles) {
-    const pilote = PILOTES.has(e.code);
-    ctx.beginPath();
-    let bas;
-    if (pilote && forme === 'enveloppe') {
-      const h = enveloppes[e.code].map(([u, v]) => [transform.applyX(base.tx + base.s * u), transform.applyY(base.ty + base.s * v)]);
-      d3.line().curve(d3.curveCatmullRomClosed.alpha(0.5)).context(ctx)(h);
-      bas = [d3.mean(h, (p) => p[0]), d3.max(h, (p) => p[1])];
-    } else {
-      const r = (3 + 2.2 * Math.sqrt(e.nbSites)) * Math.pow(transform.k, 0.5);
-      ctx.arc(X(e.lon), Y(e.lat), r, 0, 2 * Math.PI);
-      bas = [X(e.lon), Y(e.lat) + r];
-    }
-    if (pilote) {
-      ctx.fillStyle = t.ensFond; ctx.fill();
-      ctx.setLineDash([]); ctx.strokeStyle = t.ensTrait; ctx.lineWidth = 1.6; ctx.stroke();
-    } else {
-      ctx.fillStyle = t.ensFond; ctx.globalAlpha = 0.45; ctx.fill(); ctx.globalAlpha = 1;
-      ctx.setLineDash([4, 3]); ctx.strokeStyle = t.ensTrait; ctx.lineWidth = 1.2; ctx.stroke();
-      ctx.setLineDash([]);
-    }
-    formesEcran.push({e, bas, pilote});
-  }
-
-  // lieux
-  pointsEcran = [];
-  const r0 = t.lieuR * Math.min(2, Math.pow(k, 0.35));
-  if (t.lueur) {
-    ctx.globalCompositeOperation = 'lighter';
-    for (const l of lieux) {
-      const x = X(l.lon), y = Y(l.lat), g = ctx.createRadialGradient(x, y, 0, x, y, r0 * 7);
-      g.addColorStop(0, 'rgba(255,190,90,.22)'); g.addColorStop(1, 'rgba(255,190,90,0)');
-      ctx.fillStyle = g; ctx.fillRect(x - r0 * 7, y - r0 * 7, r0 * 14, r0 * 14);
-    }
-    ctx.globalCompositeOperation = 'source-over';
-  }
-  for (const l of lieux) {
-    const x = X(l.lon), y = Y(l.lat);
-    pointsEcran.push([x, y, l]);
-    ctx.beginPath(); ctx.arc(x, y, r0, 0, 2 * Math.PI);
-    if (t.lieuBord) { ctx.lineWidth = 1; ctx.strokeStyle = t.lieuBord; ctx.stroke(); }
-    ctx.fillStyle = t.lieu; ctx.fill();
-  }
-
-  // étiquettes, par ordre de priorité
+  // --- données : lieux hors ensemble et ensembles ---
   const prises = [];
   const serif = "'Source Serif 4', Georgia, serif", sans = "'Source Sans 3', sans-serif";
-  // ensembles : nom et nombre de lieux, sous la forme
-  for (let {e, bas, pilote} of formesEcran) {
-    const lib = e.nom.toUpperCase(), nb = `${e.nbSites} lieux`;
-    ctx.font = `600 10.5px ${sans}`;
-    const w = ctx.measureText(lib).width + lib.length * 1.2;
-    let yb = bas[1];
-    while (prises.some((b) => bas[0] - w / 2 < b[2] && bas[0] + w / 2 > b[0] && yb + 4 < b[3] && yb + 30 > b[1])) yb += 26;
-    bas = [bas[0], yb];
-    ctx.letterSpacing = '1.2px';
-    texte(lib, bas[0], bas[1] + 11, `${pilote ? 700 : 600} 10.5px ${sans}`, t.ens, t.halo, 'center');
-    ctx.letterSpacing = '0px';
-    texte(nb, bas[0], bas[1] + 24, `400 11px ${sans}`, t.ville, t.halo, 'center');
-    prises.push([bas[0] - w / 2, bas[1] + 4, bas[0] + w / 2, bas[1] + 30]);
-  }
+  if (donnees === 'ref') donneesReference(t, k, prises, serif, sans);
+  else donneesVariante(donnees, t, k, prises, serif, sans);
 
   // villes
   for (const v of C.villes) {
@@ -329,6 +278,199 @@ function dessiner() {
   texte(`${C.nbLieux} lieux du patrimoine industriel`, 37, 72, `400 13px ${sans}`, t.ville, null);
 }
 
+function donneesReference(t, k, prises, serif, sans) {
+  // ensembles : enveloppe (pilotes, si choisie) ou rond proportionnel
+  const formesEcran = [];
+  for (const e of C.ensembles) {
+    const pilote = PILOTES.has(e.code);
+    ctx.beginPath();
+    let bas;
+    if (pilote && forme === 'enveloppe') {
+      const h = enveloppes[e.code].map(([u, v]) => [transform.applyX(base.tx + base.s * u), transform.applyY(base.ty + base.s * v)]);
+      d3.line().curve(d3.curveCatmullRomClosed.alpha(0.5)).context(ctx)(h);
+      bas = [d3.mean(h, (p) => p[0]), d3.max(h, (p) => p[1])];
+    } else {
+      const r = (3 + 2.2 * Math.sqrt(e.nbSites)) * Math.pow(transform.k, 0.5);
+      ctx.arc(X(e.lon), Y(e.lat), r, 0, 2 * Math.PI);
+      bas = [X(e.lon), Y(e.lat) + r];
+    }
+    if (pilote) {
+      ctx.fillStyle = t.ensFond; ctx.fill();
+      ctx.setLineDash([]); ctx.strokeStyle = t.ensTrait; ctx.lineWidth = 1.6; ctx.stroke();
+    } else {
+      ctx.fillStyle = t.ensFond; ctx.globalAlpha = 0.45; ctx.fill(); ctx.globalAlpha = 1;
+      ctx.setLineDash([4, 3]); ctx.strokeStyle = t.ensTrait; ctx.lineWidth = 1.2; ctx.stroke();
+      ctx.setLineDash([]);
+    }
+    formesEcran.push({e, bas, pilote});
+  }
+
+  // lieux
+  pointsEcran = [];
+  const r0 = t.lieuR * Math.min(2, Math.pow(k, 0.35));
+  if (t.lueur) {
+    ctx.globalCompositeOperation = 'lighter';
+    for (const l of lieux) {
+      const x = X(l.lon), y = Y(l.lat), g = ctx.createRadialGradient(x, y, 0, x, y, r0 * 7);
+      g.addColorStop(0, 'rgba(255,190,90,.22)'); g.addColorStop(1, 'rgba(255,190,90,0)');
+      ctx.fillStyle = g; ctx.fillRect(x - r0 * 7, y - r0 * 7, r0 * 14, r0 * 14);
+    }
+    ctx.globalCompositeOperation = 'source-over';
+  }
+  for (const l of lieux) {
+    const x = X(l.lon), y = Y(l.lat);
+    pointsEcran.push([x, y, l]);
+    ctx.beginPath(); ctx.arc(x, y, r0, 0, 2 * Math.PI);
+    if (t.lieuBord) { ctx.lineWidth = 1; ctx.strokeStyle = t.lieuBord; ctx.stroke(); }
+    ctx.fillStyle = t.lieu; ctx.fill();
+  }
+
+
+  // ensembles : nom et nombre de lieux, sous la forme
+  for (let {e, bas, pilote} of formesEcran) {
+    const lib = e.nom.toUpperCase(), nb = `${e.nbSites} lieux`;
+    ctx.font = `600 10.5px ${sans}`;
+    const w = ctx.measureText(lib).width + lib.length * 1.2;
+    let yb = bas[1];
+    while (prises.some((b) => bas[0] - w / 2 < b[2] && bas[0] + w / 2 > b[0] && yb + 4 < b[3] && yb + 30 > b[1])) yb += 26;
+    bas = [bas[0], yb];
+    ctx.letterSpacing = '1.2px';
+    texte(lib, bas[0], bas[1] + 11, `${pilote ? 700 : 600} 10.5px ${sans}`, t.ens, t.halo, 'center');
+    ctx.letterSpacing = '0px';
+    texte(nb, bas[0], bas[1] + 24, `400 11px ${sans}`, t.ville, t.halo, 'center');
+    prises.push([bas[0] - w / 2, bas[1] + 4, bas[0] + w / 2, bas[1] + 30]);
+  }
+}
+
+// --- Variantes de représentation des données (fond inchangé) ---------------
+// A « Gravure » : symboles de carte imprimée ; ensembles en disques d'encre pleins.
+// B « Carmin »  : losanges carmin ; ensembles en anneaux qui éclaircissent le paysage.
+// C « Métiers » : couleur par métier ; ensembles en couronnes de leur composition.
+const DD = window.DONNEES;
+const COMPO = new Map(DD.departement.ensembles.map((e) => [e.code, e.sitesParMetier || {}]));
+const LIB_METIER = DD.libelles.metiers;
+const METIERS = [
+  ['agroalimentaire', '#c58a2b', 'Agroalimentaire'],
+  ['metallurgie_travail_metaux', '#3d5a80', 'Métallurgie'],
+  ['textile_habillement_cuir', '#8e4a6f', 'Textile et cuir'],
+  ['verre_ceramique_materiaux_construction', '#b2563b', 'Verre et matériaux'],
+  ['bois_papier_imprimerie', '#6f7d3c', 'Bois et papier'],
+  ['autre', '#8a8f94', 'Autres métiers']
+];
+const COUL_METIER = (m) => (METIERS.find((x) => x[0] === m) || METIERS[5])[1];
+const rayonEns = (n, k) => (5 + 2.6 * Math.sqrt(n)) * Math.pow(k, 0.35);
+
+function placerNom(e, x, y, r, prises, dessin) {
+  // essaie à droite, à gauche, dessous, dessus ; dessine au premier emplacement libre
+  const w = dessin.largeur, h = dessin.hauteur;
+  const essais = [[x + r + 6, y - h / 2, 'left'], [x - r - 6 - w, y - h / 2, 'right'],
+    [x - w / 2, y + r + 4, 'center'], [x - w / 2, y - r - 4 - h, 'center']];
+  for (const [bx, by, al] of essais) {
+    if (boite(bx, by, w, h, prises)) { dessin.tracer(bx, by, al); return; }
+  }
+  dessin.tracer(essais[0][0], essais[0][1], 'left');
+}
+
+function donneesVariante(v, t, k, prises, serif, sans) {
+  pointsEcran = [];
+  const ech = Math.min(1.8, Math.pow(k, 0.4));
+
+  // 1. lieux hors ensemble, sous les ensembles
+  for (const l of lieux) {
+    const x = X(l.lon), y = Y(l.lat);
+    pointsEcran.push([x, y, l]);
+    if (v === 'A') {
+      const r = 3 * ech;
+      ctx.beginPath(); ctx.arc(x, y, r, 0, 2 * Math.PI);
+      ctx.fillStyle = '#fbfaf6'; ctx.fill();
+      ctx.lineWidth = 1.5; ctx.strokeStyle = '#22303a'; ctx.stroke();
+      ctx.beginPath(); ctx.arc(x, y, 0.9 * ech, 0, 2 * Math.PI); ctx.fillStyle = '#22303a'; ctx.fill();
+    } else if (v === 'B') {
+      const r = 4 * ech;
+      ctx.beginPath(); ctx.moveTo(x, y - r); ctx.lineTo(x + r * 0.8, y); ctx.lineTo(x, y + r); ctx.lineTo(x - r * 0.8, y); ctx.closePath();
+      ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(251,250,246,.95)'; ctx.stroke();
+      ctx.fillStyle = '#8f1f33'; ctx.fill();
+    } else {
+      const r = 3.3 * ech, m = (l.secteurs || [])[0];
+      ctx.beginPath(); ctx.arc(x, y, r, 0, 2 * Math.PI);
+      ctx.lineWidth = 1.4; ctx.strokeStyle = 'rgba(251,250,246,.95)'; ctx.stroke();
+      ctx.fillStyle = COUL_METIER(m); ctx.fill();
+    }
+  }
+
+  // 2. ensembles, les dix non construits d'abord, les pilotes par-dessus
+  const ordre = [...C.ensembles].sort((a, b) => PILOTES.has(a.code) - PILOTES.has(b.code));
+  const noms = [];
+  for (const e of ordre) {
+    const pilote = PILOTES.has(e.code), x = X(e.lon), y = Y(e.lat), r = rayonEns(e.nbSites, k);
+    if (v === 'A') {
+      ctx.save(); ctx.shadowColor = 'rgba(20,30,40,.28)'; ctx.shadowBlur = pilote ? 8 : 4; ctx.shadowOffsetY = 1.5;
+      ctx.beginPath(); ctx.arc(x, y, r, 0, 2 * Math.PI);
+      ctx.fillStyle = pilote ? '#24394a' : 'rgba(251,250,246,.92)'; ctx.fill(); ctx.restore();
+      ctx.beginPath(); ctx.arc(x, y, r, 0, 2 * Math.PI);
+      ctx.lineWidth = pilote ? 1 : 1.6; ctx.strokeStyle = '#24394a'; ctx.stroke();
+      if (pilote) { ctx.beginPath(); ctx.arc(x, y, r - 3, 0, 2 * Math.PI); ctx.lineWidth = 0.8; ctx.strokeStyle = 'rgba(251,250,246,.75)'; ctx.stroke(); }
+      texte(String(e.nbSites), x, y + 0.5, `600 ${Math.max(10, r * 0.75)}px ${serif}`, pilote ? '#fbfaf6' : '#24394a', null, 'center');
+    } else if (v === 'B') {
+      ctx.beginPath(); ctx.arc(x, y, r, 0, 2 * Math.PI);
+      ctx.fillStyle = pilote ? 'rgba(251,250,246,.86)' : 'rgba(251,250,246,.6)'; ctx.fill();
+      ctx.lineWidth = pilote ? 3.2 : 1.3; ctx.strokeStyle = '#8f1f33'; ctx.stroke();
+      if (pilote) { ctx.beginPath(); ctx.arc(x, y, r + 4, 0, 2 * Math.PI); ctx.lineWidth = 0.7; ctx.stroke(); }
+      texte(String(e.nbSites), x, y + 0.5, `${pilote ? 600 : 400} ${Math.max(10, r * 0.72)}px ${serif}`, '#8f1f33', null, 'center');
+    } else {
+      const compo = COMPO.get(e.code), total = d3.sum(Object.values(compo)) || 1;
+      const parts = METIERS.map(([m]) => [m, m === 'autre'
+        ? d3.sum(Object.entries(compo).filter(([c]) => !METIERS.some((x) => x[0] === c)), (d) => d[1])
+        : (compo[m] || 0)]);
+      ctx.save(); ctx.globalAlpha = pilote ? 1 : 0.62;
+      ctx.beginPath(); ctx.arc(x, y, r + 1.5, 0, 2 * Math.PI); ctx.fillStyle = 'rgba(251,250,246,.95)'; ctx.fill();
+      let a0 = -Math.PI / 2;
+      for (const [m, n] of parts) {
+        if (!n) continue;
+        const a1 = a0 + 2 * Math.PI * n / total;
+        ctx.beginPath(); ctx.arc(x, y, r, a0, a1); ctx.arc(x, y, r * 0.58, a1, a0, true); ctx.closePath();
+        ctx.fillStyle = COUL_METIER(m); ctx.fill(); a0 = a1;
+      }
+      ctx.restore();
+      if (pilote) { ctx.beginPath(); ctx.arc(x, y, r + 3.5, 0, 2 * Math.PI); ctx.lineWidth = 1.2; ctx.strokeStyle = '#22303a'; ctx.stroke(); }
+      texte(String(e.nbSites), x, y + 0.5, `600 ${Math.max(9.5, r * 0.5)}px ${sans}`, '#22303a', null, 'center');
+    }
+    prises.push([x - r - 2, y - r - 2, x + r + 2, y + r + 2]);
+    noms.push({e, x, y, r, pilote});
+  }
+
+  // 3. noms d'ensembles : pilotes d'abord, avant villes, rivières et forêts
+  noms.sort((a, b) => b.pilote - a.pilote);
+  for (const {e, x, y, r, pilote} of noms) {
+    const nom = e.nom;
+    if (v === 'A') {
+      const police = `${pilote ? 600 : 400} ${pilote ? 14 : 12.5}px ${serif}`;
+      ctx.font = police; const w = ctx.measureText(nom).width;
+      placerNom(e, x, y, r, prises, {largeur: w, hauteur: 16, tracer: (bx, by) => texte(nom, bx, by + 8, police, '#1c2b37', t.halo)});
+    } else if (v === 'B') {
+      const police = `italic ${pilote ? 600 : 400} ${pilote ? 14.5 : 12.5}px ${serif}`;
+      ctx.font = police; const w = ctx.measureText(nom).width;
+      placerNom(e, x, y, r, prises, {largeur: w, hauteur: 16, tracer: (bx, by) => texte(nom, bx, by + 8, police, pilote ? '#6d1626' : '#4a3a3e', t.halo)});
+    } else {
+      const lib = nom.toUpperCase(), police = `${pilote ? 700 : 600} ${pilote ? 11 : 10}px ${sans}`;
+      ctx.font = police; ctx.letterSpacing = '1px';
+      const w = ctx.measureText(lib).width;
+      placerNom(e, x, y, r, prises, {largeur: w, hauteur: 14, tracer: (bx, by) => texte(lib, bx, by + 7, police, '#22303a', t.halo)});
+      ctx.letterSpacing = '0px';
+    }
+  }
+
+  // légende courte, seulement quand la couleur porte un sens
+  if (v === 'C') {
+    let y = H - 92 - METIERS.length * 18;
+    texte('Métier principal', 36, y, `600 12px ${sans}`, '#22303a', t.halo); y += 20;
+    for (const [, c, lib] of METIERS) {
+      ctx.beginPath(); ctx.arc(42, y, 5, 0, 2 * Math.PI); ctx.fillStyle = c; ctx.fill();
+      texte(lib, 54, y, `400 12px ${sans}`, '#22303a', t.halo); y += 18;
+    }
+  }
+}
+
 // --- Mise en place ------------------------------------------------------
 function taille() {
   dpr = window.devicePixelRatio || 1; W = innerWidth; H = innerHeight;
@@ -356,6 +498,14 @@ document.querySelectorAll('[data-f]').forEach((b) => b.addEventListener('click',
   dessiner();
 }));
 addEventListener('keydown', (e) => { const t = {1: 'topo', 2: 'encre', 3: 'nuit'}[e.key]; if (t) choisir(t); });
+function choisirDonnees(d) {
+  donnees = d;
+  document.querySelectorAll('[data-d]').forEach((x) => x.setAttribute('aria-pressed', x.dataset.d === d));
+  document.querySelector('.choix.forme').style.display = d === 'ref' ? 'flex' : 'none';
+  dessiner();
+}
+document.querySelectorAll('[data-d]').forEach((b) => b.addEventListener('click', () => choisirDonnees(b.dataset.d)));
+addEventListener('keydown', (e) => { const d = {'0': 'ref', a: 'A', b: 'B', c: 'C'}[e.key.toLowerCase()]; if (d) choisirDonnees(d); });
 addEventListener('resize', taille);
 taille();
 document.fonts.ready.then(() => choisir(THEMES[location.hash.slice(1)] ? location.hash.slice(1) : 'topo'));

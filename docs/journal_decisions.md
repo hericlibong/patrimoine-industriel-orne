@@ -3340,3 +3340,17 @@ qui demanderait de reprendre leurs coordonnées dans la base.
 
 Décision : **les douze ensembles sont dessinés comme des formes ; l'enveloppe et
 le rond sont soumis au jugement du porteur sur les deux pilotes.**
+
+## 2026-11-18 — Carte seule : le cercle retenu, trois traitements des données
+
+Le porteur retient le cercle pour représenter les ensembles et écarte
+l'enveloppe souple. Il juge les données noyées dans le fond et demande plusieurs
+traitements réellement différents des lieux hors ensemble et des ensembles, sur
+le fond topographique inchangé. Trois variantes sont proposées à côté de la
+référence : Gravure, Carmin et Métiers. Détails dans
+`docs/phase10_recherche_artistique.md`, section 8.
+
+Option écartée : grossir uniformément les points, demandé comme à éviter.
+
+Décision : **le cercle est retenu pour les ensembles ; les trois variantes sont
+soumises au jugement du porteur, la référence reste comparable.**
