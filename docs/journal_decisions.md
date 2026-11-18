@@ -3368,3 +3368,18 @@ par lieu. Détails dans `docs/phase10_recherche_artistique.md`, section 9.
 Décision : **la variante Empreinte est soumise au jugement du porteur, à
 comparer aux trois autres et à la référence ; aucune direction n'est encore
 retenue.**
+
+## 2026-11-18 — Carte seule : Empreinte écartée, Gravure et Carmin affinés
+
+Le porteur et le regard extérieur écartent la variante D, Empreinte : plus
+décorée, pas mieux dessinée. Constat retenu : une demande de sophistication
+avait été traduite par des ajouts. Consigne : affiner A et B sans ornement. Deux
+variantes, A′ Gravure affinée et B′ Carmin affiné, reposent sur un seul élément
+par symbole, détaché du fond par une réserve couleur papier. Détails dans
+`docs/phase10_recherche_artistique.md`, section 10.
+
+Options écartées : une cinquième famille graphique ; la fusion mécanique de A et
+B.
+
+Décision : **D n'est pas retenue comme référence ; A′ et B′ sont soumises au
+jugement du porteur, les variantes précédentes restent comparables.**
