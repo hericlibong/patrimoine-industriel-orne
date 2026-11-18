@@ -188,3 +188,30 @@ Deux points de méthode :
 - pour les dix ensembles non construits, les coordonnées de leurs lieux ne sont
   pas dans les données des esquisses. Le cercle est faisable tout de suite ;
   l'enveloppe demande de reprendre ces coordonnées dans la base du corpus.
+
+## 7. Correction de la carte seule — les ensembles à leur place (18 novembre 2026)
+
+**Ce que précise le porteur.** On ne complique pas : on expérimente ce qui est
+expérimentable. Les lieux hors ensemble restent des points. Les lieux qui
+appartiennent à un ensemble n'apparaissent pas sur la carte de l'Orne, ni pour
+la Risle ni pour Crulai : ils n'apparaîtront qu'à l'ouverture d'un ensemble. Sur
+la carte de l'Orne, on voit les ensembles eux-mêmes. L'enveloppe souple n'est
+qu'un test visuel sur les deux pilotes ; si elle ne convient pas, on revient aux
+ronds de l'esquisse D.
+
+**Ce qui est fait.**
+
+- Les 50 points de la Risle et de Crulai sont retirés. La carte montre 149 lieux
+  hors ensemble en points et les douze ensembles en formes, chacune avec son nom
+  et son nombre de lieux. Le total fait bien 321.
+- Les deux pilotes ont une forme pleine, teintée, au trait continu. Les dix
+  autres ont un rond proportionnel, plus pâle, au trait pointillé.
+- Un bouton en haut à droite fait passer les deux pilotes de l'enveloppe au
+  rond, pour comparer. L'enveloppe est calculée sur les seuls lieux de
+  l'ensemble, élargis d'environ 1,3 km. La note de bas de page dit qu'elle n'est
+  pas une frontière.
+- Les noms d'ensembles passent avant ceux des villes, des rivières et des forêts.
+
+**Vérifié** à 1440 pixels, version topographique, dans les deux modes. La Risle
+dessine une longue bande le long de la vallée ; Crulai, une bande plus courte au
+sud-est de L'Aigle.

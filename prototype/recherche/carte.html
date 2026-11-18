@@ -30,7 +30,11 @@ body.nuit .note{color:#8796a1}
   <button data-t="encre" aria-pressed="false">2 · Encre</button>
   <button data-t="nuit" aria-pressed="false">3 · Nuit</button>
 </div>
-<div class="note">Essai interne de recherche artistique — carte seule, sans interface. Fond : IGN, BD TOPO et RGE ALTI, Licence ouverte. Les forêts sont les forêts publiques <em>actuelles</em>. Molette pour zoomer, glisser pour déplacer.</div>
+<div class="choix forme" role="group" aria-label="Forme des ensembles pilotes" style="left:auto;right:24px;top:22px;bottom:auto">
+  <button data-f="enveloppe" aria-pressed="true">Ensembles : enveloppe</button>
+  <button data-f="rond" aria-pressed="false">rond</button>
+</div>
+<div class="note">Essai interne de recherche artistique — carte seule, sans interface. Fond : IGN, BD TOPO et RGE ALTI, Licence ouverte. Les forêts sont les forêts publiques <em>actuelles</em>. Un ensemble regroupe des lieux proches : sa forme n'est pas une frontière. Seuls les lieux hors ensemble sont des points. Molette pour zoomer, glisser pour déplacer.</div>
 <div class="bulle" id="bulle"></div>
 <script src="../esquisses/d3.min.js"></script>
 <script src="carte_donnees.js?v=3"></script>
@@ -51,7 +55,7 @@ const THEMES = {
     contour: '#2a3640', contourL: 1.3,
     ville: '#22303a', villeTxt: '#22303a', halo: 'rgba(240,242,237,.9)',
     lieu: '#a2322a', lieuBord: '#fff', lieuR: 2.1,
-    ens: '#1f2a33', foretTxt: '#4f6a46', riviereTxt: '#2f6582'
+    ens: '#1f2a33', ensTrait: '#8a2a22', ensFond: 'rgba(162,50,42,.13)', foretTxt: '#4f6a46', riviereTxt: '#2f6582'
   },
   encre: {
     fond: '#f6f6f2', hors: 'rgba(246,246,242,.8)',
@@ -61,7 +65,7 @@ const THEMES = {
     contour: '#141c22', contourL: 1.6,
     ville: '#141c22', villeTxt: '#141c22', halo: 'rgba(246,246,242,.92)',
     lieu: '#141c22', lieuBord: '#f6f6f2', lieuR: 1.9,
-    ens: '#141c22', foretTxt: '#30584a', riviereTxt: '#1c5a8c'
+    ens: '#141c22', ensTrait: '#141c22', ensFond: 'rgba(20,28,34,.08)', foretTxt: '#30584a', riviereTxt: '#1c5a8c'
   },
   nuit: {
     fond: '#141c25', hors: 'rgba(20,28,37,.72)',
@@ -71,7 +75,7 @@ const THEMES = {
     contour: 'rgba(214,226,234,.55)', contourL: 1,
     ville: '#b9c6cf', villeTxt: '#aebbc4', halo: 'rgba(20,28,37,.85)',
     lieu: '#ffcf7a', lieuBord: null, lieuR: 1.7, lueur: true,
-    ens: '#e7edf1', foretTxt: '#7fa292', riviereTxt: '#7fb0cf'
+    ens: '#e7edf1', ensTrait: '#ffcf7a', ensFond: 'rgba(255,207,122,.12)', foretTxt: '#7fa292', riviereTxt: '#7fb0cf'
   }
 };
 
@@ -146,7 +150,22 @@ function boite(x, y, w, h, prises) {
 }
 
 const parOrdre = d3.sort(d3.groups(C.rivieres, (r) => r.ordre), (g) => g[0]);
-const lieux = [...C.lieuxEnsembles.map((l) => ({...l, dans: true})), ...C.autresLieux];
+// Sur la carte de l'Orne, seuls les lieux hors ensemble sont des points.
+const lieux = C.autresLieux;
+// Enveloppe des deux ensembles pilotes : chaque lieu est entouré d'un petit cercle,
+// puis on prend l'enveloppe convexe de l'ensemble. Simple repère de proximité.
+const PILOTES = new Set(['risle', 'crulai']);
+let forme = 'enveloppe';
+const enveloppes = {};
+for (const code of PILOTES) {
+  const pts = [];
+  for (const l of C.lieuxEnsembles.filter((l) => l.ensemble === code))
+    for (let a = 0; a < 16; a++) {
+      const r = 0.012;
+      pts.push([px(l.lon) + r * Math.cos(a * Math.PI / 8), py(l.lat) + r * Math.sin(a * Math.PI / 8)]);
+    }
+  enveloppes[code] = d3.polygonHull(pts);
+}
 let pointsEcran = [];
 
 function dessiner() {
@@ -201,6 +220,32 @@ function dessiner() {
   ctx.fillStyle = t.hors; ctx.fill('evenodd'); ctx.restore();
   cheminContour(); ctx.strokeStyle = t.contour; ctx.lineWidth = t.contourL; ctx.stroke();
 
+  // ensembles : enveloppe (pilotes, si choisie) ou rond proportionnel
+  const formesEcran = [];
+  for (const e of C.ensembles) {
+    const pilote = PILOTES.has(e.code);
+    ctx.beginPath();
+    let bas;
+    if (pilote && forme === 'enveloppe') {
+      const h = enveloppes[e.code].map(([u, v]) => [transform.applyX(base.tx + base.s * u), transform.applyY(base.ty + base.s * v)]);
+      d3.line().curve(d3.curveCatmullRomClosed.alpha(0.5)).context(ctx)(h);
+      bas = [d3.mean(h, (p) => p[0]), d3.max(h, (p) => p[1])];
+    } else {
+      const r = (3 + 2.2 * Math.sqrt(e.nbSites)) * Math.pow(transform.k, 0.5);
+      ctx.arc(X(e.lon), Y(e.lat), r, 0, 2 * Math.PI);
+      bas = [X(e.lon), Y(e.lat) + r];
+    }
+    if (pilote) {
+      ctx.fillStyle = t.ensFond; ctx.fill();
+      ctx.setLineDash([]); ctx.strokeStyle = t.ensTrait; ctx.lineWidth = 1.6; ctx.stroke();
+    } else {
+      ctx.fillStyle = t.ensFond; ctx.globalAlpha = 0.45; ctx.fill(); ctx.globalAlpha = 1;
+      ctx.setLineDash([4, 3]); ctx.strokeStyle = t.ensTrait; ctx.lineWidth = 1.2; ctx.stroke();
+      ctx.setLineDash([]);
+    }
+    formesEcran.push({e, bas, pilote});
+  }
+
   // lieux
   pointsEcran = [];
   const r0 = t.lieuR * Math.min(2, Math.pow(k, 0.35));
@@ -224,6 +269,21 @@ function dessiner() {
   // étiquettes, par ordre de priorité
   const prises = [];
   const serif = "'Source Serif 4', Georgia, serif", sans = "'Source Sans 3', sans-serif";
+  // ensembles : nom et nombre de lieux, sous la forme
+  for (let {e, bas, pilote} of formesEcran) {
+    const lib = e.nom.toUpperCase(), nb = `${e.nbSites} lieux`;
+    ctx.font = `600 10.5px ${sans}`;
+    const w = ctx.measureText(lib).width + lib.length * 1.2;
+    let yb = bas[1];
+    while (prises.some((b) => bas[0] - w / 2 < b[2] && bas[0] + w / 2 > b[0] && yb + 4 < b[3] && yb + 30 > b[1])) yb += 26;
+    bas = [bas[0], yb];
+    ctx.letterSpacing = '1.2px';
+    texte(lib, bas[0], bas[1] + 11, `${pilote ? 700 : 600} 10.5px ${sans}`, t.ens, t.halo, 'center');
+    ctx.letterSpacing = '0px';
+    texte(nb, bas[0], bas[1] + 24, `400 11px ${sans}`, t.ville, t.halo, 'center');
+    prises.push([bas[0] - w / 2, bas[1] + 4, bas[0] + w / 2, bas[1] + 30]);
+  }
+
   // villes
   for (const v of C.villes) {
     const grande = v.prefecture || v.sousPrefecture;
@@ -264,18 +324,6 @@ function dessiner() {
     if (!boite(c[0] - w / 2, c[1] - 7, w, 14, prises)) continue;
     texte(lib, c[0], c[1], `italic 400 12px ${serif}`, t.foretTxt, t.halo, 'center');
   }
-  // ensembles
-  for (const e of C.ensembles) {
-    const x = X(e.lon), y = Y(e.lat);
-    const lib = e.nom.toUpperCase();
-    ctx.font = `600 10.5px ${sans}`;
-    const w = ctx.measureText(lib).width + lib.length * 1.2;
-    if (!boite(x - w / 2, y + 8, w, 13, prises)) continue;
-    ctx.letterSpacing = '1.2px';
-    texte(lib, x, y + 15, `600 10.5px ${sans}`, t.ens, t.halo, 'center');
-    ctx.letterSpacing = '0px';
-  }
-
   // titre discret, posé sur la carte
   texte("L'Orne", 36, 44, `400 30px ${serif}`, t.ens, null);
   texte(`${C.nbLieux} lieux du patrimoine industriel`, 37, 72, `400 13px ${sans}`, t.ville, null);
@@ -298,10 +346,15 @@ cv.addEventListener('mousemove', (ev) => {
 function choisir(t) {
   theme = t; document.body.classList.toggle('nuit', t === 'nuit');
   document.documentElement.style.setProperty('--fond', THEMES[t].fond);
-  document.querySelectorAll('.choix button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.t === t));
+  document.querySelectorAll('[data-t]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.t === t));
   history.replaceState(null, '', '#' + t); dessiner();
 }
-document.querySelectorAll('.choix button').forEach((b) => b.addEventListener('click', () => choisir(b.dataset.t)));
+document.querySelectorAll('[data-t]').forEach((b) => b.addEventListener('click', () => choisir(b.dataset.t)));
+document.querySelectorAll('[data-f]').forEach((b) => b.addEventListener('click', () => {
+  forme = b.dataset.f;
+  document.querySelectorAll('[data-f]').forEach((x) => x.setAttribute('aria-pressed', x.dataset.f === forme));
+  dessiner();
+}));
 addEventListener('keydown', (e) => { const t = {1: 'topo', 2: 'encre', 3: 'nuit'}[e.key]; if (t) choisir(t); });
 addEventListener('resize', taille);
 taille();

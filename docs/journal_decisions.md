@@ -3325,3 +3325,18 @@ en premier.
 
 Décision : **le retour est noté ; aucune modification n'est faite tant que le
 porteur ne l'a pas demandée.**
+
+## 2026-11-18 — Carte seule : les ensembles remplacent leurs lieux
+
+Le porteur précise la règle : sur la carte de l'Orne, les lieux d'un ensemble
+ne s'affichent pas, même pour les deux pilotes ; on montre l'ensemble. Les
+lieux hors ensemble restent des points. L'enveloppe souple est un simple test
+sur la Risle et Crulai, à comparer aux ronds de l'esquisse D. L'écart signalé
+le 18 novembre (199 points pour 321 lieux annoncés) est corrigé : 149 points et
+douze ensembles. Détails dans `docs/phase10_recherche_artistique.md`, section 7.
+
+Option écartée pour l'instant : calculer l'enveloppe des dix autres ensembles,
+qui demanderait de reprendre leurs coordonnées dans la base.
+
+Décision : **les douze ensembles sont dessinés comme des formes ; l'enveloppe et
+le rond sont soumis au jugement du porteur sur les deux pilotes.**
