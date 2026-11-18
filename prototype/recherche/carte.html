@@ -43,6 +43,17 @@ body.nuit .note{color:#8796a1}
   <button data-f="enveloppe" aria-pressed="true">Pilotes : enveloppe</button>
   <button data-f="rond" aria-pressed="false">rond</button>
 </div>
+<div class="choix signe" role="group" aria-label="Signe des lieux hors ensemble" style="left:auto;right:24px;top:68px;bottom:auto;display:none">
+  <button data-s="actuel" aria-pressed="true">Lieux : A′ actuel</button>
+  <button data-s="disque" aria-pressed="false">disque</button>
+  <button data-s="carre" aria-pressed="false">carré</button>
+  <button data-s="losange" aria-pressed="false">losange</button>
+</div>
+<div class="choix zone" role="group" aria-label="Cadrage" style="left:auto;right:24px;top:114px;bottom:auto;display:none">
+  <button data-z="dep" aria-pressed="true">Département</button>
+  <button data-z="ecouche" aria-pressed="false">Zone dense · Écouché</button>
+  <button data-z="longny" aria-pressed="false">Zone dense · Longny</button>
+</div>
 <div class="note">Essai interne de recherche artistique — carte seule, sans interface. Fond : IGN, BD TOPO et RGE ALTI, Licence ouverte. Les forêts sont les forêts publiques <em>actuelles</em>. Un ensemble regroupe des lieux proches : sa forme n'est pas une frontière. Seuls les lieux hors ensemble sont des points. Molette pour zoomer, glisser pour déplacer.</div>
 <div class="bulle" id="bulle"></div>
 <script src="../esquisses/d3.min.js"></script>
@@ -165,7 +176,7 @@ const lieux = C.autresLieux;
 // Enveloppe des deux ensembles pilotes : chaque lieu est entouré d'un petit cercle,
 // puis on prend l'enveloppe convexe de l'ensemble. Simple repère de proximité.
 const PILOTES = new Set(['risle', 'crulai']);
-let forme = 'enveloppe', donnees = 'A';
+let forme = 'enveloppe', donnees = 'A', signe = 'actuel';
 const enveloppes = {};
 for (const code of PILOTES) {
   const pts = [];
@@ -468,10 +479,28 @@ function donneesAffinees(v, t, k, prises, serif, sans) {
 
   // lieux hors ensemble : un disque plein, liseré papier
   const rl = 3.3 * ech;
-  ctx.beginPath();
-  for (const l of lieux) { const x = X(l.lon), y = Y(l.lat); pointsEcran.push([x, y, l]); ctx.moveTo(x + rl, y); ctx.arc(x, y, rl, 0, 2 * Math.PI); }
-  ctx.lineWidth = 2.2; ctx.strokeStyle = PAP; ctx.stroke();
-  ctx.fillStyle = P.lieu; ctx.fill();
+  if (v === 'A2' && signe !== 'actuel') {
+    // passe de finition : chaque signe est détouré à son tour, du nord au sud, pour que
+    // deux lieux voisins restent séparés par un filet papier ; surfaces égales entre formes
+    const cote = rl * Math.sqrt(Math.PI), demi = cote / Math.SQRT2;
+    const trace = (x, y) => {
+      ctx.beginPath();
+      if (signe === 'carre') ctx.rect(x - cote / 2, y - cote / 2, cote, cote);
+      else if (signe === 'losange') { ctx.moveTo(x, y - demi); ctx.lineTo(x + demi, y); ctx.lineTo(x, y + demi); ctx.lineTo(x - demi, y); ctx.closePath(); }
+      else ctx.arc(x, y, rl, 0, 2 * Math.PI);
+    };
+    ctx.lineJoin = 'miter';
+    for (const l of [...lieux].sort((a, b) => b.lat - a.lat)) {
+      const x = X(l.lon), y = Y(l.lat); pointsEcran.push([x, y, l]);
+      trace(x, y); ctx.lineWidth = 2.2; ctx.strokeStyle = PAP; ctx.stroke();
+      ctx.fillStyle = P.lieu; ctx.fill();
+    }
+  } else {
+    ctx.beginPath();
+    for (const l of lieux) { const x = X(l.lon), y = Y(l.lat); pointsEcran.push([x, y, l]); ctx.moveTo(x + rl, y); ctx.arc(x, y, rl, 0, 2 * Math.PI); }
+    ctx.lineWidth = 2.2; ctx.strokeStyle = PAP; ctx.stroke();
+    ctx.fillStyle = P.lieu; ctx.fill();
+  }
 
   // ensembles : pilotes pleins, les dix autres en papier cerclé
   const ordre = [...C.ensembles].sort((a, b) => PILOTES.has(a.code) - PILOTES.has(b.code));
@@ -632,8 +661,25 @@ function choisirDonnees(d) {
   donnees = d;
   document.querySelectorAll('[data-d]').forEach((x) => x.setAttribute('aria-pressed', x.dataset.d === d));
   document.querySelector('.choix.forme').style.display = d === 'ref' ? 'flex' : 'none';
+  document.querySelector('.choix.signe').style.display = d === 'A2' ? 'flex' : 'none';
+  document.querySelector('.choix.zone').style.display = d === 'A2' ? 'flex' : 'none';
   dessiner();
 }
+document.querySelectorAll('[data-s]').forEach((b) => b.addEventListener('click', () => {
+  signe = b.dataset.s;
+  document.querySelectorAll('[data-s]').forEach((x) => x.setAttribute('aria-pressed', x.dataset.s === signe));
+  dessiner();
+}));
+// zones où les signes se chevauchent déjà à l'échelle du département ; zoom léger (×2) qui conserve ce chevauchement
+const ZONES = {ecouche: [-0.125, 48.714, 2], longny: [0.755, 48.53, 2]};
+document.querySelectorAll('[data-z]').forEach((b) => b.addEventListener('click', () => {
+  const z = ZONES[b.dataset.z];
+  document.querySelectorAll('[data-z]').forEach((x) => x.setAttribute('aria-pressed', x === b));
+  const cible = z
+    ? d3.zoomIdentity.translate(W / 2 - z[2] * (base.tx + base.s * px(z[0])), H / 2 - z[2] * (base.ty + base.s * py(z[1]))).scale(z[2])
+    : d3.zoomIdentity;
+  d3.select(cv).transition().duration(500).call(zoom.transform, cible);
+}));
 document.querySelectorAll('[data-d]').forEach((b) => b.addEventListener('click', () => choisirDonnees(b.dataset.d)));
 addEventListener('keydown', (e) => { const d = {'0': 'ref', a: 'A', b: 'B', c: 'C', d: 'D', e: 'A2', f: 'B2'}[e.key.toLowerCase()]; if (d) choisirDonnees(d); });
 addEventListener('resize', taille);

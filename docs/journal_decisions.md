@@ -3399,3 +3399,29 @@ d'ajouter.
 
 Décision : **Empreinte n'est pas retenue ; A′ et B′ sont soumises au jugement
 du porteur.**
+
+## 2026-11-18 — Carte seule : A′ retenue, comparaison du signe des lieux isolés
+
+Le porteur retient A′ « Gravure affinée » comme direction de référence pour la
+carte topographique. B′ est écartée : le carmin domine trop. Les variantes
+générales s'arrêtent là. Une dernière passe ne porte que sur le signe des 149
+lieux hors ensemble, qui manque de présence et forme des amas. Les douze
+ensembles, le fond et le masquage des lieux des ensembles restent inchangés.
+
+Constat : une partie des amas venait de l'ordre de dessin. Tous les liserés
+étaient tracés avant tous les disques, si bien que deux voisins fusionnaient. Un
+détourage signe par signe les sépare, sans déplacer aucune coordonnée. Quatre
+signes de même surface sont comparés dans la page (A′ actuel, disque détouré,
+carré, losange), avec deux cadrages sur les amas réels d'Écouché et de Longny.
+Détails et grille d'évaluation dans `docs/phase10_recherche_artistique.md`,
+section 11.
+
+Recommandation transmise : le carré détouré. Réserve : il peut suggérer une
+localisation exacte du bâti ; la précision géographique doit rester affichée
+dans la fiche.
+
+Options écartées : déplacer ou regrouper les points (fausse précision) ; une
+nouvelle couleur (la palette d'A′ est fixée) ; un symbole composé.
+
+Décision : **A′ est la direction de référence ; le signe des lieux isolés reste
+à choisir par le porteur entre disque détouré, carré et losange.**

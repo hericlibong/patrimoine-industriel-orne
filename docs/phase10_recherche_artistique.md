@@ -1,7 +1,7 @@
 # Phase 10.E — Chantier de recherche artistique
 
-**Version :** 0.1 — 17 novembre 2026
-**Statut :** brainstorming ouvert. Aucune décision de direction artistique.
+**Version :** 0.2 — 18 novembre 2026
+**Statut :** A′ « Gravure affinée » retenue comme référence de la carte topographique ; signe des lieux isolés en cours de choix.
 **Branche :** `claude/recherche-artistique`, ouverte depuis
 `claude/esquisses-direction-artistique`. Les esquisses A, B, C et D restent
 intactes sur leur branche ; elles servent d'inspiration et de référence de
@@ -139,7 +139,7 @@ Non vérifié : mobile, et la fluidité dans un navigateur ordinaire.
 
 ## 6. Retour sur la carte seule (18 novembre 2026)
 
-**Statut :** noté. Ce retour est une évaluation, pas une demande de modification.
+**Statut :** A′ « Gravure affinée » retenue comme référence de la carte topographique ; signe des lieux isolés en cours de choix.
 Les trois traitements restent en place.
 
 **Résumé du retour, transmis par le porteur.**
@@ -327,3 +327,71 @@ italique pour B′.
 
 **Vérifié** à 1440 pixels, version topographique, sans erreur dans la console.
 Non vérifié : mobile.
+
+## 11. A′ retenue ; dernière passe sur le signe des lieux isolés (18 novembre 2026)
+
+**Ce que dit le porteur.** A′ « Gravure affinée » devient la direction de
+référence pour la carte topographique : meilleur équilibre entre sobriété,
+élégance et cohérence avec le fond. B′ reste lisible, mais le carmin domine trop.
+On ne multiplie plus les variantes générales. Il reste un seul point : les lieux
+hors ensemble. Les petits disques bleu d'encre manquent de présence, se fondent
+par endroits dans le fond et forment des amas là où ils se touchent. Les douze
+ensembles, leurs cercles, leurs chiffres, leurs noms et la distinction provisoire
+entre pilotes et autres ne sont pas concernés. Le fond ne change pas. Les lieux
+des ensembles restent masqués.
+
+**Ce qui a été constaté avant de dessiner.**
+
+- À l'échelle du département, à 1440 pixels, 29 paires de lieux isolés sont à
+  moins de 9 pixels l'une de l'autre (calcul fait dans la page sur les 149 lieux
+  hors ensemble). Les vrais amas sont autour d'Écouché (cinq lieux, dont deux
+  usines à chaux à 2,7 pixels l'une de l'autre) et de Longny-au-Perche (trois
+  lieux). Dès qu'on zoome franchement, ils se séparent. Le problème est donc
+  celui de la vue d'ensemble.
+- Une partie des amas ne tient pas à la forme. Dans A′, tous les liserés papier
+  étaient tracés d'abord, puis tous les disques par-dessus : quand deux points se
+  touchent, le liseré qui les séparait disparaît sous le disque voisin, et les
+  deux points fusionnent en une tache.
+
+**Ce qui est fait.** Un sélecteur, visible seulement sur A′, offre quatre
+signes, tous de même surface et de même couleur, avec le même liseré papier :
+
+- **A′ actuel** : la version jugée, intacte, pour comparer ;
+- **disque** : la même forme, mais chaque signe est détouré à son tour, du nord
+  au sud. Deux voisins restent séparés par un filet papier ;
+- **carré** : même détourage, carré droit ;
+- **losange** : même détourage, carré posé sur la pointe.
+
+Deux boutons recadrent sur Écouché et Longny avec un zoom léger (×2), qui
+conserve les chevauchements de la vue départementale. Aucune coordonnée n'est
+déplacée.
+
+**Évaluation**, faite à 1440 pixels, version topographique, en agrandissant la
+vue départementale sans zoomer la carte :
+
+| | Sur le relief, les forêts, les rivières | Présence au département | Amas d'Écouché | Avec les cercles des ensembles |
+|---|---|---|---|---|
+| A′ actuel | se perd près des rivières bleues | faible | une seule tache | même famille ronde |
+| disque détouré | identique | faible | cinq points distincts | même famille ronde |
+| carré | se détache : seule forme droite sur un fond tout en courbes | nette | cinq carrés distincts, empilement lisible | contraste franc : le lieu n'est pas un ensemble |
+| losange | se détache | nette | distinct, mais les pointes s'imbriquent et s'agitent | contraste, un peu « marqueur » |
+
+**Recommandation : le carré détouré.** C'est la seule forme droite sur une carte
+faite de courbes : rivières, relief, lisières et cercles des ensembles. Il
+gagne en présence sans changer de couleur ni grossir. Il sépare aussi sans
+légende le lieu de l'ensemble. Enfin, c'est le signe que les cartes
+topographiques donnent depuis longtemps au bâti.
+
+**La nuance.** Ce dernier argument est aussi la réserve : un carré peut se lire
+comme « ce bâtiment-ci, exactement ici ». Or beaucoup de nos points restent des
+emplacements approximatifs. À 6 pixels, le risque est faible, mais la fiche du
+lieu devra continuer d'afficher la précision géographique. Si le porteur juge ce
+risque trop grand, le disque détouré est le repli sûr. Le détourage, lui, vaut
+pour toutes les formes et devrait être conservé quel que soit le choix.
+
+**Remarque hors périmètre.** À Longny, le nom « Mortagne-au-Perche » du fond
+passe sur les signes. Ce sont les noms de villes qu'il faudra placer en
+évitant les lieux, plus tard ; le fond n'est pas touché ici.
+
+**Vérifié** à 1440 pixels, version topographique, sans erreur dans la console.
+Non vérifié : mobile, thèmes encre et nuit.
