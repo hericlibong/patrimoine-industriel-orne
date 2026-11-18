@@ -3354,3 +3354,17 @@ Option écartée : grossir uniformément les points, demandé comme à éviter.
 
 Décision : **le cercle est retenu pour les ensembles ; les trois variantes sont
 soumises au jugement du porteur, la référence reste comparable.**
+
+## 2026-11-18 — Carte seule : quatrième variante « Empreinte »
+
+Retour du porteur sur les trois variantes : Gravure est la préférée, Carmin la
+plus visible, Métiers la plus riche, mais aucune n'est assez aboutie. Il demande
+une quatrième proposition plus singulière, partant de Gravure. La variante D,
+Empreinte, est ajoutée sans toucher aux autres : un lavis garance posé en
+multiplication sous les données, qui fonce là où les lieux se concentrent ; des
+repères gravés pour les lieux ; des ensembles en sceaux gradués, une graduation
+par lieu. Détails dans `docs/phase10_recherche_artistique.md`, section 9.
+
+Décision : **la variante Empreinte est soumise au jugement du porteur, à
+comparer aux trois autres et à la référence ; aucune direction n'est encore
+retenue.**

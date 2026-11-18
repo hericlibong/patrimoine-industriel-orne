@@ -254,3 +254,42 @@ des forêts. Les lieux grossissent un peu avec le zoom.
 **Vérifié** à 1440 pixels, version topographique, sur les quatre états, sans
 erreur dans la console. Non vérifié : mobile, et les variantes sur les fonds
 encre et nuit, qui ne sont pas réglées pour elles.
+
+## 9. Quatrième variante — D « Empreinte » (18 novembre 2026)
+
+**Le retour du porteur sur A, B et C.** A, Gravure, est la préférée : la plus
+cohérente avec le fond, sobre et fine. Mais ses lieux se confondent parfois avec
+les détails géographiques. B, Carmin, a la meilleure visibilité, mais ses
+losanges sont raides. C, Métiers, prouve que la carte supporte plusieurs
+couleurs, mais ses petits anneaux chargent l'image. Il demande une quatrième
+proposition, plus aboutie et plus singulière, qui parte de Gravure sans s'y
+enfermer. Le fond, les cercles, les lieux masqués des ensembles et la
+distinction entre les deux pilotes et les dix autres restent en place. Les trois
+variantes et la référence sont conservées.
+
+**L'idée.** Les données impriment le paysage. Ce n'est pas un symbole posé sur
+la carte, c'est une trace laissée dans la terre.
+
+- **Le lavis.** Sous chaque lieu et chaque ensemble, un lavis de couleur garance
+  (rouge brun, éteint) se fond dans le relief par multiplication, comme une
+  encre sur un papier. Là où les lieux se rapprochent, les lavis se superposent
+  et la terre fonce d'elle-même. Les concentrations se lisent sans qu'on les
+  dessine : c'est la réponse à la demande de distinguer lieux isolés et
+  concentrations.
+- **Les lieux hors ensemble.** Un repère gravé : un anneau d'encre fin, une
+  réserve blanche qui le détache des rivières et du relief, un cœur garance. On
+  garde la finesse de Gravure et on gagne la présence de Carmin, sans losange.
+- **Les ensembles, comme des sceaux.** Le disque porte une graduation par lieu :
+  43 traits pour la Risle, 7 pour Crulai, qu'on peut compter. Le nombre est
+  inscrit au centre. Les deux pilotes sont pleins, bleu d'encre, avec des
+  graduations blanches, un second filet et une ombre ; les dix autres sont
+  couleur papier, avec des graduations d'encre et un filet intérieur.
+- **Les noms.** En capitales romaines espacées, reliés au sceau par un filet
+  fin, comme sur une carte gravée.
+- **Les couleurs.** Deux seulement en plus du fond : l'encre et la garance. La
+  variété vient de la superposition des lavis, pas de la palette.
+
+**Vérifié** à 1440 pixels, en vue d'ensemble et zoomée sur la Risle, sans
+erreur dans la console. Non vérifié : mobile. La finesse des graduations n'a pu
+être jugée qu'à la résolution réduite des captures du navigateur intégré ; elle
+reste à juger par le porteur sur un écran réel.
