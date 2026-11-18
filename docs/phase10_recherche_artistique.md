@@ -1,7 +1,7 @@
 # Phase 10.E — Chantier de recherche artistique
 
-**Version :** 0.2 — 18 novembre 2026
-**Statut :** A′ « Gravure affinée » retenue comme référence de la carte topographique ; signe des lieux isolés en cours de choix.
+**Version :** 0.3 — 18 novembre 2026
+**Statut :** carte retenue à titre provisoire (topographique, A′, carrés) ; deux expérimentations de composition soumises au jugement.
 **Branche :** `claude/recherche-artistique`, ouverte depuis
 `claude/esquisses-direction-artistique`. Les esquisses A, B, C et D restent
 intactes sur leur branche ; elles servent d'inspiration et de référence de
@@ -139,7 +139,7 @@ Non vérifié : mobile, et la fluidité dans un navigateur ordinaire.
 
 ## 6. Retour sur la carte seule (18 novembre 2026)
 
-**Statut :** A′ « Gravure affinée » retenue comme référence de la carte topographique ; signe des lieux isolés en cours de choix.
+**Statut :** carte retenue à titre provisoire (topographique, A′, carrés) ; deux expérimentations de composition soumises au jugement.
 Les trois traitements restent en place.
 
 **Résumé du retour, transmis par le porteur.**
@@ -395,3 +395,91 @@ passe sur les signes. Ce sont les noms de villes qu'il faudra placer en
 
 **Vérifié** à 1440 pixels, version topographique, sans erreur dans la console.
 Non vérifié : mobile, thèmes encre et nuit.
+
+## 12. Carte retenue ; passage à la composition générale (18 novembre 2026)
+
+**Ce que décide le porteur.** La recherche cartographique est close à titre
+provisoire. Sont retenus :
+
+- le fond topographique ;
+- la direction A′ « Gravure affinée » ;
+- de petits carrés bleu d'encre pour les lieux hors ensemble ;
+- les cercles numérotés pour les douze ensembles.
+
+La validation reste provisoire : la carte doit être éprouvée avec les
+interactions, filtres par époque et par métier compris.
+
+**Ce qui est demandé.** Intégrer cette carte dans une vraie publication. L'esquisse
+D reste la référence de fonctionnement : navigation, filtres combinables,
+recherche, transitions et fiches. Sa grande colonne latérale permanente ne
+convient pas. Deux pistes à expérimenter, indépendantes l'une de l'autre :
+
+1. une carte immersive ;
+2. un récit cartographique.
+
+La réserve du porteur : avec des carrés aussi petits, l'effet des filtres risque
+d'être peu perceptible. Il faut l'observer, sans refaire les symboles pour
+l'instant. Les fiches, les infobulles et le récit complet ne sont pas à finaliser.
+
+**Ce qui est fait.** Un dossier `prototype/composition/` à trois parties :
+
+- `carte_a.js` : la carte retenue, dessinée exactement comme dans la carte seule
+  et partagée par les deux pages.
+- `mecanique.js` : la mécanique de l'esquisse D, reprise sans toucher à
+  l'esquisse : état dans l'adresse, comptes, recherche, contenu des fiches.
+  S'y ajoute une phrase calculée qui dit en texte ce que la carte montre.
+- les deux pages, `immersive.html` et `recit.html`.
+
+Les esquisses, la carte seule et ses variantes restent intactes.
+
+*Composition 1, la carte immersive.* La carte occupe tout l'écran. Le titre et un
+texte d'arrivée sont posés à gauche, sur la carte. Le texte se replie dès la
+première action et peut être rouvert. En bas, un pupitre flottant réunit :
+
+- la phrase calculée ;
+- six colonnes d'époque, chacune avec une petite barre proportionnelle à son
+  nombre de lieux ;
+- un sélecteur de métier qui s'ouvre au-dessus.
+
+La recherche est en haut à droite, le zoom à droite et une légende courte en bas
+à gauche. Ouvrir la Risle ou Crulai fait descendre la carte sur l'ensemble et y
+fait apparaître ses lieux. Sa présentation remplace alors le texte d'arrivée.
+
+*Composition 2, le récit cartographique.* La page s'ouvre sur une une
+éditoriale : grand titre, chapô, texte d'introduction et trois chiffres. La carte
+vient ensuite, en pleine planche, à la hauteur de l'écran. Un cartouche, en haut
+à gauche, donne le titre de la vue et la phrase calculée ; il change avec les
+filtres. Une bande en pied de planche lit les époques comme une règle graduée,
+avec une jauge par époque, et les métiers comme un index. Sous la carte viennent
+les douze ensembles, présentés en index, puis la façon de lire la carte et les
+sources. Pour ne pas piéger le défilement de la page, la molette ne zoome la
+carte que lorsque la planche occupe l'écran.
+
+**Ce que les filtres font sur la carte, dans les deux pages.** Les choix de
+représentation sont les suivants :
+
+- un carré écarté par le filtre s'efface à 14 % d'opacité ;
+- un cercle d'ensemble se resserre sur son nouvel effectif, et son chiffre
+  change ;
+- un filet pointillé garde la taille entière du cercle ;
+- un ensemble vide ne garde que son filet, et son nom s'estompe.
+
+Tout est animé en un peu plus d'une demi-seconde. Ce sont des choix de
+comportement, pas une refonte des symboles.
+
+**Premier constat sur la réserve du porteur**, observé à 1440 pixels. Exemple :
+textile, entre 1850 et 1913, dans la population des 321 lieux. La phrase annonce
+65 lieux, dont 14 hors ensemble. Le changement se lit d'abord dans les cercles,
+qui rétrécissent et changent de chiffre. Les carrés retenus restent lisibles,
+mais leur petit nombre et leur taille rendent leur disparition moins
+spectaculaire que celle des cercles. C'est une observation, pas un jugement :
+c'est au porteur d'en juger dans la page.
+
+**Vérifié** à 1440 pixels sur les deux pages, sans erreur dans la console :
+
+- filtres par époque et par métier, et leur combinaison ;
+- adresse partageable ;
+- descente dans la Risle et ouverture d'une fiche ;
+- index des ensembles du récit.
+
+Non vérifié : mobile, clavier de bout en bout, lecteur d'écran.

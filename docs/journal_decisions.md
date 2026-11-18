@@ -3425,3 +3425,38 @@ nouvelle couleur (la palette d'A′ est fixée) ; un symbole composé.
 
 Décision : **A′ est la direction de référence ; le signe des lieux isolés reste
 à choisir par le porteur entre disque détouré, carré et losange.**
+
+## 2026-11-18 — Carte retenue à titre provisoire ; deux expérimentations de composition
+
+Le porteur clôt provisoirement la recherche cartographique. Sont retenus le fond
+topographique, la direction A′ « Gravure affinée », les petits carrés bleu
+d'encre pour les lieux hors ensemble et les cercles numérotés des douze
+ensembles. La validation reste provisoire : la carte doit être éprouvée avec les
+filtres par époque et par métier.
+
+L'étape suivante est la composition générale. L'esquisse D reste la référence de
+fonctionnement, mais sa grande colonne latérale permanente est écartée. Deux
+expérimentations indépendantes sont produites dans `prototype/composition/`,
+sur une même carte et une même mécanique reprise de D sans la modifier :
+
+- une carte immersive : carte plein écran, accueil posé dessus puis replié,
+  pupitre flottant des époques et des métiers ;
+- un récit cartographique : une éditoriale, carte en planche avec un cartouche
+  calculé et une bande de lecture, index des douze ensembles sous la carte.
+
+Les deux pages ajoutent une phrase calculée qui dit en texte ce que la carte
+montre. Détails dans `docs/phase10_recherche_artistique.md`, section 12.
+
+Le comportement des filtres sur la carte est un choix de fonctionnement, pas une
+refonte des symboles. Les carrés écartés s'effacent. Les cercles se resserrent
+sur leur effectif, et un filet garde leur taille entière. La réserve du porteur
+sur la perceptibilité des carrés est consignée comme question ouverte.
+
+Options écartées :
+
+- la reprise de la colonne permanente de D ;
+- un parcours imposé : le récit s'ouvre sur une une, mais la carte reste libre ;
+- une nouvelle refonte des symboles avant d'avoir observé les filtres.
+
+Décision : **la carte A′ est retenue à titre provisoire ; les compositions
+immersive et récit sont soumises au jugement du porteur.**

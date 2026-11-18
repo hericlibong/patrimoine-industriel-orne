@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carte immersive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--papier:#fbfaf6;--encre:#1e3040;--encre2:#55636e;--filet:rgba(30,48,64,.16);--fond:#e9ece6;--voile:rgba(251,250,246,.93)}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--fond);color:var(--encre);font-family:'Source Sans 3',system-ui,sans-serif}
+button,input{font:inherit;color:inherit}
+#carte{position:fixed;inset:0}
+.panneau{background:var(--voile);border:1px solid var(--filet);border-radius:10px;box-shadow:0 1px 3px rgba(30,48,64,.06),0 8px 28px rgba(30,48,64,.07);backdrop-filter:blur(4px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--encre);outline-offset:2px}
+
+/* titre et accueil, posés sur la carte */
+.titre{position:fixed;left:32px;top:28px;width:330px;z-index:3}
+.titre .sur{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--encre2);margin:0 0 8px;font-weight:600}
+.titre h1{font-family:'Source Serif 4',serif;font-weight:400;font-size:38px;line-height:1.02;margin:0;letter-spacing:-.01em;text-shadow:0 0 12px var(--fond),0 0 2px var(--fond)}
+.accueil{margin-top:16px;padding:16px 18px 14px;font-size:15px;line-height:1.5;transition:opacity .35s,transform .35s}
+.accueil p{margin:0 0 9px}
+.accueil .mode{font-size:13.5px;color:var(--encre2);border-top:1px solid var(--filet);padding-top:9px;margin:4px 0 0}
+.accueil.replie{opacity:0;transform:translateY(-6px);pointer-events:none}
+.lien{background:none;border:0;padding:0;cursor:pointer;color:var(--encre);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;font-size:13.5px}
+.rouvrir{margin-top:10px;display:none}
+.accueil.replie + .rouvrir{display:inline-block}
+.fil{display:none;margin-top:14px;padding:14px 18px;font-size:14.5px;line-height:1.48}
+.fil.ouvert{display:block}
+.fil .retour{margin-bottom:8px;display:inline-block}
+.fil h2{font-family:'Source Serif 4',serif;font-weight:600;font-size:22px;margin:0 0 2px}
+.fil .travail{font-family:'Source Serif 4',serif;font-style:italic;color:var(--encre2);margin:0 0 8px}
+.fil p{margin:0}
+
+/* recherche */
+.chercher{position:fixed;right:28px;top:26px;width:300px;z-index:4}
+.chercher input{width:100%;padding:10px 14px 10px 36px;border-radius:999px;border:1px solid var(--filet);background:var(--voile) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%231e3040' stroke-width='1.6'%3E%3Ccircle cx='7' cy='7' r='5'/%3E%3Cpath d='M11 11l4 4'/%3E%3C/svg%3E") no-repeat 13px 50%;font-size:14.5px;box-shadow:0 4px 18px rgba(30,48,64,.07)}
+.resultats{list-style:none;margin:6px 0 0;padding:4px;max-height:340px;overflow:auto}
+.resultats:empty{display:none}
+.resultats button{display:block;width:100%;text-align:left;padding:7px 10px;border:0;background:none;border-radius:6px;cursor:pointer;font-size:14.5px}
+.resultats button:hover,.resultats button:focus{background:rgba(30,48,64,.07);outline:none}
+.resultats small{color:var(--encre2)}
+
+/* zoom */
+.zoom{position:fixed;right:28px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;z-index:3;overflow:hidden}
+.zoom button{width:36px;height:36px;border:0;background:none;cursor:pointer;font-size:18px;line-height:1}
+.zoom button+button{border-top:1px solid var(--filet)}
+.zoom button:hover{background:rgba(30,48,64,.06)}
+
+/* pupitre : l'époque et le métier, en bas, au-dessus de la carte */
+.pupitre{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:3;padding:12px 16px 12px;display:grid;grid-template-columns:auto auto;gap:6px 22px;align-items:end;max-width:calc(100vw - 32px)}
+.etat{grid-column:1/-1;display:flex;gap:14px;align-items:baseline;font-size:14px;line-height:1.35;padding:0 2px 6px;border-bottom:1px solid var(--filet);margin-bottom:4px}
+.etat .phrase{font-family:'Source Serif 4',serif;font-size:16px}
+.etat .lien{white-space:nowrap;margin-left:auto}
+.frise{display:flex;gap:2px;align-items:flex-end}
+.ep{display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:122px;padding:6px 8px 5px;border:0;background:none;border-radius:6px;cursor:pointer;text-align:left}
+.ep .barre{display:block;width:100%;background:rgba(30,48,64,.13);border-radius:2px 2px 0 0;transition:height .55s cubic-bezier(.3,.7,.2,1),background .2s}
+.ep .d{font-size:12px;font-weight:600;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.ep .nom{font-family:'Source Serif 4',serif;font-size:13px;line-height:1.15;color:var(--encre2);min-height:30px}
+.ep .n{font-size:11.5px;color:var(--encre2);font-variant-numeric:tabular-nums}
+.ep:hover{background:rgba(30,48,64,.05)}
+.ep[aria-pressed=true]{background:var(--encre);color:var(--papier)}
+.ep[aria-pressed=true] .nom,.ep[aria-pressed=true] .n{color:#cfd7dd}
+.ep[aria-pressed=true] .barre{background:var(--papier)}
+.ep:disabled{opacity:.35;cursor:default}
+.choix-metier{position:relative;align-self:stretch;display:flex;flex-direction:column;justify-content:flex-end;border-left:1px solid var(--filet);padding-left:18px}
+.choix-metier .lab{font-size:12px;font-weight:600;letter-spacing:.02em;margin-bottom:6px}
+.bouton-metier{display:flex;justify-content:space-between;align-items:center;gap:10px;width:230px;padding:9px 12px;border:1px solid var(--filet);border-radius:8px;background:var(--papier);cursor:pointer;font-size:14.5px;text-align:left}
+.bouton-metier[aria-pressed=true]{background:var(--encre);color:var(--papier)}
+.metiers{position:absolute;right:0;bottom:calc(100% + 12px);width:340px;padding:8px;display:none;flex-direction:column;gap:1px;max-height:60vh;overflow:auto}
+.metiers.ouvert{display:flex}
+.metiers button{display:flex;justify-content:space-between;gap:12px;padding:7px 10px;border:0;background:none;border-radius:6px;cursor:pointer;font-size:14.5px;text-align:left}
+.metiers button span:last-child{color:var(--encre2);font-variant-numeric:tabular-nums}
+.metiers button:hover{background:rgba(30,48,64,.06)}
+.metiers button[aria-pressed=true]{background:var(--encre);color:var(--papier)}
+.metiers button[aria-pressed=true] span:last-child{color:#cfd7dd}
+
+/* légende et crédits */
+.legende{position:fixed;left:32px;bottom:200px;z-index:2;display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--encre2)}
+.legende span{display:flex;align-items:center;gap:8px}
+.credit{position:fixed;right:28px;bottom:28px;z-index:2;font-size:11px;color:var(--encre2);max-width:250px;text-align:right;line-height:1.4}
+
+/* infobulle et fiche */
+.bulle{position:fixed;z-index:6;pointer-events:none;padding:5px 9px;font-size:13.5px;background:var(--papier);border:1px solid var(--filet);border-radius:6px;box-shadow:0 2px 10px rgba(30,48,64,.12);display:none;max-width:280px}
+.fiche{position:fixed;z-index:5;width:340px;max-height:min(70vh,560px);overflow:auto;padding:16px 18px 16px;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s;pointer-events:none}
+.fiche.ouverte{opacity:1;transform:none;pointer-events:auto}
+.fiche .fermer{position:absolute;right:6px;top:6px;width:32px;height:32px;border:0;background:none;cursor:pointer;font-size:20px;color:var(--encre2)}
+.f-kicker{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--encre2)}
+.fiche h3{font-family:'Source Serif 4',serif;font-weight:600;font-size:23px;line-height:1.1;margin:5px 26px 3px 0}
+.f-ou{font-size:14px;color:var(--encre2)}
+.f-eps{display:flex;flex-wrap:wrap;gap:4px;margin:10px 0 8px}
+.f-eps span{font-size:11.5px;padding:2px 7px;border-radius:99px;background:rgba(30,48,64,.07);color:var(--encre2)}
+.f-eps span.on{background:var(--encre);color:var(--papier)}
+.fiche p{font-size:14.5px;line-height:1.5;margin:0 0 8px}
+.fiche .f-note{font-size:13px;color:var(--encre2);font-style:italic}
+.fiche a{color:var(--encre);font-size:14px}
+.fiche .ouvrir{margin-top:4px;padding:8px 12px;border:0;border-radius:6px;background:var(--encre);color:var(--papier);cursor:pointer;font-size:14px}
+.repere{position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:2;font-size:11px;color:var(--encre2);opacity:.8}
+@media (max-width:900px){
+  .titre{width:auto;right:16px;left:16px;top:14px}.titre h1{font-size:28px}.accueil{font-size:14px}
+  .chercher{top:auto;bottom:226px;right:16px;left:16px;width:auto}
+  .legende,.credit,.zoom,.repere{display:none}
+  .pupitre{left:8px;right:8px;transform:none;bottom:8px;grid-template-columns:1fr}
+  .frise{overflow-x:auto}.ep{width:86px}
+  .choix-metier{border-left:0;padding-left:0}.bouton-metier{width:100%}.metiers{width:100%}
+  .fiche{left:8px!important;right:8px;width:auto;top:auto!important;bottom:8px}
+}
+</style>
+</head>
+<body>
+<div id="carte" role="img" aria-label="Carte de l'Orne : douze ensembles en cercles numérotés et les lieux isolés en carrés, sur le relief, les rivières et les forêts publiques. La liste des lieux affichés est donnée en texte plus bas."></div>
+
+<header class="titre">
+  <p class="sur">Patrimoine industriel</p>
+  <h1>Le patrimoine oublié de l'Orne</h1>
+  <div class="accueil panneau" id="accueil">
+    <p>Derrière l'image rurale de l'Orne, les inventaires recensent <b>321 lieux de production</b>, du Moyen Âge au XX<sup>e</sup> siècle : moulins et laiteries, forges, filatures, papeteries, tuileries.</p>
+    <p>Ils sont tous sur cette carte. Les cercles réunissent des lieux proches ; leur chiffre dit combien. Les petits carrés sont des lieux isolés.</p>
+    <p class="mode">Choisissez une époque ou un métier en bas de l'écran, cliquez un cercle ou un carré, ou cherchez un nom. <button class="lien" type="button" id="replier">Masquer ce texte</button></p>
+  </div>
+  <button class="lien rouvrir" type="button" id="rouvrir">À propos de cette carte</button>
+  <section class="fil panneau" id="fil" aria-live="polite"></section>
+</header>
+
+<div class="chercher">
+  <label class="sr" for="cherche">Chercher un lieu, une commune, un ensemble</label>
+  <input id="cherche" type="search" placeholder="Un lieu, une commune, un métier…" autocomplete="off" aria-controls="resultats">
+  <ul class="resultats panneau" id="resultats"></ul>
+</div>
+
+<div class="zoom panneau"><button type="button" id="zplus" aria-label="Rapprocher">+</button><button type="button" id="zmoins" aria-label="Éloigner">−</button><button type="button" id="zcentre" aria-label="Revoir tout le cadre" title="Revoir tout le cadre">⤢</button></div>
+
+<section class="pupitre panneau" aria-label="Choisir une époque et un métier">
+  <div class="etat"><span class="phrase" id="phrase" aria-live="polite"></span><button class="lien" type="button" id="raz" hidden>tout afficher</button></div>
+  <div class="frise" id="frise" role="group" aria-label="Époques"></div>
+  <div class="choix-metier">
+    <div class="lab">Métier</div>
+    <button class="bouton-metier" type="button" id="boutonMetier" aria-expanded="false" aria-controls="metiers"><span id="metierCourant">Tous les métiers</span><span aria-hidden="true">▴</span></button>
+    <div class="metiers panneau" id="metiers" role="group" aria-label="Métiers"></div>
+  </div>
+</section>
+
+<div class="legende" aria-hidden="true">
+  <span><svg width="22" height="22"><circle cx="11" cy="11" r="9" fill="#1e3040"/></svg>ensemble que l'on peut ouvrir</span>
+  <span><svg width="22" height="22"><circle cx="11" cy="11" r="9" fill="#fbfaf6" stroke="#1e3040" stroke-width="1.6"/></svg>ensemble de lieux proches</span>
+  <span><svg width="22" height="22"><circle cx="11" cy="11" r="9" fill="none" stroke="#1e3040" stroke-opacity=".5" stroke-dasharray="2 2.5"/></svg>sa taille sans filtre</span>
+  <span><svg width="22" height="22"><rect x="7" y="7" width="8" height="8" fill="#1e3040"/></svg>lieu isolé</span>
+</div>
+<p class="credit">Fond : IGN, BD TOPO et RGE ALTI, Licence ouverte. Lieux : Inventaire général du patrimoine culturel, Région Normandie. Forêts publiques actuelles. Expérimentation interne.</p>
+<p class="repere">Expérimentation de composition 1 · carte immersive · <a href="recit.html">voir la composition 2</a></p>
+
+<div class="bulle" id="bulle"></div>
+<article class="fiche panneau" id="fiche" aria-live="polite"></article>
+<ul class="sr" id="liste" aria-label="Lieux affichés"></ul>
+
+<script src="../esquisses/d3.min.js"></script>
+<script src="../recherche/carte_donnees.js?v=3"></script>
+<script src="../esquisses/donnees.js"></script>
+<script src="carte_a.js"></script>
+<script src="mecanique.js"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+const bulle = $('bulle'), fiche = $('fiche');
+let lieuOuvert = null, ancre = null;
+
+const carte = CarteA($('carte'), {
+  marges: innerWidth > 900 ? { g: 330, d: 70, h: 40, b: 170 } : { g: 12, d: 12, h: 150, b: 260 },
+  survol(o, x, y) {
+    if (!o) { bulle.style.display = 'none'; return; }
+    bulle.textContent = o.type === 'lieu' ? `${o.s.nomCourt || o.s.nom} — ${o.s.commune}` : `${o.e.nom} — ${carte.compteEnsemble(o.e)} lieu${carte.compteEnsemble(o.e) > 1 ? 'x' : ''}`;
+    bulle.style.display = 'block'; bulle.style.left = x + 14 + 'px'; bulle.style.top = y + 14 + 'px';
+  },
+  clic(o) {
+    replier();
+    if (!o) return fermerFiche();
+    if (o.type === 'lieu') return ouvrirLieu(o.s.ref);
+    ouvrirEnsemble(o.e.code);
+  },
+  apresDessin: () => placerFiche()
+});
+
+/* ---------- accueil ---------- */
+function replier() { $('accueil').classList.add('replie'); }
+$('replier').onclick = replier;
+$('rouvrir').onclick = () => $('accueil').classList.remove('replie');
+
+/* ---------- filtres ---------- */
+function majPupitre() {
+  const f = carte.filtre();
+  const max = d3.max(M.EPOQUES, (e) => M.compte(carte, f.metier, e.code)) || 1;
+  d3.select('#frise').selectAll('button').data(M.EPOQUES, (e) => e.code).join((en) => {
+    const b = en.append('button').attr('type', 'button').attr('class', 'ep');
+    b.append('span').attr('class', 'barre'); b.append('span').attr('class', 'd'); b.append('span').attr('class', 'nom'); b.append('span').attr('class', 'n');
+    return b.on('click', (ev, e) => filtrer({ epoque: carte.filtre().epoque === e.code ? null : e.code }));
+  }).each(function (e) {
+    const n = M.compte(carte, f.metier, e.code), b = d3.select(this);
+    b.attr('aria-pressed', String(f.epoque === e.code)).property('disabled', n === 0 && f.epoque !== e.code)
+      .attr('aria-label', `${e.dates}, ${e.nom} : ${n} lieux`);
+    b.select('.barre').style('height', `${3 + 30 * n / max}px`);
+    b.select('.d').text(e.dates); b.select('.nom').text(e.nom); b.select('.n').text(`${n} lieux`);
+  });
+  d3.select('#metiers').selectAll('button').data(M.metiersPresents(carte, f.epoque, f.metier), (d) => d[0]).join('button')
+    .attr('type', 'button').attr('aria-pressed', ([m]) => String(f.metier === m))
+    .html(([m, n]) => `<span>${M.echapper(M.METIERS[m])}</span><span>${n}</span>`)
+    .on('click', (ev, [m]) => { filtrer({ metier: carte.filtre().metier === m ? null : m }); basculerMetiers(false); });
+  $('metierCourant').textContent = f.metier ? M.METIERS[f.metier] : 'Tous les métiers';
+  $('boutonMetier').setAttribute('aria-pressed', String(!!f.metier));
+  $('phrase').textContent = M.phrase(carte);
+  $('raz').hidden = !f.metier && !f.epoque;
+  d3.select('#liste').selectAll('li').data(carte.LIEUX.filter((s) => (s._ens ? s._ens === carte.vue() : true) && carte.retenu(s)), (s) => s.ref).join('li')
+    .html((s) => `<button type="button">${M.echapper(s.nomCourt || s.nom)}, ${M.echapper(s.commune)}</button>`)
+    .on('click', (ev, s) => ouvrirLieu(s.ref));
+  M.ecrireAdresse(carte, lieuOuvert);
+}
+function filtrer(f, anime = true) {
+  replier();
+  carte.filtrer(f, anime);
+  if (lieuOuvert && !carte.retenu(carte.parRef.get(lieuOuvert))) fermerFiche();
+  majPupitre();
+}
+function basculerMetiers(ouvrir) {
+  const m = $('metiers'), o = ouvrir ?? !m.classList.contains('ouvert');
+  m.classList.toggle('ouvert', o); $('boutonMetier').setAttribute('aria-expanded', String(o));
+}
+$('boutonMetier').onclick = () => basculerMetiers();
+$('raz').onclick = () => filtrer({ metier: null, epoque: null });
+
+/* ---------- vues et fiches ---------- */
+function majFil() {
+  const v = carte.vue(), fil = $('fil');
+  if (v === 'orne') { fil.classList.remove('ouvert'); fil.innerHTML = ''; return; }
+  const e = carte.DETAIL[v], r = e.resume;
+  fil.innerHTML = `<button class="lien retour" type="button" id="retour">← Toute l'Orne</button>
+    <h2>${M.echapper(e.nom)}</h2><p class="travail">${M.echapper(e.nomDeTravail || '')}</p>
+    <p>${M.echapper(e.presentation || '')}</p>`;
+  fil.classList.add('ouvert');
+  $('retour').onclick = () => allerVue('orne');
+}
+function allerVue(code, anime = true) {
+  fermerFiche(true);
+  carte.aller(code, anime);
+  if (code !== 'orne') replier();
+  majFil(); majPupitre();
+}
+function ouvrirEnsemble(code) {
+  const e = carte.ENS.find((x) => x.code === code);
+  if (carte.DETAIL[code]) return allerVue(code);
+  montrer(M.ficheEnsemble(e, false), e);
+}
+function ouvrirLieu(ref) {
+  const s = carte.parRef.get(ref);
+  if (!s) return;
+  if (s._ens && carte.vue() !== s._ens) { allerVue(s._ens); return setTimeout(() => ouvrirLieu(ref), 1250); }
+  if (!carte.retenu(s)) filtrer({ metier: null, epoque: null });
+  lieuOuvert = ref; carte.choisir(ref);
+  montrer(M.ficheLieu(s), s);
+  M.ecrireAdresse(carte, ref);
+}
+function montrer(html, cible) {
+  ancre = cible;
+  fiche.innerHTML = `<button class="fermer" type="button" aria-label="Fermer">×</button>${html}`;
+  fiche.querySelector('.fermer').onclick = () => fermerFiche();
+  fiche.classList.add('ouverte'); fiche.scrollTop = 0;
+  placerFiche();
+}
+function placerFiche() {
+  if (!ancre || !fiche.classList.contains('ouverte') || innerWidth <= 900) return;
+  const [x, y] = carte.ecran(ancre.lon, ancre.lat), w = fiche.offsetWidth, h = fiche.offsetHeight;
+  let l = x + 28; if (l + w > innerWidth - 24) l = x - w - 28;
+  fiche.style.left = Math.max(24, l) + 'px';
+  fiche.style.top = Math.max(80, Math.min(innerHeight - h - 230, y - 80)) + 'px';
+}
+function fermerFiche(silencieux) {
+  fiche.classList.remove('ouverte'); ancre = null; lieuOuvert = null; carte.choisir(null);
+  if (!silencieux) M.ecrireAdresse(carte, null);
+}
+
+/* ---------- recherche ---------- */
+const cherche = $('cherche'), resultats = $('resultats');
+cherche.addEventListener('input', () => {
+  resultats.innerHTML = '';
+  for (const r of M.chercher(carte, cherche.value)) {
+    const li = document.createElement('li'), b = document.createElement('button');
+    b.type = 'button'; b.innerHTML = `${M.echapper(r.t)} <small>— ${M.echapper(r.s)}</small>`;
+    b.onclick = () => { resultats.innerHTML = ''; cherche.value = ''; replier();
+      if (r.lieu) { carte.voler(r.lieu.lon, r.lieu.lat, 5); ouvrirLieu(r.lieu.ref); } else ouvrirEnsemble(r.ensemble.code); };
+    li.appendChild(b); resultats.appendChild(li);
+  }
+});
+cherche.addEventListener('keydown', (e) => { if (e.key === 'ArrowDown') { const b = resultats.querySelector('button'); if (b) { e.preventDefault(); b.focus(); } } });
+
+/* ---------- commandes ---------- */
+$('zplus').onclick = () => carte.zoomPar(1.6);
+$('zmoins').onclick = () => carte.zoomPar(1 / 1.6);
+$('zcentre').onclick = () => carte.recentrer();
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  if ($('metiers').classList.contains('ouvert')) basculerMetiers(false);
+  else if (fiche.classList.contains('ouverte')) fermerFiche();
+  else if (carte.vue() !== 'orne') allerVue('orne');
+});
+document.addEventListener('click', (e) => { if (!e.target.closest('.choix-metier')) basculerMetiers(false); });
+
+document.fonts.ready.then(() => {
+  const a = M.lireAdresse(carte);
+  carte.filtrer({ metier: a.metier, epoque: a.epoque }, false);
+  if (a.metier || a.epoque || a.vue !== 'orne' || a.lieu) replier();
+  allerVue(a.vue, false);
+  if (a.lieu) ouvrirLieu(a.lieu);
+});
+</script>
+</body>
+</html>
