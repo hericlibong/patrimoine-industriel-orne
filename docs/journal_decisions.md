@@ -3308,3 +3308,20 @@ couche ne prétend montrer un paysage ancien.
 
 Décision : **trois traitements de la carte seule sont soumis au jugement du
 porteur ; aucun n'est retenu.**
+
+## 2026-11-18 — Retour sur la carte seule : la version topographique privilégiée
+
+Le porteur transmet un retour de direction artistique sur les trois traitements :
+la version topographique est à privilégier, l'encre est gardée comme référence
+secondaire, la nuit comme expérience. Priorités : la présence des lieux, la
+représentation des douze ensembles (cercle ou enveloppe souple, à comparer) et
+la hiérarchie des informations. Détails et évaluation dans
+`docs/phase10_recherche_artistique.md`, section 6.
+
+Constat vérifié : l'essai dessine un par un les 50 lieux de la Risle et de
+Crulai, sans forme d'ensemble, et ne montre pas les lieux des dix autres. Il
+affiche 199 points pour un titre de 321 lieux. Cette incohérence est à corriger
+en premier.
+
+Décision : **le retour est noté ; aucune modification n'est faite tant que le
+porteur ne l'a pas demandée.**

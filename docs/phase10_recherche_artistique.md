@@ -136,3 +136,55 @@ voile, pour que l'Orne ne flotte pas dans le vide.
 
 **Vérifié** à 1440 pixels dans le navigateur intégré, sur les trois traitements.
 Non vérifié : mobile, et la fluidité dans un navigateur ordinaire.
+
+## 6. Retour sur la carte seule (18 novembre 2026)
+
+**Statut :** noté. Ce retour est une évaluation, pas une demande de modification.
+Les trois traitements restent en place.
+
+**Résumé du retour, transmis par le porteur.**
+
+- Le progrès par rapport à l'esquisse D est net : le département a enfin une
+  présence géographique.
+- **Topographique** est la direction à privilégier. Ses réserves : le relief
+  paraît uniforme, voire froissé, par endroits ; les forêts sont mal accordées au
+  relief ; les lieux sont trop petits ; les ensembles ne sont pas structurés.
+- **Encre** est élégante, mais elle apporte moins de géographie, et ses courbes
+  s'agitent dans les zones accidentées. On la garde comme référence secondaire :
+  finesse des traits, sobriété des noms.
+- **Nuit** n'est pas retenue comme carte principale. Les lumières peuvent faire
+  croire à des établissements actifs aujourd'hui, et les halos sont trop
+  spectaculaires pour un propos documentaire. On la garde comme expérience,
+  pour une éventuelle séquence de révélation.
+- **Priorité : les lieux.** Le fond attire plus l'œil que le patrimoine. Il faut
+  des points plus présents sans tout encombrer, adaptés au zoom, et qui
+  distinguent les lieux isolés des concentrations.
+- **Les douze ensembles.** À l'échelle de l'Orne, seuls les lieux hors ensemble
+  sont des points ; chaque ensemble a sa propre forme, avec son nom et son
+  effectif. La Risle et Crulai, déjà explorables, ont un traitement plus
+  affirmé ; les dix autres, un traitement plus discret. Deux formes sont à
+  comparer : le cercle proportionnel, comme dans D, et une enveloppe souple qui
+  suit les lieux, sans jamais suggérer une frontière.
+- **Hiérarchie.** Il faut distinguer quatre niveaux : le territoire, les
+  ensembles, les lieux, puis le contexte (villes, rivières, forêts). Les noms de
+  rivières sont aujourd'hui trop présents.
+- **Bulle de survol.** Elle est trop pauvre, mais ce chantier vient plus tard.
+- **Suite proposée :** travailler la finesse de la seule version topographique,
+  pas une nouvelle ambiance.
+
+**Évaluation.** Ce retour est juste, et il relève une erreur de l'essai, à
+corriger avant tout. Sur la carte, les lieux de la Risle et de Crulai sont
+dessinés un par un, alors que ceux des dix autres ensembles ne le sont pas, et
+qu'aucun ensemble n'a de forme. Résultat : 199 points visibles, alors que le
+titre annonce 321 lieux. La carte mélange deux échelles et sous-représente dix
+ensembles sans le dire. La règle de l'esquisse D, rappelée par le retour, doit
+s'appliquer : un ensemble est une forme, et ses lieux n'apparaissent qu'à
+l'intérieur.
+
+Deux points de méthode :
+
+- l'enveloppe souple se calcule à partir des seuls lieux de l'ensemble, et la
+  légende doit dire qu'elle n'est qu'un regroupement de proximité ;
+- pour les dix ensembles non construits, les coordonnées de leurs lieux ne sont
+  pas dans les données des esquisses. Le cercle est faisable tout de suite ;
+  l'enveloppe demande de reprendre ces coordonnées dans la base du corpus.
