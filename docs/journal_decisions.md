@@ -3460,3 +3460,49 @@ Options écartées :
 
 Décision : **la carte A′ est retenue à titre provisoire ; les compositions
 immersive et récit sont soumises au jugement du porteur.**
+
+## 2026-11-18 — Compositions immersive et récit écartées ; proposition « édition »
+
+Le porteur a examiné les deux compositions. Aucune n'est retenue en l'état.
+
+- La carte immersive est jugée déséquilibrée, avec des éléments flottants
+  juxtaposés.
+- Le récit sépare trop l'introduction, la carte et l'exploration. Les métiers et
+  les époques y sont affaiblis, et les ensembles relégués en répertoire.
+
+Le porteur relève surtout une régression : ouvrir la Risle ne faisait
+qu'agrandir la carte de l'Orne. L'esquisse D, elle, ouvrait une vue propre à
+l'ensemble. Nous reconnaissons l'erreur. La mécanique de D avait été reprise
+pour les filtres, mais pas pour la descente d'échelle.
+
+Une proposition « édition » est produite dans `prototype/edition/`. Elle part de
+la mécanique de D et de la carte A′ topographique. Elle ne modifie ni les
+esquisses, ni la carte seule, ni les deux compositions précédentes, qui restent
+consultables.
+
+- La marge de texte et la carte partagent une seule surface de papier, sans
+  cadre ni encadré.
+- Les métiers forment un index, chacun avec un trait proportionnel.
+- Les époques forment une frise d'un carré par lieu, avec un bouton qui les
+  fait défiler.
+- Un lieu écarté par un filtre se réduit à une trace au lieu de disparaître. Un
+  lieu qui entre dans la sélection est signalé par une onde brève.
+- La Risle et Crulai et Chandai s'ouvrent dans leur propre carte, avec un
+  cadrage borné, comme dans D.
+- La descente au fil de l'eau est rétablie pour la Risle seule.
+
+Le détail, et ce qui reste non vérifié (transitions observées en mouvement,
+clavier de bout en bout, lecteur d'écran, mobile), sont dans
+`docs/phase10_recherche_artistique.md`, section 13.
+
+Options écartées :
+
+- retoucher l'une des deux compositions précédentes, dont le principe même est
+  en cause ;
+- revenir à la colonne permanente et rigide de D ;
+- généraliser l'animation de l'eau à tous les ensembles ;
+- refondre les symboles de la carte.
+
+Décision : **les compositions immersive et récit sont écartées en l'état et
+conservées comme jalons ; la proposition « édition » est soumise au jugement du
+porteur.**

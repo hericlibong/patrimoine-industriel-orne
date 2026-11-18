@@ -1,7 +1,7 @@
 # Phase 10.E — Chantier de recherche artistique
 
-**Version :** 0.3 — 18 novembre 2026
-**Statut :** carte retenue à titre provisoire (topographique, A′, carrés) ; deux expérimentations de composition soumises au jugement.
+**Version :** 0.4 — 18 novembre 2026
+**Statut :** carte retenue à titre provisoire (topographique, A′, carrés) ; compositions immersive et récit écartées en l'état ; proposition « édition » soumise au jugement.
 **Branche :** `claude/recherche-artistique`, ouverte depuis
 `claude/esquisses-direction-artistique`. Les esquisses A, B, C et D restent
 intactes sur leur branche ; elles servent d'inspiration et de référence de
@@ -483,3 +483,142 @@ c'est au porteur d'en juger dans la page.
 - index des ensembles du récit.
 
 Non vérifié : mobile, clavier de bout en bout, lecteur d'écran.
+
+## 13. Les deux compositions écartées ; proposition « édition » (18 novembre 2026)
+
+**Le jugement du porteur.** Aucune des deux compositions n'est retenue en l'état.
+
+- La carte immersive est jugée déséquilibrée. Ses blocs de texte sont
+  rectangulaires et la carte y est mal intégrée. Le bandeau de filtres est
+  imposant, et les éléments flottants paraissent posés les uns à côté des
+  autres.
+- Le récit a une intention éditoriale plus nette. Mais il sépare trop
+  l'introduction, la carte et l'exploration. Les métiers y deviennent presque
+  invisibles et les époques sont peu mises en valeur. Les ensembles y sont
+  relégués dans une présentation de répertoire.
+- Dans les deux cas, la qualité artistique reste en dessous des attentes.
+
+**Le constat le plus grave : une régression.** Plusieurs acquis de l'esquisse D
+ont été perdus. Le plus net touche la navigation vers les ensembles. Dans les
+deux compositions, ouvrir la Risle ne faisait qu'agrandir la carte de l'Orne.
+Dans l'esquisse D, on quittait l'Orne pour une carte propre à l'ensemble :
+autre relief, communes, eau orientée, bourgs et relations, avec un cadrage
+borné. C'est une erreur de notre part : la mécanique de D avait été reprise
+pour les filtres, pas pour la descente d'échelle.
+
+**Ce qui est demandé.**
+
+- Une nouvelle proposition, indépendante des précédentes. Elle part de la
+  logique de D et de la carte topographique.
+- La descente d'échelle de D est rétablie.
+- Les époques et les métiers retrouvent une présentation travaillée.
+- Le changement doit se voir quand on choisit une époque.
+- Une composition, pas un assemblage de composants.
+- Bureau seulement ; le mobile viendra plus tard.
+
+**La proposition** est dans `prototype/edition/` et compte trois fichiers :
+
+- `carte_departement.js`, la carte A′ ;
+- `carte_ensemble.js`, la vue propre d'un ensemble ;
+- `index.html`, la page.
+
+Elle lit les mêmes données que les esquisses. Elle ne touche ni aux esquisses,
+ni à la carte seule, ni aux deux compositions précédentes.
+
+*Une seule surface.* La marge de texte et la carte ne sont plus deux blocs. La
+page a une couleur de papier unique, et la carte n'a pas de cadre :
+
+- hors du département, le relief passe sous un voile de la couleur de la page ;
+- sur la gauche, la page s'éclaircit progressivement jusqu'à la marge ;
+- en bas, elle laisse place à la frise ;
+- en haut, elle s'efface légèrement sous la légende.
+
+Le texte se pose sur le papier, sans encadré ni fond blanc. Rien ne flotte
+au-dessus de la carte à part la légende et les trois boutons de cadrage. Le
+nom d'un lieu survolé ou choisi s'écrit sur la carte même, sans bulle.
+
+*La marge* est le texte de ce que la carte montre, quel que soit le niveau.
+
+- Département. On y trouve la recherche, le titre et un chapô court. Vient
+  ensuite la phrase calculée, ouverte par un grand chiffre, puis l'index des
+  métiers. Les deux ensembles construits sont nommés dans la phrase d'arrivée,
+  avec un lien vers chacun.
+- Ensemble. La présentation, trois repères chiffrés, la phrase calculée,
+  l'index des métiers de l'ensemble et les relations documentées, chacune en
+  toutes lettres. Un clic sur une relation la met en évidence sur la carte.
+- Lieu. Une note sommaire : métier, nom, commune, époques documentées,
+  texte, précision de localisation et lien vers le dossier. Un fil de retour
+  la précède : l'Orne, puis l'ensemble. Il n'y a plus de fiche flottante sur
+  la carte.
+
+*Les métiers* sont un index. Chaque ligne porte un trait fin à la longueur de
+son nombre de lieux. Quand une époque est choisie, la part de cette époque
+s.encre sur le trait et le nombre devient, par exemple, « 36 / 76 » pour le textile
+entre 1789 et 1849.
+
+*Les époques* forment une frise sous la carte. Chaque époque est une colonne de
+petits carrés, **un carré par lieu**, du même signe que les lieux de la carte.
+Choisir un métier encre les carrés qui le concernent, et le reste demeure en
+gris clair. La colonne choisie s'encre en entier, avec un axe épaissi ; les
+autres pâlissent. Un bouton « Traverser le temps » fait défiler les six
+époques. Les comptes se lisent ainsi : dans la population des 321 lieux, de 67
+lieux avant 1789 à 261 entre 1850 et 1913. Un lieu documenté sur plusieurs
+périodes compte dans chacune.
+
+*Ce qui change pour les lieux isolés quand on filtre.* Les symboles ne sont pas
+refaits, mais leur comportement change :
+
+- un lieu écarté ne s'efface plus : il se réduit à une petite trace pâle, qui
+  garde la mémoire de sa place ;
+- un lieu qui entre dans la sélection est signalé par une onde brève, un carré
+  qui s'élargit et s'éteint.
+
+On voit ainsi ce qui apparaît et ce qui se retire d'une époque à l'autre. Les
+cercles d'ensemble gardent leur comportement : ils se resserrent sur leur
+effectif, et un filet garde leur taille entière.
+
+*La vue d'ensemble*, pour la Risle et pour Crulai et Chandai, est une autre
+carte. Au clic, la carte de l'Orne plonge vers l'ensemble et s'efface ; la vue
+de l'ensemble s'approche et apparaît. Elle montre :
+
+- le relief de l'ensemble, plus fin que celui du département, dans les mêmes
+  teintes que la carte A′ ;
+- les forêts publiques ;
+- les communes qui portent un lieu, en pleine lumière, le reste sous un voile ;
+- les limites communales en pointillé ;
+- l'eau, orientée vers l'aval d'après le relief ;
+- les bourgs et les lieux, du même signe carré ;
+- les relations documentées, en pointillé couleur rouille.
+
+Le cadrage et les déplacements restent bornés au territoire de l'ensemble,
+comme dans D. La carte de l'Orne et les autres ensembles ne sont plus visibles.
+
+*Au fil de la Risle.* Pour la Risle seulement, le courant est animé, comme dans
+les esquisses B et D, et un rail permet de descendre la vallée de l'amont vers
+l'aval. Ce rail se manipule au bouton, au glisser ou aux flèches du clavier. La
+caméra suit l'axe de la vallée, et le lieu le plus proche est nommé sur la
+carte et décrit dans la marge. Le sens amont-aval est calculé depuis le relief.
+Crulai et Chandai n'a pas cette animation : le porteur ne demande pas de la
+généraliser.
+
+**Vérifié** à 1440 × 900 pixels, sans erreur dans la console :
+
+- l'arrivée sur la carte de l'Orne, la marge tenant dans la hauteur ;
+- les filtres par métier, par époque et combinés. Exemple : textile entre 1850
+  et 1913 donne 65 lieux, dont 14 hors ensemble, dans la population des 321
+  lieux ;
+- l'adresse partageable ;
+- l'ouverture de la Risle et de Crulai dans leur vue propre, puis le retour à
+  l'Orne avec les filtres conservés ;
+- l'ouverture d'un ensemble à venir ;
+- un lieu isolé ;
+- un lieu de la Risle ouvert depuis l'Orne alors qu'un filtre l'écartait : les
+  filtres se lèvent ;
+- la descente de la Risle ;
+- la traversée du temps.
+
+**Non vérifié.** Les transitions n'ont pas été observées en mouvement : le
+navigateur de contrôle suspendait les animations quand son panneau n'était pas
+au premier plan. Seuls leurs états de départ et d'arrivée ont été contrôlés. Ne
+sont pas vérifiés non plus le mobile (hors champ), le clavier de bout en bout et
+le lecteur d'écran.
