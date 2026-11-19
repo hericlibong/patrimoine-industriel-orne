@@ -30,9 +30,13 @@
   const lon0 = d3.mean(anneau, (p) => p[0]), lat0 = d3.mean(anneau, (p) => p[1]);
   const kx = Math.cos(lat0 * Math.PI / 180);
   const px = (lon) => (lon - lon0) * kx, py = (lat) => -(lat - lat0);
-  const R = C.relief;
+  // fond prolongé autour de l'Orne (fond_etendu.js, 19 novembre 2026) : mêmes sources IGN,
+  // même pas de grille ; à défaut, le fond de la carte seule
+  const F = window.FOND;
+  const R = F ? F.relief : C.relief;
+  const FORETS = F ? C.forets.concat(F.forets) : C.forets;
   const zAt = (i, j) => R.z[Math.max(0, Math.min(R.ny - 1, j)) * R.nx + Math.max(0, Math.min(R.nx - 1, i))];
-  const parOrdre = d3.sort(d3.groups(C.rivieres, (r) => r.ordre), (g) => g[0]);
+  const parOrdre = d3.sort(d3.groups(F ? C.rivieres.concat(F.rivieres) : C.rivieres, (r) => r.ordre), (g) => g[0]);
   const rivieresNommees = [...d3.group(C.rivieres.filter((r) => r.ordre >= 5 && r.nom), (r) => r.nom)]
     .map(([nom, rs]) => [nom, d3.greatest(rs, (r) => r.pts.length)]).filter(([, r]) => r.pts.length >= 6);
 
@@ -136,7 +140,7 @@
       g.imageSmoothingEnabled = true; g.imageSmoothingQuality = 'high';
       const x0 = X(R.x0 - R.pas / 2), y0 = Y(R.y1 + R.pas / 2), x1 = X(R.x0 + (R.nx - 0.5) * R.pas), y1 = Y(R.y1 - (R.ny - 0.5) * R.pas);
       g.drawImage(relief(), x0, y0, x1 - x0, y1 - y0);
-      for (const f of C.forets) {
+      for (const f of FORETS) {
         g.beginPath(); for (const a of f.anneaux) chemin(g, a, true);
         g.fillStyle = T.foret; g.fill('evenodd'); g.strokeStyle = T.foretTrait; g.lineWidth = 0.6; g.stroke();
       }
@@ -154,6 +158,15 @@
       g.fillStyle = d3.color(PAGE).copy({ opacity: 0.86 }).formatRgb(); g.fill('evenodd'); g.restore();
       g.beginPath(); for (const a of C.contour) chemin(g, a, true);
       g.strokeStyle = T.contour; g.lineWidth = T.contourL; g.stroke();
+      // au bout des données, le fond se fond dans la page : jamais de bord net
+      const fondu = 90, transp = d3.color(PAGE).copy({ opacity: 0 }).formatRgb();
+      for (const [x, y, w, h, gx0, gy0, gx1, gy1] of [
+        [x0, y0, fondu, y1 - y0, x0, 0, x0 + fondu, 0], [x1 - fondu, y0, fondu, y1 - y0, x1, 0, x1 - fondu, 0],
+        [x0, y0, x1 - x0, fondu, 0, y0, 0, y0 + fondu], [x0, y1 - fondu, x1 - x0, fondu, 0, y1, 0, y1 - fondu]]) {
+        const gr = g.createLinearGradient(gx0, gy0, gx1, gy1);
+        gr.addColorStop(0, PAGE); gr.addColorStop(1, transp);
+        g.fillStyle = gr; g.fillRect(x, y, w, h);
+      }
     }
 
     let lieuxEcran = [], ensEcran = [];
@@ -325,10 +338,14 @@
         dpr = window.devicePixelRatio || 1; W = r.width; H = r.height;
         if (!W || !H) return;
         cv.width = cache.width = Math.round(W * dpr); cv.height = cache.height = Math.round(H * dpr);
-        cadrer(); cleCache = ''; dessiner();
+        cadrer(); borner(); cleCache = ''; dessiner();
       },
       dessiner
     };
+    // le déplacement reste dans l'emprise des données : le bord du fond ne vient pas à l'écran
+    function borner() {
+      zoom.translateExtent([[bx(R.x0), by(R.y1)], [bx(R.x0 + (R.nx - 1) * R.pas), by(R.y1 - (R.ny - 1) * R.pas)]]);
+    }
     api.redimensionner();
     new ResizeObserver(() => api.redimensionner()).observe(conteneur);
     return api;

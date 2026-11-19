@@ -3551,3 +3551,34 @@ Options écartées :
 
 Décision : **la proposition « édition » est la base de la composition ; la
 première passe d'affinement de l'accueil est soumise au jugement du porteur.**
+
+## 2026-11-19 — Fond topographique prolongé sans coupure
+
+Le porteur conserve l'affinement de l'accueil. Il signale une coupure
+rectangulaire du fond hors de l'Orne : les données de la carte seule s'arrêtaient
+sur une emprise étroite, et la composition affiche plus large.
+
+Le porteur préfère prolonger le fond. Pour ne rien étirer, de vraies données sont
+demandées aux mêmes sources IGN, le RGE ALTI au même pas et la BD TOPO V3 pour
+les rivières d'ordre 4 et plus et les forêts publiques. L'emprise est élargie de
+2,15° ouest à 1,80° est et de 47,60° à 49,45° nord. Les altitudes déjà
+extraites sont reprises case pour case.
+
+Le déplacement est borné à l'emprise, et les bords se fondent dans la page par
+précaution. Les données de la carte seule ne sont pas modifiées. Les brutes sont
+archivées dans `data/raw/ign_fond_etendu/`. L'état d'avant est conservé dans
+`prototype/edition_reference_affinage/`.
+
+Options écartées :
+
+- limiter le fond au contour du département, contre la préférence du porteur ;
+- étirer ou extrapoler la grille existante, ce qui reviendrait à inventer du
+  relief ;
+- un simple fondu sans données nouvelles, qui aurait laissé un vide autour de
+  la carte.
+
+Détail et vérifications dans `docs/phase10_recherche_artistique.md`,
+section 15.
+
+Décision : **le fond de la carte départementale est prolongé sur de vraies
+données IGN, sans coupure ; la correction est soumise au jugement du porteur.**

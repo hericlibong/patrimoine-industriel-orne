@@ -1,7 +1,7 @@
 # Phase 10.E — Chantier de recherche artistique
 
-**Version :** 0.5 — 19 novembre 2026
-**Statut :** proposition « édition » retenue comme base ; première passe d'affinement de la page d'accueil soumise au jugement.
+**Version :** 0.6 — 19 novembre 2026
+**Statut :** proposition « édition » retenue comme base ; affinement de l'accueil conservé ; fond topographique prolongé sans coupure, soumis au jugement.
 **Branche :** `claude/recherche-artistique`, ouverte depuis
 `claude/esquisses-direction-artistique`. Les esquisses A, B, C et D restent
 intactes sur leur branche ; elles servent d'inspiration et de référence de
@@ -728,3 +728,67 @@ d'unifier ces cercles quand les douze vues existeront, ou dès maintenant.
 navigateur de contrôle ralentissait le rendu quand son panneau n'était pas au
 premier plan. Le clavier de bout en bout et le lecteur d'écran ne sont pas
 vérifiés non plus.
+
+## 15. Continuité du fond topographique (19 novembre 2026)
+
+**Le constat du porteur.** L'affinement de l'accueil est conservé. Il reste un
+défaut. Hors de l'Orne, le relief, les rivières et les forêts s'arrêtent sur les
+bords d'un rectangle visible, et cette coupure sépare la carte de la page.
+
+**Pourquoi.** La carte seule avait extrait ses données sur une emprise juste
+autour du département, de 0,98° ouest à 1,07° est et de 48,10° à 49,05° nord. La
+composition « édition » affiche bien davantage, puisque la carte remplit toute
+la page derrière la marge et la frise. Le bord de l'emprise venait donc à
+l'écran.
+
+**Deux solutions, et le choix.** Le porteur préfère prolonger le fond plutôt que
+de le limiter au contour. Pour le prolonger sans étirer le relief, il fallait de
+vraies données sur une emprise plus large. Ces données ont été demandées aux
+mêmes sources IGN :
+
+- le RGE ALTI, au même pas de 0,0075° ;
+- la BD TOPO V3 : les rivières d'ordre 4 et plus, ainsi que les forêts
+  publiques.
+
+La nouvelle emprise va de 2,15° ouest à 1,80° est et de 47,60° à 49,45° nord. Le
+relief passe ainsi de 274 × 127 à 528 × 247 cases. La grille est calée sur
+l'ancienne : à l'intérieur, les altitudes déjà extraites sont reprises case pour
+case. Il n'y a donc ni raccord ni recalcul, et rien n'est extrapolé.
+
+- Le script `tools/fond_etendu_extraire.py` produit
+  `prototype/edition/fond_etendu.js`, d'environ 3,5 Mo.
+- Les réponses brutes sont archivées dans `data/raw/ign_fond_etendu/`, non
+  versionné, avec leur empreinte.
+- Les données de la carte seule ne sont pas modifiées.
+- Sur le prolongement, on compte 21 680 tronçons de rivière et 183 forêts. Les
+  rivières d'ordre 3 n'y sont pas reprises : elles n'apparaissent qu'à fort
+  grossissement, quand on est dans l'Orne.
+
+**Ce qui change à l'écran.**
+
+- Le fond couvre toute la surface visible, sous le même voile couleur de page
+  qu'avant. Le contour de l'Orne garde son trait et sa lisibilité.
+- Le déplacement est borné à l'emprise des données. En glissant ou en
+  éloignant au maximum, le bord n'arrive pas à l'écran.
+- Par précaution, les quatre bords de l'emprise se fondent dans la page sur 90
+  pixels.
+- Les noms de forêts restent ceux de la carte seule : aucun nom n'apparaît hors
+  du département.
+
+**Ce qui ne change pas.** Le reste n'est pas touché : la direction artistique du
+fond, les filtres, la frise, les métiers, la légende et les vues d'ensemble.
+L'état d'avant cette correction est conservé dans
+`prototype/edition_reference_affinage/`.
+
+**Vérifié** à 1440 × 900 pixels, sans erreur dans la console :
+
+- au cadrage d'arrivée ;
+- au plus grand éloignement ;
+- en faisant glisser la carte jusqu'à ses limites, vers le haut à droite puis
+  vers le bas à gauche.
+
+Aucune coupure rectangulaire n'apparaît.
+
+**Limite.** Les déplacements programmés, comme le survol vers un ensemble à
+venir, ne passent pas par cette borne. Ils restent dans le département, donc
+loin des bords. Le chargement est un peu plus lourd.
