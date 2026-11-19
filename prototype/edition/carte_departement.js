@@ -83,14 +83,17 @@
     const etatLieu = new Map(LIEUX.map((s) => [s.ref, 1]));
     const etatEns = new Map(ENS.map((e) => [e.code, e.nbSites]));
     let ondes = [], tOnde = 1, minuterie = null;
+    // quand un filtre est actif, les sites retenus grossissent un peu : ils tiennent face aux traces
+    let ampl = 1;
     function animer(duree = 650) {
-      const avant = new Map(etatLieu), avantE = new Map(etatEns);
+      const avant = new Map(etatLieu), avantE = new Map(etatEns), amplA = ampl, amplB = filtre.metier || filtre.epoque ? 1.22 : 1;
       const apres = new Map(LIEUX.map((s) => [s.ref, retenu(s) ? 1 : 0]));
       ondes = LIEUX.filter((s) => avant.get(s.ref) < 0.5 && apres.get(s.ref) === 1);
       if (minuterie) minuterie.stop();
       const pose = (t) => {
         for (const s of LIEUX) etatLieu.set(s.ref, avant.get(s.ref) + (apres.get(s.ref) - avant.get(s.ref)) * t);
         for (const e of ENS) etatEns.set(e.code, avantE.get(e.code) + (compteEnsemble(e) - avantE.get(e.code)) * t);
+        ampl = amplA + (amplB - amplA) * t;
         dessiner();
       };
       if (!duree || matchMedia('(prefers-reduced-motion: reduce)').matches) { tOnde = 1; return pose(1); }
@@ -164,7 +167,7 @@
       const prises = [];
 
       // lieux : carré d'encre détouré ; écarté, il se réduit à une trace
-      const ech = Math.min(1.7, Math.pow(k, 0.4)), cote = 3.3 * ech * Math.sqrt(Math.PI);
+      const ech = Math.min(1.7, Math.pow(k, 0.4)), cote = 3.6 * ech * Math.sqrt(Math.PI) * ampl;
       lieuxEcran = [];
       ctx.lineJoin = 'miter';
       for (const s of LIEUX) {
@@ -173,7 +176,7 @@
         if (x < -10 || y < -10 || x > W + 10 || y > H + 10) continue;
         if (a > 0.5) lieuxEcran.push([x, y, s]);
         const c = 1.7 + (cote - 1.7) * a;
-        ctx.globalAlpha = 0.42 + 0.58 * a;
+        ctx.globalAlpha = 0.34 + 0.66 * a;
         ctx.beginPath(); ctx.rect(x - c / 2, y - c / 2, c, c);
         if (a > 0.3) { ctx.lineWidth = 2.2 * a; ctx.strokeStyle = PAGE; ctx.stroke(); }
         ctx.fillStyle = ENCRE; ctx.fill();

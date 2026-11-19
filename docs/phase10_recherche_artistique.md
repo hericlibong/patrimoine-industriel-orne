@@ -1,7 +1,7 @@
 # Phase 10.E — Chantier de recherche artistique
 
-**Version :** 0.4 — 18 novembre 2026
-**Statut :** carte retenue à titre provisoire (topographique, A′, carrés) ; compositions immersive et récit écartées en l'état ; proposition « édition » soumise au jugement.
+**Version :** 0.5 — 19 novembre 2026
+**Statut :** proposition « édition » retenue comme base ; première passe d'affinement de la page d'accueil soumise au jugement.
 **Branche :** `claude/recherche-artistique`, ouverte depuis
 `claude/esquisses-direction-artistique`. Les esquisses A, B, C et D restent
 intactes sur leur branche ; elles servent d'inspiration et de référence de
@@ -622,3 +622,109 @@ navigateur de contrôle suspendait les animations quand son panneau n'était pas
 au premier plan. Seuls leurs états de départ et d'arrivée ont été contrôlés. Ne
 sont pas vérifiés non plus le mobile (hors champ), le clavier de bout en bout et
 le lecteur d'écran.
+
+## 14. « Édition » retenue comme base ; affinement de la page d'accueil (19 novembre 2026)
+
+**Le jugement du porteur.** La proposition « édition » est retenue comme base de
+travail. La marge sans séparation rigide fonctionne. La carte reste dominante,
+la recherche est bien placée et la frise est bien intégrée. Il manque encore du
+contraste et du dynamisme. Plusieurs commandes ressemblent à de l'information
+imprimée et ne se lisent pas comme des commandes.
+
+**Périmètre strict** : la page d'accueil, dans sa vue départementale. Les vues
+d'ensemble, les fiches de lieux et leurs interactions ne sont pas touchées. Une
+seule réserve : l'index des métiers et la frise des époques sont communs à
+toutes les vues. Leur nouveau traitement apparaît donc aussi dans les vues de
+la Risle et de Crulai, sans autre changement à ces vues.
+
+**Version de référence.** L'état d'avant la passe est conservé tel quel dans
+`prototype/edition_reference/`, pour la comparaison.
+
+**Ce qui a changé.**
+
+*Une couleur d'accent.* Un rouge brique discret (`#b0482a`), proche de celui
+des relations documentées, marque ce qui est interactif et ce qui est choisi.
+Il ne sert jamais à la carte elle-même.
+
+*L'introduction.* Elle est courte à l'arrivée, avec un lien « Lire la suite »
+qui déplie le reste sans déplacer la composition. Le texte reste provisoire et
+sera réécrit plus tard. La mention « deux ensembles ont déjà leur propre carte »
+est retirée : c'était une information de développement.
+
+*Le corpus en chiffres.* Une bande légèrement teintée, sans cadre, porte trois
+chiffres, calculés sur la sélection dans la population des 321 sites :
+
+- les sites industriels ;
+- les ensembles qui en comptent au moins un ;
+- les sites hors ensemble.
+
+Sans sélection, on lit 321, 12 et 149. Avec le textile entre 1850 et 1913, on
+lit 65 « sur 321 », 8 et 14. Quand un chiffre change, il défile jusqu'à sa
+nouvelle valeur en une demi-seconde et s'éclaire un instant en brique. Sous les
+chiffres, la sélection en cours s'affiche en pastilles. Chaque pastille se
+retire d'un clic, et la ligne nomme l'ensemble le plus fourni. Sans sélection,
+une phrase invite à choisir.
+
+*Les métiers.* Chaque état se distingue désormais :
+
+- au repos, une courte invitation : « Choisir un métier pour le voir sur la
+  carte » ;
+- au survol, un fond léger et un carré qui se teinte ;
+- une fois choisi, un fond plus soutenu, un filet brique à gauche, un carré
+  plein et le trait de proportion en brique, les autres métiers pâlissant ;
+- un lien « × tous les métiers » ramène à l'ensemble.
+
+Le fonctionnement des filtres combinés est inchangé.
+
+*La frise.*
+
+- L'en-tête invite : « Choisir une période pour la voir sur la carte, ou »,
+  suivi d'un bouton « Traverser le temps » à pastille brique.
+- Les colonnes sont plus hautes et les effectifs plus grands : la différence de
+  volume entre les périodes, de 67 à 261 sites, se voit mieux.
+- Les dates sont en encre pleine.
+- Au survol, une colonne prend un fond léger et ses carrés s'encrent.
+- La colonne choisie garde un fond plus soutenu, avec un axe et un effectif en
+  brique.
+
+*La légende.* Elle devient un vrai bloc, titré « Légende », avec des symboles
+plus grands :
+
+- « Site industriel », un carré bleu d'encre. L'expression « lieu isolé »,
+  propre à notre classement interne, n'est plus employée.
+- « Ensemble », deux cercles numérotés : plusieurs sites proches, et le chiffre
+  donne leur nombre.
+
+Un bouton « ? » ouvre une aide. Elle explique qu'à l'échelle du département,
+des sites très proches se superposeraient, et qu'ils sont donc réunis sous un
+cercle. Elle précise qu'un ensemble est un regroupement fait pour la lecture de
+la carte, pas forcément une organisation industrielle de l'époque. Les mentions
+techniques (ensemble ouvert ou à venir, lieu écarté par la sélection) sont
+retirées.
+
+*Les sites sur la carte.* Le fond n'est pas touché. Les carrés sont un peu plus
+grands, de 3,3 à 3,6 unités de base. Quand un filtre est actif, les sites
+retenus grossissent encore d'un cinquième et les traces des sites écartés
+pâlissent un peu plus. Les sites retenus tiennent ainsi face au fond. Les
+transitions, onde comprise, sont conservées.
+
+**Une remarque laissée au porteur.** Sur la carte, les cercles de la Risle et de
+Crulai sont pleins, les dix autres sont clairs. Cette différence traduit l'état
+de développement : seules deux vues sont construites. La légende ne l'explique
+plus, et c'est voulu. Mais la carte la montre encore. Il faudra décider
+d'unifier ces cercles quand les douze vues existeront, ou dès maintenant.
+
+**Vérifié** à 1440 × 900 pixels, sans erreur dans la console :
+
+- la marge tient dans la hauteur, sauf les crédits, qui demandent un
+  défilement ;
+- les chiffres, les pastilles et leur retrait ;
+- les états des métiers et de la frise ;
+- l'aide de la légende ;
+- le retour depuis la Risle avec la sélection conservée ;
+- une adresse partagée qui ouvre directement une période.
+
+**Non vérifié.** L'animation des chiffres n'a été vue qu'à ses deux bouts : le
+navigateur de contrôle ralentissait le rendu quand son panneau n'était pas au
+premier plan. Le clavier de bout en bout et le lecteur d'écran ne sont pas
+vérifiés non plus.

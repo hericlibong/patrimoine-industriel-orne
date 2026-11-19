@@ -3506,3 +3506,48 @@ Options écartées :
 Décision : **les compositions immersive et récit sont écartées en l'état et
 conservées comme jalons ; la proposition « édition » est soumise au jugement du
 porteur.**
+
+## 2026-11-19 — « Édition » retenue comme base ; affinement de la page d'accueil
+
+Le porteur retient la proposition « édition » comme base de travail. Il demande
+une passe d'affinement limitée à la page d'accueil départementale, pour plus de
+contraste, des commandes qui se lisent comme des commandes et des données plus
+présentes. La structure ne change pas.
+
+L'état d'avant la passe est conservé dans `prototype/edition_reference/`.
+
+La passe introduit :
+
+- un accent brique discret pour ce qui est interactif ou choisi ;
+- une introduction courte avec « Lire la suite » ;
+- une bande de trois chiffres qui suivent la sélection, avec des pastilles
+  retirables ;
+- des états nets pour les métiers et la frise ;
+- une légende titrée, avec son aide sur les ensembles ;
+- des sites retenus un peu plus grands quand un filtre est actif.
+
+La mention « deux ensembles ont déjà leur propre carte » et les mentions
+techniques de la légende sont retirées : ce sont des informations de
+développement. Le terme « lieu isolé » disparaît de l'affichage au profit de
+« site industriel ».
+
+L'index des métiers et la frise sont communs à toutes les vues. Leur nouveau
+traitement apparaît donc aussi dans les vues d'ensemble, qui ne sont pas
+autrement modifiées.
+
+Une question est laissée au porteur. La carte distingue encore les deux cercles
+pleins des ensembles construits et les dix cercles clairs, alors que la légende
+ne l'explique plus. Il faudra unifier ces cercles, maintenant ou plus tard.
+
+Détail et vérifications dans `docs/phase10_recherche_artistique.md`,
+section 14.
+
+Options écartées :
+
+- de gros boutons ou un menu déroulant pour les métiers ;
+- une frise plus massive ou spectaculaire ;
+- toute retouche du fond topographique ou une nouvelle recherche sur les
+  symboles.
+
+Décision : **la proposition « édition » est la base de la composition ; la
+première passe d'affinement de l'accueil est soumise au jugement du porteur.**
