@@ -1,7 +1,7 @@
 # Phase 10.E — Chantier de recherche artistique
 
-**Version :** 0.6 — 19 novembre 2026
-**Statut :** proposition « édition » retenue comme base ; affinement de l'accueil conservé ; fond topographique prolongé sans coupure, soumis au jugement.
+**Version :** 0.7 — 20 novembre 2026
+**Statut :** composition « édition » retenue ; passe sur la vallée de la Risle (fiches sur la carte, descente de site en site) soumise au jugement.
 **Branche :** `claude/recherche-artistique`, ouverte depuis
 `claude/esquisses-direction-artistique`. Les esquisses A, B, C et D restent
 intactes sur leur branche ; elles servent d'inspiration et de référence de
@@ -792,3 +792,122 @@ Aucune coupure rectangulaire n'apparaît.
 **Limite.** Les déplacements programmés, comme le survol vers un ensemble à
 venir, ne passent pas par cette borne. Ils restent dans le département, donc
 loin des bords. Le chargement est un peu plus lourd.
+
+## 16. La vallée de la Risle : découvrir les lieux sur la carte (20 novembre 2026)
+
+**La demande du porteur.** La composition générale est retenue. On passe à
+l'exploration des ensembles, en commençant par la Risle. Le défaut principal :
+choisir un site remplaçait la présentation de la vallée, dans la marge, par la
+fiche du lieu. Le porteur veut que la marge présente la vallée et que la
+découverte des établissements se fasse sur la carte. Il demande aussi :
+
+- de retrouver les photographies documentaires ;
+- de rendre la descente de la rivière plus lisible et plus expressive ;
+- d'articuler la descente avec la traversée du temps ;
+- de rendre accessibles les sites serrés autour de L'Aigle.
+
+Ni l'accueil ni les autres ensembles ne doivent changer.
+
+**Version de référence.** L'état d'avant cette passe est conservé dans
+`prototype/edition_reference_fond/`.
+
+**Ce qui a changé, pour la seule Risle.** Le comportement est réservé à une
+liste de vues, qui ne contient que la Risle. Crulai et Chandai garde son
+fonctionnement antérieur.
+
+*La marge reste à la vallée.* Titre, nom de travail, introduction courte avec
+« Lire la suite », repères chiffrés, phrase calculée, métiers et relations
+documentées. Le texte reste provisoire. Choisir un site ne la remplace plus.
+
+*Deux niveaux sur la carte.*
+
+- **Au survol**, une petite bulle donne une vignette, le métier, le nom et la
+  commune. Si plusieurs sites sont superposés sous le pointeur, elle annonce
+  « 3 sites ici » et invite à cliquer.
+- **Au clic**, une fiche se pose à côté du lieu, du côté où elle tient. Elle ne
+  déborde ni sur la marge, ni sur la frise, ni sur la ligne de la rivière. Elle
+  se déplace avec la carte. Elle contient :
+  - la photographie avec sa légende, son crédit et le lien vers sa notice ;
+  - les métiers, le nom, la commune et le lieu-dit ;
+  - les dates extrêmes trouvées dans les sources, par exemple « de 1825 à
+    1968 » pour la tréfilerie d'Échauffour ;
+  - la barre des époques et le nombre d'activités successives ;
+  - l'historique, avec « Lire la suite » ;
+  - les relations documentées qui concernent ce site ;
+  - la chronologie sourcée, repliée ;
+  - le lien vers le dossier d'inventaire et la précision de localisation.
+- **Sans photographie** (un seul site de la Risle sur 43), la fiche commence
+  directement par le texte, sans image de remplacement.
+- **Au clavier**, la liste textuelle des lieux ouvre la même fiche. Le focus
+  va au bouton de fermeture, Échap ferme la fiche et rend le focus.
+
+*Les photographies.* Ce sont les médias documentaires déjà inventoriés pour 42
+des 43 sites, tous de la Région Normandie, Inventaire général, publiés sur la
+plateforme POP du ministère de la Culture. Ils sont affichés comme aperçus
+distants crédités, avec la mention « aperçu à usage interne ». Aucune image
+n'est téléchargée ni versionnée, conformément à la règle du projet : une image
+en ligne n'est pas une autorisation. Une publication demandera de documenter
+les droits de chaque photographie.
+
+*Les sites serrés autour de L'Aigle.* Rien n'est déplacé.
+
+- Le grossissement maximal passe de 6 à 16 fois le cadrage de l'ensemble, et le
+  double clic rapproche.
+- Un clic sur plusieurs sites superposés ouvre une liste de choix, par exemple
+  six sites à L'Aigle au cadrage initial.
+- Le bouton « Rapprocher pour les distinguer » calcule le grossissement qui
+  sépare les deux sites les plus proches du groupe. À L'Aigle, la filature et
+  la manufacture de quincaillerie sont à 38 mètres l'une de l'autre. Il faut
+  donc aller jusqu'au maximum, et les six sites deviennent alors cliquables un à
+  un, à 15 pixels au moins d'écart.
+
+*La descente de la Risle.* La réglette du haut devient une ligne de rivière.
+
+- Chaque site y est une étape, à pas égal, de l'amont vers l'aval. Les communes
+  sont nommées sous leurs étapes quand la place le permet. La partie parcourue
+  est d'un bleu plein, et l'étape courante est marquée en brique.
+- La descente va de site en site, au lieu d'un glissement continu. La carte se
+  rapproche du site, l'entoure d'un anneau brique et ouvre une bulle d'étape :
+  photographie, métier, nom, commune, première phrase de l'historique,
+  « Ouvrir la fiche » et « Site suivant ». Après environ 3,6 secondes, elle
+  passe au site suivant.
+- Les commandes permettent de démarrer, d'interrompre, de reprendre, d'aller au
+  site précédent ou suivant, et de quitter. Un clic sur une étape de la ligne y
+  conduit.
+- Ce pas à pas évite les à-coups du glissement continu de l'esquisse B, qui
+  recalculait la caméra à chaque image. Le courant animé de la rivière est
+  conservé.
+
+*Une seule lecture automatique à la fois.*
+
+- Lancer « Traverser le temps » met la descente en pause et ferme sa bulle. La
+  descente reste à sa place.
+- Reprendre la descente arrête la traversée du temps. La période où celle-ci
+  s'est arrêtée reste choisie.
+- La descente ne visite que les sites retenus par les filtres, par exemple « 33
+  sites » entre 1789 et 1849. Si le site courant sort de la sélection, elle se
+  place sur le site retenu suivant en aval. La ligne grise les étapes écartées.
+- Il n'y a jamais qu'une bulle à la fois. Ouvrir une fiche met la descente en
+  pause, et Échap referme dans l'ordre : le choix, la fiche, la descente, puis
+  la vue.
+
+*Placement.* La légende de la Risle descend en bas à droite pour laisser le haut
+à la ligne de la rivière.
+
+*Largeur réduite.* Sous 1 280 pixels, la frise des époques se resserre au lieu de
+déborder. Cette règle vaut aussi pour l'accueil.
+
+**Vérifié** à 1440 × 900 et à 1100 × 760 pixels, sans erreur dans la console :
+
+- l'arrivée dans la Risle ;
+- le survol, avec sa vignette ;
+- le clic et la fiche complète, avec et sans photographie ;
+- le groupe de L'Aigle et son rapprochement ;
+- la descente : démarrage, pause pendant un trajet, reprise, fiche ouverte
+  depuis une étape, Échap ;
+- le passage de la descente à la traversée du temps, puis le retour ;
+- le retour à l'Orne et Crulai inchangé.
+
+**Non vérifié.** Les écrans tactiles, le lecteur d'écran et le mobile (hors
+champ) ne sont pas testés. L'animation des déplacements n'a été vue que par
+instantanés.

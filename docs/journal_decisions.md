@@ -3582,3 +3582,46 @@ section 15.
 
 Décision : **le fond de la carte départementale est prolongé sur de vraies
 données IGN, sans coupure ; la correction est soumise au jugement du porteur.**
+
+## 2026-11-20 — Vallée de la Risle : les lieux se découvrent sur la carte
+
+Le porteur retient la composition générale et ouvre l'affinement des ensembles,
+en commençant par la Risle. Choisir un site ne doit plus remplacer la
+présentation de la vallée dans la marge. La découverte doit se faire sur la
+carte, avec les photographies documentaires.
+
+Pour la seule Risle :
+
+- la marge reste à la vallée, avec une introduction courte et « Lire la
+  suite » ;
+- une bulle courte apparaît au survol ;
+- une fiche complète s'ouvre au clic, posée près du lieu et sans déborder ;
+- les sites superposés ouvrent une liste de choix et un rapprochement calculé
+  pour les séparer, jusqu'à 16 fois le cadrage, sans déplacer aucun point ;
+- la descente devient une ligne de rivière d'étapes, de site en site, avec une
+  bulle à chaque étape et des commandes pour démarrer, interrompre, reprendre,
+  avancer, reculer et quitter ;
+- une seule lecture automatique tourne à la fois : la descente et la traversée
+  du temps s'arrêtent l'une l'autre, et la descente suit les filtres.
+
+Les photographies sont les aperçus distants crédités de l'Inventaire général
+(Région Normandie), marqués « usage interne ». Rien n'est téléchargé ni
+versionné : une publication exigera de documenter leurs droits.
+
+Crulai et Chandai garde son fonctionnement antérieur. L'accueil ne change pas,
+à une exception près : sous 1 280 pixels de large, la frise se resserre au lieu
+de déborder. L'état d'avant est conservé dans `prototype/edition_reference_fond/`.
+
+Options écartées :
+
+- garder la fiche dans la marge ;
+- écarter artificiellement les sites superposés ;
+- un glissement continu de la caméra, à l'origine des à-coups de l'esquisse B ;
+- deux lectures automatiques simultanées ;
+- une image de remplacement pour le site sans photographie.
+
+Détail et vérifications dans `docs/phase10_recherche_artistique.md`,
+section 16.
+
+Décision : **dans la Risle, la marge présente la vallée et la découverte des
+lieux se fait sur la carte ; la passe est soumise au jugement du porteur.**

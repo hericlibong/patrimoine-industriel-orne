@@ -198,12 +198,93 @@ h2 button::before{content:'× '}
 .frise.une-choisie .ep[aria-pressed=false]:hover{opacity:1}
 .ep:disabled{opacity:.3!important;cursor:default}
 
-/* au fil de la Risle */
-.descente{position:fixed;z-index:5;left:calc(var(--marge) + 40px);right:560px;top:26px;display:grid;grid-template-columns:auto 1fr;column-gap:18px;align-items:center;transition:opacity .5s}
-.descente.cache{opacity:0;pointer-events:none}
-.descente .rail{position:relative;height:34px}
-.descente svg{width:100%;height:100%;overflow:visible;display:block}
-.descente .rail:focus-visible{outline-offset:4px}
+/* ---------- vue de la Risle : la découverte des lieux se fait sur la carte ---------- */
+.legende.bas{top:auto;bottom:206px;right:40px}
+.bulle{position:fixed;z-index:7;background:#fbfaf6;border:1px solid var(--filet);box-shadow:0 10px 30px rgba(30,48,64,.18);
+  opacity:0;transform:translateY(5px);transition:opacity .18s ease,transform .18s ease;pointer-events:none}
+.bulle.vue{opacity:1;transform:none}
+.bulle.active.vue{pointer-events:auto}
+.bulle .k{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.bulle h4{margin:2px 0 0;font-weight:500;font-size:17px;line-height:1.15}
+.bulle .ou{font-family:var(--sans);font-size:12.5px;color:var(--encre2);margin-top:2px}
+.survol{width:272px;display:grid;grid-template-columns:auto 1fr;column-gap:11px;align-items:center;padding:8px}
+.survol.sans-photo{grid-template-columns:1fr;padding:10px 12px}
+.survol img{width:68px;height:68px;object-fit:cover;display:block;background:var(--pale)}
+.survol .plus{grid-column:1 / -1;margin-top:6px;font-family:var(--sans);font-size:11.5px;color:var(--doux)}
+.groupe{width:270px;padding:10px 12px 12px}
+.groupe ul{list-style:none;margin:6px 0 0;padding:0}
+.groupe li button{display:block;width:100%;text-align:left;border:0;background:none;padding:5px 6px;margin:0 -6px;border-radius:3px;font-size:14.5px;line-height:1.2}
+.groupe li button small{display:block;font-family:var(--sans);font-size:12px;color:var(--encre2)}
+.groupe li button:hover,.groupe li button:focus-visible{background:var(--accent-doux)}
+.groupe .deplier{margin-top:8px;border:0;background:none;padding:0;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+/* fiche complète, posée près du lieu */
+.fiche-carte{width:384px;overflow:auto;scrollbar-width:thin}
+.fiche-carte figure{margin:0;position:relative;background:var(--pale)}
+.fiche-carte img{display:block;width:100%;height:210px;object-fit:cover}
+.fiche-carte figcaption{padding:6px 18px 0;font-family:var(--sans);font-size:11.5px;line-height:1.35;color:var(--doux);background:#fbfaf6}
+.fiche-carte figcaption a{color:var(--doux)}
+.fiche-carte .corps{padding:12px 18px 16px}
+.fiche-carte h3{margin:4px 34px 0 0;font-weight:400;font-size:27px;line-height:1.05;letter-spacing:-.01em}
+.fiche-carte .ou{font-size:13.5px;margin-top:5px}
+.fiche-carte .dates{margin-top:10px;font-size:15px;font-style:italic;color:#2a3540}
+.fiche-carte .dates b{font-style:normal;font-weight:600;color:var(--accent)}
+.fiche-carte .eps{display:flex;gap:3px;margin:10px 0 3px}
+.fiche-carte .eps span{flex:1;height:5px;background:var(--pale)}
+.fiche-carte .eps span.on{background:var(--encre)}
+.fiche-carte .eps-l{display:flex;justify-content:space-between;font-family:var(--sans);font-size:11px;color:var(--doux)}
+.fiche-carte .activites{margin-top:10px;font-family:var(--sans);font-size:13px;color:var(--encre2)}
+.fiche-carte p{font-size:15px;line-height:1.5;margin:12px 0 0;color:#26323d}
+.fiche-carte .suite{border:0;background:none;padding:0;margin-top:4px;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.fiche-carte details{margin-top:12px;border-top:1px solid var(--filet);padding-top:8px}
+.fiche-carte summary{cursor:pointer;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--encre2)}
+.fiche-carte ol{list-style:none;margin:6px 0 0;padding:0}
+.fiche-carte ol li{display:grid;grid-template-columns:82px 1fr;gap:8px;padding:4px 0;font-size:13.5px;border-top:1px solid rgba(30,48,64,.07)}
+.fiche-carte ol li b{font-family:var(--sans);font-weight:600;font-size:12.5px;color:var(--accent)}
+.fiche-carte .rel{margin-top:12px;font-size:14px;line-height:1.4}
+.fiche-carte .rel li{display:grid;grid-template-columns:22px 1fr;padding:3px 0}
+.fiche-carte .rel li::before{content:'';width:16px;border-top:1.4px dashed var(--lien);margin-top:9px}
+.fiche-carte .rel ul{list-style:none;margin:4px 0 0;padding:0}
+.fiche-carte .src{margin-top:12px;display:flex;flex-direction:column;gap:3px;font-family:var(--sans);font-size:13.5px}
+.fiche-carte .src a{color:var(--encre)}
+.fiche-carte .prec{font-family:var(--sans);font-size:12.5px;color:var(--encre2);margin-top:8px}
+.fiche-carte .fermer{position:absolute;right:8px;top:8px;width:32px;height:32px;border-radius:50%;border:0;background:rgba(251,250,246,.92);font-size:20px;line-height:1;color:var(--encre);z-index:2}
+.fiche-carte .fermer:hover{background:var(--encre);color:var(--page)}
+/* étape de la descente : une bulle un peu plus riche que le survol */
+.etape{width:300px}
+.etape img{display:block;width:100%;height:150px;object-fit:cover;background:var(--pale)}
+.etape .corps{padding:10px 14px 12px}
+.etape p{margin:6px 0 0;font-size:14px;line-height:1.42;color:#26323d}
+.etape .actions{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.etape .actions button{border:0;background:none;padding:0;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+/* au fil de la Risle : une ligne de rivière, ses étapes et ses communes */
+.fil-eau{position:fixed;z-index:6;left:calc(var(--marge) + 30px);right:84px;top:18px;padding:10px 16px 6px;
+  background:rgba(239,237,230,.9);border:1px solid var(--filet);transition:opacity .4s,box-shadow .3s}
+.fil-eau.cache{opacity:0;pointer-events:none}
+.fil-eau.engage{box-shadow:0 8px 24px rgba(30,48,64,.12)}
+.fe-tete{display:grid;grid-template-columns:auto 1fr auto;column-gap:12px;align-items:center}
+.fe-jouer{width:40px;height:40px;border-radius:50%;border:0;background:var(--accent);color:var(--page);font-size:13px;padding-left:3px;transition:transform .2s,background .2s}
+.fe-jouer:hover{transform:scale(1.06)}
+.fe-jouer[aria-pressed=true]{background:var(--encre);padding-left:0}
+.fe-titre{display:block;font-size:20px;font-style:italic;line-height:1.1}
+.fe-etat{display:block;font-family:var(--sans);font-size:12.5px;color:var(--encre2);margin-top:2px}
+.fe-cmd{display:flex;gap:6px;align-items:center}
+.fe-cmd button{height:30px;min-width:30px;border:1px solid var(--filet);background:#fbfaf6;font-family:var(--sans);font-size:14px;padding:0 9px;color:var(--encre)}
+.fe-cmd button:hover{border-color:var(--encre)}
+.fil-eau:not(.engage) .fe-cmd{display:none}
+#feLigne{display:block;width:100%;height:46px;margin-top:4px;overflow:visible}
+#feLigne .st{cursor:pointer}
+#feLigne .st:hover circle{stroke:var(--accent);stroke-width:2}
+/* largeur réduite sur ordinateur : la frise se resserre au lieu de déborder */
+.ep{min-width:0}
+@media (max-width:1280px){
+  .frise{grid-template-columns:128px repeat(6,minmax(0,1fr))}
+  .ep{padding:6px 5px 5px}
+  .ep .ligne{font-size:11.5px;flex-wrap:wrap;column-gap:4px}
+  .ep .ligne b{font-size:19px}
+  .ep .nom{font-size:13.5px}
+  .frise .invite{font-size:12.5px}
+  #jouerTemps{font-size:14px}
+}
 </style>
 </head>
 <body>
@@ -238,10 +319,19 @@ h2 button::before{content:'× '}
   <button type="button" id="zcadre" aria-label="Revenir au cadrage d'ensemble">⤢</button>
 </div>
 
-<div class="descente cache" id="descente" aria-hidden="true">
-  <button type="button" class="jouer" id="jouerEau" aria-pressed="false"><span class="ic" aria-hidden="true">▶</span>Descendre la Risle</button>
-  <div class="rail" id="rail" tabindex="-1" role="slider" aria-label="Position le long de la Risle, de l'amont vers l'aval" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><svg id="railsvg"></svg></div>
-</div>
+<section class="fil-eau cache" id="filEau" aria-label="Au fil de la Risle" aria-hidden="true">
+  <div class="fe-tete">
+    <button type="button" class="fe-jouer" id="feJouer" aria-pressed="false" aria-label="Descendre la Risle"><span aria-hidden="true">▶</span></button>
+    <div><span class="fe-titre">Descendre la Risle</span><span class="fe-etat" id="feEtat" aria-live="polite">de l'amont vers l'aval, de site en site</span></div>
+    <div class="fe-cmd"><button type="button" id="fePrec" aria-label="Site précédent">‹</button><button type="button" id="feSuiv" aria-label="Site suivant">›</button><button type="button" id="feQuitter">Quitter</button></div>
+  </div>
+  <svg id="feLigne" aria-hidden="true"></svg>
+</section>
+
+<div class="bulle survol" id="bSurvol" aria-hidden="true"></div>
+<div class="bulle groupe active" id="bGroupe" role="dialog" aria-label="Sites superposés"></div>
+<div class="bulle etape active" id="bEtape" role="dialog" aria-label="Étape de la descente"></div>
+<article class="bulle fiche-carte active" id="bFiche" role="dialog" aria-label="Fiche du lieu"></article>
 
 <section class="frise" id="frise" aria-labelledby="t-ep">
   <div class="tete-f">
@@ -278,7 +368,9 @@ const dep = CarteDepartement(document.getElementById('planDep'), {
 const vueEns = CarteEnsemble(document.getElementById('planEns'), {
   page: PAGE, marges: { g: MARGE + 60, d: 90, h: 90, b: 220 },
   courant: (code) => code === 'risle',
-  clic: (o) => { if (o) ouvrirLieu(o.s.ref); }
+  clic: (l) => clicEnsemble(l),
+  survol: (l) => survolEnsemble(l),
+  surTransform: () => replacerBulles()
 });
 
 const ENS = DEP.ensembles, DETAIL = D.ensembles;
@@ -343,13 +435,16 @@ function changerMarge(rendu) {
 function majFil() {
   const morceaux = [];
   if (etat.vue !== 'orne' || etat.lieu || etat.ensemble) morceaux.push(`<button type="button" data-aller="orne">L'Orne</button>`);
-  if (etat.vue !== 'orne' && etat.lieu) morceaux.push(`<button type="button" data-aller="${etat.vue}">${echapper(DETAIL[etat.vue].nom)}</button>`);
+  if (etat.vue !== 'orne' && etat.lieu && !avecBulles()) morceaux.push(`<button type="button" data-aller="${etat.vue}">${echapper(DETAIL[etat.vue].nom)}</button>`);
   fil.innerHTML = morceaux.length ? '← ' + morceaux.join('<span class="sep">›</span>') : '';
   fil.querySelectorAll('[data-aller]').forEach((b) => (b.onclick = () => (b.dataset.aller === 'orne' ? allerOrne() : fermerLieu())));
 }
+// vues où la découverte des lieux se fait sur la carte, la marge restant à l'ensemble
+const BULLES = new Set(['risle']);
+const avecBulles = () => BULLES.has(etat.vue);
 function rendreMarge() {
   majFil();
-  if (etat.lieu) return rendreLieu();
+  if (etat.lieu && !avecBulles()) return rendreLieu();
   if (etat.vue !== 'orne') return rendreEnsemble();
   if (etat.ensemble) return rendreEnsembleAVenir();
   // texte provisoire : l'introduction sera réécrite et développée plus tard
@@ -371,13 +466,6 @@ function rendreMarge() {
       <div class="selection" id="selection" aria-live="polite"></div>
     </section></div>`;
   complement.innerHTML = '';
-  const lire = document.getElementById('lireSuite');
-  lire.onclick = () => {
-    const ouvert = lire.getAttribute('aria-expanded') === 'true';
-    document.getElementById('suite').hidden = ouvert;
-    lire.setAttribute('aria-expanded', String(!ouvert));
-    lire.textContent = ouvert ? 'Lire la suite' : 'Réduire';
-  };
   document.querySelectorAll('[data-v]').forEach((b) => (b.dataset.val = b.textContent.replace(/\D/g, '')));
   majLecture();
 }
@@ -385,7 +473,7 @@ function rendreEnsemble() {
   const e = DETAIL[etat.vue], r = e.resume;
   contenu.innerHTML = `<p class="surtitre">Ensemble · ${e.sites.length} lieux</p>
     <h1>${echapper(e.nom)}<span class="nomtravail">${echapper(e.nomDeTravail || '')}</span></h1>
-    <p class="chapo">${echapper(e.presentation || '')}</p>
+    ${introEnsemble(e)}
     <div class="reperes"><div><b>${e.sites.length}</b>lieux</div><div><b>${r.communes.length}</b>communes</div><div><b>${r.premiereAnnee}</b>première date connue</div></div>
     <p class="lecture" id="lecture" aria-live="polite"></p>`;
   complement.innerHTML = e.liens.length
@@ -398,6 +486,20 @@ function rendreEnsemble() {
   }));
   majLecture();
 }
+// introduction courte + « Lire la suite » (texte provisoire), dans les vues à bulles
+function introEnsemble(e) {
+  const txt = e.presentation || '';
+  if (!avecBulles()) return `<p class="chapo">${echapper(txt)}</p>`;
+  const i = txt.search(/\.\s/), court = i > 0 ? txt.slice(0, i + 1) : txt, reste = i > 0 ? txt.slice(i + 2) : '';
+  return `<div class="intro"><p class="chapo">${echapper(court)}</p>${reste ? `<div class="suite" id="suite" hidden><p>${echapper(reste)}</p></div>
+    <button type="button" class="lire-suite" id="lireSuite" aria-expanded="false" aria-controls="suite">Lire la suite</button>` : ''}</div>`;
+}
+document.addEventListener('click', (ev) => {
+  const lire = ev.target.closest('#lireSuite'); if (!lire) return;
+  const ouvert = lire.getAttribute('aria-expanded') === 'true';
+  document.getElementById('suite').hidden = ouvert;
+  lire.setAttribute('aria-expanded', String(!ouvert)); lire.textContent = ouvert ? 'Lire la suite' : 'Réduire';
+});
 function rendreEnsembleAVenir() {
   const e = ENS.find((x) => x.code === etat.ensemble);
   contenu.innerHTML = `<p class="surtitre">Ensemble · ${e.nbSites} lieux</p>
@@ -535,14 +637,15 @@ function majListe() {
   const items = etat.vue === 'orne'
     ? ENS.map((e) => ({ t: `${e.nom}, ensemble de ${dep.compteEnsemble(e)} lieux`, f: () => choisirEnsemble(e.code) }))
       .concat(dep.LIEUX.filter(dep.retenu).map((s) => ({ t: `${s.nomCourt || s.nom}, ${s.commune}`, f: () => ouvrirLieu(s.ref) })))
-    : vueEns.sites().filter(vueEns.retenu).map((s) => ({ t: `${s.nomCourt || s.nom}, ${s.commune}`, f: () => ouvrirLieu(s.ref) }));
+    : vueEns.sites().filter(vueEns.retenu).map((s) => ({ t: `${s.nomCourt || s.nom}, ${s.commune}`, ref: s.ref, f: () => ouvrirLieu(s.ref) }));
   ul.selectAll('li').data(items).join((en) => { const li = en.append('li'); li.append('button').attr('type', 'button'); return li; })
-    .select('button').text((d) => d.t).on('click', (ev, d) => d.f());
+    .select('button').text((d) => d.t).attr('data-ref', (d) => d.ref || null).on('click', (ev, d) => d.f());
 }
 
 function majLegende() {
   const leg = document.getElementById('legende');
   leg.classList.toggle('dep', etat.vue === 'orne');
+  leg.classList.toggle('bas', avecBulles());
   leg.innerHTML = etat.vue === 'orne'
     ? `<span class="t">Légende</span>
        <div class="l"><svg width="14" height="14" aria-hidden="true"><rect x="1.5" y="1.5" width="11" height="11" fill="#1e3040" stroke="${PAGE}" stroke-width="1.5"/></svg><span>Site industriel</span><span></span></div>
@@ -582,6 +685,7 @@ function filtrer(f, anime = true) {
   dep.filtrer(fl, anime && etat.vue === 'orne');
   if (vueEns.code()) vueEns.filtrer(fl, anime && etat.vue !== 'orne');
   majMetiers(); majFrise(); majLecture(); majListe(); ecrireAdresse();
+  parcoursSuitFiltres();
 }
 
 /* ---------- navigation à trois niveaux ---------- */
@@ -590,7 +694,7 @@ let enTransition = false;
 async function ouvrirEnsemble(code, anime = true) {
   if (enTransition || etat.vue === code) return;
   enTransition = true;
-  arreterEau();
+  quitterParcours(true); fermerBulles();
   const e = ENS.find((x) => x.code === code);
   etat.vue = code; etat.lieu = null; etat.ensemble = null;
   dep.choisir(null); dep.ouvrirEnsemble(null);
@@ -604,20 +708,20 @@ async function ouvrirEnsemble(code, anime = true) {
   } else {
     planDep.classList.add('cache'); vueEns.ouvrir(code, fl); planEns.classList.remove('cache');
   }
-  majDescente();
+  majFilEau();
   enTransition = false;
 }
 function allerOrne(anime = true) {
   if (etat.vue === 'orne') { etat.lieu = null; etat.ensemble = null; dep.choisir(null); dep.ouvrirEnsemble(null); changerMarge(() => { rendreMarge(); majLegende(); }); ecrireAdresse(); dep.recentrer(); return; }
   const e = ENS.find((x) => x.code === etat.vue);
-  arreterEau();
+  quitterParcours(true); fermerBulles();
   etat.vue = 'orne'; etat.lieu = null;
   planEns.classList.add('cache'); planDep.classList.remove('cache');
   dep.filtrer({ metier: etat.metier, epoque: etat.epoque }, false);
   dep.remonter(anime ? e : null, anime ? 1000 : 0);
   setTimeout(() => vueEns.activer(false), 700);
   changerMarge(() => { rendreMarge(); majLegende(); });
-  majMetiers(); majFrise(); majListe(); majDescente(); ecrireAdresse();
+  majMetiers(); majFrise(); majListe(); majFilEau(); ecrireAdresse();
 }
 function choisirEnsemble(code) {
   if (DETAIL[code]) return ouvrirEnsemble(code);
@@ -626,18 +730,25 @@ function choisirEnsemble(code) {
   dep.choisir(null); dep.ouvrirEnsemble(code); dep.voler(e.lon, e.lat, 2.6);
   changerMarge(rendreMarge); ecrireAdresse();
 }
-function ouvrirLieu(ref) {
+function ouvrirLieu(ref, depuisParcours) {
   const x = tousLieux.get(ref);
   if (!x) return;
   if (x.ens && etat.vue !== x.ens) { ouvrirEnsemble(x.ens).then(() => setTimeout(() => ouvrirLieu(ref), lent() ? 0 : 900)); return; }
   if (!x.ens && etat.vue !== 'orne') allerOrne(false);
   if (!ok(etat.metier, etat.epoque)(x.s)) filtrer({ metier: null, epoque: null });
   etat.lieu = ref; etat.ensemble = null;
-  if (x.ens) { vueEns.choisir(ref); if (!eauEnCours) vueEns.montrerLieu(ref); }
+  if (x.ens && BULLES.has(x.ens)) { vueEns.choisir(ref); montrerFiche(ref, !depuisParcours); ecrireAdresse(); return; }
+  if (x.ens) { vueEns.choisir(ref); vueEns.montrerLieu(ref); }
   else { dep.ouvrirEnsemble(null); dep.choisir(ref); }
   changerMarge(rendreMarge); ecrireAdresse();
 }
 function fermerLieu(silencieux) {
+  if (avecBulles()) {
+    const ref = etat.lieu;
+    etat.lieu = null; vueEns.choisir(null); cacher(bFiche); ficheRef = null;
+    if (!silencieux) { ecrireAdresse(); rendreFocus(ref); }
+    return;
+  }
   etat.lieu = null;
   vueEns.choisir(null); dep.choisir(null);
   if (!silencieux) { changerMarge(rendreMarge); ecrireAdresse(); }
@@ -650,6 +761,7 @@ const boutonTemps = document.getElementById('jouerTemps');
 function arreterTemps() { clearInterval(minuterieTemps); minuterieTemps = null; boutonTemps.setAttribute('aria-pressed', 'false'); boutonTemps.querySelector('.ic').textContent = '▶'; }
 boutonTemps.onclick = () => {
   if (minuterieTemps) return arreterTemps();
+  pauserParcours(); cacher(bEtape); etapeRef = null; if (ficheRef) fermerLieu(true);
   boutonTemps.setAttribute('aria-pressed', 'true'); boutonTemps.querySelector('.ic').textContent = '❚❚';
   let i = 0;
   const pas = () => {
@@ -662,54 +774,259 @@ boutonTemps.onclick = () => {
   minuterieTemps = setInterval(pas, 2200);
 };
 
-/* ---------- au fil de la Risle ---------- */
-const descente = document.getElementById('descente'), rail = document.getElementById('rail'), boutonEau = document.getElementById('jouerEau');
-let eauEnCours = null, posEau = 0, echRail = null;
-function majDescente() {
+/* ---------- bulles et fiche sur la carte (vue de la Risle) ---------- */
+const bSurvol = document.getElementById('bSurvol'), bGroupe = document.getElementById('bGroupe');
+const bEtape = document.getElementById('bEtape'), bFiche = document.getElementById('bFiche');
+let survolRef = null, groupeRefs = null, etapeRef = null, ficheRef = null, minuterieSurvol = null;
+const site = (ref) => vueEns.parRef().get(ref);
+const nomSite = (s) => capitale(s.nomCourt || s.nom);
+const photo = (s) => (s.media && s.media.url ? s.media : null);
+const texteSite = (s) => (s.histoireEditoriale || s.histoire || '').replace(/^"|"$/g, '').trim();
+function cacher(el) { el.classList.remove('vue'); el.setAttribute('aria-hidden', 'true'); }
+function montrer(el) { el.classList.add('vue'); el.setAttribute('aria-hidden', 'false'); }
+function fermerBulles() { [bSurvol, bGroupe, bEtape].forEach(cacher); survolRef = groupeRefs = etapeRef = null; if (ficheRef) fermerLieu(true); }
+function rendreFocus(ref) { const b = [...document.querySelectorAll('#liste button')].find((x) => x.dataset.ref === ref); if (b) b.focus({ preventScroll: true }); }
+
+// la zone libre de la carte : ni la marge, ni la frise, ni la ligne de la rivière
+function zoneLibre() {
+  const fe = document.getElementById('filEau'), haut = fe.classList.contains('cache') ? 16 : fe.getBoundingClientRect().bottom + 10;
+  return { g: MARGE + 14, d: innerWidth - 76, h: haut, b: document.getElementById('frise').getBoundingClientRect().top - 10 };
+}
+// place une bulle près du lieu, du côté où elle tient, sans couvrir le lieu
+function placer(el, ref, ecart = 18) {
+  const p = vueEns.ecran(ref); if (!p) return;
+  const z = zoneLibre(), [x, y] = p;
+  el.style.maxHeight = `${z.b - z.h}px`;
+  const w = el.offsetWidth, h = Math.min(el.offsetHeight, z.b - z.h);
+  let left = x + ecart, top = y - Math.min(70, h / 3);
+  if (left + w > z.d) left = x - ecart - w;
+  if (left < z.g) { left = Math.max(z.g, Math.min(z.d - w, x - w / 2)); top = y + ecart + 4 + h > z.b ? y - ecart - 4 - h : y + ecart + 4; }
+  top = Math.max(z.h, Math.min(z.b - h, top));
+  el.style.left = `${Math.round(left)}px`; el.style.top = `${Math.round(top)}px`;
+  // un lieu sorti du cadre ne garde pas une bulle orpheline
+  el.style.visibility = x < z.g - 20 || x > z.d + 20 || y < z.h - 20 || y > z.b + 20 ? 'hidden' : '';
+}
+let replacement = 0;
+function replacerBulles() {
+  if (replacement) return;
+  replacement = requestAnimationFrame(() => {
+    replacement = 0;
+    if (survolRef) placer(bSurvol, survolRef);
+    if (groupeRefs) placer(bGroupe, groupeRefs[0]);
+    if (etapeRef) placer(bEtape, etapeRef, 26);
+    if (ficheRef) placer(bFiche, ficheRef, 24);
+  });
+}
+
+// survol : une présentation courte, ou la liste d'un groupe de sites superposés
+function survolEnsemble(l) {
+  if (!avecBulles()) return;
+  clearTimeout(minuterieSurvol);
+  const ref = l.length ? l[0].ref : null;
+  if (!ref || ref === ficheRef || ref === etapeRef || groupeRefs) { if (!ref) { cacher(bSurvol); survolRef = null; } return; }
+  minuterieSurvol = setTimeout(() => {
+    const s = l[0], ph = photo(s);
+    survolRef = ref;
+    bSurvol.classList.toggle('sans-photo', !ph || l.length > 1);
+    bSurvol.innerHTML = l.length > 1
+      ? `<div><div class="k">${l.length} sites ici</div><h4>${l.slice(0, 4).map((x) => echapper(nomSite(x))).join(', ')}${l.length > 4 ? '…' : ''}</h4><div class="ou">Cliquer pour choisir</div></div>`
+      : `${ph ? `<img src="${echapper(ph.url)}" alt="" referrerpolicy="no-referrer" onerror="this.remove();this.parentNode&&this.parentNode.classList.add('sans-photo')">` : ''}
+         <div><div class="k">${echapper(METIERS[(s.secteurs || [])[0]] || 'Secteur inconnu')}</div><h4>${echapper(nomSite(s))}</h4><div class="ou">${echapper(s.commune || '')}</div></div>`;
+    placer(bSurvol, ref); montrer(bSurvol);
+  }, 90);
+}
+
+// clic : un site ouvre sa fiche ; plusieurs sites superposés proposent un choix
+function clicEnsemble(l) {
+  if (!avecBulles()) { if (l.length) ouvrirLieu(l[0].ref); return; }
+  cacher(bSurvol); survolRef = null;
+  if (!l.length) { if (groupeRefs) { cacher(bGroupe); groupeRefs = null; } else if (ficheRef) fermerLieu(); return; }
+  if (l.length === 1) { cacher(bGroupe); groupeRefs = null; return ouvrirLieu(l[0].ref); }
+  groupeRefs = l.map((s) => s.ref);
+  bGroupe.innerHTML = `<div class="k">${l.length} sites superposés à cette échelle</div>
+    <ul>${l.map((s) => `<li><button type="button" data-ref="${s.ref}">${echapper(nomSite(s))}<small>${echapper(s.commune || '')}${s.lieuDit ? ' — ' + echapper(s.lieuDit) : ''}</small></button></li>`).join('')}</ul>
+    <button type="button" class="deplier">Rapprocher pour les distinguer</button>`;
+  bGroupe.querySelectorAll('[data-ref]').forEach((b) => (b.onclick = () => { cacher(bGroupe); groupeRefs = null; ouvrirLieu(b.dataset.ref); }));
+  bGroupe.querySelector('.deplier').onclick = () => { const r = groupeRefs; cacher(bGroupe); groupeRefs = null; vueEns.deplier(r); };
+  placer(bGroupe, groupeRefs[0]); montrer(bGroupe);
+  bGroupe.querySelector('button').focus({ preventScroll: true });
+}
+
+// dates connues d'un lieu, d'après sa chronologie sourcée
+function chronoSite(ref) { return ((DETAIL[etat.vue]?.chronologie || {})[ref] || []).slice().sort((a, b) => a.min - b.min); }
+const dateEv = (e) => (e.min === e.max ? `${e.min}` : `${e.min}–${e.max}`);
+function contenuFiche(s) {
+  const ph = photo(s), ev = chronoSite(s.ref), texte = texteSite(s);
+  const court = texte.length > 340 ? texte.slice(0, texte.lastIndexOf(' ', 320)) + '…' : texte;
+  const debut = ev.length ? ev[0].min : null, fin = ev.length ? d3.max(ev, (e) => e.max) : null;
+  const rel = (DETAIL[etat.vue].liens || []).filter((l) => l.de === s.ref || l.vers === s.ref);
+  const prec = s.precision ? (D.libelles.precision?.[s.precision] || s.precision) : '';
+  const types = D.libelles.evenements || {};
+  return `<button type="button" class="fermer" aria-label="Fermer la fiche">×</button>
+    ${ph ? `<figure><img src="${echapper(ph.url)}" alt="${echapper((ph.legende || '').slice(0, 120))}" referrerpolicy="no-referrer" onerror="this.closest('figure').remove()">
+      <figcaption>${echapper((ph.legende || '').length > 150 ? ph.legende.slice(0, ph.legende.lastIndexOf(' ', 140)) + '…' : ph.legende || '')} ${echapper(ph.credit || '')}${ph.notice ? ` · <a href="${echapper(ph.notice)}" target="_blank" rel="noopener">notice</a>` : ''} · aperçu à usage interne</figcaption></figure>` : ''}
+    <div class="corps">
+      <div class="k">${(s.secteurs || []).map((m) => echapper(METIERS[m] || m)).join(' · ') || 'Secteur inconnu'}</div>
+      <h3>${echapper(nomSite(s))}</h3>
+      <div class="ou">${echapper(s.commune || '')}${s.lieuDit ? ' — ' + echapper(s.lieuDit) : ''}</div>
+      ${debut != null ? `<div class="dates">Dans les sources de <b>${debut}</b>${fin !== debut ? ` à <b>${fin}</b>` : ''}</div>` : ''}
+      <div class="eps" aria-label="Époques documentées : ${EPOQUES.filter((e) => (s.epoques || []).includes(e.code)).map((e) => e.dates).join(', ') || 'aucune'}">${EPOQUES.map((e) => `<span class="${(s.epoques || []).includes(e.code) ? 'on' : ''}" title="${echapper(e.dates)}"></span>`).join('')}</div>
+      <div class="eps-l" aria-hidden="true"><span>avant 1789</span><span>2000</span></div>
+      ${s.nbActivites > 1 ? `<div class="activites">${s.nbActivites} activités successives documentées</div>` : ''}
+      ${texte ? `<p class="txt">${echapper(court)}</p>${court !== texte ? '<button type="button" class="suite">Lire la suite</button>' : ''}` : '<p class="absence">Ce lieu n\'a pas encore de texte. Son dossier d\'inventaire reste la référence.</p>'}
+      ${rel.length ? `<div class="rel"><div class="k" style="color:var(--encre2)">Relations documentées</div><ul>${rel.map((l) => `<li>${echapper(l.phrase)}</li>`).join('')}</ul></div>` : ''}
+      ${ev.length ? `<details><summary>Ce que disent les sources (${ev.length})</summary><ol>${ev.map((e) => `<li><b>${dateEv(e)}</b><span>${echapper(e.texte && !/^\d/.test(e.texte) ? e.texte : (types[e.type] || e.type))}</span></li>`).join('')}</ol></details>` : ''}
+      <div class="src">${s.url ? `<a href="${echapper(s.url)}" target="_blank" rel="noopener">Dossier d'inventaire ↗</a>` : ''}</div>
+      ${prec ? `<div class="prec">Localisation : ${echapper(prec.toLowerCase())}.</div>` : ''}
+    </div>`;
+}
+async function montrerFiche(ref, deplacer) {
+  const s = site(ref); if (!s) return;
+  [bSurvol, bGroupe, bEtape].forEach(cacher); survolRef = groupeRefs = etapeRef = null;
+  pauserParcours();
+  ficheRef = ref;
+  bFiche.innerHTML = contenuFiche(s);
+  bFiche.scrollTop = 0;
+  bFiche.querySelector('.fermer').onclick = () => fermerLieu();
+  const suite = bFiche.querySelector('.suite');
+  if (suite) suite.onclick = () => { bFiche.querySelector('.txt').textContent = texteSite(s); suite.remove(); placer(bFiche, ref, 24); };
+  bFiche.querySelectorAll('details').forEach((d) => d.addEventListener('toggle', () => placer(bFiche, ref, 24)));
+  bFiche.querySelectorAll('img').forEach((i) => i.addEventListener('load', () => placer(bFiche, ref, 24)));
+  if (deplacer) {
+    const p = vueEns.ecran(ref), z = zoneLibre();
+    const aLAise = p && vueEns.echelle() >= 2 && p[0] > z.g + 40 && p[0] < z.d - 40 && p[1] > z.h + 40 && p[1] < z.b - 40;
+    if (!aLAise) vueEns.allerVers(ref, Math.max(2.6, vueEns.echelle()), 700, -200);
+  }
+  placer(bFiche, ref, 24); montrer(bFiche);
+  bFiche.querySelector('.fermer').focus({ preventScroll: true });
+}
+
+/* ---------- au fil de la Risle : de site en site, de l'amont vers l'aval ---------- */
+const filEau = document.getElementById('filEau'), feJouer = document.getElementById('feJouer'), feEtat = document.getElementById('feEtat');
+const parcours = { engage: false, lecture: false, i: -1, liste: [], minuterie: null, jeton: 0 };
+const ATTENTE = 3600; // temps passé à chaque étape, en millisecondes
+const listeParcours = () => vueEns.ordre().map((o) => o.s).filter(vueEns.retenu);
+function majFilEau() {
   const actif = etat.vue === 'risle';
-  descente.classList.toggle('cache', !actif);
-  descente.setAttribute('aria-hidden', String(!actif));
-  rail.tabIndex = actif ? 0 : -1; boutonEau.tabIndex = actif ? 0 : -1;
-  if (!actif) return;
-  const s = d3.select('#railsvg'); s.selectAll('*').remove();
-  const W = rail.getBoundingClientRect().width;
-  echRail = d3.scaleLinear().domain([0, 1]).range([6, W - 6]);
-  s.append('line').attr('x1', echRail(0)).attr('x2', echRail(1)).attr('y1', 17).attr('y2', 17).attr('stroke', 'var(--eau)').attr('stroke-width', 2);
-  s.append('g').selectAll('rect').data(vueEns.ordre()).join('rect').attr('x', (d) => echRail(d.t) - 1.5).attr('y', 10).attr('width', 3).attr('height', 3)
-    .attr('fill', 'var(--encre)');
-  s.append('text').attr('x', echRail(0)).attr('y', 34).attr('font-size', 12).attr('font-family', 'var(--sans)').attr('fill', 'var(--encre2)').text('amont');
-  s.append('text').attr('x', echRail(1)).attr('y', 34).attr('font-size', 12).attr('font-family', 'var(--sans)').attr('fill', 'var(--encre2)').attr('text-anchor', 'end').text('aval');
-  s.append('g').attr('id', 'poignee').attr('transform', `translate(${echRail(posEau)},17)`).html('<circle r="7" fill="var(--page)" stroke="var(--encre)" stroke-width="1.6"/><circle r="2.5" fill="var(--eau)"/>');
-  const glisser = (ev) => { arreterEau(true); allerEau(echRail.invert(d3.pointer(ev, s.node())[0])); };
-  s.on('pointerdown', (ev) => { glisser(ev); s.on('pointermove', glisser); }).on('pointerup pointerleave', () => s.on('pointermove', null));
+  filEau.classList.toggle('cache', !actif);
+  filEau.setAttribute('aria-hidden', String(!actif));
+  filEau.querySelectorAll('button').forEach((b) => (b.tabIndex = actif ? 0 : -1));
+  if (actif) dessinerLigne();
 }
-let dernierLieuEau = null;
-function allerEau(t, immediat) {
-  posEau = Math.max(0, Math.min(1, t));
-  d3.select('#poignee').attr('transform', `translate(${echRail(posEau)},17)`);
-  rail.setAttribute('aria-valuenow', Math.round(posEau * 100));
-  const s = vueEns.descendre(posEau, immediat);
-  if (s && s.ref !== dernierLieuEau) { dernierLieuEau = s.ref; etat.lieu = s.ref; vueEns.choisir(s.ref); rendreMarge(); ecrireAdresse(); }
+// la ligne : chaque site est une étape, à pas égal ; les communes sont nommées sous leurs étapes
+function dessinerLigne() {
+  const svg = d3.select('#feLigne'), W = svg.node().getBoundingClientRect().width || 600;
+  const ordre = vueEns.ordre().map((o) => o.s), n = ordre.length;
+  const x = d3.scalePoint().domain(ordre.map((s) => s.ref)).range([8, W - 8]);
+  const courant = parcours.engage && parcours.i >= 0 ? parcours.liste[parcours.i] : null;
+  const xc = courant ? x(courant.ref) : null;
+  svg.selectAll('*').remove();
+  svg.append('line').attr('x1', 8).attr('x2', W - 8).attr('y1', 12).attr('y2', 12).attr('stroke', 'var(--eau)').attr('stroke-width', 3).attr('stroke-linecap', 'round').attr('opacity', 0.35);
+  if (xc != null) svg.append('line').attr('x1', 8).attr('x2', xc).attr('y1', 12).attr('y2', 12).attr('stroke', 'var(--eau)').attr('stroke-width', 3).attr('stroke-linecap', 'round');
+  const vus = new Set(courant ? parcours.liste.slice(0, parcours.i).map((s) => s.ref) : []);
+  const g = svg.append('g').selectAll('g').data(ordre).join('g').attr('class', 'st').attr('transform', (s) => `translate(${x(s.ref)},12)`)
+    .on('click', (ev, s) => { if (!vueEns.retenu(s)) return; const i = listeParcours().findIndex((y) => y.ref === s.ref); engager(); allerEtape(i, false); });
+  g.append('title').text((s) => `${nomSite(s)}, ${s.commune}`);
+  g.append('circle').attr('r', (s) => (courant && s.ref === courant.ref ? 6.5 : vueEns.retenu(s) ? 3.6 : 1.6))
+    .attr('fill', (s) => (courant && s.ref === courant.ref ? 'var(--accent)' : vus.has(s.ref) ? 'var(--encre)' : vueEns.retenu(s) ? '#fbfaf6' : 'var(--doux)'))
+    .attr('stroke', (s) => (vueEns.retenu(s) && !(courant && s.ref === courant.ref) ? 'var(--encre)' : 'none')).attr('stroke-width', 1.2);
+  // communes, sous les étapes qu'elles portent, quand la place le permet
+  const groupes = [];
+  ordre.forEach((s) => { const d = groupes[groupes.length - 1]; if (d && d.c === s.commune) d.f = s; else groupes.push({ c: s.commune, d: s, f: s }); });
+  let fin = -Infinity;
+  groupes.forEach((gr) => {
+    const m = (x(gr.d.ref) + x(gr.f.ref)) / 2, l = gr.c.length * 6.3;
+    if (m - l / 2 < fin + 8 || m - l / 2 < 0 || m + l / 2 > W) return;
+    fin = m + l / 2;
+    svg.append('text').attr('x', m).attr('y', 36).attr('text-anchor', 'middle').attr('font-family', 'var(--serif)').attr('font-style', 'italic')
+      .attr('font-size', 12.5).attr('fill', 'var(--encre2)').text(gr.c);
+  });
+  void n;
 }
-function arreterEau(garder) {
-  if (eauEnCours) eauEnCours.stop();
-  eauEnCours = null; boutonEau.setAttribute('aria-pressed', 'false'); boutonEau.querySelector('.ic').textContent = '▶';
-  if (!garder) dernierLieuEau = null;
+function majEtatParcours() {
+  const L = parcours.liste, s = L[parcours.i];
+  feJouer.setAttribute('aria-pressed', String(parcours.lecture));
+  feJouer.setAttribute('aria-label', parcours.lecture ? 'Interrompre la descente' : parcours.i >= 0 ? 'Reprendre la descente' : 'Descendre la Risle');
+  feJouer.querySelector('span').textContent = parcours.lecture ? '❚❚' : '▶';
+  filEau.classList.toggle('engage', parcours.engage);
+  feEtat.textContent = !parcours.engage ? 'de l\'amont vers l\'aval, de site en site'
+    : !L.length ? 'aucun site ne correspond à la sélection'
+    : `étape ${parcours.i + 1} sur ${L.length}${s ? ` · ${s.commune}` : ''}${etat.metier || etat.epoque ? ' · sites de la sélection' : ''}${parcours.lecture ? '' : ' · en pause'}`;
+  dessinerLigne();
 }
-boutonEau.onclick = () => {
-  if (eauEnCours) return arreterEau(true);
-  if (posEau >= 1) posEau = 0;
-  boutonEau.setAttribute('aria-pressed', 'true'); boutonEau.querySelector('.ic').textContent = '❚❚';
-  let avant = performance.now();
-  eauEnCours = d3.timer((now) => { const dt = now - avant; avant = now; allerEau(posEau + dt / 50000, true); if (posEau >= 1) arreterEau(true); });
+function engager() { arreterTemps(); parcours.engage = true; }
+async function allerEtape(i, auto) {
+  const L = parcours.liste = listeParcours();
+  clearTimeout(parcours.minuterie);
+  if (!L.length) { majEtatParcours(); return; }
+  i = Math.max(0, Math.min(L.length - 1, i));
+  const jeton = ++parcours.jeton, s = L[i];
+  parcours.i = i;
+  if (ficheRef) fermerLieu(true);
+  [bSurvol, bGroupe].forEach(cacher); survolRef = groupeRefs = null;
+  cacher(bEtape); etapeRef = null;
+  vueEns.parcours(s.ref);
+  majEtatParcours();
+  await vueEns.allerVers(s.ref, Math.max(3.2, Math.min(5, vueEns.echelle())), auto ? 1100 : 750, -170);
+  if (jeton !== parcours.jeton) return;
+  montrerEtape(s, i, L.length);
+  if (parcours.lecture) parcours.minuterie = setTimeout(() => {
+    if (jeton !== parcours.jeton || !parcours.lecture) return;
+    if (i + 1 < L.length) allerEtape(i + 1, true); else { parcours.lecture = false; majEtatParcours(); feEtat.textContent = `fin de la descente · ${L.length} sites`; }
+  }, ATTENTE);
+}
+function montrerEtape(s, i, n) {
+  const ph = photo(s), texte = texteSite(s), phrase = texte.split(/(?<=\.)\s/)[0] || '';
+  etapeRef = s.ref;
+  bEtape.innerHTML = `${ph ? `<img src="${echapper(ph.url)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}
+    <div class="corps"><div class="k">Étape ${i + 1} sur ${n} · ${echapper(METIERS[(s.secteurs || [])[0]] || 'Secteur inconnu')}</div>
+    <h4>${echapper(nomSite(s))}</h4><div class="ou">${echapper(s.commune || '')}${s.lieuDit ? ' — ' + echapper(s.lieuDit) : ''}</div>
+    ${phrase ? `<p>${echapper(phrase.length > 190 ? phrase.slice(0, phrase.lastIndexOf(' ', 180)) + '…' : phrase)}</p>` : ''}
+    <div class="actions"><button type="button" class="ouvrir">Ouvrir la fiche</button>${i + 1 < n ? '<button type="button" class="suivant">Site suivant ›</button>' : ''}</div></div>`;
+  bEtape.querySelector('.ouvrir').onclick = () => ouvrirLieu(s.ref, true);
+  const sv = bEtape.querySelector('.suivant'); if (sv) sv.onclick = () => allerEtape(parcours.i + 1, false);
+  bEtape.querySelectorAll('img').forEach((im) => im.addEventListener('load', () => placer(bEtape, s.ref, 26)));
+  placer(bEtape, s.ref, 26); montrer(bEtape);
+}
+function pauserParcours() {
+  if (!parcours.lecture) return;
+  parcours.lecture = false; clearTimeout(parcours.minuterie); // l’étape en cours de trajet s’affiche quand même, sans enchaîner
+  majEtatParcours();
+}
+function quitterParcours(silencieux) {
+  clearTimeout(parcours.minuterie); parcours.jeton++;
+  const etaitEngage = parcours.engage;
+  Object.assign(parcours, { engage: false, lecture: false, i: -1 });
+  cacher(bEtape); etapeRef = null; vueEns.parcours(null);
+  if (etat.vue === 'risle') majEtatParcours();
+  if (etaitEngage && !silencieux) vueEns.recentrer();
+}
+// les filtres changent pendant la descente : elle ne suit plus que les sites retenus
+function parcoursSuitFiltres() {
+  if (!parcours.engage || etat.vue !== 'risle') { if (etat.vue === 'risle') dessinerLigne(); return; }
+  const avant = parcours.liste[parcours.i], L = listeParcours(), ordre = vueEns.ordre().map((o) => o.s);
+  parcours.liste = L;
+  if (avant && L.some((s) => s.ref === avant.ref)) parcours.i = L.findIndex((s) => s.ref === avant.ref);
+  else {
+    cacher(bEtape); etapeRef = null;
+    const pos = avant ? ordre.findIndex((s) => s.ref === avant.ref) : -1;
+    const suivant = L.findIndex((s) => ordre.findIndex((y) => y.ref === s.ref) > pos);
+    parcours.i = suivant >= 0 ? suivant : L.length - 1;
+    vueEns.parcours(L[parcours.i]?.ref || null);
+  }
+  majEtatParcours();
+}
+feJouer.onclick = () => {
+  if (parcours.lecture) return pauserParcours();
+  engager();
+  const L = listeParcours();
+  const fini = parcours.i >= L.length - 1 && !parcours.lecture && feEtat.textContent.startsWith('fin');
+  parcours.lecture = true;
+  allerEtape(parcours.i < 0 || fini ? 0 : parcours.i + (etapeRef ? 1 : 0), true);
 };
-rail.addEventListener('keydown', (e) => {
-  const p = e.shiftKey ? 0.1 : 0.02;
-  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); arreterEau(true); allerEau(posEau + p); }
-  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); arreterEau(true); allerEau(posEau - p); }
-  if (e.key === 'Home') { e.preventDefault(); arreterEau(true); allerEau(0); }
-  if (e.key === 'End') { e.preventDefault(); arreterEau(true); allerEau(1); }
-});
+document.getElementById('fePrec').onclick = () => { pauserParcours(); allerEtape(parcours.i - 1, false); };
+document.getElementById('feSuiv').onclick = () => { pauserParcours(); allerEtape(parcours.i + 1, false); };
+document.getElementById('feQuitter').onclick = () => quitterParcours();
 
 /* ---------- recherche ---------- */
 const normal = (t) => (t || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -744,12 +1061,13 @@ document.getElementById('raz-me').onclick = () => filtrer({ metier: null });
 document.getElementById('raz-ep').onclick = () => { arreterTemps(); filtrer({ epoque: null }); };
 document.addEventListener('keydown', (e) => {
   if (e.key !== 'Escape' || e.target === cherche && cherche.value) return;
-  if (eauEnCours) return arreterEau(true);
+  if (groupeRefs) { cacher(bGroupe); groupeRefs = null; return; }
   if (etat.lieu) return fermerLieu();
+  if (parcours.engage) return quitterParcours();
   if (etat.vue !== 'orne' || etat.ensemble) return allerOrne();
 });
 let att;
-window.addEventListener('resize', () => { clearTimeout(att); att = setTimeout(() => { majFrise(); majDescente(); }, 200); });
+window.addEventListener('resize', () => { clearTimeout(att); att = setTimeout(() => { majFrise(); majFilEau(); replacerBulles(); }, 200); });
 
 /* ---------- démarrage ---------- */
 document.fonts.ready.then(() => {

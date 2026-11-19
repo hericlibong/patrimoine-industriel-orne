@@ -7,7 +7,7 @@
 /* global d3 */
 (function () {
   const C = window.CARTE, D = window.DONNEES;
-  const ENCRE = '#1e3040', EAU = '#3e7896', LIEN = '#a24e2c';
+  const ENCRE = '#1e3040', EAU = '#3e7896', LIEN = '#a24e2c', ACCENT = '#b0482a';
   const SERIF = "'Source Serif 4', Georgia, serif", SANS = "'Source Sans 3', system-ui, sans-serif";
   const lent = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -66,7 +66,7 @@
       const r = ens.relief;
       rect = [bx(r.x0 - r.pas / 2), by(r.y1 + r.pas / 2), bx(r.x0 + (r.nx - 0.5) * r.pas), by(r.y1 - (r.ny - 0.5) * r.pas)];
       // la navigation reste bornée au territoire de l'ensemble
-      zoom.scaleExtent([1, 6]).translateExtent([[Math.min(rect[0], 0), Math.min(rect[1], 0)], [Math.max(rect[2], W), Math.max(rect[3], H)]]);
+      zoom.scaleExtent([1, 16]).translateExtent([[Math.min(rect[0], 0), Math.min(rect[1], 0)], [Math.max(rect[2], W), Math.max(rect[3], H)]]);
     }
     const bx = (lon) => base.tx + base.s * lon * kx, by = (lat) => base.ty - base.s * lat;
     const X = (lon) => transform.applyX(bx(lon)), Y = (lat) => transform.applyY(by(lat));
@@ -124,7 +124,7 @@
       }
     }
 
-    let lieuxEcran = [];
+    let lieuxEcran = [], coteCourant = 8.5;
     function dessiner() {
       if (!ens || !W) return;
       fond();
@@ -152,6 +152,7 @@
       }
       // lieux
       const cote = 8.5 * Math.min(1.5, Math.pow(k, 0.3));
+      coteCourant = cote;
       lieuxEcran = [];
       for (const s of sites) {
         const a = etat.get(s.ref), x = X(s.lon), y = Y(s.lat);
@@ -183,6 +184,10 @@
         const s = parRef.get(ref); if (!s) continue;
         ctx.beginPath(); ctx.rect(X(s.lon) - cote / 2 - 4, Y(s.lat) - cote / 2 - 4, cote + 8, cote + 8);
         ctx.lineWidth = ref === choisi ? 1.8 : 1.1; ctx.strokeStyle = ENCRE; ctx.stroke();
+        if (curseur && ref === curseur.ref) {
+          ctx.beginPath(); ctx.arc(X(s.lon), Y(s.lat), cote + 9, 0, 2 * Math.PI);
+          ctx.lineWidth = 2.2; ctx.strokeStyle = ACCENT; ctx.stroke();
+        }
         nommer(s, true);
       }
       if (k >= 1.6) for (const s of sites) if (etat.get(s.ref) > 0.5 && !enAvant.includes(s.ref)) nommer(s, false);
@@ -245,22 +250,25 @@
       axe = (t) => { const f = t * (pas.length - 1), i = Math.min(pas.length - 2, Math.floor(f)), r = f - i; return [pas[i][0] + (pas[i + 1][0] - pas[i][0]) * r, pas[i][1] + (pas[i + 1][1] - pas[i][1]) * r]; };
     }
 
+    // le double clic rapproche (comportement d3 par défaut) ; la page suit chaque mouvement
     const zoom = d3.zoom().filter((ev) => (!ev.ctrlKey || ev.type === 'wheel') && !ev.button)
-      .on('zoom', (ev) => { transform = ev.transform; dessiner(); });
-    d3.select(cv).call(zoom).on('dblclick.zoom', null);
-    const objetSous = (mx, my) => {
-      let best = null, dmin = 144;
-      for (const [x, y, s] of lieuxEcran) { const d = (x - mx) ** 2 + (y - my) ** 2; if (d < dmin) { dmin = d; best = s; } }
-      return best ? { type: 'lieu', s: best } : null;
+      .on('zoom', (ev) => { transform = ev.transform; dessiner(); if (opts.surTransform) opts.surTransform(); });
+    d3.select(cv).call(zoom);
+    // tous les sites sous le pointeur : un seul, ou un groupe de sites superposés
+    const objetsSous = (mx, my) => {
+      const r = Math.max(9, coteCourant / 2 + 5), proches = [];
+      for (const [x, y, s] of lieuxEcran) { const d = Math.hypot(x - mx, y - my); if (d <= r) proches.push([d, s]); }
+      return proches.sort((a, b) => a[0] - b[0]).map((p) => p[1]);
     };
     const coords = (ev) => { const r = cv.getBoundingClientRect(); return [ev.clientX - r.left, ev.clientY - r.top]; };
     cv.addEventListener('mousemove', (ev) => {
-      const o = objetSous(...coords(ev)), id = o ? o.s.ref : null;
-      cv.style.cursor = o ? 'pointer' : 'grab';
+      const l = objetsSous(...coords(ev)), id = l.length ? l[0].ref : null;
+      cv.style.cursor = l.length ? 'pointer' : 'grab';
       if (id !== survole) { survole = id; dessiner(); }
+      if (opts.survol) opts.survol(l);
     });
-    cv.addEventListener('mouseleave', () => { if (survole) { survole = null; dessiner(); } });
-    cv.addEventListener('click', (ev) => { if (opts.clic) opts.clic(objetSous(...coords(ev))); });
+    cv.addEventListener('mouseleave', () => { if (survole) { survole = null; dessiner(); } if (opts.survol) opts.survol([]); });
+    cv.addEventListener('click', (ev) => { if (opts.clic) opts.clic(objetsSous(...coords(ev))); });
 
     function animer(duree) {
       const avant = new Map(etat), apres = new Map(sites.map((s) => [s.ref, retenu(s) ? 1 : 0]));
@@ -305,6 +313,29 @@
         dessiner();
         return curseur;
       },
+      ecran(ref) { const s = parRef.get(ref); return s ? [X(s.lon), Y(s.lat)] : null; },
+      cote: () => coteCourant,
+      echelle: () => transform.k,
+      // amène un site dans le cadre ; dx décale vers la gauche pour laisser la place à sa bulle
+      allerVers(ref, k, duree = 900, dx = 0) {
+        const s = parRef.get(ref); if (!s) return Promise.resolve();
+        const cible = centre(bx(s.lon), by(s.lat), k || Math.max(2.6, transform.k)).translate(dx / (k || Math.max(2.6, transform.k)), 0);
+        return new Promise((ok) => {
+          setTimeout(ok, (lent() ? 0 : duree) + 80);
+          d3.select(cv).transition('aller').duration(lent() ? 0 : duree).ease(d3.easeCubicInOut).call(zoom.transform, cible).on('end interrupt', ok);
+        });
+      },
+      // rapproche sur un groupe de sites superposés, sans les déplacer
+      deplier(refs) {
+        // assez près pour que les deux sites les plus proches du groupe ne se recouvrent plus
+        const pts = refs.map((r) => parRef.get(r)).filter(Boolean).map((s) => [bx(s.lon), by(s.lat)]);
+        let dmin = Infinity;
+        for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) dmin = Math.min(dmin, Math.hypot(pts[i][0] - pts[j][0], pts[i][1] - pts[j][1]));
+        const k = Math.min(16, Math.max(transform.k * 1.6, (8.5 * 1.5 + 8) / Math.max(dmin, 0.01)));
+        const [cx, cy] = [d3.mean(pts, (p) => p[0]), d3.mean(pts, (p) => p[1])];
+        d3.select(cv).transition().duration(lent() ? 0 : 800).ease(d3.easeCubicInOut).call(zoom.transform, centre(cx, cy, k));
+      },
+      parcours(ref) { curseur = ref ? parRef.get(ref) || null : null; dessiner(); },
       finDescente() { curseur = null; d3.select(cv).transition().duration(lent() ? 0 : 900).call(zoom.transform, d3.zoomIdentity); },
       zoomPar(f) { d3.select(cv).transition().duration(350).call(zoom.scaleBy, f); },
       recentrer() { d3.select(cv).transition().duration(lent() ? 0 : 800).call(zoom.transform, d3.zoomIdentity); },
