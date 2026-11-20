@@ -1,0 +1,1085 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Référence 20 nov. (Risle, première passe) — « édition »</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..600;1,8..60,300..500&display=swap" rel="stylesheet">
+<!--
+  Proposition de composition « édition », phase 10.E, 18 novembre 2026.
+  Prototype interne : mécanique reprise de l'esquisse D (trois niveaux, filtres combinés,
+  recherche, adresse partageable, vues d'ensemble propres), carte A′ topographique.
+  Aucune image de tiers n'est affichée.
+-->
+<style>
+:root{
+  --page:#efede6; --encre:#1e3040; --encre2:#4d5a66; --doux:#7d868d; --pale:#d3d3cb; --moyen:#66737e;
+  --filet:rgba(30,48,64,.16); --lien:#a24e2c; --eau:#3e7896;
+  --accent:#b0482a; --accent-doux:rgba(176,72,42,.09); --accent-fond:rgba(176,72,42,.14); --teinte:rgba(30,48,64,.055);
+  --serif:'Source Serif 4',Georgia,serif; --sans:'Source Sans 3',system-ui,sans-serif;
+  --marge:420px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;height:100%;background:var(--page);color:var(--encre);font-family:var(--serif);overflow:hidden}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--encre);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* la carte occupe toute la page ; la marge et la frise se posent sur la même surface */
+.scene{position:fixed;inset:0}
+.plan{position:absolute;inset:0;transition:opacity .7s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.plan.cache{opacity:0;pointer-events:none}
+.plan{transform-origin:64% 42%}
+#planEns.cache{transform:scale(.93)}
+#planDep.cache{transform:scale(1.05)}
+@media (prefers-reduced-motion:reduce){.plan{transition:none}}
+.scene::before{content:'';position:absolute;z-index:3;left:0;top:0;bottom:0;width:calc(var(--marge) + 90px);pointer-events:none;
+  background:linear-gradient(90deg,var(--page) 0,var(--page) calc(var(--marge) - 20px),rgba(239,237,230,0))}
+.scene::after{content:'';position:absolute;z-index:3;left:0;right:0;top:0;bottom:0;pointer-events:none;
+  background:linear-gradient(0deg,var(--page) 0,var(--page) 168px,rgba(239,237,230,0) 228px),
+             linear-gradient(180deg,rgba(239,237,230,.92) 0,rgba(239,237,230,.6) 52px,rgba(239,237,230,0) 92px)}
+
+/* marge éditoriale */
+.marge{position:fixed;z-index:5;left:0;top:0;bottom:0;width:var(--marge);padding:22px 34px 24px 50px;overflow:auto;scrollbar-width:none;display:flex;flex-direction:column}
+.marge::-webkit-scrollbar{display:none}
+.fil{min-height:22px;margin-top:8px;font-family:var(--sans);font-size:13px;color:var(--encre2);display:flex;gap:7px;align-items:baseline;flex-wrap:wrap}
+.fil button{background:none;border:0;padding:0;color:var(--encre2);text-decoration:underline;text-decoration-color:var(--pale);text-underline-offset:3px}
+.fil button:hover{color:var(--encre);text-decoration-color:currentColor}
+.fil .sep{color:var(--pale)}
+.surtitre{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--encre2);margin:6px 0 10px}
+.accueil .surtitre{color:var(--accent)}
+.accueil h1{font-size:42px}
+.intro .chapo{font-size:17px;line-height:1.45;color:#2a3540}
+.intro .suite p{font-size:15.5px;line-height:1.5;margin:10px 0 0;color:#36424d}
+.lire-suite{border:0;background:none;padding:0;margin-top:8px;font-family:var(--sans);font-size:13.5px;font-weight:600;color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.lire-suite:hover{text-decoration-thickness:2px}
+/* le corpus : les chiffres qui suivent la sélection, sur une bande teintée sans cadre */
+.corpus{margin:16px -34px 0 -50px;padding:14px 34px 12px 50px;background:linear-gradient(90deg,var(--teinte),var(--teinte) 78%,rgba(30,48,64,0))}
+.chiffres{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:12px;align-items:end}
+.ch b{display:block;font-weight:400;font-size:30px;line-height:1;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.01em;color:var(--encre)}
+.ch.principal b{font-size:44px}
+.ch span{display:block;margin-top:5px;font-family:var(--sans);font-size:12.5px;line-height:1.25;color:var(--encre2)}
+.ch .sur{display:inline;margin:0 0 0 6px;font-family:var(--sans);font-size:13px;color:var(--doux)}
+.ch b.bouge{animation:eclat 1.2s ease-out}
+@keyframes eclat{0%{color:var(--accent)}35%{color:var(--accent)}100%{color:var(--encre)}}
+@media (prefers-reduced-motion:reduce){.ch b.bouge{animation:none}}
+.selection{margin:10px 0 0;font-size:14.5px;line-height:1.4;color:#2a3540;min-height:40px}
+.selection .invite{font-style:italic;color:var(--encre2)}
+.puces{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.puce{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--accent);background:var(--page);border-radius:99px;padding:3px 6px 3px 11px;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--accent)}
+.puce span{display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;background:var(--accent-doux);font-size:12px;line-height:1}
+.puce:hover{background:var(--accent);color:var(--page)}
+.puce:hover span{background:rgba(255,255,255,.25)}
+h1{font-weight:400;font-size:42px;line-height:1;letter-spacing:-.012em;margin:0;font-variation-settings:'opsz' 60}
+h1 em{font-style:italic;font-weight:300}
+h1 .nomtravail{display:block;font-size:21px;font-style:italic;font-weight:300;letter-spacing:0;color:var(--encre2);margin-top:10px;line-height:1.2}
+.contenu{transition:opacity .28s ease}
+.contenu.part{opacity:0}
+.chapo{font-size:16px;line-height:1.45;margin:14px 0 0;color:#26323d}
+.chapo b{font-weight:600}
+.lecture{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--filet);font-size:16px;line-height:1.42;color:#26323d;min-height:68px}
+.lecture a{color:var(--encre);text-decoration-color:var(--moyen);text-underline-offset:3px}
+.lecture .gros{font-size:34px;line-height:.9;font-weight:400;font-variant-numeric:lining-nums;margin-right:4px;letter-spacing:-.01em}
+.reperes{display:flex;gap:26px;margin:18px 0 0;font-family:var(--sans);font-size:13px;color:var(--encre2);line-height:1.2}
+.reperes b{display:block;font-family:var(--serif);font-weight:400;font-size:28px;color:var(--encre);font-variant-numeric:lining-nums;margin-bottom:2px}
+h2{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--encre2);margin:18px 0 4px;display:flex;justify-content:space-between;align-items:baseline}
+h2 button{background:none;border:0;padding:0;font-size:12.5px;letter-spacing:0;text-transform:none;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+h2 button::before{content:'× '}
+
+/* métiers : un index, chacun avec sa part */
+.metiers{list-style:none;margin:0;padding:0}
+.metier{display:grid;grid-template-columns:16px 1fr auto;column-gap:8px;align-items:baseline;width:calc(100% + 18px);margin:0 -8px 0 -10px;padding:3px 8px 4px 10px;border:0;border-radius:3px;background:none;text-align:left;position:relative;transition:background .2s,box-shadow .2s,opacity .25s}
+.metier .mq{width:9px;height:9px;border:1.3px solid var(--encre);align-self:center;transition:background .2s,border-color .2s}
+.metier .nom{font-size:14.5px;line-height:1.15}
+.metier .n{font-family:var(--sans);font-size:13px;font-variant-numeric:tabular-nums;color:var(--encre2)}
+.metier .part{grid-column:2 / 4;height:3px;margin-top:5px;background:transparent;position:relative}
+.metier .part i{position:absolute;left:0;top:0;bottom:0;background:var(--encre);transition:width .6s cubic-bezier(.3,.7,.2,1)}
+.metier .part s{position:absolute;left:0;top:0;bottom:0;background:#c9cbc3;transition:width .6s cubic-bezier(.3,.7,.2,1)}
+.metier:hover{background:var(--accent-doux)}
+.metier:hover .mq{border-color:var(--accent);background:var(--accent-doux)}
+.metier:hover .nom{color:var(--encre)}
+.metier:active{background:var(--accent-fond)}
+.metier[aria-pressed=true]{background:var(--accent-fond);box-shadow:inset 3px 0 0 var(--accent)}
+.metier[aria-pressed=true] .mq{background:var(--accent);border-color:var(--accent)}
+.metier[aria-pressed=true] .nom{font-weight:600}
+.metier[aria-pressed=true] .n{color:var(--accent);font-weight:600}
+.metier[aria-pressed=true] .part i{background:var(--accent)}
+.metiers.un-choisi .metier[aria-pressed=false]{opacity:.55}
+.metiers.un-choisi .metier[aria-pressed=false]:hover{opacity:1}
+.aide-metiers{margin:0 0 6px;font-size:13.5px;font-style:italic;color:var(--encre2)}
+.metier:disabled{opacity:.3!important;cursor:default}
+
+/* recherche */
+.cherche{position:relative;margin:0 0 6px}
+.cherche input{width:100%;border:0;border-bottom:1px solid var(--filet);background:transparent;padding:6px 0 7px;font-size:16px;font-family:var(--serif);outline:none}
+.cherche input::placeholder{color:var(--doux);font-style:italic}
+.cherche input:focus{border-bottom:2px solid var(--encre);padding-bottom:6px}
+.resultats{list-style:none;margin:0;padding:4px 0 0}
+.resultats:empty{display:none}
+.resultats button{display:block;width:100%;text-align:left;border:0;background:none;padding:5px 0;font-size:15px}
+.resultats button:hover,.resultats button:focus{text-decoration:underline;outline:none}
+.resultats small{font-family:var(--sans);color:var(--encre2);font-size:12.5px}
+
+/* relations documentées d'un ensemble */
+.liens{list-style:none;margin:0;padding:0}
+.liens button{display:grid;grid-template-columns:22px 1fr;width:100%;text-align:left;border:0;background:none;padding:6px 0;font-size:14.5px;line-height:1.38;color:#26323d}
+.liens button::before{content:'';width:16px;height:0;border-top:1.4px dashed var(--lien);margin-top:10px}
+.liens button:hover,.liens button[aria-pressed=true]{color:var(--encre)}
+.liens button[aria-pressed=true]::before{border-top-style:solid;border-top-width:2.4px}
+.absence{font-size:14.5px;line-height:1.42;color:var(--encre2);font-style:italic;margin:6px 0 0}
+
+/* note d'un lieu */
+.note-lieu .kicker{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--encre2);margin:22px 0 8px}
+.note-lieu h1{font-size:36px}
+.note-lieu .ou{font-family:var(--sans);font-size:14px;color:var(--encre2);margin-top:8px}
+.note-lieu .eps{display:flex;gap:3px;margin:16px 0 4px}
+.note-lieu .eps span{flex:1;height:5px;background:var(--pale)}
+.note-lieu .eps span.on{background:var(--encre)}
+.note-lieu .eps-l{display:flex;justify-content:space-between;font-family:var(--sans);font-size:11.5px;color:var(--doux)}
+.note-lieu p{font-size:16px;line-height:1.48;margin:16px 0 0;color:#26323d}
+.note-lieu .prec{font-family:var(--sans);font-size:13px;color:var(--encre2);font-style:normal;margin-top:12px}
+.note-lieu a{display:inline-block;margin-top:12px;font-family:var(--sans);font-size:14px;color:var(--encre)}
+
+.pied{margin-top:auto;padding-top:18px;font-family:var(--sans);font-size:12px;line-height:1.5;color:var(--doux)}
+.legende{position:fixed;z-index:5;right:80px;top:34px;max-width:520px;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 18px;font-family:var(--sans);font-size:12.5px;color:var(--encre2)}
+.legende span{display:inline-flex;align-items:center;gap:6px}
+/* légende de la vue départementale : un vrai bloc de légende, lisible */
+.legende.dep{display:block;right:76px;top:28px;width:262px;max-width:none;padding:11px 14px 12px;background:rgba(239,237,230,.9);border:1px solid var(--filet);font-size:14px;color:var(--encre)}
+.legende.dep .t{display:block;margin-bottom:8px;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--encre2)}
+.legende.dep .l{display:grid;grid-template-columns:46px 1fr auto;align-items:center;column-gap:8px;margin-top:6px}
+.legende.dep .l svg{justify-self:center}
+.legende.dep .l > span{display:block}
+.legende.dep small{display:block;font-size:12.5px;color:var(--encre2);line-height:1.2}
+.aide{position:relative;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1px solid var(--encre2);background:none;padding:0;font-family:var(--serif);font-size:13px;font-style:italic;font-weight:600;color:var(--encre2);align-self:start}
+.aide:hover,.aide[aria-expanded=true]{background:var(--encre);border-color:var(--encre);color:var(--page)}
+.bulle-aide{position:absolute;right:0;top:calc(100% + 8px);width:300px;padding:12px 14px;background:#fbfaf6;border:1px solid var(--filet);box-shadow:0 8px 24px rgba(30,48,64,.14);font-family:var(--serif);font-size:14.5px;line-height:1.45;color:#2a3540}
+.bulle-aide b{font-weight:600}
+.pied a{color:var(--doux)}
+
+/* outils de carte */
+.outils{position:fixed;z-index:5;right:30px;top:30px;display:flex;flex-direction:column;border:1px solid var(--filet);background:rgba(239,237,230,.85)}
+.outils button{width:32px;height:32px;border:0;background:none;font-family:var(--sans);font-size:17px;line-height:1;color:var(--encre)}
+.outils button+button{border-top:1px solid var(--filet)}
+.outils button:hover{background:rgba(30,48,64,.06)}
+
+/* frise des époques */
+.frise{position:fixed;z-index:5;left:calc(var(--marge) + 30px);right:34px;bottom:18px;display:grid;grid-template-columns:172px repeat(6,1fr);column-gap:6px;align-items:end}
+.frise .tete-f{align-self:end;padding-bottom:2px}
+.frise .tete-f h2{margin:0 0 6px}
+.frise .invite{margin:0 0 12px;font-size:13.5px;font-style:italic;line-height:1.3;color:var(--encre2)}
+.jouer{display:inline-flex;align-items:center;gap:8px;border:0;background:none;padding:0;font-family:var(--serif);font-size:15px;font-style:italic;color:var(--encre)}
+.jouer .ic{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;border:1.2px solid var(--encre);font-style:normal;font-size:10px;padding-left:2px}
+.jouer[aria-pressed=true] .ic{background:var(--encre);color:var(--page);padding-left:0}
+#jouerTemps{font-size:15.5px;font-weight:600;font-style:normal;font-family:var(--sans);color:var(--accent)}
+#jouerTemps .ic{width:30px;height:30px;border:0;background:var(--accent);color:var(--page);font-size:11px;transition:transform .2s}
+#jouerTemps:hover .ic{transform:scale(1.08)}
+#jouerTemps[aria-pressed=true] .ic{background:var(--encre)}
+.raz{display:block;margin-top:8px;border:0;background:none;padding:0;font-family:var(--sans);font-size:12.5px;color:var(--encre2);text-decoration:underline;text-underline-offset:3px}
+.ep{position:relative;border:0;border-radius:3px;background:none;padding:8px 8px 6px;text-align:left;display:flex;flex-direction:column;transition:background .2s,opacity .25s}
+.ep svg{display:block;width:100%;height:74px;overflow:visible}
+.ep:hover{background:var(--accent-doux)}
+.ep:hover svg rect.on{fill:var(--encre)}
+.ep:active{background:var(--accent-fond)}
+.ep[aria-pressed=true]{background:var(--accent-fond)}
+.ep .axe{height:1px;background:var(--encre);margin-top:6px;position:relative;transition:height .3s,margin .3s}
+.ep .axe::before{content:'';position:absolute;left:0;top:-4px;height:9px;width:1px;background:var(--encre)}
+.ep .ligne{display:flex;justify-content:space-between;align-items:baseline;margin-top:7px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.03em;color:var(--encre)}
+.ep .ligne b{font-family:var(--serif);font-size:24px;font-weight:400;letter-spacing:-.01em;line-height:1;color:var(--encre);font-variant-numeric:lining-nums tabular-nums}
+.ep .nom{font-size:15px;font-style:italic;line-height:1.15;margin-top:3px;min-height:35px;color:#2a3540}
+.ep:hover .nom{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
+.ep[aria-pressed=true] .axe{height:3px;margin-top:5px;background:var(--accent)}
+.ep[aria-pressed=true] .axe::before{background:var(--accent)}
+.ep[aria-pressed=true] .ligne,.ep[aria-pressed=true] .ligne b{color:var(--accent)}
+.ep[aria-pressed=true] .nom{font-style:normal;font-weight:600;color:var(--encre)}
+.frise.une-choisie .ep[aria-pressed=false]{opacity:.55}
+.frise.une-choisie .ep[aria-pressed=false]:hover{opacity:1}
+.ep:disabled{opacity:.3!important;cursor:default}
+
+/* ---------- vue de la Risle : la découverte des lieux se fait sur la carte ---------- */
+.legende.bas{top:auto;bottom:206px;right:40px}
+.bulle{position:fixed;z-index:7;background:#fbfaf6;border:1px solid var(--filet);box-shadow:0 10px 30px rgba(30,48,64,.18);
+  opacity:0;transform:translateY(5px);transition:opacity .18s ease,transform .18s ease;pointer-events:none}
+.bulle.vue{opacity:1;transform:none}
+.bulle.active.vue{pointer-events:auto}
+.bulle .k{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.bulle h4{margin:2px 0 0;font-weight:500;font-size:17px;line-height:1.15}
+.bulle .ou{font-family:var(--sans);font-size:12.5px;color:var(--encre2);margin-top:2px}
+.survol{width:272px;display:grid;grid-template-columns:auto 1fr;column-gap:11px;align-items:center;padding:8px}
+.survol.sans-photo{grid-template-columns:1fr;padding:10px 12px}
+.survol img{width:68px;height:68px;object-fit:cover;display:block;background:var(--pale)}
+.survol .plus{grid-column:1 / -1;margin-top:6px;font-family:var(--sans);font-size:11.5px;color:var(--doux)}
+.groupe{width:270px;padding:10px 12px 12px}
+.groupe ul{list-style:none;margin:6px 0 0;padding:0}
+.groupe li button{display:block;width:100%;text-align:left;border:0;background:none;padding:5px 6px;margin:0 -6px;border-radius:3px;font-size:14.5px;line-height:1.2}
+.groupe li button small{display:block;font-family:var(--sans);font-size:12px;color:var(--encre2)}
+.groupe li button:hover,.groupe li button:focus-visible{background:var(--accent-doux)}
+.groupe .deplier{margin-top:8px;border:0;background:none;padding:0;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+/* fiche complète, posée près du lieu */
+.fiche-carte{width:384px;overflow:auto;scrollbar-width:thin}
+.fiche-carte figure{margin:0;position:relative;background:var(--pale)}
+.fiche-carte img{display:block;width:100%;height:210px;object-fit:cover}
+.fiche-carte figcaption{padding:6px 18px 0;font-family:var(--sans);font-size:11.5px;line-height:1.35;color:var(--doux);background:#fbfaf6}
+.fiche-carte figcaption a{color:var(--doux)}
+.fiche-carte .corps{padding:12px 18px 16px}
+.fiche-carte h3{margin:4px 34px 0 0;font-weight:400;font-size:27px;line-height:1.05;letter-spacing:-.01em}
+.fiche-carte .ou{font-size:13.5px;margin-top:5px}
+.fiche-carte .dates{margin-top:10px;font-size:15px;font-style:italic;color:#2a3540}
+.fiche-carte .dates b{font-style:normal;font-weight:600;color:var(--accent)}
+.fiche-carte .eps{display:flex;gap:3px;margin:10px 0 3px}
+.fiche-carte .eps span{flex:1;height:5px;background:var(--pale)}
+.fiche-carte .eps span.on{background:var(--encre)}
+.fiche-carte .eps-l{display:flex;justify-content:space-between;font-family:var(--sans);font-size:11px;color:var(--doux)}
+.fiche-carte .activites{margin-top:10px;font-family:var(--sans);font-size:13px;color:var(--encre2)}
+.fiche-carte p{font-size:15px;line-height:1.5;margin:12px 0 0;color:#26323d}
+.fiche-carte .suite{border:0;background:none;padding:0;margin-top:4px;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.fiche-carte details{margin-top:12px;border-top:1px solid var(--filet);padding-top:8px}
+.fiche-carte summary{cursor:pointer;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--encre2)}
+.fiche-carte ol{list-style:none;margin:6px 0 0;padding:0}
+.fiche-carte ol li{display:grid;grid-template-columns:82px 1fr;gap:8px;padding:4px 0;font-size:13.5px;border-top:1px solid rgba(30,48,64,.07)}
+.fiche-carte ol li b{font-family:var(--sans);font-weight:600;font-size:12.5px;color:var(--accent)}
+.fiche-carte .rel{margin-top:12px;font-size:14px;line-height:1.4}
+.fiche-carte .rel li{display:grid;grid-template-columns:22px 1fr;padding:3px 0}
+.fiche-carte .rel li::before{content:'';width:16px;border-top:1.4px dashed var(--lien);margin-top:9px}
+.fiche-carte .rel ul{list-style:none;margin:4px 0 0;padding:0}
+.fiche-carte .src{margin-top:12px;display:flex;flex-direction:column;gap:3px;font-family:var(--sans);font-size:13.5px}
+.fiche-carte .src a{color:var(--encre)}
+.fiche-carte .prec{font-family:var(--sans);font-size:12.5px;color:var(--encre2);margin-top:8px}
+.fiche-carte .fermer{position:absolute;right:8px;top:8px;width:32px;height:32px;border-radius:50%;border:0;background:rgba(251,250,246,.92);font-size:20px;line-height:1;color:var(--encre);z-index:2}
+.fiche-carte .fermer:hover{background:var(--encre);color:var(--page)}
+/* étape de la descente : une bulle un peu plus riche que le survol */
+.etape{width:300px}
+.etape img{display:block;width:100%;height:150px;object-fit:cover;background:var(--pale)}
+.etape .corps{padding:10px 14px 12px}
+.etape p{margin:6px 0 0;font-size:14px;line-height:1.42;color:#26323d}
+.etape .actions{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.etape .actions button{border:0;background:none;padding:0;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+/* au fil de la Risle : une ligne de rivière, ses étapes et ses communes */
+.fil-eau{position:fixed;z-index:6;left:calc(var(--marge) + 30px);right:84px;top:18px;padding:10px 16px 6px;
+  background:rgba(239,237,230,.9);border:1px solid var(--filet);transition:opacity .4s,box-shadow .3s}
+.fil-eau.cache{opacity:0;pointer-events:none}
+.fil-eau.engage{box-shadow:0 8px 24px rgba(30,48,64,.12)}
+.fe-tete{display:grid;grid-template-columns:auto 1fr auto;column-gap:12px;align-items:center}
+.fe-jouer{width:40px;height:40px;border-radius:50%;border:0;background:var(--accent);color:var(--page);font-size:13px;padding-left:3px;transition:transform .2s,background .2s}
+.fe-jouer:hover{transform:scale(1.06)}
+.fe-jouer[aria-pressed=true]{background:var(--encre);padding-left:0}
+.fe-titre{display:block;font-size:20px;font-style:italic;line-height:1.1}
+.fe-etat{display:block;font-family:var(--sans);font-size:12.5px;color:var(--encre2);margin-top:2px}
+.fe-cmd{display:flex;gap:6px;align-items:center}
+.fe-cmd button{height:30px;min-width:30px;border:1px solid var(--filet);background:#fbfaf6;font-family:var(--sans);font-size:14px;padding:0 9px;color:var(--encre)}
+.fe-cmd button:hover{border-color:var(--encre)}
+.fil-eau:not(.engage) .fe-cmd{display:none}
+#feLigne{display:block;width:100%;height:46px;margin-top:4px;overflow:visible}
+#feLigne .st{cursor:pointer}
+#feLigne .st:hover circle{stroke:var(--accent);stroke-width:2}
+/* largeur réduite sur ordinateur : la frise se resserre au lieu de déborder */
+.ep{min-width:0}
+@media (max-width:1280px){
+  .frise{grid-template-columns:128px repeat(6,minmax(0,1fr))}
+  .ep{padding:6px 5px 5px}
+  .ep .ligne{font-size:11.5px;flex-wrap:wrap;column-gap:4px}
+  .ep .ligne b{font-size:19px}
+  .ep .nom{font-size:13.5px}
+  .frise .invite{font-size:12.5px}
+  #jouerTemps{font-size:14px}
+}
+</style>
+</head>
+<body>
+<div class="scene" id="scene">
+  <div class="plan" id="planDep"></div>
+  <div class="plan cache" id="planEns"></div>
+</div>
+
+<aside class="marge" id="marge" aria-label="Lecture">
+  <section class="cherche" aria-labelledby="t-re">
+    <label class="sr" id="t-re" for="cherche">Chercher un lieu, une commune, un ensemble</label>
+    <input id="cherche" type="search" placeholder="Chercher un lieu, une commune…" autocomplete="off" aria-controls="resultats">
+    <ul class="resultats" id="resultats"></ul>
+  </section>
+  <nav class="fil" id="fil" aria-label="Niveau de lecture"></nav>
+  <div class="contenu" id="contenu"></div>
+  <section aria-labelledby="t-me" id="bloc-metiers">
+    <h2 id="t-me">Métiers <button type="button" id="raz-me" hidden>tous les métiers</button></h2>
+    <p class="aide-metiers" id="aide-metiers">Choisir un métier pour le voir sur la carte.</p>
+    <ul class="metiers" id="metiers"></ul>
+  </section>
+  <div id="complement"></div>
+  <footer class="pied">
+    Relief, eau et communes : IGN. Forêts : ONF. Lieux : Inventaire général du patrimoine culturel, Région Normandie, et compléments sourcés. Prototype interne de la phase 10.E.
+  </footer>
+</aside>
+
+<div class="legende" id="legende" aria-label="Légende"></div>
+<div class="outils" role="group" aria-label="Cadrage de la carte">
+  <button type="button" id="zplus" aria-label="Rapprocher">+</button>
+  <button type="button" id="zmoins" aria-label="Éloigner">−</button>
+  <button type="button" id="zcadre" aria-label="Revenir au cadrage d'ensemble">⤢</button>
+</div>
+
+<section class="fil-eau cache" id="filEau" aria-label="Au fil de la Risle" aria-hidden="true">
+  <div class="fe-tete">
+    <button type="button" class="fe-jouer" id="feJouer" aria-pressed="false" aria-label="Descendre la Risle"><span aria-hidden="true">▶</span></button>
+    <div><span class="fe-titre">Descendre la Risle</span><span class="fe-etat" id="feEtat" aria-live="polite">de l'amont vers l'aval, de site en site</span></div>
+    <div class="fe-cmd"><button type="button" id="fePrec" aria-label="Site précédent">‹</button><button type="button" id="feSuiv" aria-label="Site suivant">›</button><button type="button" id="feQuitter">Quitter</button></div>
+  </div>
+  <svg id="feLigne" aria-hidden="true"></svg>
+</section>
+
+<div class="bulle survol" id="bSurvol" aria-hidden="true"></div>
+<div class="bulle groupe active" id="bGroupe" role="dialog" aria-label="Sites superposés"></div>
+<div class="bulle etape active" id="bEtape" role="dialog" aria-label="Étape de la descente"></div>
+<article class="bulle fiche-carte active" id="bFiche" role="dialog" aria-label="Fiche du lieu"></article>
+
+<section class="frise" id="frise" aria-labelledby="t-ep">
+  <div class="tete-f">
+    <h2 id="t-ep">Époques</h2>
+    <p class="invite">Choisir une période pour la voir sur la carte, ou</p>
+    <button type="button" class="jouer" id="jouerTemps" aria-pressed="false"><span class="ic" aria-hidden="true">▶</span>Traverser le temps</button>
+    <button type="button" class="raz" id="raz-ep" hidden>toutes les époques</button>
+  </div>
+</section>
+
+<ul class="sr" id="liste" aria-label="Ensembles et lieux affichés sur la carte"></ul>
+
+<script src="../esquisses/d3.min.js"></script>
+<script src="../esquisses/donnees.js"></script>
+<script src="../recherche/carte_donnees.js?v=3"></script>
+<script src="../edition/fond_etendu.js"></script>
+<script src="carte_departement.js"></script>
+<script src="carte_ensemble.js"></script>
+<script>
+/* ---------- données et état ---------- */
+const D = DONNEES, DEP = D.departement, EPOQUES = D.epoques, METIERS = D.libelles.metiers;
+const PAGE = getComputedStyle(document.documentElement).getPropertyValue('--page').trim();
+const echapper = (t) => String(t ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+const nb = (n) => n.toLocaleString('fr-FR');
+const capitale = (t) => (t ? t[0].toUpperCase() + t.slice(1) : t);
+const lent = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+const etat = { vue: 'orne', metier: null, epoque: null, lieu: null, ensemble: null };
+const MARGE = 420;
+
+const dep = CarteDepartement(document.getElementById('planDep'), {
+  page: PAGE, marges: { g: MARGE + 40, d: 70, h: 40, b: 215 },
+  clic: (o) => { if (!o) return; if (o.type === 'ensemble') choisirEnsemble(o.e.code); else ouvrirLieu(o.s.ref); }
+});
+const vueEns = CarteEnsemble(document.getElementById('planEns'), {
+  page: PAGE, marges: { g: MARGE + 60, d: 90, h: 90, b: 220 },
+  courant: (code) => code === 'risle',
+  clic: (l) => clicEnsemble(l),
+  survol: (l) => survolEnsemble(l),
+  surTransform: () => replacerBulles()
+});
+
+const ENS = DEP.ensembles, DETAIL = D.ensembles;
+const tousLieux = new Map();
+dep.LIEUX.forEach((s) => tousLieux.set(s.ref, { s, ens: null }));
+for (const [c, e] of Object.entries(DETAIL)) e.sites.forEach((s) => tousLieux.set(s.ref, { s, ens: c }));
+
+const ok = (m, ep) => (s) => (!m || (s.secteurs || []).includes(m)) && (!ep || (s.epoques || []).includes(ep));
+function compte(m, ep) {
+  if (etat.vue !== 'orne') return DETAIL[etat.vue].sites.filter(ok(m, ep)).length;
+  return d3.sum(ENS, (e) => dep.compteEnsemble(e, m, ep)) + DEP.autresLieux.filter(ok(m, ep)).length;
+}
+
+/* ---------- adresse partageable ---------- */
+function lireAdresse() {
+  const h = new URLSearchParams(location.hash.slice(1));
+  etat.vue = DETAIL[h.get('vue')] ? h.get('vue') : 'orne';
+  etat.metier = METIERS[h.get('metier')] ? h.get('metier') : null;
+  etat.epoque = EPOQUES.some((e) => e.code === h.get('epoque')) ? h.get('epoque') : null;
+  etat.lieu = tousLieux.has(h.get('lieu')) ? h.get('lieu') : null;
+  etat.ensemble = ENS.some((e) => e.code === h.get('ensemble')) ? h.get('ensemble') : null;
+}
+function ecrireAdresse() {
+  const h = new URLSearchParams();
+  if (etat.vue !== 'orne') h.set('vue', etat.vue);
+  else if (etat.ensemble) h.set('ensemble', etat.ensemble);
+  if (etat.metier) h.set('metier', etat.metier);
+  if (etat.epoque) h.set('epoque', etat.epoque);
+  if (etat.lieu) h.set('lieu', etat.lieu);
+  const s = h.toString();
+  history.replaceState(null, '', s ? '#' + s : location.pathname);
+}
+
+/* ---------- la phrase : ce que la carte montre, dit en texte ---------- */
+function phrase() {
+  const { metier, epoque } = etat, n = compte(metier, epoque);
+  const ep = EPOQUES.find((e) => e.code === epoque);
+  const quand = ep ? (ep.debut == null ? 'avant 1789' : `entre ${ep.debut} et ${ep.fin}`) : null;
+  const quoi = metier ? METIERS[metier].toLowerCase() : null;
+  const lx = n > 1 ? 'lieux' : 'lieu';
+  const suite = `${quoi ? ` en ${echapper(quoi)}` : ''}${quand ? `, rattaché${n > 1 ? 's' : ''} par les sources à la période ${quand}` : ''}`;
+  if (etat.vue !== 'orne') {
+    const e = DETAIL[etat.vue];
+    if (!metier && !epoque) return `<span class="gros">${n}</span> lieux documentés dans cet ensemble, répartis sur ${e.resume.communes.length} communes.`;
+    return `<span class="gros">${n}</span> ${lx} de l'ensemble${suite}, sur ${e.sites.length}.`;
+  }
+  const isoles = DEP.autresLieux.filter(ok(metier, epoque)).length;
+  if (!metier && !epoque) return `<span class="gros">${nb(n)}</span> lieux de production recensés. Douze ensembles en réunissent ${n - isoles} ; ${isoles} sont isolés. Deux ensembles ont déjà leur propre carte : <a href="#vue=risle" data-ens="risle">la vallée de la Risle</a> et <a href="#vue=crulai" data-ens="crulai">Crulai et Chandai</a>.`;
+  const premier = d3.greatest(ENS, (e) => dep.compteEnsemble(e));
+  const tete = premier && dep.compteEnsemble(premier) > 0 ? ` L'ensemble le plus fourni : ${echapper(premier.nom)} (${dep.compteEnsemble(premier)}).` : '';
+  return `<span class="gros">${nb(n)}</span> ${lx}${suite}, dont ${isoles} hors ensemble.${tete}`;
+}
+
+/* ---------- marge ---------- */
+const contenu = document.getElementById('contenu'), fil = document.getElementById('fil'), complement = document.getElementById('complement');
+let premierRendu = true;
+function changerMarge(rendu) {
+  if (premierRendu || lent()) { premierRendu = false; rendu(); return; }
+  contenu.classList.add('part'); complement.classList.add('contenu', 'part');
+  setTimeout(() => { rendu(); contenu.classList.remove('part'); complement.classList.remove('part'); document.getElementById('marge').scrollTop = 0; }, 260);
+}
+function majFil() {
+  const morceaux = [];
+  if (etat.vue !== 'orne' || etat.lieu || etat.ensemble) morceaux.push(`<button type="button" data-aller="orne">L'Orne</button>`);
+  if (etat.vue !== 'orne' && etat.lieu && !avecBulles()) morceaux.push(`<button type="button" data-aller="${etat.vue}">${echapper(DETAIL[etat.vue].nom)}</button>`);
+  fil.innerHTML = morceaux.length ? '← ' + morceaux.join('<span class="sep">›</span>') : '';
+  fil.querySelectorAll('[data-aller]').forEach((b) => (b.onclick = () => (b.dataset.aller === 'orne' ? allerOrne() : fermerLieu())));
+}
+// vues où la découverte des lieux se fait sur la carte, la marge restant à l'ensemble
+const BULLES = new Set(['risle']);
+const avecBulles = () => BULLES.has(etat.vue);
+function rendreMarge() {
+  majFil();
+  if (etat.lieu && !avecBulles()) return rendreLieu();
+  if (etat.vue !== 'orne') return rendreEnsemble();
+  if (etat.ensemble) return rendreEnsembleAVenir();
+  // texte provisoire : l'introduction sera réécrite et développée plus tard
+  contenu.innerHTML = `<div class="accueil"><p class="surtitre">Patrimoine industriel · Orne</p>
+    <h1>Le patrimoine <em>oublié</em> de l'Orne</h1>
+    <div class="intro">
+      <p class="chapo">Derrière l'image rurale du département, inventaires et archives recensent des centaines de lieux de production, du Moyen Âge au XX<sup>e</sup> siècle.</p>
+      <div class="suite" id="suite" hidden>
+        <p>Moulins et laiteries, forges et hauts fourneaux, filatures et tissages, papeteries, tuileries, mines : chacun a laissé une trace dans les sources. Seize de ces lieux sont protégés au titre des monuments historiques, un sur vingt. Pour la plupart des autres, ce qui subsiste aujourd'hui reste à documenter.</p>
+      </div>
+      <button type="button" class="lire-suite" id="lireSuite" aria-expanded="false" aria-controls="suite">Lire la suite</button>
+    </div>
+    <section class="corpus" id="corpus" aria-label="Le corpus et la sélection en cours">
+      <div class="chiffres">
+        <div class="ch principal"><b data-v="n">${nb(compte(etat.metier, etat.epoque))}</b><span>sites industriels<span class="sur" data-sur></span></span></div>
+        <div class="ch"><b data-v="ens">${ENS.filter((e) => dep.compteEnsemble(e, etat.metier, etat.epoque) > 0).length}</b><span>ensembles</span></div>
+        <div class="ch"><b data-v="iso">${DEP.autresLieux.filter(ok(etat.metier, etat.epoque)).length}</b><span>sites hors ensemble</span></div>
+      </div>
+      <div class="selection" id="selection" aria-live="polite"></div>
+    </section></div>`;
+  complement.innerHTML = '';
+  document.querySelectorAll('[data-v]').forEach((b) => (b.dataset.val = b.textContent.replace(/\D/g, '')));
+  majLecture();
+}
+function rendreEnsemble() {
+  const e = DETAIL[etat.vue], r = e.resume;
+  contenu.innerHTML = `<p class="surtitre">Ensemble · ${e.sites.length} lieux</p>
+    <h1>${echapper(e.nom)}<span class="nomtravail">${echapper(e.nomDeTravail || '')}</span></h1>
+    ${introEnsemble(e)}
+    <div class="reperes"><div><b>${e.sites.length}</b>lieux</div><div><b>${r.communes.length}</b>communes</div><div><b>${r.premiereAnnee}</b>première date connue</div></div>
+    <p class="lecture" id="lecture" aria-live="polite"></p>`;
+  complement.innerHTML = e.liens.length
+    ? `<h2>Ce que les sources relient</h2><ul class="liens">${e.liens.map((l, i) => `<li><button type="button" data-lien="${i}" aria-pressed="false">${echapper(l.phrase)}</button></li>`).join('')}</ul>`
+    : `<h2>Ce que les sources relient</h2><p class="absence">Aucune relation entre ces lieux n'est établie dans les sources du corpus. Cette absence documentaire ne dit pas qu'ils n'ont pas d'histoire commune.</p>`;
+  complement.querySelectorAll('[data-lien]').forEach((b) => (b.onclick = () => {
+    const i = +b.dataset.lien, actif = b.getAttribute('aria-pressed') === 'true';
+    complement.querySelectorAll('[data-lien]').forEach((x) => x.setAttribute('aria-pressed', 'false'));
+    b.setAttribute('aria-pressed', String(!actif)); vueEns.lien(actif ? null : i);
+  }));
+  majLecture();
+}
+// introduction courte + « Lire la suite » (texte provisoire), dans les vues à bulles
+function introEnsemble(e) {
+  const txt = e.presentation || '';
+  if (!avecBulles()) return `<p class="chapo">${echapper(txt)}</p>`;
+  const i = txt.search(/\.\s/), court = i > 0 ? txt.slice(0, i + 1) : txt, reste = i > 0 ? txt.slice(i + 2) : '';
+  return `<div class="intro"><p class="chapo">${echapper(court)}</p>${reste ? `<div class="suite" id="suite" hidden><p>${echapper(reste)}</p></div>
+    <button type="button" class="lire-suite" id="lireSuite" aria-expanded="false" aria-controls="suite">Lire la suite</button>` : ''}</div>`;
+}
+document.addEventListener('click', (ev) => {
+  const lire = ev.target.closest('#lireSuite'); if (!lire) return;
+  const ouvert = lire.getAttribute('aria-expanded') === 'true';
+  document.getElementById('suite').hidden = ouvert;
+  lire.setAttribute('aria-expanded', String(!ouvert)); lire.textContent = ouvert ? 'Lire la suite' : 'Réduire';
+});
+function rendreEnsembleAVenir() {
+  const e = ENS.find((x) => x.code === etat.ensemble);
+  contenu.innerHTML = `<p class="surtitre">Ensemble · ${e.nbSites} lieux</p>
+    <h1>${echapper(e.nom)}${e.nomDeTravail ? `<span class="nomtravail">${echapper(e.nomDeTravail)}</span>` : ''}</h1>
+    ${e.presentationCourte ? `<p class="chapo">${echapper(e.presentationCourte)}</p>` : ''}
+    <p class="absence">Autour de ${echapper(e.communePrincipale || '')}. Sa carte propre n'est pas encore construite : seules la Risle et Crulai le sont dans ce prototype.</p>
+    <p class="lecture" id="lecture" aria-live="polite"></p>`;
+  complement.innerHTML = '';
+  majLecture();
+}
+function rendreLieu() {
+  const { s, ens } = tousLieux.get(etat.lieu);
+  const m = (s.secteurs || [])[0];
+  const texte = (s.histoireEditoriale || s.histoire || '').replace(/^"|"$/g, '').trim();
+  const court = texte.length > 420 ? texte.slice(0, texte.lastIndexOf(' ', 400)) + '…' : texte;
+  const prec = s.precision ? (D.libelles.precision?.[s.precision] || s.precision) : '';
+  contenu.innerHTML = `<div class="note-lieu"><p class="kicker">${echapper(METIERS[m] || 'Secteur inconnu')}</p>
+    <h1>${echapper(capitale(s.nomCourt || s.nom))}</h1>
+    <div class="ou">${echapper(s.commune || '')}${s.lieuDit ? ' — ' + echapper(s.lieuDit) : ''}${ens ? ' · ' + echapper(DETAIL[ens].nom) : ''}</div>
+    <div class="eps" aria-label="Époques documentées : ${EPOQUES.filter((e) => (s.epoques || []).includes(e.code)).map((e) => e.dates).join(', ') || 'aucune'}">${EPOQUES.map((e) => `<span class="${(s.epoques || []).includes(e.code) ? 'on' : ''}" title="${echapper(e.dates)}"></span>`).join('')}</div>
+    <div class="eps-l" aria-hidden="true"><span>avant 1789</span><span>2000</span></div>
+    ${court ? `<p>${echapper(court)}</p>` : '<p class="absence">Ce lieu n\'a pas encore de texte. Son dossier d\'inventaire reste la référence.</p>'}
+    ${prec ? `<p class="prec">Localisation : ${echapper(prec.toLowerCase())}.</p>` : ''}
+    ${s.url ? `<a href="${echapper(s.url)}" target="_blank" rel="noopener">Dossier d'inventaire ↗</a>` : ''}</div>`;
+  complement.innerHTML = '';
+}
+// un chiffre qui change défile jusqu'à sa nouvelle valeur et s'éclaire un instant
+function compter(el, v) {
+  const de = +el.dataset.val;
+  if (de === v) return;
+  el.dataset.val = v;
+  el.classList.remove('bouge'); void el.offsetWidth; el.classList.add('bouge');
+  if (lent()) { el.textContent = nb(v); return; }
+  d3.select(el).interrupt().transition().duration(520).ease(d3.easeCubicOut)
+    .tween('text', () => { const i = d3.interpolateRound(de, v); return (t) => { el.textContent = nb(i(t)); }; });
+}
+function majCorpus() {
+  const zone = document.getElementById('corpus');
+  if (!zone) return;
+  const { metier, epoque } = etat, filtre = !!(metier || epoque);
+  const n = compte(metier, epoque), iso = DEP.autresLieux.filter(ok(metier, epoque)).length;
+  const nEns = ENS.filter((e) => dep.compteEnsemble(e, metier, epoque) > 0).length;
+  compter(zone.querySelector('[data-v="n"]'), n);
+  compter(zone.querySelector('[data-v="ens"]'), nEns);
+  compter(zone.querySelector('[data-v="iso"]'), iso);
+  zone.querySelector('[data-sur]').textContent = filtre ? ` sur ${nb(DEP.nbLieux)}` : '';
+  const sel = document.getElementById('selection');
+  if (!filtre) { sel.innerHTML = '<span class="invite">Choisissez un métier ou une époque : la carte et ces chiffres suivent votre choix.</span>'; return; }
+  const ep = EPOQUES.find((e) => e.code === epoque);
+  const puces = [];
+  if (metier) puces.push(`<button type="button" class="puce" data-raz="metier" aria-label="Retirer le métier ${echapper(METIERS[metier])}">${echapper(METIERS[metier])}<span aria-hidden="true">×</span></button>`);
+  if (ep) puces.push(`<button type="button" class="puce" data-raz="epoque" aria-label="Retirer la période ${echapper(ep.dates)}">${echapper(ep.dates)}<span aria-hidden="true">×</span></button>`);
+  const premier = d3.greatest(ENS, (e) => dep.compteEnsemble(e));
+  const nP = premier ? dep.compteEnsemble(premier) : 0;
+  sel.innerHTML = `<div class="puces">${puces.join('')}</div>${nP > 0 ? `Ensemble le plus fourni : <b>${echapper(premier.nom)}</b> (${nP}).` : 'Aucun ensemble ne compte de site pour cette sélection.'}`;
+  sel.querySelectorAll('[data-raz]').forEach((b) => (b.onclick = () => { if (b.dataset.raz === 'epoque') arreterTemps(); filtrer({ [b.dataset.raz]: null }); }));
+}
+function majLecture() {
+  if (etat.vue === 'orne' && !etat.lieu && !etat.ensemble) return majCorpus();
+  const l = document.getElementById('lecture');
+  if (!l) return;
+  l.innerHTML = phrase();
+  l.querySelectorAll('[data-ens]').forEach((a) => (a.onclick = (ev) => { ev.preventDefault(); choisirEnsemble(a.dataset.ens); }));
+}
+
+/* ---------- métiers ---------- */
+function majMetiers() {
+  const presents = Object.keys(METIERS).map((m) => ({ m, total: compte(m, null), n: compte(m, etat.epoque) }))
+    .filter((d) => d.total > 0).sort((a, b) => b.total - a.total);
+  const max = d3.max(presents, (d) => d.total) || 1;
+  const ul = d3.select('#metiers').classed('un-choisi', !!etat.metier);
+  ul.selectAll('li').data(presents, (d) => d.m).join((en) => {
+    const li = en.append('li'), b = li.append('button').attr('type', 'button').attr('class', 'metier');
+    b.append('span').attr('class', 'mq').attr('aria-hidden', 'true');
+    b.append('span').attr('class', 'nom');
+    b.append('span').attr('class', 'n');
+    const p = b.append('span').attr('class', 'part').attr('aria-hidden', 'true'); p.append('s'); p.append('i');
+    b.on('click', (ev, d) => filtrer({ metier: etat.metier === d.m ? null : d.m }));
+    return li;
+  }).order().select('button').each(function (d) {
+    const b = d3.select(this);
+    b.attr('aria-pressed', String(etat.metier === d.m)).property('disabled', d.n === 0 && etat.metier !== d.m)
+      .attr('aria-label', `${METIERS[d.m]} : ${d.n} lieu${d.n > 1 ? 'x' : ''}${etat.epoque ? ' dans cette période, ' + d.total + ' en tout' : ''}`);
+    b.select('.nom').text(METIERS[d.m]);
+    b.select('.n').text(etat.epoque ? `${d.n} / ${d.total}` : d.total);
+    b.select('s').style('width', `${(100 * d.total) / max}%`);
+    b.select('i').style('width', `${(100 * d.n) / max}%`);
+  });
+  document.getElementById('raz-me').hidden = !etat.metier;
+  document.getElementById('aide-metiers').hidden = !!etat.metier;
+}
+
+/* ---------- frise des époques : un carré par lieu ---------- */
+const frise = document.getElementById('frise');
+EPOQUES.forEach((e) => {
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'ep'; b.dataset.code = e.code;
+  b.innerHTML = `<svg aria-hidden="true"></svg><span class="axe"></span><span class="ligne"><span>${e.dates}</span><b></b></span><span class="nom">${echapper(e.nom)}</span>`;
+  b.onclick = () => { arreterTemps(); filtrer({ epoque: etat.epoque === e.code ? null : e.code }); };
+  frise.appendChild(b);
+});
+function majFrise() {
+  frise.classList.toggle('une-choisie', !!etat.epoque);
+  const donnees = EPOQUES.map((e) => ({ e, total: compte(null, e.code), n: compte(etat.metier, e.code) }));
+  const max = d3.max(donnees, (d) => d.total) || 1;
+  const largeur = frise.querySelector('.ep svg').getBoundingClientRect().width || 120, haut = 74;
+  // pas des carrés : le plus grand qui fasse tenir la période la plus fournie
+  let pas = 9;
+  while (pas > 3 && Math.ceil(max / Math.floor(largeur / pas)) * pas > haut) pas -= 0.5;
+  const parLigne = Math.floor(largeur / pas), c = Math.max(2, pas * 0.64);
+  donnees.forEach(({ e, total, n }) => {
+    const b = frise.querySelector(`[data-code="${e.code}"]`);
+    b.setAttribute('aria-pressed', String(etat.epoque === e.code));
+    b.disabled = n === 0 && etat.epoque !== e.code;
+    b.setAttribute('aria-label', `${e.dates}, ${e.nom} : ${n} lieu${n > 1 ? 'x' : ''}${etat.metier ? ' pour ce métier, ' + total + ' en tout' : ''}`);
+    b.querySelector('b').textContent = etat.metier ? `${n}` : total;
+    const plein = etat.metier || etat.epoque === e.code ? 'var(--encre)' : 'var(--moyen)';
+    const carres = d3.range(total).map((i) => ({ i, on: i < n }));
+    d3.select(b).select('svg').selectAll('rect').data(carres, (d) => d.i).join(
+      (en) => en.append('rect').attr('width', c).attr('height', c).attr('fill', 'var(--pale)')
+        .attr('x', (d) => (d.i % parLigne) * pas).attr('y', (d) => haut - (Math.floor(d.i / parLigne) + 1) * pas),
+      (up) => up, (ex) => ex.remove())
+      .attr('width', c).attr('height', c)
+      .attr('x', (d) => (d.i % parLigne) * pas).attr('y', (d) => haut - (Math.floor(d.i / parLigne) + 1) * pas)
+      .attr('class', (d) => (d.on ? 'on' : null))
+      .transition().duration(lent() ? 0 : 500).delay((d) => (lent() ? 0 : Math.min(300, d.i * 1.2)))
+      .attr('fill', (d) => (d.on ? plein : 'var(--pale)'));
+  });
+  document.getElementById('raz-ep').hidden = !etat.epoque;
+}
+
+/* ---------- liste textuelle de ce que la carte montre ---------- */
+function majListe() {
+  const ul = d3.select('#liste');
+  const items = etat.vue === 'orne'
+    ? ENS.map((e) => ({ t: `${e.nom}, ensemble de ${dep.compteEnsemble(e)} lieux`, f: () => choisirEnsemble(e.code) }))
+      .concat(dep.LIEUX.filter(dep.retenu).map((s) => ({ t: `${s.nomCourt || s.nom}, ${s.commune}`, f: () => ouvrirLieu(s.ref) })))
+    : vueEns.sites().filter(vueEns.retenu).map((s) => ({ t: `${s.nomCourt || s.nom}, ${s.commune}`, ref: s.ref, f: () => ouvrirLieu(s.ref) }));
+  ul.selectAll('li').data(items).join((en) => { const li = en.append('li'); li.append('button').attr('type', 'button'); return li; })
+    .select('button').text((d) => d.t).attr('data-ref', (d) => d.ref || null).on('click', (ev, d) => d.f());
+}
+
+function majLegende() {
+  const leg = document.getElementById('legende');
+  leg.classList.toggle('dep', etat.vue === 'orne');
+  leg.classList.toggle('bas', avecBulles());
+  leg.innerHTML = etat.vue === 'orne'
+    ? `<span class="t">Légende</span>
+       <div class="l"><svg width="14" height="14" aria-hidden="true"><rect x="1.5" y="1.5" width="11" height="11" fill="#1e3040" stroke="${PAGE}" stroke-width="1.5"/></svg><span>Site industriel</span><span></span></div>
+       <div class="l"><svg width="44" height="26" aria-hidden="true"><circle cx="13" cy="13" r="11.5" fill="#1e3040"/><text x="13" y="17.5" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="12.5" font-weight="600" fill="${PAGE}">43</text><circle cx="34" cy="15" r="8.5" fill="${PAGE}" stroke="#1e3040" stroke-width="1.4"/><text x="34" y="19" text-anchor="middle" font-family="Source Serif 4, Georgia, serif" font-size="10.5" font-weight="600" fill="#1e3040">7</text></svg>
+         <span>Ensemble<small>plusieurs sites proches ; le chiffre donne leur nombre</small></span>
+         <button type="button" class="aide" id="aideEns" aria-expanded="false" aria-controls="bulleEns" aria-label="Pourquoi des ensembles ?">?</button></div>
+       <div class="bulle-aide" id="bulleEns" role="tooltip" hidden><b>Pourquoi des ensembles ?</b> À l'échelle du département, des sites très proches les uns des autres se superposeraient et deviendraient illisibles. Ils sont donc réunis sous un même cercle, qui donne leur nombre. Un ensemble est un regroupement géographique, fait pour la lecture de la carte : il ne désigne pas forcément une entreprise ou une organisation industrielle de l'époque.</div>`
+    : `<span><svg width="10" height="10"><rect x="1" y="1" width="8" height="8" fill="#1e3040"/></svg>lieu</span>
+       <span><svg width="22" height="8"><path d="M1,4H21" stroke="#3e7896" stroke-width="2.6"/></svg>${etat.vue === 'risle' ? 'la Risle, dans le sens du courant' : 'cours d\'eau'}</span>
+       ${DETAIL[etat.vue].liens.length ? '<span><svg width="22" height="8"><path d="M1,4H21" stroke="#a24e2c" stroke-width="1.3" stroke-dasharray="4 3"/></svg>relation documentée</span>' : ''}
+       <span><svg width="14" height="10"><rect x="0.5" y="0.5" width="13" height="9" fill="#fff" fill-opacity=".5" stroke="#1e3040" stroke-opacity=".45"/></svg>commune qui porte un lieu</span>`;
+}
+
+// aide des ensembles : au survol, au focus et au clic
+document.getElementById('legende').addEventListener('click', (ev) => {
+  const b = ev.target.closest('#aideEns'); if (!b) return;
+  const ouvert = b.getAttribute('aria-expanded') === 'true';
+  b.setAttribute('aria-expanded', String(!ouvert)); document.getElementById('bulleEns').hidden = ouvert;
+});
+['mouseover', 'focusin'].forEach((t) => document.getElementById('legende').addEventListener(t, (ev) => {
+  if (!ev.target.closest('#aideEns')) return;
+  document.getElementById('aideEns').setAttribute('aria-expanded', 'true'); document.getElementById('bulleEns').hidden = false;
+}));
+['mouseout', 'focusout'].forEach((t) => document.getElementById('legende').addEventListener(t, (ev) => {
+  if (!ev.target.closest('#aideEns')) return;
+  document.getElementById('aideEns').setAttribute('aria-expanded', 'false'); document.getElementById('bulleEns').hidden = true;
+}));
+
+/* ---------- filtres ---------- */
+function filtrer(f, anime = true) {
+  Object.assign(etat, f);
+  if (etat.lieu) {
+    const { s } = tousLieux.get(etat.lieu);
+    if (!ok(etat.metier, etat.epoque)(s)) fermerLieu(true);
+  }
+  const fl = { metier: etat.metier, epoque: etat.epoque };
+  dep.filtrer(fl, anime && etat.vue === 'orne');
+  if (vueEns.code()) vueEns.filtrer(fl, anime && etat.vue !== 'orne');
+  majMetiers(); majFrise(); majLecture(); majListe(); ecrireAdresse();
+  parcoursSuitFiltres();
+}
+
+/* ---------- navigation à trois niveaux ---------- */
+const planDep = document.getElementById('planDep'), planEns = document.getElementById('planEns');
+let enTransition = false;
+async function ouvrirEnsemble(code, anime = true) {
+  if (enTransition || etat.vue === code) return;
+  enTransition = true;
+  quitterParcours(true); fermerBulles();
+  const e = ENS.find((x) => x.code === code);
+  etat.vue = code; etat.lieu = null; etat.ensemble = null;
+  dep.choisir(null); dep.ouvrirEnsemble(null);
+  changerMarge(() => { rendreMarge(); majLegende(); });
+  majMetiers(); majFrise(); majListe(); ecrireAdresse();
+  const fl = { metier: etat.metier, epoque: etat.epoque };
+  if (anime && !lent()) {
+    planDep.classList.add('cache');
+    setTimeout(() => { vueEns.ouvrir(code, fl); planEns.classList.remove('cache'); }, 380);
+    await dep.plonger(e);
+  } else {
+    planDep.classList.add('cache'); vueEns.ouvrir(code, fl); planEns.classList.remove('cache');
+  }
+  majFilEau();
+  enTransition = false;
+}
+function allerOrne(anime = true) {
+  if (etat.vue === 'orne') { etat.lieu = null; etat.ensemble = null; dep.choisir(null); dep.ouvrirEnsemble(null); changerMarge(() => { rendreMarge(); majLegende(); }); ecrireAdresse(); dep.recentrer(); return; }
+  const e = ENS.find((x) => x.code === etat.vue);
+  quitterParcours(true); fermerBulles();
+  etat.vue = 'orne'; etat.lieu = null;
+  planEns.classList.add('cache'); planDep.classList.remove('cache');
+  dep.filtrer({ metier: etat.metier, epoque: etat.epoque }, false);
+  dep.remonter(anime ? e : null, anime ? 1000 : 0);
+  setTimeout(() => vueEns.activer(false), 700);
+  changerMarge(() => { rendreMarge(); majLegende(); });
+  majMetiers(); majFrise(); majListe(); majFilEau(); ecrireAdresse();
+}
+function choisirEnsemble(code) {
+  if (DETAIL[code]) return ouvrirEnsemble(code);
+  const e = ENS.find((x) => x.code === code);
+  etat.ensemble = code; etat.lieu = null;
+  dep.choisir(null); dep.ouvrirEnsemble(code); dep.voler(e.lon, e.lat, 2.6);
+  changerMarge(rendreMarge); ecrireAdresse();
+}
+function ouvrirLieu(ref, depuisParcours) {
+  const x = tousLieux.get(ref);
+  if (!x) return;
+  if (x.ens && etat.vue !== x.ens) { ouvrirEnsemble(x.ens).then(() => setTimeout(() => ouvrirLieu(ref), lent() ? 0 : 900)); return; }
+  if (!x.ens && etat.vue !== 'orne') allerOrne(false);
+  if (!ok(etat.metier, etat.epoque)(x.s)) filtrer({ metier: null, epoque: null });
+  etat.lieu = ref; etat.ensemble = null;
+  if (x.ens && BULLES.has(x.ens)) { vueEns.choisir(ref); montrerFiche(ref, !depuisParcours); ecrireAdresse(); return; }
+  if (x.ens) { vueEns.choisir(ref); vueEns.montrerLieu(ref); }
+  else { dep.ouvrirEnsemble(null); dep.choisir(ref); }
+  changerMarge(rendreMarge); ecrireAdresse();
+}
+function fermerLieu(silencieux) {
+  if (avecBulles()) {
+    const ref = etat.lieu;
+    etat.lieu = null; vueEns.choisir(null); cacher(bFiche); ficheRef = null;
+    if (!silencieux) { ecrireAdresse(); rendreFocus(ref); }
+    return;
+  }
+  etat.lieu = null;
+  vueEns.choisir(null); dep.choisir(null);
+  if (!silencieux) { changerMarge(rendreMarge); ecrireAdresse(); }
+  else rendreMarge();
+}
+
+/* ---------- traverser le temps ---------- */
+let minuterieTemps = null;
+const boutonTemps = document.getElementById('jouerTemps');
+function arreterTemps() { clearInterval(minuterieTemps); minuterieTemps = null; boutonTemps.setAttribute('aria-pressed', 'false'); boutonTemps.querySelector('.ic').textContent = '▶'; }
+boutonTemps.onclick = () => {
+  if (minuterieTemps) return arreterTemps();
+  pauserParcours(); cacher(bEtape); etapeRef = null; if (ficheRef) fermerLieu(true);
+  boutonTemps.setAttribute('aria-pressed', 'true'); boutonTemps.querySelector('.ic').textContent = '❚❚';
+  let i = 0;
+  const pas = () => {
+    if (i >= EPOQUES.length) return arreterTemps();
+    const e = EPOQUES[i++];
+    if (compte(etat.metier, e.code) === 0) return pas();
+    filtrer({ epoque: e.code });
+  };
+  pas();
+  minuterieTemps = setInterval(pas, 2200);
+};
+
+/* ---------- bulles et fiche sur la carte (vue de la Risle) ---------- */
+const bSurvol = document.getElementById('bSurvol'), bGroupe = document.getElementById('bGroupe');
+const bEtape = document.getElementById('bEtape'), bFiche = document.getElementById('bFiche');
+let survolRef = null, groupeRefs = null, etapeRef = null, ficheRef = null, minuterieSurvol = null;
+const site = (ref) => vueEns.parRef().get(ref);
+const nomSite = (s) => capitale(s.nomCourt || s.nom);
+const photo = (s) => (s.media && s.media.url ? s.media : null);
+const texteSite = (s) => (s.histoireEditoriale || s.histoire || '').replace(/^"|"$/g, '').trim();
+function cacher(el) { el.classList.remove('vue'); el.setAttribute('aria-hidden', 'true'); }
+function montrer(el) { el.classList.add('vue'); el.setAttribute('aria-hidden', 'false'); }
+function fermerBulles() { [bSurvol, bGroupe, bEtape].forEach(cacher); survolRef = groupeRefs = etapeRef = null; if (ficheRef) fermerLieu(true); }
+function rendreFocus(ref) { const b = [...document.querySelectorAll('#liste button')].find((x) => x.dataset.ref === ref); if (b) b.focus({ preventScroll: true }); }
+
+// la zone libre de la carte : ni la marge, ni la frise, ni la ligne de la rivière
+function zoneLibre() {
+  const fe = document.getElementById('filEau'), haut = fe.classList.contains('cache') ? 16 : fe.getBoundingClientRect().bottom + 10;
+  return { g: MARGE + 14, d: innerWidth - 76, h: haut, b: document.getElementById('frise').getBoundingClientRect().top - 10 };
+}
+// place une bulle près du lieu, du côté où elle tient, sans couvrir le lieu
+function placer(el, ref, ecart = 18) {
+  const p = vueEns.ecran(ref); if (!p) return;
+  const z = zoneLibre(), [x, y] = p;
+  el.style.maxHeight = `${z.b - z.h}px`;
+  const w = el.offsetWidth, h = Math.min(el.offsetHeight, z.b - z.h);
+  let left = x + ecart, top = y - Math.min(70, h / 3);
+  if (left + w > z.d) left = x - ecart - w;
+  if (left < z.g) { left = Math.max(z.g, Math.min(z.d - w, x - w / 2)); top = y + ecart + 4 + h > z.b ? y - ecart - 4 - h : y + ecart + 4; }
+  top = Math.max(z.h, Math.min(z.b - h, top));
+  el.style.left = `${Math.round(left)}px`; el.style.top = `${Math.round(top)}px`;
+  // un lieu sorti du cadre ne garde pas une bulle orpheline
+  el.style.visibility = x < z.g - 20 || x > z.d + 20 || y < z.h - 20 || y > z.b + 20 ? 'hidden' : '';
+}
+let replacement = 0;
+function replacerBulles() {
+  if (replacement) return;
+  replacement = requestAnimationFrame(() => {
+    replacement = 0;
+    if (survolRef) placer(bSurvol, survolRef);
+    if (groupeRefs) placer(bGroupe, groupeRefs[0]);
+    if (etapeRef) placer(bEtape, etapeRef, 26);
+    if (ficheRef) placer(bFiche, ficheRef, 24);
+  });
+}
+
+// survol : une présentation courte, ou la liste d'un groupe de sites superposés
+function survolEnsemble(l) {
+  if (!avecBulles()) return;
+  clearTimeout(minuterieSurvol);
+  const ref = l.length ? l[0].ref : null;
+  if (!ref || ref === ficheRef || ref === etapeRef || groupeRefs) { if (!ref) { cacher(bSurvol); survolRef = null; } return; }
+  minuterieSurvol = setTimeout(() => {
+    const s = l[0], ph = photo(s);
+    survolRef = ref;
+    bSurvol.classList.toggle('sans-photo', !ph || l.length > 1);
+    bSurvol.innerHTML = l.length > 1
+      ? `<div><div class="k">${l.length} sites ici</div><h4>${l.slice(0, 4).map((x) => echapper(nomSite(x))).join(', ')}${l.length > 4 ? '…' : ''}</h4><div class="ou">Cliquer pour choisir</div></div>`
+      : `${ph ? `<img src="${echapper(ph.url)}" alt="" referrerpolicy="no-referrer" onerror="this.remove();this.parentNode&&this.parentNode.classList.add('sans-photo')">` : ''}
+         <div><div class="k">${echapper(METIERS[(s.secteurs || [])[0]] || 'Secteur inconnu')}</div><h4>${echapper(nomSite(s))}</h4><div class="ou">${echapper(s.commune || '')}</div></div>`;
+    placer(bSurvol, ref); montrer(bSurvol);
+  }, 90);
+}
+
+// clic : un site ouvre sa fiche ; plusieurs sites superposés proposent un choix
+function clicEnsemble(l) {
+  if (!avecBulles()) { if (l.length) ouvrirLieu(l[0].ref); return; }
+  cacher(bSurvol); survolRef = null;
+  if (!l.length) { if (groupeRefs) { cacher(bGroupe); groupeRefs = null; } else if (ficheRef) fermerLieu(); return; }
+  if (l.length === 1) { cacher(bGroupe); groupeRefs = null; return ouvrirLieu(l[0].ref); }
+  groupeRefs = l.map((s) => s.ref);
+  bGroupe.innerHTML = `<div class="k">${l.length} sites superposés à cette échelle</div>
+    <ul>${l.map((s) => `<li><button type="button" data-ref="${s.ref}">${echapper(nomSite(s))}<small>${echapper(s.commune || '')}${s.lieuDit ? ' — ' + echapper(s.lieuDit) : ''}</small></button></li>`).join('')}</ul>
+    <button type="button" class="deplier">Rapprocher pour les distinguer</button>`;
+  bGroupe.querySelectorAll('[data-ref]').forEach((b) => (b.onclick = () => { cacher(bGroupe); groupeRefs = null; ouvrirLieu(b.dataset.ref); }));
+  bGroupe.querySelector('.deplier').onclick = () => { const r = groupeRefs; cacher(bGroupe); groupeRefs = null; vueEns.deplier(r); };
+  placer(bGroupe, groupeRefs[0]); montrer(bGroupe);
+  bGroupe.querySelector('button').focus({ preventScroll: true });
+}
+
+// dates connues d'un lieu, d'après sa chronologie sourcée
+function chronoSite(ref) { return ((DETAIL[etat.vue]?.chronologie || {})[ref] || []).slice().sort((a, b) => a.min - b.min); }
+const dateEv = (e) => (e.min === e.max ? `${e.min}` : `${e.min}–${e.max}`);
+function contenuFiche(s) {
+  const ph = photo(s), ev = chronoSite(s.ref), texte = texteSite(s);
+  const court = texte.length > 340 ? texte.slice(0, texte.lastIndexOf(' ', 320)) + '…' : texte;
+  const debut = ev.length ? ev[0].min : null, fin = ev.length ? d3.max(ev, (e) => e.max) : null;
+  const rel = (DETAIL[etat.vue].liens || []).filter((l) => l.de === s.ref || l.vers === s.ref);
+  const prec = s.precision ? (D.libelles.precision?.[s.precision] || s.precision) : '';
+  const types = D.libelles.evenements || {};
+  return `<button type="button" class="fermer" aria-label="Fermer la fiche">×</button>
+    ${ph ? `<figure><img src="${echapper(ph.url)}" alt="${echapper((ph.legende || '').slice(0, 120))}" referrerpolicy="no-referrer" onerror="this.closest('figure').remove()">
+      <figcaption>${echapper((ph.legende || '').length > 150 ? ph.legende.slice(0, ph.legende.lastIndexOf(' ', 140)) + '…' : ph.legende || '')} ${echapper(ph.credit || '')}${ph.notice ? ` · <a href="${echapper(ph.notice)}" target="_blank" rel="noopener">notice</a>` : ''} · aperçu à usage interne</figcaption></figure>` : ''}
+    <div class="corps">
+      <div class="k">${(s.secteurs || []).map((m) => echapper(METIERS[m] || m)).join(' · ') || 'Secteur inconnu'}</div>
+      <h3>${echapper(nomSite(s))}</h3>
+      <div class="ou">${echapper(s.commune || '')}${s.lieuDit ? ' — ' + echapper(s.lieuDit) : ''}</div>
+      ${debut != null ? `<div class="dates">Dans les sources de <b>${debut}</b>${fin !== debut ? ` à <b>${fin}</b>` : ''}</div>` : ''}
+      <div class="eps" aria-label="Époques documentées : ${EPOQUES.filter((e) => (s.epoques || []).includes(e.code)).map((e) => e.dates).join(', ') || 'aucune'}">${EPOQUES.map((e) => `<span class="${(s.epoques || []).includes(e.code) ? 'on' : ''}" title="${echapper(e.dates)}"></span>`).join('')}</div>
+      <div class="eps-l" aria-hidden="true"><span>avant 1789</span><span>2000</span></div>
+      ${s.nbActivites > 1 ? `<div class="activites">${s.nbActivites} activités successives documentées</div>` : ''}
+      ${texte ? `<p class="txt">${echapper(court)}</p>${court !== texte ? '<button type="button" class="suite">Lire la suite</button>' : ''}` : '<p class="absence">Ce lieu n\'a pas encore de texte. Son dossier d\'inventaire reste la référence.</p>'}
+      ${rel.length ? `<div class="rel"><div class="k" style="color:var(--encre2)">Relations documentées</div><ul>${rel.map((l) => `<li>${echapper(l.phrase)}</li>`).join('')}</ul></div>` : ''}
+      ${ev.length ? `<details><summary>Ce que disent les sources (${ev.length})</summary><ol>${ev.map((e) => `<li><b>${dateEv(e)}</b><span>${echapper(e.texte && !/^\d/.test(e.texte) ? e.texte : (types[e.type] || e.type))}</span></li>`).join('')}</ol></details>` : ''}
+      <div class="src">${s.url ? `<a href="${echapper(s.url)}" target="_blank" rel="noopener">Dossier d'inventaire ↗</a>` : ''}</div>
+      ${prec ? `<div class="prec">Localisation : ${echapper(prec.toLowerCase())}.</div>` : ''}
+    </div>`;
+}
+async function montrerFiche(ref, deplacer) {
+  const s = site(ref); if (!s) return;
+  [bSurvol, bGroupe, bEtape].forEach(cacher); survolRef = groupeRefs = etapeRef = null;
+  pauserParcours();
+  ficheRef = ref;
+  bFiche.innerHTML = contenuFiche(s);
+  bFiche.scrollTop = 0;
+  bFiche.querySelector('.fermer').onclick = () => fermerLieu();
+  const suite = bFiche.querySelector('.suite');
+  if (suite) suite.onclick = () => { bFiche.querySelector('.txt').textContent = texteSite(s); suite.remove(); placer(bFiche, ref, 24); };
+  bFiche.querySelectorAll('details').forEach((d) => d.addEventListener('toggle', () => placer(bFiche, ref, 24)));
+  bFiche.querySelectorAll('img').forEach((i) => i.addEventListener('load', () => placer(bFiche, ref, 24)));
+  if (deplacer) {
+    const p = vueEns.ecran(ref), z = zoneLibre();
+    const aLAise = p && vueEns.echelle() >= 2 && p[0] > z.g + 40 && p[0] < z.d - 40 && p[1] > z.h + 40 && p[1] < z.b - 40;
+    if (!aLAise) vueEns.allerVers(ref, Math.max(2.6, vueEns.echelle()), 700, -200);
+  }
+  placer(bFiche, ref, 24); montrer(bFiche);
+  bFiche.querySelector('.fermer').focus({ preventScroll: true });
+}
+
+/* ---------- au fil de la Risle : de site en site, de l'amont vers l'aval ---------- */
+const filEau = document.getElementById('filEau'), feJouer = document.getElementById('feJouer'), feEtat = document.getElementById('feEtat');
+const parcours = { engage: false, lecture: false, i: -1, liste: [], minuterie: null, jeton: 0 };
+const ATTENTE = 3600; // temps passé à chaque étape, en millisecondes
+const listeParcours = () => vueEns.ordre().map((o) => o.s).filter(vueEns.retenu);
+function majFilEau() {
+  const actif = etat.vue === 'risle';
+  filEau.classList.toggle('cache', !actif);
+  filEau.setAttribute('aria-hidden', String(!actif));
+  filEau.querySelectorAll('button').forEach((b) => (b.tabIndex = actif ? 0 : -1));
+  if (actif) dessinerLigne();
+}
+// la ligne : chaque site est une étape, à pas égal ; les communes sont nommées sous leurs étapes
+function dessinerLigne() {
+  const svg = d3.select('#feLigne'), W = svg.node().getBoundingClientRect().width || 600;
+  const ordre = vueEns.ordre().map((o) => o.s), n = ordre.length;
+  const x = d3.scalePoint().domain(ordre.map((s) => s.ref)).range([8, W - 8]);
+  const courant = parcours.engage && parcours.i >= 0 ? parcours.liste[parcours.i] : null;
+  const xc = courant ? x(courant.ref) : null;
+  svg.selectAll('*').remove();
+  svg.append('line').attr('x1', 8).attr('x2', W - 8).attr('y1', 12).attr('y2', 12).attr('stroke', 'var(--eau)').attr('stroke-width', 3).attr('stroke-linecap', 'round').attr('opacity', 0.35);
+  if (xc != null) svg.append('line').attr('x1', 8).attr('x2', xc).attr('y1', 12).attr('y2', 12).attr('stroke', 'var(--eau)').attr('stroke-width', 3).attr('stroke-linecap', 'round');
+  const vus = new Set(courant ? parcours.liste.slice(0, parcours.i).map((s) => s.ref) : []);
+  const g = svg.append('g').selectAll('g').data(ordre).join('g').attr('class', 'st').attr('transform', (s) => `translate(${x(s.ref)},12)`)
+    .on('click', (ev, s) => { if (!vueEns.retenu(s)) return; const i = listeParcours().findIndex((y) => y.ref === s.ref); engager(); allerEtape(i, false); });
+  g.append('title').text((s) => `${nomSite(s)}, ${s.commune}`);
+  g.append('circle').attr('r', (s) => (courant && s.ref === courant.ref ? 6.5 : vueEns.retenu(s) ? 3.6 : 1.6))
+    .attr('fill', (s) => (courant && s.ref === courant.ref ? 'var(--accent)' : vus.has(s.ref) ? 'var(--encre)' : vueEns.retenu(s) ? '#fbfaf6' : 'var(--doux)'))
+    .attr('stroke', (s) => (vueEns.retenu(s) && !(courant && s.ref === courant.ref) ? 'var(--encre)' : 'none')).attr('stroke-width', 1.2);
+  // communes, sous les étapes qu'elles portent, quand la place le permet
+  const groupes = [];
+  ordre.forEach((s) => { const d = groupes[groupes.length - 1]; if (d && d.c === s.commune) d.f = s; else groupes.push({ c: s.commune, d: s, f: s }); });
+  let fin = -Infinity;
+  groupes.forEach((gr) => {
+    const m = (x(gr.d.ref) + x(gr.f.ref)) / 2, l = gr.c.length * 6.3;
+    if (m - l / 2 < fin + 8 || m - l / 2 < 0 || m + l / 2 > W) return;
+    fin = m + l / 2;
+    svg.append('text').attr('x', m).attr('y', 36).attr('text-anchor', 'middle').attr('font-family', 'var(--serif)').attr('font-style', 'italic')
+      .attr('font-size', 12.5).attr('fill', 'var(--encre2)').text(gr.c);
+  });
+  void n;
+}
+function majEtatParcours() {
+  const L = parcours.liste, s = L[parcours.i];
+  feJouer.setAttribute('aria-pressed', String(parcours.lecture));
+  feJouer.setAttribute('aria-label', parcours.lecture ? 'Interrompre la descente' : parcours.i >= 0 ? 'Reprendre la descente' : 'Descendre la Risle');
+  feJouer.querySelector('span').textContent = parcours.lecture ? '❚❚' : '▶';
+  filEau.classList.toggle('engage', parcours.engage);
+  feEtat.textContent = !parcours.engage ? 'de l\'amont vers l\'aval, de site en site'
+    : !L.length ? 'aucun site ne correspond à la sélection'
+    : `étape ${parcours.i + 1} sur ${L.length}${s ? ` · ${s.commune}` : ''}${etat.metier || etat.epoque ? ' · sites de la sélection' : ''}${parcours.lecture ? '' : ' · en pause'}`;
+  dessinerLigne();
+}
+function engager() { arreterTemps(); parcours.engage = true; }
+async function allerEtape(i, auto) {
+  const L = parcours.liste = listeParcours();
+  clearTimeout(parcours.minuterie);
+  if (!L.length) { majEtatParcours(); return; }
+  i = Math.max(0, Math.min(L.length - 1, i));
+  const jeton = ++parcours.jeton, s = L[i];
+  parcours.i = i;
+  if (ficheRef) fermerLieu(true);
+  [bSurvol, bGroupe].forEach(cacher); survolRef = groupeRefs = null;
+  cacher(bEtape); etapeRef = null;
+  vueEns.parcours(s.ref);
+  majEtatParcours();
+  await vueEns.allerVers(s.ref, Math.max(3.2, Math.min(5, vueEns.echelle())), auto ? 1100 : 750, -170);
+  if (jeton !== parcours.jeton) return;
+  montrerEtape(s, i, L.length);
+  if (parcours.lecture) parcours.minuterie = setTimeout(() => {
+    if (jeton !== parcours.jeton || !parcours.lecture) return;
+    if (i + 1 < L.length) allerEtape(i + 1, true); else { parcours.lecture = false; majEtatParcours(); feEtat.textContent = `fin de la descente · ${L.length} sites`; }
+  }, ATTENTE);
+}
+function montrerEtape(s, i, n) {
+  const ph = photo(s), texte = texteSite(s), phrase = texte.split(/(?<=\.)\s/)[0] || '';
+  etapeRef = s.ref;
+  bEtape.innerHTML = `${ph ? `<img src="${echapper(ph.url)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}
+    <div class="corps"><div class="k">Étape ${i + 1} sur ${n} · ${echapper(METIERS[(s.secteurs || [])[0]] || 'Secteur inconnu')}</div>
+    <h4>${echapper(nomSite(s))}</h4><div class="ou">${echapper(s.commune || '')}${s.lieuDit ? ' — ' + echapper(s.lieuDit) : ''}</div>
+    ${phrase ? `<p>${echapper(phrase.length > 190 ? phrase.slice(0, phrase.lastIndexOf(' ', 180)) + '…' : phrase)}</p>` : ''}
+    <div class="actions"><button type="button" class="ouvrir">Ouvrir la fiche</button>${i + 1 < n ? '<button type="button" class="suivant">Site suivant ›</button>' : ''}</div></div>`;
+  bEtape.querySelector('.ouvrir').onclick = () => ouvrirLieu(s.ref, true);
+  const sv = bEtape.querySelector('.suivant'); if (sv) sv.onclick = () => allerEtape(parcours.i + 1, false);
+  bEtape.querySelectorAll('img').forEach((im) => im.addEventListener('load', () => placer(bEtape, s.ref, 26)));
+  placer(bEtape, s.ref, 26); montrer(bEtape);
+}
+function pauserParcours() {
+  if (!parcours.lecture) return;
+  parcours.lecture = false; clearTimeout(parcours.minuterie); // l’étape en cours de trajet s’affiche quand même, sans enchaîner
+  majEtatParcours();
+}
+function quitterParcours(silencieux) {
+  clearTimeout(parcours.minuterie); parcours.jeton++;
+  const etaitEngage = parcours.engage;
+  Object.assign(parcours, { engage: false, lecture: false, i: -1 });
+  cacher(bEtape); etapeRef = null; vueEns.parcours(null);
+  if (etat.vue === 'risle') majEtatParcours();
+  if (etaitEngage && !silencieux) vueEns.recentrer();
+}
+// les filtres changent pendant la descente : elle ne suit plus que les sites retenus
+function parcoursSuitFiltres() {
+  if (!parcours.engage || etat.vue !== 'risle') { if (etat.vue === 'risle') dessinerLigne(); return; }
+  const avant = parcours.liste[parcours.i], L = listeParcours(), ordre = vueEns.ordre().map((o) => o.s);
+  parcours.liste = L;
+  if (avant && L.some((s) => s.ref === avant.ref)) parcours.i = L.findIndex((s) => s.ref === avant.ref);
+  else {
+    cacher(bEtape); etapeRef = null;
+    const pos = avant ? ordre.findIndex((s) => s.ref === avant.ref) : -1;
+    const suivant = L.findIndex((s) => ordre.findIndex((y) => y.ref === s.ref) > pos);
+    parcours.i = suivant >= 0 ? suivant : L.length - 1;
+    vueEns.parcours(L[parcours.i]?.ref || null);
+  }
+  majEtatParcours();
+}
+feJouer.onclick = () => {
+  if (parcours.lecture) return pauserParcours();
+  engager();
+  const L = listeParcours();
+  const fini = parcours.i >= L.length - 1 && !parcours.lecture && feEtat.textContent.startsWith('fin');
+  parcours.lecture = true;
+  allerEtape(parcours.i < 0 || fini ? 0 : parcours.i + (etapeRef ? 1 : 0), true);
+};
+document.getElementById('fePrec').onclick = () => { pauserParcours(); allerEtape(parcours.i - 1, false); };
+document.getElementById('feSuiv').onclick = () => { pauserParcours(); allerEtape(parcours.i + 1, false); };
+document.getElementById('feQuitter').onclick = () => quitterParcours();
+
+/* ---------- recherche ---------- */
+const normal = (t) => (t || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+const cherche = document.getElementById('cherche'), resultats = document.getElementById('resultats');
+cherche.addEventListener('input', () => {
+  const q = normal(cherche.value.trim());
+  resultats.innerHTML = '';
+  if (q.length < 2) return;
+  const ens = ENS.filter((e) => normal(e.nom).includes(q)).map((e) => ({ t: e.nom, s: `ensemble · ${e.nbSites} lieux`, f: () => choisirEnsemble(e.code) }));
+  const lx = [...tousLieux.values()].filter(({ s }) => normal(`${s.nomCourt || ''} ${s.nom} ${s.commune} ${METIERS[(s.secteurs || [])[0]] || ''}`).includes(q))
+    .map(({ s, ens: c }) => ({ t: s.nomCourt || s.nom, s: `${s.commune}${c ? ' · ' + DETAIL[c].nom : ''}`, f: () => ouvrirLieu(s.ref) }));
+  ens.concat(lx).slice(0, 8).forEach((r) => {
+    const li = document.createElement('li'), b = document.createElement('button'); b.type = 'button';
+    b.innerHTML = `${echapper(r.t)} <small>${echapper(r.s)}</small>`;
+    b.onclick = () => { resultats.innerHTML = ''; cherche.value = ''; r.f(); };
+    li.appendChild(b); resultats.appendChild(li);
+  });
+});
+cherche.addEventListener('keydown', (e) => { if (e.key === 'ArrowDown') { const b = resultats.querySelector('button'); if (b) { e.preventDefault(); b.focus(); } } });
+resultats.addEventListener('keydown', (e) => {
+  const b = document.activeElement;
+  if (e.key === 'ArrowDown' && b.parentElement.nextElementSibling) { e.preventDefault(); b.parentElement.nextElementSibling.firstChild.focus(); }
+  if (e.key === 'ArrowUp') { e.preventDefault(); (b.parentElement.previousElementSibling?.firstChild || cherche).focus(); }
+});
+
+/* ---------- commandes ---------- */
+const carteActive = () => (etat.vue === 'orne' ? dep : vueEns);
+document.getElementById('zplus').onclick = () => carteActive().zoomPar(1.6);
+document.getElementById('zmoins').onclick = () => carteActive().zoomPar(1 / 1.6);
+document.getElementById('zcadre').onclick = () => carteActive().recentrer();
+document.getElementById('raz-me').onclick = () => filtrer({ metier: null });
+document.getElementById('raz-ep').onclick = () => { arreterTemps(); filtrer({ epoque: null }); };
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape' || e.target === cherche && cherche.value) return;
+  if (groupeRefs) { cacher(bGroupe); groupeRefs = null; return; }
+  if (etat.lieu) return fermerLieu();
+  if (parcours.engage) return quitterParcours();
+  if (etat.vue !== 'orne' || etat.ensemble) return allerOrne();
+});
+let att;
+window.addEventListener('resize', () => { clearTimeout(att); att = setTimeout(() => { majFrise(); majFilEau(); replacerBulles(); }, 200); });
+
+/* ---------- démarrage ---------- */
+document.fonts.ready.then(() => {
+  lireAdresse();
+  const { vue, lieu, ensemble } = etat;
+  etat.vue = 'orne';
+  dep.filtrer({ metier: etat.metier, epoque: etat.epoque }, false);
+  rendreMarge(); majLegende(); majMetiers(); majFrise(); majListe();
+  if (vue !== 'orne') ouvrirEnsemble(vue, false);
+  else if (ensemble) choisirEnsemble(ensemble);
+  if (lieu) setTimeout(() => ouvrirLieu(lieu), 50);
+});
+</script>
+</body>
+</html>

@@ -21,7 +21,7 @@
     const mk = (z) => { const c = document.createElement('canvas'); c.setAttribute('aria-hidden', 'true'); c.style.cssText = `position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;z-index:${z}`; conteneur.appendChild(c); return c; };
     const cv = mk(1), flux = mk(2);
     flux.style.pointerEvents = 'none';
-    cv.style.cursor = 'grab';
+    cv.style.cursor = 'default';
     const ctx = cv.getContext('2d'), fctx = flux.getContext('2d');
     const cache = document.createElement('canvas'), cctx = cache.getContext('2d');
     const marges = Object.assign({ g: 60, d: 60, h: 60, b: 60 }, opts.marges || {});
@@ -251,8 +251,12 @@
     }
 
     // le double clic rapproche (comportement d3 par défaut) ; la page suit chaque mouvement
+    // pendant un glisser, le survol se tait et le curseur dit qu'on tient la carte
+    let glisse = false, signature = '';
     const zoom = d3.zoom().filter((ev) => (!ev.ctrlKey || ev.type === 'wheel') && !ev.button)
-      .on('zoom', (ev) => { transform = ev.transform; dessiner(); if (opts.surTransform) opts.surTransform(); });
+      .on('start', (ev) => { if (ev.sourceEvent && ev.sourceEvent.type === 'mousedown') { glisse = true; cv.style.cursor = 'grabbing'; annoncer([]); } })
+      .on('zoom', (ev) => { transform = ev.transform; dessiner(); if (opts.surTransform) opts.surTransform(); })
+      .on('end', () => { if (glisse) { glisse = false; cv.style.cursor = 'default'; } });
     d3.select(cv).call(zoom);
     // tous les sites sous le pointeur : un seul, ou un groupe de sites superposés
     const objetsSous = (mx, my) => {
@@ -261,13 +265,22 @@
       return proches.sort((a, b) => a[0] - b[0]).map((p) => p[1]);
     };
     const coords = (ev) => { const r = cv.getBoundingClientRect(); return [ev.clientX - r.left, ev.clientY - r.top]; };
-    cv.addEventListener('mousemove', (ev) => {
-      const l = objetsSous(...coords(ev)), id = l.length ? l[0].ref : null;
-      cv.style.cursor = l.length ? 'pointer' : 'grab';
+    // la page n'est prévenue que lorsque ce qui est sous le pointeur change
+    function annoncer(l) {
+      const sig = l.map((s) => s.ref).join('|');
+      if (sig === signature) return;
+      signature = sig;
+      const id = l.length ? l[0].ref : null;
       if (id !== survole) { survole = id; dessiner(); }
       if (opts.survol) opts.survol(l);
+    }
+    cv.addEventListener('mousemove', (ev) => {
+      if (glisse) return;
+      const l = objetsSous(...coords(ev));
+      cv.style.cursor = l.length ? 'pointer' : 'default';
+      annoncer(l);
     });
-    cv.addEventListener('mouseleave', () => { if (survole) { survole = null; dessiner(); } if (opts.survol) opts.survol([]); });
+    cv.addEventListener('mouseleave', () => { if (!glisse) cv.style.cursor = 'default'; annoncer([]); });
     cv.addEventListener('click', (ev) => { if (opts.clic) opts.clic(objetsSous(...coords(ev))); });
 
     function animer(duree) {
@@ -297,7 +310,8 @@
         api.activer(true);
       },
       activer(v) { actif = v; if (v && !boucle) boucle = requestAnimationFrame(couler); if (!v) { fctx.setTransform(1, 0, 0, 1, 0, 0); fctx.clearRect(0, 0, flux.width, flux.height); } },
-      filtrer(f, anime = true) { filtre = { ...f }; animer(anime ? 650 : 0); },
+      // un filtre change ce qui est visible : le survol en cours est oublié
+      filtrer(f, anime = true) { filtre = { ...f }; signature = ''; survole = null; animer(anime ? 650 : 0); },
       choisir(ref) { choisi = ref; dessiner(); },
       lien(i) { lienVif = i; dessiner(); },
       montrerLieu(ref, k = 2.2) {

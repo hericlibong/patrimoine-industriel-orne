@@ -1,7 +1,7 @@
 # Phase 10.E — Chantier de recherche artistique
 
-**Version :** 0.7 — 20 novembre 2026
-**Statut :** composition « édition » retenue ; passe sur la vallée de la Risle (fiches sur la carte, descente de site en site) soumise au jugement.
+**Version :** 0.8 — 20 novembre 2026
+**Statut :** composition « édition » retenue ; Risle : descente allégée et survol fiabilisé, soumis au jugement.
 **Branche :** `claude/recherche-artistique`, ouverte depuis
 `claude/esquisses-direction-artistique`. Les esquisses A, B, C et D restent
 intactes sur leur branche ; elles servent d'inspiration et de référence de
@@ -911,3 +911,80 @@ déborder. Cette règle vaut aussi pour l'accueil.
 **Non vérifié.** Les écrans tactiles, le lecteur d'écran et le mobile (hors
 champ) ne sont pas testés. L'animation des déplacements n'a été vue que par
 instantanés.
+
+## 17. Risle : descente allégée, survol fiabilisé (20 novembre 2026)
+
+**La demande du porteur.** Deux corrections seulement.
+
+- La descente est plus lisible, mais son cadre, ses cercles et sa ligne droite
+  la rendent rigide et utilitaire.
+- Certains sites ne réagissent pas au survol.
+
+Le reste ne change pas. La version d'avant est conservée dans
+`prototype/edition_reference_risle/`.
+
+**Le survol : deux causes trouvées.**
+
+1. **Le délai d'apparition repartait de zéro** à chaque mouvement de souris.
+   Tant que le pointeur bougeait, même d'un pixel, la bulle n'apparaissait pas.
+   Les sites où l'on s'arrête net semblaient marcher, les autres non. Désormais,
+   la carte ne prévient la page que lorsque ce qui est sous le pointeur change.
+   Une bulle déjà ouverte se met à jour aussitôt. L'attente de 60 millisecondes,
+   qui évite d'allumer une bulle quand le pointeur ne fait que traverser, n'est
+   plus relancée quand on passe d'un site à son voisin dans un groupe serré.
+2. **Une règle masquait la bulle** dès que le lieu approchait du bord de la zone
+   libre de la carte. Après un zoom, c'était le cas de nombreux sites. La bulle
+   n'est désormais masquée que si le lieu sort de la fenêtre ; elle reste par
+   ailleurs recadrée pour ne pas être coupée.
+
+**Le reste du comportement.**
+
+- Un filtre referme la bulle de survol et la liste de choix en cours. Les sites
+  écartés ne sont jamais détectés sous le pointeur.
+- Pendant un glisser, le survol se tait.
+- Le curseur devient une main pointée sur un site et une main fermée pendant le
+  glisser. Il reste la flèche ordinaire sur les zones non interactives, au lieu
+  de la main ouverte permanente d'avant.
+
+**Mesure du survol.** Elle simule un pointeur qui s'approche, puis bouge encore
+un peu sur le site.
+
+| Cas | Sites visibles testés | Bulle affichée | Avant la correction |
+| --- | --- | --- | --- |
+| Cadrage d'arrivée | 43 | 43 | 35 |
+| Zoom ×5 sur L'Aigle | 21 | 21 | 20 |
+| Rapprochement maximal à L'Aigle | 14 | 14 | non mesuré |
+| Filtre textile | 6 | 6 | non mesuré |
+
+Les huit échecs d'avant, au cadrage d'arrivée, étaient tous dans les groupes
+serrés de L'Aigle. Sous filtre, aucun des sites écartés ne réagit au survol :
+19 sites testés avec le filtre métallurgie, 34 avec la période d'avant 1789.
+Après un survol, le clic ouvre la fiche et ferme la bulle courte. Un contrôle
+avec la vraie souris confirme le comportement.
+
+**La descente allégée.** L'ordre des lieux, les commandes et la logique de
+progression ne changent pas.
+
+- Plus de cadre ni d'ombre : un voile de papier très doux, qui s'efface sur les
+  bords, assure seulement la lisibilité au-dessus de la carte.
+- Le bouton de lecture devient un petit cercle brique au trait fin, plein
+  quand la lecture tourne.
+- Le titre et l'état tiennent sur une ligne, et les commandes deviennent du
+  texte : « ‹ précédent · suivant › · quitter ».
+- La ligne ondule doucement, comme l'eau, avec une amplitude de 3 pixels. Elle
+  est fine et pâle en entier ; la partie parcourue est d'un bleu plus épais.
+- Les étapes deviennent de petits points sans contour : encre atténuée à
+  venir, bleu une fois passées, à peine visibles si les filtres les écartent.
+  L'étape courante est un point brique avec un halo fin. Le nom de sa commune
+  se renforce.
+- À la fin, la lecture s'arrête sur « fin de la descente », et le bouton
+  propose de recommencer.
+
+**Vérifié** à 1440 × 900 pixels, sans erreur dans la console :
+
+- la descente du début à la fin ;
+- la pause et la reprise ;
+- le survol et le clic le long de la vallée, autour de L'Aigle, et après un
+  filtre par époque et par métier.
+
+**Non vérifié.** Les écrans tactiles et le lecteur d'écran.

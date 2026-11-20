@@ -257,23 +257,23 @@ h2 button::before{content:'× '}
 .etape .actions{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
 .etape .actions button{border:0;background:none;padding:0;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 /* au fil de la Risle : une ligne de rivière, ses étapes et ses communes */
-.fil-eau{position:fixed;z-index:6;left:calc(var(--marge) + 30px);right:84px;top:18px;padding:10px 16px 6px;
-  background:rgba(239,237,230,.9);border:1px solid var(--filet);transition:opacity .4s,box-shadow .3s}
+.fil-eau{position:fixed;z-index:6;left:calc(var(--marge) + 34px);right:96px;top:16px;padding:4px 10px 0 4px;transition:opacity .4s;
+  background:radial-gradient(ellipse 70% 120% at 30% 40%,rgba(239,237,230,.88),rgba(239,237,230,.55) 60%,rgba(239,237,230,0) 100%)}
 .fil-eau.cache{opacity:0;pointer-events:none}
-.fil-eau.engage{box-shadow:0 8px 24px rgba(30,48,64,.12)}
-.fe-tete{display:grid;grid-template-columns:auto 1fr auto;column-gap:12px;align-items:center}
-.fe-jouer{width:40px;height:40px;border-radius:50%;border:0;background:var(--accent);color:var(--page);font-size:13px;padding-left:3px;transition:transform .2s,background .2s}
-.fe-jouer:hover{transform:scale(1.06)}
-.fe-jouer[aria-pressed=true]{background:var(--encre);padding-left:0}
-.fe-titre{display:block;font-size:20px;font-style:italic;line-height:1.1}
-.fe-etat{display:block;font-family:var(--sans);font-size:12.5px;color:var(--encre2);margin-top:2px}
-.fe-cmd{display:flex;gap:6px;align-items:center}
-.fe-cmd button{height:30px;min-width:30px;border:1px solid var(--filet);background:#fbfaf6;font-family:var(--sans);font-size:14px;padding:0 9px;color:var(--encre)}
-.fe-cmd button:hover{border-color:var(--encre)}
+.fe-tete{display:grid;grid-template-columns:auto 1fr auto;column-gap:11px;align-items:center}
+.fe-jouer{width:30px;height:30px;border-radius:50%;border:1.2px solid var(--accent);background:transparent;color:var(--accent);font-size:10px;padding-left:2px;transition:background .2s,color .2s}
+.fe-jouer:hover,.fe-jouer[aria-pressed=true]{background:var(--accent);color:var(--page)}
+.fe-jouer[aria-pressed=true]{padding-left:0}
+.fe-titre{display:inline;font-size:18px;font-style:italic;line-height:1.1;margin-right:10px}
+.fe-etat{display:inline;font-family:var(--sans);font-size:12.5px;color:var(--encre2)}
+.fe-cmd{display:flex;gap:2px;align-items:baseline;font-family:var(--sans);font-size:13px;color:var(--pale)}
+.fe-cmd button{border:0;background:none;padding:2px 5px;font-family:var(--sans);font-size:13px;color:var(--encre2);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px}
+.fe-cmd button:hover{color:var(--encre);text-decoration-color:currentColor}
 .fil-eau:not(.engage) .fe-cmd{display:none}
-#feLigne{display:block;width:100%;height:46px;margin-top:4px;overflow:visible}
+#feLigne{display:block;width:100%;height:40px;margin-top:2px;overflow:visible}
 #feLigne .st{cursor:pointer}
-#feLigne .st:hover circle{stroke:var(--accent);stroke-width:2}
+#feLigne .st .cible{fill:transparent}
+#feLigne .st:hover .pt{r:3.4px}
 /* largeur réduite sur ordinateur : la frise se resserre au lieu de déborder */
 .ep{min-width:0}
 @media (max-width:1280px){
@@ -323,7 +323,7 @@ h2 button::before{content:'× '}
   <div class="fe-tete">
     <button type="button" class="fe-jouer" id="feJouer" aria-pressed="false" aria-label="Descendre la Risle"><span aria-hidden="true">▶</span></button>
     <div><span class="fe-titre">Descendre la Risle</span><span class="fe-etat" id="feEtat" aria-live="polite">de l'amont vers l'aval, de site en site</span></div>
-    <div class="fe-cmd"><button type="button" id="fePrec" aria-label="Site précédent">‹</button><button type="button" id="feSuiv" aria-label="Site suivant">›</button><button type="button" id="feQuitter">Quitter</button></div>
+    <div class="fe-cmd"><button type="button" id="fePrec" aria-label="Site précédent">‹ précédent</button>·<button type="button" id="feSuiv" aria-label="Site suivant">suivant ›</button>·<button type="button" id="feQuitter">quitter</button></div>
   </div>
   <svg id="feLigne" aria-hidden="true"></svg>
 </section>
@@ -685,6 +685,7 @@ function filtrer(f, anime = true) {
   dep.filtrer(fl, anime && etat.vue === 'orne');
   if (vueEns.code()) vueEns.filtrer(fl, anime && etat.vue !== 'orne');
   majMetiers(); majFrise(); majLecture(); majListe(); ecrireAdresse();
+  cacher(bSurvol); survolRef = null; if (groupeRefs) { cacher(bGroupe); groupeRefs = null; }
   parcoursSuitFiltres();
 }
 
@@ -804,7 +805,7 @@ function placer(el, ref, ecart = 18) {
   top = Math.max(z.h, Math.min(z.b - h, top));
   el.style.left = `${Math.round(left)}px`; el.style.top = `${Math.round(top)}px`;
   // un lieu sorti du cadre ne garde pas une bulle orpheline
-  el.style.visibility = x < z.g - 20 || x > z.d + 20 || y < z.h - 20 || y > z.b + 20 ? 'hidden' : '';
+  el.style.visibility = x < 0 || x > innerWidth || y < 0 || y > innerHeight ? 'hidden' : '';
 }
 let replacement = 0;
 function replacerBulles() {
@@ -821,19 +822,23 @@ function replacerBulles() {
 // survol : une présentation courte, ou la liste d'un groupe de sites superposés
 function survolEnsemble(l) {
   if (!avecBulles()) return;
-  clearTimeout(minuterieSurvol);
   const ref = l.length ? l[0].ref : null;
-  if (!ref || ref === ficheRef || ref === etapeRef || groupeRefs) { if (!ref) { cacher(bSurvol); survolRef = null; } return; }
-  minuterieSurvol = setTimeout(() => {
-    const s = l[0], ph = photo(s);
-    survolRef = ref;
-    bSurvol.classList.toggle('sans-photo', !ph || l.length > 1);
-    bSurvol.innerHTML = l.length > 1
-      ? `<div><div class="k">${l.length} sites ici</div><h4>${l.slice(0, 4).map((x) => echapper(nomSite(x))).join(', ')}${l.length > 4 ? '…' : ''}</h4><div class="ou">Cliquer pour choisir</div></div>`
-      : `${ph ? `<img src="${echapper(ph.url)}" alt="" referrerpolicy="no-referrer" onerror="this.remove();this.parentNode&&this.parentNode.classList.add('sans-photo')">` : ''}
-         <div><div class="k">${echapper(METIERS[(s.secteurs || [])[0]] || 'Secteur inconnu')}</div><h4>${echapper(nomSite(s))}</h4><div class="ou">${echapper(s.commune || '')}</div></div>`;
-    placer(bSurvol, ref); montrer(bSurvol);
-  }, 90);
+  if (!ref) { clearTimeout(minuterieSurvol); minuterieSurvol = null; cacher(bSurvol); survolRef = null; return; }
+  // le site a déjà sa fiche ou sa bulle d'étape, ou un choix est ouvert : pas de doublon
+  if (ref === ficheRef || ref === etapeRef || groupeRefs) { clearTimeout(minuterieSurvol); minuterieSurvol = null; cacher(bSurvol); survolRef = null; return; }
+  const s = l[0], ph = photo(s);
+  survolRef = ref;
+  bSurvol.classList.toggle('sans-photo', !ph || l.length > 1);
+  bSurvol.innerHTML = l.length > 1
+    ? `<div><div class="k">${l.length} sites ici</div><h4>${l.slice(0, 4).map((x) => echapper(nomSite(x))).join(', ')}${l.length > 4 ? '…' : ''}</h4><div class="ou">Cliquer pour choisir</div></div>`
+    : `${ph ? `<img src="${echapper(ph.url)}" alt="" referrerpolicy="no-referrer" onerror="this.remove();this.parentNode&&this.parentNode.classList.add('sans-photo')">` : ''}
+       <div><div class="k">${echapper(METIERS[(s.secteurs || [])[0]] || 'Secteur inconnu')}</div><h4>${echapper(nomSite(s))}</h4><div class="ou">${echapper(s.commune || '')}</div></div>`;
+  bSurvol.querySelectorAll('img').forEach((im) => im.addEventListener('load', () => { if (survolRef === ref) placer(bSurvol, ref); }));
+  placer(bSurvol, ref);
+  // une bulle déjà ouverte se met à jour aussitôt ; sinon une très brève attente, qui n'est
+  // pas relancée quand le pointeur passe d'un site à son voisin dans un groupe serré
+  if (bSurvol.classList.contains('vue')) return;
+  if (!minuterieSurvol) minuterieSurvol = setTimeout(() => { minuterieSurvol = null; if (survolRef) montrer(bSurvol); }, 60);
 }
 
 // clic : un site ouvre sa fiche ; plusieurs sites superposés proposent un choix
@@ -916,41 +921,51 @@ function majFilEau() {
 // la ligne : chaque site est une étape, à pas égal ; les communes sont nommées sous leurs étapes
 function dessinerLigne() {
   const svg = d3.select('#feLigne'), W = svg.node().getBoundingClientRect().width || 600;
-  const ordre = vueEns.ordre().map((o) => o.s), n = ordre.length;
-  const x = d3.scalePoint().domain(ordre.map((s) => s.ref)).range([8, W - 8]);
+  const ordre = vueEns.ordre().map((o) => o.s);
+  const x = d3.scalePoint().domain(ordre.map((s) => s.ref)).range([10, W - 10]);
+  // une ligne qui ondule doucement, comme l'eau : l'amplitude reste faible pour ne pas distraire
+  const Y0 = 12, A = 3.2, L = 150, y = (v) => Y0 + A * Math.sin((v / L) * 2 * Math.PI);
+  const trace = (x0, x1) => d3.line().curve(d3.curveBasis)(d3.range(x0, x1 + 0.1, 4).map((v) => [v, y(v)]));
   const courant = parcours.engage && parcours.i >= 0 ? parcours.liste[parcours.i] : null;
   const xc = courant ? x(courant.ref) : null;
-  svg.selectAll('*').remove();
-  svg.append('line').attr('x1', 8).attr('x2', W - 8).attr('y1', 12).attr('y2', 12).attr('stroke', 'var(--eau)').attr('stroke-width', 3).attr('stroke-linecap', 'round').attr('opacity', 0.35);
-  if (xc != null) svg.append('line').attr('x1', 8).attr('x2', xc).attr('y1', 12).attr('y2', 12).attr('stroke', 'var(--eau)').attr('stroke-width', 3).attr('stroke-linecap', 'round');
   const vus = new Set(courant ? parcours.liste.slice(0, parcours.i).map((s) => s.ref) : []);
-  const g = svg.append('g').selectAll('g').data(ordre).join('g').attr('class', 'st').attr('transform', (s) => `translate(${x(s.ref)},12)`)
-    .on('click', (ev, s) => { if (!vueEns.retenu(s)) return; const i = listeParcours().findIndex((y) => y.ref === s.ref); engager(); allerEtape(i, false); });
+  svg.selectAll('*').remove();
+  svg.append('path').attr('d', trace(10, W - 10)).attr('fill', 'none').attr('stroke', 'var(--eau)').attr('stroke-width', 1.2).attr('opacity', 0.45).attr('stroke-linecap', 'round');
+  if (xc != null) svg.append('path').attr('d', trace(10, xc)).attr('fill', 'none').attr('stroke', 'var(--eau)').attr('stroke-width', 2.4).attr('stroke-linecap', 'round');
+  const g = svg.append('g').selectAll('g').data(ordre).join('g').attr('class', 'st').attr('transform', (s) => `translate(${x(s.ref)},${y(x(s.ref))})`)
+    .on('click', (ev, s) => { if (!vueEns.retenu(s)) return; const i = listeParcours().findIndex((v) => v.ref === s.ref); engager(); allerEtape(i, false); });
   g.append('title').text((s) => `${nomSite(s)}, ${s.commune}`);
-  g.append('circle').attr('r', (s) => (courant && s.ref === courant.ref ? 6.5 : vueEns.retenu(s) ? 3.6 : 1.6))
-    .attr('fill', (s) => (courant && s.ref === courant.ref ? 'var(--accent)' : vus.has(s.ref) ? 'var(--encre)' : vueEns.retenu(s) ? '#fbfaf6' : 'var(--doux)'))
-    .attr('stroke', (s) => (vueEns.retenu(s) && !(courant && s.ref === courant.ref) ? 'var(--encre)' : 'none')).attr('stroke-width', 1.2);
-  // communes, sous les étapes qu'elles portent, quand la place le permet
+  g.append('circle').attr('class', 'cible').attr('r', 7);
+  // étapes : de simples points ; parcourues en bleu, écartées par les filtres à peine visibles
+  g.append('circle').attr('class', 'pt').attr('r', (s) => (vueEns.retenu(s) ? 2.2 : 1.2))
+    .attr('fill', (s) => (vus.has(s.ref) ? 'var(--eau)' : vueEns.retenu(s) ? 'var(--encre)' : 'var(--pale)'))
+    .attr('opacity', (s) => (vus.has(s.ref) ? 1 : vueEns.retenu(s) ? 0.55 : 0.9));
+  if (courant) {
+    const gc = svg.append('g').attr('transform', `translate(${xc},${y(xc)})`).attr('pointer-events', 'none');
+    gc.append('circle').attr('r', 8).attr('fill', 'none').attr('stroke', 'var(--accent)').attr('stroke-width', 1).attr('opacity', 0.5);
+    gc.append('circle').attr('r', 3.6).attr('fill', 'var(--accent)');
+  }
+  // communes, discrètes, sous les étapes qu'elles portent quand la place le permet
   const groupes = [];
   ordre.forEach((s) => { const d = groupes[groupes.length - 1]; if (d && d.c === s.commune) d.f = s; else groupes.push({ c: s.commune, d: s, f: s }); });
   let fin = -Infinity;
   groupes.forEach((gr) => {
-    const m = (x(gr.d.ref) + x(gr.f.ref)) / 2, l = gr.c.length * 6.3;
-    if (m - l / 2 < fin + 8 || m - l / 2 < 0 || m + l / 2 > W) return;
+    const m = (x(gr.d.ref) + x(gr.f.ref)) / 2, l = gr.c.length * 6;
+    if (m - l / 2 < fin + 10 || m - l / 2 < 0 || m + l / 2 > W) return;
     fin = m + l / 2;
-    svg.append('text').attr('x', m).attr('y', 36).attr('text-anchor', 'middle').attr('font-family', 'var(--serif)').attr('font-style', 'italic')
-      .attr('font-size', 12.5).attr('fill', 'var(--encre2)').text(gr.c);
+    svg.append('text').attr('x', m).attr('y', 34).attr('text-anchor', 'middle').attr('font-family', 'var(--serif)').attr('font-style', 'italic')
+      .attr('font-size', 12).attr('fill', 'var(--encre2)').attr('opacity', courant && gr.c === courant.commune ? 1 : 0.7).text(gr.c);
   });
-  void n;
 }
 function majEtatParcours() {
   const L = parcours.liste, s = L[parcours.i];
   feJouer.setAttribute('aria-pressed', String(parcours.lecture));
-  feJouer.setAttribute('aria-label', parcours.lecture ? 'Interrompre la descente' : parcours.i >= 0 ? 'Reprendre la descente' : 'Descendre la Risle');
+  feJouer.setAttribute('aria-label', parcours.lecture ? 'Interrompre la descente' : parcours.fini ? 'Recommencer la descente' : parcours.i >= 0 ? 'Reprendre la descente' : 'Descendre la Risle');
   feJouer.querySelector('span').textContent = parcours.lecture ? '❚❚' : '▶';
   filEau.classList.toggle('engage', parcours.engage);
   feEtat.textContent = !parcours.engage ? 'de l\'amont vers l\'aval, de site en site'
     : !L.length ? 'aucun site ne correspond à la sélection'
+    : parcours.fini ? `fin de la descente · ${L.length} sites`
     : `étape ${parcours.i + 1} sur ${L.length}${s ? ` · ${s.commune}` : ''}${etat.metier || etat.epoque ? ' · sites de la sélection' : ''}${parcours.lecture ? '' : ' · en pause'}`;
   dessinerLigne();
 }
@@ -961,7 +976,7 @@ async function allerEtape(i, auto) {
   if (!L.length) { majEtatParcours(); return; }
   i = Math.max(0, Math.min(L.length - 1, i));
   const jeton = ++parcours.jeton, s = L[i];
-  parcours.i = i;
+  parcours.i = i; parcours.fini = false;
   if (ficheRef) fermerLieu(true);
   [bSurvol, bGroupe].forEach(cacher); survolRef = groupeRefs = null;
   cacher(bEtape); etapeRef = null;
@@ -972,7 +987,7 @@ async function allerEtape(i, auto) {
   montrerEtape(s, i, L.length);
   if (parcours.lecture) parcours.minuterie = setTimeout(() => {
     if (jeton !== parcours.jeton || !parcours.lecture) return;
-    if (i + 1 < L.length) allerEtape(i + 1, true); else { parcours.lecture = false; majEtatParcours(); feEtat.textContent = `fin de la descente · ${L.length} sites`; }
+    if (i + 1 < L.length) allerEtape(i + 1, true); else { parcours.lecture = false; parcours.fini = true; majEtatParcours(); }
   }, ATTENTE);
 }
 function montrerEtape(s, i, n) {
@@ -996,7 +1011,7 @@ function pauserParcours() {
 function quitterParcours(silencieux) {
   clearTimeout(parcours.minuterie); parcours.jeton++;
   const etaitEngage = parcours.engage;
-  Object.assign(parcours, { engage: false, lecture: false, i: -1 });
+  Object.assign(parcours, { engage: false, lecture: false, i: -1, fini: false });
   cacher(bEtape); etapeRef = null; vueEns.parcours(null);
   if (etat.vue === 'risle') majEtatParcours();
   if (etaitEngage && !silencieux) vueEns.recentrer();
@@ -1020,7 +1035,7 @@ feJouer.onclick = () => {
   if (parcours.lecture) return pauserParcours();
   engager();
   const L = listeParcours();
-  const fini = parcours.i >= L.length - 1 && !parcours.lecture && feEtat.textContent.startsWith('fin');
+  const fini = parcours.fini || parcours.i >= L.length - 1 && !etapeRef;
   parcours.lecture = true;
   allerEtape(parcours.i < 0 || fini ? 0 : parcours.i + (etapeRef ? 1 : 0), true);
 };

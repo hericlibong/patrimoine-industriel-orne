@@ -3625,3 +3625,37 @@ section 16.
 
 Décision : **dans la Risle, la marge présente la vallée et la découverte des
 lieux se fait sur la carte ; la passe est soumise au jugement du porteur.**
+
+## 2026-11-20 — Risle : descente allégée, survol fiabilisé
+
+Le porteur demande deux corrections ciblées, et rien d'autre.
+
+**Le survol.** Il était capricieux pour deux raisons.
+
+- Le délai d'apparition repartait de zéro à chaque mouvement de souris. La
+  bulle ne venait donc qu'aux sites où l'on s'arrêtait net, et jamais dans les
+  groupes serrés de L'Aigle.
+- Une règle masquait les bulles des lieux proches des bords de la carte.
+
+La page n'est désormais prévenue que lorsque le site survolé change, et la
+bulle n'est masquée que hors de la fenêtre. Mesure par pointeur simulé : 43
+sites sur 43 au cadrage d'arrivée, contre 35 avant. Aux autres échelles et sous
+filtre, tous les sites visibles réagissent, et aucun site écarté ne réagit. Le
+curseur reste la flèche ordinaire hors des sites.
+
+**La descente.** Le cadre est remplacé par un voile de papier fondu. La ligne
+ondule légèrement et les étapes deviennent de petits points sans contour. Les
+commandes passent en texte, et la fin propose de recommencer. L'ordre, les
+commandes et la logique de progression sont inchangés.
+
+La version d'avant est conservée dans `prototype/edition_reference_risle/`.
+Détail dans `docs/phase10_recherche_artistique.md`, section 17.
+
+Options écartées :
+
+- agrandir artificiellement les zones de survol ;
+- écarter les sites serrés ;
+- garder le cadre en l'atténuant seulement.
+
+Décision : **le survol des sites de la Risle est fiabilisé et la descente
+allégée ; la correction est soumise au jugement du porteur.**
