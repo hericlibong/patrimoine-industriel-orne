@@ -264,7 +264,8 @@
       for (const [x, y, s] of lieuxEcran) { const d = Math.hypot(x - mx, y - my); if (d <= r) proches.push([d, s]); }
       return proches.sort((a, b) => a[0] - b[0]).map((p) => p[1]);
     };
-    const coords = (ev) => { const r = cv.getBoundingClientRect(); return [ev.clientX - r.left, ev.clientY - r.top]; };
+    // coordonnées dans le repère de dessin, même si la page agrandit ou réduit la carte en CSS
+    const coords = (ev) => { const r = cv.getBoundingClientRect(), e = cv.clientWidth / (r.width || 1); return [(ev.clientX - r.left) * e, (ev.clientY - r.top) * e]; };
     // la page n'est prévenue que lorsque ce qui est sous le pointeur change
     function annoncer(l) {
       const sig = l.map((s) => s.ref).join('|');
@@ -354,8 +355,9 @@
       zoomPar(f) { d3.select(cv).transition().duration(350).call(zoom.scaleBy, f); },
       recentrer() { d3.select(cv).transition().duration(lent() ? 0 : 800).call(zoom.transform, d3.zoomIdentity); },
       redimensionner() {
-        const r = conteneur.getBoundingClientRect();
-        dpr = window.devicePixelRatio || 1; W = r.width; H = r.height;
+        // taille de mise en page, pas taille affichée : un effet de zoom CSS en cours
+        // (arrivée dans un ensemble) ne doit pas fausser la surface de dessin
+        dpr = window.devicePixelRatio || 1; W = conteneur.clientWidth; H = conteneur.clientHeight;
         if (!W || !H) return;
         cv.width = flux.width = cache.width = Math.round(W * dpr); cv.height = flux.height = cache.height = Math.round(H * dpr);
         if (ens) construire(code);

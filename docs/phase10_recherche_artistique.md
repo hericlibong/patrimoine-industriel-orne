@@ -1030,3 +1030,47 @@ chaque site visible :
 Ne sont pas comptés les sites couverts par la bulle ouverte. Les deux seuls
 sites sans bulle de survol sont ceux qui ont déjà leur fiche ou leur bulle
 d'étape à l'écran, ce qui est voulu.
+
+## 19. Risle : le décalage entre les carrés visibles et la souris (20 novembre 2026)
+
+**Le retour du porteur.** Même après la section 18, poser le curseur sur un
+carré ne déclenche rien.
+
+**La cause, trouvée dans le Chrome du porteur.** La carte de la Risle était
+dessinée sur une surface plus petite de 7 % que l'écran, puis étirée pour le
+remplir.
+
+- **D'où vient l'écart.** L'arrivée dans un ensemble est animée par un léger
+  rapprochement en CSS : la vue part de 93 % de sa taille. Or la carte mesurait
+  sa surface de dessin avec la taille affichée, réduite à 93 %, au lieu de sa
+  taille de mise en page. Elle le faisait une fois pour toutes, à sa création,
+  pendant que la vue était encore réduite.
+- **Ce que voyait le porteur.** Les carrés apparaissaient environ 7 % plus loin
+  du coin supérieur gauche que l'endroit où la page attendait la souris. Près de
+  ce coin, l'écart était nul ; ailleurs, il dépassait la zone de détection.
+  D'où « un ou deux sites » qui répondaient.
+- **Pourquoi les vérifications précédentes ne l'ont pas vu.** Elles visaient
+  les positions calculées par la page elle-même : elles étaient cohérentes avec
+  la détection, mais pas avec le dessin. Elles prouvaient donc la cohérence du
+  code avec lui-même, pas ce que voit le lecteur. Les sections 17 et 18
+  annonçaient à tort un survol réparé. Leurs corrections restent utiles, mais
+  ne traitaient pas la panne vue par le porteur.
+
+**La correction.** Les deux cartes, celle de l'Orne et celle de l'ensemble,
+mesurent désormais leur surface sur la taille de mise en page, que les effets
+de zoom en CSS ne modifient pas. La position de la souris est ramenée dans le
+repère de dessin, même pendant une animation. Les scripts passent à la version
+`20261120d`.
+
+**Vérifié dans le Chrome du porteur**, en 1664 × 921 pixels.
+
+- La surface de dessin mesure maintenant 1664 pixels, comme l'écran, contre
+  1548 avant. C'est vrai à l'arrivée directe comme à l'arrivée par un clic
+  depuis l'Orne.
+- Les carrés ont été repérés à l'œil sur une capture, sans passer par les
+  calculs de la page, puis survolés avec la vraie souris. La tuilerie, en
+  haut de la vallée, et l'usine Eurofac de Rai ont réagi : bulle affichée et
+  curseur en main.
+
+C'est désormais la règle : un contrôle d'interaction vise ce qui est visible à
+l'écran, pas une position fournie par le code contrôlé.

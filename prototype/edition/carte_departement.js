@@ -297,7 +297,8 @@
       for (const [x, y, s] of lieuxEcran) { const d = (x - mx) ** 2 + (y - my) ** 2; if (d < dmin) { dmin = d; best = s; } }
       return best ? { type: 'lieu', s: best } : null;
     }
-    const coords = (ev) => { const r = cv.getBoundingClientRect(); return [ev.clientX - r.left, ev.clientY - r.top]; };
+    // coordonnées dans le repère de dessin, même si la page agrandit ou réduit la carte en CSS
+    const coords = (ev) => { const r = cv.getBoundingClientRect(), e = cv.clientWidth / (r.width || 1); return [(ev.clientX - r.left) * e, (ev.clientY - r.top) * e]; };
     cv.addEventListener('mousemove', (ev) => {
       const o = objetSous(...coords(ev));
       cv.style.cursor = o ? 'pointer' : 'grab';
@@ -334,8 +335,9 @@
       ouvrirEnsemble(code) { ouvert = code; dessiner(); },
       echelle: () => transform.k,
       redimensionner() {
-        const r = conteneur.getBoundingClientRect();
-        dpr = window.devicePixelRatio || 1; W = r.width; H = r.height;
+        // taille de mise en page, pas taille affichée : un effet de zoom CSS en cours
+        // (arrivée dans un ensemble) ne doit pas fausser la surface de dessin
+        dpr = window.devicePixelRatio || 1; W = conteneur.clientWidth; H = conteneur.clientHeight;
         if (!W || !H) return;
         cv.width = cache.width = Math.round(W * dpr); cv.height = cache.height = Math.round(H * dpr);
         cadrer(); borner(); cleCache = ''; dessiner();

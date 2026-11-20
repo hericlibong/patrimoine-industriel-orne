@@ -3685,3 +3685,26 @@ Détail dans `docs/phase10_recherche_artistique.md`, section 18.
 
 Décision : **le survol de la Risle ne dépend plus d'aucune bulle ouverte ; les
 prototypes sont servis sans cache.**
+
+## 2026-11-20 — Risle : le décalage entre les carrés et la souris
+
+Le porteur constate que le survol ne réagit toujours pas. La cause est trouvée
+dans son propre navigateur. La carte de l'ensemble mesurait sa surface de dessin
+pendant l'effet de zoom d'arrivée, à 93 % de sa taille, puis l'étirait à 100 %.
+Les carrés visibles étaient donc décalés de l'endroit où la souris était
+attendue, sauf près du coin supérieur gauche.
+
+Les vérifications des deux passes précédentes visaient les positions calculées
+par le code, et non les carrés visibles. Elles ne pouvaient pas voir ce
+décalage. Le survol avait été déclaré réparé à tort, deux fois ; l'erreur est
+reconnue ici.
+
+Les deux cartes mesurent désormais leur taille de mise en page, et la position
+de la souris est ramenée au repère de dessin. Contrôle refait en visant à l'œil
+les carrés d'une capture, à la vraie souris, dans le navigateur du porteur.
+
+Règle retenue : **une vérification d'interaction vise ce qui est visible à
+l'écran, jamais une position fournie par le code qu'elle contrôle.**
+
+Décision : **la surface de dessin des cartes ne dépend plus des effets
+d'animation ; le survol de la Risle est vérifié sur les carrés visibles.**
