@@ -358,9 +358,9 @@ h2 button::before{content:'× '}
 <script src="../esquisses/d3.min.js"></script>
 <script src="../esquisses/donnees.js"></script>
 <script src="../recherche/carte_donnees.js?v=3"></script>
-<script src="fond_etendu.js?v=20261120g"></script>
-<script src="carte_departement.js?v=20261120g"></script>
-<script src="carte_ensemble.js?v=20261120g"></script>
+<script src="fond_etendu.js?v=20261120h"></script>
+<script src="carte_departement.js?v=20261120h"></script>
+<script src="carte_ensemble.js?v=20261120h"></script>
 <script>
 /* ---------- données et état ---------- */
 const D = DONNEES, DEP = D.departement, EPOQUES = D.epoques, METIERS = D.libelles.metiers;
@@ -450,9 +450,11 @@ function majFil() {
   fil.innerHTML = morceaux.length ? '← ' + morceaux.join('<span class="sep">›</span>') : '';
   fil.querySelectorAll('[data-aller]').forEach((b) => (b.onclick = () => (b.dataset.aller === 'orne' ? allerOrne() : fermerLieu())));
 }
-// vues où la découverte des lieux se fait sur la carte, la marge restant à l'ensemble
-const BULLES = new Set(['risle', 'crulai']);
-const avecBulles = () => BULLES.has(etat.vue);
+// Règle du 20 novembre 2026 : la direction artistique d'une vue d'ensemble (marge, zone chiffrée,
+// bulles et fiches sur la carte) vaut pour TOUS les ensembles construits. Seules leurs particularités
+// (par exemple la descente au fil de l'eau, réservée à la Risle) se décident ensemble par ensemble.
+const avecBulles = () => !!DETAIL[etat.vue];
+const BULLES = { has: (code) => !!DETAIL[code] };
 function rendreMarge() {
   majFil();
   if (etat.lieu && !avecBulles()) return rendreLieu();
@@ -480,8 +482,8 @@ function rendreMarge() {
   document.querySelectorAll('[data-v]').forEach((b) => (b.dataset.val = b.textContent.replace(/\D/g, '')));
   majLecture();
 }
-// vues d'ensemble qui reçoivent la zone chiffrée de l'accueil (passe du 20 novembre : la Risle d'abord)
-const CORPUS_ENS = new Set(['risle']);
+// zone chiffrée de l'accueil : commune à toutes les vues d'ensemble (même règle)
+const CORPUS_ENS = { has: (code) => !!DETAIL[code] };
 function rendreEnsemble() {
   const e = DETAIL[etat.vue], r = e.resume;
   if (CORPUS_ENS.has(etat.vue)) {

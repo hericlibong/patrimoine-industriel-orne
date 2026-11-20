@@ -3798,3 +3798,24 @@ signale, il ne s'applique pas d'office.**
 
 Décision : **retour à l'affichage d'avant pour les liens de la Risle, avec le
 seul zoom en plus.**
+
+## 2026-11-20 — La direction artistique des vues d'ensemble est commune à tous
+
+Le porteur demande la zone chiffrée pour Crulai et Chandai. Il précise qu'il
+n'aurait pas dû avoir à le demander : ces informations font partie de la
+direction artistique, et un ensemble ne doit pas différer d'un autre sur ce
+point. Seules les particularités changent d'un ensemble à l'autre, comme la
+présence ou non d'une descente au fil de l'eau.
+
+Le code ne contient plus de liste d'ensembles autorisés pour les éléments
+communs : marge, introduction courte, zone chiffrée, pastilles, bulles, fiches,
+légende et liens. Tout ensemble construit les reçoit. La descente reste réservée
+à la Risle, en tant que particularité. Crulai et Chandai reçoit ainsi la zone
+chiffrée, vérifiée dans Chrome : agroalimentaire entre 1789 et 1849 donne 4
+sites sur 7 et 3 communes, ce qui est conforme aux données.
+
+La règle est inscrite dans `CLAUDE.md`.
+
+Décision : **toute amélioration de direction artistique d'une vue d'ensemble
+s'applique d'office à tous les ensembles ; seules leurs particularités se
+décident au cas par cas, sans demander pour le reste.**

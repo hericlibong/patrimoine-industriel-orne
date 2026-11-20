@@ -305,3 +305,23 @@ relève de la phase 10.E, qui ne s'ouvre qu'après jugement de la vue.
 
 Toute proposition visuelle doit être évaluée dans un navigateur à taille réelle,
 notamment en 1440 px.
+
+### Règles de la phase 10.E (prototype `prototype/edition/`)
+
+- **La direction artistique d'une vue d'ensemble vaut pour tous les ensembles.**
+  Elle comprend la marge, l'introduction courte, la zone chiffrée, les
+  pastilles de filtres, les bulles et les fiches sur la carte, la légende et
+  les liens entre établissements. Une amélioration validée sur un ensemble
+  s'applique d'office aux autres, sans demander. Seules les **particularités**
+  d'un ensemble se décident au cas par cas : la descente au fil de l'eau, par
+  exemple, n'a de sens que pour certaines vallées. Règle posée le 20 novembre
+  2026.
+- **Aucun texte de méthode à l'écran.** Les mots « source », « fiabilité »,
+  « interprété » et les explications de nos choix de représentation sont des
+  notes de travail, pas du contenu pour le lecteur.
+- **Ne rien ajouter ni retirer hors de la demande.** Un écart repéré dans les
+  données se signale au porteur en une phrase, il ne s'applique pas d'office.
+- **Une vérification d'interaction vise ce qui est visible à l'écran,** jamais
+  une position calculée par le code qu'elle contrôle.
+- Les prototypes se servent avec `python tools/serveur_prototypes.py`, sans
+  cache navigateur.

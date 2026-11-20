@@ -1,7 +1,7 @@
 # Phase 10.E — Chantier de recherche artistique
 
 **Version :** 0.9 — 20 novembre 2026
-**Statut :** composition « édition » retenue ; survol des deux ensembles validé ; Risle : liens entre établissements et zone chiffrée, soumis au jugement.
+**Statut :** composition « édition » retenue ; survol validé ; direction artistique des vues d’ensemble commune à tous les ensembles (règle du 20 novembre).
 **Branche :** `claude/recherche-artistique`, ouverte depuis
 `claude/esquisses-direction-artistique`. Les esquisses A, B, C et D restent
 intactes sur leur branche ; elles servent d'inspiration et de référence de
