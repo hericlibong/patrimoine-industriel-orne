@@ -347,9 +347,9 @@ h2 button::before{content:'× '}
 <script src="../esquisses/d3.min.js"></script>
 <script src="../esquisses/donnees.js"></script>
 <script src="../recherche/carte_donnees.js?v=3"></script>
-<script src="fond_etendu.js?v=20261120d"></script>
-<script src="carte_departement.js?v=20261120d"></script>
-<script src="carte_ensemble.js?v=20261120d"></script>
+<script src="fond_etendu.js?v=20261120e"></script>
+<script src="carte_departement.js?v=20261120e"></script>
+<script src="carte_ensemble.js?v=20261120e"></script>
 <script>
 /* ---------- données et état ---------- */
 const D = DONNEES, DEP = D.departement, EPOQUES = D.epoques, METIERS = D.libelles.metiers;
@@ -440,7 +440,7 @@ function majFil() {
   fil.querySelectorAll('[data-aller]').forEach((b) => (b.onclick = () => (b.dataset.aller === 'orne' ? allerOrne() : fermerLieu())));
 }
 // vues où la découverte des lieux se fait sur la carte, la marge restant à l'ensemble
-const BULLES = new Set(['risle']);
+const BULLES = new Set(['risle', 'crulai']);
 const avecBulles = () => BULLES.has(etat.vue);
 function rendreMarge() {
   majFil();

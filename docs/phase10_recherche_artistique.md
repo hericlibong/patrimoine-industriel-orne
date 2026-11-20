@@ -1074,3 +1074,28 @@ repère de dessin, même pendant une animation. Les scripts passent à la versio
 
 C'est désormais la règle : un contrôle d'interaction vise ce qui est visible à
 l'écran, pas une position fournie par le code contrôlé.
+
+## 20. Crulai et Chandai rejoint le fonctionnement de la Risle (20 novembre 2026)
+
+**La demande du porteur.** Les deux ensembles en test doivent fonctionner de la
+même façon. Dans Crulai et Chandai, le survol encadrait bien le carré, mais
+aucune bulle n'apparaissait : cet ensemble avait été laissé hors de la passe de
+la Risle, à la demande du 20 novembre.
+
+**Ce qui change.** Crulai et Chandai entre dans la liste des vues où la
+découverte se fait sur la carte. Il reçoit :
+
+- la bulle au survol ;
+- la fiche au clic, posée près du lieu ;
+- la liste de choix pour les sites superposés ;
+- l'introduction courte avec « Lire la suite » ;
+- la légende en bas à droite.
+
+Ses sept sites ont tous une photographie documentaire, affichée comme aperçu
+crédité à usage interne. La descente au fil de l'eau reste propre à la Risle :
+le porteur avait demandé de ne pas la généraliser.
+
+**Vérifié dans le Chrome du porteur**, en 1664 × 921 pixels. Les sept carrés ont
+été repérés à l'œil sur une capture, puis survolés à la vraie souris : 7 bulles
+sur 7. Le clic sur la tréfilerie dite la Fabrique, à Chandai, ouvre sa fiche
+sur la carte, et la marge reste à l'ensemble.

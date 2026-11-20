@@ -3708,3 +3708,24 @@ l'écran, jamais une position fournie par le code qu'elle contrôle.**
 
 Décision : **la surface de dessin des cartes ne dépend plus des effets
 d'animation ; le survol de la Risle est vérifié sur les carrés visibles.**
+
+## 2026-11-20 — Crulai et Chandai : bulles et fiches sur la carte
+
+Le porteur demande que les deux ensembles en test fonctionnent pareil. Crulai et
+Chandai reçoit donc le fonctionnement de la Risle :
+
+- bulle au survol ;
+- fiche au clic sur la carte ;
+- choix parmi les sites superposés ;
+- introduction courte.
+
+Cela rouvre la limite du 20 novembre, qui le réservait à la Risle ; le motif est
+la demande explicite du porteur. La descente au fil de l'eau reste propre à la
+Risle.
+
+Contrôle à la vraie souris sur les sept carrés visibles : 7 bulles sur 7, et la
+fiche s'ouvre au clic. Détail dans `docs/phase10_recherche_artistique.md`,
+section 20.
+
+Décision : **les deux ensembles en test partagent la découverte des lieux sur
+la carte ; seule la Risle a sa descente.**
