@@ -988,3 +988,45 @@ progression ne changent pas.
   filtre par époque et par métier.
 
 **Non vérifié.** Les écrans tactiles et le lecteur d'écran.
+
+## 18. Risle : la vraie cause de la panne du survol (20 novembre 2026)
+
+**Le retour du porteur.** Le survol à la souris ne marche que pour un ou deux
+sites, alors que les points de la ligne de la rivière répondent bien.
+
+**Ce que la section 17 avait manqué.** Les deux défauts qu'elle a corrigés
+étaient réels, mais ce n'était pas la panne principale.
+
+- **La panne.** Un clic sur un point où plusieurs sites se superposent ouvre une
+  liste de choix. Tant que cette liste restait ouverte, le survol était coupé
+  sur toute la carte, et rien ne la refermait si l'on allait ailleurs. Au
+  cadrage d'arrivée, 18 survols sur 43 tombent sur de tels groupes : le premier
+  clic un peu au hasard suffisait à tout bloquer. Les mesures de la section 17
+  survolaient sans jamais cliquer d'abord, ce qui a masqué le défaut.
+- **Un facteur aggravant.** Le serveur local ne disait rien du cache, si bien
+  que le navigateur pouvait garder d'anciennes copies des scripts après une
+  modification. La panne a d'ailleurs été reproduite ainsi : une ancienne
+  version restée en cache, puis un clic sur le groupe de L'Aigle, puis plus
+  aucune bulle.
+
+**Les corrections.**
+
+- Une liste de choix ouverte ne bloque plus que le survol de ses propres sites.
+- La bulle courte s'ouvre aussitôt, sans minuterie que le navigateur pourrait
+  retarder.
+- Les scripts de la page portent un numéro de version, et un serveur local qui
+  interdit le cache est ajouté : `tools/serveur_prototypes.py`.
+
+**Vérifié** à 1440 × 900 pixels, à la vraie souris puis par pointeur simulé sur
+chaque site visible :
+
+| Situation | Sites survolés | Bulle affichée |
+| --- | --- | --- |
+| Rien d'ouvert | 43 | 43 |
+| Liste de choix ouverte | 18 | 18 |
+| Fiche ouverte | 10 | 9 |
+| Descente en pause | 29 | 28 |
+
+Ne sont pas comptés les sites couverts par la bulle ouverte. Les deux seuls
+sites sans bulle de survol sont ceux qui ont déjà leur fiche ou leur bulle
+d'étape à l'écran, ce qui est voulu.

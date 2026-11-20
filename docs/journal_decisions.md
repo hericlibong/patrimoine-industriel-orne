@@ -3659,3 +3659,29 @@ Options écartées :
 
 Décision : **le survol des sites de la Risle est fiabilisé et la descente
 allégée ; la correction est soumise au jugement du porteur.**
+
+## 2026-11-20 — Risle : la vraie cause de la panne du survol
+
+Le porteur constate que le survol ne marche toujours que pour un ou deux sites.
+La correction précédente avait traité deux défauts réels, mais pas la panne
+principale.
+
+Un clic sur un groupe de sites superposés ouvrait une liste de choix. Tant
+qu'elle restait ouverte, le survol était coupé sur toute la carte. Au cadrage
+d'arrivée, près de la moitié des points sont de tels groupes. Les mesures de la
+veille ne cliquaient jamais avant de survoler, d'où l'erreur de diagnostic,
+reconnue ici.
+
+S'y ajoutait un serveur local sans consigne de cache, qui laissait le
+navigateur réutiliser d'anciens scripts.
+
+La liste de choix ne bloque plus que ses propres sites, et la bulle s'ouvre sans
+minuterie. Les scripts sont versionnés, et `tools/serveur_prototypes.py` sert
+désormais les prototypes sans cache. Contrôle à la vraie souris, puis site par
+site : tous les sites visibles réagissent, liste de choix, fiche ou descente
+ouverte ou non.
+
+Détail dans `docs/phase10_recherche_artistique.md`, section 18.
+
+Décision : **le survol de la Risle ne dépend plus d'aucune bulle ouverte ; les
+prototypes sont servis sans cache.**

@@ -347,9 +347,9 @@ h2 button::before{content:'× '}
 <script src="../esquisses/d3.min.js"></script>
 <script src="../esquisses/donnees.js"></script>
 <script src="../recherche/carte_donnees.js?v=3"></script>
-<script src="fond_etendu.js"></script>
-<script src="carte_departement.js"></script>
-<script src="carte_ensemble.js"></script>
+<script src="fond_etendu.js?v=20261120c"></script>
+<script src="carte_departement.js?v=20261120c"></script>
+<script src="carte_ensemble.js?v=20261120c"></script>
 <script>
 /* ---------- données et état ---------- */
 const D = DONNEES, DEP = D.departement, EPOQUES = D.epoques, METIERS = D.libelles.metiers;
@@ -824,8 +824,9 @@ function survolEnsemble(l) {
   if (!avecBulles()) return;
   const ref = l.length ? l[0].ref : null;
   if (!ref) { clearTimeout(minuterieSurvol); minuterieSurvol = null; cacher(bSurvol); survolRef = null; return; }
-  // le site a déjà sa fiche ou sa bulle d'étape, ou un choix est ouvert : pas de doublon
-  if (ref === ficheRef || ref === etapeRef || groupeRefs) { clearTimeout(minuterieSurvol); minuterieSurvol = null; cacher(bSurvol); survolRef = null; return; }
+  // le site a déjà sa fiche, sa bulle d'étape ou figure dans la liste de choix ouverte : pas de doublon.
+  // Une liste de choix ouverte ne bloque plus le survol des autres sites (c'était la panne signalée).
+  if (ref === ficheRef || ref === etapeRef || (groupeRefs && groupeRefs.includes(ref))) { cacher(bSurvol); survolRef = null; return; }
   const s = l[0], ph = photo(s);
   survolRef = ref;
   bSurvol.classList.toggle('sans-photo', !ph || l.length > 1);
@@ -835,10 +836,8 @@ function survolEnsemble(l) {
        <div><div class="k">${echapper(METIERS[(s.secteurs || [])[0]] || 'Secteur inconnu')}</div><h4>${echapper(nomSite(s))}</h4><div class="ou">${echapper(s.commune || '')}</div></div>`;
   bSurvol.querySelectorAll('img').forEach((im) => im.addEventListener('load', () => { if (survolRef === ref) placer(bSurvol, ref); }));
   placer(bSurvol, ref);
-  // une bulle déjà ouverte se met à jour aussitôt ; sinon une très brève attente, qui n'est
-  // pas relancée quand le pointeur passe d'un site à son voisin dans un groupe serré
-  if (bSurvol.classList.contains('vue')) return;
-  if (!minuterieSurvol) minuterieSurvol = setTimeout(() => { minuterieSurvol = null; if (survolRef) montrer(bSurvol); }, 60);
+  // la bulle s'ouvre aussitôt : aucune minuterie, donc rien que le navigateur puisse retarder
+  montrer(bSurvol);
 }
 
 // clic : un site ouvre sa fiche ; plusieurs sites superposés proposent un choix
