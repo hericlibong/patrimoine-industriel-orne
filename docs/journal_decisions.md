@@ -3767,3 +3767,34 @@ Options écartées :
 Décision : **les liens de la Risle sont des portes d'entrée cartographiques ;
 un lien dont la source ne nomme pas le destinataire n'est jamais tracé comme
 certain.**
+
+## 2026-11-20 — Liens entre établissements : la décision précédente est annulée
+
+Le porteur rejette la partie « liens » de l'entrée précédente. Elle avait :
+
+- supprimé trois tracés ;
+- ajouté des cercles et des étiquettes ;
+- ajouté des textes de méthode destinés en fait à l'équipe, comme « la source ne
+  nomme pas l'usine destinataire » ou « tels que les sources les décrivent ».
+
+Rien de cela n'était demandé. La demande portait seulement sur le zoom vers le
+lien choisi. La consultation des décisions du projet devait seulement éclairer
+le choix du titre, pas modifier l'affichage.
+
+L'affichage des liens revient à l'identique de l'état d'avant. Les seuls ajouts
+gardés sont ceux qui étaient demandés :
+
+- le titre « Les liens entre établissements » ;
+- la consigne « Choisir un lien pour le voir sur la carte. » ;
+- la mise en évidence de la ligne choisie ;
+- le zoom sur les deux établissements, et la sortie.
+
+Une éventuelle rectification des trois transferts vers Saint-Sulpice-sur-Risle
+reste une question pour plus tard, à trancher par le porteur.
+
+Règle de travail retenue : **aucun texte de méthode à l'écran, et aucun ajout ni
+retrait hors du périmètre demandé ; un écart repéré dans les données se
+signale, il ne s'applique pas d'office.**
+
+Décision : **retour à l'affichage d'avant pour les liens de la Risle, avec le
+seul zoom en plus.**

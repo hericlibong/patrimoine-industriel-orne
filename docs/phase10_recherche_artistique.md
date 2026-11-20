@@ -1195,3 +1195,47 @@ affichés :
 
 Crulai et Chandai n'a pas de relation documentée et ne reçoit pas encore la
 zone chiffrée : le porteur a demandé de commencer par la Risle.
+
+## 22. Liens entre établissements : retour à la version d'avant, plus le zoom (20 novembre 2026)
+
+**Le jugement du porteur.** Il rejette la partie « liens » de la section 21.
+
+- Elle a supprimé des tracés qui fonctionnaient.
+- Elle a remplacé des pointillés par des cercles.
+- Elle a ajouté des textes que le lecteur n'a pas à lire : « la source ne nomme
+  pas l'usine destinataire… », « Tels que les sources les décrivent », les
+  étiquettes de nature et de certitude.
+
+Les « sources » sont des notes de travail du projet, pas du contenu pour le
+lecteur. La demande était seulement de zoomer sur le lien choisi. La consultation
+des décisions du projet ne servait qu'à choisir le titre de la rubrique.
+
+**Ce qui est rétabli, à l'identique de l'état d'avant la section 21.**
+
+- Les cinq liens sont tracés en pointillé, le lien choisi en trait plein et les
+  autres atténués.
+- Chaque ligne de la liste reprend son texte d'origine, seul.
+- Il n'y a plus de cercles, de pointe de flèche, d'atténuation des sites,
+  d'étiquettes ni d'explications.
+
+**Ce qui est gardé.**
+
+- Le titre « Les liens entre établissements », accepté par le porteur, suivi de
+  la seule consigne « Choisir un lien pour le voir sur la carte. ».
+- La ligne choisie mise en évidence dans la colonne.
+- Le zoom : un clic cadre la carte sur les deux établissements du lien.
+- La sortie : recliquer le lien, le bouton « × toute la vallée » ou Échap.
+
+La zone chiffrée de la section 21 n'est pas concernée et reste en place.
+
+**Retiré de la section 21.** Le tableau des cinq liens et la remarque sur les
+trois transferts vers Saint-Sulpice-sur-Risle restent dans cette section comme
+constat de travail. Ils n'entraînent aucun changement d'affichage. S'il faut
+rectifier ces liens, le porteur le décidera plus tard.
+
+**Vérifié dans Chrome :**
+
+- la liste et son titre ;
+- les cinq tracés d'origine visibles au cadrage d'arrivée ;
+- le zoom sur un lien de Rai et sur un lien de Saint-Sulpice-sur-Risle, vus à
+  l'image.

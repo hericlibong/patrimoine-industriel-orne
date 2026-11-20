@@ -129,15 +129,11 @@ h2 button::before{content:'× '}
 .liens button{display:grid;grid-template-columns:22px 1fr;width:calc(100% + 18px);margin:0 -8px 2px -10px;padding:6px 8px 7px 10px;text-align:left;border:0;border-radius:3px;
   background:none;font-size:14.5px;line-height:1.38;color:#26323d;transition:background .2s,box-shadow .2s,opacity .25s}
 .liens button::before{content:'';width:16px;height:0;border-top:1.4px dashed var(--lien);margin-top:10px}
-.liens button.incertain::before{border-top:1.2px dotted var(--lien)}
 .liens button:hover{background:var(--accent-doux);color:var(--encre)}
 .liens button[aria-pressed=true]{background:var(--accent-fond);box-shadow:inset 3px 0 0 var(--accent);color:var(--encre)}
 .liens button[aria-pressed=true]::before{border-top-style:solid;border-top-width:2.4px}
 .liens.un-choisi button[aria-pressed=false]{opacity:.55}
 .liens.un-choisi button[aria-pressed=false]:hover{opacity:1}
-.liens .nature{display:block;font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--lien);margin-bottom:2px}
-.liens .nature i{font-style:normal;font-weight:400;letter-spacing:0;text-transform:none;color:var(--encre2)}
-.liens .expl{display:block;margin-top:4px;font-size:13.5px;font-style:italic;color:var(--encre2)}
 .sous-h2{margin:-2px 0 6px;font-size:13.5px;font-style:italic;color:var(--encre2)}
 /* repères fixes d'un ensemble : distincts des chiffres qui suivent les filtres */
 .reperes-fixes{margin:14px 0 0;font-family:var(--sans);font-size:13px;line-height:1.45;color:var(--encre2)}
@@ -362,9 +358,9 @@ h2 button::before{content:'× '}
 <script src="../esquisses/d3.min.js"></script>
 <script src="../esquisses/donnees.js"></script>
 <script src="../recherche/carte_donnees.js?v=3"></script>
-<script src="fond_etendu.js?v=20261120f"></script>
-<script src="carte_departement.js?v=20261120f"></script>
-<script src="carte_ensemble.js?v=20261120f"></script>
+<script src="fond_etendu.js?v=20261120g"></script>
+<script src="carte_departement.js?v=20261120g"></script>
+<script src="carte_ensemble.js?v=20261120g"></script>
 <script>
 /* ---------- données et état ---------- */
 const D = DONNEES, DEP = D.departement, EPOQUES = D.epoques, METIERS = D.libelles.metiers;
@@ -514,45 +510,25 @@ function rendreEnsemble() {
 }
 
 /* ---------- les liens entre établissements ---------- */
-const NATURE = { approvisionne: 'Approvisionnement', transfert_vers: 'Transfert de production', successeur_de: 'Succession',
-  depend_de: 'Dépendance', composant_de: 'Partie d\'un ensemble', partage_infrastructure_avec: 'Équipement partagé' };
+// La liste reprend le texte et le tracé d'avant ; choisir un lien le met en évidence et cadre la carte dessus.
 let relationChoisie = null;
-// destinataires possibles d'une relation dont la source ne nomme pas la cible : les autres sites de sa commune
-function candidats(l) {
-  const e = DETAIL[etat.vue], cible = e.sites.find((s) => s.ref === l.vers);
-  return cible ? e.sites.filter((s) => s.commune === cible.commune && s.ref !== l.de && s.lon != null).map((s) => s.ref) : [];
-}
 function rendreRelations() {
   const e = DETAIL[etat.vue];
   if (!e.liens.length) {
-    complement.innerHTML = `<h2>Les liens entre établissements</h2><p class="absence">Les sources du corpus n'établissent aucun lien entre ces lieux. Cette absence documentaire ne dit pas qu'ils n'ont pas d'histoire commune.</p>`;
+    complement.innerHTML = `<h2>Les liens entre établissements</h2><p class="absence">Aucune relation entre ces lieux n'est établie dans les sources du corpus. Cette absence documentaire ne dit pas qu'ils n'ont pas d'histoire commune.</p>`;
     return;
   }
   complement.innerHTML = `<h2>Les liens entre établissements <button type="button" id="raz-rel" hidden>toute la vallée</button></h2>
-    <p class="sous-h2">Tels que les sources les décrivent. Choisir un lien pour le voir sur la carte.</p>
-    <ul class="liens" id="liens">${e.liens.map((l, i) => {
-      const inc = cibleIncertaine(l), n = inc ? candidats(l).length : 0;
-      const cible = e.sites.find((s) => s.ref === l.vers);
-      return `<li><button type="button" class="${inc ? 'incertain' : ''}" data-lien="${i}" aria-pressed="false">
-        <span><span class="nature">${echapper(NATURE[l.type] || l.type)} <i>· ${inc ? 'destinataire incertain' : 'lien attesté'}</i><i class="masque"></i></span>
-        ${echapper(l.phrase)}
-        ${inc ? `<span class="expl">La source ne nomme pas l'usine destinataire : aucun trait n'est tracé. Les ${n} établissements de ${echapper(cible ? cible.commune : 'la commune')} qui pourraient l'être sont entourés en pointillé.</span>` : ''}</span></button></li>`;
-    }).join('')}</ul>`;
+    <p class="sous-h2">Choisir un lien pour le voir sur la carte.</p>
+    <ul class="liens" id="liens">${e.liens.map((l, i) => `<li><button type="button" data-lien="${i}" aria-pressed="false">${echapper(l.phrase)}</button></li>`).join('')}</ul>`;
   complement.querySelectorAll('[data-lien]').forEach((b) => (b.onclick = () => (relationChoisie === +b.dataset.lien ? quitterRelation() : choisirRelation(+b.dataset.lien))));
   document.getElementById('raz-rel').onclick = () => quitterRelation();
   majRelations();
 }
-// état visuel de la liste : lien choisi, liens dont un établissement est écarté par les filtres
 function majRelations() {
   const ul = document.getElementById('liens'); if (!ul) return;
-  const e = DETAIL[etat.vue], ret = (ref) => { const s = e.sites.find((x) => x.ref === ref); return s && ok(etat.metier, etat.epoque)(s); };
   ul.classList.toggle('un-choisi', relationChoisie != null);
-  ul.querySelectorAll('[data-lien]').forEach((b) => {
-    const i = +b.dataset.lien, l = e.liens[i];
-    b.setAttribute('aria-pressed', String(relationChoisie === i));
-    const masque = !ret(l.de) || (!cibleIncertaine(l) && !ret(l.vers));
-    b.querySelector('.masque').textContent = masque ? ' · un établissement est écarté par les filtres' : '';
-  });
+  ul.querySelectorAll('[data-lien]').forEach((b) => b.setAttribute('aria-pressed', String(relationChoisie === +b.dataset.lien)));
   document.getElementById('raz-rel').hidden = relationChoisie == null;
 }
 function choisirRelation(i) {
@@ -561,15 +537,14 @@ function choisirRelation(i) {
   if (ficheRef) fermerLieu(true);
   cacher(bSurvol); survolRef = null; if (groupeRefs) { cacher(bGroupe); groupeRefs = null; }
   relationChoisie = i;
-  const inc = cibleIncertaine(l), cand = inc ? candidats(l) : [];
-  vueEns.relation({ i, de: l.de, vers: inc ? null : l.vers, candidats: cand });
-  vueEns.cadrerSur([l.de, ...(inc ? cand : [l.vers])]);
+  vueEns.lien(i);
+  vueEns.cadrerSur([l.de, l.vers]);
   majRelations();
 }
 function quitterRelation(silencieux) {
   if (relationChoisie == null) return;
   relationChoisie = null;
-  vueEns.relation(null);
+  vueEns.lien(null);
   if (!silencieux) vueEns.recentrer();
   majRelations();
 }
@@ -833,7 +808,7 @@ async function ouvrirEnsemble(code, anime = true) {
 function allerOrne(anime = true) {
   if (etat.vue === 'orne') { etat.lieu = null; etat.ensemble = null; dep.choisir(null); dep.ouvrirEnsemble(null); changerMarge(() => { rendreMarge(); majLegende(); }); ecrireAdresse(); dep.recentrer(); return; }
   const e = ENS.find((x) => x.code === etat.vue);
-  quitterParcours(true); fermerBulles(); relationChoisie = null; vueEns.relation(null);
+  quitterParcours(true); fermerBulles(); relationChoisie = null; vueEns.lien(null);
   etat.vue = 'orne'; etat.lieu = null;
   planEns.classList.add('cache'); planDep.classList.remove('cache');
   dep.filtrer({ metier: etat.metier, epoque: etat.epoque }, false);
