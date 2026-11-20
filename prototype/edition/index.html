@@ -110,6 +110,7 @@ h2 button::before{content:'× '}
 .metiers.un-choisi .metier[aria-pressed=false]{opacity:.55}
 .metiers.un-choisi .metier[aria-pressed=false]:hover{opacity:1}
 .aide-metiers{margin:0 0 6px;font-size:13.5px;font-style:italic;color:var(--encre2)}
+.aide-metiers.efface{visibility:hidden}
 .metier:disabled{opacity:.3!important;cursor:default}
 
 /* recherche */
@@ -125,10 +126,24 @@ h2 button::before{content:'× '}
 
 /* relations documentées d'un ensemble */
 .liens{list-style:none;margin:0;padding:0}
-.liens button{display:grid;grid-template-columns:22px 1fr;width:100%;text-align:left;border:0;background:none;padding:6px 0;font-size:14.5px;line-height:1.38;color:#26323d}
+.liens button{display:grid;grid-template-columns:22px 1fr;width:calc(100% + 18px);margin:0 -8px 2px -10px;padding:6px 8px 7px 10px;text-align:left;border:0;border-radius:3px;
+  background:none;font-size:14.5px;line-height:1.38;color:#26323d;transition:background .2s,box-shadow .2s,opacity .25s}
 .liens button::before{content:'';width:16px;height:0;border-top:1.4px dashed var(--lien);margin-top:10px}
-.liens button:hover,.liens button[aria-pressed=true]{color:var(--encre)}
+.liens button.incertain::before{border-top:1.2px dotted var(--lien)}
+.liens button:hover{background:var(--accent-doux);color:var(--encre)}
+.liens button[aria-pressed=true]{background:var(--accent-fond);box-shadow:inset 3px 0 0 var(--accent);color:var(--encre)}
 .liens button[aria-pressed=true]::before{border-top-style:solid;border-top-width:2.4px}
+.liens.un-choisi button[aria-pressed=false]{opacity:.55}
+.liens.un-choisi button[aria-pressed=false]:hover{opacity:1}
+.liens .nature{display:block;font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--lien);margin-bottom:2px}
+.liens .nature i{font-style:normal;font-weight:400;letter-spacing:0;text-transform:none;color:var(--encre2)}
+.liens .expl{display:block;margin-top:4px;font-size:13.5px;font-style:italic;color:var(--encre2)}
+.sous-h2{margin:-2px 0 6px;font-size:13.5px;font-style:italic;color:var(--encre2)}
+/* repères fixes d'un ensemble : distincts des chiffres qui suivent les filtres */
+.reperes-fixes{margin:14px 0 0;font-family:var(--sans);font-size:13px;line-height:1.45;color:var(--encre2)}
+.reperes-fixes b{font-family:var(--serif);font-weight:500;font-size:15.5px;color:var(--encre);font-variant-numeric:lining-nums}
+.ens-tete .surtitre{color:var(--accent)}
+.corpus.ens .selection{min-height:58px}
 .absence{font-size:14.5px;line-height:1.42;color:var(--encre2);font-style:italic;margin:6px 0 0}
 
 /* note d'un lieu */
@@ -347,9 +362,9 @@ h2 button::before{content:'× '}
 <script src="../esquisses/d3.min.js"></script>
 <script src="../esquisses/donnees.js"></script>
 <script src="../recherche/carte_donnees.js?v=3"></script>
-<script src="fond_etendu.js?v=20261120e"></script>
-<script src="carte_departement.js?v=20261120e"></script>
-<script src="carte_ensemble.js?v=20261120e"></script>
+<script src="fond_etendu.js?v=20261120f"></script>
+<script src="carte_departement.js?v=20261120f"></script>
+<script src="carte_ensemble.js?v=20261120f"></script>
 <script>
 /* ---------- données et état ---------- */
 const D = DONNEES, DEP = D.departement, EPOQUES = D.epoques, METIERS = D.libelles.metiers;
@@ -469,22 +484,94 @@ function rendreMarge() {
   document.querySelectorAll('[data-v]').forEach((b) => (b.dataset.val = b.textContent.replace(/\D/g, '')));
   majLecture();
 }
+// vues d'ensemble qui reçoivent la zone chiffrée de l'accueil (passe du 20 novembre : la Risle d'abord)
+const CORPUS_ENS = new Set(['risle']);
 function rendreEnsemble() {
   const e = DETAIL[etat.vue], r = e.resume;
-  contenu.innerHTML = `<p class="surtitre">Ensemble · ${e.sites.length} lieux</p>
-    <h1>${echapper(e.nom)}<span class="nomtravail">${echapper(e.nomDeTravail || '')}</span></h1>
-    ${introEnsemble(e)}
-    <div class="reperes"><div><b>${e.sites.length}</b>lieux</div><div><b>${r.communes.length}</b>communes</div><div><b>${r.premiereAnnee}</b>première date connue</div></div>
-    <p class="lecture" id="lecture" aria-live="polite"></p>`;
-  complement.innerHTML = e.liens.length
-    ? `<h2>Ce que les sources relient</h2><ul class="liens">${e.liens.map((l, i) => `<li><button type="button" data-lien="${i}" aria-pressed="false">${echapper(l.phrase)}</button></li>`).join('')}</ul>`
-    : `<h2>Ce que les sources relient</h2><p class="absence">Aucune relation entre ces lieux n'est établie dans les sources du corpus. Cette absence documentaire ne dit pas qu'ils n'ont pas d'histoire commune.</p>`;
-  complement.querySelectorAll('[data-lien]').forEach((b) => (b.onclick = () => {
-    const i = +b.dataset.lien, actif = b.getAttribute('aria-pressed') === 'true';
-    complement.querySelectorAll('[data-lien]').forEach((x) => x.setAttribute('aria-pressed', 'false'));
-    b.setAttribute('aria-pressed', String(!actif)); vueEns.lien(actif ? null : i);
-  }));
+  if (CORPUS_ENS.has(etat.vue)) {
+    const v = valeursEnsemble();
+    contenu.innerHTML = `<div class="ens-tete"><p class="surtitre">Ensemble · ${e.sites.length} lieux</p>
+      <h1>${echapper(e.nom)}<span class="nomtravail">${echapper(e.nomDeTravail || '')}</span></h1>
+      ${introEnsemble(e)}
+      <p class="reperes-fixes">Repères : <b>${e.sites.length}</b> lieux documentés · <b>${r.communes.length}</b> communes · première date connue : <b>${r.premiereAnnee}</b></p>
+      <section class="corpus ens" id="corpus" aria-label="Les sites de l'ensemble et la sélection en cours">
+        <div class="chiffres">
+          <div class="ch principal"><b data-v="n" data-val="${v.n}">${v.n}</b><span>sites retenus<span class="sur" data-sur></span></span></div>
+          <div class="ch"><b data-v="communes" data-val="${v.communes}">${v.communes}</b><span>communes concernées</span></div>
+          <div class="ch"><b data-v="metiers" data-val="${v.metiers}">${v.metiers}</b><span>métiers représentés</span></div>
+        </div>
+        <div class="selection" id="selection" aria-live="polite"></div>
+      </section></div>`;
+  } else {
+    contenu.innerHTML = `<p class="surtitre">Ensemble · ${e.sites.length} lieux</p>
+      <h1>${echapper(e.nom)}<span class="nomtravail">${echapper(e.nomDeTravail || '')}</span></h1>
+      ${introEnsemble(e)}
+      <div class="reperes"><div><b>${e.sites.length}</b>lieux</div><div><b>${r.communes.length}</b>communes</div><div><b>${r.premiereAnnee}</b>première date connue</div></div>
+      <p class="lecture" id="lecture" aria-live="polite"></p>`;
+  }
+  rendreRelations();
   majLecture();
+}
+
+/* ---------- les liens entre établissements ---------- */
+const NATURE = { approvisionne: 'Approvisionnement', transfert_vers: 'Transfert de production', successeur_de: 'Succession',
+  depend_de: 'Dépendance', composant_de: 'Partie d\'un ensemble', partage_infrastructure_avec: 'Équipement partagé' };
+let relationChoisie = null;
+// destinataires possibles d'une relation dont la source ne nomme pas la cible : les autres sites de sa commune
+function candidats(l) {
+  const e = DETAIL[etat.vue], cible = e.sites.find((s) => s.ref === l.vers);
+  return cible ? e.sites.filter((s) => s.commune === cible.commune && s.ref !== l.de && s.lon != null).map((s) => s.ref) : [];
+}
+function rendreRelations() {
+  const e = DETAIL[etat.vue];
+  if (!e.liens.length) {
+    complement.innerHTML = `<h2>Les liens entre établissements</h2><p class="absence">Les sources du corpus n'établissent aucun lien entre ces lieux. Cette absence documentaire ne dit pas qu'ils n'ont pas d'histoire commune.</p>`;
+    return;
+  }
+  complement.innerHTML = `<h2>Les liens entre établissements <button type="button" id="raz-rel" hidden>toute la vallée</button></h2>
+    <p class="sous-h2">Tels que les sources les décrivent. Choisir un lien pour le voir sur la carte.</p>
+    <ul class="liens" id="liens">${e.liens.map((l, i) => {
+      const inc = cibleIncertaine(l), n = inc ? candidats(l).length : 0;
+      const cible = e.sites.find((s) => s.ref === l.vers);
+      return `<li><button type="button" class="${inc ? 'incertain' : ''}" data-lien="${i}" aria-pressed="false">
+        <span><span class="nature">${echapper(NATURE[l.type] || l.type)} <i>· ${inc ? 'destinataire incertain' : 'lien attesté'}</i><i class="masque"></i></span>
+        ${echapper(l.phrase)}
+        ${inc ? `<span class="expl">La source ne nomme pas l'usine destinataire : aucun trait n'est tracé. Les ${n} établissements de ${echapper(cible ? cible.commune : 'la commune')} qui pourraient l'être sont entourés en pointillé.</span>` : ''}</span></button></li>`;
+    }).join('')}</ul>`;
+  complement.querySelectorAll('[data-lien]').forEach((b) => (b.onclick = () => (relationChoisie === +b.dataset.lien ? quitterRelation() : choisirRelation(+b.dataset.lien))));
+  document.getElementById('raz-rel').onclick = () => quitterRelation();
+  majRelations();
+}
+// état visuel de la liste : lien choisi, liens dont un établissement est écarté par les filtres
+function majRelations() {
+  const ul = document.getElementById('liens'); if (!ul) return;
+  const e = DETAIL[etat.vue], ret = (ref) => { const s = e.sites.find((x) => x.ref === ref); return s && ok(etat.metier, etat.epoque)(s); };
+  ul.classList.toggle('un-choisi', relationChoisie != null);
+  ul.querySelectorAll('[data-lien]').forEach((b) => {
+    const i = +b.dataset.lien, l = e.liens[i];
+    b.setAttribute('aria-pressed', String(relationChoisie === i));
+    const masque = !ret(l.de) || (!cibleIncertaine(l) && !ret(l.vers));
+    b.querySelector('.masque').textContent = masque ? ' · un établissement est écarté par les filtres' : '';
+  });
+  document.getElementById('raz-rel').hidden = relationChoisie == null;
+}
+function choisirRelation(i) {
+  const l = DETAIL[etat.vue].liens[i]; if (!l) return;
+  pauserParcours(); cacher(bEtape); etapeRef = null;
+  if (ficheRef) fermerLieu(true);
+  cacher(bSurvol); survolRef = null; if (groupeRefs) { cacher(bGroupe); groupeRefs = null; }
+  relationChoisie = i;
+  const inc = cibleIncertaine(l), cand = inc ? candidats(l) : [];
+  vueEns.relation({ i, de: l.de, vers: inc ? null : l.vers, candidats: cand });
+  vueEns.cadrerSur([l.de, ...(inc ? cand : [l.vers])]);
+  majRelations();
+}
+function quitterRelation(silencieux) {
+  if (relationChoisie == null) return;
+  relationChoisie = null;
+  vueEns.relation(null);
+  if (!silencieux) vueEns.recentrer();
+  majRelations();
 }
 // introduction courte + « Lire la suite » (texte provisoire), dans les vues à bulles
 function introEnsemble(e) {
@@ -536,9 +623,16 @@ function compter(el, v) {
   d3.select(el).interrupt().transition().duration(520).ease(d3.easeCubicOut)
     .tween('text', () => { const i = d3.interpolateRound(de, v); return (t) => { el.textContent = nb(i(t)); }; });
 }
+// chiffres d'un ensemble recalculés sur la sélection ; les repères fixes, eux, ne bougent pas
+function valeursEnsemble() {
+  const e = DETAIL[etat.vue], ret = e.sites.filter(ok(etat.metier, etat.epoque));
+  return { n: ret.length, total: e.sites.length, communes: new Set(ret.map((s) => s.commune)).size,
+    metiers: new Set(ret.flatMap((s) => s.secteurs || [])).size, ret };
+}
 function majCorpus() {
   const zone = document.getElementById('corpus');
   if (!zone) return;
+  if (zone.classList.contains('ens')) return majCorpusEnsemble(zone);
   const { metier, epoque } = etat, filtre = !!(metier || epoque);
   const n = compte(metier, epoque), iso = DEP.autresLieux.filter(ok(metier, epoque)).length;
   const nEns = ENS.filter((e) => dep.compteEnsemble(e, metier, epoque) > 0).length;
@@ -557,8 +651,30 @@ function majCorpus() {
   sel.innerHTML = `<div class="puces">${puces.join('')}</div>${nP > 0 ? `Ensemble le plus fourni : <b>${echapper(premier.nom)}</b> (${nP}).` : 'Aucun ensemble ne compte de site pour cette sélection.'}`;
   sel.querySelectorAll('[data-raz]').forEach((b) => (b.onclick = () => { if (b.dataset.raz === 'epoque') arreterTemps(); filtrer({ [b.dataset.raz]: null }); }));
 }
+// étiquettes des filtres actifs, retirables une à une (mêmes pastilles que l'accueil)
+function pucesFiltres() {
+  const ep = EPOQUES.find((e) => e.code === etat.epoque), puces = [];
+  if (etat.metier) puces.push(`<button type="button" class="puce" data-raz="metier" aria-label="Retirer le métier ${echapper(METIERS[etat.metier])}">${echapper(METIERS[etat.metier])}<span aria-hidden="true">×</span></button>`);
+  if (ep) puces.push(`<button type="button" class="puce" data-raz="epoque" aria-label="Retirer la période ${echapper(ep.dates)}">${echapper(ep.dates)}<span aria-hidden="true">×</span></button>`);
+  return `<div class="puces">${puces.join('')}</div>`;
+}
+function brancherPuces(sel) {
+  sel.querySelectorAll('[data-raz]').forEach((b) => (b.onclick = () => { if (b.dataset.raz === 'epoque') arreterTemps(); filtrer({ [b.dataset.raz]: null }); }));
+}
+function majCorpusEnsemble(zone) {
+  const v = valeursEnsemble(), filtre = !!(etat.metier || etat.epoque);
+  compter(zone.querySelector('[data-v="n"]'), v.n);
+  compter(zone.querySelector('[data-v="communes"]'), v.communes);
+  compter(zone.querySelector('[data-v="metiers"]'), v.metiers);
+  zone.querySelector('[data-sur]').textContent = filtre ? ` sur ${v.total}` : '';
+  const sel = document.getElementById('selection');
+  if (!filtre) { sel.innerHTML = '<span class="invite">Choisissez un métier ou une époque : la carte et ces chiffres suivent votre choix.</span>'; return; }
+  const parCommune = d3.rollups(v.ret, (x) => x.length, (s) => s.commune).sort((a, b) => b[1] - a[1]);
+  sel.innerHTML = `${pucesFiltres()}${parCommune.length ? `Commune la plus fournie : <b>${echapper(parCommune[0][0])}</b> (${parCommune[0][1]}).` : 'Aucun site de l\'ensemble ne correspond à cette sélection.'}`;
+  brancherPuces(sel);
+}
 function majLecture() {
-  if (etat.vue === 'orne' && !etat.lieu && !etat.ensemble) return majCorpus();
+  if (document.getElementById('corpus')) return majCorpus();
   const l = document.getElementById('lecture');
   if (!l) return;
   l.innerHTML = phrase();
@@ -589,7 +705,7 @@ function majMetiers() {
     b.select('i').style('width', `${(100 * d.n) / max}%`);
   });
   document.getElementById('raz-me').hidden = !etat.metier;
-  document.getElementById('aide-metiers').hidden = !!etat.metier;
+  document.getElementById('aide-metiers').classList.toggle('efface', !!etat.metier);
 }
 
 /* ---------- frise des époques : un carré par lieu ---------- */
@@ -686,6 +802,7 @@ function filtrer(f, anime = true) {
   if (vueEns.code()) vueEns.filtrer(fl, anime && etat.vue !== 'orne');
   majMetiers(); majFrise(); majLecture(); majListe(); ecrireAdresse();
   cacher(bSurvol); survolRef = null; if (groupeRefs) { cacher(bGroupe); groupeRefs = null; }
+  majRelations();
   parcoursSuitFiltres();
 }
 
@@ -695,6 +812,7 @@ let enTransition = false;
 async function ouvrirEnsemble(code, anime = true) {
   if (enTransition || etat.vue === code) return;
   enTransition = true;
+  relationChoisie = null;
   quitterParcours(true); fermerBulles();
   const e = ENS.find((x) => x.code === code);
   etat.vue = code; etat.lieu = null; etat.ensemble = null;
@@ -715,7 +833,7 @@ async function ouvrirEnsemble(code, anime = true) {
 function allerOrne(anime = true) {
   if (etat.vue === 'orne') { etat.lieu = null; etat.ensemble = null; dep.choisir(null); dep.ouvrirEnsemble(null); changerMarge(() => { rendreMarge(); majLegende(); }); ecrireAdresse(); dep.recentrer(); return; }
   const e = ENS.find((x) => x.code === etat.vue);
-  quitterParcours(true); fermerBulles();
+  quitterParcours(true); fermerBulles(); relationChoisie = null; vueEns.relation(null);
   etat.vue = 'orne'; etat.lieu = null;
   planEns.classList.add('cache'); planDep.classList.remove('cache');
   dep.filtrer({ metier: etat.metier, epoque: etat.epoque }, false);
@@ -886,6 +1004,8 @@ function contenuFiche(s) {
 }
 async function montrerFiche(ref, deplacer) {
   const s = site(ref); if (!s) return;
+  // une fiche ouverte depuis un site de la relation choisie garde la relation à l'écran
+  if (relationChoisie != null) deplacer = false;
   [bSurvol, bGroupe, bEtape].forEach(cacher); survolRef = groupeRefs = etapeRef = null;
   pauserParcours();
   ficheRef = ref;
@@ -968,7 +1088,7 @@ function majEtatParcours() {
     : `étape ${parcours.i + 1} sur ${L.length}${s ? ` · ${s.commune}` : ''}${etat.metier || etat.epoque ? ' · sites de la sélection' : ''}${parcours.lecture ? '' : ' · en pause'}`;
   dessinerLigne();
 }
-function engager() { arreterTemps(); parcours.engage = true; }
+function engager() { arreterTemps(); quitterRelation(true); parcours.engage = true; }
 async function allerEtape(i, auto) {
   const L = parcours.liste = listeParcours();
   clearTimeout(parcours.minuterie);
@@ -1077,6 +1197,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key !== 'Escape' || e.target === cherche && cherche.value) return;
   if (groupeRefs) { cacher(bGroupe); groupeRefs = null; return; }
   if (etat.lieu) return fermerLieu();
+  if (relationChoisie != null) return quitterRelation();
   if (parcours.engage) return quitterParcours();
   if (etat.vue !== 'orne' || etat.ensemble) return allerOrne();
 });

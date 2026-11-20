@@ -1,7 +1,7 @@
 # Phase 10.E — Chantier de recherche artistique
 
-**Version :** 0.8 — 20 novembre 2026
-**Statut :** composition « édition » retenue ; Risle : descente allégée et survol fiabilisé, soumis au jugement.
+**Version :** 0.9 — 20 novembre 2026
+**Statut :** composition « édition » retenue ; survol des deux ensembles validé ; Risle : liens entre établissements et zone chiffrée, soumis au jugement.
 **Branche :** `claude/recherche-artistique`, ouverte depuis
 `claude/esquisses-direction-artistique`. Les esquisses A, B, C et D restent
 intactes sur leur branche ; elles servent d'inspiration et de référence de
@@ -1099,3 +1099,99 @@ le porteur avait demandé de ne pas la généraliser.
 été repérés à l'œil sur une capture, puis survolés à la vraie souris : 7 bulles
 sur 7. Le clic sur la tréfilerie dite la Fabrique, à Chandai, ouvre sa fiche
 sur la carte, et la marge reste à l'ensemble.
+
+## 21. Risle : les liens entre établissements, la zone chiffrée (20 novembre 2026)
+
+Le porteur valide le survol. Il demande deux améliorations sur la Risle.
+
+- Les relations documentées doivent devenir des portes d'entrée
+  cartographiques.
+- La zone chiffrée doit reprendre le langage de l'accueil, sans faire bouger la
+  colonne.
+
+L'état d'avant est conservé dans `prototype/edition_reference_crulai/`.
+
+**Les données vérifiées.** La Risle compte cinq relations, relues avec la
+décision du 29 juillet 2026 sur l'extraction des relations.
+
+| Lien | De | Vers | Fiabilité |
+| --- | --- | --- | --- |
+| Approvisionnement | tréfilerie Boisthorel, Rai | usine Eurofac, Rai | forte |
+| Approvisionnement | tréfilerie Boisthorel, Rai | usine de matériel d'équipement industriel, Rai | forte |
+| Transfert de production | tréfilerie de la Fonte, Saint-Sulpice | « l'usine de Saint-Sulpice » | moyenne |
+| Transfert de production | laminoir du Moulin à Tan, Saint-Sulpice | « l'usine de Saint-Sulpice » | moyenne |
+| Transfert de production | tréfilerie des Bouviers, Saint-Sulpice | « l'usine de Saint-Sulpice » | moyenne |
+
+Les trois transferts sont enregistrés vers l'usine de quincaillerie. Mais le
+journal du 29 juillet les marque comme interprétés : la source dit « l'usine de
+Saint-Sulpice-sur-Risle » sans la nommer, et la commune compte cinq sites. **La
+carte les traçait pourtant comme des liens certains**, en trait vers une usine
+précise. C'est corrigé.
+
+**Ce que fait un lien choisi.**
+
+- Dans la colonne, la ligne prend le fond et le filet brique des métiers
+  choisis, et les autres liens pâlissent.
+- La carte se cadre sur les établissements concernés, avec un grossissement
+  adapté à leur écart. Elle va jusqu'à dix fois le cadrage de l'ensemble pour
+  Boisthorel et ses deux voisines de Rai.
+- **Lien attesté** : un trait brique plein relie les deux établissements, avec
+  une pointe de flèche orientée du fournisseur vers le destinataire, selon la
+  règle d'orientation du projet. Les deux sites sont cerclés et nommés.
+- **Destinataire incertain** : aucun trait. Le site d'origine est cerclé en
+  plein, et les quatre autres établissements de Saint-Sulpice-sur-Risle,
+  destinataires possibles, sont cerclés en pointillé. La colonne l'explique en
+  toutes lettres. La règle est appliquée à toute relation de fiabilité autre
+  que forte. Pour la Risle, ce sont exactement les trois liens marqués comme
+  interprétés.
+- Le reste de la carte s'atténue sans disparaître. Les bulles et les fiches
+  restent accessibles, y compris sur les sites de la relation, qui reste alors
+  affichée.
+- **Sortie** : recliquer le lien, le bouton « × toute la vallée » ou Échap.
+  La vallée revient alors en entier.
+- La descente de la Risle et la sélection d'un lien ne coexistent pas : lancer
+  la descente efface le lien, et choisir un lien met la descente en pause.
+- Si un filtre écarte un des établissements, la ligne le signale, sans changer
+  de hauteur.
+
+**Le titre.** « Ce que les sources relient » devient « Les liens entre
+établissements ». Une ligne le suit : « Tels que les sources les décrivent ».
+Chaque lien porte sa nature (approvisionnement, transfert de production) et son
+degré de certitude (lien attesté, destinataire incertain), pour ne pas laisser
+croire que toutes les relations prouvent la même chose. « D'un établissement à
+l'autre » a été écarté : la formule suggère un flux même pour un simple
+transfert dont la cible est inconnue.
+
+**La zone chiffrée.** Elle reprend la bande teintée, les chiffres et les
+pastilles de l'accueil.
+
+- **Les repères fixes** — 43 lieux documentés, 10 communes, première date
+  connue 1440 — passent sur une ligne discrète au-dessus de la bande. Ils ne
+  changent jamais.
+- **Les chiffres recalculés** suivent les filtres avec le même défilement et le
+  même éclat brique : les sites retenus (« sur 43 »), les communes concernées et
+  les métiers représentés. Exemple : métallurgie entre 1850 et 1913 donne 23
+  sites, 7 communes et 4 métiers.
+- **Les métiers représentés** comptent tous les métiers des sites retenus. Un
+  site peut en avoir plusieurs, d'où 4 métiers même avec le seul filtre
+  métallurgie.
+- **Les pastilles** des filtres actifs se retirent une à une. Une ligne nomme la
+  commune la plus fournie, par exemple « L'Aigle (6) ».
+
+**La stabilité de la colonne.** La bande garde une hauteur minimale, et l'aide
+des métiers garde sa place quand un métier est choisi, au lieu de disparaître.
+Cette seconde règle vaut aussi pour l'accueil. Mesure dans Chrome sur six
+états successifs (sans filtre, période, période et métier, retrait de l'un,
+puis de l'autre, métier seul) : la zone chiffrée ne bouge pas, et la liste des
+métiers comme celle des liens ne se déplacent pas de plus d'un pixel.
+
+**Vérifié dans Chrome**, en 1664 × 921 pixels, sur les écrans réellement
+affichés :
+
+- les cinq liens, dont les cadrages et les tracés ont été vus à l'image ;
+- le survol et le clic sur le laminoir pendant qu'un lien est choisi ;
+- la sortie par Échap ;
+- les six états de filtres.
+
+Crulai et Chandai n'a pas de relation documentée et ne reçoit pas encore la
+zone chiffrée : le porteur a demandé de commencer par la Risle.

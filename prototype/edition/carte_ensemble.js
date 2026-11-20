@@ -16,6 +16,11 @@
     return r.z[Math.max(0, Math.min(r.ny - 1, j)) * r.nx + Math.max(0, Math.min(r.nx - 1, i))];
   }
 
+  // Une relation dont la source ne nomme pas le destinataire (fiabilité moyenne : « la source ne
+  // nomme pas la cible », décision du 29 juillet 2026) n'est pas tracée comme un lien certain.
+  const cibleIncertaine = (l) => l.fiabilite !== 'forte';
+  window.cibleIncertaine = cibleIncertaine;
+
   function CarteEnsemble(conteneur, opts = {}) {
     const PAGE = opts.page || '#efede6';
     const mk = (z) => { const c = document.createElement('canvas'); c.setAttribute('aria-hidden', 'true'); c.style.cssText = `position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;z-index:${z}`; conteneur.appendChild(c); return c; };
@@ -28,6 +33,8 @@
     let W = 0, H = 0, dpr = 1, transform = d3.zoomIdentity, cleCache = '';
     let ens = null, code = null, base = null, img = null, rect = null, troncons = [], particules = [], sites = [], parRef = new Map();
     let filtre = { metier: null, epoque: null }, choisi = null, survole = null, lienVif = null, curseur = null, actif = false;
+    // relation choisie dans la marge : { i, de, vers, candidats } ; ses sites restent pleins, le reste s'atténue
+    let rel = null;
     const etat = new Map();
     let ondes = [], tOnde = 1, minuterie = null;
 
@@ -39,7 +46,7 @@
       parRef = new Map(sites.map((s) => [s.ref, s]));
       etat.clear(); sites.forEach((s) => etat.set(s.ref, retenu(s) ? 1 : 0));
       img = window.ombrageA(ens.relief, window.paletteA);
-      choisi = survole = lienVif = curseur = null;
+      choisi = survole = lienVif = curseur = rel = null;
       cadrer();
       // eau orientée vers l'aval d'après le relief (esquisse D)
       troncons = ens.eau.map((e) => {
@@ -135,12 +142,23 @@
       // relations documentées
       ens.liens.forEach((l, i) => {
         const a = parRef.get(l.de), b = parRef.get(l.vers);
-        if (!a || !b) return;
+        if (!a || !b || cibleIncertaine(l)) return;
+        const vif = rel && rel.i === i;
         const x1 = X(a.lon), y1 = Y(a.lat), x2 = X(b.lon), y2 = Y(b.lat);
         const mx = (x1 + x2) / 2 - (y2 - y1) * 0.3, my = (y1 + y2) / 2 + (x2 - x1) * 0.3;
         ctx.beginPath(); ctx.moveTo(x1, y1); ctx.quadraticCurveTo(mx, my, x2, y2);
-        ctx.strokeStyle = LIEN; ctx.lineWidth = lienVif === i ? 2.4 : 1.3; ctx.globalAlpha = lienVif == null || lienVif === i ? 1 : 0.35;
-        ctx.setLineDash(lienVif === i ? [] : [5, 4]); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1;
+        ctx.strokeStyle = LIEN; ctx.lineWidth = vif ? 2.8 : 1.3; ctx.globalAlpha = !rel || vif ? 1 : 0.18;
+        ctx.setLineDash(vif ? [] : [5, 4]); ctx.stroke(); ctx.setLineDash([]);
+        if (vif) {
+          // pointe de flèche : du fournisseur (ou du site d'origine) vers le destinataire
+          const ang = Math.atan2(y2 - my, x2 - mx), recul = 9, L = 9;
+          const px = x2 - Math.cos(ang) * recul, py = y2 - Math.sin(ang) * recul;
+          ctx.beginPath(); ctx.moveTo(px, py);
+          ctx.lineTo(px - L * Math.cos(ang - 0.42), py - L * Math.sin(ang - 0.42));
+          ctx.lineTo(px - L * Math.cos(ang + 0.42), py - L * Math.sin(ang + 0.42)); ctx.closePath();
+          ctx.fillStyle = LIEN; ctx.fill();
+        }
+        ctx.globalAlpha = 1;
       });
       // bourgs
       for (const b of ens.bourgs) {
@@ -158,7 +176,7 @@
         const a = etat.get(s.ref), x = X(s.lon), y = Y(s.lat);
         if (a > 0.5) lieuxEcran.push([x, y, s]);
         const c = 2 + (cote - 2) * a;
-        ctx.globalAlpha = 0.42 + 0.58 * a;
+        ctx.globalAlpha = (0.42 + 0.58 * a) * (rel && !rel.refs.has(s.ref) ? 0.32 : 1);
         ctx.beginPath(); ctx.rect(x - c / 2, y - c / 2, c, c);
         if (a > 0.3) { ctx.lineWidth = 2.4 * a; ctx.strokeStyle = PAGE; ctx.stroke(); }
         ctx.fillStyle = ENCRE; ctx.fill();
@@ -171,8 +189,17 @@
         ctx.beginPath(); ctx.rect(x - c / 2, y - c / 2, c, c); ctx.lineWidth = 1.2; ctx.strokeStyle = ENCRE; ctx.stroke();
       }
       ctx.globalAlpha = 1;
-      // noms : le lieu choisi, survolé ou proche du curseur de descente, puis les autres si la place le permet
-      const enAvant = [choisi, survole, curseur && curseur.ref].filter(Boolean);
+      if (rel) {
+        for (const ref of rel.refs) {
+          const s = parRef.get(ref); if (!s) continue;
+          const candidat = rel.candidats.includes(ref);
+          ctx.beginPath(); ctx.arc(X(s.lon), Y(s.lat), cote + 7, 0, 2 * Math.PI);
+          ctx.lineWidth = candidat ? 1.2 : 2; ctx.strokeStyle = LIEN; ctx.setLineDash(candidat ? [3, 3] : []); ctx.stroke(); ctx.setLineDash([]);
+        }
+      }
+      // noms : le lieu choisi, survolé ou proche du curseur de descente, ceux de la relation choisie,
+      // puis les autres si la place le permet
+      const enAvant = [choisi, survole, curseur && curseur.ref, ...(rel ? [...rel.refs] : [])].filter(Boolean);
       const nommer = (s, fort) => {
         const nom = s.nomCourt || s.nom, x = X(s.lon) + cote / 2 + 6, y = Y(s.lat);
         const police = `${fort ? 600 : 400} ${fort ? 14 : 12.5}px ${SANS}`;
@@ -183,14 +210,14 @@
       for (const ref of enAvant) {
         const s = parRef.get(ref); if (!s) continue;
         ctx.beginPath(); ctx.rect(X(s.lon) - cote / 2 - 4, Y(s.lat) - cote / 2 - 4, cote + 8, cote + 8);
-        ctx.lineWidth = ref === choisi ? 1.8 : 1.1; ctx.strokeStyle = ENCRE; ctx.stroke();
+        if (!(rel && rel.refs.has(ref)) || ref === choisi || ref === survole) { ctx.lineWidth = ref === choisi ? 1.8 : 1.1; ctx.strokeStyle = ENCRE; ctx.stroke(); }
         if (curseur && ref === curseur.ref) {
           ctx.beginPath(); ctx.arc(X(s.lon), Y(s.lat), cote + 9, 0, 2 * Math.PI);
           ctx.lineWidth = 2.2; ctx.strokeStyle = ACCENT; ctx.stroke();
         }
         nommer(s, true);
       }
-      if (k >= 1.6) for (const s of sites) if (etat.get(s.ref) > 0.5 && !enAvant.includes(s.ref)) nommer(s, false);
+      if (k >= 1.6 && !rel) for (const s of sites) if (etat.get(s.ref) > 0.5 && !enAvant.includes(s.ref)) nommer(s, false);
       // communes qui portent un lieu
       for (const c of ens.communes) {
         if (!c.porteUnLieu) continue;
@@ -315,6 +342,16 @@
       filtrer(f, anime = true) { filtre = { ...f }; signature = ''; survole = null; animer(anime ? 650 : 0); },
       choisir(ref) { choisi = ref; dessiner(); },
       lien(i) { lienVif = i; dessiner(); },
+      relation(r) { rel = r ? { ...r, refs: new Set([r.de, r.vers, ...(r.candidats || [])].filter(Boolean)) } : null; dessiner(); },
+      // cadre tous les sites donnés, avec de la marge, à l'intérieur de la zone libre de la carte
+      cadrerSur(refs, duree = 900) {
+        const pts = refs.map((r) => parRef.get(r)).filter(Boolean).map((s) => [bx(s.lon), by(s.lat)]);
+        if (!pts.length) return;
+        const [x0, x1] = d3.extent(pts, (p) => p[0]), [y0, y1] = d3.extent(pts, (p) => p[1]);
+        const lw = W - marges.g - marges.d - 220, lh = H - marges.h - marges.b - 160;
+        const k = Math.max(1, Math.min(10, lw / Math.max(x1 - x0, 1), lh / Math.max(y1 - y0, 1)));
+        d3.select(cv).transition().duration(lent() ? 0 : duree).ease(d3.easeCubicInOut).call(zoom.transform, centre((x0 + x1) / 2, (y0 + y1) / 2, k));
+      },
       montrerLieu(ref, k = 2.2) {
         const s = parRef.get(ref); if (!s) return;
         d3.select(cv).transition().duration(lent() ? 0 : 900).ease(d3.easeCubicInOut).call(zoom.transform, centre(bx(s.lon), by(s.lat), Math.max(k, transform.k)));

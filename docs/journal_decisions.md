@@ -3729,3 +3729,41 @@ section 20.
 
 Décision : **les deux ensembles en test partagent la découverte des lieux sur
 la carte ; seule la Risle a sa descente.**
+
+## 2026-11-20 — Risle : liens entre établissements et zone chiffrée
+
+Le porteur valide le survol et demande deux améliorations sur la Risle.
+
+**Les liens entre établissements deviennent interactifs.** Choisir un lien le
+surligne dans la colonne, cadre la carte sur les établissements concernés et
+atténue le reste. On en sort en recliquant le lien, par le bouton « × toute la
+vallée » ou par Échap.
+
+La relecture de la décision du 29 juillet 2026 a révélé une erreur de
+représentation. Les trois transferts vers « l'usine de Saint-Sulpice-sur-Risle »
+sont interprétés, puisque la source ne nomme pas l'usine. La carte les traçait
+pourtant comme des liens certains. Ils ne sont plus tracés : le site d'origine
+est cerclé, et les quatre destinataires possibles le sont en pointillé, avec une
+explication. Les deux liens attestés de Boisthorel gardent leur trait, orienté
+du fournisseur vers le destinataire.
+
+**Le titre** devient « Les liens entre établissements », suivi de « Tels que les
+sources les décrivent ». Chaque lien porte sa nature et son degré de certitude.
+
+**La zone chiffrée** reprend la bande, le défilement et les pastilles de
+l'accueil. Les repères fixes de l'ensemble passent sur une ligne à part et ne
+bougent jamais. La colonne reste stable pendant les filtres, à un pixel près.
+
+L'état d'avant est conservé dans `prototype/edition_reference_crulai/`. Détail
+dans `docs/phase10_recherche_artistique.md`, section 21.
+
+Options écartées :
+
+- un trait vers une usine choisie par défaut ;
+- le filtrage des liens par période ;
+- le titre « D'un établissement à l'autre », qui suggère un flux même quand la
+  cible est inconnue.
+
+Décision : **les liens de la Risle sont des portes d'entrée cartographiques ;
+un lien dont la source ne nomme pas le destinataire n'est jamais tracé comme
+certain.**
