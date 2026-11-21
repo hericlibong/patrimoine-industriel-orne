@@ -3819,3 +3819,43 @@ La règle est inscrite dans `CLAUDE.md`.
 Décision : **toute amélioration de direction artistique d'une vue d'ensemble
 s'applique d'office à tous les ensembles ; seules leurs particularités se
 décident au cas par cas, sans demander pour le reste.**
+
+## 2026-11-21 — Liens de la Risle vers Saint-Sulpice-sur-Risle : à revoir sur les données
+
+Le porteur reconnaît qu'il y a bien un point à examiner dans les liens entre
+établissements, ceux qui avaient été signalés le 20 novembre puis retirés de
+l'affichage.
+
+**Le constat.** Trois relations de la Risle sont des transferts de production
+vers « l'usine de Saint-Sulpice-sur-Risle » :
+
+- depuis la tréfilerie de la Fonte ;
+- depuis le laminoir du Moulin à Tan ;
+- depuis la tréfilerie des Bouviers.
+
+Le texte d'origine ne nomme pas l'usine destinataire, et la commune compte
+plusieurs établissements. L'entrée du 29 juillet 2026 les a déjà marquées comme
+interprétées. Pourtant, ces trois relations sont enregistrées vers l'usine de
+quincaillerie, et la carte les trace jusqu'à elle.
+
+**Pourquoi ne pas le traiter maintenant.** C'est une question de données, pas
+d'interface. La corriger toucherait aux relations du corpus : leurs cibles,
+leur statut et peut-être leur modèle. Il faudrait ensuite rejouer la chaîne de
+production et contrôler les effectifs. Le faire pendant le travail de direction
+artistique mêlerait deux chantiers et risquerait de casser des éléments
+validés.
+
+**Ce qui reste en l'état d'ici là.** L'affichage reste celui d'avant le
+20 novembre : les cinq tracés en pointillé, et le zoom au clic sur le lien
+choisi. Aucune donnée n'est modifiée.
+
+**Ce point doit être revu lors d'un chantier consacré aux données.** Il devra
+établir, pour chaque relation dont le destinataire n'est pas nommé, ce que les
+textes permettent réellement d'affirmer. Il devra aussi dire comment
+l'enregistrer et comment le montrer au lecteur sans tracé trompeur ni texte de
+méthode à l'écran. Il portera sur l'ensemble des 23 relations du corpus, pas
+seulement sur la Risle.
+
+Décision : **la représentation des relations dont le destinataire n'est pas
+nommé doit être revue plus tard, dans un chantier dédié aux données ; rien n'est
+modifié d'ici là.**
